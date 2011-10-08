@@ -1,0 +1,692 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Oceanic / 人生海海</title>
+  <meta name="author" content="tzangms">
+
+  
+  <meta name="description" content="10 Principles of the PHP Masters, 這篇真是好文! 只是標題這樣翻會不會很奇怪 XD">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tzangms.com/page/31/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/tzangms" rel="alternate" title="Oceanic / 人生海海" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Oceanic / 人生海海</a></h1>
+  
+    <h2>這就是人生阿</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/tzangms" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tzangms.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1628">PHP 大師們的 10 個原則</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-11T09:59:37+08:00" pubdate  data-updated="true" >Sep 11<span>th</span>, 2008</time>
+        
+         | <a href="/programming/1628#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://nettuts.com/articles/10-principles-of-the-php-masters/">10 Principles of the PHP Masters</a>, 這篇真是好文! 只是標題這樣翻會不會很奇怪 XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/1632">Imified 五分鐘建立自己的機器人</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-10T21:16:19+08:00" pubdate  data-updated="true" >Sep 10<span>th</span>, 2008</time>
+        
+         | <a href="/web/1632#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天看到 <a href="http://www.imified.com">imified</a> 就玩了一下, 真的是很神奇又方便阿!! <a href="http://www.imified.com">imified</a> 可以讓你建立一支機器人, 接著你只需要指定一個程式的網址, 就可以讓機器人開始運作了! 而且整個流程超簡單的 :p</p>
+
+<p>在建立好機器人之後, 會讓你指定一個程式的網址, 接下來就是透過這支程式, 接收 imified 機器人的輸入, 而程式只要輸出(印出)訊息, 就會直接透過機器人發訊回覆。 不過目前申請的機器人好像就只有 Jabber/Gtalk(?)</p>
+
+<p>用 PHP 做個簡單範例:
+[source:php]
+&lt;?php
+// 接收 im 訊息
+$msg = $_REQUEST[&#8216;msg&#8217;];</p>
+
+<p>// 輸出訊息到 im
+echo $msg;
+?>
+[/source]</p>
+
+<p>就是這樣, 非常簡單阿 XD</p>
+
+<p>所以一開始想到的, 就是寫一個可以送訊息到 twitter 的機器人, 不過由於帳號是寫死的, 就不公佈出來了 XD 然後在查 Yahoo! 奇摩字典的時候, 又突然想到, 乾脆寫個查單字的機器人好了, 由於抓 Yahoo! 奇摩字典的程式也是我之前就寫好的一個 library, 所以真的包含註冊帳號、設定跟寫程式的部份, 真的只花了差不多五分鐘就弄好了 :p</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/web/1632">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1593">用 jQuery 選取 Opener 中的物件</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-08T22:28:46+08:00" pubdate  data-updated="true" >Sep 8<span>th</span>, 2008</time>
+        
+         | <a href="/programming/1593#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><code>$('#selector', opener.document)</code>
+沒錯! 就是醬!!</p>
+
+<p>阿! (大叫) 還沒有時間把 jQuery 學好 ~&#8221;~</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/stickeraction/1616">[Stickeraction] 新增貼紙點擊數統計</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-08T21:47:16+08:00" pubdate  data-updated="true" >Sep 8<span>th</span>, 2008</time>
+        
+         | <a href="/stickeraction/1616#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>其實這個功能很簡單, 一開始就應該做了, 不過先前都一直在為了 <a href="http://stickeraction.com">stickeraction</a> 的效能, 在重寫整個架構, 今天才把這個功能加上。點擊數統計的當然不是指貼紙&#8221;顯示&#8221;的次數, 而是貼紙的&#8221;點擊&#8221;次數, 畢竟顯示並不代表網友有看到, 如果網友有點擊貼紙, 多少都代表網友想知道這個貼紙是在幹嘛, 這樣的統計才多少比較有意義。</p>
+
+<p>不過這個功能對於早期就響應的網友(大部分是我在 twitter 上的推友 XD), 可能有影響, 可能需要去檢查一下貼紙的語法, 看看連結(&lt;a  href&gt;)是否有連到這個網址, 如下:</p>
+
+<blockquote>http://stickeraction.com/貼紙名稱/go</blockquote>
+
+
+<p>以<a href="http://stickeraction.com/made_in_taiwan">台灣貨‧暢其流</a>為例, 貼紙語法應該如下</p>
+
+<blockquote>&lt;a href=&#8217;http://stickeraction.com/made_in_taiwan/go&#8217;&gt;&lt;img src=&#8217;http://stickeraction.com/made_in_taiwan/sticker/1&#8217; alt=&#8217;台灣貨‧暢其流&#8217;&gt;&lt;/a&gt;</blockquote>
+
+
+<p>基本上就是要有個 go 就是了 XD 如果把貼紙連結的網址改掉, 也許改連到你的部落格, 那麼就沒辦法統計到貼紙的點擊數了。</p>
+
+<p>其實貼紙的連結功能是有預留導向功能的, 就是說一樣取用 stickeraction 提供的貼紙語法, 網友點了貼紙之後, 可以依照管理者的設定, 將連結連回發起人所設定的網址, 而不一定要連回到 stickeraction 的貼紙頁面。這個轉址功能之後還會在放回來的 :p</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1603">[PHP] 將 Array 強制轉型為 Object</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-06T11:50:11+08:00" pubdate  data-updated="true" >Sep 6<span>th</span>, 2008</time>
+        
+         | <a href="/programming/1603#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.otton.org/2008/08/14/neat-php-tricks-casting-arrays-to-objects/">Neat PHP Tricks: Casting Arrays to Objects</a>, 我覺得這篇可以稍微看一下。</p>
+
+<p>近來其實滿不喜歡用 array 的, 另外也不喜歡用 for, 基本上就是覺得 array 會讓程式碼看起來很亂 ~&#8221;~ 尤其是在 view 裡面。 所以可以 foreach 的, 就不用 for, 可以用 object 就不用 array, 雖然有時候還是免不了 :p</p>
+
+<p>基本上我是覺得 object 的 code, 看起來比較不那麼亂 XD 由於之前在公司看到某段 code, 所以另外提一下 for 跟 foreach, 像是下面這一段, foreach 乾淨多了</p>
+
+<pre>
+<code>// for
+$n = count($blogs);
+for ($i = 0; $i < $n; $i++) {
+    echo $blogs[$i]->title;
+}
+
+// foreach
+foreach($blogs as $blog) {
+    echo $blog->title;
+}</code>
+</pre>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/1603">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1555">phpQuery - PHP 處理 HTML DOM 的好幫手阿!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-05T22:02:53+08:00" pubdate  data-updated="true" >Sep 5<span>th</span>, 2008</time>
+        
+         | <a href="/programming/1555#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://code.google.com/p/phpquery/">phpQuery</a>, 在 PHP 處理 HTML DOM 的好幫手阿!! 哈! 這個 project 真不錯, 尤其是對於有使用 <a href="http://jquery.com">jQuery</a> 的人, 更容易上手阿 :p 顧名思義, 就是 PHP 的 jQuery 阿! DOM select 的語法跟 jQuery 完全一樣阿! 而且, 當然是 chainable :p 也就是說, 只有 PHP 5 能用囉 :p</p>
+
+<p>目前在 <a href="http://stickeraction.com">stickeraction</a> 有用到 phpQuery, 真的是很方便 :p</p>
+
+<p>可以看看以下範例, 這一段是我用來抓取網頁中, rss feed url 跟 title 的。</p>
+
+<pre>
+<code>require 'phpQuery.php';
+
+$url = 'http://tzangms.com/blog';
+$html = file_get_contents($url);
+
+phpQuery::newDocument($html)->find('head');
+
+$title = pq('head > title')->text();
+$feed_url = pq('head > link[rel=alternate]:first')->attr('href');
+
+echo $title;
+echo $feed_url;</code>
+</pre>
+
+
+<p>本來這個工作是直接用 <a href="http://simplepie.org">simplepie</a> 來作, 直接就可以抓到 RSS feed url 跟 RSS , 可是在抓 xuite blog 的時候卻有問題, 都抓不到 feed_url。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/1555">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1476">CodeIgniter Based Open Source Software</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-05T00:34:34+08:00" pubdate  data-updated="true" >Sep 5<span>th</span>, 2008</time>
+        
+         | <a href="/programming/1476#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>下面是兩個用 <a href="http://codeigniter.com">CodeIgniter</a> 開發的 open source 軟體, 有興趣可以看看, 大家應該已經知道 <a href="http://en.wikipedia.org/wiki/Model-view-controller">MVC</a> 是什麼。 但是 CI 自由度很高, 所以可能會有人不清楚 Model、Controller 怎樣寫才好, 或是怎樣寫會&#8221;比較好&#8221;? Anyway, 或許可以看看下面兩個用 CI 寫的軟體, 有個依據, 也許可以找出一些方向。 或是更確定自己的方法是比較好的 :p</p>
+
+<p>Bamboo Invoice
+<a href="http://bambooinvoice.org/">http://bambooinvoice.org/</a></p>
+
+<p>Blaze
+<a href="http://blaze.haughin.com/">http://blaze.haughin.com/</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/1571">Google Chrome App</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-04T21:21:48+08:00" pubdate  data-updated="true" >Sep 4<span>th</span>, 2008</time>
+        
+         | <a href="/web/1571#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2826723327/" title="google-chrome-app by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3029/2826723327_e7f1728b0e.jpg" width="500" height="349" alt="google-chrome-app" /></a>
+<a href="http://www.google.com/chrome">Google Chrome</a> 在大家用的過程中, 似乎都說, Chrome 在瀏覽 Google 的自家服務, 像是 Gmail, Google Reader 的時候, 跑起來的速度很不賴! 不過對於習慣使用有眾多 extension 的 <a href="http://mozilla.com">Firefox</a> 使用者來說, 總是覺得少了平常所習慣的功能。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/web/1571">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/uncategorized/1553">QuarkBase</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-04T00:53:30+08:00" pubdate  data-updated="true" >Sep 4<span>th</span>, 2008</time>
+        
+         | <a href="/uncategorized/1553#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>QuarkBase (<a href="http://www.quarkbase.com/">http://www.quarkbase.com/</a>) 可以拿來查網站的一些資訊, 還不錯, 只要輸入網址就可以知道, 網站被收了幾次 delicious, digg 幾次, alexa, technorati 等, 甚至被 tweet 幾次都知道阿 XD 不過&#8230; subdomain 沒用。</p>
+
+<p>原來&#8230; <a href="http://twitthat.com">twitthat</a> alexa 的圖還不錯看 XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1558">StickerAction 恢復正常!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-02T21:12:04+08:00" pubdate  data-updated="true" >Sep 2<span>nd</span>, 2008</time>
+        
+         | <a href="/programming/1558#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://tzangms.com/wp-content/uploads/2008/09/stickeraction.jpg"><img src="http://tzangms.com/wp-content/uploads/2008/09/stickeraction.jpg" alt="" title="stickeraction" width="500" height="290" class="alignnone size-full wp-image-1561" /></a>
+因為前幾天的<a href="http://tzangms.com/programming/1548">資料庫大爆炸</a>, 導致 <a href="http://stickeraction.com">StickerAction</a> 的快取都不見了, 所以主機因為沒辦法接受那麼大量的 request, 所以就先把偵測的功能關掉, 這兩天就一直在重寫程式的架構, 終於在今天把 <a href="http://stickeraction.com">StickerAction</a> 給恢復正常了。</p>
+
+<p>由於 <a href="http://stickeraction.com">StickerAction</a> 最吃重的地方是在貼出去的貼紙, 貼紙的程式跑的時間越長,  request 累積越多, 效能則是直線往下掉。 一開始在寫 <a href="http://stickeraction.com">StickerAction</a> 的時候沒有考慮到太多效能的問題, 一方面也是因為很懶, 就想把工作一次做完, 所以其實一開始的架構根本就沒辦法負荷太多人貼貼紙。 一開始就只有對<a href="http://tzangms.com/php/1244">貼紙圖片加上一些讓瀏覽器快取的處理</a>, 減少 request。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/1558">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  <nav class="pagination">
+    <div>
+      
+        <a class="prev" href="/page/32/">&larr; Older</a>
+      
+      <a href="/blog/archives">Blog Archives</a>
+      
+      <a class="next" href="/page/30/">Newer &rarr;</a>
+      
+    </div>
+  </nav>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/stuff/blue-snowball">買了 Blue snowball</a>
+      </li>
+    
+      <li class="post">
+        <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
+      </li>
+    
+      <li class="post">
+        <a href="/webdesign/css-pivot">CSS Pivot</a>
+      </li>
+    
+      <li class="post">
+        <a href="/life/new-streetvoice-is-done">終於把 StreetVoice 改完了</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/tzangms">@tzangms</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'tzangms',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("tzangms", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/tzangms" class="twitter-follow-button" data-width="208px" data-show-count="true">Follow @tzangms</a>
+  
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2011 - tzangms -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+    (function () {
+      var disqus_shortname = 'tzangms';
+      
+        
+        var disqus_script = 'count.js'
+      
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-418467-7']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

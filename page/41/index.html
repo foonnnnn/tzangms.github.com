@@ -1,0 +1,656 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Oceanic / 人生海海</title>
+  <meta name="author" content="tzangms">
+
+  
+  <meta name="description" content="在使用 CodeIgniter 在開發的時候, 其實一直覺得 CI 的架構好像有點不足, 少了什麼東西。 例如說我想要有個使用者聯播的功能區塊, 有很多地方都想掛上這個功能區塊, 但是我該怎麼做? 在 CodeIgniter 現有的架構中, 看來就是寫成 Library 然後掛個 View, ...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tzangms.com/page/41/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/tzangms" rel="alternate" title="Oceanic / 人生海海" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Oceanic / 人生海海</a></h1>
+  
+    <h2>這就是人生阿</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/tzangms" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tzangms.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/codeigniter/1093">CodeIgniter Modular Extension: HMVC</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-03-08T00:50:05+08:00" pubdate  data-updated="true" >Mar 8<span>th</span>, 2008</time>
+        
+         | <a href="/codeigniter/1093#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在使用 <a href="http://codeigniter.com">CodeIgniter</a> 在開發的時候, 其實一直覺得 CI 的架構好像有點不足, 少了什麼東西。 例如說我想要有個使用者聯播的功能區塊, 有很多地方都想掛上這個功能區塊, 但是我該怎麼做? 在 CodeIgniter 現有的架構中, 看來就是寫成 Library 然後掛個 View, 然後把輸出 return 到呼叫的 Controller, 但是我總覺得這樣很亂, 而且東西一多, 會很難維護, Library 會不像 Library 而 View 到底是給 Controller 用還是 Library 用, 甚至 Model 也會一起捲進來, 這樣程式的架構會很雜亂。</p>
+
+<p>所以後來我就自己動手 extends CI 開始寫起了 module 功能, 寫沒多久就發現! 原來早就有類似的東西, 而且在 CodeIgniter wiki 就有提到了, 就是 <a href="http://codeigniter.com/wiki/Modular_Extensions_-_HMVC/">Modular Extensions - HMVC</a>。</p>
+
+<p>HMVC 可以用來幫 CI 加上 module 的功能, 我一直想要的就是這個功能阿!! 可以擺脫先前雜亂的方式, 可以很方便寫個模組化的功能。</p>
+
+<p>簡單說明一下 HMVC, 在掛上 HMVC 之後就可以呼叫 module, 而 module 有自己的 Controller、View 跟 Model, 這樣一來寫好 module 之後, 直接在 Controller 呼叫 module 就可以了, 這個整個程式架構就非常的明朗阿!! 整個 module 的 code 都在同一個資料夾裡面, 非常清爽!  所以說 Framework 早該有 module 這功能的 XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/stuff/1091">iPod Touch</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-03-01T23:39:02+08:00" pubdate  data-updated="true" >Mar 1<span>st</span>, 2008</time>
+        
+         | <a href="/stuff/1091#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2243097997/" title="ipod touch by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2119/2243097997_6b922e4876.jpg" width="500" height="375" alt="ipod touch" /></a></p>
+
+<p>其實在過年前就買了這一台 iPod touch 16G 了, 一直忘記寫, 現在寫只是想記得說, 哪時候過保 XD</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/stuff/1091">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/codeigniter/1090">Lighttpd Rewrite Rules for CodeIgniter</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-03-01T19:49:24+08:00" pubdate  data-updated="true" >Mar 1<span>st</span>, 2008</time>
+        
+         | <a href="/codeigniter/1090#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>由於 CodeIgniter 使用 index.php 當作 font controller, 所以基本上把所有的東西都 rewrite 到 index.php 就可以了! 不過由於還是有 images, js 跟 css 檔案不能做 rewrite, 所以再加上類似於 public 那一行就行了! (我習慣是把 images, js 跟 css 資料夾都放在 public 資料夾裡面)</p>
+
+<pre><code>$HTTP["host"] =~ "tzangms.com" {
+    url.rewrite = (
+        "^/public/.*$" => "$0",
+        "^/(.*)$" => "index.php/$1"
+    )
+}</code></pre>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/1089">看 Http Header 找工作 XD</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-02-29T14:48:42+08:00" pubdate  data-updated="true" >Feb 29<span>th</span>, 2008</time>
+        
+         | <a href="/web/1089#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天在寫 header 相關的 coding, 要來測一下是不是各家 BSP 提供的 RSS 都有 Last-Modified 的欄位, 測到 wordpress.com 的時候, 看到一個 extra 的欄位叫 X-hacker , 內容如下, 呵, 還滿有趣的 :p</p>
+
+<blockquote>X-hacker: If you&#8217;re reading this, you should visit automattic.com/jobs and apply to join the fun, mention this header.</blockquote>
+
+
+<p>要不要去 apply 阿? XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/1086">新吉他! Line 6 Variax 300</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-02-26T00:46:45+08:00" pubdate  data-updated="true" >Feb 26<span>th</span>, 2008</time>
+        
+         | <a href="/music/1086#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2291677546/" title="100_3546 by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2094/2291677546_e99485bcb1.jpg" width="375" height="500" alt="100_3546" /></a>
+沒錯! 我又買了新吉他了: Line 6 Variax 300! 買這把最主要的用意, 其實是因為先前買的 <a href="http://tzangms.com/life/858">Fender Jaguar</a> 的 tone 比較特殊, 有點太亮(可是 Jaguar 真的很漂亮 >&#8221;&lt;), 所以需要這一把, 有很多經典 tone 可以調勒!</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/music/1086">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/computer/1084">減少 Skype 佔用的記憶體</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-02-20T09:54:17+08:00" pubdate  data-updated="true" >Feb 20<span>th</span>, 2008</time>
+        
+         | <a href="/computer/1084#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>最近在公司覺得電腦的記憶體太小(1G 其實夠用啦! 只是當然越大越好 XD), 所以就移除了一堆程式, 也開工作管理員看看哪些程式吃掉比較多的記憶體。</p>
+
+<p>一直覺得很奇怪, 除了 Skype.exe 佔掉了 40MB 左右之外, 還有一個不知名的 skypePM.exe 佔掉了 20幾MB。查一下才知道, 原來 skypePM.exe 是 Skype Plugin Manager (放在 C:\Program Files\Skype\Plugin Manager 底下), 不過其實用都沒用過阿! 不會只有我沒用過吧? 囧</p>
+
+<p>Anyway, 為了空出這 20~30MB 的寶貴記憶體, 就來把它關掉吧!</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/computer/1084">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1085">PHP Question</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-02-19T20:47:55+08:00" pubdate  data-updated="true" >Feb 19<span>th</span>, 2008</time>
+        
+         | <a href="/programming/1085#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在一本書上看到的問題如下:</p>
+
+<p><code>$a = 1;
+$a = $a-- +1;
+echo $a;</code></p>
+
+<p>這時候 $a 會等於多少? XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1083">NuSOAP for PHP5</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-02-19T10:09:52+08:00" pubdate  data-updated="true" >Feb 19<span>th</span>, 2008</time>
+        
+         | <a href="/programming/1083#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>由於在 PHP5 已經有 SOAP extension 了, 如果把 SOAP extension 也編進 PHP5 的話, <a href="http://sourceforge.net/projects/nusoap/">NuSOAP </a>就會跟 SOAP extension 的  class name 衝到, 所以有了 <a href="http://code.google.com/p/nusoap-for-php5/downloads/list">nusoap-for-php5</a>, 放在 Google code。</p>
+
+<p>不過把 class 名稱改成 soapclientnusoap 會不會有點太長? 我覺得改成 nu_soapclient 會比較好吧? 還是拿 原本的 NuSOAP 自己來改好了 XD</p>
+
+<p><strong>== UPDATE ==</strong>
+剛看了一下 nusoap 的 changelog, 原來因為 NuSOAP 會跟 PHP5 的 SOAP extension 衝到, 所以 class 名稱已經改了勒 o_O, 下面這一段可以看到, 已經從 soapclient 改成 nusoapclient 。</p>
+
+<blockquote>2007-03-19, version 0.7.2
+- soapclient: declare as nusoapclient, then also subclass soapclient if SOAP extension not loaded
+- soapclientmime: declare as nusoapclientmime, then also subclass soapclientmime if SOAP extension not loaded</blockquote>
+
+
+<p>再來看到這一段,</p>
+
+<blockquote>2007-04-09, version 0.7.2
+&#8230;
+- nusoapclient: rename class to nusoap_client
+&#8230;</blockquote>
+
+
+<p>現在 class name 是改成 nusoap_client 勒, 所以&#8230; 記得以後網路上找文章要注意日期阿 XD 像 NuSOAP 只有 code 的話&#8230;就只能靠自己多挖依下程式碼了&#8230;不然也要看過 readme, changelog 先。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/1081">Web Developer Resources</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-02-18T20:10:58+08:00" pubdate  data-updated="true" >Feb 18<span>th</span>, 2008</time>
+        
+         | <a href="/web/1081#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.forwebdesigners.com/">http://www.forwebdesigners.com/</a>
+<a href="http://www.tlbox.com/">http://www.tlbox.com/</a>
+<a href="http://webdevelopersfieldguide.com/">http://webdevelopersfieldguide.com/</a>
+<a href="http://www.alvit.de/handbook/">http://www.alvit.de/handbook/</a>
+<a href="http://webstandardsgroup.org/resources/">http://webstandardsgroup.org/resources/</a>
+<a href="http://webdeveloper.econsultant.com/">http://webdeveloper.econsultant.com/</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/uncategorized/1080">灌西比想像中的還紅</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-02-15T14:09:24+08:00" pubdate  data-updated="true" >Feb 15<span>th</span>, 2008</time>
+        
+         | <a href="/uncategorized/1080#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2265786795/" title="Eddie chen is famous in torrent search XD by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2219/2265786795_fc71607544.jpg" width="500" height="382" alt="Eddie chen is famous in torrent search XD" /></a>
+<a href="http://www.youtorrent.com/">youtorrent.com</a> 是用來搜尋國外各大 BT 種子的搜尋引擎, 想找某個軟體來(試)用, 沒想到搜尋框下方的標籤雲, 最大 tag 的竟然是 <strong>edison chen</strong>  XD 第二大的 tag 就是目前廣告打的頗兇, 我還滿想看的電影: jumper (移動世界)</p>
+
+<p>嗯~ 灌西比我想像中的還紅 XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <nav class="pagination">
+    <div>
+      
+        <a class="prev" href="/page/42/">&larr; Older</a>
+      
+      <a href="/blog/archives">Blog Archives</a>
+      
+      <a class="next" href="/page/40/">Newer &rarr;</a>
+      
+    </div>
+  </nav>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/stuff/blue-snowball">買了 Blue snowball</a>
+      </li>
+    
+      <li class="post">
+        <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
+      </li>
+    
+      <li class="post">
+        <a href="/webdesign/css-pivot">CSS Pivot</a>
+      </li>
+    
+      <li class="post">
+        <a href="/life/new-streetvoice-is-done">終於把 StreetVoice 改完了</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/tzangms">@tzangms</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'tzangms',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("tzangms", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/tzangms" class="twitter-follow-button" data-width="208px" data-show-count="true">Follow @tzangms</a>
+  
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2011 - tzangms -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+    (function () {
+      var disqus_shortname = 'tzangms';
+      
+        
+        var disqus_script = 'count.js'
+      
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-418467-7']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

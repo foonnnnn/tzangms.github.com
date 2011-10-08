@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Kohana PHP framework 試玩心得 - Oceanic / 人生海海</title>
+  <meta name="author" content="tzangms">
+
+  
+  <meta name="description" content="Kohana 前身叫做 BlueFlame, 是由 CodeIgniter 衍生出來的 PHP framework, 所以要從 CI 跳槽還滿快的 XD 而 Kohana 跟 CodeIgniter 最大的不同就是, Kohana 只能在 PHP 5 上跑。 不過其實&#8230; 現在都該換...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tzangms.com/programming/1210">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/tzangms" rel="alternate" title="Oceanic / 人生海海" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Oceanic / 人生海海</a></h1>
+  
+    <h2>這就是人生阿</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/tzangms" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tzangms.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Kohana PHP Framework 試玩心得</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-07-16T08:15:50+08:00" pubdate  data-updated="true" >Jul 16<span>th</span>, 2008</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href="http://kohanaphp.com/">Kohana</a> 前身叫做 BlueFlame, 是由 <a href="http://codeigniter.com/">CodeIgniter</a> 衍生出來的 PHP framework, 所以要從 CI 跳槽還滿快的 XD 而 Kohana 跟 CodeIgniter 最大的不同就是, Kohana 只能在 PHP 5 上跑。 不過其實&#8230; 現在都該換到 PHP5 了啦:p 重點是! Kohana 解決了 CodeIgniter 很多不足的地方。</p>
+
+<p>像是 Namespace 的問題, 在 CI 上如果有相同名稱的 library、Model 或是 Controller 就會衝到, Kohana 則解決了這個問題。 另外在 CI 上如果有自定的 helper 的話, 其他維護者並不容易找出是寫在哪支 helper 裡, 而 Kohana 的 helper 是用 class 來作, class name 的 prefix, 則可以容易辨識出是哪支 helper, 也減少 function name 衝突的問題, 對於維護上方便很多。</p>
+
+<p>另外 Kohana 也提供了 module 的機制, module 擁有自己的 controller, model 跟 view, 可以將程式劃分的更細。例如 Konaha 本身就提供了 Auth module (ACL)。 雖然 CI 也有 <a href="http://code.google.com/p/matchbox/">matchbox</a> 提供了相同的功能, 但是需要 override CI_Loader, 萬一 CI 的版本升級,  CI_Loader 有所改變呢? 當然還是比不上 Kohana 內建的好。</p>
+
+<!--more-->
+
+
+<p>而 Kohana 也利用了 PHP 5 <a href="http://tw.php.net/autoload">autoload</a> 這個功能, 所有的 library 均可以透過 autoload 來自行載入。 還有 Kohana 有 ORM 阿! 話說 <a href="http://en.wikipedia.org/wiki/Object-relational_mapping">ORM</a> 真的是很好用 XD model 只需要 extends ORM, 就不必再寫其他東西了, 最多定一下 has_one, has_many,  belongs_to_one &#8230;等, 就行了。 省了超多時間, 不過開了 Profiler, 實際看一下 Query, hmm&#8230; 如果有 Performance 需求的話, 還是自己刻 SQL, 或者用原本的 ActiveRecord 會比較好 XD 可是&#8230;ORM 真的很好用阿!</p>
+
+<p>還有 Kohana 除了一般的 Controller 之外, 也提供了 <a href="http://docs.kohanaphp.com/addons/template">Template_Controller</a>, 可以簡化 Controller 中 view 的處理, 還滿不賴的。說到 View, Kohana 的 View 的處理方式, 真的是不錯阿! 很清楚明暸 :p</p>
+
+<p>還有很重要的一個功能, 開發網站最常碰到的就是表單資料驗證跟處理了, CI 的 validation 很好用, 但是跟 kohana 比較起來, 就顯得很囉唆, rules 跟  fields 是分開設定, 在 kohana 則是在  rules 一次處理掉。 而且也包含了 upload 功能, 可以在 validation rules 中, 直接處理掉 uplaod 的 filetype, filesize &#8230; 等, 而不像 CI 除了 validation   之外, 還需要 upload library 來處理上傳的檔案, 協調性就差多了。 相對之下, Kohana 需要照料的事情少了非常的多。</p>
+
+<p>其實 <a href="http://stickeraction.com">stickeraction.com</a> 一開始是用 kohana 來開發的, 在用 kohana 開發的過程當中, 真的是用的滿開心的, 不囉唆的 validation, Template_Controller 跟 ORM, 還有 media module, 開發起來比起 CI 更快勒!! 不過老實說, 踩了滿多地雷的 ~&#8221;~  hmm&#8230; Kohana 是由社群在維護, 不像 CI 是由 <a href="http://expressionengine.com/">expression engine</a> 的公司所維護, 也許是這樣, 不該發生的地雷才會那麼大顆吧 XD 所以&#8230; 我又花了一個晚上把 <a href="http://stickeraction.com">stickeraction.com</a> 從 Kohana 整個 port 回 CI 了 :x</p>
+
+<p>不過 Kohana 2.2 也快出了, 到時候一定會在玩一下的 :p 最後&#8230; 其實 Kohana 的文件一點都不齊全 ~&#8221;~</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">tzangms</span></span>
+
+      
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-07-16T08:15:50+08:00" pubdate  data-updated="true" >Jul 16<span>th</span>, 2008</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/category/programming/'>programming</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tzangms.com/programming/1210" data-via="tzangms" data-counturl="http://tzangms.com/programming/1210" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+</div>
+
+    
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/stuff/blue-snowball">買了 Blue snowball</a>
+      </li>
+    
+      <li class="post">
+        <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
+      </li>
+    
+      <li class="post">
+        <a href="/webdesign/css-pivot">CSS Pivot</a>
+      </li>
+    
+      <li class="post">
+        <a href="/life/new-streetvoice-is-done">終於把 StreetVoice 改完了</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/tzangms">@tzangms</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'tzangms',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("tzangms", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/tzangms" class="twitter-follow-button" data-width="208px" data-show-count="true">Follow @tzangms</a>
+  
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2011 - tzangms -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+    (function () {
+      var disqus_shortname = 'tzangms';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tzangms.com/programming/1210';
+        var disqus_url = 'http://tzangms.com/programming/1210';
+        var disqus_script = 'embed.js'
+      
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-418467-7']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

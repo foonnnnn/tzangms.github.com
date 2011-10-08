@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Simplepie in CodeIgniter - Oceanic / 人生海海</title>
+  <meta name="author" content="tzangms">
+
+  
+  <meta name="description" content="simplepie, 一個頗好用的 php rss parser library, 因為習慣用 CodeIgniter, 就用 CodeIgniter 的方式來寫一下。第一個步驟就是到 simplepie 的網站下載套件回來、解開, 然後放到 /system/application/libra...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tzangms.com/codeigniter/1026">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/tzangms" rel="alternate" title="Oceanic / 人生海海" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Oceanic / 人生海海</a></h1>
+  
+    <h2>這就是人生阿</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/tzangms" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tzangms.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Simplepie in CodeIgniter</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-12-08T21:49:35+08:00" pubdate  data-updated="true" >Dec 8<span>th</span>, 2007</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href="http://simplepie.org">simplepie</a>, 一個頗好用的 php rss parser library, 因為習慣用 CodeIgniter, 就用 CodeIgniter 的方式來寫一下。</p>
+
+<p>第一個步驟就是到 simplepie 的網站下載套件回來、解開, 然後放到 /system/application/library 裡, 把 simplepie.inc 重新命名成 simplepie.php, 接著就可以像下面這樣子用 (當然, 這是寫在 controller 裡)</p>
+
+<pre><code>$this->load->library('simplepie');
+$this->simplepie->set_feed_url('http://tzangms.com/feed');
+$this->simplepie->enable_cache(false);
+$this->simplepie->init();
+echo $this->simplepie->get_title();</code></pre>
+
+
+
+
+<!--more-->
+
+
+<p>或是嫌 CI 讀 library 的方式太囉唆, 可以這樣寫</p>
+
+<pre><code>$this->load->library('simplepie');
+$feed = new SimplePie();
+$feed->set_feed_url('http://tzangms.com/feed');
+$feed->enable_cache(false);
+$feed->init();
+echo $feed->get_title();</code></pre>
+
+
+<p>以上的例子都是用來抓 rss feed 的 title, 當然 simplepie 在 set_feed_url 函式裡面都是直接給 rss feed 的 link, 而用 simplepie 更方便的是, 你甚至可以直接丟 blog 網址給他, 他會直接幫你抓 rss feed 的 link, 非常方便。 (只是這樣會先去抓網頁然後在去 parse 正確的 rss feed link 出來, 所以需要一段不算短的時間)</p>
+
+<p>PS. 上面中會看到 enable_cache 是設定為 false, 是因為 simplepie 預設是會開啟 cache, 所以需要建資料夾來放 cache 檔案, 這裡只是示範就關掉了。</p>
+
+<p>接下來, 來個抓 RSS feed 的範例吧! 這裡是 Controller 的部分:</p>
+
+<pre><code>$this->load->library('simplepie');
+$this->simplepie->set_feed_url('http://tzangms.com/feed');
+$this->simplepie->enable_cache(false);
+$this->simplepie->init();
+$feeds = $this->simplepie->get_items();
+
+$data['feeds'] = $feeds;
+$this->load->view('simplepie', $data);</code></pre>
+
+
+<p>非常淺顯易懂吧!? 不錯! 那我也就不多做解釋了 XD</p>
+
+<p>simplepie 這個名字好像是因為 magpie rss 來的? anyway, 總之我是不會想在 CI 裡面用 magpierss XD 因為 simplepie 簡潔多了。 基本上, 看完上面的東西在參考一下 <a href="http://simplepie.org/wiki/reference/start">reference</a> 就 ok 了!</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">tzangms</span></span>
+
+      
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-12-08T21:49:35+08:00" pubdate  data-updated="true" >Dec 8<span>th</span>, 2007</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/category/codeigniter/'>codeigniter</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tzangms.com/codeigniter/1026" data-via="tzangms" data-counturl="http://tzangms.com/codeigniter/1026" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+</div>
+
+    
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/stuff/blue-snowball">買了 Blue snowball</a>
+      </li>
+    
+      <li class="post">
+        <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
+      </li>
+    
+      <li class="post">
+        <a href="/webdesign/css-pivot">CSS Pivot</a>
+      </li>
+    
+      <li class="post">
+        <a href="/life/new-streetvoice-is-done">終於把 StreetVoice 改完了</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/tzangms">@tzangms</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'tzangms',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("tzangms", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/tzangms" class="twitter-follow-button" data-width="208px" data-show-count="true">Follow @tzangms</a>
+  
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2011 - tzangms -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+    (function () {
+      var disqus_shortname = 'tzangms';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tzangms.com/codeigniter/1026';
+        var disqus_url = 'http://tzangms.com/codeigniter/1026';
+        var disqus_script = 'embed.js'
+      
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-418467-7']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,377 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>UCS-2 字碼轉 UTF-8 - Oceanic / 人生海海</title>
+  <meta name="author" content="tzangms">
+
+  
+  <meta name="description" content="最近碰到要處理經過 UCS-2 編碼過的字串, 幸好不會太困難 汗。 不過我對 unicode 相關的東西, 只是一知半解, 下面純為紀錄, 有問題煩請糾正 :p這個 UCS-2 編碼字串看起來像是這個樣子4F60597D002C901988E1662F6E2C8A66其實是指你好,這裡是測試...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tzangms.com/programming/1921">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/tzangms" rel="alternate" title="Oceanic / 人生海海" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Oceanic / 人生海海</a></h1>
+  
+    <h2>這就是人生阿</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/tzangms" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tzangms.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">UCS-2 字碼轉 UTF-8</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-10-25T13:22:08+08:00" pubdate  data-updated="true" >Oct 25<span>th</span>, 2008</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>最近碰到要處理經過 UCS-2 編碼過的字串, 幸好不會太困難 <em>汗</em>。 不過我對 unicode 相關的東西, 只是一知半解, 下面純為紀錄, 有問題煩請糾正 :p</p>
+
+<p>這個 UCS-2 編碼字串看起來像是這個樣子
+<code>4F60597D002C901988E1662F6E2C8A66</code></p>
+
+<p>其實是指</p>
+
+<blockquote>你好,這裡是測試</blockquote>
+
+
+<p>而在 UCS-2 中, 一個字固定是由 4 個 Bytes 所組成, 所以我們可以將這個 UCS-2 字串拆成像下面這樣, 看起來會比較清楚。</p>
+
+<p><code>4F60 597D 002C 9019 88E1 662F 6E2C 8A66</code></p>
+
+<p>可以到 <a href="http://www.unicode.org/charts/unihan.html">Unihan Database</a> 輸入4F60 看看, 就會得到「你」這個字, 跟其他相關資料。</p>
+
+<!--more-->
+
+
+<p>anyway, 我在 <a href="http://tw.php.net/manual/en/function.chr.php#77911">php chr 函式的 comments</a> 找到下面這個函式, 可以用來把 unicode 字碼轉成 utf-8 字元。</p>
+
+<pre>
+<code>function unichr($c) {
+    if ($c <= 0x7F) {
+        return chr($c);
+    } else if ($c <= 0x7FF) {
+        return chr(0xC0 | $c >> 6) . chr(0x80 | $c & 0x3F);
+    } else if ($c <= 0xFFFF) {
+        return chr(0xE0 | $c >> 12) . chr(0x80 | $c >> 6 & 0x3F)
+                                    . chr(0x80 | $c & 0x3F);
+    } else if ($c <= 0x10FFFF) {
+        return chr(0xF0 | $c >> 18) . chr(0x80 | $c >> 12 & 0x3F)
+                                    . chr(0x80 | $c >> 6 & 0x3F)
+                                    . chr(0x80 | $c & 0x3F);
+    } else {
+        return false;
+    }
+}
+</code>
+</pre>
+
+
+<p>而由於上面這個函式只能用來轉換一個字, 所以我就寫了下面這個函式來轉換整個字串</p>
+
+<pre>
+<code>function unistr($str) {
+    $code = str_split($str, 4);
+
+    $output = '';
+    foreach ($code as $c) {
+        $c = base_convert($c, 16, 10);
+        $output .= unichr($c);
+    }
+
+    return $output;
+}
+</code>
+</pre>
+
+
+<p>所以就可以把 UCS-2 編碼的字串丟進這個 unistr 函式進行轉換, 就可以得到 UTF-8 的字串, 如下:
+<code>$ucs2 = '4F60597D002C901988E1662F6E2C8A66';
+$utf8 = unistr($ucs2);
+echo $utf8; // 你好,這裡是測試</code></p>
+
+<p>總之, 我還得多了解 unicode 阿!!~~~</p>
+
+<p><strong>更新:</strong>
+感謝 gslin 大神在 <a href="http://tzangms.com/computer/1921#comment-13669">comments</a> 上留了一筆, 剛才試了一下, 在 pack 處理過, 進行 iconv 時, 用 UTF-16BE 來轉成 UTF-8 即可正常轉換字碼。</p>
+
+<p><code>$str = '4F60597D002C901988E1662F6E2C8A66';
+$rawstr = pack('H*', $str);
+echo iconv('UTF-16BE', 'UTF-8', $rawstr), "n";</code></p>
+
+<p>感謝大神!</p>
+
+<p>[延伸閱讀]</p>
+
+<ul>
+    <li><a href="http://www.unicode.org/charts/unihan.html">Unihan Database</a></li>
+    <li><a href="http://blog.nlhs.tyc.edu.tw/post/2/315">[教學]Unicode 是用幾個位元來進行編碼？</a></li>
+    <li><a href="http://local.joelonsoftware.com/mediawiki/index.php/The_Joel_on_Software_Translation_Project:%E8%90%AC%E5%9C%8B%E7%A2%BC">每個軟體開發者都絕對一定要會的Unicode及字元集必備知識(沒有藉口！)</a></li>
+    <li><a href="http://blog.darkthread.net/blogs/darkthreadtw/archive/2006/12/17.aspx">KB-Unicode編碼解析小工具</a></li>
+    <li><a href="http://netlab.cse.yzu.edu.tw/~statue/freebsd/hanzi/examp/">由 堃(方方土) 探討 Big5e 編碼</a></li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">tzangms</span></span>
+
+      
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-10-25T13:22:08+08:00" pubdate  data-updated="true" >Oct 25<span>th</span>, 2008</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/category/programming/'>programming</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tzangms.com/programming/1921" data-via="tzangms" data-counturl="http://tzangms.com/programming/1921" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+</div>
+
+    
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/stuff/blue-snowball">買了 Blue snowball</a>
+      </li>
+    
+      <li class="post">
+        <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
+      </li>
+    
+      <li class="post">
+        <a href="/webdesign/css-pivot">CSS Pivot</a>
+      </li>
+    
+      <li class="post">
+        <a href="/life/new-streetvoice-is-done">終於把 StreetVoice 改完了</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/tzangms">@tzangms</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'tzangms',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("tzangms", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/tzangms" class="twitter-follow-button" data-width="208px" data-show-count="true">Follow @tzangms</a>
+  
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2011 - tzangms -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+    (function () {
+      var disqus_shortname = 'tzangms';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tzangms.com/programming/1921';
+        var disqus_url = 'http://tzangms.com/programming/1921';
+        var disqus_script = 'embed.js'
+      
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-418467-7']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

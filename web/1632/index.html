@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>imified 五分鐘建立自己的機器人 - Oceanic / 人生海海</title>
+  <meta name="author" content="tzangms">
+
+  
+  <meta name="description" content="今天看到 imified 就玩了一下, 真的是很神奇又方便阿!! imified 可以讓你建立一支機器人, 接著你只需要指定一個程式的網址, 就可以讓機器人開始運作了! 而且整個流程超簡單的 :p在建立好機器人之後, 會讓你指定一個程式的網址, 接下來就是透過這支程式, 接收 imified ...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tzangms.com/web/1632">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/tzangms" rel="alternate" title="Oceanic / 人生海海" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Oceanic / 人生海海</a></h1>
+  
+    <h2>這就是人生阿</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/tzangms" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tzangms.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Imified 五分鐘建立自己的機器人</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-10T21:16:19+08:00" pubdate  data-updated="true" >Sep 10<span>th</span>, 2008</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>今天看到 <a href="http://www.imified.com">imified</a> 就玩了一下, 真的是很神奇又方便阿!! <a href="http://www.imified.com">imified</a> 可以讓你建立一支機器人, 接著你只需要指定一個程式的網址, 就可以讓機器人開始運作了! 而且整個流程超簡單的 :p</p>
+
+<p>在建立好機器人之後, 會讓你指定一個程式的網址, 接下來就是透過這支程式, 接收 imified 機器人的輸入, 而程式只要輸出(印出)訊息, 就會直接透過機器人發訊回覆。 不過目前申請的機器人好像就只有 Jabber/Gtalk(?)</p>
+
+<p>用 PHP 做個簡單範例:
+[source:php]
+&lt;?php
+// 接收 im 訊息
+$msg = $_REQUEST[&#8216;msg&#8217;];</p>
+
+<p>// 輸出訊息到 im
+echo $msg;
+?>
+[/source]</p>
+
+<p>就是這樣, 非常簡單阿 XD</p>
+
+<p>所以一開始想到的, 就是寫一個可以送訊息到 twitter 的機器人, 不過由於帳號是寫死的, 就不公佈出來了 XD 然後在查 Yahoo! 奇摩字典的時候, 又突然想到, 乾脆寫個查單字的機器人好了, 由於抓 Yahoo! 奇摩字典的程式也是我之前就寫好的一個 library, 所以真的包含註冊帳號、設定跟寫程式的部份, 真的只花了差不多五分鐘就弄好了 :p</p>
+
+<!--more-->
+
+
+<p>有興趣的朋友可以用 Gtalk/jabber 加入下面這個機器人試看看</p>
+
+<blockquote>chinese_dict@bot.im</blockquote>
+
+
+<p>只能輸入英文單字喔 :p 而這支程式的程式碼大概像下面這樣
+[source:php]
+&lt;?php
+require &#8216;yahoo_dict.php&#8217;;</p>
+
+<p>$msg = $_REQUEST[&#8216;msg&#8217;];
+$word = trim($msg);</p>
+
+<p>if (!preg_match(&#8216;/<sup>\w+$/&#8217;,</sup> $word)) {</p>
+
+<pre><code>echo '請輸入英文單字, 以進行單字查詢';
+exit;
+</code></pre>
+
+<p>}</p>
+
+<p>$yahoo_dict = new yahoo_dict;
+$explain = $yahoo_dict->get_explain($word);</p>
+
+<p>echo ($explain)?implode(&#8220;\n&#8221;, $explain):&#8217;查無此單字&#8217;;
+?>
+[/source]
+真的是很方便快速阿, 整個流程簡化成這樣了, 有興趣的人趕快去玩, 寫些東西來玩玩吧!? XD</p>
+
+<p>imified 把整個機器人的動作都簡化了, 超方便的阿!! 有興趣玩看看的朋友, 只要到 <a href="http://www.imified.com/developers/index.cfm?sec=invite">這一頁</a> 去 request, 接下來的流程也很順, 一下子就可以啟用機器人了 :D</p>
+
+<p>然後看看他的 <a href="http://www.imified.com/developers/index.cfm?sec=docs">API Document</a> 可以更清楚知道 imified 的機器人提供哪些參數可以用。</p>
+
+<p>不過目前看到在 userkey 的部份, 本來以為是 im 帳號, 沒想到是編過的, 所以即使拿到這個 userkey 也沒辦法知道是誰用了機器人, 好像沒辦法直接跟 web 界面接起來? 也許只能做 in box 的應用? anyway, 有空在研究看看, 還滿好玩的就是了 XD</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">tzangms</span></span>
+
+      
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-10T21:16:19+08:00" pubdate  data-updated="true" >Sep 10<span>th</span>, 2008</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/category/web/'>web</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tzangms.com/web/1632" data-via="tzangms" data-counturl="http://tzangms.com/web/1632" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+</div>
+
+    
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/stuff/blue-snowball">買了 Blue snowball</a>
+      </li>
+    
+      <li class="post">
+        <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
+      </li>
+    
+      <li class="post">
+        <a href="/webdesign/css-pivot">CSS Pivot</a>
+      </li>
+    
+      <li class="post">
+        <a href="/life/new-streetvoice-is-done">終於把 StreetVoice 改完了</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/tzangms">@tzangms</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'tzangms',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("tzangms", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/tzangms" class="twitter-follow-button" data-width="208px" data-show-count="true">Follow @tzangms</a>
+  
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2011 - tzangms -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+    (function () {
+      var disqus_shortname = 'tzangms';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tzangms.com/web/1632';
+        var disqus_url = 'http://tzangms.com/web/1632';
+        var disqus_script = 'embed.js'
+      
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-418467-7']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

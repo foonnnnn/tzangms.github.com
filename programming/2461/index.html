@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>pip + virtualenv + mod_wsgi - Oceanic / 人生海海</title>
+  <meta name="author" content="tzangms">
+
+  
+  <meta name="description" content="之前有寫過 pip &amp; requirements file, 可以在開發 project 時可以寫好 requirements file, 在每當要 deploy 到新的機器的時候, 就可以直接透過一個 pip 指令, 把 deploy project 所需要的 dependencie...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tzangms.com/programming/2461">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/tzangms" rel="alternate" title="Oceanic / 人生海海" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Oceanic / 人生海海</a></h1>
+  
+    <h2>這就是人生阿</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/tzangms" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tzangms.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Pip + Virtualenv + Mod_wsgi</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-08-09T22:02:36+08:00" pubdate  data-updated="true" >Aug 9<span>th</span>, 2009</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>之前有寫過 <a href="http://tzangms.com/programming/2439">pip &amp; requirements file</a>, 可以在開發 project 時可以寫好 requirements file, 在每當要 deploy 到新的機器的時候, 就可以直接透過一個 pip 指令, 把 deploy project 所需要的 dependencies 都給裝好。</p>
+
+<p>而 <a href="http://pypi.python.org/pypi/virtualenv">virtualenv</a> 這個工具, 可以讓你在同一台機器開發不同 project 時, 使用不同的 dependencies, 例如: 原本有舊的 project 使用的 django 版本是 0.96, 另外又有新的 project 需要用上 django 1.1。 然而舊的 project 用 django 1.1 一定掛的一踏糊塗, 所以這時候就可以透過 virtualenv 把這兩個 project 所需要的環境給區隔開來。 ( 通常使用 easy_install 或 pip 安裝套件的時候, 都會直接裝在 site wide 的 site-packages 裡。)</p>
+
+<p>先來簡單介紹 virtualenv 的使用方法, 首先就是建立一個 virtual enviroment:</p>
+
+<pre><code>virtualenv PROJECT_ENV</code></pre>
+
+
+<p>會有下列訊息</p>
+
+<pre><code>New python executable in PROJECT_ENV/bin/python
+Installing setuptools............done.</code></pre>
+
+
+<p>完成之後會多一個叫做 PROJECT_ENV 的資料夾, 裡面會有基本的開發環境, 這個資料夾裡面會有三個目錄</p>
+
+<pre><code>bin/
+include/
+lib/
+</code></pre>
+
+
+<p>接下來在 PROJECT_ENV 裡執行下列指令就可以進入這個虛擬的開發環境</p>
+
+<pre><code>source bin/activate</code></pre>
+
+
+<p>不過我偏好加上 <code>--no-site-package</code> 這個參數</p>
+
+<pre><code>virtualenv PROJECT_ENV --no-site-package</code></pre>
+
+
+<p>這個參數用來告訴 virtualenv 不使用 site wide 的 site-package, 也就是說, 如果原本系統就有裝了 django, mysql-python, 那麼在進入用 <code>--no-site-package</code> 這個參數所建立的 virtualenv 的時候, 就讀不到 django, mysql-python, 得在這個 virtualenv 在裝一遍, 但是我個人覺得這樣比較乾淨 (潔癖? XD)</p>
+
+<p>基本上 virtualenv 就是提供虛擬開發環境, 可以避免套件版本不同的衝突。</p>
+
+<p>而 pip 跟 virtualenv 就是好兄弟啦, 在透過 pip 安裝套件時, 就可以直接指定要安裝的 virtualenv, 像是:</p>
+
+<pre><code>pip install -E PROJECT_ENV -r requirements.txt</code></pre>
+
+
+<p>如果沒有已經存在的 virtual env 的話, 這個指令就會直接建立一個新的 virtual env ( 預設是 <code>--no-site-package</code> ), 然後把 requirements 都給裝進去。</p>
+
+<p>或是已經在 PROJECT_ENV 裡的話, 就直接打 <code>pip install -E . package-x.x</code></p>
+
+<p>最後, 如果 www server 可以直接用 virtualenv 的話, 不是就很完美了嗎? :D</p>
+
+<p>其實 <a href="http://code.google.com/p/modwsgi/">mod_wsgi</a> 2.0 之後的版本, 可以很方便的來使用 virtualenv, 如果你是 apache + mod_wsgi 的話 XD</p>
+
+<p>只要在你的 wsgi file 加上這一段即可</p>
+
+<pre><code>import site
+site.addsitedir('/var/django/PROJECT_ENV/lib/python2.5/site-packages')</code></pre>
+
+
+<p>pip + virtualenv + mod_wsgi 真是個完美的組合壓 :D</p>
+
+<p>PS. 補充一下 <a href="http://blog.xdite.net">xdite</a> 大大在 twitter 上提到 rails 在這塊的做法:</p>
+
+<blockquote>pip 的作用在 rails 裡面寫 config.gems 然後 rake gems:install 就有了。至於 virtrualenv 在 config/enviroments.rb 上面指定 RAILS_GEM_VERSION 就可以 XD</blockquote>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">tzangms</span></span>
+
+      
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-08-09T22:02:36+08:00" pubdate  data-updated="true" >Aug 9<span>th</span>, 2009</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/category/programming/'>programming</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tzangms.com/programming/2461" data-via="tzangms" data-counturl="http://tzangms.com/programming/2461" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+</div>
+
+    
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/stuff/blue-snowball">買了 Blue snowball</a>
+      </li>
+    
+      <li class="post">
+        <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
+      </li>
+    
+      <li class="post">
+        <a href="/webdesign/css-pivot">CSS Pivot</a>
+      </li>
+    
+      <li class="post">
+        <a href="/life/new-streetvoice-is-done">終於把 StreetVoice 改完了</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/tzangms">@tzangms</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'tzangms',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("tzangms", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/tzangms" class="twitter-follow-button" data-width="208px" data-show-count="true">Follow @tzangms</a>
+  
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2011 - tzangms -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+    (function () {
+      var disqus_shortname = 'tzangms';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tzangms.com/programming/2461';
+        var disqus_url = 'http://tzangms.com/programming/2461';
+        var disqus_script = 'embed.js'
+      
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-418467-7']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

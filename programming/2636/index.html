@@ -1,0 +1,344 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>在 app engine 使用 pytz - Oceanic / 人生海海</title>
+  <meta name="author" content="tzangms">
+
+  
+  <meta name="description" content="今天才意識到 timezone 的處理是有那麼一點麻煩, 存放、顯示要怎麼做之類的, 之前都沒處理過這類的問題, 不過也只能先解決問題, 之後有空在來深入研究 timezone。這兩三天在用 appengine 寫 twitter/plurk 備份的東西, 而 twitter 跟 plurk ...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tzangms.com/programming/2636">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/tzangms" rel="alternate" title="Oceanic / 人生海海" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Oceanic / 人生海海</a></h1>
+  
+    <h2>這就是人生阿</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/tzangms" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tzangms.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">在 App Engine 使用 Pytz</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-05-05T01:11:10+08:00" pubdate  data-updated="true" >May 5<span>th</span>, 2010</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>今天才意識到 <a href="http://en.wikipedia.org/wiki/Time_zone">timezone</a> 的處理是有那麼一點麻煩, 存放、顯示要怎麼做之類的, 之前都沒處理過這類的問題, 不過也只能先解決問題, 之後有空在來深入研究 timezone。</p>
+
+<p>這兩三天在用 <a href="http://code.google.com/intl/zh-TW/appengine/">appengine</a> 寫 <a href="http://twitter.com">twitter</a>/<a href="http://plurk.com">plurk</a> 備份的東西, 而 twitter 跟 plurk api 吐的訊息時間分別是 UTC +0000 跟 GMT, 不過剛剛網路上查了一下, 基本上、簡單來說 UTC = GMT, hmm 細節之後再來研究。所以說 twitter 或 plurk 的推訊時間都是用 UTF +0000, 不過這兩個的處理方式比較起來, twitter 簡單多了。</p>
+
+<p>twitter api 的每則推訊都會有 user 的資料, 而 user 的資料當中 utc_offset 直接帶秒數, 例如我在台灣就是 28800 秒, 也就是 8 個小時, 所以就可以用以下的程式碼來把推訊的時間修正為準確, 符合 user 當地的時間</p>
+
+<pre><code>from datetime import datetime, timedelta
+
+fmt = '%a %b %d %H:%M:%S +0000 %Y'
+created_at = datetime.strptime(message['created_at'], fmt) 
+utc_offset = int(message['user']['utc_offset'])
+local_time = created_at + timedelta(seconds=utc_offset)</code></pre>
+
+
+<p>twitter 時間處理滿簡單的, 直接用回傳資料的 utc_offset 然後用 timedelta 處理即可, 即使 utc_offset 是負值也沒問題。 相對之下 Plurk 那邊可以讀到是 timezone, 如: &#8220;Asia/Taipei&#8221; 這組字串, 顯然麻煩了些。</p>
+
+<p>網路上找了一下, 似乎用 <a href="http://pytz.sourceforge.net/">pytz</a> 就可以很方便處理。 以下為 透過 pytz 用來為 plurk 處理本地時間的方式。</p>
+
+<pre><code>from datetime import datetime
+from pytz import timezone
+
+fmt = '%a, %d %b %Y %H:%M:%S GMT'
+created_at = datetime.strptime(message['posted'], fmt)
+user_timezone = timezone("Asia/Taipei")
+local_time = created_at + user_timezone.utcoffset(created_at)</code></pre>
+
+
+<p>使用 pytz 真的滿方便就可以處理掉 timezone 的 time offset 問題, 不過問題來了, pytz 的 zoneinfo 就有 600 個檔案了, 然而 app engine 好像上限是 1000 個檔案, 整個吃掉一半以上。 不過似乎有 <a href="http://code.google.com/intl/zh-TW/appengine/articles/django10_zipimport.html">zipimport</a> 的方式可以把檔案先壓縮在丟上去, 所以 google 幾個方式之後, 最後找到<a href="http://appengine-cookbook.appspot.com/recipe/caching-pytz-helper/">這個方式</a>最簡單, 不過文件沒寫太清楚, 所以在這邊記錄一下。</p>
+
+<p>ok, 結果討人厭的事情又來了, pytz 現在放在 <a href="https://launchpad.net/pytz">launchpad</a> 阿 &#8230; 誰裝 <a href="http://cvlab.epfl.ch/software/bazar/">bazar</a> 阿 XD 不過幸好在 <a href="http://pypi.python.org/pypi/pytz">pypi</a> 可以直接抓檔案。</p>
+
+<p>首先就是抓 tz_helper 跟 pytz 回來, 然後把 pytz 解開後, 找到 zoneinfo 然後把它 zip 起來, 接著就可以把 zoneinfo 目錄刪了, 最後把這三個檔案放在 app 的根目錄就好了, 像是</p>
+
+<pre>
+/app.yaml
+/index.yaml
+/main.py
+...
+/tz_helper.py
+/pytz
+/zoneinfo.zip
+</pre>
+
+
+<p>之後使用的時候直接 import tz_helper 的 timezone 來用即可。</p>
+
+<p>其實現在 SNS 的時間大多都直接採用 3 hours ago 之類的方式來顯示時間, 我想最主要的原因就是, 這樣可以很容易因應世界各地使用者不同時區的問題, 而不是直接顯示這個日期。 誰知道我今天兩個方式都要有, 分別像是下面兩張圖的方式呈現, 所以就得處理 time offset 的問題。 總不能我在 5 月 5 號早上七點的推訊仍舊被記到 5 月 4 號。 而存放成台灣時間, 結果用 UTC +0000 去做 minutes ago, 顯示出來都是 0 minutes ago。</p>
+
+<p>日期
+<a href="http://tzangms.com/wp-content/uploads/2010/05/螢幕快照-2010-05-05-上午1.00.39.png"><img src="http://tzangms.com/wp-content/uploads/2010/05/螢幕快照-2010-05-05-上午1.00.39-499x296.png" alt="" title="螢幕快照 2010-05-05 上午1.00.39" width="499" height="296" class="aligncenter size-large wp-image-2637" /></a></p>
+
+<p>times ago
+<a href="http://tzangms.com/wp-content/uploads/2010/05/螢幕快照-2010-05-05-上午1.09.11.png"><img src="http://tzangms.com/wp-content/uploads/2010/05/螢幕快照-2010-05-05-上午1.09.11-500x266.png" alt="" title="螢幕快照 2010-05-05 上午1.09.11" width="500" height="266" class="aligncenter size-large wp-image-2639" /></a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">tzangms</span></span>
+
+      
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-05-05T01:11:10+08:00" pubdate  data-updated="true" >May 5<span>th</span>, 2010</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/category/programming/'>programming</a>, <a class='category' href='/category/web/'>web</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tzangms.com/programming/2636" data-via="tzangms" data-counturl="http://tzangms.com/programming/2636" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+</div>
+
+    
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/stuff/blue-snowball">買了 Blue snowball</a>
+      </li>
+    
+      <li class="post">
+        <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
+      </li>
+    
+      <li class="post">
+        <a href="/webdesign/css-pivot">CSS Pivot</a>
+      </li>
+    
+      <li class="post">
+        <a href="/life/new-streetvoice-is-done">終於把 StreetVoice 改完了</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/tzangms">@tzangms</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'tzangms',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("tzangms", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/tzangms" class="twitter-follow-button" data-width="208px" data-show-count="true">Follow @tzangms</a>
+  
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2011 - tzangms -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+    (function () {
+      var disqus_shortname = 'tzangms';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tzangms.com/programming/2636';
+        var disqus_url = 'http://tzangms.com/programming/2636';
+        var disqus_script = 'embed.js'
+      
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-418467-7']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

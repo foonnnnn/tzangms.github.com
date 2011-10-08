@@ -1,0 +1,694 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Oceanic / 人生海海</title>
+  <meta name="author" content="tzangms">
+
+  
+  <meta name="description" content="以往在要使用某個 class 的時候, 都會用 require, require_once 或 include 來讀 class 的檔案, 然後在 new 物件出來。 而 PHP 5 的 autoload 可以簡化這個部份, 使用 autoload 之後就不需要先用 require 來讀取 p...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tzangms.com/page/23/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/tzangms" rel="alternate" title="Oceanic / 人生海海" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Oceanic / 人生海海</a></h1>
+  
+    <h2>這就是人生阿</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/tzangms" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tzangms.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2346">PHP Autoload</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-26T21:29:17+08:00" pubdate  data-updated="true" >Jan 26<span>th</span>, 2009</time>
+        
+         | <a href="/programming/2346#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>以往在要使用某個 class 的時候, 都會用 require, require_once 或 include 來讀 class 的檔案, 然後在 new 物件出來。 而 PHP 5 的 autoload 可以簡化這個部份, 使用 autoload 之後就不需要先用 require 來讀取 php, 就可以直接用 new 來建立物件, 而 require 的部份則就交給 autoload 來處理, 稱之為 lazy loading。</p>
+
+<p>最基本的方式就是用 __autoload 函式來處理。</p>
+
+<pre><code>
+function __autoload($class) {
+    $class = str_replace('_', '/', $class);
+    require $class . '.php';
+}
+</code></pre>
+
+
+<p>而看了幾個為了 PHP 5 寫的 framework 或 package 都採用 <a href="http://tw.php.net/manual/en/function.spl-autoload-register.php">spl_autoload_register</a> 來作 autoload 的處理。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/2346">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2343">用 Zend Framework 加速 Twitter App (Mashup) 開發</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-26T16:32:24+08:00" pubdate  data-updated="true" >Jan 26<span>th</span>, 2009</time>
+        
+         | <a href="/programming/2343#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>我不太喜歡 Zend Framework 提供的 MVC, 覺得有點太複雜, 不過 Zend Framework 真的是提供許多元件, 可以用來加速 PHP 的開發。 由於深感自己對 PHP 認識的不足, 所以開始研究 PHP 的功能, 而會寫這一篇主要是因為在研究 PHP 的 autoload, 所以拿了 Zend Framework 的元件來做實驗, 最熟悉的就是 Twitter 這個 Service 了, 所以來記錄一下。</p>
+
+<p>Zend Framework 提供了以下的 Web Service library:</p>
+
+<blockquote>Zend_Service_Akismet
+Zend_Service_Amazon
+Zend_Service_Audioscrobbler
+Zend_Service_Delicious
+Zend_Service_Flickr
+Zend_Service_Nirvanix
+Zend_Service_ReCaptcha
+Zend_Service_Simpy
+Zend_Service_SlideShare
+Zend_Service_StrikeIron
+Zend_Service_Technorati
+Zend_Service_Twitter
+Zend_Service_Yahoo</blockquote>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/2343">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2341">簡單的 Front Controller</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-26T00:55:25+08:00" pubdate  data-updated="true" >Jan 26<span>th</span>, 2009</time>
+        
+         | <a href="/programming/2341#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>基本上是參考 <a href="http://codeigniter.com">CodeIgniter</a> 的方式來實作, 不過省掉很多東西, 而目錄結構大概就參照 CodeIgniter 如下。</p>
+
+<pre><code>/index.php
+/application/controllers
+...</code></pre>
+
+
+<p>寫這個的目的主要是想了解 Front Controller 是怎麼做的。 另外因為依照 CodeIgniter 慣例的 Controller 名稱, 很容易跟其他 class name 衝到, 如果要使用 ORM 的話, 很容易會發生名稱碰撞, 所以實作一下 front controller, 另外改進這個問題, 不過其實就是在 class name 加上 postfix 而已, 而其他 framework 也都這麼做。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/2341">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/mac/2338">Garageband Workshop 正式報名!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-24T20:32:09+08:00" pubdate  data-updated="true" >Jan 24<span>th</span>, 2009</time>
+        
+         | <a href="/mac/2338#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="http://tzangms.com/wp-content/uploads/2009/01/garageband_workshop.png" alt="garageband_workshop" title="garageband_workshop" width="500" height="461" class="aligncenter size-full wp-image-2339" /></p>
+
+<p><strong>依據先前在 <a href="http://wellmeet.net/event/20081231/andyaHNh/9691">wellmeet 的日期投票</a>, 2/7 勝出, 所以就辦在 2/7 囉! 時間是禮拜六晚上 7 點 ~ 9點, 請有興趣的朋友到 <a href="http://registrano.com/events/garageband-workshop">registrano 的報名頁面進行報名</a></strong></p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/mac/2338">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2337">原來我學過這些程式語言</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-24T14:14:12+08:00" pubdate  data-updated="true" >Jan 24<span>th</span>, 2009</time>
+        
+         | <a href="/programming/2337#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>從高中開始接觸電腦, 一開始就是上網, 然後開始接觸 HTML, 因為聊天室可以用 font, 覺得很厲害, 然後開始學怎麼做網頁, 然後學 Photo Impact 3 然後又換到 Photoshop 4, 然後接著用 Dreamweaver 來作網頁, 就這樣開始對網頁製作有興趣, 畢竟在用電腦之前, 我都是在畫畫。</p>
+
+<p>接著高二開始碰 Linux, 然後學校的課程開始教 QB 然後 VB, 後來高三的課程甚至要用 VB 來處理圖片的明暗度平衡, 現在想起來真是厲害, 只是寫不出正確的處理方法 XD 而高中除了 VB 之外還學組合語言, 單晶片 PIC 阿什麼的。</p>
+
+<p>然後上了二專, 仍然是組合語言, 8051, 然後還有 PC AT/XT 界面設計, 所以學 C 語言, 然後還有 VHDL, 一直到了專題用了 C 語言寫了一個射擊遊戲過關 XD</p>
+
+<p>到了二技, 程式設計的課程變少了, 只有教 C 而且居然教最基本的, 但是我一點都不在意, 因為那時都在玩樂團, 然後到了最後一年, 有一門 3D 圖學的課程, 我用 java + swing 來交作業, 現在想想還真的是不可思議, 我居然會寫 java。 然後專題我負責的某個部份是用 Flash Communication Server, 所以我就開始摸 Action Script, 寫 Client / Server 端, 記得當時只有一本原文書在講 FCS, 只是後來也沒人用就是了。</p>
+
+<p>以上其實是因為在二專跟二技我幾乎所有的時間都在玩樂團&#8230; 所以&#8230; 對以上這些東西沒有太大印象, 所以想起來, 自己才覺得訝異, 寫出來紀念一下。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2336">Master One, Then Learn Another</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-24T13:49:58+08:00" pubdate  data-updated="true" >Jan 24<span>th</span>, 2009</time>
+        
+         | <a href="/programming/2336#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><blockquote>Master one, then learn another</blockquote>
+
+
+<p>這句話忘記從哪裡看來的, 基本上是說, 精通一個程式語言以後, 在去看看其他的。</p>
+
+<p>其實這一篇完全無重點, 碎念類。</p>
+
+<p>我主要使用的語言就是 PHP, 但是完全稱不上精通, 畢竟也才兩年半的時間, 從我的第一份工作, 才開始學 PHP。 記得剛進公司每天都是開著 php.net 查 manual, 當時連 substr 都不清楚, 而 HTML 的 FORM POST 也不太清楚怎麼運作。 而 SQL 語法也是一直上網查, 除了 SELECT 之外都不會。</p>
+
+<p>然後工作了一段時間, 大約半年才開始學 javascript, 然後對 javascript 不清不楚的狀況下就開始用 jQuery, 一直到了大概半年多前開始讀了 DOM scripting 這本書後, 才對 javascript 稍微了解一些, 才懂得 document.getElementById 這類的東西。</p>
+
+<p>而我的 PHP 也是很弱, 一直到了大約一年前開始用 CodeIgniter 之後, 才慢慢的解決我心裡對 PHP 的焦慮, 因為 SQL Injection, XSS 等, 都交給了 CodeIgniter, 然而之前學了 ruby, 最近學了 python 跟 django, 只是似乎對 PHP 的部份還是很弱, 似乎還不到去學其他語言的地步。 也許該來好好學一下 PHP 吧。</p>
+
+<p>又忘記哪裡看到的一句話說:</p>
+
+<blockquote>你可以用 library 跟 framework 來減輕你對程式語言能力不足及焦慮, 但當你使用這些工具之後, 慢慢不在感到焦慮時, 你該去研究你用的 library、 framework 來補足你還不清楚的地方。</blockquote>
+
+
+<p>Anyway, 先前在學 ruby 跟 python 時, 還滿有啟發的, 看到了很多不同的東西, 使用的程式語言不同, 想法、思維也跟著不同。 只是 PHP 才是我目前唯一能謀生的東西, 所以該回頭來好好研究一下 PHP 吧。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2335">Amazon S3 使用記錄</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-23T21:41:21+08:00" pubdate  data-updated="true" >Jan 23<span>rd</span>, 2009</time>
+        
+         | <a href="/programming/2335#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>昨天開始碰 <a href="http://aws.amazon.com/s3/">Amazon S3</a>, 因為一直覺得 <a href="http://stickeraction.com">stickeraction</a> 的貼紙圖檔放在 VPS 上還是不太安全, 所以前天就開始用 Amazon S3, 把貼紙圖檔都丟上去, 順便當 cdn 用。</p>
+
+<p>一開始是先看 <a href="http://plog.longwin.com.tw/news-technology/2008/02/21/amazon_s3_s3cmd_php_2008">Tsung 大大的文章</a>, 然後就開始用 <a href="http://s3tools.logix.cz/s3cmd">s3cmd</a>  開始玩看看 S3 怎麼用。</p>
+
+<p>首先就是在 <a href="http://www.gentoo.org">gentoo</a> 上裝 s3cmd 啦, 不過試了 x86 跟 amd64 的平台好像都是 masked, 所以就用 ACCEPT_KEYWORDS 裝起來</p>
+
+<pre><code>ACCEPT_KEYWORDS='~x86' emerge s3cmd</code></pre>
+
+
+<p>然後就是用 <code>s3cmd --configure</code> 這個指令來設定, 填入 Amazon S3 提供的 access key 跟 secret key, 接著就可以開始用 s3cmd 來丟檔案到 s3 上做測試了。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/2335">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/2334">Minus the Bear</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-20T22:43:15+08:00" pubdate  data-updated="true" >Jan 20<span>th</span>, 2009</time>
+        
+         | <a href="/music/2334#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>一開始注意到這個團是 <a href="http://frank0624.wordpress.com/">frank</a> 從 msn 上傳來的 Knights 這一首歌, frank 說我應該會喜歡, 沒想到聽起來還真不賴, 完全被吉他的部份所吸引, 後來就陸續聽了一些 <a href="http://www.minusthebear.com/">Minus the bear</a> 的歌, 才發現他們吉他手的風格還真的是很特殊, 甚至在 Highly Refined Pirates 這張專輯中的 Thanks For The Killer Game Of Crisco Twister 這首歌, 幾乎都是用點弦在彈, 所以營造出來的風格真的是很特殊阿! 來看看 Minus the bear 在 Youtube 上的的影片就知道了。</p>
+
+<object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/msFQBNo3PnM&hl=zh_TW&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/msFQBNo3PnM&hl=zh_TW&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed></object>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/music/2334">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web design/2333">Stickeraction New Design Mockup</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-20T01:00:15+08:00" pubdate  data-updated="true" >Jan 20<span>th</span>, 2009</time>
+        
+         | <a href="/web design/2333#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a title="stickeraction new design mockup by photoshop by tzangms, on Flickr" href="http://www.flickr.com/photos/tzangms/3209369577/"><img class="aligncenter" src="http://farm4.static.flickr.com/3414/3209369577_95f50c2a22.jpg" alt="stickeraction new design mockup by photoshop" width="500" height="438" /></a>
+最近都在弄 <a href="http://stickeraction.com">stickeraction</a> 的東西, 然後首頁想要改的好看、乾淨一點, 只是今天想了一個晚上, 還是想不出來要怎麼改, 一直到剛才洗澡前, 才有點靈感, 洗玩澡後馬上用 photoshop 畫了上面這個 mockup (?) 記錄一下。</p>
+
+<p>UI 真的是很困難阿 Orz</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/2332">小海@女巫店</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-17T22:08:08+08:00" pubdate  data-updated="true" >Jan 17<span>th</span>, 2009</time>
+        
+         | <a href="/music/2332#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>[caption id=&#8221;attachment_2331&#8221; align=&#8221;aligncenter&#8221; width=&#8221;580&#8221; caption=&#8221;小海@女巫店 took by kej&#8221;]<img src="http://tzangms.com/wp-content/uploads/2009/01/tzangms-at-witch.jpg" alt="小海@女巫店 taken by kej" title="tzangms-at-witch" width="580" height="435" class="size-full wp-image-2331" />[/caption] 1/15 那天晚上終於第一次到女巫店, 也是第一次在女巫店唱歌, 感謝 koumis, <a href="http://www.dingdong161.com/">叮咚</a>, <a href="http://stephenlee.pixnet.net/blog">stephenlee</a>。 只可惜當天沒看到叮咚出現。</p>
+
+<p>這次在女巫店, 跟上次河岸留言的表演比起來, 幾乎是根本不緊張, 聲音狀況還不錯, 木吉他編曲的&#8221;我自己&#8221;似乎也頗受好評。 也許是上次在河岸用 loop station 來表演, 對器材的不熟悉, 所以增加了一些不安的感覺。 而這次演唱的都是自己熟悉的歌曲, 所以感覺穩定了許多。</p>
+
+<p>而這次大學玩樂團的朋友也有來, 有他們幫忙合音的感覺真不賴, 可惜的是他們還是沒辦法接受太安靜的音樂 XD 最後, 用偷吃步的方式站上了河岸以及女巫店的舞台, 不過&#8230; 我會自己來唱過一次的!! 到時候, <a href="http://biasonica.blogspot.com/">小掰</a>, 我會找你來幫忙的!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <nav class="pagination">
+    <div>
+      
+        <a class="prev" href="/page/24/">&larr; Older</a>
+      
+      <a href="/blog/archives">Blog Archives</a>
+      
+      <a class="next" href="/page/22/">Newer &rarr;</a>
+      
+    </div>
+  </nav>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/stuff/blue-snowball">買了 Blue snowball</a>
+      </li>
+    
+      <li class="post">
+        <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
+      </li>
+    
+      <li class="post">
+        <a href="/webdesign/css-pivot">CSS Pivot</a>
+      </li>
+    
+      <li class="post">
+        <a href="/life/new-streetvoice-is-done">終於把 StreetVoice 改完了</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/tzangms">@tzangms</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'tzangms',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("tzangms", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/tzangms" class="twitter-follow-button" data-width="208px" data-show-count="true">Follow @tzangms</a>
+  
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2011 - tzangms -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+    (function () {
+      var disqus_shortname = 'tzangms';
+      
+        
+        var disqus_script = 'count.js'
+      
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-418467-7']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

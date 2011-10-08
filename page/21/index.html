@@ -1,0 +1,680 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Oceanic / 人生海海</title>
+  <meta name="author" content="tzangms">
+
+  
+  <meta name="description" content="去年在參加完 Google Developer Day 2008 之後, 因為當時 twitter 很慢, 所以寫了 easy unfollow 這個工具, 希望大家能夠 unfollow 你親愛的推友, 來救 twitter, anyway 不過當時不會 python, 所以 bug 太多也...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tzangms.com/page/21/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/tzangms" rel="alternate" title="Oceanic / 人生海海" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Oceanic / 人生海海</a></h1>
+  
+    <h2>這就是人生阿</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/tzangms" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tzangms.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2384">Easy Unfollow 重出江湖!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-03-13T23:53:52+08:00" pubdate  data-updated="true" >Mar 13<span>th</span>, 2009</time>
+        
+         | <a href="/programming/2384#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://easyunfollow.appspot.com"><img src="http://tzangms.com/wp-content/uploads/2009/03/easy_unfollow.png" alt="easy_unfollow" title="easy_unfollow" width="550" height="245" class="aligncenter size-full wp-image-2385" /></a>
+去年在參加完 Google Developer Day 2008 之後, 因為當時 twitter 很慢, 所以寫了 easy unfollow 這個工具, 希望大家能夠 unfollow 你親愛的推友, 來救 twitter, anyway 不過當時不會 python, 所以 bug 太多也就沒有正式 release 了 XD</p>
+
+<p>由於最近在開始學 python, 然後明天要去吃哈跟大使, 所以稍微練習一下, 把這個 <a href="http://easyunfollow.appspot.com">easy unfollow</a> 這個工具重新寫出來 ( 因為之前的 source code 都不見了 XD ), 複習一下 <a href="http://code.google.com/appengine/">Google App Engine</a>, 也體驗一下令人驚豔的 <a href="http://doc-zhtw.gaeo.org/">GAE Framework: GAEO</a>。</p>
+
+<p>不過還是有 bug, 目前知道的是在 session expire 時好像會有錯誤 XD</p>
+
+<p>有興趣, 想要 unfollow 你在 twitter 上面的好友的話, 歡迎試用! :D 請到 <a href="http://easyunfollow.appspot.com">http://easyunfollow.appspot.com</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2382">Django 的 Deploy 工具: Fabric</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-03-12T16:28:20+08:00" pubdate  data-updated="true" >Mar 12<span>th</span>, 2009</time>
+        
+         | <a href="/programming/2382#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>昨天在 twitter 上問了:「django 有像 capistrano 這種工具嗎?」 後來就有人 <a href="http://twitter.com/howiworkdaily">howiworkdaily</a> 回我說:「try fabric for your capistrano needs http://www.nongnu.org/fab/」, 所以就發現了 <a href="http://www.nongnu.org/fab/">Fabric</a> 這個工具。</p>
+
+<p>接著我就順勢看了這位推友的 following, 沒想到 twitter 上還真多 django 的相關帳號。</p>
+
+<ul>
+    <li><strong></strong><strong><a id="djangocon_profile_link" class="url uid" title="Django Conference. Follow @robertlofthouse (DjangoCon/EuroDjangoCon Chairman). " rel="contact" href="http://twitter.com/djangocon">djangocon</a></strong></li>
+    <li><strong></strong><strong><a id="DjangoTracker_profile_link" class="url uid" title="Direct feed from the Django trunk." rel="contact" href="http://twitter.com/DjangoTracker">DjangoTracker</a></strong></li>
+    <li><strong><a id="djangolinks_profile_link" class="url uid" title="Interested in Django, find the latest links here. " rel="contact" href="http://twitter.com/djangolinks"><span class="nickname">djangolinks</span></a></strong></li>
+    <li><strong></strong><strong><a id="djangotips_profile_link" class="url uid" title="little bits of django goodness in 140 characters or less. and it's all powered by you, the django community. :)" rel="contact" href="http://twitter.com/djangotips">djangotips</a></strong></li>
+    <li><strong></strong><strong><a id="DailyDjango_profile_link" class="url uid" title="Another weekday, another bit of Django (and/or Python) from @trey. Feedback welcome." rel="contact" href="http://twitter.com/DailyDjango">DailyDjango</a></strong></li>
+    <li><strong></strong><strong><a id="geodjango_profile_link" class="url uid" title="World-Class Geographic Web Framework" rel="contact" href="http://twitter.com/geodjango">geodjango</a></strong></li>
+    <li><strong><a id="django_dev_profile_link" class="url uid" rel="contact" href="http://twitter.com/django_dev"><span class="nickname">django_dev</span></a></strong></li>
+    <li><strong><a id="djangodash_profile_link" class="url uid" title="A 2-day sprint to build the best Django app." rel="contact" href="http://twitter.com/djangodash"><span class="nickname">djangodash</span></a></strong></li>
+</ul>
+
+
+<p>hmm~ 看的懂中文的阿多仔也不少 (誤)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/2381">用 iPhone 樂器軟體來玩樂團</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-03-05T08:57:41+08:00" pubdate  data-updated="true" >Mar 5<span>th</span>, 2009</time>
+        
+         | <a href="/music/2381#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><object width="480" height="295"><param name="movie" value="http://www.youtube.com/v/rjx5_-SPhk0&hl=zh_TW&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/rjx5_-SPhk0&hl=zh_TW&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="295"></embed></object>
+
+
+<p>現在在 app store 上, iPhone 樂器越來越多, 不過能夠玩成這樣也真的是滿厲害的 XD 其實他們是一個搖滾樂團, 叫 <a href="http://www.thementalists.co.uk/">The Mentalist!</a>, 只是他們的歌我聽不太習慣 XD</p>
+
+<p>anyway, 他們使用到的樂器有 <a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=293053479&mt=8">Ocarina</a>, <a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=297498715&mt=8">Retro Synth</a>, <a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=292140261&mt=8">miniSynth</a> 跟 <a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=295500313&mt=8">DigiDrummer Lite</a> 有興趣可以看看 :p</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/2380">第二份工作即將開始</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-03-01T23:40:48+08:00" pubdate  data-updated="true" >Mar 1<span>st</span>, 2009</time>
+        
+         | <a href="/life/2380#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>明天, 3/2 是新工作的開始, 其他想說的就省略了&#8230;</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/2379">Fender Jaguar Bridge &#8230;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-02-28T00:35:12+08:00" pubdate  data-updated="true" >Feb 28<span>th</span>, 2009</time>
+        
+         | <a href="/music/2379#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/497956438/" title="Fender Jaguar by tzangms, on Flickr"><img src="http://farm1.static.flickr.com/189/497956438_3bc39d7067.jpg" width="500" height="375" alt="Fender Jaguar" class="aligncenter" /></a></p>
+
+<p>其實我會買 Fender jaguar 單純只是外型 XD 一直到了今天把我的 jaguar 拿出來想要換成 010 的弦, 也順便調一下 bridge。 可是 bridge 調來調去, buzz 聲卻完全沒有改善 Orz 在放棄的同時, 居然發現第一弦的 saddle 居然掉了一隻腳 ~&#8221;~</p>
+
+<p>所以我就開始 google 一些資料, 想說有沒有改 bridge 的相關文章, 買 saddle 零件, 不如直接換 bridge 之類的, 不然 Jaguar 的 saddle 真的是為人所詬病, buzz 聲!! 還有弦也容易移位, 最後就是 saddle 腳會鬆掉, 然後就不見了!!! 就像我這把一樣&#8230; Orz</p>
+
+<p>後來找到這個站 <a href="http://www.jag-stang.com/JaguarHtml/modsIndex.php">Jaguar Modification &#8211; Jag-Stang.com</a>, 當中提到了很多關於 Jaguar 的 setup 、電路配置, 還有更換 pickup 等等資訊。 我想換 pickup, 只是多年沒用焊槍了 XD Anyway, 重點是! 在<a href="http://www.jag-stang.com/JaguarHtml/bridgeMod.php">這一篇文章</a>中提到, 可以直接換 Fender Mustang 的 Bridge ( 應該說是 saddle ) 阿!!!! 換用 Mustang 的 saddle 就可以解決上面提到 Jaguar 的問題, 而且! 是最快速、經濟的方法, 因為 bridge 是一樣的阿!</p>
+
+<p>不過後來又看到<a href="http://www.jag-stang.com/tomMod.php">把 bridge 換成 Tune-O-Matic 的文章</a> , 這篇文章中有提到 Kurt Cobain was a huge fan of the Tune-o-matic. XD 所以我又開始想把 bridge 換成 Tune-O-Matic, 只是看一看之後, 好像還是換 Mustang 的 saddle 快多了 XD 最後, 我開始在 <a href="http://www.guitarpartsresource.com/">Guitar Parts Resouce</a> 找零件, 當中有直接賣 Mustang saddle 害我就想直接買下去, 另外還有給 Jaguar 用的 Buzz Stop, 真的是太酷了阿!!  只是, 還是先等工作後在買好了 &#8230; Orz</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2378">從 PHP 5.2 到 PHP 5.3 須注意的一些事項</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-02-27T12:16:29+08:00" pubdate  data-updated="true" >Feb 27<span>th</span>, 2009</time>
+        
+         | <a href="/programming/2378#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>看了這一篇文章 <a href="http://www.ibm.com/developerworks/opensource/library/os-php-5.3new5/index.html?ca=dgr-lnxw64Migrate2PHP5.3&S_TACT=105AGY46&S_CMP=grsitejw64">What&#8217;s new in PHP V5.3, Part 5: Upgrading from PHP V5.2</a>, 大概列出來下面這幾項:</p>
+
+<ul>
+    <li>function name 不能用 namespace (保留字)</li>
+    <li>class name 不能用 Closure (保留字)</li>
+    <li>加了 goto</li>
+    <li>處理 array 相關的函式不能直接丟 object 進去了, 得先轉型成 array</li>
+    <li>magic method ( __get, __set 等函式 ) 的 visibility 得為 public</li>
+    <li>FileInfo, intl, Phar, mysqlnd, SQLite3 extensions 納入 PHP Core</li>
+    <li>ncurse, fpdf, dbase, fbsql, ming extensions 從 PHP Core 移出</li>
+    <li>PCRE, Reflection, SPL 無法 disable</li>
+    <li>可以在 ini 檔案裡使用變數</li>
+    <li>增加了可以針對網站或目錄的 ini 設定</li>
+    <li>然後有一些東西 disabled 了, 像是 ereg, Ticks .. 等</li>
+</ul>
+
+
+<p>原文有提供範例, 詳細多了。 話說終於要支援 SQLite3 了阿~</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/2376">geekbrief.tv</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-02-26T21:10:17+08:00" pubdate  data-updated="true" >Feb 26<span>th</span>, 2009</time>
+        
+         | <a href="/web/2376#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="http://tzangms.com/wp-content/uploads/2009/02/7423_logo.png" alt="7423_logo" title="7423_logo" width="300" height="300" class="alignleft size-full wp-image-2377" />最近裝了 <a href="http://www.getmiro.com/">Miro</a> 然後找了幾個節目來看, 其中 <a href="http://www.geekbrief.tv/">geekbrief.tv</a> 這個節目我還滿喜歡的, 除了是 HD 的畫質之外, 主持人 <a href="http://twitter.com/calilewis">cali lewis</a> 也算頗正 XD 而最近還有一集在介紹 <a href="http://www.tweetdeck.com">tweetdeck</a>, 功能介紹的還真的是很仔細。</p>
+
+<p>另外就是可以練練聽力, 主持人 cali lewis 講的還真的是飛快, 不過不是英國腔我就還可以接受。</p>
+
+<p>話說台灣的你推我報也停播了, 先前看電視台還看到你推我報的主持人 - 果凍, 在幼幼台出現說 XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2375">URI Class</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-02-26T00:29:39+08:00" pubdate  data-updated="true" >Feb 26<span>th</span>, 2009</time>
+        
+         | <a href="/programming/2375#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在 CodeIgniter 跟 Kohana 這兩個 framework, 在網址傳遞變數時, 都不是透過 query string 來傳遞變數, 而是用所謂比較漂亮網址來取得變數, 例如:</p>
+
+<p>以往 PHP 在傳遞變數的方式為:</p>
+
+<pre><code>http://tzangms.com/user.php?name=tzangms</code></pre>
+
+
+<p>而 CodeIgniter 的方式則是像這樣</p>
+
+<pre><code>http://tzangms.com/user/tzangms</code></pre>
+
+
+<p>使用 framework 的網址漂亮許多, 看起來也比較直覺, 如果有使用 CI 的人就會知道, 這類的網址是透過下面這個方式來取得變數:</p>
+
+<pre><code>$this->uri->segment(2); // 取得 'tzangms'</code></pre>
+
+
+<p>所以我實作了一個 URI class, 透過取得 PATH_INFO 之後, 將其分段後取得需要的變數:</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/2375">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2373">好站 Command-Line Fu</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-02-25T00:50:00+08:00" pubdate  data-updated="true" >Feb 25<span>th</span>, 2009</time>
+        
+         | <a href="/programming/2373#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.commandlinefu.com">Command-Line Fu</a> 是個學習 Linux 指令的好地方阿!</p>
+
+<p>光是 Popular 那一塊, 就讓我太驚訝了阿! 像是</p>
+
+<ol>
+<li><code>$ sudo !! </code> - 用 sudo 重新執行上一個指令。</li>
+</ol>
+
+
+<p>如果跟我一樣, 常常忘記打 sudo, 那麼這個指令一定要記起來阿!!</p>
+
+<ol>
+<li><code>$ ^foo<sup>bar</code></sup> - 重新執行上一個指令, 不過會先置換掉文字, 再開始執行。</li>
+</ol>
+
+
+<p>Command-Line Fu Rocks!!!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/stickeraction/2372">Stickeraction Click Chart</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-02-24T22:00:46+08:00" pubdate  data-updated="true" >Feb 24<span>th</span>, 2009</time>
+        
+         | <a href="/stickeraction/2372#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="http://tzangms.com/wp-content/uploads/2009/02/click_chart.png" alt="click_chart" title="click_chart" width="500" height="240" class="aligncenter size-full wp-image-2371" /></p>
+
+<p>由於 <a href="http://stickeraction.com">stickeraction</a> 已經可以偵測哪個貼上串連的貼紙帶來了多少 click, 不過一直沒有一個比較視覺化的方式來顯示點擊數。 所以今天幫 stickeraction 加上了 click chart, 用來顯示今天有哪些部落格為串連貼紙帶來了多少的 click。</p>
+
+<p>只是這個功能還沒開放出來就是了 :p 其實是覺得 <a href="http://stickeraction.com">stickeraction</a> 可以往串連貼紙計數器之類的方向發展, 所以之後後台應該會在改。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <nav class="pagination">
+    <div>
+      
+        <a class="prev" href="/page/22/">&larr; Older</a>
+      
+      <a href="/blog/archives">Blog Archives</a>
+      
+      <a class="next" href="/page/20/">Newer &rarr;</a>
+      
+    </div>
+  </nav>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/stuff/blue-snowball">買了 Blue snowball</a>
+      </li>
+    
+      <li class="post">
+        <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
+      </li>
+    
+      <li class="post">
+        <a href="/webdesign/css-pivot">CSS Pivot</a>
+      </li>
+    
+      <li class="post">
+        <a href="/life/new-streetvoice-is-done">終於把 StreetVoice 改完了</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/tzangms">@tzangms</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'tzangms',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("tzangms", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/tzangms" class="twitter-follow-button" data-width="208px" data-show-count="true">Follow @tzangms</a>
+  
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2011 - tzangms -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+    (function () {
+      var disqus_shortname = 'tzangms';
+      
+        
+        var disqus_script = 'count.js'
+      
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-418467-7']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

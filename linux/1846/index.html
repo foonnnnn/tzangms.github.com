@@ -1,0 +1,342 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>slicehost 設定 private ip - Oceanic / 人生海海</title>
+  <meta name="author" content="tzangms">
+
+  
+  <meta name="description" content="上禮拜又買了一台 256slice, 主要是想拿來玩 RoR, 因為原本舊的那一台記憶體就很小, 而且有服務在跑, 還是不要亂動的好, 所以就買一台新的 256slice, 然後用 rsync 來備份原本那台主機, 另外也許可以拿來作 load balance。不過目前就只是單純把資料庫放到新...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tzangms.com/linux/1846">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/tzangms" rel="alternate" title="Oceanic / 人生海海" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Oceanic / 人生海海</a></h1>
+  
+    <h2>這就是人生阿</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/tzangms" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tzangms.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Slicehost 設定 Private Ip</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-10-11T19:18:01+08:00" pubdate  data-updated="true" >Oct 11<span>th</span>, 2008</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>上禮拜又買了一台 256slice, 主要是想拿來玩 <a href="http://www.rubyonrails.org/">RoR</a>, 因為原本舊的那一台記憶體就很小, 而且有服務在跑, 還是不要亂動的好, 所以就買一台新的 256slice, 然後用 rsync 來備份原本那台主機, 另外也許可以拿來作 load balance。</p>
+
+<p>不過目前就只是單純把資料庫放到新的那一台, 只是這幾天流量重刷了之後, 沒想到才過差不多 3 天, 兩台 slice 就用了 30G, 不應該這麼多的, 因為已經用了 webamp 了阿! 不過主要是注意到第一台的 in 跟第二台的 out 流量是差不多的, 才想到應該是資料庫存取的流量。 然後今天才想到有內部 IP 這回事 Orz (用內部 IP 不會算流量)</p>
+
+<p>基本上 <a href="http://slicehost.com">slicehost</a> 服務真的是很不錯, 雖然到目前我只反應過兩個問題, 不過每次做 help request 的時候, 都在 2 分鐘之內收到回信了。</p>
+
+<!--more-->
+
+
+<p>而這次要設定 private ip 也是要寫信去要求 slicehost 做設定。 就是到 slicehost 的 help 界面去發 request, 跟 slicehost 說要設定  private ip, 然後他就問我說哪時候可以幫我做設定, 因為須要重開機才會生效!</p>
+
+<p>不過幸好有先在 slicehost 的 <a href="http://wiki.slicehost.com">wiki</a> 找到這篇文章: <a href="http://wiki.slicehost.com/doku.php?id=how_to_get_an_internal_ip_without_a_reboot&amp;s=private">how to get an internal ip without a reboot</a></p>
+
+<p>文章裡面提到可以要求 slicehost 設定 private ip 而不重開機, 裡面也提供了 <a href="http://www.gentoo.org">gentoo</a> 跟 <a href="http://www.ubuntu.com">ubuntu</a> 設定的方式, 而我剛好是用 gentoo, 設定方法也很簡單。</p>
+
+<p>所以就照 wiki 裡面提到的, 再回信給 slicehost, 要求只需要設定 private ip 就好, 不用重開機, 剩下的設定會自己處理即可。</p>
+
+<p>寫信過去大概約 15 分鐘, 就收到了 private ip 設定完畢的通知, 然後登入 slicehost 的管理界面就看到了在 ip 的欄位多了 private ip 的部份 (<a href="http://wiki.slicehost.com/lib/exe/detail.php?id=how_to_get_an_internal_ip_without_a_reboot&amp;cache=cache&amp;media=private_ip_address.jpg">如圖</a>), 接著就可以來設定 private ip 啦!!</p>
+
+<h3>1. 首先建立 net.eth1 這個 rc script</h3>
+
+
+<blockquote>ln -s /etc/init.d/net.lo /etc/init.d/net.eth1</blockquote>
+
+
+<p> </p>
+
+<h3>2. 修改 /etc/conf.d/net 加入下面這行, 當然 ip 要改為你自己的</h3>
+
+
+<blockquote><code>config_eth1=(”172.20.0.131 netmask 255.255.0.0”)</code></blockquote>
+
+
+<p> </p>
+
+<h3>3. 啟動 net.eth1 這個 rc script</h3>
+
+
+<blockquote><code>/etc/init.d/net.eth1 start</code></blockquote>
+
+
+<p> </p>
+
+<p>然後從另外一台 ping 看看這台的 private ip, 如果 ping 的到就表示設定成功啦!</p>
+
+<p> </p>
+
+<h3>4. 將 net.eth1 加入主機啟動的 service 就大功告成了</h3>
+
+
+<p>然後在另外一台也做如此設定。 然後把目前程式連的資料庫 ip 都換成 private ip, 應該就可以省下這些不必要的流量了。 之前真的是傻傻的 XD</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">tzangms</span></span>
+
+      
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-10-11T19:18:01+08:00" pubdate  data-updated="true" >Oct 11<span>th</span>, 2008</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/category/linux/'>linux</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tzangms.com/linux/1846" data-via="tzangms" data-counturl="http://tzangms.com/linux/1846" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+</div>
+
+    
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/stuff/blue-snowball">買了 Blue snowball</a>
+      </li>
+    
+      <li class="post">
+        <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
+      </li>
+    
+      <li class="post">
+        <a href="/webdesign/css-pivot">CSS Pivot</a>
+      </li>
+    
+      <li class="post">
+        <a href="/life/new-streetvoice-is-done">終於把 StreetVoice 改完了</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/tzangms">@tzangms</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'tzangms',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("tzangms", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/tzangms" class="twitter-follow-button" data-width="208px" data-show-count="true">Follow @tzangms</a>
+  
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2011 - tzangms -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+    (function () {
+      var disqus_shortname = 'tzangms';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tzangms.com/linux/1846';
+        var disqus_url = 'http://tzangms.com/linux/1846';
+        var disqus_script = 'embed.js'
+      
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-418467-7']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>最近在研究的東西: CodeIgniter, Subversion - Oceanic / 人生海海</title>
+  <meta name="author" content="tzangms">
+
+  
+  <meta name="description" content="前一陣子在找尋哪套 PHP framework 比較好用, 或者說是比較適合我用, 後來就基本上選定了 Code Igniter 開始玩, 基本上 Code Igniter 很快就可以上手, 要用framework 的其中一個重點, 就是可以縮短開發時程, 所以對於一些 Documents 很...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tzangms.com/programming/830">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/tzangms" rel="alternate" title="Oceanic / 人生海海" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Oceanic / 人生海海</a></h1>
+  
+    <h2>這就是人生阿</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/tzangms" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tzangms.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">最近在研究的東西: CodeIgniter, Subversion</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-04-15T01:33:00+08:00" pubdate  data-updated="true" >Apr 15<span>th</span>, 2007</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>前一陣子在找尋哪套 PHP framework 比較好用, 或者說是比較適合我用, 後來就基本上選定了 Code Igniter 開始玩, 基本上 Code Igniter 很快就可以上手, 要用framework 的其中一個重點, 就是可以縮短開發時程, 所以對於一些 Documents 很難懂, 或是要學很久的 framework, 我就不考慮了, 因為花太多時間去學習某套 framework, 這就有點違背了開始使用 framework 的原因了, 至少對我來說是如此。 當然選用 code igniter 也還有其他原因, 每套 framework 都有其 promise, 在選擇 framework 時, 看看你是否喜歡它的 promise、它的目標訴求, 喜歡就用, 沒有一定誰好誰壞。</p>
+
+<!--more-->
+
+
+<p>最近已經開始用 code igniter 來 port 公司的一個 project, 只是這個 project 當初是公司外包給人家作的, 而且做的很爛 XD 就在想說, 公司不是有程度很不錯的 programmer 了嗎? 後來得知的結果是當初會外包是因為當時公司 Programmer 都離職, 是在一個沒有 Programmer 的空窗期 XD 後來才有 <a href="http://www.kej.tw">kej</a> 跟我進來, 當然, 我是沒辦法跟 kej 大大相比, 在 kej 面前我簡直就是不會寫程式 XD</p>
+
+<p>然而最近用 code igniter 在 porting 的時候, 一直在思考, 如何來作 MVC 會比較好? 這跟我目前程式設計經驗不足有關 XD 沒辦法, 誰叫我先前跑去玩音樂 XD 恩, 基本上目前的 framework 基本訴求也都有包含 MVC 這個部份, 但是他只是給你一個架構, 基本上要如何將你的程式 MVC 化, 還是要在你的腦袋有概念, 其實先前在用 <a href="http://smarty.php.net">smarty</a> 的時候, 就在思考, 有些 code 到底要在 view 做, 還是在 controller 就做好? 或者是像現在, 是否直接在 View 就 call Model 的 function 來用 ( Model -> View ), 還是要從 Controller call Model 在丟給 View? ( Model -> Controller -> View ), 這還要在研究一下。</p>
+
+<p>SVN, 也是前一陣子在研究的, 這個是用來作版本控制, 很方便! SVN 的出現主要就是要來取代目前 open source 界用的最廣泛的版本控制系統 CVS, 基本上 CVS 的開發者跟 SVN 是同一個, 所以 SVN 應該只會比較好。 but, 我沒學過 CVS, 不過現在有了 SVN 就直接學 SVN啦! XD 那為什麼會突然注意到 SVN 呢? 因為一直在 maintain squirrelmail, 所以有事沒事就會上 <a href="http://www.squirrelmail.org/">squirrelmail</a> 有天就看到了 squirrelmail 把原本的 CVS 全部換成 SVN!! 後來也又看到一些 open source project 把原本的 CVS 都換成了 SVN, 所以我就開始研究 SVN,  k 了 SVN 的 document, 一直到前幾個禮拜, 在公司架起了 SVN, 來 maintain 一些程式碼, 對程式設計師來說, SVN 是不可或缺的阿!</p>
+
+<p>不過我只用了最簡單的 svn protocal 來 serve, 沒有碰 http 跟 ssh+svn, 關於 SVN, 之後再來記錄一下 admin 端跟 user 端的一些 command。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">tzangms</span></span>
+
+      
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-04-15T01:33:00+08:00" pubdate  data-updated="true" >Apr 15<span>th</span>, 2007</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/category/programming/'>programming</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tzangms.com/programming/830" data-via="tzangms" data-counturl="http://tzangms.com/programming/830" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+</div>
+
+    
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/stuff/blue-snowball">買了 Blue snowball</a>
+      </li>
+    
+      <li class="post">
+        <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
+      </li>
+    
+      <li class="post">
+        <a href="/webdesign/css-pivot">CSS Pivot</a>
+      </li>
+    
+      <li class="post">
+        <a href="/life/new-streetvoice-is-done">終於把 StreetVoice 改完了</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/tzangms">@tzangms</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'tzangms',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("tzangms", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/tzangms" class="twitter-follow-button" data-width="208px" data-show-count="true">Follow @tzangms</a>
+  
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2011 - tzangms -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+    (function () {
+      var disqus_shortname = 'tzangms';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tzangms.com/programming/830';
+        var disqus_url = 'http://tzangms.com/programming/830';
+        var disqus_script = 'embed.js'
+      
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-418467-7']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

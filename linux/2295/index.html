@@ -1,0 +1,444 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Gentoo on VPS - Oceanic / 人生海海</title>
+  <meta name="author" content="tzangms">
+
+  
+  <meta name="description" content="這篇文章是我在 VPS 上裝 Gentoo 的記錄, 方便以後要裝 VPS 的時候可以參考1. 安裝 vim首先在 gentoo 剛裝好之後, 第一件事情就是裝 vim, 不然會很痛苦emerge vim 2. 設定 CFLAGScat /proc/cpuinfo 看看主機用的 CPU 是哪顆...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tzangms.com/linux/2295">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/tzangms" rel="alternate" title="Oceanic / 人生海海" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Oceanic / 人生海海</a></h1>
+  
+    <h2>這就是人生阿</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/tzangms" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tzangms.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Gentoo on VPS</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-02T00:39:12+08:00" pubdate  data-updated="true" >Jan 2<span>nd</span>, 2009</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>這篇文章是我在 VPS 上裝 Gentoo 的記錄, 方便以後要裝 VPS 的時候可以參考</p>
+
+<h3>1. 安裝 vim</h3>
+
+
+<p>首先在 gentoo 剛裝好之後, 第一件事情就是裝 vim, 不然會很痛苦</p>
+
+<pre><code>emerge vim</code></pre>
+
+
+<p> </p>
+
+<h3>2. 設定 CFLAGS</h3>
+
+
+<p><code>cat /proc/cpuinfo</code> 看看主機用的 CPU 是哪顆, 然後根據 CPU 的 model name 來設定 CFLAGS, 可以看看 <a href="http://en.gentoo-wiki.com/wiki/CFLAGS" target="_blank">CFLAGS - Gentoo Linux Wiki</a> 及 <a href="http://en.gentoo-wiki.com/Safe_Cflags" target="_blank">Safe CFLAGS - Gentoo Linux Wiki</a>。</p>
+
+<p>例如我在 slicehost 買的 256slice 的 cpu model name 是 Dual-Core AMD Opteron(tm) Processor 2212 HE, 所以我設定的 CFLAGS 如下。</p>
+
+<pre><code>CFLAGS="-march=opteron -O2 -pipe"</code></pre>
+
+
+<p>而 Linode 的 CFLAGS 如下:</p>
+
+<pre><code>CFLAGS="-march=prescott -O2 -pipe"</code></pre>
+
+
+<p>話說根據這篇 <a href="http://bugs.gentoo.org/103806" target="_blank">gentoo bug report</a> 提到, 在 GCC 3.4 以後的 XEN VPS 似乎可以加上下面這個 CFLAG, 只是我在 <a href="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Optimize-Options.html#Optimize-Options" target="_blank">GCC 4.1.2 的 Options That Control Optimization</a> 這份文件當中, 沒有找到這個 CFLAG 還有其相關說明。</p>
+
+<pre><code>-mno-tls-direct-seg-ref</code></pre>
+
+
+<h3>3. 設定 MAKEOPTS</h3>
+
+
+<p>從 cpuinfo 也可以得知有 4 顆 CPU, 所以依據 gentoo 文件上所寫的 MAKEOPTS 等於 n + 1, 可以將 MAKEOPTS 設為 5, 讓編譯的動作可以同時進行多個來加快速度。</p>
+
+<pre><code>MAKEOPTS="-j5</code>&#8221;</pre>
+
+
+<p>不過, 當線上有服務在跑, 而且記憶體太小時, 得衡量一下這個數字。
+  <!--more--></p>
+
+<h3>4. 設定 portage excludes:</h3>
+
+
+<p>基本上當設定好 make.conf 就可以開始 rebuild 系統了, 不過由於在這麼小的 VPS 上, 我們需要減少硬碟消耗的空間, 以及頻寬使用, 所以我們可以讓 emerge – sync 時, 避免下載不需要的 ebuilds。</p>
+
+<p>建立 portage 排除的清單</p>
+
+<p>/etc/portage/rsync_excludes</p>
+
+<pre><code>app-cdr/
+app-emacs/
+app-laptop/
+app-mobilephone/
+app-pda/
+app-xemacs/
+games-*/
+gnome-*/
+kde-*/
+media-gfx/
+media-plugins/
+media-radio/
+media-sound/
+media-tv/
+media-video/
+rox-*/
+sci-*/
+x11-*/
+xfce-*/</code></pre>
+
+
+<p>接著在 make.conf 加入下面這一行, 之後 <code>emerge --sync</code> 時就不會下載以上所設定排除的 package ebuilds, 可以減少硬碟空間以及頻寬的使用。</p>
+
+<pre><code>PORTAGE_RSYNC_EXTRA_OPTS="--exclude-from=/etc/portage/rsync_excludes"</code></pre>
+
+
+<p> </p>
+
+<h3>5. 刪除無用的 ebuilds</h3>
+
+
+<p>然後刪除先前設定排除, 用不到的 ebuilds:</p>
+
+<pre><code>rm -rf app-cdr app-emacs app-laptop app-mobilephone app-pda app-xemacs games-* gnome-* kde-* media-gfx media-plugins media-radio media-sound media-tv media-video rox-* sci-* x11-* xfce-*</code></pre>
+
+
+<p> </p>
+
+<h3>6. 更新 portage</h3>
+
+
+<p>在更新之前, 可以先用 mirrorselect 來尋找較快的 portage mirror (<code>emerge mirrorselect</code>)</p>
+
+<pre><code>mirrorselect -s5</code></pre>
+
+
+<p>再進行 portage 更新</p>
+
+<pre><code>emerge --sync</code></pre>
+
+
+<p> </p>
+
+<h3>7. 重新編譯整個系統</h3>
+
+
+<p>依據新的 USE FLAGS 來重新編譯套件</p>
+
+<pre><code>emerge -va --update --deep --newuse world</code></pre>
+
+
+<p> </p>
+
+<h3>8. 清除無用的 packages</h3>
+
+
+<pre><code>emerge -va --depclean</code></pre>
+
+
+<p> </p>
+
+<h3>9. 建立 prelink</h3>
+
+
+<p>記得請先安裝 gentookit (<code>emerge gentoolkit</code>)</p>
+
+<pre><code>revdep-rebuild</code></pre>
+
+
+<p> </p>
+
+<h3>10. 關閉多餘的 tty</h3>
+
+
+<p>由於都是從遠端登入, 所以修改 inittab 如下, 只留下一個 tty 即可, 不過通常 VPS 預設應該是只有剩一個。 (可以全部關掉嗎?)</p>
+
+<pre><code>c1:12345:respawn:/sbin/agetty 38400 tty1 linux
+#c2:2345:respawn:/sbin/agetty 38400 tty2 linux
+#c3:2345:respawn:/sbin/agetty 38400 tty3 linux
+#c4:2345:respawn:/sbin/agetty 38400 tty4 linux
+#c5:2345:respawn:/sbin/agetty 38400 tty5 linux
+#c6:2345:respawn:/sbin/agetty 38400 tty6 linux</code></pre>
+
+
+<p> </p>
+
+<h3>11. localtime</h3>
+
+
+<pre><code>ln -sf /usr/share/zoneinfo/Asia/Taipei /etc/localtime</code></pre>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">tzangms</span></span>
+
+      
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-02T00:39:12+08:00" pubdate  data-updated="true" >Jan 2<span>nd</span>, 2009</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/category/linux/'>linux</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tzangms.com/linux/2295" data-via="tzangms" data-counturl="http://tzangms.com/linux/2295" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+</div>
+
+    
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/stuff/blue-snowball">買了 Blue snowball</a>
+      </li>
+    
+      <li class="post">
+        <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
+      </li>
+    
+      <li class="post">
+        <a href="/webdesign/css-pivot">CSS Pivot</a>
+      </li>
+    
+      <li class="post">
+        <a href="/life/new-streetvoice-is-done">終於把 StreetVoice 改完了</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/tzangms">@tzangms</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'tzangms',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("tzangms", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/tzangms" class="twitter-follow-button" data-width="208px" data-show-count="true">Follow @tzangms</a>
+  
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2011 - tzangms -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+    (function () {
+      var disqus_shortname = 'tzangms';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tzangms.com/linux/2295';
+        var disqus_url = 'http://tzangms.com/linux/2295';
+        var disqus_script = 'embed.js'
+      
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-418467-7']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

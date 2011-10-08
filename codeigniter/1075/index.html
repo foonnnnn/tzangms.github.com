@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>CodeIgniter 1.6 released! - Oceanic / 人生海海</title>
+  <meta name="author" content="tzangms">
+
+  
+  <meta name="description" content="前幾天就看到這一篇。 CodeIgniter 1.6 出來了!  關於 detail 可以看看 Change Log，大致更新如下:新增了 DB Forge class (這個對我來說好像用不太到) 還有! 就是 Database 的 collation 設定!而 Active Record ...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tzangms.com/codeigniter/1075">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/tzangms" rel="alternate" title="Oceanic / 人生海海" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Oceanic / 人生海海</a></h1>
+  
+    <h2>這就是人生阿</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/tzangms" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tzangms.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">CodeIgniter 1.6 Released!</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-02-05T00:59:26+08:00" pubdate  data-updated="true" >Feb 5<span>th</span>, 2008</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>前幾天就看到<a href="http://codeigniter.com/news/codeigniter_1_6_hits_the_streets/">這一篇</a>。 CodeIgniter 1.6 出來了!  關於 detail 可以看看 <a href="http://codeigniter.com/user_guide/changelog.html">Change Log</a>，大致更新如下:</p>
+
+<p>新增了 <a href="http://codeigniter.com/user_guide/database/forge.html">DB Forge class</a> (這個對我來說好像用不太到) 還有! 就是 Database 的 collation 設定!</p>
+
+<p>而 <a href="http://codeigniter.com/user_guide/database/active_record.html">Active Record</a> 把一些 method 名子改掉了, 像是 orderby 改成 order_by 之類的, 不過舊的 method 名稱目前還是可以繼續用, 不過應該有空就要來把程式改一改, user guide 也都已經提到舊的 method 名稱是 deprecated 了。</p>
+
+<!--more-->
+
+
+<p>至於 <a href="http://codeigniter.com/user_guide/libraries/sessions.html">session</a> 則是加上了 flash variable, 如果有用過 <a href="http://www.4webby.com/freakauth/">FreakAuth</a> 的人就知道這是啥。 FreakAuth 有提供了一個 DB_session 的 library 就有 flash message 的功能, 看來這是很多人都想要的功能, 這個功能很讚!</p>
+
+<p>然後很棒的一件事就是 <a href="http://codeigniter.com/user_guide/general/helpers.html">Helper</a> 可以 extend 啦!! 不然其實手邊上有許多 helper function, 應該要歸類到 CI 內建的 helper, 不過不能 extend, 所以只好新增一個 helper, 但是名稱又取的很像(其實是取的亂七八糟) Orz 所以! 可以 extend helper 真是個好物阿!! XD</p>
+
+<p>還有! view 現在可以疊啦! 但是我現在用的方式比疊 view 還方便勒 o_O 不過可以疊 view 還是不錯勒。像是下面這樣:
+<code>$data['page_title'] = 'Your title';
+$this->load->view('header');
+$this->load->view('menu');
+$this->load->view('content', $data);
+$this->load->view('footer');</code></p>
+
+<p>CI 1.6 改變的功能差不多這樣, 而在 CI 1.6 release 當天有拿手上的 project 來更新到 CI 1.6, 不過發現了一個很恐怖的事實 :o 就是&#8230; 傳進 controleller method 的 arguments 都失效了 :o 舉例來說:</p>
+
+<pre>
+<code>function play($song, $repeat){
+    echo $song; // 不過其實抓到的 $song 會是空的
+}</code>
+</pre>
+
+
+<p>要改用 uri segment 來抓傳入的參數, 像下面這樣才行。</p>
+
+<pre>
+<code>function play(){
+    $album  = $this->uri->segment(2);
+    $repeat = $this->uri->segment(3);
+}</code>
+</pre>
+
+
+<p>其實本來就該用第二種方式才是, 因為這裡的參數是使用者打的網址, 如果 user 少打一段網址, 就會出現 warning, 這是不該發生的狀況。 另外, 應該經由 uri class 來存取參數會比較安全, 也許之後可以搭配一些 filter 之類的, 所以在 CI 1.6 強制(?) 使用第二個方式吧? 只是我還沒找到文件哪裡有寫到。(因為我放假了, 沒時間繼續看 XD)</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">tzangms</span></span>
+
+      
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-02-05T00:59:26+08:00" pubdate  data-updated="true" >Feb 5<span>th</span>, 2008</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/category/codeigniter/'>codeigniter</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tzangms.com/codeigniter/1075" data-via="tzangms" data-counturl="http://tzangms.com/codeigniter/1075" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+</div>
+
+    
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/stuff/blue-snowball">買了 Blue snowball</a>
+      </li>
+    
+      <li class="post">
+        <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
+      </li>
+    
+      <li class="post">
+        <a href="/webdesign/css-pivot">CSS Pivot</a>
+      </li>
+    
+      <li class="post">
+        <a href="/life/new-streetvoice-is-done">終於把 StreetVoice 改完了</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/tzangms">@tzangms</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'tzangms',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("tzangms", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/tzangms" class="twitter-follow-button" data-width="208px" data-show-count="true">Follow @tzangms</a>
+  
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2011 - tzangms -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+    (function () {
+      var disqus_shortname = 'tzangms';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tzangms.com/codeigniter/1075';
+        var disqus_url = 'http://tzangms.com/codeigniter/1075';
+        var disqus_script = 'embed.js'
+      
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-418467-7']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

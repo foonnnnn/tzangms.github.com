@@ -1,0 +1,651 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Oceanic / 人生海海</title>
+  <meta name="author" content="tzangms">
+
+  
+  <meta name="description" content="validation 超難用, 可是他的 ORM 超好用阿!!! 幹&#8230;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tzangms.com/page/33/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/tzangms" rel="alternate" title="Oceanic / 人生海海" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Oceanic / 人生海海</a></h1>
+  
+    <h2>這就是人生阿</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/tzangms" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tzangms.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1435">要先放棄 Kohana 了 Orz</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-08-21T21:47:12+08:00" pubdate  data-updated="true" >Aug 21<span>st</span>, 2008</time>
+        
+         | <a href="/programming/1435#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>validation 超難用, 可是他的 ORM 超好用阿!!! 幹&#8230;</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1423">設定 Kohana 透過 Gmail 發信</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-08-20T22:53:39+08:00" pubdate  data-updated="true" >Aug 20<span>th</span>, 2008</time>
+        
+         | <a href="/programming/1423#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>有了之前<a href="http://tzangms.com/codeigniter/1233">設定 CodeIgniter 透過 Gmail 發信</a>的經驗, 這次設定 <a href="http://kohanaphp.com">Kohana</a> 就快很多了 :p</p>
+
+<p>不過 <a href="http://codeigniter.com">CodeIgniter</a> 是 email library, 而 <a href="http://kohanaphp.com">Kohana</a> 則是 <a href="http://docs.kohanaphp.com/helpers/email">email helper</a> (實際上是使用 <a href="http://www.swiftmailer.org/">swift mailer</a>)。</p>
+
+<p>設定檔 /application/config/email.php</p>
+
+<pre>
+<code>$config['driver'] = 'smtp';
+$config['options'] = array(
+    'hostname' => 'smtp.gmail.com',
+    'username' => 'your_username',
+    'password' => 'your_password',
+    'port' => 465,
+    'encryption' => 'tls'
+);</code>
+</pre>
+
+
+<p>然後接著就可以用以下的 code 來發信啦!</p>
+
+<pre>
+<code>$to = 'foo@bar.com';
+$from = 'bar@foo.com';
+$subject = 'email subject';
+$message = 'Hello, World!';
+email::send($to, $from, $subject, $message);</code>
+</pre>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1414">The ORM Find_by_* Method Is Gone. (Kohana 2.2)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-08-20T00:05:43+08:00" pubdate  data-updated="true" >Aug 20<span>th</span>, 2008</time>
+        
+         | <a href="/programming/1414#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>According to <a href="http://forum.kohanaphp.com/comments.php?DiscussionID=876">this post</a> in the kohana forum, the find_by_* method of ORM is not avaliable since <a href="http://kohanaphp.com">Kohana</a> 2.2 because the performance issue.</p>
+
+<p>In the previous version, Kohana 2.1.2, I used before. I can use <strong>find_by_*()</strong> method like this:</p>
+
+<pre><code>$user = new User_Model();
+$user-&gt;find_by_username('tzangms');
+</code></pre>
+
+
+<p>But for now, in Kohana 2.2, we should use <strong>where()</strong> instead, if we want to find by username, not by id.</p>
+
+<pre><code>$user = new User_Model()
+$user-&gt;where('username', 'tzangms')-&gt;find();
+</code></pre>
+
+
+<p>damn, find_by_* is so intuitive.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/1411">Funky Girl</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-08-19T23:24:50+08:00" pubdate  data-updated="true" >Aug 19<span>th</span>, 2008</time>
+        
+         | <a href="/music/1411#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/9cqW-WU5Usk&hl=zh_TW&fs=1"></param><param name="allowFullScreen" value="true"></param><embed src="http://www.youtube.com/v/9cqW-WU5Usk&hl=zh_TW&fs=1" type="application/x-shockwave-flash" allowfullscreen="true" width="425" height="344"></embed></object>
+
+
+<p>最近這一陣子, 滿喜歡 funk 的, 當然我最喜歡彈 bass slap 阿 XD 而最近彈吉他真的很喜歡刷 funk 的感覺, 人老了果然是會變阿&#8230; 想想.. 以前最愛 metal 了阿, metallica, megadeth 跟 DT 等&#8230; (茶)</p>
+
+<p>這個是我們家遠在美國的吉他手小凱, 別名 GGG 傳來的影片, tone 真的好讚阿, 甜甜溫溫的, 我喜歡最一開始的片段 :p</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1403">Kohana 2.2 Session Problem (Filter Extension Needed)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-08-19T19:03:01+08:00" pubdate  data-updated="true" >Aug 19<span>th</span>, 2008</time>
+        
+         | <a href="/programming/1403#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I encountered a problem with <a href="http://kohanaphp.com">Kohana</a> session library last night, here is the error message below:</p>
+
+<blockquote>Use of undefined constant FILTER_FLAG_NO_PRIV_RANGE - assumed &#8216;FILTER_FLAG_NO_PRIV_RANGE&#8217;</blockquote>
+
+
+<p>It means that PHP has to enable <strong>filter</strong> extension. But the document doesn&#8217;t mention this at all.</p>
+
+<p>Anyway, I am recompiling PHP with USE=&#8217;filter&#8217;. Orz</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/1395">拾參 - 馬臉水手的夏天</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-08-17T23:51:04+08:00" pubdate  data-updated="true" >Aug 17<span>th</span>, 2008</time>
+        
+         | <a href="/music/1395#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2771025924/" title="100_3806 by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3069/2771025924_667ab1d9d4.jpg" width="500" height="375" alt="100_3806" /></a></p>
+
+<p>好久沒聽到拾參這個團的名字了, 一直在前一陣子, 聽到拾參在某些 Rock pub 開始又有活動了, 想想, 距離第一次聽到拾參的時候, 真的是隔了很久。 這次被找去參加拾參在海邊的卡夫卡舉辦的試聽會, 本來在猶豫要不要去, 不過想想似乎好久沒看樂團表演了, 也許是該時候接受點衝擊了吧!</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/music/1395">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/1390">Base Ball Bear - Electric Summer</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-08-17T13:38:46+08:00" pubdate  data-updated="true" >Aug 17<span>th</span>, 2008</time>
+        
+         | <a href="/music/1390#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><embed src="http://www.veoh.com/veohplayer.swf?permalinkId=v369802mbMXDSnz&id=anonymous&player=videodetailsembedded&affiliateId=&videoAutoPlay=0" allowFullScreen="true" width="540" height="438" bgcolor="#FFFFFF" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed><br/><a href="http://www.veoh.com/">Online Videos by Veoh.com</a>
+以前看到<a href="http://tw.myblog.yahoo.com/klairelee">李小克</a>在 <a href="http://twitter.com">twitter</a> 上推了 base ball bear 的 electric summer, 馬上就愛上了這首歌, 超好聽的阿!!</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/music/1390">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1386">SQL Buddy</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-08-17T12:23:02+08:00" pubdate  data-updated="true" >Aug 17<span>th</span>, 2008</time>
+        
+         | <a href="/programming/1386#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>前一陣子看到了 <a href="http://www.sqlbuddy.com/">SQL Buddy</a>, 真的很精簡方便, 所以就在我的主機上用 <a href="http://www.sqlbuddy.com/">SQL Buddy</a> 來取代 <a href="http://www.phpmyadmin.net">phpMyAdmin</a>, 因為根本不用設定, 即使要更新也非常方便, 下載回來解開就好了 :p (咳, 主要是我根本不會設定 phpMyAdmin 阿!!)</p>
+
+<p>然後最近也在開始幫 SQL Buddy 翻譯, 不過其實很懶, 我英文也不好, 所以有興趣的人, 去玩玩看 <a href="http://www.sqlbuddy.com/">SQL Buddy</a>, 我覺得很好用, 順便也到 <a href="http://www.sqlbuddy.com/translations/">這裡</a> 幫忙填一下繁體中文的翻譯吧 XD (不過這麼開放的翻譯方式, 不會被亂搞喔? )</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/1383">台灣對古巴</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-08-16T14:15:54+08:00" pubdate  data-updated="true" >Aug 16<span>th</span>, 2008</time>
+        
+         | <a href="/life/1383#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>打的不錯!! 其實昨天下午我就一直想著, 也許接下來都會打贏阿!! 因為~ 本來就沒有什麼是一定的.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/1381">其實我想要寫 Blog 內</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-08-14T01:07:21+08:00" pubdate  data-updated="true" >Aug 14<span>th</span>, 2008</time>
+        
+         | <a href="/blog/1381#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>可是我都沒時間</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <nav class="pagination">
+    <div>
+      
+        <a class="prev" href="/page/34/">&larr; Older</a>
+      
+      <a href="/blog/archives">Blog Archives</a>
+      
+      <a class="next" href="/page/32/">Newer &rarr;</a>
+      
+    </div>
+  </nav>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/stuff/blue-snowball">買了 Blue snowball</a>
+      </li>
+    
+      <li class="post">
+        <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
+      </li>
+    
+      <li class="post">
+        <a href="/webdesign/css-pivot">CSS Pivot</a>
+      </li>
+    
+      <li class="post">
+        <a href="/life/new-streetvoice-is-done">終於把 StreetVoice 改完了</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/tzangms">@tzangms</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'tzangms',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("tzangms", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/tzangms" class="twitter-follow-button" data-width="208px" data-show-count="true">Follow @tzangms</a>
+  
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2011 - tzangms -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+    (function () {
+      var disqus_shortname = 'tzangms';
+      
+        
+        var disqus_script = 'count.js'
+      
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-418467-7']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

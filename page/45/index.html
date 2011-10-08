@@ -1,0 +1,667 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Oceanic / 人生海海</title>
+  <meta name="author" content="tzangms">
+
+  
+  <meta name="description" content="前天禮拜四下班後, 就衝去北科大, 去幫 will 加油!">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tzangms.com/page/45/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/tzangms" rel="alternate" title="Oceanic / 人生海海" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Oceanic / 人生海海</a></h1>
+  
+    <h2>這就是人生阿</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/tzangms" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tzangms.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/1029">北科大赤弦獎</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-12-15T14:48:15+08:00" pubdate  data-updated="true" >Dec 15<span>th</span>, 2007</time>
+        
+         | <a href="/music/1029#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2108331179/" title="will &amp; 奕文 - 赤弦獎冠軍 by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2276/2108331179_8c13c146fa.jpg" width="500" height="375" alt="will &amp; 奕文 - 赤弦獎冠軍" /></a>
+前天禮拜四下班後, 就衝去北科大, 去幫 <a href="http://lliwwill.blogspot.com/">will</a> 加油!</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/music/1029">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/mac/1028">[Mac] 備份光碟為 Iso 檔</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-12-15T14:07:11+08:00" pubdate  data-updated="true" >Dec 15<span>th</span>, 2007</time>
+        
+         | <a href="/mac/1028#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天在裝 Garageband Jam pack 4 的時候, 安裝到一半, 安裝程式就跟我說光碟有損壞, 所以沒辦法直接從光碟裝, 拿出光碟一看, 原來是有刮傷之類的痕跡, 當時想到一個方法搞不好可以, 就是把光碟轉成 iso 再 mount 起來裝, 搞不好可以克服讀取不到的問題, 所以 google 一下, 找到了這一篇 「<a href="http://www.slashdotdash.net/articles/2006/08/14/create-iso-cd-dvd-image-with-mac-os-x-tiger-10-4">Create ISO CD/DVD image (.iso) with Mac OS X Tiger (10.4)</a>」</p>
+
+<p>ㄝ~ 我好像只看過 dd 這個指令 XD anyway, 反正都是用 command line 跑內建的指令, 真方便, 本來我還上 google 去找軟體, 好吧! 步驟如下:</p>
+
+<ol>
+<li>首先把光碟放進 Mac 然後在 terminal 打入下列指令 (看光碟機是哪一個 device, 我的 macbook 是 dev/disk1 )</li>
+</ol>
+
+
+<blockquote>drutil status</blockquote>
+
+
+<ol>
+<li>再來 unmount 光碟</li>
+</ol>
+
+
+<blockquote>diskutil unmountDisk /dev/disk1</blockquote>
+
+
+<ol>
+<li>開始讀光碟轉到 iso</li>
+</ol>
+
+
+<blockquote>dd if=/dev/disk1 of=file.iso bs=2048</blockquote>
+
+
+<p>基本上到這裡就可以離開 terminal 的操作了, 用 Finder 去開轉出來的 iso 檔, 可以 mount 起來, 就 ok 啦! &#8230;. 可是, 我還是打不開 Orz</p>
+
+<p>嗚~ 我的 Garageband Jam pack 4&#8230;.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/codeigniter/1026">Simplepie in CodeIgniter</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-12-08T21:49:35+08:00" pubdate  data-updated="true" >Dec 8<span>th</span>, 2007</time>
+        
+         | <a href="/codeigniter/1026#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://simplepie.org">simplepie</a>, 一個頗好用的 php rss parser library, 因為習慣用 CodeIgniter, 就用 CodeIgniter 的方式來寫一下。</p>
+
+<p>第一個步驟就是到 simplepie 的網站下載套件回來、解開, 然後放到 /system/application/library 裡, 把 simplepie.inc 重新命名成 simplepie.php, 接著就可以像下面這樣子用 (當然, 這是寫在 controller 裡)</p>
+
+<pre><code>$this->load->library('simplepie');
+$this->simplepie->set_feed_url('http://tzangms.com/feed');
+$this->simplepie->enable_cache(false);
+$this->simplepie->init();
+echo $this->simplepie->get_title();</code></pre>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/codeigniter/1026">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/1025">葛瑪蘭汽車客運</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-12-07T18:33:42+08:00" pubdate  data-updated="true" >Dec 7<span>th</span>, 2007</time>
+        
+         | <a href="/life/1025#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>由於上一篇&#8230; 所以我想坐看看葛瑪蘭客運&#8230; 可是感覺會塞車, 不過台北到羅東才 $136 內! 如果從台北坐自強號到蘇澳, 可是要 $27x, 差太多了, 而且常要用站的。</p>
+
+<p>hmm&#8230;有空要到宜蘭玩的, 可以參考一下 <a href="http://www.kamalan.com.tw/">葛瑪蘭汽車客運</a> 的網頁。</p>
+
+<p>[參考連結]</p>
+
+<p>hiroshi yui - 「<a href="http://ghostsinthelab.org/?p=804">葛瑪蘭客運首日</a>」</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/1002">台鐵&#8230; What the &#8230;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-12-06T22:49:30+08:00" pubdate  data-updated="true" >Dec 6<span>th</span>, 2007</time>
+        
+         | <a href="/life/1002#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2059076378/" title="台北東部幹線的次等台鐵列車 by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2384/2059076378_6522d287fc.jpg" width="500" height="375" alt="台北東部幹線的次等台鐵列車" /></a></p>
+
+<p>先前看了 <a href="http://ghostsinthelab.org">hiroshi yui</a> 大大的這篇文章「<a href="http://ghostsinthelab.org/?p=794">回去搭火車、搭火車回去</a>」心裡有些感想。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/life/1002">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/1023">PhoneParty 上線</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-12-03T21:19:22+08:00" pubdate  data-updated="true" >Dec 3<span>rd</span>, 2007</time>
+        
+         | <a href="/web/1023#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://pp.url.com.tw"><img src="http://farm3.static.flickr.com/2016/2073827502_b5e3db1401_o.gif" alt="" /></a>
+<a href="http://pp.url.com.tw">PhoneParty</a> 終於在上禮拜二開放測試了! 到目前為止一共花了 20 幾個工作天拼出來, 我真的是累翻了&#8230; Orz</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/web/1023">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/1022">L&#8217;Arc~en~Ciel - KISS</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-11-27T08:47:29+08:00" pubdate  data-updated="true" >Nov 27<span>th</span>, 2007</time>
+        
+         | <a href="/music/1022#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2066624105/" title="L'Arc~en~Ciel KISS by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2221/2066624105_4364b35012.jpg" width="500" height="445" alt="L'Arc~en~Ciel KISS" /></a>
+這是我買的彩虹第 11 張專輯吧!? 目前聽起來覺得還好, 不過通常 L&#8217;Arc~en~Ciel 的歌我都要聽過好一陣子才會覺得好聽, 但是&#8230; 好像自從 REAL 這張專輯開始, 曲風的走向我就不太喜歡, 該怎麼說? 應該是說沒了日本味? 嗯, 我喜歡早期的日本味。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/music/1022">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/1021">奉茶</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-11-26T21:52:16+08:00" pubdate  data-updated="true" >Nov 26<span>th</span>, 2007</time>
+        
+         | <a href="/life/1021#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2059132334/" title="奉茶 by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2015/2059132334_9ab21dee69_m.jpg" width="180" height="240" alt="奉茶" class='left' /></a> 我最近愛上奉茶的霜乳奶茶, 不愛 Starbucks 了!</p>
+
+<div style='clear:both'></div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/1012">收到從外國寄來的第一張明信片</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-11-24T12:54:21+08:00" pubdate  data-updated="true" >Nov 24<span>th</span>, 2007</time>
+        
+         | <a href="/life/1012#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/1919565567/" title="Photo Sharing"><img src="http://farm3.static.flickr.com/2209/1919565567_ddff273c2f.jpg" width="500" height="375" alt="postcard from annpo" /></a>
+積欠了<a href="http://blog.pixnet.net/annpo">阿潑</a>好久了的一篇文章, 這張明信片應該是 9 月底就寄到了我家裡, 但是其實我在 10 月底才回家, 才真的看到這張從北京寄來的明信片。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/life/1012">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/1018">I&#8217;m So Fucking Tired&#8230; Still</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-11-19T21:18:30+08:00" pubdate  data-updated="true" >Nov 19<span>th</span>, 2007</time>
+        
+         | <a href="/life/1018#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="http://farm3.static.flickr.com/2345/2047159396_2f5c7f7a84_o.jpg" alt="" /></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <nav class="pagination">
+    <div>
+      
+        <a class="prev" href="/page/46/">&larr; Older</a>
+      
+      <a href="/blog/archives">Blog Archives</a>
+      
+      <a class="next" href="/page/44/">Newer &rarr;</a>
+      
+    </div>
+  </nav>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/stuff/blue-snowball">買了 Blue snowball</a>
+      </li>
+    
+      <li class="post">
+        <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
+      </li>
+    
+      <li class="post">
+        <a href="/webdesign/css-pivot">CSS Pivot</a>
+      </li>
+    
+      <li class="post">
+        <a href="/life/new-streetvoice-is-done">終於把 StreetVoice 改完了</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/tzangms">@tzangms</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'tzangms',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("tzangms", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/tzangms" class="twitter-follow-button" data-width="208px" data-show-count="true">Follow @tzangms</a>
+  
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2011 - tzangms -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+    (function () {
+      var disqus_shortname = 'tzangms';
+      
+        
+        var disqus_script = 'count.js'
+      
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-418467-7']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

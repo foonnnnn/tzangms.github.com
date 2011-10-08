@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Oceanic / 人生海海]]></title>
+  <link href="http://tzangms.com/atom.xml" rel="self"/>
+  <link href="http://tzangms.com/"/>
+  <updated>2011-10-08T11:11:46+08:00</updated>
+  <id>http://tzangms.com/</id>
+  <author>
+    <name><![CDATA[tzangms]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[tumblr 開張 (tzang.ms)]]></title>
+    <link href="http://tzangms.com/blog/new-tumblr"/>
+    <updated>2011-06-08T20:25:00+08:00</updated>
+    <id>http://tzangms.com/blog/tumblr_開張_(tzang_ms)</id>
+    <content type="html"><![CDATA[<p>其實我後悔把 blog 從 wordpress 改成 <a href="http://www.blogofile.com/">blogofile</a> 了 XD 不過很多人說用 blogofile 才是真男人! 其實我忘記他們用英文說的實際句子是什麼了, 不過反正就是這個意思 XD</p>
+
+<p>anyway, 總之我前幾天跑去開了個 tumblr, 準備以後都在那邊寫, 因為真的太方便又簡單了阿!!! XD 本來想說把 tzangms.com 這個 domain 也轉過去, 反正 SEO 什麼的都是浮雲, 後來想到乾脆買一個新的 domain <a href="http://tzang.ms">tzang.ms</a>, 因為以前就很想買這個 domain。</p>
+
+<p>所以這個 blog 還是先放著, 也許搞不好之後我會回心轉意, 反正這個 blog 都搬到 s3 了, 沒太多花錢的問題才是(?)</p>
+
+<p>不覺得 <a href="http://tzang.ms">tzang.ms</a> 這個 domain 很帥嗎!?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[買了 Blue snowball]]></title>
+    <link href="http://tzangms.com/stuff/blue-snowball"/>
+    <updated>2011-05-17T12:10:00+08:00</updated>
+    <id>http://tzangms.com/stuff/買了_blue_snowball</id>
+    <content type="html"><![CDATA[<p>禮拜日晚上突然說應該來錄一些 tutorial 才對, 所以就想起了之前一直想買的 <a href="http://www.bluemic.com/snowball/">blue snowball</a>, 順便可以方便錄 Podcast, 不然距離上一集已經一年多了 XD</p>
+
+<p>所以就在 Y 拍上面開始找有沒有人在買的, 找到之後就馬上聯絡賣家, 想說能不能明天就帶回家 XD 沒想到賣家很快就回覆了, 而且還有現貨, 所以就直接約昨天下班的時候在昆陽捷運站面交, 超方便, 直接回家 XDDD</p>
+
+<p>而且令人驚訝的是, 賣家居然看過我的 blog!!! 而且賣家人超好 $3250 還算我 $3100, 揪甘心!! 難道有看過部落格有差嗎? (咦)</p>
+
+<p>後來跟這位賣家聊了好久, 音樂、程式的東西都聊, 除了他們的 Y 拍之外, 他們有一個 blog 叫 <a href="http://digilog.tw/">DigiLog</a> 也是介紹跟音樂相關的, 看了看之後比較多合成器、音源以及現在科技相關的, 有空可以去看看 XD</p>
+
+<p>最後用 <a href="http://en.wikipedia.org/wiki/John_Cale">john cale</a> 彈過的木吉他以及 snowball 錄一段 <a href="http://streetvoice.com/music/vocalwei/song/138249/">hush 的出竅</a></p>
+
+<object data="http://boos.audioboo.fm/swf/fullsize_player.swf" height="129" id="boo_embed_358292" type="application/x-shockwave-flash" width="400"><param name="movie" value="http://boos.audioboo.fm/swf/fullsize_player.swf" /><param name="scale" value="noscale" /><param name="salign" value="lt" /><param name="bgColor" value="#FFFFFF" /><param name="allowScriptAccess" value="always" /><param name="wmode" value="window" /><param name="FlashVars" value="mp3Author=tzangms&amp;mp3=http%3A%2F%2Faudioboo.fm%2Fboos%2F358292-blue-snowball.mp3%3Fsource%3Dembed&amp;mp3Title=blue+snowball+%E8%A9%A6%E9%8C%84&amp;mp3LinkURL=http%3A%2F%2Faudioboo.fm%2Fboos%2F358292-blue-snowball&amp;rootID=boo_embed_358292&amp;mp3Time=01.17pm+16+May+2011" /><a href="http://audioboo.fm/boos/358292-blue-snowball.mp3?source=embed">Listen!</a></object>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[關於 Django 1.3 的 staticfiles]]></title>
+    <link href="http://tzangms.com/programming/django-1.3-staticfiles"/>
+    <updated>2011-04-26T09:10:00+08:00</updated>
+    <id>http://tzangms.com/programming/關於_Django_1_3_的_staticfiles</id>
+    <content type="html"><![CDATA[<p><a href="http://docs.djangoproject.com/en/dev/releases/1.3/">Django 1.3</a> 也出來好一陣子, 都快過一個月了, 剛好這一陣子有幾個新的 project, 就直接用 Django 1.3 來開發, 對 <a href="http://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/">staticfiles</a> 跟 <a href="http://docs.djangoproject.com/en/dev/topics/class-based-views/">class-based views</a> 稍微熟了一些, 就來記一下。</p>
+
+<h2>原本的問題</h2>
+
+<p>在 Django 1.3 之前, 是透過 MEDIA_ROOT / MEDIA_URL 來設定靜態檔存放的位置跟存取的網址, 不過其實在 deploy 時會有個問題, 就是程式需要的 css / js 會進版本控制, 而使用者上傳的檔案則可能是放在另外的檔案系統, 但是 Django 1.3 之前只有一個 MEDIA_ROOT 的設定, 所以變成是兩種類型的檔案需要混在一起, 而先前我就直接用 soft link 來解決這件事, 可是感覺很不舒服 XD</p>
+
+<p>另外, 就是 Django 的建構是以 app 的方式, 所以可以很容易插進一個 third party 的 app 並開始運作, 幾乎沒有 code 會進到 VCS 裡, 不過當 app 有自己提供的靜態檔案時, 就得手動複製或是 link, 或者就是直接進 VCS 了。</p>
+
+<h2>staticfiles 解決的問題</h2>
+
+<p>Django 1.3 新增的 staticfiles 解決先前提到的幾個問題, 就是另外提供了另一個 STATIC_ROOT / STATIC_URL 用來放程式用的靜態檔, 而原本的 MEDIA_ROOT / MEDIA_URL 則存放使用者上傳的檔案, 這麼一來把兩種類型的靜態檔存放的地方切開, deploy 就方便多了, 只是&#8230; 原本有非常多的 MEDIA_URL 寫在大量的 templates 以及程式裡面, 要全部改成 STATIC_URL, 真的是要哭哭了 XDDD</p>
+
+<p>當然 staticfiles 不只是提供另一組設定而已, 還有幾個 command, 最主要就是 <a href="http://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#django-admin-collectstatic">collectstatic</a> 這個指令, 用來收集各個 app 自行提供的靜態檔到指定的資料夾, 便於發佈靜態檔。</p>
+
+<p>先前通常都是直接開一個 static 資料夾存放整個網站要用的靜態檔, 而 django admin 自行提供的靜態檔則是在 web server 另外指定路徑到 django/contrib/admin/media, 如果有其他 app 像是 <a href="https://bitbucket.org/izi/django-admin-tools/wiki/Home">django-admin-tools</a> 的話, 就得用複製或是 link 的方式處理, 挺麻煩的。</p>
+
+<p>不過現在透過 collectstatic 這個 command 就可以把所有的靜態檔一起收集到 STATIC_ROOT 指定的資料夾, 所以可以很方便的 deploy 到別處去。而現在 <a href="http://docs.djangoproject.com/en/dev/howto/static-files/#serving-static-files-from-a-dedicated-server">Django 的文件</a>也直接給了一個 fabric script 示範如何 deploy, 也有透過 <a href="https://bitbucket.org/david/django-storages/wiki/Home">django-storages</a> deploy 到 S3 的 section。</p>
+
+<p>有仔細看過文件的話, 就會知道現在 static 資料夾可以直接依附各個 app 下面, 要 deploy 時透過 collectstatic 來處理, 所以可以依附在各個 app 下面也解決了另一件事, 就是 javascript 的 locale 在 makemessages 的問題, 不過在這邊就不多談了, 應該用到的人也不是那麼多 XD</p>
+
+<h2>設定範例</h2>
+
+<p>以下是我用的設定檔對照, (以開發環境舉例)</p>
+
+<p>原本是</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c"># settings.py</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">os</span>
+</span><span class='line'><span class="n">ROOT_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
+</span><span class='line'><span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="s">&#39;/static/&#39;</span>
+</span><span class='line'><span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ROOT_PATH</span><span class="p">,</span> <span class="s">&#39;static&#39;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># urls.py</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
+</span><span class='line'><span class="k">if</span> <span class="n">settings</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span>
+</span><span class='line'>    <span class="n">urlpatterns</span> <span class="o">+=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="p">(</span><span class="s">r&#39;^static/(?P&lt;path&gt;.*)$&#39;</span><span class="p">,</span> <span class="s">&#39;django.views.static.serve&#39;</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">{</span><span class="s">&#39;document_root&#39;</span><span class="p">:</span> <span class="n">settings</span><span class="o">.</span><span class="n">MEDIA_ROOT</span><span class="p">}),</span>
+</span><span class='line'>    <span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>現在在 Django 1.3 變成是</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c"># settings.py</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">os</span>
+</span><span class='line'><span class="n">ROOT_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># 使用者上傳的檔案存放點</span>
+</span><span class='line'><span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ROOT_PATH</span><span class="p">,</span> <span class="s">&#39;../media&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="s">&#39;/media/&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># collectstatic 指令收集靜態檔後所存放的地方</span>
+</span><span class='line'><span class="n">STATIC_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ROOT_PATH</span><span class="p">,</span> <span class="s">&#39;../asset&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="n">STATIC_URL</span> <span class="o">=</span> <span class="s">&#39;/asset/&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># 存放原本的 css / js</span>
+</span><span class='line'><span class="n">STATICFILES_DIRS</span> <span class="o">=</span> <span class="p">(</span>
+</span><span class='line'>    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ROOT_PATH</span><span class="p">,</span> <span class="s">&#39;static&#39;</span><span class="p">),</span>
+</span><span class='line'><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># urls.py</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">django.contrib.staticfiles.urls</span> <span class="kn">import</span> <span class="n">staticfiles_urlpatterns</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="n">settings</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span>
+</span><span class='line'>    <span class="n">urlpatterns</span> <span class="o">+=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="p">(</span><span class="s">r&#39;^media/(?P&lt;path&gt;.*)$&#39;</span><span class="p">,</span> <span class="s">&#39;django.views.static.serve&#39;</span><span class="p">,</span>
+</span><span class='line'>            <span class="p">{</span><span class="s">&#39;document_root&#39;</span><span class="p">:</span> <span class="n">settings</span><span class="o">.</span><span class="n">MEDIA_ROOT</span><span class="p">}),</span>
+</span><span class='line'>    <span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># serve static files when DEBUG = True</span>
+</span><span class='line'><span class="n">urlpatterns</span> <span class="o">+=</span> <span class="n">staticfiles_urlpatterns</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>真的是越來越複雜了&#8230; 其實我研究了好久才完全搞懂 Django 1.3 的 staticfiles 要怎麼配置, 不過&#8230; 怎麼還是沒有自動加 version number 的功能阿 &#8230;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[CSS Pivot]]></title>
+    <link href="http://tzangms.com/webdesign/css-pivot"/>
+    <updated>2011-04-26T01:13:00+08:00</updated>
+    <id>http://tzangms.com/webdesign/CSS_Pivot</id>
+    <content type="html"><![CDATA[<p><a href="http://www.csspivot.com/">CSS Pivot</a> 還滿方便的一個服務, 輸入網址後可以自己加上 custom css, 接著儲存可以拿到一個短網址, 然後 share 出去, 或許遠端討論可以這麼玩?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[終於把 StreetVoice 改完了]]></title>
+    <link href="http://tzangms.com/life/new-streetvoice-is-done"/>
+    <updated>2011-04-18T22:13:00+08:00</updated>
+    <id>http://tzangms.com/life/終於把_StreetVoice_改完了</id>
+    <content type="html"><![CDATA[<p>其實 StreetVoice 改版完成也快一個月了, 兩年就這樣過去了, 本來是預估一年半就可以改完的, 不過其實這中間跑去支援金X獎、簡單生活節、文X會的案子、種花電信的案子, context switch 挺嚴重的, 所以導致 StreetVoice 改版完成時間一延就延了半年。</p>
+
+<p>所以現在改版完了, 最近就是在 refactor, 還有處理很多以前留下來所謂的堪用就好的功能。</p>
+
+<p>原本我進來的角色很尷尬, 什麼東西也都要不到, 然後主要的工作就是把 ASP/MSSQL 整個砍掉重練, 本來進來是要用 PHP, 不過後來我決定用 Python/Django, 當然這是個危險的決定, 我當時幾乎還不會 Python, 不過由於對於 PHP 未來感到無望, 所以才決定跳到 Python。 當然現在很慶幸當初做了這個決定, 否則我早就累死了。</p>
+
+<p>[以下省略幾千字&#8230;]</p>
+
+<p>所以我前一陣子受不了了, 跟老闆提了辭職, 開始找新工作, 準備在 StreetVoice 改版完後就離職。 所幸有幾個工作找上門來, 推掉了幾個, 談了幾個, 有幾個工作都好想去, 感覺他們都好聰明, 而且很熱血!</p>
+
+<p>不過&#8230; 最後我還是被說服留了下來了。這中間當然也想了很多東西, 而過程&#8230; 就之後有機會再說吧 &#8230;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[最近超愛的一首歌, hush 的天文特徵]]></title>
+    <link href="http://tzangms.com/music/hush-astronomy-features"/>
+    <updated>2011-04-14T23:10:00+08:00</updated>
+    <id>http://tzangms.com/music/最近超愛的一首歌,_hush_的天文特徵</id>
+    <content type="html"><![CDATA[<p><embed src="http://tw.streetvoice.com/static/player/MusicPlayer.swf?srv=tw.streetvoice.com&ph=music&getv=config&skinID=6&au=126254&listtype=1&listsd=8487&autoStart=false&autoPlay=false&isEmbed=true&jsPlayer=false" allowFullScreen="false" allowScriptAccess="always" scale="noscale" type="application/x-shockwave-flash" width="330" height="100"></embed></p>
+
+<p>幾個月前, 聽到同事在談論著 <a href="http://tw.streetvoice.com/vocalwei/">Hush</a>, 所以當時就隨便挑了一首 Hush 的歌來聽, 樂器只有簡單的木吉他, 聽沒多久就因為工作繁忙就切掉, 沒繼續聽下去, 當時就這麼略過了 Hush 的歌曲, 錯過那個在數月後令我眼眶泛淚的沙啞嗓音。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[部落格轉換為 blogofile]]></title>
+    <link href="http://tzangms.com/blog/blogofile"/>
+    <updated>2011-04-13T23:29:00+08:00</updated>
+    <id>http://tzangms.com/blog/部落格轉換為_blogofile</id>
+    <content type="html"><![CDATA[<p>由於收到了 <a href="http://www.webfaction.com">webfaction</a> 來的繳費通知, 剛好最近一直覺得花好多錢在主機費上面, 所以打算不續約了, 除了 twitthat 跟 stickeraction 之外, 儘管 myaudiocast 的流量費用有 pixnet 提供 cdn 支援, 可是現在 myaudiocast 的流量幾乎每天都超過 200G, 而 s3 費用也幾乎都每個月都燒掉我 30 ~ 40 塊美金 &#8230;</p>
+
+<p>所以想說應該要來減少這方面的金錢的支出, 可以減少就盡量減少, 至少拿掉 webfaction, 一年可以省下 3000 多塊台幣, 反正 blog 也不是那麼常動來動去的, 所以就乾脆換成 <a href="http://www.blogofile.com">blogofile</a>, 全部產生靜態檔然後丟上 s3, 這樣就省很多了 XD 不過昨天 @othree 說放在 github 更省錢 XD</p>
+
+<p>所以上週日花了一些時間在轉換, 先把 comments 從 wordpress 匯到 disqus, 然後修改一下 <a href="http://www.blogofile.com/documentation/migrating_blogs.html#wordpress">blogofile 提供的轉換 script</a> 讓 disqus 可以正常運作, 也避免 SEO 整個下降, 至少文章的網址都維持原樣。 現在終於順利轉換丟上了 s3, 原本的 comments 也都在, 部落格的 theme 也保留了下來, 不過還有很多東西要補的就是了。</p>
+
+<p>另外, 想直接換為 blogofile 還有一個原因就是因為他支援 markdown, 最近因為 @othree 在推 markdown, 想說順便練習一下, 不過一直太忙, 還沒太多時間深入研究, 不過 @othree 的 <a href="http://markdown.tw">markdown.tw</a> 也都已經推出了 XD 有興趣的可以去看一下 :p</p>
+
+<p>距離上一篇發文已經超過一個月了, 最近真的是好忙阿&#8230;.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[第二份工作滿兩年了]]></title>
+    <link href="http://tzangms.com/life/2847"/>
+    <updated>2011-03-07T23:32:41+08:00</updated>
+    <id>http://tzangms.com/life/第二份工作滿兩年了</id>
+    <content type="html"><![CDATA[<p>時間過好快, 第二份工作好快就滿兩年了, 想想寫程式也 4 年多了, 但是這份工作跟上一份工作差別最大的就是, 從網路產業跑到文化產業, 從原本有主管罩到沒有人罩。 而後來也不小心當了主管, 從原本沒有任何制度開始慢慢建立, 然後多了許多向外溝通的工作, 而後來都是在處理大量跟人相關的問題, 不像是以前只要專心寫 code 就好了, 所以覺得好忙碌。</p>
+
+<p>畢竟開始認真寫程式也才 4 年多, 而這份工作又從 php 轉到 python, 就好像把功力突然就廢掉了一般, 得重新學習, 而由於網路技術快速的更新, 所以下班得一直看書跟研究新的技術。 現在則是又因為當了主管, 就另外看起了關於技術管理相關的書籍, 像是因為有 programmer 是在北京, 所以看起了 <a href="http://www.amazon.com/Virtual-Team-Success-Practical-Distance/dp/0470532963">Virtual team success</a>,  以及 @xdite 推薦的 <a href="http://pragprog.com/titles/prj/ship-it">Ship it!</a> 以及 <a href="http://oreilly.com/catalog/9780596517717">Make things happen</a>, 真是忙呀 (茶)。</p>
+
+<p>雖然在這份工作的期間, 我時常在推特上嚷嚷著說我要辭職, 沒想到我還真撐過了兩年, 我覺得我自己真是夠會撐的了 (笑)</p>
+
+<p>不過這份工作也讓我學到了許多東西, 因為沒有人罩, 沒有人幫忙, 得自己處理掉許多事情, 所以也感覺自己成長了一些, 在思想上似乎也有進步許多。 當然免不了, 我還是覺得我跟小孩子一樣, 染了頭金髮, 還是想組個團嘶吼的唱著搖滾歌曲。</p>
+
+<p>兩年過了, 當初進來把 asp 砍掉, 用 python 重練都還沒練完, 應該這個月底可以結束, 似乎改版完之後, 一切就應該海闊天空了才對, 不過對我來說, 仍是前途渺茫啊~ 不過還能撐多久呢? who knows?</p>
+
+<p>總之還是得繼續學習繼續努力啊~</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Lifestream]]></title>
+    <link href="http://tzangms.com/stuff/2846"/>
+    <updated>2011-03-07T22:34:25+08:00</updated>
+    <id>http://tzangms.com/stuff/lifestream</id>
+    <content type="html"><![CDATA[<p>想做這個 <a href="http://lifestream.ep.io/">Lifestream</a> 已經很久了, 不過其實先前就做了一個<a href="http://tzangms.com/stuff/2751">小玩具</a>, 用來記錄我的 twitter、plurk 跟 facebook 的訊息, 不過由於當初設計的方向只是方便自己以後查詢跟記錄, 後來因為 GAE 的關係也沒公開 ( 因為即便沒有公開, 前一陣子都已經開始跟我收錢了 &#8230; )</p>
+
+<p>其實因為服務開太多, 錢燒太兇, 所以開始在想一些省錢的方式, 所以這次就用了 <a href="http://ep.io/">ep.io</a> 跑 <a href="http://flask.pocoo.org/">flask</a>, 然後用 <a href="http://aws.amazon.com/simpledb/">simpledb</a> 來存放資料。 我想 ep.io 那應該是都不會被 charge 到才對, 而 simpledb 則是每個月的前 1GB 的資料存放是免費的 &#8230; 不知道有沒有理解錯誤? XD</p>
+
+<p>目前只有 twitter 跟我自己的 blog, 之後再來加上 plurk 跟 facebook, 最好還有 github 跟 bitbucket 的 commit, 這樣聽起來挺不錯的 XD</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Lettuce - Behaviour-driven development]]></title>
+    <link href="http://tzangms.com/programming/2837"/>
+    <updated>2011-03-05T00:29:08+08:00</updated>
+    <id>http://tzangms.com/programming/lettuce__behaviourdriven_development</id>
+    <content type="html"><![CDATA[<p>前幾天看到 <a href="http://lettuce.it/">Lettuce</a> 覺得挺有趣的, 昨天一玩就玩了兩個小時, 玩到半夜兩點 &#8230;</p>
+
+<p>沒想到我連做夢都在寫 test case, 然後一直到醒來腦袋還一直在想 unit test  &#8230; 然後就乾脆爬了起來, 一直到天亮才爬回去睡, 結果今天真是累死了 Orz</p>
+
+<p>lettuce 有趣的地方是他的 feature 語法跟 steps, 我覺得真的挺有趣的, 甚至寫法文也行 XD</p>
+
+<p>feature 像是下面這樣寫</p>
+
+<pre><code>Feature: Manipulate strings
+  In order to have some fun
+  As a programming beginner
+  I want to manipulate strings
+
+  Scenario: Uppercased strings
+    Given I have the string "lettuce leaves"
+    When I put it in upper case
+    Then I see the string is "LETTUCE LEAVES"</code></pre>
+
+
+<p>然後 step 像是這樣</p>
+
+<pre><code>>>> from lettuce import *
+>>> @step('I have the string "(.*)"')
+... def have_the_string(step, string):
+...     world.string = string
+...
+>>> @step('I put it in upper case')
+... def put_it_in_upper(step):
+...     world.string = world.string.upper()
+...
+>>> @step('I see the string is "(.*)"')
+... def see_the_string_is(step, expected):
+...     assert world.string == expected, \
+...         "Got %s" % world.string</code></pre>
+
+
+<p>真是超有趣的!!</p>
+
+<p>話說 lettuce 的文件中有用到 <a href="http://lxml.de/">lxml</a>, 好像挺不錯用的, 找時間來研究一下。</p>
+
+<p>另外經過推友補充還有 <a href="https://github.com/rlisagor/freshen">Freshen</a> 跟 <a href="https://github.com/heynemann/pyccuracy">Pyccuracy</a> 都是 BDD 的工具。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[感謝身邊的幾位貴人]]></title>
+    <link href="http://tzangms.com/life/2835"/>
+    <updated>2011-03-03T00:57:56+08:00</updated>
+    <id>http://tzangms.com/life/感謝身邊的幾位貴人</id>
+    <content type="html"><![CDATA[<p>最近發現身邊有幾位貴人, 特別是公司同事。 大家知道我個性特別易怒, 為了讓我提昇向上, 成為一個更好的人, 所以一直在訓練著我的耐性。  常常在事情發生的當下, 我一衝動就生氣了, 往往在事後回想才發現, 原來這是同事為了要讓我在這個社會生存下去, 為了要讓我知道這社會的險惡, 讓我可以度過往後漫長人生道路上的種種難關, 才會這麼對我、訓練我的。</p>
+
+<p>可說是我太不知感恩了, 還在網路上大喊大叫的, 甚至氣到快發抖, 現在想想, 我真是太不應該。</p>
+
+<p>人生路途漫長, 出社會工作才 4 年多, 不知江湖險惡, 所以能夠碰到這幾位貴人, 受他們的幫助, 真可說是受益良多, 獲益匪淺。 否則之後碰上類似的事情, 我也會一樣很難挨, 或是根本無法處理。</p>
+
+<p>同事訓練我、教導我, 我想今後我只得更加努力, 培養自己良好的性格, 辨識是非險惡, 練就委婉、從容不迫的態度, 以及婉轉的口才。</p>
+
+<p>我想唯有這樣, 才能對得起這些待我不薄的貴人, 不辜負他們的一番苦心。</p>
+
+<p>對我身邊的貴人們, 除了感謝之外, 也就只有感謝了 &#8230;</p>
+
+<p>無上的敬意</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Djangy 要收攤了]]></title>
+    <link href="http://tzangms.com/programming/2832"/>
+    <updated>2011-02-28T11:29:45+08:00</updated>
+    <id>http://tzangms.com/programming/djangy_要收攤了</id>
+    <content type="html"><![CDATA[<p>不久前寫的一篇 <a href="http://tzangms.com/programming/2807">python 的 heroku</a> , 沒想到今天早上一邊在看奧斯卡的同時, 看到 twitter 上 @dlackty  推了這一篇 <a href="http://blog.djangy.com/2011/02/27/final-djangy-newsletter/">Final Djangy Newsletter</a>, 居然 Djangy 開張沒有多久就要收了 &#8230;</p>
+
+<p>本來還想說 GAE 效能實在是不太好, 以後都用 Djangy 來試一些實驗性質的東西說&#8230; (默)</p>
+
+<p>Anyway, 除了 Djangy 之外還有許多其他可以用, 可以參考一下這一篇 <a href="http://blog.dscpl.com.au/2011/01/awesome-year-for-python-web-hosting.html">An awesome year for Python web hosting</a>, 還有好幾個其他類似的服務, 我想我只好先看看 <a href="http://ep.io/">ep.io</a> 好了 &#8230;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[iPhone Programming: The Big Nerd Ranch Guide]]></title>
+    <link href="http://tzangms.com/programming/2828"/>
+    <updated>2011-02-27T20:44:43+08:00</updated>
+    <id>http://tzangms.com/programming/iphone_programming_the_big_nerd_ranch_guide</id>
+    <content type="html"><![CDATA[<p><a href="http://www.bignerdranch.com/book/iphone_programming_the_big_nerd_ranch_guide"><img src="http://tzangms.com/wp-content/uploads/2011/02/41Msd4GFq5L-223x300.jpg" alt="" title="41Msd4GFq5L" width="223" height="300" class="size-medium wp-image-2829" /></a></p>
+
+<p>其實去年年底因為 <a href="http://www.peko.idv.tw/">OOBE</a> 的推薦, 就看過一遍這本書了, 不過當時即便看完了這本書, 對整個 iPhone programming 很是很模糊, 一直到今年一月底因為農曆過年, 在家沒事就又拿起 iPad 再重新看一遍, 這次終於搞懂了 delegate 這件事, 簡直就像打通了任督二脈阿! XD</p>
+
+<p>不過 iOS 開發之路對我來說還很漫長, 倒是這本書還滿值得推薦的。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[GoSquared: 超即時的 livestats]]></title>
+    <link href="http://tzangms.com/web/2825"/>
+    <updated>2011-02-20T19:33:30+08:00</updated>
+    <id>http://tzangms.com/web/gosquared_超即時的_livestats</id>
+    <content type="html"><![CDATA[<p><a href="http://www.gosquared.com/livestats/?ref=6776"><img src="http://tzangms.com/wp-content/uploads/2011/02/livestats_screenshot_05_inbrowser_672x444-500x296.png" alt="" title="livestats_screenshot_05_inbrowser_672x444" width="500" height="296" class="alignleft size-large wp-image-2827" /></a>
+今天才發現 <a href="http://www.gosquared.com/livestats/?ref=6776">GoSquared</a> 這個網站, 一整個比 getclicky 強太多了阿!!!! 介面未免也太即時了吧!! 一看到馬上就註冊了免費帳號來玩, 還滿好玩的ㄝ XD 一定要玩看看阿!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Bleach - An easy, HTML5, whitelisting HTML sanitizer.]]></title>
+    <link href="http://tzangms.com/programming/2824"/>
+    <updated>2011-02-20T13:26:25+08:00</updated>
+    <id>http://tzangms.com/programming/bleach__an_easy_html5_whitelisting_html_sanitizer_</id>
+    <content type="html"><![CDATA[<p><a href="https://github.com/jsocol/bleach">Bleach</a>, 不是 <a href="http://zh.wikipedia.org/wiki/黑崎一護">黑崎一護</a> 那個 bleach XD</p>
+
+<p>前一陣子不知道什麼原因, 有人把 delicious feed 送到 django planet, 所以 django planet 就爆炸了, 今天努力的在清 rss, 突然又找到了 bleach, 這個先前遺忘了的 html sanitize 工具。 而目前 mozilla 的 <a href="http://addons.mozilla.org/">addons</a> 跟 <a href="http://support.mozilla.com">support</a> 也都用了 bleach。 有人還不知道 mozilla 的 addons 跟 support 都換成 django 了嗎?</p>
+
+<p>然後因為最近 SV 終於快改版完了, 最後一個部分就是 user 頁面跟自定版型 / css 以及所謂的自定欄位。 又由於先前的 developer 完全不懂 xss 這件事, 任何 javascript 也都沒有檔, 所以有點頭痛, 所以想說來試試看 bleach 如何。</p>
+
+<p>看看 <a href="https://github.com/jsocol/bleach/blob/master/bleach/tests/test_security.py">bleach 的 test case</a> 應該就會滿清楚的了。</p>
+
+<p>而 django 的 user 可以參考一下這的 <a href="https://bitbucket.org/bkmontgomery/django-janitor/src">django-janitor</a></p>
+
+<p>倒是 &#8230; 藍染雖然死了, 可是「最後的月牙天衝」未免也太弱了吧 &#8230;.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[新玩具: instawall]]></title>
+    <link href="http://tzangms.com/programming/2823"/>
+    <updated>2011-02-20T00:15:25+08:00</updated>
+    <id>http://tzangms.com/programming/新玩具_instawall</id>
+    <content type="html"><![CDATA[<p><a href="http://instawall.djangy.com">http://instawall.djangy.com</a></p>
+
+<p>星期六早上收到了先前 <a href="http://instagr.am/">instagram</a> 發來的 api developer 啟用信, 就開始玩了起來。目前把 自己的照片 / 朋友的照片 / following / follower / popular / like / comments / 加好友 等功能都做上去了。</p>
+
+<p>所以現在可以直接從網頁上按 like 跟留言了, 不過加好友的部分 api 好像有點問題, api 回應正常, 不過好友就是加不上, 然後沒時間弄 UI, 所以很醜 XD</p>
+
+<p>然後想說順便測一下 <a href="https://www.djangy.com/">djangy</a> 跑起來如何,  就把 instawall deploy 到 djangy 上去了, 跑看看如何, 目前 djangy 用起來挺順的, 透過 git deploy 實在是很方便。</p>
+
+<p>不過寫到下午 3 ~ 4 點的時候, 突然覺得寫小玩具好浪費時間, 因為最近有很多書要讀, 似乎看書還比較符合成本效益 ~&#8221;~ 所以 &#8230; 就先擺著了, 反正就花幾個小時而已, 就當是測試吧!</p>
+
+<p>不過有一點心得, 本來是想做成 map 的, 沒想到撈了一下 popular, 居然一百張裡面只有兩張有 geo 資料 &#8230;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Requests: Python HTTP Module (That Doesn’t Suck)]]></title>
+    <link href="http://tzangms.com/programming/2821"/>
+    <updated>2011-02-19T23:52:00+08:00</updated>
+    <id>http://tzangms.com/programming/requests_python_http_module_(that_doesn’t_suck)</id>
+    <content type="html"><![CDATA[<p><a href="http://kennethreitz.com/blog/introducing-requests/">Requests: Python HTTP Module (That Doesn’t Suck)</a></p>
+
+<p>一直都還滿喜歡 appengine urlfetch 的 api interface, Requests 就還滿像的, 感覺找到了好物, 獲得救贖的感覺 XD</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Django 發佈安全性更新 2/8]]></title>
+    <link href="http://tzangms.com/programming/2818"/>
+    <updated>2011-02-14T00:36:06+08:00</updated>
+    <id>http://tzangms.com/programming/django_發佈安全性更新_28</id>
+    <content type="html"><![CDATA[<p>這篇也 delay 了好多天, 在 2/8 <a href="http://www.djangoproject.com/weblog/2011/feb/08/security/">Django 發佈了安全性更新</a>, 主要是針對 <a href="http://en.wikipedia.org/wiki/Cross-site_request_forgery">CSRF</a> 這件事。</p>
+
+<p>如果有用 Django 1.2 的人就一定知道 csrf 這個東西, 畢竟 Django 1.2 預設開啟了 csrf, csrf 簡單來說就是防止假造的 POST request, 不過其實 csrf 並沒有對 XMLHttpRequest 的 POST 做處理, 畢竟瀏覽器限制 XMLHttpRequest 得在同一個 domain 跟 protocol。</p>
+
+<p>不過在文中提到, 現在攻擊者可以透過瀏覽器外掛跟 redirect (?) 來利用 XMLHttpRequest 跨過 csrf 保護, 所以 <a href="http://weblog.rubyonrails.org/2011/2/8/csrf-protection-bypass-in-ruby-on-rails">Rails 在同一天也發佈了 patch</a>, 用以防止 XMLHttpRequest 的 csrf。</p>
+
+<p>不過其實這有點頭痛, 每個 Ajax POST request 都要加 csrf token 上去, 我的媽呀 &#8230;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Django 1.3 繁體中文翻譯人員徵求]]></title>
+    <link href="http://tzangms.com/django/2817"/>
+    <updated>2011-02-14T00:13:07+08:00</updated>
+    <id>http://tzangms.com/django/django_1_3_繁體中文翻譯人員徵求</id>
+    <content type="html"><![CDATA[<p>前一陣子 Django 把 locale 翻譯的工作丟上了 <a href="http://www.transifex.net/projects/p/django/">transifex</a>, 上禮拜剛註冊完 transifex 的帳號後, 想說要來翻譯一下的, 回到 twitter 剛好看到 @jezdez 在徵 coordinator, 當中包含了 zh-TW tream, 所以就直接跟他說我可以幫忙, 下一個 reply 他就幫我加好了 coordinator。</p>
+
+<p>接下來幾天把 django core 翻到了 91%, 不過後來最近真的因為公事繁忙, 所以沒能持續翻下去, 都只能抽時間來翻, 不過 Django 1.3 在這個月 21 號就要 final release 了, 所以得找人來幫忙一下, 其實我早該貼這篇文了, 只是最近真的粉忙 ~&#8221;~</p>
+
+<p>不過除了找人一起幫忙翻之外, 其實在翻譯的時候, 我想還是需要有人可以討論一下一些用字遣詞的部份, 所以徵求一下 Django zh-TW locale 的翻譯人員~ 註冊一下 transifex 後跟我說一聲吧!</p>
+
+<p>題外話, 當然依照以往 Django release 的慣例, 總是會 delay 的 (笑)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[myaudiocast 滿週歲]]></title>
+    <link href="http://tzangms.com/life/2813"/>
+    <updated>2011-01-31T00:33:51+08:00</updated>
+    <id>http://tzangms.com/life/myaudiocast_滿週歲</id>
+    <content type="html"><![CDATA[<p>因為上禮拜收到了 godaddy 寄來的通知信, 才發現 <a href="http://www.myaudiocast.com/">myaudiocast</a> 即將滿一年了。 myaudiocast 算是我第一個正式 AppEngine project, 開發過程中讓我對 AppEngine 的 DataStore 不管是在規劃還是效能上有比較全盤的了解。</p>
+
+<p>來說說目前營運的狀況吧, 從最早開站沒幾個節目到現在, 已經有 201 個有上傳節目的 Podcast, 48個 Podcast 上了 iTunes Store, 而目前每天的流量差不多是 120G, 先前最高到 175G, 不過其實 pageview 挺少的 (笑), 大部分還是透過 iTunes 自動下載。 在這邊要感謝 <a href="http://www.pixnet.net/">pixnet</a> 提供 CDN 的支援, 不然我錢就燒光光惹 XD</p>
+
+<p>也不知道為啥, 最近其實多了好多中國的 Podcast, 而且超熱門, 像是<a href="http://www.myaudiocast.com/sanjiaolong/">三角龙电台</a> 這個 Podcast, 訂閱人數就有 400 多, 流量吃超兇。</p>
+
+<p>從 myaudiocast 營運到現在讓我聽了好多 Podcast, 特別是 「<a href="http://www.myaudiocast.com/bbbmess/">薛倫小電台</a>」、「<a href="http://www.myaudiocast.com/joho247/">糾好電台</a>」、「<a href="http://www.myaudiocast.com/21man/">船到橋頭自然沉</a>」 &#8230; 等等, 伴我度過許多上班時間, 希望各位電台的主持人能夠繼續下去阿! ( 雖然做 Podcast 很難持之以恆, 像是我就是一個很好的範例 ) (笑)</p>
+
+<p>由於最近工作真的太忙, 其實已經好多集的 Podcast 都沒時間聽了, anyway, 就祝 myaudiocast 生日快樂吧! 等哪天成長到一天 1T 流量的話, 就可以來開慶功宴了, 喔頁!</p>
+]]></content>
+  </entry>
+  
+</feed>
