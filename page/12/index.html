@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="MyAudioCast 現在會產生 100% 符合 iTunes Podcast 的 RSS Feed ( 好啦 98% ), 所以現在只要在上傳節目後, 把必要的 Podcast 資訊填上, 就可以依照 MyAudioCast 管理後台的發佈指示發送到 Podcast, 接著就等 apple...">
+  <meta name="description" content="廣告一下表演活動 2010 The Next Big Thing, 基本上我是覺得這個影片跟音樂弄的還不錯, 另外, 這場表演的樂團大部分我也都滿喜歡的, 所以來推一下。這場表演的樂團有我之前寫過的 The Girl &amp; The Robots, 然後還有 Mary See The Fu...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -60,291 +60,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/myaudiocast/2559">MyAudioCast 發佈 Podcast 到 iTunes Store</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-02-10T23:26:21+08:00" pubdate  data-updated="true" >Feb 10<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.myaudiocast.com/">MyAudioCast</a> 現在會產生 100% 符合 iTunes Podcast 的 RSS Feed ( 好啦 98% ), 所以現在只要在上傳節目後, 把必要的 Podcast 資訊填上, 就可以依照 <a href="http://www.myaudiocast.com/">MyAudioCast</a> 管理後台的發佈指示發送到 Podcast, 接著就等 apple 的回信說你通過囉! :D</p>
-
-<p>之後就看到像可以上面那張圖, 在 iTunes Store ( US ) 看到你的 Podcast 出現。 沒錯, 就是 US, 沒有 TW 這回事 XD</p>
-
-<p>其實沒啥, 可是感覺很不賴 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2558">在 App Engine 上用 Urlfetch 解短網址</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-02-08T00:53:08+08:00" pubdate  data-updated="true" >Feb 8<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>昨天在寫一個程式, 功能是在把 twitter 上帶有 mp3 連結的訊息, 轉成 podcast 好讓我可以用 iTunes 訂閱, 自動下載 XD 推特那一段就直接用了 <a href="http://search.twitter.com/">twitter search</a> 產生的 json, 然後 mp3 的連結都是 tinyurl 產生的短網址, 直覺我就透過了 <a href="http://longurl.org/">longurl</a> 的 api 來回復短網址。</p>
-
-<p>誰知道 <a href="http://longurl.org/api">longurl api</a> 常 request 失敗, 也許可能是因為連續的 request 造成的。後來就突然想到了, 反正 header 都會帶有轉址的原網址吧, 所以就用 <a href="http://code.google.com/intl/zh-TW/appengine/docs/python/urlfetch/">urlfetch</a> 單純只抓 header, 然後 parse header 抓出來正常的網址就好啦~ 誰知道看了一下 urlfetch 的文件有居然 final_url 這個 method, 噗, 結果解短網址就變得超簡單。</p>
-
-<pre><code>result = urlfetch.fetch(tinyurl, method=urlfetch.HEAD)
-if result.status_code == 200:
-    url = result.final_url
-</code></pre>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2557">App Engine 405 Method Not Allowed</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-02-07T19:54:21+08:00" pubdate  data-updated="true" >Feb 7<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>不太清楚為何<a href="http://code.google.com/intl/zh-TW/appengine/docs/python/tools/webapp/">webapp</a> 為何沒有 implement HEAD method, 所以一開始在 <a href="http://myaudiocast.appspot.com/">MyAudioCast</a> 的 DashBoard 就常看到一些錯誤, 多是一些 <a href="http://en.wikipedia.org/wiki/Web_crawler">web crawler</a>, 但卻都是 405 Method Not Allowed 的錯誤訊息, 用 curl -I 來測也是得到相同的回應, 本來不以為意, 後來為了要讓 MyAudioCast 上面的 Podcast 可以 submit 到 iTunes store, 卻也得到 405 的錯誤訊息, 無法 submit, 才覺得這事情有點大條 XD</p>
-
-<p>google 之後找到一篇寫到說, 用 app engine 開發的網站無法 digg, 就是因為 405 這個問題, 因為要新增網址到 digg 的時候 digg 會用 HEAD method 來確認網頁是存在的, 所以說先前 Dashboard 上看到的 web crawler 也會先用 HEAD 來檢查網頁是否存在, 這麼一來只要是 HEAD method 都回 405 Method Not Allowed 的話, 那機器人不就都不來了嗎?</p>
-
-<p>不過這問題其實很好解決, 幸好這次在開發的時候有先寫一個 RequestHandler 來繼承 webapp.RequestHandler 所以直接在 RequestHandler 增加一個 head method 就可以解決這個了。</p>
-
-<pre><code>def head(self, *args):
-    pass
-</code></pre>
-
-
-<p>最簡單的就是這樣 XD 不過不知道是否改為執行 get method 然後把 content 去掉只留 header 這樣會不會比較好 :p</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2556">App Engine BlobStore 試玩心得</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-02-06T14:58:41+08:00" pubdate  data-updated="true" >Feb 6<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>一開始構想 <a href="http://myaudiocast.appspot.com/">MyAudioCast</a> 的時候, 原本是想說把檔案都送到 <a href="https://s3.amazonaws.com/">S3</a>, 然後透過 <a href="http://aws.amazon.com/cloudfront/">CloudFront</a> 還可以玩 <a href="http://en.wikipedia.org/wiki/Real_Time_Messaging_Protocol">rtmp streaming</a>, 後來發現 urlfetch 只能傳 1MB 所以放棄, 就只好使用 BlobProperty, 沒想到 BlobProperty 也只有 1MB, 後來才知道 app engine 1.3.0 有了 <a href="http://code.google.com/intl/en/appengine/docs/python/blobstore/">BlobStore</a>, 可以放 50MB 的檔案, 雖然還在實驗中, 不過到還是真的可以用, 所以就把東西都放在 app engine。</p>
-
-<p>不過要使用 BlobStore 之前就得先開啟付費的資料, 準備開始扣款, 而 BlobStore 每天的 free quota 也只有 1GB, 原本以為有點小, 但其實只要給他 $0.10 / day 就可以有 40GB per day, 老實說其實滿划算的。 只是單檔 50MB 的限制 &#8230; 我是覺得 100MB 比較寬裕一點。</p>
-
-<p>後來才發現, <a href="http://code.google.com/intl/zh-TW/appengine/">App Engine</a> 真的貴的是在出去的頻寬。 outgoing bandwidth 的 free quota 也是 1GB per day, 可是當我 budget 設定 $0.66 / day, 也才提昇到 6.5GB per day。</p>
-
-<p>所以最後我還是試了一下<a href="http://developer.amazonwebservices.com/connect/entry.jspa?externalID=1434">這一篇</a>寫的方式, 來把檔案丟到 S3。 雖然剛開始用 S3 就有看過這個辦法, 可是根本不會想去試, 不過現在在 app engine 上似乎是成為唯一能傳大檔到 S3 的方式了, 只是就少了一些可以控制的東西, 也需要一些 workaround。</p>
-
-<p>不過現在用 S3 + CloudFront 感覺良好 XD  另外, 我一直把 Blob 打成 Blog Orz</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/computer/2554">MyAudioCast - 輕鬆建立你的 Podcast!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-02-04T13:09:30+08:00" pubdate  data-updated="true" >Feb 4<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這幾天花了點時間寫了 <a href="http://myaudiocast.appspot.com">MyAudioCast</a>, 因為台灣的 <a href="http://zh.wikipedia.org/wiki/播客">Podcast</a> 真的是很不流行, 但是其實發現有一些人錄好了 podcast 之後, 卻因為不知道檔案要放哪, 還有不知道要如何產生 podcast feed 而煩惱。 雖然外國有一些 podcast hosting, 但是感覺不夠簡單, 甚至是介面很雜亂, 所以在希望能降低發佈 Podcast 門檻的想法下, 就利用 <a href="http://code.google.com/intl/zh-TW/appengine/">Google App Engine</a> 寫了 <a href="http://myaudiocast.appspot.com">MyAudioCast</a>, 來降低發佈 Podcast 的門檻。</p>
-
-<p>所以現在只需要有 Google 帳號, 就可以登入 <a href="http://myaudiocast.appspot.com">MyAudioCast</a> 上傳 podcast 檔案, 上傳完檔案之後就有個人的 Podcast 頁面, 也有 iTunes 的 Podcast feed 可以供人訂閱, 應該夠簡單了吧!? 雖然目前還缺少了 flash player 可以 embed 出去 :p</p>
-
-<p>其實想做 MyAudioCast 的想法已經好一陣了, 我喜歡一些所謂&#8221;素人&#8221;錄製的聲音產出, 像是獨立音樂或是身旁朋友錄的 Podcast, 但是在台灣的中文 Podcast 卻極度的少, 大部分應該在建立自己的 Podcast 上碰到些技術的門檻。 而台灣也沒人做 podcast hosting, 畢竟是個燒錢事, 所以我就利用 App Engine 來做一個 Podcast hosting, 降低發佈門檻, 希望能多聽到些聲音。</p>
-
-<p>雖然說目前 app engine 的 BlobStore 只能上傳 50MB, 而且 BlobStore 還是實驗性功能, 不過應該夠用吧 XD</p>
-
-<p>如果可以的話, 看到這篇文章的朋友, 也幫我多宣傳一下吧 :p 雖然很容易超過 free quota, 不過初期其實要燒也燒不了多少吧。 超過的都算我的吧, 趕快上傳 Podcast 來聽阿!!!</p>
-
-<p>話說有人要幫忙我做 logo 嗎?  XD 另外有什麼想法也提一下吧 ~</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/2552">少女時代 Girl&#8217;s Generation 第二張專輯, 首發單曲 Oh!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-01-29T01:17:05+08:00" pubdate  data-updated="true" >Jan 29<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><object width="560" height="340"><param name="movie" value="http://www.youtube.com/v/TGbwL8kSpEk&hl=zh_TW&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/TGbwL8kSpEk&hl=zh_TW&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="560" height="340"></embed></object>
-
-
-<p>這個影片我這幾天不知道看了多少遍了, 超可愛的!! 然後上班的時候我也一直重覆播放這首單曲, <strong>oh!</strong> 超好聽的!!! jessica 的聲音超甜的! :D</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2535">Dynamic Translation Apps for Django</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-01-20T11:02:36+08:00" pubdate  data-updated="true" >Jan 20<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>其實大部分跟介面相關的文字都直接寫在 config 裡面, 然後用 gettext 處理多國語系的部份, 不過免不了還是有些東西需要放在資料庫也要多國語系, 所以先前用了 <a href="http://code.google.com/p/django-transmeta/">django transmeta</a>, 只是沒很好用就是了。可能是因為 zh-TW, zh-CN 的關係吧 囧rz</p>
-
-<p>有類似需求的話, 可以參考一下下面這篇
-<a href="http://www.muhuk.com/2010/01/dynamic-translation-apps-for-django/">Dynamic Translation Apps for Django</a></p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -470,6 +185,296 @@ if result.status_code == 200:
 <p>不過 couchdb 不像 <a href="http://www.mongodb.org/homepage.action">mongodb</a> 有 collection, database 下就直接是 document, 而書中也沒有提到一些使用上的 scenario, 目前還不知道可以用在哪比較好。</p>
 
 <p>其實對 <a href="http://www.mongodb.org/homepage.action">mongodb</a> 比較有興趣 :p</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/2530">將我的第一部機車報廢了</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-01-07T23:02:48+08:00" pubdate  data-updated="true" >Jan 7<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="/uploads/2010/01/IMG_0455.jpg" alt="" title="IMG_0455" /></p>
+
+<p>自從換了現在這份工作, 每天就都是坐捷運上下班, 因為我也不喜歡台北的交通, 可能習慣宜蘭暢通無阻的道路, 所以感覺在台北騎機車還滿恐怖的, 現在坐捷運上下班, 所以也很少有騎機車的機會, 而這兩三個月我的機車就一直擺在路邊的停車格, 甚至我也忘記他的存在 XD</p>
+
+<p>今天終於完成報廢的最後的一步驟了, 其中的心路歷程就不多說了, 18歲到現在, 十年的機車, 記錄一下。</p>
+
+<p>還記得當初高三的時候, 剛滿 18 就買了這台機車 - 三冠王, 然後就開始騎機車上下學, 幸好都沒被教官抓到。 記得當初還有在純精路上把另外一台機車整個連人帶車撞飛出去, 超爽的, 我完全沒事, 而且也不是我的錯, 那個人爬起來看了我一眼就又騎著機車走了 XD</p>
+
+<p>畢業之後考上在苗栗的二專, 就把機車從羅東火車托運到竹南火車站, 因為學校在山上, 所以然後就靠這台機車上下山, 沒事就往新竹市區跑, 跑北埔跟同學出去玩之類的。 寒暑假就又運回家, 然後常往宜蘭跑, 因為當時女朋友在宜蘭, 當時騎上 40 分鐘也不覺得累 XD</p>
+
+<p>然後二技考上了在新竹湖口的學校, 一樣把機車透過羅東火車站托運, 不過這次是託運到新竹火車站, 記得托運都會碰到車鎖被撬開到 on 的狀態, 然後電池耗到沒電的情形, 火車托運真是爛透。</p>
+
+<p>在湖口之後也是常騎著這台機車往新竹市跑, 或者是往桃園、中壢或是新屋跑 :p 一直到畢業時, 想說學生的生涯告終, 我也不想託運機車, 所以我就騎著機車, 一路從湖口騎回南方澳, 真是累死人了, 我似乎花了 9 個小時, 然後回到家裡的時候, 騙家人說我之前就把機車托運到羅東, 我是做火車回到羅東, 直接騎機車回來的 XD 後來也載著當時的女朋友, 一路從南方澳騎到福隆去看第三屆海洋音樂祭, 路上真是塞爆 ~</p>
+
+<p>其實在從湖口回南方澳的路上, 經過他媽的台北, 我路上經過了好幾次同一座橋, 然後從同一個角度看到台北 101 好幾次, 覺得這條路好熟悉之類的。 原本我以為照著路標走就可以回到宜蘭, 誰知道台北的路標真的他媽的一個亂,  最後 blah blah 的, 似乎快接近北宜公路時, 我問了怎麼北宜公路怎麼走, 最後找了間麥當勞吃個東西休息, 然後繼續上路。</p>
+
+<p>誰知道他媽的, 在北宜公路中我的機車快沒油了, 然後機油又亮紅燈, 啃, 已經騎了好幾個小時了耶~ 我真怕他會罷工, 不過當時我的手已經快握不住機車握把了, 然後一路上的荒涼的景色, 擔心著我的機車快沒油, 路上完全沒有加油站, 機油又亮紅燈, 擔心機車會爆炸, 手又快握不住了, 不過也只能硬著頭皮騎下去。</p>
+
+<p>幸好終於騎到了似乎像是坪林的地方, 終於有人煙了~ 所以趕緊找間機車行換機油, 然後加油, 還有在 7-11 買個東西吃, 順便休息一下, 停下車子後, 感覺整個身體似乎不是我的了 XD 最後繼續往礁溪、宜蘭、羅東一直騎回家, 花了我 9 個多小時阿!!! 最後手抖個不停, 身體都還是一直以為有風在吹著。</p>
+
+<p>然後我去當兵, 這台機車就被我弟送到台北供他讀書可以騎, 一直到我退伍在台北找了工作, 我弟就把機車從中永和騎來內湖還我, 然後他回宜蘭, 只是沒想到機車已經傷痕累累, 當初交出去不是這樣的阿!! 居然金屬製的煞車居然還有整個削掉的痕跡, 是怎麼騎的阿!!!</p>
+
+<p>之後這台機車就讓我台北到處跑, 一直到今天, 他終於功成身退了, 再見了! 我的三冠王 LEO ( 車牌號碼 )</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2529">Libcloud - Cloud Service Manage Api</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-01-07T00:49:42+08:00" pubdate  data-updated="true" >Jan 7<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>剛才在消化 RSS 的時候看到的, 沒想到有這個東西。 <a href="http://incubator.apache.org/libcloud/index.html">libcloud</a> 對一些 cloud service 管理的 api 提供了一個統一的介面 ( python library ), 支援一些較知名的廠商像是 ec2, slicehost, linode, rackspace, gogrid 等。</p>
+
+<p>可以做以下動作:</p>
+
+<ul>
+    <li>list</li>
+    <li>reboot</li>
+    <li>create</li>
+    <li>destroy</li>
+    <li>images</li>
+    <li>sizes</li>
+</ul>
+
+
+<p>過一陣子應該有時間可以來玩一下, 試試看 linode, slicehost 或 ec2 之類的, 感覺滿好玩的 XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2528">Django 1.2 Alpha 1 Release</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-01-06T23:10:26+08:00" pubdate  data-updated="true" >Jan 6<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>其實滿令人興奮的, 看來三月就 django 1.2 就會 official release 了。</p>
+
+<p>這個 release 最令人興奮的就是 multiple database 了, 不過其實比較令我高興的則是 if 這個 template tag, 原本的 if template 限制真的太多了, 超惱人的 XD anyway, 其他細節看看 <a href="http://docs.djangoproject.com/en/dev/releases/1.2-alpha-1/">release notes</a> 吧~</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2525">UKI – Simple UI Kit for Complex Web Apps</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-01-05T23:46:22+08:00" pubdate  data-updated="true" >Jan 5<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://ukijs.org/">UKI – Simple UI Kit for complex web apps</a></p>
+
+<p>最近幾個禮拜都在寫 javascript, 一支 js 已經快破一千行了, 現在要加個功能或是改個功能, 一打開 js 檔就迷路了, 本來還打算用 <a href="http://code.google.com/intl/en/webtoolkit/">GWT</a> 或是 <a href="http://pyjs.org/">Pyjamas</a>, 後來還看了 <a href="http://sproutcore.com/">sporutcore</a> 跟 <a href="http://javascriptmvc.com/">javascriptmvc</a>, <a href="http://www.claypooljs.com/">claypool</a>, 不知道還有沒有其他 javascript mvc framework 可以用? anyway, 以上跟此連結無關。</p>
+
+<p>這個用來作 UI js library 有一個 google wave UI 的 <a href="http://ukijs.org/functional/wave.html">demo</a> 看起來還挺不賴的。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2524">Django Multidb Support</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-12-23T23:55:15+08:00" pubdate  data-updated="true" >Dec 23<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>昨天 <a href="http://djangoproject.com">django</a> multidb 出現在 trunk 了, 一出來就很多人衝去看 changeset, 可是因為這個 changeset 太大, 然後 trac 吃太多 CPU, 整個 <a href="http://djangoproject.com">djangoproject.com</a> 就爆了 XD 所以後來這個 changeset 的 request 就直接被導到這個<a href="http://www.djangoproject.com/multidb-changeset/">說明頁</a>。</p>
+
+<p>不過其實 django 在 <a href="http://github.com/django/django/commit/836d297e68d6a63103780295adebf6eaf6779611">github</a> 跟 <a href="http://bitbucket.org/mirror/django-trunk/changeset/13e78b76531c/">bitbucket</a> 上 mirror 的同一個 changeset 也都因為太大, 改而顯示: This changeset can not be displayed, as it is too large (bitbucket) 跟 Sorry, this commit is taking too long to generate. (github)</p>
+
+<p>咦, 重點好像偏了, 總之先看看 <a href="http://docs.djangoproject.com/en/dev/topics/db/multi-db/">multidb 的文件</a>吧, 有需要在衝 trunk XD 真是令人興奮的消息 :)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2521">Setting Up a Python CI Server With Hudson</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-12-05T16:29:29+08:00" pubdate  data-updated="true" >Dec 5<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.rhonabwy.com/wp/2009/11/04/setting-up-a-python-ci-server-with-hudson/">Setting up a python CI server with Hudson</a> 這篇文章還滿值得一看的。 當中的 CI 指的是 <a href="http://martinfowler.com/articles/continuousIntegration.html">Continuous Integration</a>, 也可以看看這篇<a href="http://josephj.com/entry.php?id=251">中文的介紹</a>。</p>
+
+<p>上禮拜把 hudson 弄起來, 自動 poll mercurial repo 來跑 pylint, 感覺真不賴, 結果找出了超多的 unused import, unused variables, 其實還真的滿有助益的, 不過 &#8230; 為了讓跑出來的數字好看一些, 這一個禮拜一直在努力的修 code, 讓 violations 的數字減少, 超辛苦的, 說真的, 沒事不要 import * 或是用 locals() &#8230;</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2519">Django Documentation iPhone App</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-11-27T01:16:53+08:00" pubdate  data-updated="true" >Nov 27<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.djangoproject.com/">Django</a> 文件的 iPhone App 昨天出現在 <a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/browserRedirect?url=itms%253A%252F%252Fitunes.apple.com%252FWebObjects%252FMZStore.woa%252Fwa%252FviewSoftware%253Fid%253D336551222%2526cc%253Dtw%2526mt%253D8">app store</a> 了, 就跟 Django 網站上的 <a href="http://docs.djangoproject.com/en/dev/">Documentation</a> 看到的一樣, 不過有針對 iPhone 編排過, 實際上看了一下, 雖然程式碼的部份還是會超出 iPhone 的寬度, anyway, 基本上還算好閱讀。</p>
+
+<p>這個 app 要價 0.99, 不過好像每賣出一套會捐出 30 cents 給 Django Software Fundation.</p>
+
+<p>[ <a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/browserRedirect?url=itms%253A%252F%252Fitunes.apple.com%252FWebObjects%252FMZStore.woa%252Fwa%252FviewSoftware%253Fid%253D336551222%2526cc%253Dtw%2526mt%253D8">app store 連結</a> ]</p>
 </div>
   
   

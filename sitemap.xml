@@ -2021,10 +2021,6 @@
         <lastmod>2011-10-08T11:07:23+08:00</lastmod>
     </url>
     <url>
-        <loc>http://tzangms.com/mac/589</loc>
-        <lastmod>2011-10-08T11:07:23+08:00</lastmod>
-    </url>
-    <url>
         <loc>http://tzangms.com/linux/590</loc>
         <lastmod>2011-10-08T11:07:23+08:00</lastmod>
     </url>
@@ -3129,10 +3125,6 @@
         <lastmod>2011-10-08T11:07:23+08:00</lastmod>
     </url>
     <url>
-        <loc>http://tzangms.com/web design/1060</loc>
-        <lastmod>2011-10-08T11:07:23+08:00</lastmod>
-    </url>
-    <url>
         <loc>http://tzangms.com/music/1071</loc>
         <lastmod>2011-10-08T11:07:23+08:00</lastmod>
     </url>
@@ -4141,10 +4133,6 @@
         <lastmod>2011-10-08T11:07:24+08:00</lastmod>
     </url>
     <url>
-        <loc>http://tzangms.com/music/2595</loc>
-        <lastmod>2011-10-08T11:07:24+08:00</lastmod>
-    </url>
-    <url>
         <loc>http://tzangms.com/web/2597</loc>
         <lastmod>2011-10-08T11:07:24+08:00</lastmod>
     </url>
@@ -4185,10 +4173,6 @@
         <lastmod>2011-10-08T11:07:24+08:00</lastmod>
     </url>
     <url>
-        <loc>http://tzangms.com/life/2611</loc>
-        <lastmod>2011-10-08T11:07:24+08:00</lastmod>
-    </url>
-    <url>
         <loc>http://tzangms.com/life/2614</loc>
         <lastmod>2011-10-08T11:07:24+08:00</lastmod>
     </url>
@@ -4214,14 +4198,6 @@
     </url>
     <url>
         <loc>http://tzangms.com/web/2623</loc>
-        <lastmod>2011-10-08T11:07:24+08:00</lastmod>
-    </url>
-    <url>
-        <loc>http://tzangms.com/life/2627</loc>
-        <lastmod>2011-10-08T11:07:24+08:00</lastmod>
-    </url>
-    <url>
-        <loc>http://tzangms.com/life/2631</loc>
         <lastmod>2011-10-08T11:07:24+08:00</lastmod>
     </url>
     <url>
@@ -4269,10 +4245,6 @@
         <lastmod>2011-10-08T11:07:24+08:00</lastmod>
     </url>
     <url>
-        <loc>http://tzangms.com/programming/2674</loc>
-        <lastmod>2011-10-08T11:07:24+08:00</lastmod>
-    </url>
-    <url>
         <loc>http://tzangms.com/linux/2676</loc>
         <lastmod>2011-10-08T11:07:24+08:00</lastmod>
     </url>
@@ -4302,7 +4274,7 @@
     </url>
     <url>
         <loc>http://tzangms.com/life/2700</loc>
-        <lastmod>2011-10-08T11:07:24+08:00</lastmod>
+        <lastmod>2011-10-08T17:05:55+08:00</lastmod>
     </url>
     <url>
         <loc>http://tzangms.com/programming/2702</loc>
@@ -4317,16 +4289,12 @@
         <lastmod>2011-10-08T11:07:24+08:00</lastmod>
     </url>
     <url>
-        <loc>http://tzangms.com/programming/2711</loc>
-        <lastmod>2011-10-08T11:07:24+08:00</lastmod>
-    </url>
-    <url>
         <loc>http://tzangms.com/life/2712</loc>
         <lastmod>2011-10-08T11:07:24+08:00</lastmod>
     </url>
     <url>
         <loc>http://tzangms.com/life/2713</loc>
-        <lastmod>2011-10-08T11:07:24+08:00</lastmod>
+        <lastmod>2011-10-08T17:02:24+08:00</lastmod>
     </url>
     <url>
         <loc>http://tzangms.com/programming/2716</loc>
@@ -4366,10 +4334,6 @@
     </url>
     <url>
         <loc>http://tzangms.com/life/2737</loc>
-        <lastmod>2011-10-08T11:07:24+08:00</lastmod>
-    </url>
-    <url>
-        <loc>http://tzangms.com/web/2739</loc>
         <lastmod>2011-10-08T11:07:24+08:00</lastmod>
     </url>
     <url>
@@ -4514,10 +4478,10 @@
     </url>
     <url>
         <loc>http://tzangms.com/blog/archives/</loc>
-        <lastmod>2011-10-08T16:49:10+08:00</lastmod>
+        <lastmod>2011-10-08T17:05:55+08:00</lastmod>
     </url>
     <url>
         <loc>http://tzangms.com/</loc>
-        <lastmod>2011-10-08T16:49:10+08:00</lastmod>
+        <lastmod>2011-10-08T17:05:55+08:00</lastmod>
     </url>
 </urlset>

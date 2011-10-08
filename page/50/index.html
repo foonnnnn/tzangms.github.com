@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="昨天 clothocs 傳了這個影片給我, 看了之後, 即使是在上班時間, 我還是忍不著笑了出來, 雖然可能中間覺得有點白爛, 但是, 整體來說, 讓我久久不能忘懷, 想到都還會笑 XD不過今天跟 clothocs 說, 昨天的影片真的是太爆笑了, 他卻說道, 他有傳給另一個人看, 可是好像笑...">
+  <meta name="description" content="kyo、小強跟我，終於進行了我們的攻城行動，就是進攻台灣最後一間香雞城，一開始我們先去吃臭豆腐，但是，居然要拿號碼牌! 太扯，我想都是因為雪山隧道開通了的關係，宜蘭大熱鬧。一開始先來張香雞城的店招牌，有煲仔飯!!果然有在地化!!居然有義大利麵!!有! 夠多元化! ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -60,359 +60,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/video/795">大衛白爛魔術 SHOW</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-03-13T11:20:22+08:00" pubdate  data-updated="true" >Mar 13<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><object width="425" height="350"><param name="movie" value="http://www.youtube.com/v/C3kCpxXYX_8"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/C3kCpxXYX_8" type="application/x-shockwave-flash" wmode="transparent" width="425" height="350"></embed></object>
-
-
-<p>昨天 clothocs 傳了這個影片給我, 看了之後, 即使是在上班時間, 我還是忍不著笑了出來, 雖然可能中間覺得有點白爛, 但是, 整體來說, 讓我久久不能忘懷, 想到都還會笑 XD</p>
-
-<p>不過今天跟 clothocs 說, 昨天的影片真的是太爆笑了, 他卻說道, 他有傳給另一個人看, 可是好像笑不出來, 就覺得白爛而已, 恩, 有看過大衛布萊恩的話, 請注意大衛白爛的表情, 真的是很好笑, 而且找來的大衛白爛還真的長的滿像的內 XD</p>
-
-<p>所以有看過 AXN 台的大衛布萊恩的話, 這部包你笑出來, 但首先, 你得抱著一顆白爛的心 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/mac/794">My Own Dashboard Widget: Email Notifier</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-03-12T00:01:33+08:00" pubdate  data-updated="true" >Mar 12<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/417556029/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/172/417556029_13c8dd191e_o.jpg" width="124" height="121" alt="notifier_front.jpg" align='left' /></a>這兩天因為值班, 所以都待在家裡, 也不知道為什麼就開始寫 Dashboard widget &#8230;..明明還有好多東西要讀。只記得是想寫一個可以用來看有多少 unread mail 的東西, 雖然這網路上, 似乎已經有其他類似的東西了, 不過我一開始好像是想說來寫個看自己智邦免費信箱有多少 unread mail 用的，雖然從 Gmail 開始後就都沒在用了。 先前我都用他自動轉信到 Gmail XD 不過我的智邦免費信箱可是 ms1 的帳號阿! 好像很 cool, 所以還是要多少用一下好了。</p>
-
-<p>其實我覺得, 現在除了 web service 之外, 有個 Desktop application 來結合你的 web service , 這樣對使用者來說會比較 high, 例如: Myshare widget! 這個應該不錯 XD</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/mac/794">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/793">Javascript Validate Function</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-03-09T12:18:51+08:00" pubdate  data-updated="true" >Mar 9<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><pre><code>String.prototype.validate = function(type){
-    var pattern = new Array();
-
-    pattern['email'] = /^\w[\w-\.]+@\w+(\.\w+)+$/;
-    pattern['url'] = /^http:\/\/\w+\.\w+\/?.*$/;
-    pattern['password'] = /^[\w\.]+$/;
-    pattern['id'] = /^[a-zA-Z][0-9]{9}$/;
-
-    return this.match(pattern[type]);
-}
-</code></pre>
-
-<p>昨天寫的一個用來檢查輸入的函式, 直接掛在 String Object 下面, 這樣就可以直接這樣使用:
-如, 檢查 email 是否正確</p>
-
-<pre><code>"foo@bar.com".validate('email');
-</code></pre>
-
-<p>或是網址是否正確</p>
-
-<pre><code>"http://tzangms.com".validate('url');
-</code></pre>
-
-<p>如果回傳值為 null 那就是錯誤啦! 不過 regular expression 的 pattern 還需要改進就是了~</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/792">其實我是很 Metal 的! Toontrack EZDrummer Try Out</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-03-08T00:28:02+08:00" pubdate  data-updated="true" >Mar 8<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>本來在讀一些程式設計的東西的, 網路程式設計要懂得東西好多, 所以想說上禮拜寫完&#8221;眉頭&#8221;, 這禮拜就來休息一下讀一些書, 誰知道剛才就突然又玩了起來 XD</p>
-
-<p>先前用過幾個 Drum machines, BFD 是沒辦法在我的 Macbook 跑, 不過之前聽人家用過感覺不錯, 只是界面醜了點 XD anyway 反正不能用, 就換用 Battery 3, 聲音聽起來就滿不賴的, 也可以調的很細, 可以聽聽看我先前錄的<a href='http://tzangms.com/?p=770'>自然而然</a>, 用 Battery 3 的 pop kits。</p>
-
-<p>今天突然就玩起來 <a href='http://www.toontrack.com/'>toontrack EZDrummer</a>, 呵, 原來他有那麼方便的 groove 可以用, 他的 groove 就跟 Garageband、Logic 用的 loops 一樣意思, 不過我覺得好用、直覺上許多, 這首的鼓都用拖的, 超方便! 而且他有超 Metal 的鼓組 - Drumkits From Hell (DFH), 話說 BFD 也有 DFH, 不過我只是業餘的, 用 EZDrummer 就很夠了! 由於整個鼓組太 Metal, 電吉他就又拿起來了, 其實我是很 Metal 的阿! 聽 Metallica 長大的阿! ㄜ&#8230;我從二專開始聽的。</p>
-
-<p>吉他彈得不好大家請見諒, 這篇是介紹鼓的, 更何況我又是 Bass 手, 別太苛求 :p 另外該買 Pick 了, 鈍掉超難泛音的 Orz</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/old demo/790">[Demo] 眉頭</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-03-04T11:58:58+08:00" pubdate  data-updated="true" >Mar 4<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這次用了大量的弦樂, 大概弦樂就 10 軌了, 不過果然不是彈 KB 的料, 編的很累 XD。 這首總共做了 21 軌, 好累! 編曲真的是件累人的事情, 不過每次在編完錄吉他 solo 的時候, 總覺得很爽! 自 high 吧! 當然也要 solo 編的出來 XD 不然會很煩&#8230;.</p>
-
-<p>幸虧有 Macbook, 不然這首歌根本沒辦法錄, 之前的 iBook G4 800 大概 8 軌弦樂就掛點了, 這次電吉他有 3 軌用 Guitar Rig 2 來當效果器, 然後 10 軌弦樂的音色是 Apple Jam pack 4 Orchestra 裡的音色, 然後 Bass 用 AmpegSVX 做 preamp, 鼓是用 Battery 3 當音源, 不過我只用了 pop kits preview 的音色。</p>
-
-<p>這首歌有 7 分鐘, 有點長~ 檔案也很大,  8 MB</p>
-
-<p>另外和音真的滿重要的, 整個氣氛都帶出來了 XD 聽聽看吧!</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/old demo/790">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/789">銀河系律法? XD</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-03-03T23:54:08+08:00" pubdate  data-updated="true" >Mar 3<span>rd</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/408776934/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/162/408776934_f11aab00fc_o.gif" width="455" height="368" alt="google_doc" /></a>
-剛才在 Gmail 上沒事無聊就去點一下 Docs &amp; Spreadsheets, 想說看看最近變得怎樣了, 不過, 居然出現這個頁面, 不過銀河系律法是怎麼一回事, 整個 XD</p>
-
-<p>另外, 是翻譯有問題還是&#8230;</p>
-
-<blockquote>支援「Google 文件」的 Safari 即將問世！</blockquote>
-
-
-<p>到底是支援 Safari 的「Google 文件」要出來, 還是 Safari 真的要出新版? XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/788">Javascript Trim Function</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-03-02T15:43:07+08:00" pubdate  data-updated="true" >Mar 2<span>nd</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><pre><code>String.prototype.trim = function(){
-    return this.replace(/(^\s*)|(\s*$)/g, "");
-}
-</code></pre>
-
-<p>這個是用來增加 trim 這個 function 到 javascript 的 String object, jQuery 居然沒有 trim function。</p>
-
-<p>Update:
-找到了 XD jQuery 有 trim 啦~ 只是當初沒在 Visual jQuery 的 Events 看到 Orz, 原來是在 Javascript Section。
-下面這一頁的最下方:
-<a href='http://docs.jquery.com/JavaScript'>http://docs.jquery.com/JavaScript</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/787">228 正義無敵!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-03-02T02:19:37+08:00" pubdate  data-updated="true" >Mar 2<span>nd</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/405884692/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/141/405884692_1e121c48aa.jpg" width="500" height="375" alt="Spirit of taiwan" /></a></p>
-
-<p>228 去看正義無敵, 感覺大多數人都是衝著 muse 去的，本人則是衝著 Tizzy Bac 阿! 不過 muse 真的是猛阿!!</p>
-
-<p>本來禮拜三(2/28)是放假的阿! 不過我們公司禮拜六不上班, 突然改成禮拜三, 可是過年前正義無敵的票就都買好了($1200), 所以禮拜三也只好請假了, 嗚, 我的假期! XD</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/music/787">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
   
   
     <article>
@@ -493,6 +140,420 @@
     <footer>
       <a rel="full-article" href="/life/779">Read on &rarr;</a>
     </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/778">但終究你還是免不了一死</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-02-11T03:21:41+08:00" pubdate  data-updated="true" >Feb 11<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>該說些什麼 該做些什麼
+其實什麼都不對</p>
+
+<p>你能有什麼想法 沒有
+你早已被這個社會會限制住</p>
+
+<p>從國小讀書到高中、大學 出社會
+你早已被教育為社會的一顆螺絲
+就這樣終其一生的過下去</p>
+
+<p>起床上班工作 下班回家看電視
+你是否想過你的未來？</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/life/778">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/777">生日快樂!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-02-11T01:28:34+08:00" pubdate  data-updated="true" >Feb 11<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/385566780/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/168/385566780_d883a2d7a7.jpg" width="500" height="137" alt="kodak v705 tryout" /></a></p>
+
+<p>用新相機拍的全景, pretty cool!</p>
+
+<p>生日快樂阿! 星期五生日(2/9), 其實生日沒很多人知道, 當天就請假沒去上班了, 出去踏踏青, 跟小利妹出去晃晃, 跑到金山, 去喝咖啡, 看看海, 吹吹風, 散散心, 好累喔&#8230;. 可能辦公室坐太久了吧。</p>
+
+<p>今天下午由於宜豐要去買鏡頭, 又想跟我買 iBook, 所以我就拿過去給他試機玩一下, 然後小廖也到了, 呵, 結果我就也一起去看電玩展了, 還不錯看, 超好看的 :p (但我不是看電玩 :x)</p>
+
+<p>之前就想買相機了, 今天就敗下去啦! 算是生日禮物 :D kodak v705 cool!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/linux/774">在 Linux 存取 MS SQL Server: Sqsh</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-02-05T15:30:47+08:00" pubdate  data-updated="true" >Feb 5<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>sqsh (<a href="http://www.sqsh.org/">http://www.sqsh.org/</a>) 在 linux 下存取 MS SQL Server? SQL Server當然沒有 Linux 版啦, 好像 Sybase 的 isql 可以用來存取 SQL Server, 但是好像很舊了? 阿災, 我一開始為了要在 Linux 下存取 SQL Server, 就是找到 sqsh 就是 SQL Shell, 滿酷的! SQL Server 取出來的資料, 可以在透過 shell 來做一些後續的處理, 而不只是執行一些 SQL 指令而已。看你要將取出來的資料丟到 pipe, 或是處理過後 cat 到 text file, 都很簡單, 總而言之, 很酷, 不過好幾年沒有繼續 maintain 了, 這一陣子才又換人接手。</p>
+
+<p>在 MySQL 要秀出 table 或是資料庫的話, 用 show 嘛, 那 SQL Server 呢? 用滑鼠 XD
+這裡有個對照表 (<a href='http://users.pandora.be/pecop/sqlr/sqlbasics.html'>SQL Basics</a>) 看了大概就知道, 不過還是要先看看 sqsh 的 manual。</p>
+
+<p><strong>與 SQL Server 連線:</strong>
+<code>sqsh -S servername -U username -P password</code></p>
+
+<p>PS. 這邊注意一下, sqsh 的 man page 裏面還可以看到有個選項是 -H  hostname, 一開始我一直以為這是 server address, 原來 -S 才是阿!!</p>
+
+<p><strong>用 X 輸出結果: (應該是用 tk)</strong>
+<code>1> sp_databases
+2> \go -x</code></p>
+
+<p>這邊順便示範一下秀出資料庫的範例, 只是在結尾時多加了一個 -x 就是表是用 X 輸出啦! 在輸出的時候會跑出一個看起來是 tk 的 window, 通常, 由於輸出的結果都會大於 console 可顯示的寬度, 所以就在顯示大量資料的時候用 -x 透過 X 來輸出顯示結果看起來比較清楚。</p>
+
+<p>先這樣啦~</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/771">H2O - Hyde Masquerade</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-02-02T08:37:13+08:00" pubdate  data-updated="true" >Feb 2<span>nd</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><embed style="width:400px; height:326px;" id="VideoPlayback" type="application/x-shockwave-flash" src="http://video.google.com/googleplayer.swf?docId=8995380981155854586&hl=en" flashvars=""> </embed></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/770">[Demo] 自然而然</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-01-31T00:14:28+08:00" pubdate  data-updated="true" >Jan 31<span>st</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>其實已經錄好幾天了, 不過一直沒時間放上來, 這次用了 Battery 3 的 pop drum kits 來作鼓的音色, 其實滿不賴的, 加點 reverb 效果就很好了, 當然, 有花時間編還是有差的, 畢竟這首都唱好久, 鼓都會打了 XD</p>
+
+<p>前些陣子都在試一些鼓機, BFD、Battery、RM IV 跟 EZ Drummer, 感覺 BFD 的音色好棒! 但是目前好像還是沒有支援 x86 base 的 Mac? 不知道, Library 就是裝不起來。而 RM IV 感覺就還好, 音色聽起來就沒有很棒, 畢竟 Library 也不大, 跟 BFD 的兩片 DVD 比起來, 差太多了, 而 Battery 3 的 Library 就還可以跟 BFD 拼一下, 而感覺方便好用的就是名福其實的 EZ Drummer 啦! 一個 Drum pack 大概也才一片 CD, 算是很輕便的 XD 如果跟我一樣不是專業的音樂人士, 就用 EZ Drummer 吧, 推!</p>
+
+<p>這首自然而然是在我二專的時候, 加入的第一個樂團的創作歌曲, 這首是吉他手阿翔所寫的, 阿翔說靈感是因為, 看到 KB 手小欣跟他男朋友剛在一起的時候甜蜜的感覺。記得當初我是擔任 BASS 手, 剛開始彈BASS, 什麼都不會, 不管什麼歌我都是根音到底 XD 還記得那時候根本不敢唱歌, 總覺得主唱小恩超會唱的!!</p>
+
+<p>過了好多年的, 現在樂團的人, 都已經沒有人在玩音樂了, 小恩跟鼓手不知道在幹嘛, 吉他手繼承家業, 至於我, 目前在當程式設計師, 而 KB 手小欣現在在寫小說, 還已經出了兩三本了, 好厲害! 筆名叫&#8221;貓咪詩人&#8221;, 他目前正在著手寫新書, 以當初樂團的點滴為背景, 還會寫到我ㄝ :O 呵呵! 超期待的。</p>
+
+<p>這首歌在樂團解散之後, H2O 也都還一直唱, 阿翔說, 就把他發陽光大吧! XD 阿翔現在都快不會彈吉他了! 這幾天趁著空閒時間把歌曲重新編曲,  終於把這首歌錄完了!</p>
+
+<p>先前做了好多悲傷的歌曲, 這次來點陽光的民謠搖滾吧!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/769">Mod_rewrite Memo</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-01-29T14:34:06+08:00" pubdate  data-updated="true" >Jan 29<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>httpd.conf
+<code><Directory "/usr/local/apache2/htdocs/">
+Options FollowSymLinks
+AllowOverride All
+</Directory></code></p>
+
+<p>.htaccess
+<code>RewriteEngine On
+RewriteRule ^/book/(.<em>)/(.</em>) /cgi-bin/book.cgi?topic=$1&amp;author=$2 [PT]</code></p>
+
+<p>用上面的 rewrite rule 就可以將這個網址</p>
+
+<blockquote>http://example.com/cgi-bin/book.cgi?author=bowen&topic=apache</blockquote>
+
+
+<p>變成用這個網址來連線</p>
+
+<blockquote>http://example.com/book/bowen/apache</blockquote>
+
+
+<p>至於 httpd.conf 的 <em>Options FollowSymLinks </em>就好像一定要設定, 不然會轉不過去 XD 然後要將設定寫在 .htaccess, 就要加 <em>AllowOverride</em>, 想要什麼東西都在 .htaccess 設定的話就設 <em>All</em> 囉!詳細的設定選項請看下列網址</p>
+
+<blockquote><a href='http://httpd.apache.org/docs/2.0/mod/core.html#allowoverride'>http://httpd.apache.org/docs/2.0/mod/core.html#allowoverride</a>
+</blockquote>
+
+
+<p>不過說真的, apache 的 document 可能是看不習慣, 有點難理解。說真的, mod_rewrite 滿難搞的 XD</p>
+
+<p>memo:
+把 rewriterule 寫在 httpd.conf, 跟 .htaccess 會有檔案路徑上的差異? 剛才在 try 的時候, 原本寫在 httpd.conf 的檔案路徑有 / (slash) 開頭, 而寫到 .htaccess 則要去掉 / (slash), 嗯~ 阿災, 繼續摸索中, 還有好多 flag 要看。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/768">Mb_string 字元編碼偵測轉換</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-01-25T19:11:19+08:00" pubdate  data-updated="true" >Jan 25<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>除了 iconv, mb_string 也是一個用來轉換偵測字元編碼的好東西。先前再做信件編碼處理的部份, 都是用到 iconv, 不過這次用 mb_string 處理一些簡體、繁體及UTF-8之間的轉換, 所以來寫一下 memo。(基本上只對簡體繁體及UTF-8做處理)</p>
+
+<p>偵測字元編碼我用下面這一段</p>
+
+<pre>
+<code>function detectCharset($str){
+    $encoding_list = 'ASCII, EUC-CN, BIG-5, UTF-8';
+    return mb_detect_encoding($str, $encoding_list);
+}</code>
+</pre>
+
+
+<p>嗯~ 看到 $encoding_list , EUC-CN 是..?? 嗯, 在 mb_string 中 EUC-CN 代表的就是 GB2312, 而平常在打的 big5 在 mb_string 則是要成 BIG-5, 就是要多一個 dash ( - ), 跟一般用的編碼名稱稍微有些不一樣, 這裡列出部分 mb_string 的 encoding 名稱:</p>
+
+<ul>
+    <li>UTF-8</li>
+    <li>EUC-JP</li>
+    <li>ISO-2022-JP</li>
+    <li>EUC-CN</li>
+    <li>CP936</li>
+    <li>BIG-5</li>
+</ul>
+
+
+<p>在這個列表上怎麼沒看到 GB2312 跟 GBK, 其實, GB2312 就是先前提到的 EUC-CN, 而 GBK 就是 CP936。</p>
+
+<p>在繁簡中文以及UTF-8的偵測的時候, 要注意 $encoding_list 的順序, 如果將 $encoding_list 變成下列的順序位置, 那麼結果可能不會是你想要的。</p>
+
+<p><code>$encoding_list = 'BIG-5, UTF-8, EUC-CN';</code></p>
+
+<p>如果用這個 encoding_list 來偵測 GB2312 的字元的時候, 所得到的結果將會是 BIG-5。我想這個結果可能是因為, BIG-5 也包含了一些簡體字元, 不過我測試過的數量不多, 也許會有例外, 但目前這個 encoding_list 的順序還不錯, 可以正確抓到我要的結果。</p>
+
+<p>至於在轉換部份, 看下面這個:</p>
+
+<pre>
+<code>function convertCharset($str, $encoding){
+    if ($encoding == 'EUC-CN') $encoding = 'CP936';
+    if ($encoding == 'UTF-8' || $encoding == 'ASCII')
+        return $str;
+    else
+        return mb_convert_encoding($str, 'UTF-8', $encoding);
+}</code>
+</pre>
+
+
+<p>這樣就可以把字串轉成 UTF-8 的編碼啦! 而先前使用 iconv 轉 GB2312 到 UTF-8 的時後, 碰到某些字元會有斷字的現象, 後來乾脆先轉成 GBK, 再轉為 UTF-8, 這樣就解決了文字被截斷的現象了, 即使在 mb_string 裡還是會有類似的狀況, 所以我還是先轉 GBK 再說, 畢竟 GBK 向下相容, 擴充的字元也較多, 例如: 我打&#8217;小海&#8217;的時候, GB2312 轉成 UTF-8 之後, &#8220;海&#8221;這個就會亂掉, 而 GBK 就沒這個問題, 只是&#8221;海&#8221;會變成&#8221;烸&#8221;, anyway, 我測試的方式是直接打字(用新注音)進 GB2312 的頁面, 但是不管如何, GBK 總是比較沒問題。</p>
+
+<p>先這樣啦&#8230;</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/767">MS SQL Server Datetime 用 PHP 取不出秒數?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-01-23T19:13:14+08:00" pubdate  data-updated="true" >Jan 23<span>rd</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天用 PHP 要從 SQL Server SELECT datetime 欄位的時候, 居然都 SELECT 不出秒數, 不像 MySQL 直接 SELECT 時間即可, 原來還需要 CONVERT 這個動作, 原本還試了 CAST 來把 datetime 轉成 char, 但還試失敗, 不管直接取出來還是 CAST 成 char , 取出來的時間就都是下列的格式, 即使轉成 unix timestamp 也還是漏了秒數(都是 00 )，直接SELECT出來的時間格式如下。</p>
+
+<blockquote> 09 Feb 2007 02:09AM</blockquote>
+
+
+<p>最後終於知道了, CONVERT 阿! 如下列:</p>
+
+<p><code>SELECT myid, CONVERT(char, mydate, 113) AS mytime FROM table</code></p>
+
+<p>其中的 113 是所謂的 style , 可以代換成別的數字,  來表示不同時間格式, 也沒多做研究格式, 我就用 113 然後轉成 timestamp 就可以用了, 果然秒數出來啦!! 有興趣的可以看看下列的 MSDN: ( PS. 我身邊應該很多人看到MSDN不想點進去吧!? XD)</p>
+
+<blockquote><a href="http://msdn2.microsoft.com/zh-tw/library/ms187928.aspx">http://msdn2.microsoft.com/zh-tw/library/ms187928.aspx</a></blockquote>
+
+
+<p>Anyway, just a memo.</p>
+
+<p><strong>2007/2/1 附註. 120 好像比較好? 剛才用113轉出來有問題, try 了 120 就正常了。</strong></p>
+</div>
+  
   
 
 

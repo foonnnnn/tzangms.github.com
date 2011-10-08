@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="在做好 stickeraction 之後, 有使用無名部落格的網友反應說, 他們的部落格貼了貼紙, 可是 stickeraction 卻沒有偵測到, 連過去一看才發現原來貼紙是貼在 iframe 裡, 所以過來的 referer 都是 js.wretch.yahoo.net 這個網址, 以致於...">
+  <meta name="description" content="自己弄主機寫程式真的可以學到很多東西阿 (茶) 但是一定還會忘記的, 所以要記錄一下 XD 不過有設定過, 讓東西可以跑的起來, 就多少可以了解東西是怎麼跑的, 然後&#8230; 等有時間再來深入研究, 這就是所謂的&#8230; &#8220;先講求不傷身, 在講求療效&#8221;阿! ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -60,302 +60,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/stickeraction/1830">[Stickeraction] 抓取無名部落格在 Iframe 的貼紙</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-10-07T08:58:11+08:00" pubdate  data-updated="true" >Oct 7<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>在做好 <a href="http://stickeraction.com">stickeraction</a> 之後, 有使用無名部落格的網友反應說, 他們的部落格貼了貼紙, 可是 <a href="http://stickeraction.com">stickeraction</a> 卻沒有偵測到, 連過去一看才發現原來貼紙是貼在 iframe 裡, 所以過來的 referer 都是 js.wretch.yahoo.net 這個網址, 以致於沒辦法偵測到底是哪個無名部落格。 本來想說用 img 來作貼紙, 而不是 javascript 就可以讓相容性好一些, 沒想到還有這招 XD</p>
-
-<p>而前幾天剛好有些空閒時間, 才仔細看了一下 iframe 的網址格式, 原來是可以知道是哪一個無名部落格! 所以就依循這個 iframe 網址的格式來作偵測的動作, 網址格式如下:</p>
-
-<blockquote>http://js.wretch.yahoo.net/iframe.php?b=username&amp;i=41226[&#8230;]</blockquote>
-
-
-<p>其中用 username 來查找就可以知道是哪個無名部落格了 :p</p>
-
-<p>所以 <a href="http://stickeraction.com">stickeraction</a> 相容性又更好了, 只是還有另外一個問題&#8230; 就是無名居然可以關掉 rss 阿!!!! Orz</p>
-
-<p>唉~ 怎麼花那麼時間在無名部落身上阿 ~&#8221;~</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/1836">台北最常給我的映像</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-10-06T21:32:59+08:00" pubdate  data-updated="true" >Oct 6<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p style="text-align: center;"><a title="台北、破爛 by tzangms, on Flickr" href="http://www.flickr.com/photos/tzangms/2914587636/"><img class="aligncenter" src="http://farm4.static.flickr.com/3165/2914587636_b6ac69985e.jpg" alt="台北、破爛" width="500" height="375" /></a></p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1820">Ruby HTML Parser: Hpricot</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-10-06T19:58:29+08:00" pubdate  data-updated="true" >Oct 6<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天突然看到 <a href="http://stickeraction.com">stickeraction</a> 的某個用 php 寫的 cron job 吃掉好多記憶體, 就突然想說, 其實這個 cron job 應該用 ruby 或者是 python 來作會比較適合, 另外也看看有沒有辦法比較省記憶體的耗用, 就順便練習一下 ruby。</p>
-
-<p>所以就找了一下 ruby 有沒有處理 HTML DOM 的東西, 就找到了 <a href="http://code.whytheluckystiff.net/hpricot/">Hpricot</a>, 其實跟之前用的 <a href="http://tzangms.com/php/1555">phpQuery</a> 差不多, 都可以用 <a href="http://jquery.com/">jQuery</a> 的語法來處理 DOM, 哈! 真是好物阿!</p>
-
-<p>像是下面這一段是用來找 RSS feed url 的。</p>
-
-<pre>
-<code>require 'open-uri'
-require 'rubygems'
-require 'hpricot'
-
-def get_feedurl url
-    doc = Hpricot(open(url))
-    link_tag = doc.at("head > link[@rel='alternate'][@type^='application']")
-    if link_tag
-        return link_tag.get_attribute('href')
-    end
-
-    return nil
-end
-
-url = 'http://tzangms.com/blog'
-puts get_feedurl(url)</code>
-</pre>
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/1820">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/nothing/1816">Your Brain Is Blocked by the Media.</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-10-05T16:42:24+08:00" pubdate  data-updated="true" >Oct 5<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p style="text-align: center;"><a title="your brain is blocked by the media by tzangms, on Flickr" href="http://www.flickr.com/photos/tzangms/2914610172/"><img class="aligncenter" src="http://farm4.static.flickr.com/3103/2914610172_b53097c180.jpg" alt="your brain is blocked by the media" width="375" height="500" /></a></p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/1808">翻照片</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-10-04T22:15:58+08:00" pubdate  data-updated="true" >Oct 4<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2912266168/" title="langkawi memories by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3271/2912266168_183a60c347.jpg" width="500" height="281" alt="langkawi memories" /></a>
-原來有我 &#8230;</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1798">成為一個踢屁股的PHP忍者!!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-10-03T18:37:09+08:00" pubdate  data-updated="true" >Oct 3<span>rd</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.phpfour.com/blog/2008/10/02/become-kick-ass-php-ninja-from-newbie-guide-tips/">Becoming a Kick-ass PHP ninja</a> 這篇文章還不錯看, 只是我不太會翻譯 XD 雖然大部分的觀念也許大家都知道、看過, 而文中提到的不外乎是要用個版本控制系統, Coding Standard, Document, Unit test 還有選一個不錯的 framework。 主要覺得這篇文章整理的滿不錯的, 而且排版不錯, 看起來很舒服 XD</p>
-
-<p>像是文章當中另外提到幾篇文章, 也都滿值得一看的, 像是 <a href="http://hasin.wordpress.com/2008/04/30/signs-you-are-ruining-your-career-as-a-web-app-developer/">10 signs you are ruining your career as a web app developer</a>, 或是一些 Coding Standard:</p>
-
-<p><a href="http://pear.php.net/manual/en/standards.php">PEAR Coding Standards</a>
-<a href="http://framework.zend.com/manual/en/coding-standard.html">Zend Framework Coding Standards</a></p>
-
-<p>或是 Right Brain Solution Ltd 這間公司從 Zend Framework Coding Standards 修改來的, 公司內部用的 General Coding Standard ( <a href="http://www.rightbrainsolution.com/php_coding_standard_rbs.pdf">PDF</a> )</p>
-
-<p>Unit test 我也沒弄過勒 ~&#8221;~</p>
-
-<p>是說, 學習永無止境阿 Orz</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1790">[GM] Twitter Elections Hidden Script</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-10-01T10:57:27+08:00" pubdate  data-updated="true" >Oct 1<span>st</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>要美國大選了? 所以 twitter 網頁上方一直出現那條選舉的 bar, 本來一天出現一次, 覺得還好, 現在是一直出現 o_O 我覺得好煩, 我又看不懂英文 囧rz 所以&#8230; 點下面連結安裝 greasemonkey script, 會自動將那個 bar 隱藏。</p>
-
-<p><a href="http://tzangms.com/code/twitter-elections-hidden.user.js">按這裡安裝</a></p>
-
-<p>PS. 剛才 <a href="http://blog.kej.tw">kej</a> 大大說可以用 <a href="https://addons.mozilla.org/zh-TW/firefox/addon/2108">Stylish</a> 來自定 css 把那個 bar 移除</p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -484,6 +188,358 @@ puts get_feedurl(url)</code>
 再來就是食品不得撿出三聚氰胺&#8230;&#8230;&#8230;</p>
 </div>
   
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1696">Twitter Retweet GM Script 0.3</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-19T23:16:39+08:00" pubdate  data-updated="true" >Sep 19<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天一早因為 <a href="http://twitter.com">twitter</a> 改板, 所以原本的 retweet 就失效了, 所以就馬上因應新版的 twitter 改寫了 retweet script, 不過後來一直有推友反應說不能 retweet 第二次, 所以下班回家就一直在找問題在哪。</p>
+
+<p>結果問題出在 $(&#8216;#status&#8217;).text(msg) 這個地方, 是還滿奇怪的, 後來改用 DOM 來做, 就很正常, 後來 <a href="http://twitter.com/kej">kej</a> 大大說用 $(&#8216;#status&#8217;).val(msg) 也可以, 最後就改用 $(&#8216;#status&#8217;).val(msg) 來做了, 感謝 kej 大大幫測 :D</p>
+
+<p>不過奇怪的是, , 在執行 $(&#8216;#status&#8217;).text(msg) 的時候, 用 firebug 看 html code 確實有改變, 但是畫面上看到的 textarea 則是完全沒有動作, 難道這就是人生嗎? XD</p>
+
+<p>anyway, 以上看不懂可直接略過, 下面來說說, 新增的功能。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/1696">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1691">Twitter 改版, Retweet Gm Script 改版</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-19T11:04:52+08:00" pubdate  data-updated="true" >Sep 19<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>沒啥好多說的! <a href="http://tzangms.com/code/retweet.user.js">點這裡安裝新版</a></p>
+
+<p>UPDATE: 已經解決無法 retweet 兩次的問題了<a href="http://tzangms.com/greasemonkey/1696">請看這裡</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/codeigniter/1664">CodeIgniter Database 跟 Model 怎麼用?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-18T08:05:24+08:00" pubdate  data-updated="true" >Sep 18<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>其實最早在剛接觸 <a href="http://codeigniter.com">CodeIgniter</a> 的時候記得是版本 1.5.2, 那時候 Model 都這麼寫, 例如下面的 User_Model。</p>
+
+<pre>
+<code>class User_model extends Model {
+    function __construct() {
+        parent::__construct();
+    }
+
+    function get_by_name($name) {
+        $this->db->where('name', $name);
+        $query = $this->db->get('users');
+        if ($query->num_rows()) {
+            return $query->row();
+        }
+    
+        return false;
+    }
+
+    function get_all() {
+        $query = $this->db->get('users');
+        if ($query->num_rows()) {
+            return $query->result();
+        }
+    
+        return array();
+    }
+}</code>
+</pre>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/codeigniter/1664">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1665">用 Javascript 限制圖片大小</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-18T07:01:29+08:00" pubdate  data-updated="true" >Sep 18<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>ie 都不支援 max-width 這種東西, 真的是很頭大, 所以只好想說用 javascript 來做 max-width 跟 max-height 這個工作, 所以就寫了下面這一段。 只是好像有些圖片還是縮不到, 所以&#8230; 最後我還是用 php 來作這個動作了, 以下只是個記錄 Orz</p>
+
+<pre>
+<code>$(function(){
+    var limit = 120;
+    s = $('#stickers img');
+    $.each(s, function(i, n){
+        var w = $(n).width();
+        var h = $(n).height();
+
+        // 
+        if (w > h) {
+            if (w > limit) {
+                var d = w - limit;
+                var r = h / w;
+                var nw = w - d;
+                var nh = h - d * r;
+                $(n).width(nw);
+                $(n).height(nh);
+            }
+        } else {
+            if (h > limit) {
+                var d = h - limit;
+                var r = w / h;
+                var nh = h - d;
+                var nw = w - d * r;
+                $(n).width(nw);
+                $(n).height(nh);
+            }
+        }
+    });
+});</code>
+</pre>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/stickeraction/1667">[Stickeraction] 貼紙列表</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-17T23:06:03+08:00" pubdate  data-updated="true" >Sep 17<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>由於 <a href="http://stickeraction.com">stickeraction</a> 的貼紙越來越多了, 首頁也總不可能一直就這樣放著讓他圖越來越多, 所以先前就先把首頁換成了顯示熱門、新進跟隨機貼紙。 (雖然沒啥差 囧)</p>
+
+<p>今天就又加上了一個可以<a href="http://stickeraction.com/show">列出所有貼紙的頁面</a>, 當然是分頁過的阿,  目前就還是以新進的貼紙優先列出, 不過之後應該會有所改變, hmm&#8230; 至少會有個站長推薦這種東西吧 XD</p>
+
+<p>然後也修正了貼紙頁面在 ie 看是一片亂的狀況, 為啥不支援 max-width 這種東西勒!!! (拍桌), anyway, 貼紙部落格聯播也回來了, 例如: <a href="http://stickeraction.com/EmBA/broadcast">http://stickeraction.com/EmBA/broadcast</a> , 也加上了 rss, 等聯播關鍵字弄好在提聯播這塊吧!</p>
+
+<p>越多功能, 就越多問題等待解決阿 ~&#8221;~ 只是至少要把當初想要的功能都做完! (握拳)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/1654">Moo & Threadless</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-13T19:19:27+08:00" pubdate  data-updated="true" >Sep 13<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2852294901/" title="moo &amp; threadless by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3268/2852294901_d66bcb43f1.jpg" width="500" height="375" alt="moo &amp; threadless" /></a></p>
+
+<p>其實上個禮拜 moo business card 就已經到了 :p 而 threadless 在昨天終於到啦!!! :D</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/life/1654">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/1632">Imified 五分鐘建立自己的機器人</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-10T21:16:19+08:00" pubdate  data-updated="true" >Sep 10<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天看到 <a href="http://www.imified.com">imified</a> 就玩了一下, 真的是很神奇又方便阿!! <a href="http://www.imified.com">imified</a> 可以讓你建立一支機器人, 接著你只需要指定一個程式的網址, 就可以讓機器人開始運作了! 而且整個流程超簡單的 :p</p>
+
+<p>在建立好機器人之後, 會讓你指定一個程式的網址, 接下來就是透過這支程式, 接收 imified 機器人的輸入, 而程式只要輸出(印出)訊息, 就會直接透過機器人發訊回覆。 不過目前申請的機器人好像就只有 Jabber/Gtalk(?)</p>
+
+<p>用 PHP 做個簡單範例:
+[source:php]
+&lt;?php
+// 接收 im 訊息
+$msg = $_REQUEST[&#8216;msg&#8217;];</p>
+
+<p>// 輸出訊息到 im
+echo $msg;
+?>
+[/source]</p>
+
+<p>就是這樣, 非常簡單阿 XD</p>
+
+<p>所以一開始想到的, 就是寫一個可以送訊息到 twitter 的機器人, 不過由於帳號是寫死的, 就不公佈出來了 XD 然後在查 Yahoo! 奇摩字典的時候, 又突然想到, 乾脆寫個查單字的機器人好了, 由於抓 Yahoo! 奇摩字典的程式也是我之前就寫好的一個 library, 所以真的包含註冊帳號、設定跟寫程式的部份, 真的只花了差不多五分鐘就弄好了 :p</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/web/1632">Read on &rarr;</a>
+    </footer>
   
 
 

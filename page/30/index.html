@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="identi.ca, 一個新的微網誌服務, 其實現在微網誌服務真的是很多了, 不過這個比較特別一點的是, identi.ca 用 PHP 開發, 可以用 jabber/GTalk, 也可以用 openid 來登入, 而且是 open source!!?不過目前為止連到這個網址 http://i...">
+  <meta name="description" content="這一次參加 Google Developer Day 2008, 還滿有收穫的, 主要是&#8221;AppEngine 進階&#8221;這門課, 講到了關於 AppEngine 的 DataStore, 由於 Datastore 本身就是 scalable 的架構, 在運用上跟平常用的關聯...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -60,401 +60,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/1203">identi.ca - PHP Open Source Twitter?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-07-03T19:35:44+08:00" pubdate  data-updated="true" >Jul 3<span>rd</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://identi.ca/">identi.ca</a>, 一個新的微網誌服務, 其實現在微網誌服務真的是很多了, 不過這個比較特別一點的是, <a href="http://identi.ca/">identi.ca</a> 用 PHP 開發, 可以用 jabber/GTalk, 也可以用 openid 來登入, 而且是 open source!!?</p>
-
-<p>不過目前為止連到這個網址 <a href="http://identi.ca/doc/source">http://identi.ca/doc/source</a>, 上面是這樣寫的:</p>
-
-<blockquote>You can get a copy of the software from the <a href="http://laconi.ca/">Laconica</a> main site. The version of the software that runs on <em>this</em> site is unmodified from that version. The site also depends on certain libraries and other software; you can get those at the Laconica site, too.</blockquote>
-
-
-<p>不過找了一下, 還沒看到任何 source code 的蹤影 :p 不過那不重要, 因為&#8230;可以離開 twitter 就很厲害了 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1202">PHP Framework 的效能比較</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-07-02T22:18:52+08:00" pubdate  data-updated="true" >Jul 2<span>nd</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天看到前幾天才出爐的測試, <a href="http://www.avnetlabs.com/php/php-framework-comparison-benchmarks">PHP framework comparison benchmarks</a>, 其實應該就是在比 framework 的結構跟設計對於效能的影響?</p>
-
-<table class="frameworks" border="0" width="100%">
-<tbody>
-<tr>
-<td> </td>
-<td class="highlight-cell">
-<p align="right">Run 1</p>
-</td>
-<td class="highlight-cell">
-<p align="right">Run 2</p>
-</td>
-<td class="highlight-cell">
-<p align="right">Run 3</p>
-</td>
-<td class="highlight-cell">
-<p align="right">Run 4</p>
-</td>
-<td class="highlight-cell">
-<p align="right">Average</p>
-</td>
-</tr>
-<tr>
-<td class="highlight-cell">Baseline HTML</td>
-<td>
-<p align="right">1327.5</p>
-</td>
-<td>
-<p align="right">1326.5</p>
-</td>
-<td>
-<p align="right">1328.6</p>
-</td>
-<td>
-<p align="right">1329.1</p>
-</td>
-<td>
-<p align="right"><strong>1327.9</strong></p>
-</td>
-</tr>
-<tr>
-<td class="highlight-cell">Baseline PHP</td>
-<td>
-<p align="right">331.6</p>
-</td>
-<td>
-<p align="right">332.1</p>
-</td>
-<td>
-<p align="right">331.4</p>
-</td>
-<td>
-<p align="right">332.0</p>
-</td>
-<td>
-<p align="right"><strong>331.8</strong></p>
-</td>
-</tr>
-<tr>
-<td class="highlight-cell">CakePHP</td>
-<td>
-<p align="right">3.6</p>
-</td>
-<td>
-<p align="right">3.7</p>
-</td>
-<td>
-<p align="right">3.8</p>
-</td>
-<td>
-<p align="right">3.5</p>
-</td>
-<td>
-<p align="right"><strong>3.7</strong></p>
-</td>
-</tr>
-<tr>
-<td class="highlight-cell">CodeIgniter</td>
-<td>
-<p align="right">21.5</p>
-</td>
-<td>
-<p align="right">21.2</p>
-</td>
-<td>
-<p align="right">21.7</p>
-</td>
-<td>
-<p align="right">21.7</p>
-</td>
-<td>
-<p align="right"><strong>21.5</strong></p>
-</td>
-</tr>
-<tr>
-<td class="highlight-cell">Zend Framework</td>
-<td>
-<p align="right">9.3</p>
-</td>
-<td>
-<p align="right">9.1</p>
-</td>
-<td>
-<p align="right">9.2</p>
-</td>
-<td>
-<p align="right">9.3</p>
-</td>
-<td>
-<p align="right"><strong>9.2</strong></p>
-</td>
-</tr>
-</tbody></table>
-
-
-<p><a href="http://www.avnetlabs.com/php/php-framework-comparison-benchmarks">這篇文章</a>中比較了 <a href="http://cakephp.org/">CakePHP</a>, <a href="http://framework.zend.com/">Zend Framework</a> 跟 <a href="http://codeigniter.com">CodeIgniter</a>, 然後還有一般的 html 及 plain php, 另外還有使用/不使用 <a href="http://pecl.php.net/package/APC">APC</a> 跟 <a href="http://eaccelerator.net/">eAccelerator</a> 來比較這三個 framework 的效能。當然, 基本上一定是 html 最快, 然後是 plain php, 再來才會是 framework。而 Framework 中當然最快的是 CodeIgniter 啦! 接著是 Zend Framework, 最後是效能很糟的 CakePHP ( XD )</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/1202">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/old demo/1199">[Demo] 沙漏 (重新混音)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-06-29T23:25:15+08:00" pubdate  data-updated="true" >Jun 29<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>其實一直覺得這首歌太單調, 為了這一首頭痛好久, 花了快兩個禮拜, 在想怎麼加東西進去, 可能最近也真的是一點靈感都沒有吧 ~&#8221;~ anyway, 總算弄出了一把彈分散的吉他, 讓原來的編曲不那麼單調, 聽起來好多了 :D</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1198">Vim 也可以有 Textmate 的 Snippet 功能!!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-06-28T12:52:03+08:00" pubdate  data-updated="true" >Jun 28<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.vim.org/scripts/script.php?script_id=1318">snippetsemu</a> 真是好物阿!!</p>
-
-<p>話說 <a href="http://macromates.com/">textmate</a> 真的是很屌, 可是我還是離不開 vim, vim 的 dd, yy 真的是很贊阿! XD 其實最主要的是, 上班不會帶 mac 去公司, 在公司又是用 windows, 所以通常都直接 ssh 上測試環境的 server 用 vi 在寫程式。</p>
-
-<p>今天突然想到 vim 搞不好有 textmate snippet 外掛, 所以就找了一下, 就找到了 snippetsemu 啦!! 真的是很 high!</p>
-
-<p>記一下安裝方式:</p>
-
-<ol>
-    <li>首先要有 vim 7</li>
-    <li>到 <a href="http://www.vim.org/scripts/script.php?script_id=1318">snippetsemu</a> 在 vim.org 的頁面下載 snippy_plugin.vba 跟 snippy_bundles.vba</li>
-    <li>然後用 vi 打開 snippy_plugin.vba, 應該會在最下面一行看到 ***vimball***  Source this file to extract it! (:so %)</li>
-    <li>接著就照做啦, 打 :so% 就會裝上 snippy plugin</li>
-    <li>最後對著 snippy_bundles.vba 依同樣步驟做即可</li>
-</ol>
-
-
-<p>再來就是測試一下, 編輯個 foo.php, 先輸入 for 然後打 &lt;tab&gt; 看看, 哈! 超 high 的勒!</p>
-
-<p>[ links ]
-<a href="http://code.google.com/p/snippetsemu/">snippetsemu on Google Code</a>
-<a href="http://slipperysnippets.blogspot.com/">snippets blog</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/1194">Twitter 越爛大家越愛?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-06-25T19:29:23+08:00" pubdate  data-updated="true" >Jun 25<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2610383878/" title="google trend shows twitter is still more and more popular by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3190/2610383878_9ca828c049.jpg" width="500" height="197" alt="google trend shows twitter is still more and more popular" /></a>
-看看上面這張圖, 真的是很妙, 似乎是說著 twitter 越爛越多人用阿! XD 可是這有什麼辦法呢? (攤手) 這一切都是因為愛阿!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/1190">Firefox 3 Download Day 2008</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-06-19T00:18:26+08:00" pubdate  data-updated="true" >Jun 19<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2588455563/" title="Firefox 3 Download Day Cert. by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3163/2588455563_8b6111c5ac.jpg" width="500" height="380" alt="Firefox 3 Download Day Cert." /></a>
-真的是很 high 的一天阿! 今天一到公司就裝起了 Firefox 3, 只能說&#8230;好快!! 來個安全帶吧!!! 哈哈哈!! (對不起, 我失態了 XD)</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1189">Google AppEngine 試玩</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-06-18T00:57:13+08:00" pubdate  data-updated="true" >Jun 18<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2587661644/" title="twitter easy unfollow on AppEngine by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3275/2587661644_dd12f877e6.jpg" width="500" height="299" alt="twitter easy unfollow on AppEngine" /></a></p>
-
-<p>這兩天下班後, 都在玩 <a href="http://code.google.com/appengine/">AppEngine</a>, 不過我不太會 <a href="http://www.python.org/">python</a>, 也不懂 <a href="http://www.djangoproject.com/">django</a>, 只有上禮拜花了一天晚上看完 <a href="http://docs.python.org/tut/tut.html">python tutorial</a>, 就開始亂玩 ~&#8221;~ 所以寫了一個 twitter easy unfollow 的 twitter 應用 XD (因為實在太不穩就不放連結上來了 :p )</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/1189">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
   
   
     <article>
@@ -588,6 +193,302 @@
   
     <footer>
       <a rel="full-article" href="/music/1180">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/1179">Mbox 2 Mini</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-05-31T00:20:53+08:00" pubdate  data-updated="true" >May 31<span>st</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2534416651/" title="Mbox 2 mini!! by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2127/2534416651_ee0e8c9206.jpg" width="500" height="375" alt="Mbox 2 mini!!" /></a>
+禮拜五晚上下班跑去 midimall 買了這一台 mbox 2 mini, 因為我原本的錄音介面(M-Audio Firewire 410)差不多掛點了, 在這個節骨眼也沒有時間去送修, 所以我就買了這一台 mbox 2 mini, 讓他陪伴我完成剩下的錄音過程。</p>
+
+<p>這台花了 $9000, 滿小一台的, 大小差不多是原本錄音介面的一半, 方便攜帶吧! 而且外型真的不錯 XD 不過由於 digidesign 除了 HD 的產品之外, 他的 driver 不支援 Mac OS X Leopard, 所以我又花了兩天的下班時間, 把系統重灌為 Tiger, 然後在把所有需要的外掛在一一裝回去。</p>
+
+<p>就快了, 加油吧!!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/old demo/1176">[Demo] 與你重逢 (新版)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-05-25T22:57:34+08:00" pubdate  data-updated="true" >May 25<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>這首歌跟<a href="http://tzangms.com/demo/1136">我想忘記你</a>一樣, 是最早錄好的歌, <a href="http://tzangms.com/music/681">原本的版本</a>用的是 iBook G4 800 跟 iMic 還有 $199 麥克風錄製的, 所以音質不好, 這次把整首歌都再錄過, 音質提升很多吧!</p>
+
+<p>hmm~ 這一首呢~ 我最愛貫穿主歌的電吉他跟中間的吉他 solo 了~ :p</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1170">[網摘] May 23th 2008</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-05-25T15:07:22+08:00" pubdate  data-updated="true" >May 25<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://ajaxpatterns.org/">AjaxPatterns</a>
+老實說&#8230;我都沒時間, 也看不太下這些 patterns, 就連上次提到的 <a href="http://www.patternsforphp.com">Patterns for PHP</a> 我也都還沒看 >&lt;</p>
+
+<p><a href="http://www.codinghorror.com/blog/archives/001119.html">PHP Sucks, But It Doesn&#8217;t Matter</a>
+說 PHP 爛一點都不打緊 XD (&#8230;我這個註解好像下的很爛)</p>
+
+<p><a href="http://ignition.lifewithryan.com/index.php5?title=Main_Page">Ignition &#8211; Code Igniter Code Generation Script</a>
+給 <a href="http://codeigniter.com">CodeIgniter </a>用來自動產生 Controller, Model, View 的 script, 像是 rails generate xxx。</p>
+
+<p><a href="http://verens.com/archives/2008/05/20/efficient-js-minification-using-php/">efficient JS minification using PHP</a>
+本來有想過這個做法, 可是這個做法好像太費力氣了。目前我採用的方法是用 capistrano, 在 deploy 的過程中, 再用 jsmin 對 js 檔作處理。</p>
+
+<p><a href="http://www.jonasjohn.de/lab/htmlsql.htm">htmlSQL - a PHP class to query the web by an SQL like language</a>
+用 SQL 語法來查詢 HTML 網頁勒! 好屌, 話說 <a href="http://codeplex.com/PHPLinq">LINQ</a> 也很屌! , 然後還有 <a href="http://trentrichardson.com/jsonsql/">jsonSQL</a>, 媽的! 哪學的完阿! (看!)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/1175">Shareaholic 使用 Twitthat !?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-05-23T21:58:56+08:00" pubdate  data-updated="true" >May 23<span>rd</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2516281860/" title="shareaholic_on_twitthat.jpg by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2246/2516281860_2c6b445f50.jpg" width="500" height="189" alt="shareaholic_on_twitthat.jpg" /></a>
+有時候比較空閒或是無聊的時候, 我都會到 <a href="http://twitthat.com">twitthat</a> 的 <a href="http://twitthat.com/most_read">most read</a> 頁面, 看看有沒有哪些文章被比較多推友閱讀過, 如果有看到感興趣的標題, 就會點來看看。 (另外也順便看看 twitthat 有沒有當掉 XD) 不過最近這幾天使用 twitthat 的外國推友好像突然暴增, 我看 referral 也看不出來是哪邊連過來的。</p>
+
+<p>後來又一直在 most read 看到  <a href="http://shareaholic.com/">shareaholic</a> 這個網站一直被推上來, 有點稍微覺得有點好奇, 難得有非中文的文章獲得那麼多的推(因為中文使用者居多嘛 XD), 只是我都沒有去看看 XD 後來今天下班前, 推友 <a href="http://twitter.com/quanmengli">quanmengli</a> 跟我說 :</p>
+
+<blockquote>quanmengli @tzangms 难道偶眼花了吗？twitthat替代twitthis成为shareaholic首选？</blockquote>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/web/1175">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/old demo/1173">[Demo] 浮沈 (新版)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-05-22T00:01:48+08:00" pubdate  data-updated="true" >May 22<span>nd</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>這次把浮沈這首的 Vocal 重新錄製了一遍, 除了 Vocal 跟鼓之外其他樂器都是先前錄製好的, 另外也加了一軌和聲。而鼓的音源則是由先前 Logic 內建的 Drum kits 改用 Addictive Drum。 當然整首歌重新混過, 我覺得好聽很多啦! :p</p>
+
+<p>重新錄製的 Vocal 比起舊板 Vocal 好很多, pitch 也準了很多 XD 聲音也更為清亮, 不過這首缺少的應該就是少了 bass? 但加了 bass 又感覺怪怪的, 好難編這首歌的 bass, 不過目前這首我覺得頗好聽的了 :p</p>
+
+<p>我最喜歡這首歌的吉他 solo 阿!! XD 尤其是結尾的吉他 solo, 真的是靈感來了, 然後彈到手破皮阿 Orz 還有, 這首歌有 inoran 式的分散和絃&#8230;.我愛 inoran XD</p>
+
+<p>有興趣可以聽看看<a href="http://tzangms.com/music/747" target="_blank">舊版本</a>跟這個版本, 雖然是用 flash mp3 player 聽, 音質沒那麼好, 但是應該聽的出來, 差異應該很明顯才是。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1172">不用 Twhirl 也可以 Retweet ! (GM Script)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-05-19T20:54:37+08:00" pubdate  data-updated="true" >May 19<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>因為羨慕 <a href="http://www.twhirl.org/">twhirl</a> 的 Retweet 功能, 所以寫了一個 <a href="https://addons.mozilla.org/en-US/firefox/addon/748">GreaseMonkey</a> 的 retweet script。 掛上這個 retweet script 之後,  twitter 頁面就會顯示如下(多了一個 R 的按鈕):</p>
+
+<p><a href="http://www.flickr.com/photos/tzangms/2504645219/" title="grease monkey twitter retweet script by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3136/2504645219_79c9b50848.jpg" width="500" height="61" alt="grease monkey twitter retweet script" /></a></p>
+
+<p>感謝<a href="http://blog.andytn.tw/">無敵小恩恩</a>給截 twitter 截圖, 他正在&#8221;拉正&#8221;學弟 XD</p>
+
+<p>之後只要看到想要 Retweet 的訊息, 只要按下上圖所標示起來的 <strong>R</strong> 就可以 Retweet 了。</p>
+
+<p>不過由於今天我第一次裝 GreaseMonkey, 裝完之後就矇著頭開始寫, code 很亂~ 我想 XD anyway, 之後有空再改吧! 目前先可以用就好了 XD</p>
+
+<p>如果不想裝 twhril 但又想用 retweet 的話, 就試試看這個吧! 但是前提是你瀏覽器要用 <a href="http://www.mozilla.com/">Firefox</a>, 如果你是用 Firefox 的話, 就先到<a href="https://addons.mozilla.org/en-US/firefox/addon/748">這裡</a>裝個 GreaseMonkey 吧! 等 GreaseMonkey 裝完再點下面這個連結, 裝完就可以開始用囉!</p>
+
+<p><strong>UPDATE:</strong>
+<strong><a href="http://userscripts.org/scripts/show/27381">新版請至這裡進行安裝</a></strong></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/mac/1171">The Bird and the Bee - Again and Again (Mac 創意 MV)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-05-18T00:22:57+08:00" pubdate  data-updated="true" >May 18<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><object width="425" height="355"><param name="movie" value="http://www.youtube.com/v/6kxDxLAjkO8&hl=en"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/6kxDxLAjkO8&hl=en" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed></object>
+
+
+<p>一開始是從 <a href="http://www.oikos.com.tw">OIKOS</a> 看到這個 MV 的新聞, 看了之後真的覺得好屌! 不過&#8230; 這首歌真好聽阿!!! 如果歌不好聽, 看過一遍覺得很屌之後&#8230;應該就算了, 可是就是因為歌太好聽~ 所以腦海裡一直浮現這首歌的旋律阿!! 所以剛剛就找了一下, 還發現居然有人做了 Windows 版本, 雖然這支影片很短 :x 不過最後一個畫面是這個版本的重點!! XD</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/mac/1171">Read on &rarr;</a>
     </footer>
   
 

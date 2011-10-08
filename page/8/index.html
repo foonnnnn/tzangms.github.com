@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="今天才意識到 timezone 的處理是有那麼一點麻煩, 存放、顯示要怎麼做之類的, 之前都沒處理過這類的問題, 不過也只能先解決問題, 之後有空在來深入研究 timezone。這兩三天在用 appengine 寫 twitter/plurk 備份的東西, 而 twitter 跟 plurk ...">
+  <meta name="description" content="vimium 真的是超讚的!! 早上看到 jas 的新文章 後, 今天到公司就從 safari 換到 chrome, 用 vim 的指令來瀏覽網頁, 對於平常都用 vim 來工作的我來說, 一整個大開心! 之前就一直想要擺脫滑鼠, 因為用滑鼠讓右手跟右肩很不舒服, 而且現在手都不用離開鍵盤, ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -60,233 +60,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2636">在 App Engine 使用 Pytz</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-05-05T01:11:10+08:00" pubdate  data-updated="true" >May 5<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天才意識到 <a href="http://en.wikipedia.org/wiki/Time_zone">timezone</a> 的處理是有那麼一點麻煩, 存放、顯示要怎麼做之類的, 之前都沒處理過這類的問題, 不過也只能先解決問題, 之後有空在來深入研究 timezone。</p>
-
-<p>這兩三天在用 <a href="http://code.google.com/intl/zh-TW/appengine/">appengine</a> 寫 <a href="http://twitter.com">twitter</a>/<a href="http://plurk.com">plurk</a> 備份的東西, 而 twitter 跟 plurk api 吐的訊息時間分別是 UTC +0000 跟 GMT, 不過剛剛網路上查了一下, 基本上、簡單來說 UTC = GMT, hmm 細節之後再來研究。所以說 twitter 或 plurk 的推訊時間都是用 UTF +0000, 不過這兩個的處理方式比較起來, twitter 簡單多了。</p>
-
-<p>twitter api 的每則推訊都會有 user 的資料, 而 user 的資料當中 utc_offset 直接帶秒數, 例如我在台灣就是 28800 秒, 也就是 8 個小時, 所以就可以用以下的程式碼來把推訊的時間修正為準確, 符合 user 當地的時間</p>
-
-<pre><code>from datetime import datetime, timedelta
-
-fmt = '%a %b %d %H:%M:%S +0000 %Y'
-created_at = datetime.strptime(message['created_at'], fmt) 
-utc_offset = int(message['user']['utc_offset'])
-local_time = created_at + timedelta(seconds=utc_offset)</code></pre>
-
-
-<p>twitter 時間處理滿簡單的, 直接用回傳資料的 utc_offset 然後用 timedelta 處理即可, 即使 utc_offset 是負值也沒問題。 相對之下 Plurk 那邊可以讀到是 timezone, 如: &#8220;Asia/Taipei&#8221; 這組字串, 顯然麻煩了些。</p>
-
-<p>網路上找了一下, 似乎用 <a href="http://pytz.sourceforge.net/">pytz</a> 就可以很方便處理。 以下為 透過 pytz 用來為 plurk 處理本地時間的方式。</p>
-
-<pre><code>from datetime import datetime
-from pytz import timezone
-
-fmt = '%a, %d %b %Y %H:%M:%S GMT'
-created_at = datetime.strptime(message['posted'], fmt)
-user_timezone = timezone("Asia/Taipei")
-local_time = created_at + user_timezone.utcoffset(created_at)</code></pre>
-
-
-<p>使用 pytz 真的滿方便就可以處理掉 timezone 的 time offset 問題, 不過問題來了, pytz 的 zoneinfo 就有 600 個檔案了, 然而 app engine 好像上限是 1000 個檔案, 整個吃掉一半以上。 不過似乎有 <a href="http://code.google.com/intl/zh-TW/appengine/articles/django10_zipimport.html">zipimport</a> 的方式可以把檔案先壓縮在丟上去, 所以 google 幾個方式之後, 最後找到<a href="http://appengine-cookbook.appspot.com/recipe/caching-pytz-helper/">這個方式</a>最簡單, 不過文件沒寫太清楚, 所以在這邊記錄一下。</p>
-
-<p>ok, 結果討人厭的事情又來了, pytz 現在放在 <a href="https://launchpad.net/pytz">launchpad</a> 阿 &#8230; 誰裝 <a href="http://cvlab.epfl.ch/software/bazar/">bazar</a> 阿 XD 不過幸好在 <a href="http://pypi.python.org/pypi/pytz">pypi</a> 可以直接抓檔案。</p>
-
-<p>首先就是抓 tz_helper 跟 pytz 回來, 然後把 pytz 解開後, 找到 zoneinfo 然後把它 zip 起來, 接著就可以把 zoneinfo 目錄刪了, 最後把這三個檔案放在 app 的根目錄就好了, 像是</p>
-
-<pre>
-/app.yaml
-/index.yaml
-/main.py
-...
-/tz_helper.py
-/pytz
-/zoneinfo.zip
-</pre>
-
-
-<p>之後使用的時候直接 import tz_helper 的 timezone 來用即可。</p>
-
-<p>其實現在 SNS 的時間大多都直接採用 3 hours ago 之類的方式來顯示時間, 我想最主要的原因就是, 這樣可以很容易因應世界各地使用者不同時區的問題, 而不是直接顯示這個日期。 誰知道我今天兩個方式都要有, 分別像是下面兩張圖的方式呈現, 所以就得處理 time offset 的問題。 總不能我在 5 月 5 號早上七點的推訊仍舊被記到 5 月 4 號。 而存放成台灣時間, 結果用 UTC +0000 去做 minutes ago, 顯示出來都是 0 minutes ago。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2632">寫新玩具: 推特 / 噗浪備份</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-05-03T00:31:55+08:00" pubdate  data-updated="true" >May 3<span>rd</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://tzangms.com/wp-content/uploads/2010/05/螢幕快照-2010-05-03-上午12.19.18.png"><img src="http://tzangms.com/wp-content/uploads/2010/05/螢幕快照-2010-05-03-上午12.19.18-500x379.png" alt="" title="螢幕快照 2010-05-03 上午12.19.18" width="500" height="379" class="aligncenter size-large wp-image-2635" /></a></p>
-
-<p>這個禮拜日除了吃飯之外的時間都在弄這個, 因為想把自己的&#8221;推&#8221;都備份下來, 想說還可以弄成像日曆之類的, 不過 UI 還沒完成就是了, 目前看起來大概上面這樣。</p>
-
-<p>這次在 <a href="http://code.google.com/intl/zh-TW/appengine/">App Engine</a> 加上 <a href="http://code.google.com/p/google-app-engine-django/">Google App Engine Helper for Django</a> 來寫, 找了個 <a href="http://github.com/mikeknapp/AppEngine-OAuth-Library">app engine oauth library</a>, 稍微改一下, twitter 的部份一下子就弄好了。 時間稍微多花了一點在 plurk 上, 因為沒找到 plurk 在 app engine 的 library 可以用, 只好自己刻一個, 不過主要是在搞清楚回傳的資料, 跟建 model 時多花了一些時間。</p>
-
-<p>hmm~ 還是要有玩具, 可以用來忘記公司的一些煩人事情。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/2631">Switch</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-04-29T11:20:31+08:00" pubdate  data-updated="true" >Apr 29<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://tzangms.com/wp-content/uploads/2010/04/IMG_0118.jpg"><img src="http://tzangms.com/wp-content/uploads/2010/04/IMG_0118-375x500.jpg" alt="" title="IMG_0118" width="375" height="500" class="aligncenter size-large wp-image-2630" /></a></p>
-
-<p>上一本 linchpin 其實還沒看完, 因為 linchpin 這本書的用字遣詞稍微艱深了一些些, 至少對照我以往的讀物來說, 是這樣沒錯。 不過稍微翻了一下昨天拿到的這本 switch, 讀起來感覺就舒服多了 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/2627">Linchpin: Are You Indispensable?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-04-20T21:57:51+08:00" pubdate  data-updated="true" >Apr 20<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://tzangms.com/wp-content/uploads/2010/04/IMG_00531.jpg"><img src="http://tzangms.com/wp-content/uploads/2010/04/IMG_00531-375x500.jpg" alt="" title="IMG_0053" width="375" height="500" class="aligncenter size-large wp-image-2628" /></a></p>
-
-<p>Rework 讀完了, 接下來讀這本, 最近想要先離開程式設計相關的書籍。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/2623">Rework</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-04-16T20:45:37+08:00" pubdate  data-updated="true" >Apr 16<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://tzangms.com/wp-content/uploads/2010/04/IMG_0017.jpg"><img src="http://tzangms.com/wp-content/uploads/2010/04/IMG_0017-375x500.jpg" alt="" title="IMG_0017" width="375" height="500" class="aligncenter size-large wp-image-2624" /></a>
-今天到了, 居然是 hardback :D</p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -487,6 +260,220 @@ local_time = created_at + user_timezone.utcoffset(created_at)</code></pre>
   <div class="entry-content"><p>有空的人可以看一下慕情這篇 <a href="http://gaea-choas.blogspot.com/2010/04/blog-post_07.html">抹黑記者，打壓新聞自由，環保署會不會太過份了？</a></p>
 
 <p>環保署真是他媽的爛透了!!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/2614">連兩天失眠 &#8230;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-04-07T09:40:58+08:00" pubdate  data-updated="true" >Apr 7<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>昨天是一直到凌晨五點多才睡著, 然後九點起床, 上班解 ticket, 晚上整個人差一點就升天, 不到 12 點就睡覺。 誰知道我今天凌晨快四點又醒來了, 然後就一直在床上掙扎, 然後五點多, 我還是爬起來了, 啃, 今天超早就到公司了, 可是現在也是快升天了 &#8230;</p>
+
+<p>發生這種悲劇你能說什麼呢, 這就是人生阿~</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2609">Simpledb 寫入失敗率真高</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-04-01T22:04:31+08:00" pubdate  data-updated="true" >Apr 1<span>st</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>這兩天在把 twitthat 的資料都丟上 simpledb, 持續寫入大概 300 多萬筆資料, 可是光今天寫入失敗就超過 20 次了 ( simpledb service unavailable ), 可能是因為持續寫入關係嗎? 可是我以為會更 reliable 一些。</p>
+
+<blockquote>Service AmazonSimpleDB is currently unavailable. Please try again later</blockquote>
+
+
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/2607">總理好帥紀念日</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-04-01T01:51:42+08:00" pubdate  data-updated="true" >Apr 1<span>st</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/lydia618/4478937677/"><img src="http://tzangms.com/wp-content/uploads/2010/04/4478937677_a689c2504c_o-500x334.jpg" alt="" title="4478937677_a689c2504c_o" width="500" height="334" class="aligncenter size-large wp-image-2608" /></a></p>
+
+<p>感謝<a href="http://blog.roodo.com/lydia618">陸君</a>用她的 Natura Classic 幫我拍這張, 不過陸君忘記把相機壓日期的功能關掉, 感到很懊悔 ~</p>
+
+<p>我故意問說: &#8220;為啥照片會壓日期? XD&#8221;</p>
+
+<p>陸君說: &#8220;為了以後每年12/9都是總理好帥紀念日啊! &#8221;</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2605">記錄一下 Python MySQLdb 的用法</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-03-31T00:17:51+08:00" pubdate  data-updated="true" >Mar 31<span>st</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>因為一開始學 <a href="http://www.python.org/">python</a> 就用 <a href="http://www.djangoproject.com/">django</a> 了, 所以都直接用 ORM, 倒沒真的用過 MySQLdb 來存取過資料庫, 而我對 python 還真的不熟 ( 笑 ), 不過由於今天在把 <a href="http://twitthat.com/">twitthat</a> 的資料庫都丟上 <a href="http://aws.amazon.com/simpledb/">simpledb</a>, 而 twitthat 現在是用 <a href="http://www.tornadoweb.org/">tornado</a>, 所以只好另外寫支程式來把東西丟上 simpledb。</p>
+
+<pre><core>import MySQLdb
+import MySQLdb.cursors
+
+conn = MySQLdb.connect('db_host', 'db_user', 'db_passwd', 'db_name', \
+    charset='utf8', use_unicode=True, cursorclass=MySQLdb.cursors.DictCursor)
+cursor = conn.cursor()
+
+cursor.execute('select * from users')
+users = cursor.fetchall()
+
+for user in users:
+    print user['id']
+
+cursor.close()
+conn.close()</core></pre>
+
+
+<p>以上, 其實重點就只是在 chartset, use_unicode 跟 cursorclass。</p>
+
+<p>charset 跟 use_unicode 就不用多說了, 至於 cursorclass 則是因為, MySQLdb 預設抓出來的東西都是 tuple, 所以另外指定 DictCursor 就可以直接用 dict 來存取&#8230; 不然就得用 user[0], user[1] 都什麼年代了&#8230; (咦)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/2604">Dengue Fever - Tiger Phone Card</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-03-29T22:19:08+08:00" pubdate  data-updated="true" >Mar 29<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/zTckGk6eBjM&hl=zh_TW&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/zTckGk6eBjM&hl=zh_TW&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed></object>
+
+
+<p>今天 <a href="http://twitter.com/siegfy/">@siegfy</a> 給我聽這首柬埔寨搖滾, 幹! 一整個驚為天人, 超好聽的阿!</p>
+
+<p>我不是開玩笑, 超認真的! 光是主奏那吉他 riff 就超好聽的, 還有 solo 根本就是 amazing!! 我覺得 solo 超屌的! 一開始的 repeat 完全讓我猜不透柬埔寨人彈吉他的套路, 這為我帶來了莫大的驚喜!! 話說他們唱的可是英文呦!</p>
+
+<p>想更了解登革熱的朋友, 請看 @siegfy 寫的 &#8221;<a href="http://siegfy.blogspot.com/2008/03/blog-post_13.html">椰奶與老虎牌電話卡</a>&#8221;</p>
+
+<object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/u-fC-iYMKuk&hl=zh_TW&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/u-fC-iYMKuk&hl=zh_TW&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed></object>
+
 </div>
   
   

@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="剛針灸回來就收到 amazon 的信, 好 high 阿 XD 介面使用起來還滿流暢的, 有在用 S3 的人趕快去看看吧!">
+  <meta name="description" content="前一陣子因為要畫 deployment 的示意圖放在 wiki 給同事看, 所以用了 Mac 上的 Omni graffle 來畫, 真的是滿好用的。 今天要畫 App engine 的 model, 就在 Graffletopia 找到了 Django model 的 stencils, 畫...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -60,186 +60,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2674">Amazon S3 Console 出現了!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-06-10T18:34:31+08:00" pubdate  data-updated="true" >Jun 10<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://tzangms.com/wp-content/uploads/2010/06/螢幕快照-2010-06-10-下午6.29.33.png"><img src="http://tzangms.com/wp-content/uploads/2010/06/螢幕快照-2010-06-10-下午6.29.33-500x294.png" alt="" title="螢幕快照 2010-06-10 下午6.29.33" width="500" height="294" class="aligncenter size-large wp-image-2673" /></a>
-剛針灸回來就收到 amazon 的信, 好 high 阿 XD 介面使用起來還滿流暢的, 有在用 S3 的人趕快去看看吧!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2672">在 App Engine 使用 Django</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-06-10T12:02:23+08:00" pubdate  data-updated="true" >Jun 10<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>因為平常就是寫 <a href="http://www.djangoproject.com/">django</a>, 然後又對 <a href="http://code.google.com/intl/zh-TW/appengine/">app engine</a> <a href="http://code.google.com/intl/zh-TW/appengine/docs/python/gettingstarted/usingwebapp.html">webapp</a> 的 request handler get/post 分離有點感冒, 不過我想這是習慣問題吧, 所以後來都把 webapp 寫的東西都換成 django。</p>
-
-<p>以前有看過一些文章說是把 django zip 起來, 然後<a href="http://code.google.com/intl/zh-TW/appengine/articles/django10_zipimport.html">用 zipimport 來跑 django</a>, 不過其實除非你要用的是 django trunk, 否則 app engine 其實本身就內建了 0.96, 1.0 跟 1.1, 當然這邊指的是雲的那一端, 本地端還是得裝上要使用的 django 版本, 不過不用把 django 放進你的 app engine project 就是了。</p>
-
-<p>像是下面這段, 即使你使用的是 webapp, 你仍然可以透過下面這段 code, 寫在 request handler 的最前方, 來使用 django 1.1 的功能, 而非老舊的 django 0.96</p>
-
-<pre><code>from google.appengine.dist import use_library
-use_library('django', '1.1')
-os.environ['DJANGO_SETTINGS_MODULE'] = 'myaudiocast.settings'</code></pre>
-
-
-<p>至少 django 從 1.0 開始, template 的功能就大幅改進, 光 with 跟 escape_js 這兩個 template tag 就夠棒的了!</p>
-
-<p>其實 google 「app engine django」就可以找到一堆教你如何在 app engine 使用 django 的文章, 不過我還是覺得 <a href="http://code.google.com/p/google-app-engine-django/">Google App Engine Helper for Django</a> 最方便。只需要下載下來解開, 幾乎不用修改就可以開始使用。</p>
-
-<p>而 Google App Engine Helper for Django 預設是使用 django 1.0, 不過只要修改 main.py 裡, 下面這一段就可以使用 django 1.1 了</p>
-
-<pre><code>InstallAppengineHelperForDjango('1.1')</code></pre>
-
-
-<p>當然改用 django 1.0 以上的版本, 除了 template 之外就是 form 也改進了很多, 雖然原本 app engine 就已經有提供 djangoforms 可以直接透過 datastore 的 model 來產生 form, 但是在 webapp get/post request 分開處理的狀況下, django form 在使用上顯得非常憋腳, 而且 djangoforms 用的是 django 0.96 的 form, 所以功能上的確差了許多。</p>
-
-<p>以上是我對在 app engine 上使用 django 的感想。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2664">App Engine Datastore 效能心得</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-06-10T01:29:20+08:00" pubdate  data-updated="true" >Jun 10<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>由於這一陣子用 <a href="http://code.google.com/intl/zh-TW/appengine/">app engine</a> 寫了一些玩具跟 <a href="http://www.myaudiocast.com">myaudiocast</a>, 所以來記錄一下心得。雖然 app engine 不用錢, 似乎不用怕資料庫 scale 的問題, 可是比起一般使用關聯式資料庫來說, 開始 run 之前得更仔細規劃, 因為有些資料在寫入後就無法更動了。</p>
-
-<p><a href="http://tzangms.com/wp-content/uploads/2010/06/myaudiocast-model.jpg"><img class="aligncenter size-full wp-image-2669" title="myaudiocast-model" src="http://tzangms.com/wp-content/uploads/2010/06/myaudiocast-model.jpg" alt="" width="481" height="404" /></a></p>
-
-<p>上面這張圖是 <a href="http://www.myaudiocast.com">myaudiocast</a> 簡單的示意圖, 接下來就用這張圖來說一下關於  datastore 使用上的心得</p>
-
-<h2>單筆資料 ( one-to-one )</h2>
-
-
-<p>像是 User 對 Podcast 在我的規劃上是 one-to-one, 所以如果是 one-to-one 這類的資料就給定 key_name, 直接用 key_name 來抓單筆資料, 而不是先用 filter 之後在用  get 來取得單筆資料。 因為用 appstats 就發現後面這個方法常常是花最多時間的, 然而因為之前的資料都沒給 key_name 現在也來不及了 &#8230;</p>
-
-<h2>多筆資料 ( one-to-many, many-to-many )</h2>
-
-
-<p>像是 Episode 這類 one-to-many, 會有多筆的資料, 沒事就不用給 key_name 了, 因為通常都是透過 filter 來取出多筆資料, 所以只需要寫入時指定 parent, 讓 user 的 episodes 可以成為一個 entity group, 這樣抓取資料比較快。</p>
-
-<h2>盡量使用 memcache</h2>
-
-
-<p>datastore 其實並沒有很快, 甚至 model api 沒有 query cache, 而 memcache 的 quota 其實滿大的, 所以要盡量用 memcache。</p>
-
-<h2>避免在 template 透過關連取資料</h2>
-
-
-<p>像是 podcast 跟 episodes 都可以透過關連, 像是 user.podcast 跟 user.episodes 來取得資料, 所以因為寫 django 的經驗, 我可能就直接丟 user 變數進 template, 然後都用 user.podcast, 跟 user.episodes 來取得資料, 可是這在 app engine 則是要避免的, 因為 app engine 的 model 並沒有 query cache, 所以可能會像下面這樣的作法, 就會對 podcast 做兩次 query。</p>
-
-<pre><code>
-</code></pre>
-
-
-<p>所以得一開始就把 user 跟 podcast 丟進 template, 直接取得資料而不是透過物件關連。</p>
-
-<p>不過有時候就是一定得透過關連來做, 那麼就請使用  django 1.0 以上的 template, 透過 <a href="http://docs.djangoproject.com/en/dev/ref/templates/builtins/#with">with</a> 這個 template tag 來避免多次 query, 或者是在 model 新增一個 property 然後用 memcache 來解決, 像是我的作法</p>
-
-<pre><code>class User(db.Model):
-    ...
-
-    @property
-    def podcast(self):
-        cache_key = 'user-podcast-%s' % self.key()
-        p = memcache.get(cache_key)
-        if not p:
-            p = self.podcasts.ancestor(self).get()
-            memcache.add(cache_key, p)
-
-        return p</code></pre>
-
-
-<p>先前說過, 以前不懂忘記給 key_name, 現在只能這樣 query 了, 頂多加上個 ancestor (默)</p>
-
-<h2>結論</h2>
-
-
-<p>datastore 雖然不太需要擔心 scale 的問題, 可是在 run 之前卻得更仔細規劃, 否則效能低落, 花的只是更多錢阿 XD 而 memcache 則是一定得用, 否則跑起來的確是不夠快。</p>
-
-<p>大概是這樣, 希望沒有哪裡有寫錯的, 如果有的話, 也請多多留言指指教, 謝謝 :p</p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -604,6 +424,161 @@ Message.all().filter('keywords IN', keywords)</code></pre>
 
 
 <p>我看到就會 DM 網址給你, 謝謝! XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2636">在 App Engine 使用 Pytz</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-05-05T01:11:10+08:00" pubdate  data-updated="true" >May 5<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天才意識到 <a href="http://en.wikipedia.org/wiki/Time_zone">timezone</a> 的處理是有那麼一點麻煩, 存放、顯示要怎麼做之類的, 之前都沒處理過這類的問題, 不過也只能先解決問題, 之後有空在來深入研究 timezone。</p>
+
+<p>這兩三天在用 <a href="http://code.google.com/intl/zh-TW/appengine/">appengine</a> 寫 <a href="http://twitter.com">twitter</a>/<a href="http://plurk.com">plurk</a> 備份的東西, 而 twitter 跟 plurk api 吐的訊息時間分別是 UTC +0000 跟 GMT, 不過剛剛網路上查了一下, 基本上、簡單來說 UTC = GMT, hmm 細節之後再來研究。所以說 twitter 或 plurk 的推訊時間都是用 UTF +0000, 不過這兩個的處理方式比較起來, twitter 簡單多了。</p>
+
+<p>twitter api 的每則推訊都會有 user 的資料, 而 user 的資料當中 utc_offset 直接帶秒數, 例如我在台灣就是 28800 秒, 也就是 8 個小時, 所以就可以用以下的程式碼來把推訊的時間修正為準確, 符合 user 當地的時間</p>
+
+<pre><code>from datetime import datetime, timedelta
+
+fmt = '%a %b %d %H:%M:%S +0000 %Y'
+created_at = datetime.strptime(message['created_at'], fmt) 
+utc_offset = int(message['user']['utc_offset'])
+local_time = created_at + timedelta(seconds=utc_offset)</code></pre>
+
+
+<p>twitter 時間處理滿簡單的, 直接用回傳資料的 utc_offset 然後用 timedelta 處理即可, 即使 utc_offset 是負值也沒問題。 相對之下 Plurk 那邊可以讀到是 timezone, 如: &#8220;Asia/Taipei&#8221; 這組字串, 顯然麻煩了些。</p>
+
+<p>網路上找了一下, 似乎用 <a href="http://pytz.sourceforge.net/">pytz</a> 就可以很方便處理。 以下為 透過 pytz 用來為 plurk 處理本地時間的方式。</p>
+
+<pre><code>from datetime import datetime
+from pytz import timezone
+
+fmt = '%a, %d %b %Y %H:%M:%S GMT'
+created_at = datetime.strptime(message['posted'], fmt)
+user_timezone = timezone("Asia/Taipei")
+local_time = created_at + user_timezone.utcoffset(created_at)</code></pre>
+
+
+<p>使用 pytz 真的滿方便就可以處理掉 timezone 的 time offset 問題, 不過問題來了, pytz 的 zoneinfo 就有 600 個檔案了, 然而 app engine 好像上限是 1000 個檔案, 整個吃掉一半以上。 不過似乎有 <a href="http://code.google.com/intl/zh-TW/appengine/articles/django10_zipimport.html">zipimport</a> 的方式可以把檔案先壓縮在丟上去, 所以 google 幾個方式之後, 最後找到<a href="http://appengine-cookbook.appspot.com/recipe/caching-pytz-helper/">這個方式</a>最簡單, 不過文件沒寫太清楚, 所以在這邊記錄一下。</p>
+
+<p>ok, 結果討人厭的事情又來了, pytz 現在放在 <a href="https://launchpad.net/pytz">launchpad</a> 阿 &#8230; 誰裝 <a href="http://cvlab.epfl.ch/software/bazar/">bazar</a> 阿 XD 不過幸好在 <a href="http://pypi.python.org/pypi/pytz">pypi</a> 可以直接抓檔案。</p>
+
+<p>首先就是抓 tz_helper 跟 pytz 回來, 然後把 pytz 解開後, 找到 zoneinfo 然後把它 zip 起來, 接著就可以把 zoneinfo 目錄刪了, 最後把這三個檔案放在 app 的根目錄就好了, 像是</p>
+
+<pre>
+/app.yaml
+/index.yaml
+/main.py
+...
+/tz_helper.py
+/pytz
+/zoneinfo.zip
+</pre>
+
+
+<p>之後使用的時候直接 import tz_helper 的 timezone 來用即可。</p>
+
+<p>其實現在 SNS 的時間大多都直接採用 3 hours ago 之類的方式來顯示時間, 我想最主要的原因就是, 這樣可以很容易因應世界各地使用者不同時區的問題, 而不是直接顯示這個日期。 誰知道我今天兩個方式都要有, 分別像是下面兩張圖的方式呈現, 所以就得處理 time offset 的問題。 總不能我在 5 月 5 號早上七點的推訊仍舊被記到 5 月 4 號。 而存放成台灣時間, 結果用 UTC +0000 去做 minutes ago, 顯示出來都是 0 minutes ago。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2632">寫新玩具: 推特 / 噗浪備份</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-05-03T00:31:55+08:00" pubdate  data-updated="true" >May 3<span>rd</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://tzangms.com/wp-content/uploads/2010/05/螢幕快照-2010-05-03-上午12.19.18.png"><img src="http://tzangms.com/wp-content/uploads/2010/05/螢幕快照-2010-05-03-上午12.19.18-500x379.png" alt="" title="螢幕快照 2010-05-03 上午12.19.18" width="500" height="379" class="aligncenter size-large wp-image-2635" /></a></p>
+
+<p>這個禮拜日除了吃飯之外的時間都在弄這個, 因為想把自己的&#8221;推&#8221;都備份下來, 想說還可以弄成像日曆之類的, 不過 UI 還沒完成就是了, 目前看起來大概上面這樣。</p>
+
+<p>這次在 <a href="http://code.google.com/intl/zh-TW/appengine/">App Engine</a> 加上 <a href="http://code.google.com/p/google-app-engine-django/">Google App Engine Helper for Django</a> 來寫, 找了個 <a href="http://github.com/mikeknapp/AppEngine-OAuth-Library">app engine oauth library</a>, 稍微改一下, twitter 的部份一下子就弄好了。 時間稍微多花了一點在 plurk 上, 因為沒找到 plurk 在 app engine 的 library 可以用, 只好自己刻一個, 不過主要是在搞清楚回傳的資料, 跟建 model 時多花了一些時間。</p>
+
+<p>hmm~ 還是要有玩具, 可以用來忘記公司的一些煩人事情。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/2623">Rework</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-04-16T20:45:37+08:00" pubdate  data-updated="true" >Apr 16<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://tzangms.com/wp-content/uploads/2010/04/IMG_0017.jpg"><img src="http://tzangms.com/wp-content/uploads/2010/04/IMG_0017-375x500.jpg" alt="" title="IMG_0017" width="375" height="500" class="aligncenter size-large wp-image-2624" /></a>
+今天到了, 居然是 hardback :D</p>
 </div>
   
   
