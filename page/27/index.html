@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="身體不適的狀況越來越嚴重, 我的肩膀跟脖子都有嚴重石化的傾向, 甚至在公司午休時無法趴睡, 而我的左手也幾乎無法出力。 每天起床的時候, 肩膀跟脖子痛的要死, 我也不清楚為何是在起床的時候特別痛。 而在睡覺時, 也會因為肩膀跟脖子的疼痛而睡不著。至於醒著的時候, 則是維持著基本的疼痛感, 可能...">
+  <meta name="description" content="昨天看到了 CodeIgniter 釋出了新版的 1.7.0, 所以就打算來升級一下, 不過想起以往在升級 CodeIgniter 的時候, 由於有使用 SVN 來當作 VCS, 所以每個目錄裡面都會有 .svn, 所以沒辦法直接覆蓋目錄, 所以當時就一個一個目錄的打開, 把該升級的檔案覆蓋掉...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/2109">身體不適</a></h1>
+      <h1 class="entry-title"><a href="/programming/1972">CodeIgniter 搭配 Svn:externals 做無痛升級</a></h1>
     
     
       <p class="meta">
@@ -80,115 +80,24 @@
 
 
 
-<time datetime="2008-11-19T23:34:45+08:00" pubdate  data-updated="true" >Nov 19<span>th</span>, 2008</time>
+<time datetime="2008-10-26T08:40:50+08:00" pubdate  data-updated="true" >Oct 26<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>身體不適的狀況越來越嚴重, 我的肩膀跟脖子都有嚴重石化的傾向, 甚至在公司午休時無法趴睡, 而我的左手也幾乎無法出力。 每天起床的時候, 肩膀跟脖子痛的要死, 我也不清楚為何是在起床的時候特別痛。 而在睡覺時, 也會因為肩膀跟脖子的疼痛而睡不著。</p>
+  <div class="entry-content"><p>昨天看到了 <a href="http://codeigniter.com">CodeIgniter</a> 釋出了新版的 1.7.0, 所以就打算來升級一下, 不過想起以往在升級 CodeIgniter 的時候, 由於有使用 <a href="http://subversion.tigris.org/">SVN</a> 來當作 <a href="http://en.wikipedia.org/wiki/Version_control_system">VCS</a>, 所以每個目錄裡面都會有 .svn, 所以沒辦法直接覆蓋目錄, 所以當時就一個一個目錄的打開, 把該升級的檔案覆蓋掉, 沒辦法直接換目錄, 否則 svn 的資訊就都會不見了。</p>
 
-<p>至於醒著的時候, 則是維持著基本的疼痛感, 可能由於這個疼痛的情形已經持續了快兩年, 我似乎是因為已經習慣了這個疼痛的感覺, 而視為理所當然。</p>
+<p>所以昨天找了一下 <a href="http://svnbook.red-bean.com/en/1.0/ch07s03.html">svn:externals</a> 的用法, 透過 svn:externals 就可以很快的昇級 CodeIgniter system。</p>
 
-<p>今年年初也去看過復健科, 去看過整骨&#8230; 等等, 不過好像也沒什麼用。甚至在做過復健的電療後, 脖子突出了一塊, 到現在都沒有消去。 也許就是電腦打太久, 工作環境不良, 沒有運動 &#8230; 等, 所以後來也開始斷斷續續的跑步, 只是狀況也沒有太大的好轉, 有時甚至更劇烈疼痛。</p>
-
-<p>不過一直到這半年來, 肩膀跟脖子疼痛越來越劇烈, 而且異常僵硬, 已經到了我需要以石化來稱呼。 其實一直在想, 到底是什麼原因造成的? 什麼時候開始的? 似乎就是在開始工作後的幾個月, 脖子開始覺得僵硬、疼痛。 一直持續到現在, 快兩年了, 其實我真的是滿會忍痛的。</p>
-
-<p>以前有過某個經驗, 因為牙齒有問題, 連帶影響到脖子的某條神經之類的, 牙齒治療好之後, 脖子的疼痛也不藥而癒。 所以在肩膀脖子剛開始疼痛的時候, 我想說可能會是類似原因, 就跑去看了牙醫, 只是這個疼痛依舊。 (攤手)</p>
-
-<p>一直在想著自己的身體怎麼會這樣, 一直到今年年初, 我開始覺得是因為工作環境問題, 可能桌椅不合人體工學? 當時在請假準備去看醫生的時候說出這個可能性猜測, 經理笑著說: 「那其他人怎麼不會?」 我也說不出個所以然來, 只笑著回答說:「我也不知道 :p」</p>
-
-<p>慢慢的, 我開始觀察, 疼痛的加重情況就有如一個循環。 從禮拜一上班開始就慢慢加重, 一直到禮拜六開始減緩, 但隨著上班的開始, 又開始加重。 所以我只能猜測是工作的桌椅問題。 不過公司每個人都用同樣的桌椅, 為何只有我會這樣? 看來是我坐姿非常的不良? 又或者是我的風水特別不好? 或者是也許剛好我跟這個桌椅不合吧!?</p>
-
-<p>我也不知道為何在家裡就不會有這種不舒服情況。 (攤手)</p>
-
-<p>幾個禮拜前, 在做推拿的姑姑, 看了一下我的狀況, 他說我的左邊肩膀已經移位了, 一整個往上移, 連帶的影響到了我的左手, 導致左手無法施力。 姑姑說還滿嚴重的, 所以就幫我把身體橋了一下(其實是橋很久, 讓我痛的幾乎無法呼吸), 這才稍微減輕這惱人的疼痛感。</p>
-
-<p>目前最近的狀況是, 上班時, 手靠在桌上想要打電腦, 肩膀、脖子就會痛, 只是可能習慣了, 就繼續打字、工作著, 然後到了下午, 疼痛感慢慢的增加。 然而最近疼痛越來越嚴重, 痛到我快要無法忍受, 也無法專心寫程式, 心情極度煩躁。</p>
-
-<p>我只能說, 我的手快廢了, 脖子肩膀快不能動了, 我深覺得我不能再這樣繼續下去了。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/2105">Twitter 成癮症</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-11-19T00:50:19+08:00" pubdate  data-updated="true" >Nov 19<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="http://tzangms.com/wp-content/uploads/2008/11/twitterholic1.png" alt="twitterholic1" title="twitterholic1" width="580" height="427" class="aligncenter size-full wp-image-2301" />
-這一兩天 twitter 非常不穩, 應該很多人發現自己已經 twitter 成癮了吧!? XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/2068">1106 野莓之聲</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-11-11T08:53:19+08:00" pubdate  data-updated="true" >Nov 11<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><object width="400" height="225"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=2205674&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=2205674&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="400" height="225"></embed></object>
-
-
-<br /><a href="http://vimeo.com/2205674">野草莓運動ㄧ野莓之歌</a> from <a href="http://vimeo.com/freshfoliage">freshfoliage</a> on <a href="http://vimeo.com">Vimeo</a>.
-
-
-<p>這首歌是由網友<a href="http://Nelleven.pixnet.net/blog/post/22303995">小海</a>(不是我 XD) 所寫的一首歌, 應該是叫做&#8221;野莓之歌&#8221; 昨天回家抓了一下和絃, 希望有興趣的人可以一起來彈唱。</p>
+<p>一開始新的 CI project 我都會把 /system/application 這個目錄給搬出來。 可以直接搬出來成為 /application 而不用改任何程式。 平常也根本動不到 /system 目錄裡面的東西。 如此一來只要把 /system 設為 svn:externals 指到 CodeIgniter SVN 就可以自動更新了。 但前提是沒有修改 /system 裡面的檔案。</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/life/2068">Read on &rarr;</a>
+      <a rel="full-article" href="/programming/1972">Read on &rarr;</a>
     </footer>
   
 
@@ -200,7 +109,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/stickeraction/2071">[Stickeraction] 新介面、新功能</a></h1>
+      <h1 class="entry-title"><a href="/life/1985">唱片交貨囉!!!</a></h1>
     
     
       <p class="meta">
@@ -214,22 +123,72 @@
 
 
 
-<time datetime="2008-11-11T00:04:26+08:00" pubdate  data-updated="true" >Nov 11<span>th</span>, 2008</time>
+<time datetime="2008-10-25T13:39:03+08:00" pubdate  data-updated="true" >Oct 25<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a title="stickeraction 改版 by tzangms, on Flickr" href="http://stickeraction.com"><img class="alignleft" src="http://farm4.static.flickr.com/3167/3019663572_ee454a3c33.jpg" alt="stickeraction 改版" width="500" height="315" /></a></p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2971037838/" title="唱片交貨囉! by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3253/2971037838_f30ff3dfb0.jpg" width="500" height="333" alt="唱片交貨囉!" /></a></p>
 
-<p>之前一直在忙唱片的事情, 沒有時間把介面弄好一點, 這次唱片壓完了, 就把一些功能弄出來, 改了個介面。</p>
+<p>非常的令人興奮!! 雖然說收到貨了, 可是我待會就要回宜蘭看我阿公了, 可能今晚還是要住醫院吧。</p>
+
+<p>不過&#8230; 終於! 唱片壓好了!!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1921">UCS-2 字碼轉 UTF-8</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-10-25T13:22:08+08:00" pubdate  data-updated="true" >Oct 25<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>最近碰到要處理經過 UCS-2 編碼過的字串, 幸好不會太困難 <em>汗</em>。 不過我對 unicode 相關的東西, 只是一知半解, 下面純為紀錄, 有問題煩請糾正 :p</p>
+
+<p>這個 UCS-2 編碼字串看起來像是這個樣子
+<code>4F60597D002C901988E1662F6E2C8A66</code></p>
+
+<p>其實是指</p>
+
+<blockquote>你好,這裡是測試</blockquote>
+
+
+<p>而在 UCS-2 中, 一個字固定是由 4 個 Bytes 所組成, 所以我們可以將這個 UCS-2 字串拆成像下面這樣, 看起來會比較清楚。</p>
+
+<p><code>4F60 597D 002C 9019 88E1 662F 6E2C 8A66</code></p>
+
+<p>可以到 <a href="http://www.unicode.org/charts/unihan.html">Unihan Database</a> 輸入4F60 看看, 就會得到「你」這個字, 跟其他相關資料。</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/stickeraction/2071">Read on &rarr;</a>
+      <a rel="full-article" href="/programming/1921">Read on &rarr;</a>
     </footer>
   
 
@@ -241,7 +200,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/music/2060">小海專輯購買頁面 @ Registrano</a></h1>
+      <h1 class="entry-title"><a href="/programming/1918">[轉載] 程式設計師的格言</a></h1>
     
     
       <p class="meta">
@@ -255,160 +214,30 @@
 
 
 
-<time datetime="2008-11-09T23:14:55+08:00" pubdate  data-updated="true" >Nov 9<span>th</span>, 2008</time>
+<time datetime="2008-10-24T20:25:04+08:00" pubdate  data-updated="true" >Oct 24<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p style="text-align: center;"><a title="小海首張個人專輯 - 人生海海 | Registrano by tzangms, on Flickr" href="https://registrano.com/events/tzangms-album"><img class="aligncenter" src="http://farm4.static.flickr.com/3174/3015991220_e27e8dfd7a.jpg" alt="小海首張個人專輯 - 人生海海 | Registrano" width="500" height="482" /></a></p>
+  <div class="entry-content"><p>這一篇應該是我第一次轉載別人家過來的文章吧, 應該很多人都看過了, 我相信身為 Programmer 的朋友, 看到這一篇應該都心有戚戚焉吧? XDDDD</p>
+
+<p>anyway, 心情不好時, 就可以看看這一篇, 應該就可以<del>認命</del>釋懷了吧!!?</p>
+
+<p>本篇文章出處來源為:</p>
+
+<blockquote>程式設計師的格言 &laquo; but, or bug
+<a href="http://buttaiwan.wordpress.com/2008/10/12/programmers_rule/">http://buttaiwan.wordpress.com/2008/10/12/programmers_rule/</a></blockquote>
 
 
-<p>小海專輯購買頁面開放囉! 感謝<a href="http://zh.handlino.com/">和多</a>贊助, 讓我可以使用 <a href="http://registrano.com/">Registrano</a> 來進行唱片購買的事宜 :D</p>
-
-<p>其實 Registrano 主要是用來進行活動報名的網站, 不過有一天突然想說應該也可以拿來賣唱片吧? XD 所以就開始了這個計畫, 雖然用在唱片購買, 有些用詞看起來怪怪的, 不過感覺還滿好玩的阿, Registrano 也真是滿好用的! :D</p>
-
-<p>不過, 基本上這個<a href="https://registrano.com/events/tzangms-album">專輯購買頁面</a>, 最主要就是給碰不到面, 離台北太遠的人用低, 因為要用寄的, 所以定價 300 塊, 含運費 XD</p>
-
-<p>如果碰的到面的, 就直接找我面交就可以啦!!</p>
-
-<p>專輯試聽:</p>
-
-<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="400" height="100" ><param name="movie" value="http://bandcamp.mu/EmbeddedPlayer.swf/album=3079962188/"><param name="quality" value="high"><param name="bgcolor" value="#FFFFFF"><param name="allowScriptAccess" value="never"><embed src="http://bandcamp.mu/EmbeddedPlayer.swf/album=3079962188/"  width="400" height="100" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" quality=high bgcolor=#FFFFFF allowScriptAccess=never ></embed><noembed><a href="http://tzangms.bandcamp.mu/album/-">我想忘記你 by tzangms</a></noembed></object>
-
-
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/2040">小海專輯面交預約@生態綠</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-11-03T23:55:48+08:00" pubdate  data-updated="true" >Nov 3<span>rd</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="http://farm4.static.flickr.com/3190/2999454492_1821d075fe_m.jpg" alt="封面" width="240" height="237" />
-這個星期三我將背著專輯到<a href="http://www.okogreen.com.tw/">生態綠</a>跟大家進行面交喔!!! 有興趣的朋友, 可以到 <a href="http://registrano.com/events/tzangms-preorder-okgreen">Registrano 報名頁面</a> 進行報名, 以便統計唱片數量</p>
-
-<p>另外, 小海也會當場簽名喔!! XDDDDD</p>
-
-<p><a href="http://registrano.com/events/tzangms-preorder-okgreen/registrations/new">馬上報名</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/codeigniter/2033">ORM Library for CodeIgniter</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-11-03T10:42:08+08:00" pubdate  data-updated="true" >Nov 3<span>rd</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>DataMapper</strong>
-<a href="http://stensi.com/datamapper/">http://stensi.com/datamapper/</a></p>
-
-<p><strong>IgnitedRecord</strong>
-<a href="http://www.assembla.com/wiki/show/bnqonahgCr3zI3ab7jnrAJ">http://www.assembla.com/wiki/show/bnqonahgCr3zI3ab7jnrAJ</a></p>
-
-<p>這兩個 ORM library 可以試試看, 不過目前我好像偏好直接寫 SQL, 長長一串好像看起來比較爽 &#8230;</p>
-
-<p>不過我是覺得, <a href="http://codeigniter.com">CodeIgniter</a> namespace 的問題&#8230; 會在使用這些 ORM 的時候造成一些困擾 囧rz</p>
-
-<p>像是 CodeIgniter 的 Controller, Library 跟 Model 的 class name 本來就不能一樣了, 但至少 Model 的名稱叫做 foo_model 之類的, 還可以避開, 但是 ORM 多個 postfix &#8230;不是很奇怪?</p>
-
-<p>倒是希望 CodeIgniter 可以解決 name space 這個問題先 ~&#8221;~</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/2028">寫程式適合聽的音樂 - Slipknot</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-10-30T21:32:12+08:00" pubdate  data-updated="true" >Oct 30<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>我寫程式時特別愛聽比較重的音樂, slipknot 是其中一個, 來介紹幾首我喜歡的 slipknot 的歌曲, 一邊聽, 一邊寫程式, 思路跟打字都會飛快阿!!</p>
-
-<p><strong>spit it out</strong></p>
-
-<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/0XgHBWuwNp0&hl=zh_TW&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/0XgHBWuwNp0&hl=zh_TW&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
-
+<p><strong>直接連過去出處來源看比較好!!  出處排版好看很多阿!!! (茶)</strong></p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/music/2028">Read on &rarr;</a>
+      <a rel="full-article" href="/programming/1918">Read on &rarr;</a>
     </footer>
   
 
@@ -420,7 +249,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/2006">CodeIgniter 1.7.0 更新</a></h1>
+      <h1 class="entry-title"><a href="/linux/1923">Gamin Circular Dependency With &#8216;Fam&#8217; USE Flag</a></h1>
     
     
       <p class="meta">
@@ -434,60 +263,64 @@
 
 
 
-<time datetime="2008-10-30T20:10:18+08:00" pubdate  data-updated="true" >Oct 30<span>th</span>, 2008</time>
+<time datetime="2008-10-24T17:23:16+08:00" pubdate  data-updated="true" >Oct 24<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://codeigniter.com">CodeIgniter</a> 在 10/23 釋出了 1.7.0 版本, 來列出一些我覺得比較重要的改變好了, 詳細的改變還是請看 <a href="http://codeigniter.com/user_guide/changelog.html">Changelog</a>。</p>
+  <div class="entry-content"><p>在 <a href="http://www.gentoo.org/">gentoo linux</a> 上應該是很少有機會會碰到 circular dependency, 如果真的碰到了, 就是過一陣子 <code>emerge --sync</code> 看看, 或是去作 bug report。 這次是為了要將 <a href="http://www.lighttpd.net/">lighttpd</a> 的 stat-cache-engine 設定為 fam, 而第一次碰到 portage 的 circular dependency。</p>
 
-<p><strong>1. 新增 form_validation library</strong>
-這個版本最主要的就是新增了一個 <a href="http://codeigniter.com/user_guide/libraries/form_validation.html">form_validation</a> 的 library 用來取代舊有的 validation library, 而 validation library 也在 1.7.0 開始被列為 deprecated。 ( 應該翻做不建議使用? ) anyway, validation library 的文件也已經從 user guide 移除了, 不過 validation 依然可用, 只是得找時間換成 form_validation 就是了。</p>
+<p>嗯, 這個問題是發生在 gamin 跟 glib 這兩個套件, 其實之前一直放著不管, 就把時間拿去弄唱片了, 可是過了好久, 這個問題還沒解決, 一直到今天才又換了方法試一下, 沒想到就成功了!! :D</p>
 
-<p>看了一下 form_validation 的文件, 這次的更新, 大幅降低了以往 validation 囉唆使用的方式, 改成了跟 <a href="http://kohanaphp.org">kohana</a> 2.1 時的 validation 類似的方式, 簡單許多, 很不賴。</p>
-
-<p>以往的 validation 真的是是很囉唆, 像是這樣</p>
-
-<pre>
-<code>$rules['name'] = 'required|alpha_numeric|max_length[20]';
-$rules['email'] = 'required|valid_email';
-$rules['web'] = 'required|prep_url';
-$this->validation->set_rules($rules);
-
-$fields['name'] = '名稱';
-$fields['email'] = 'email';
-$fields['web'] = '網站';
-$this->validation->set_fields($fields);</code>
-</pre>
+<ol>
+<li>首先 use flag 先不加 fam, 先把 glib 跟 gamin 裝上去</li>
+</ol>
 
 
-<p>現在簡化許多, 變成是</p>
+<p><code>USE='-fam' emerge gamin</code></p>
 
-<pre>
-<code>$this->form_validation->set_rules('name', '名稱', 'required|alpha_numeric|max_length[20]');
-$this->form_validation->set_rules('email', 'email', 'required|valid_email');
-$this->form_validation->set_rules('web', '網站', 'required|prep_url');</code>
-</pre>
-
-
-<p>不像以往是把 set_rules 跟 set_fields 分開作, 現在在 set_rules 直接一起把 set_fields 的部份做掉了, 寫起來輕鬆許多。</p>
-
-<p><strong>2. 可另外指定 library 載入後的物件名稱</strong>
-以往, 原本 library 的 class name 叫什麼, 在使用的時候就得用 class name 來使用, 沒有辦法另外指定比較短的名稱來方便使用, 以 simplepie 來說:</p>
-
-<pre><code>$this->load->library('simplepie');
-$this->simeplepie->function_name();</code></pre>
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/linux/1923">Read on &rarr;</a>
+    </footer>
+  
 
 
-<p>從 1.7.0 之後就可以這樣:</p>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/1913">唱片樣本</a></h1>
+    
+    
+      <p class="meta">
+        
 
-<pre><code>$this->load->library('simplepie', '', 'sp');
-$this->sp->function_name();</code></pre>
 
 
-<p>這樣感覺還不錯 :D 不過以上只是舉例, 我還是依舊用 simplepie 這個名稱 XD</p>
+
+
+  
+
+
+
+<time datetime="2008-10-22T11:02:10+08:00" pubdate  data-updated="true" >Oct 22<span>nd</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2963477902/" title="唱片樣本 by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3150/2963477902_43ff9d8fa4.jpg" width="500" height="375" alt="唱片樣本" /></a></p>
+
+<p>超興奮的! 明後天就可以收到完成品囉!</p>
 </div>
   
   
@@ -500,7 +333,7 @@ $this->sp->function_name();</code></pre>
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/1995">阿公走了</a></h1>
+      <h1 class="entry-title"><a href="/music/1896">專輯印刷校稿</a></h1>
     
     
       <p class="meta">
@@ -514,16 +347,145 @@ $this->sp->function_name();</code></pre>
 
 
 
-<time datetime="2008-10-27T22:57:08+08:00" pubdate  data-updated="true" >Oct 27<span>th</span>, 2008</time>
+<time datetime="2008-10-17T00:11:34+08:00" pubdate  data-updated="true" >Oct 17<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>昨晚 11 點 50 , 阿公走了。 由於我是長孫, 許多事情都需要我, 目前已經向公司請了三天假。 另外唱片的事情可能要暫緩一陣子。 也謝謝各位推友, 雖然在電腦前的時間非常少, 不過我應該沒漏掉訊息才是。</p>
+  <div class="entry-content"><p style="text-align: center;"><a title="專輯印刷校稿 - 封面 by tzangms, on Flickr" href="http://www.flickr.com/photos/tzangms/2946646242/"><img class="aligncenter" src="http://farm4.static.flickr.com/3207/2946646242_5dc345be98.jpg" alt="專輯印刷校稿 - 封面" width="375" height="500" /></a></p>
 
-<p>阿公很好走, 今天也灑了好多杯酒, 如果阿公聽的懂國語&#8230; 阿公, 安心上路。</p>
+
+<p>昨天壓片廠業務連絡我說盤面的設計稍微有些問題,  然後一整個窒息感湧上, 所以下班回家就把盤面印刷的部份修了一下, 等待隔天的到來。 而今天一早就傳給壓片廠, 經過壓片廠的美工確認過無誤後, 並修正一些小問題之後, 回傳給我確認, 無誤之後才又鬆了一口氣, 否則壓片的進度就可能會 delay 到 ~&#8221;~</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/music/1896">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1890">[GM] Twitter Retweet 0.5</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-10-16T11:18:07+08:00" pubdate  data-updated="true" >Oct 16<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>由於 twitter html 有稍作更動, 所以更新一下 retweet script。</p>
+
+<p>差點忘記說, 這個版本是 based on <a href="http://blog.kej.tw/">kej 大大</a>所<a href="http://blog.kej.tw/2008-10/03/twitter-retweet-gm-script-04/">修改的 0.4 版</a>而來的 :p</p>
+
+<p><a href="http://tzangms.com/code/retweet-0.5.user.js">安裝 twitter retweet 0.5</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/1886">唱片送壓了 &#8230;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-10-14T23:27:05+08:00" pubdate  data-updated="true" >Oct 14<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天下午請假, 把CD跟要印刷的東西送到壓片廠, 然後簽約了, 如果順利的話, 應該下禮拜二就可以看到成品, 不順利的話, 應該會是印刷品質上的問題, 可能要在跟壓片廠的業務確認, 不過這次找的壓片廠的業務人很好, 很熱心, 今天確認過一些東西, 所以應該不會有太大的問題, 總之希望品質能夠不錯。</p>
+
+<p>在這邊也要感謝許多推友的幫忙, 也要跟朱百說聲抱歉, 原本<a href="http://graniphoc.blogspot.com/">朱百</a>要幫忙我做封面設計, 然而我整個沒辦法承受唱片繼續拖下去的壓力, 所以就趁上禮拜的連假躲在家裡, 把東西都弄完, 真是對不起朱百 Orz</p>
+
+<p>另外還有<a href="http://biasonica.blogspot.com/">小掰</a>, 感謝小掰幫我寫文案, 雖然&#8230; (咳) 文案可能變成只在網站上出現 Orz</p>
+
+<p>以上種種, 我只能歸咎於我覺得自己壓力太大&#8230; 白天上完班後就已經頭昏腦脹的了, 下班後有時還要寫程式弄網站, 然後還有弄唱片的東西, 而最近又弄著一堆自己不懂、沒接觸過的東西 &#8230; 然而時間拖越久, 失眠機率就越高。 然後又對自己辜負到朱百跟小掰的好意感到懊惱 Orz</p>
+
+<p>anyway, 接下來就是等唱片交貨吧! 感謝大家的支持! (淚、累)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/1876">愛怕摸摸 [粗獷 Version]</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-10-13T21:08:20+08:00" pubdate  data-updated="true" >Oct 13<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="500" height="400" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="flashvars" value="&amp;offsite=true&amp;intl_lang=en-us&amp;page_show_url=%2Fphotos%2Ftzangms%2Fsets%2F72157607984101628%2Fshow%2F&amp;page_show_back_url=%2Fphotos%2Ftzangms%2Fsets%2F72157607984101628%2F&amp;set_id=72157607984101628&amp;jump_to=" /><param name="bgcolor" value="#000000" /><param name="allowFullScreen" value="true" /><param name="src" value="http://www.flickr.com/apps/slideshow/show.swf?v=59913" /><embed type="application/x-shockwave-flash" width="500" height="400" src="http://www.flickr.com/apps/slideshow/show.swf?v=59913" allowfullscreen="true" bgcolor="#000000" flashvars="&amp;offsite=true&amp;intl_lang=en-us&amp;page_show_url=%2Fphotos%2Ftzangms%2Fsets%2F72157607984101628%2Fshow%2F&amp;page_show_back_url=%2Fphotos%2Ftzangms%2Fsets%2F72157607984101628%2F&amp;set_id=72157607984101628&amp;jump_to="></embed></object>
+
+
+<p>我一直覺得手機阿什麼的, 通常都是喜歡他的外型才會買。 只是&#8230;. 常常看到有人會在自己漂亮的手機外面加上一個手機套, 我是完全不做這種事的, 我覺得這樣手機會哭。</p>
+
+<p>為螢幕加上個看不出來的保護膜當然ok, 不過加個手機套還是護套什麼的, 那不是我的作風, 因為那&#8230; 根本就不是原來的外型了阿!!!</p>
+
+<p>所以!! (拍桌) &#8230;&#8230; <strong>愛怕摸摸 [粗礦 version]</strong> 就這麼出現了!!</p>
+
+<p>可能有人會好奇&#8230; 為什麼要用 <strong>version</strong> 而不用 <strong>版</strong> 這個字。 &#8230;&#8230;..  因為這樣好像比較有 fu。</p>
 </div>
   
   

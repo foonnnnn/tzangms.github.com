@@ -96,19 +96,16 @@ url = 'http://localhost:7080/webservices/WebServiceTestBean?wsdl'
 client = Client(url)
 </code></pre>
 
-
 <p>然後就可以直接透過 client 來呼叫功能了, 像是</p>
 
 <pre><code>result = client.service.getPercentBodyFat('jeff', 68, 170)
 print result
 </code></pre>
 
-
 <p>想要知道有哪些功能可以呼叫, 直接</p>
 
 <pre><code>print client
 </code></pre>
-
 
 <p>就會列出定義, 真是好物一個阿!! 不過不知道其他好用的 SOAP client 呢?</p>
 </div>

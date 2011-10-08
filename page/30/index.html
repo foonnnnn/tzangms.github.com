@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="Gustavo Pimenta is a user experience designer, have look at Gustavo Pimenta&#8217;s web [Design Solution] collections in flickr">
+  <meta name="description" content="10 Principles of the PHP Masters, 這篇真是好文! 只是標題這樣翻會不會很奇怪 XD">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/web design/1766">Gustavo Pimenta&#8217;s Web Design Solution</a></h1>
+      <h1 class="entry-title"><a href="/programming/1628">PHP 大師們的 10 個原則</a></h1>
     
     
       <p class="meta">
@@ -80,16 +80,14 @@
 
 
 
-<time datetime="2008-09-29T21:28:01+08:00" pubdate  data-updated="true" >Sep 29<span>th</span>, 2008</time>
+<time datetime="2008-09-11T09:59:37+08:00" pubdate  data-updated="true" >Sep 11<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/guspim/collections/72157600047307884/"><img src="http://tzangms.com/wp-content/uploads/2008/09/gustavo-pimenta-design-collection.jpg" alt="" title="gustavo-pimenta-design-collection" width="500" height="350" class="aligncenter size-full wp-image-1767" /></a></p>
-
-<p>Gustavo Pimenta is a user experience designer, have look at <a href="http://www.flickr.com/photos/guspim/collections/72157600047307884/">Gustavo Pimenta&#8217;s web [Design Solution] collections in flickr</a></p>
+  <div class="entry-content"><p><a href="http://nettuts.com/articles/10-principles-of-the-php-masters/">10 Principles of the PHP Masters</a>, 這篇真是好文! 只是標題這樣翻會不會很奇怪 XD</p>
 </div>
   
   
@@ -102,7 +100,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/linux/1543">使用 Rsync 來進行備份</a></h1>
+      <h1 class="entry-title"><a href="/web/1632">Imified 五分鐘建立自己的機器人</a></h1>
     
     
       <p class="meta">
@@ -116,22 +114,37 @@
 
 
 
-<time datetime="2008-09-29T17:26:55+08:00" pubdate  data-updated="true" >Sep 29<span>th</span>, 2008</time>
+<time datetime="2008-09-10T21:16:19+08:00" pubdate  data-updated="true" >Sep 10<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>自己弄主機寫程式真的可以學到很多東西阿 (茶) 但是一定還會忘記的, 所以要記錄一下 XD 不過有設定過, 讓東西可以跑的起來, 就多少可以了解東西是怎麼跑的, 然後&#8230; 等有時間再來深入研究, 這就是所謂的&#8230; &#8220;先講求不傷身, 在講求療效&#8221;阿! (茶) &#8230;.</p>
+  <div class="entry-content"><p>今天看到 <a href="http://www.imified.com">imified</a> 就玩了一下, 真的是很神奇又方便阿!! <a href="http://www.imified.com">imified</a> 可以讓你建立一支機器人, 接著你只需要指定一個程式的網址, 就可以讓機器人開始運作了! 而且整個流程超簡單的 :p</p>
 
-<p>記錄一下 rsync 的東西。 以下為主機 A (server) 備份到主機 B (client)</p>
+<p>在建立好機器人之後, 會讓你指定一個程式的網址, 接下來就是透過這支程式, 接收 imified 機器人的輸入, 而程式只要輸出(印出)訊息, 就會直接透過機器人發訊回覆。 不過目前申請的機器人好像就只有 Jabber/Gtalk(?)</p>
+
+<p>用 PHP 做個簡單範例:
+[source:php]
+&lt;?php
+// 接收 im 訊息
+$msg = $_REQUEST[&#8216;msg&#8217;];</p>
+
+<p>// 輸出訊息到 im
+echo $msg;
+?>
+[/source]</p>
+
+<p>就是這樣, 非常簡單阿 XD</p>
+
+<p>所以一開始想到的, 就是寫一個可以送訊息到 twitter 的機器人, 不過由於帳號是寫死的, 就不公佈出來了 XD 然後在查 Yahoo! 奇摩字典的時候, 又突然想到, 乾脆寫個查單字的機器人好了, 由於抓 Yahoo! 奇摩字典的程式也是我之前就寫好的一個 library, 所以真的包含註冊帳號、設定跟寫程式的部份, 真的只花了差不多五分鐘就弄好了 :p</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/linux/1543">Read on &rarr;</a>
+      <a rel="full-article" href="/web/1632">Read on &rarr;</a>
     </footer>
   
 
@@ -143,7 +156,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/1734">F2Blog 轉換至 Wordpress</a></h1>
+      <h1 class="entry-title"><a href="/programming/1593">用 jQuery 選取 Opener 中的物件</a></h1>
     
     
       <p class="meta">
@@ -157,71 +170,17 @@
 
 
 
-<time datetime="2008-09-29T15:20:11+08:00" pubdate  data-updated="true" >Sep 29<span>th</span>, 2008</time>
+<time datetime="2008-09-08T22:28:46+08:00" pubdate  data-updated="true" >Sep 8<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>這個週末, 幫<a href="http://www.christabelle.idv.tw">迴老師</a>把部落格從 F2Blog 轉換至 <a href="http://wordpress.org">Wordpress</a>, 順便記錄一下。</p>
+  <div class="entry-content"><p><code>$('#selector', opener.document)</code>
+沒錯! 就是醬!!</p>
 
-<p>基本上, 我是完全不建議使用 F2Blog。 有人說 F2Blog 比較簡單, 容易上手, 但是老實說, 如果自行架站, 裝 F2Blog 跟 Wordpress 會有多少差別? 真的有能力自己裝 F2Blog, 根本沒有道理說 Wordpress 自己裝不起來。 而且, 如果說虛擬主機商一開始就可以幫你裝好 F2Blog 或是 Wordpress, 那根本就沒有所謂安裝難易度的問題。</p>
-
-<p>也許是語言上的隔閡? Wordpress 可是有<a href="http://wordpress.kirin-lin.idv.tw/">繁體中文</a>語系包這種東西, 而且就網路資源來說, Wordpress 的中文資源, 會比較少嗎? 我想並不會。</p>
-
-<p>或者是部落格在往後使用上的問題? 因為有些外掛還要自己去修改模板? 難道不覺得每個 F2Blog 的模板, 看起來就都是同一個樣子嗎? Wordpress 可是給你整個自由阿!! Oh Come on! 要自由就得付出一些代價, 自由可不等同於免費阿。</p>
-
-<p>不過目前最主要的原因就是, F2Blog 根本就沒在維護了!!! Anyway, 最主要是轉換碰到一些麻煩, 而且氣到了 XD</p>
-
-<p>最先我是找到 <a href="http://blog.gooloos.com/read-1392.html">Memei BLOG</a> 看到已經有人寫好 <a href="http://www.baobaocool.com/read-223.html">轉換的 php 程式</a>, 就直接抓下來用, 不過在轉的時候一直碰到 duplicated key 的問題, 然後程式就直接死掉, 也沒說原因, 就直接秀出有問題的 SQL 語法! 而不是秀出 sql error 的 error message&#8230;. Orz anyway, 了解了一下轉換錯誤的情況, 改了一下程式, 把 insert 的 sql 語法都加上 on duplidated key update 來解決。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/1734">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/1709">邁向總理之路 (誤)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-09-28T00:31:29+08:00" pubdate  data-updated="true" >Sep 28<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2891819573/" title="pp7 亂入 ~&quot;~ by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3116/2891819573_0f19aebcb2.jpg" width="500" height="375" alt="pp7 亂入 ~&quot;~" /></a></p>
-
-<p>我聽了 how 說&#8230; 阿潑說&#8230; 他應該講不完, 所以我跟 how 就不用上去了, 以致於&#8230;我就放心的~ 沒有記任何歌詞了&#8230; Orz</p>
-
-<p>可能真的表演經驗多了, 忘詞亂入這種事, 我都還可以很輕鬆的幹的出來 囧</p>
-
-<p>(以下也是亂入)
-至於總理一事, 第一個政策就是, 跟日本討回我國, 台灣應有的經濟海域、捕魚權。
-再來就是食品不得撿出三聚氰胺&#8230;&#8230;&#8230;</p>
+<p>阿! (大叫) 還沒有時間把 jQuery 學好 ~&#8221;~</p>
 </div>
   
   
@@ -234,7 +193,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/1696">Twitter Retweet GM Script 0.3</a></h1>
+      <h1 class="entry-title"><a href="/stickeraction/1616">[Stickeraction] 新增貼紙點擊數統計</a></h1>
     
     
       <p class="meta">
@@ -248,61 +207,28 @@
 
 
 
-<time datetime="2008-09-19T23:16:39+08:00" pubdate  data-updated="true" >Sep 19<span>th</span>, 2008</time>
+<time datetime="2008-09-08T21:47:16+08:00" pubdate  data-updated="true" >Sep 8<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>今天一早因為 <a href="http://twitter.com">twitter</a> 改板, 所以原本的 retweet 就失效了, 所以就馬上因應新版的 twitter 改寫了 retweet script, 不過後來一直有推友反應說不能 retweet 第二次, 所以下班回家就一直在找問題在哪。</p>
+  <div class="entry-content"><p>其實這個功能很簡單, 一開始就應該做了, 不過先前都一直在為了 <a href="http://stickeraction.com">stickeraction</a> 的效能, 在重寫整個架構, 今天才把這個功能加上。點擊數統計的當然不是指貼紙&#8221;顯示&#8221;的次數, 而是貼紙的&#8221;點擊&#8221;次數, 畢竟顯示並不代表網友有看到, 如果網友有點擊貼紙, 多少都代表網友想知道這個貼紙是在幹嘛, 這樣的統計才多少比較有意義。</p>
 
-<p>結果問題出在 $(&#8216;#status&#8217;).text(msg) 這個地方, 是還滿奇怪的, 後來改用 DOM 來做, 就很正常, 後來 <a href="http://twitter.com/kej">kej</a> 大大說用 $(&#8216;#status&#8217;).val(msg) 也可以, 最後就改用 $(&#8216;#status&#8217;).val(msg) 來做了, 感謝 kej 大大幫測 :D</p>
+<p>不過這個功能對於早期就響應的網友(大部分是我在 twitter 上的推友 XD), 可能有影響, 可能需要去檢查一下貼紙的語法, 看看連結(&lt;a  href&gt;)是否有連到這個網址, 如下:</p>
 
-<p>不過奇怪的是, , 在執行 $(&#8216;#status&#8217;).text(msg) 的時候, 用 firebug 看 html code 確實有改變, 但是畫面上看到的 textarea 則是完全沒有動作, 難道這就是人生嗎? XD</p>
-
-<p>anyway, 以上看不懂可直接略過, 下面來說說, 新增的功能。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/1696">Read on &rarr;</a>
-    </footer>
-  
+<blockquote>http://stickeraction.com/貼紙名稱/go</blockquote>
 
 
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1691">Twitter 改版, Retweet Gm Script 改版</a></h1>
-    
-    
-      <p class="meta">
-        
+<p>以<a href="http://stickeraction.com/made_in_taiwan">台灣貨‧暢其流</a>為例, 貼紙語法應該如下</p>
+
+<blockquote>&lt;a href=&#8217;http://stickeraction.com/made_in_taiwan/go&#8217;&gt;&lt;img src=&#8217;http://stickeraction.com/made_in_taiwan/sticker/1&#8217; alt=&#8217;台灣貨‧暢其流&#8217;&gt;&lt;/a&gt;</blockquote>
 
 
+<p>基本上就是要有個 go 就是了 XD 如果把貼紙連結的網址改掉, 也許改連到你的部落格, 那麼就沒辦法統計到貼紙的點擊數了。</p>
 
-
-
-  
-
-
-
-<time datetime="2008-09-19T11:04:52+08:00" pubdate  data-updated="true" >Sep 19<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>沒啥好多說的! <a href="http://tzangms.com/code/retweet.user.js">點這裡安裝新版</a></p>
-
-<p>UPDATE: 已經解決無法 retweet 兩次的問題了<a href="http://tzangms.com/greasemonkey/1696">請看這裡</a></p>
+<p>其實貼紙的連結功能是有預留導向功能的, 就是說一樣取用 stickeraction 提供的貼紙語法, 網友點了貼紙之後, 可以依照管理者的設定, 將連結連回發起人所設定的網址, 而不一定要連回到 stickeraction 的貼紙頁面。這個轉址功能之後還會在放回來的 :p</p>
 </div>
   
   
@@ -315,7 +241,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/codeigniter/1664">CodeIgniter Database 跟 Model 怎麼用?</a></h1>
+      <h1 class="entry-title"><a href="/programming/1603">[PHP] 將 Array 強制轉型為 Object</a></h1>
     
     
       <p class="meta">
@@ -329,39 +255,29 @@
 
 
 
-<time datetime="2008-09-18T08:05:24+08:00" pubdate  data-updated="true" >Sep 18<span>th</span>, 2008</time>
+<time datetime="2008-09-06T11:50:11+08:00" pubdate  data-updated="true" >Sep 6<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>其實最早在剛接觸 <a href="http://codeigniter.com">CodeIgniter</a> 的時候記得是版本 1.5.2, 那時候 Model 都這麼寫, 例如下面的 User_Model。</p>
+  <div class="entry-content"><p><a href="http://www.otton.org/2008/08/14/neat-php-tricks-casting-arrays-to-objects/">Neat PHP Tricks: Casting Arrays to Objects</a>, 我覺得這篇可以稍微看一下。</p>
+
+<p>近來其實滿不喜歡用 array 的, 另外也不喜歡用 for, 基本上就是覺得 array 會讓程式碼看起來很亂 ~&#8221;~ 尤其是在 view 裡面。 所以可以 foreach 的, 就不用 for, 可以用 object 就不用 array, 雖然有時候還是免不了 :p</p>
+
+<p>基本上我是覺得 object 的 code, 看起來比較不那麼亂 XD 由於之前在公司看到某段 code, 所以另外提一下 for 跟 foreach, 像是下面這一段, foreach 乾淨多了</p>
 
 <pre>
-<code>class User_model extends Model {
-    function __construct() {
-        parent::__construct();
-    }
+<code>// for
+$n = count($blogs);
+for ($i = 0; $i < $n; $i++) {
+    echo $blogs[$i]->title;
+}
 
-    function get_by_name($name) {
-        $this->db->where('name', $name);
-        $query = $this->db->get('users');
-        if ($query->num_rows()) {
-            return $query->row();
-        }
-    
-        return false;
-    }
-
-    function get_all() {
-        $query = $this->db->get('users');
-        if ($query->num_rows()) {
-            return $query->result();
-        }
-    
-        return array();
-    }
+// foreach
+foreach($blogs as $blog) {
+    echo $blog->title;
 }</code>
 </pre>
 
@@ -370,7 +286,7 @@
   
   
     <footer>
-      <a rel="full-article" href="/codeigniter/1664">Read on &rarr;</a>
+      <a rel="full-article" href="/programming/1603">Read on &rarr;</a>
     </footer>
   
 
@@ -382,7 +298,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/1665">用 Javascript 限制圖片大小</a></h1>
+      <h1 class="entry-title"><a href="/programming/1555">phpQuery - PHP 處理 HTML DOM 的好幫手阿!</a></h1>
     
     
       <p class="meta">
@@ -396,128 +312,200 @@
 
 
 
-<time datetime="2008-09-18T07:01:29+08:00" pubdate  data-updated="true" >Sep 18<span>th</span>, 2008</time>
+<time datetime="2008-09-05T22:02:53+08:00" pubdate  data-updated="true" >Sep 5<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>ie 都不支援 max-width 這種東西, 真的是很頭大, 所以只好想說用 javascript 來做 max-width 跟 max-height 這個工作, 所以就寫了下面這一段。 只是好像有些圖片還是縮不到, 所以&#8230; 最後我還是用 php 來作這個動作了, 以下只是個記錄 Orz</p>
+  <div class="entry-content"><p><a href="http://code.google.com/p/phpquery/">phpQuery</a>, 在 PHP 處理 HTML DOM 的好幫手阿!! 哈! 這個 project 真不錯, 尤其是對於有使用 <a href="http://jquery.com">jQuery</a> 的人, 更容易上手阿 :p 顧名思義, 就是 PHP 的 jQuery 阿! DOM select 的語法跟 jQuery 完全一樣阿! 而且, 當然是 chainable :p 也就是說, 只有 PHP 5 能用囉 :p</p>
+
+<p>目前在 <a href="http://stickeraction.com">stickeraction</a> 有用到 phpQuery, 真的是很方便 :p</p>
+
+<p>可以看看以下範例, 這一段是我用來抓取網頁中, rss feed url 跟 title 的。</p>
 
 <pre>
-<code>$(function(){
-    var limit = 120;
-    s = $('#stickers img');
-    $.each(s, function(i, n){
-        var w = $(n).width();
-        var h = $(n).height();
+<code>require 'phpQuery.php';
 
-        // 
-        if (w > h) {
-            if (w > limit) {
-                var d = w - limit;
-                var r = h / w;
-                var nw = w - d;
-                var nh = h - d * r;
-                $(n).width(nw);
-                $(n).height(nh);
-            }
-        } else {
-            if (h > limit) {
-                var d = h - limit;
-                var r = w / h;
-                var nh = h - d;
-                var nw = w - d * r;
-                $(n).width(nw);
-                $(n).height(nh);
-            }
-        }
-    });
-});</code>
+$url = 'http://tzangms.com/blog';
+$html = file_get_contents($url);
+
+phpQuery::newDocument($html)->find('head');
+
+$title = pq('head > title')->text();
+$feed_url = pq('head > link[rel=alternate]:first')->attr('href');
+
+echo $title;
+echo $feed_url;</code>
 </pre>
 
-</div>
-  
-  
 
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/stickeraction/1667">[Stickeraction] 貼紙列表</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-09-17T23:06:03+08:00" pubdate  data-updated="true" >Sep 17<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>由於 <a href="http://stickeraction.com">stickeraction</a> 的貼紙越來越多了, 首頁也總不可能一直就這樣放著讓他圖越來越多, 所以先前就先把首頁換成了顯示熱門、新進跟隨機貼紙。 (雖然沒啥差 囧)</p>
-
-<p>今天就又加上了一個可以<a href="http://stickeraction.com/show">列出所有貼紙的頁面</a>, 當然是分頁過的阿,  目前就還是以新進的貼紙優先列出, 不過之後應該會有所改變, hmm&#8230; 至少會有個站長推薦這種東西吧 XD</p>
-
-<p>然後也修正了貼紙頁面在 ie 看是一片亂的狀況, 為啥不支援 max-width 這種東西勒!!! (拍桌), anyway, 貼紙部落格聯播也回來了, 例如: <a href="http://stickeraction.com/EmBA/broadcast">http://stickeraction.com/EmBA/broadcast</a> , 也加上了 rss, 等聯播關鍵字弄好在提聯播這塊吧!</p>
-
-<p>越多功能, 就越多問題等待解決阿 ~&#8221;~ 只是至少要把當初想要的功能都做完! (握拳)</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/1654">Moo & Threadless</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-09-13T19:19:27+08:00" pubdate  data-updated="true" >Sep 13<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2852294901/" title="moo &amp; threadless by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3268/2852294901_d66bcb43f1.jpg" width="500" height="375" alt="moo &amp; threadless" /></a>
-其實上個禮拜 moo business card 就已經到了 :p 而 threadless 在昨天終於到啦!!! :D</p>
+<p>本來這個工作是直接用 <a href="http://simplepie.org">simplepie</a> 來作, 直接就可以抓到 RSS feed url 跟 RSS , 可是在抓 xuite blog 的時候卻有問題, 都抓不到 feed_url。</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/life/1654">Read on &rarr;</a>
+      <a rel="full-article" href="/programming/1555">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1476">CodeIgniter Based Open Source Software</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-05T00:34:34+08:00" pubdate  data-updated="true" >Sep 5<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>下面是兩個用 <a href="http://codeigniter.com">CodeIgniter</a> 開發的 open source 軟體, 有興趣可以看看, 大家應該已經知道 <a href="http://en.wikipedia.org/wiki/Model-view-controller">MVC</a> 是什麼。 但是 CI 自由度很高, 所以可能會有人不清楚 Model、Controller 怎樣寫才好, 或是怎樣寫會&#8221;比較好&#8221;? Anyway, 或許可以看看下面兩個用 CI 寫的軟體, 有個依據, 也許可以找出一些方向。 或是更確定自己的方法是比較好的 :p</p>
+
+<p>Bamboo Invoice
+<a href="http://bambooinvoice.org/">http://bambooinvoice.org/</a></p>
+
+<p>Blaze
+<a href="http://blaze.haughin.com/">http://blaze.haughin.com/</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/1571">Google Chrome App</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-04T21:21:48+08:00" pubdate  data-updated="true" >Sep 4<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2826723327/" title="google-chrome-app by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3029/2826723327_e7f1728b0e.jpg" width="500" height="349" alt="google-chrome-app" /></a>
+<a href="http://www.google.com/chrome">Google Chrome</a> 在大家用的過程中, 似乎都說, Chrome 在瀏覽 Google 的自家服務, 像是 Gmail, Google Reader 的時候, 跑起來的速度很不賴! 不過對於習慣使用有眾多 extension 的 <a href="http://mozilla.com">Firefox</a> 使用者來說, 總是覺得少了平常所習慣的功能。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/web/1571">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/uncategorized/1553">QuarkBase</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-04T00:53:30+08:00" pubdate  data-updated="true" >Sep 4<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>QuarkBase (<a href="http://www.quarkbase.com/">http://www.quarkbase.com/</a>) 可以拿來查網站的一些資訊, 還不錯, 只要輸入網址就可以知道, 網站被收了幾次 delicious, digg 幾次, alexa, technorati 等, 甚至被 tweet 幾次都知道阿 XD 不過&#8230; subdomain 沒用。</p>
+
+<p>原來&#8230; <a href="http://twitthat.com">twitthat</a> alexa 的圖還不錯看 XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1558">StickerAction 恢復正常!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-02T21:12:04+08:00" pubdate  data-updated="true" >Sep 2<span>nd</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://tzangms.com/wp-content/uploads/2008/09/stickeraction.jpg"><img src="http://tzangms.com/wp-content/uploads/2008/09/stickeraction.jpg" alt="" title="stickeraction" width="500" height="290" class="alignnone size-full wp-image-1561" /></a>
+因為前幾天的<a href="http://tzangms.com/programming/1548">資料庫大爆炸</a>, 導致 <a href="http://stickeraction.com">StickerAction</a> 的快取都不見了, 所以主機因為沒辦法接受那麼大量的 request, 所以就先把偵測的功能關掉, 這兩天就一直在重寫程式的架構, 終於在今天把 <a href="http://stickeraction.com">StickerAction</a> 給恢復正常了。</p>
+
+<p>由於 <a href="http://stickeraction.com">StickerAction</a> 最吃重的地方是在貼出去的貼紙, 貼紙的程式跑的時間越長,  request 累積越多, 效能則是直線往下掉。 一開始在寫 <a href="http://stickeraction.com">StickerAction</a> 的時候沒有考慮到太多效能的問題, 一方面也是因為很懶, 就想把工作一次做完, 所以其實一開始的架構根本就沒辦法負荷太多人貼貼紙。 一開始就只有對<a href="http://tzangms.com/php/1244">貼紙圖片加上一些讓瀏覽器快取的處理</a>, 減少 request。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/1558">Read on &rarr;</a>
     </footer>
   
 

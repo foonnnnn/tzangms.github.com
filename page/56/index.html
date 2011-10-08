@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="由於最近一直在 porting , 不只是為了好玩, 也是未來的趨勢, 所以採用了 framework 來作 porting 的動作, 其實一開始對於 framework 可以做到的事情, 有點感到驚訝! 一開始 porting 還滿好玩的, 但是相較於單純只是要將 view 跟 code 分...">
+  <meta name="description" content="前一陣子鼓手小廖推薦我看東京朋友(Tokyo Friends), 當然一開始就是覺得小廖很愛日本, 還有可愛的日本女生所以推薦我看, 不過這兩天看完之後, 還真的滿好看的, 裡面描述的是關於樂團的事情, 女主角大塚愛看久才覺得很可愛, 裡面的唱的歌都很好聽,  可能跟我喜歡日系搖滾有關係吧! ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/867">最近使用 CodeIgniter 的雜亂心得</a></h1>
+      <h1 class="entry-title"><a href="/life/799">Tokyo Friends</a></h1>
     
     
       <p class="meta">
@@ -80,50 +80,260 @@
 
 
 
-<time datetime="2007-05-28T23:19:59+08:00" pubdate  data-updated="true" >May 28<span>th</span>, 2007</time>
+<time datetime="2007-03-25T15:06:19+08:00" pubdate  data-updated="true" >Mar 25<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>由於最近一直在 porting , 不只是為了好玩, 也是未來的趨勢, 所以採用了 framework 來作 porting 的動作, 其實一開始對於 framework 可以做到的事情, 有點感到驚訝! 一開始 porting 還滿好玩的, 但是相較於單純只是要將 view 跟 code 分離來說, 原本應該會採用 Smarty, 那麼我就可以很輕鬆的把這個程式 port 完, 不過在先前就一直有在 survey 一些 PHP framework, 所以這次才就直接衝了, 選用 <a href="http://codeigniter.com/">CodeIgniter</a> 這個 framework 來做 porting!</p>
+  <div class="entry-content"><p>前一陣子鼓手小廖推薦我看東京朋友(Tokyo Friends), 當然一開始就是覺得小廖很愛日本, 還有可愛的日本女生所以推薦我看, 不過這兩天看完之後, 還真的滿好看的, 裡面描述的是關於樂團的事情, 女主角大塚愛看久才覺得很可愛, 裡面的唱的歌都很好聽,  可能跟我喜歡日系搖滾有關係吧! 看完之後也真想有個女主唱, 可愛的女主唱, 唱歌好聽的女主唱。</p>
 
-<p>其實用 Smarty 可以減少許多 porting 的時間, 因為只需要單純的將 logic 跟 view 分離, 原本程式中就有的 library 還是可以繼續保留、使用, 但是, 就先前使用 Smarty 在開發的過程中, 還是感覺 Smarty 對以後的維護還是很麻煩 XD 不過這次採用了 CodeIgniter 來 porting 真是嘗到苦頭了 XD 由於對 framework 的不熟悉, 需要一邊 study 一邊 porting, 還要研究要如何將 MVC 切的漂亮, 接著原本程式的數量還滿龐大的, 然後又使用 framework 來作, 幾乎是重新改寫的情況下, 我原本跟經理說得大約 1 個月, 變成我的壓力來源 XD 就叫自作自受阿! 哈哈哈! 不過其實公司是沒有人在催我進度, 頂多問一下做的如何了~ 嗯, 我自己耍帥, 要用不熟悉的東西來做 porting, 當然不能將時間延誤推給這個原因阿! 所以應該將近有 3 個禮拜的時間, 就整個人悶了, 整天想的都是 porting, anyway, 但是說真的, 用 framework,  MVC 來作, 的確會讓程式簡潔很多, 方便往後程式的維護開發。</p>
+<p>不過其實我覺得這部日劇其實很悲情, 總覺得無時無刻都帶著淡淡的憂傷及哀愁, 裡面的歌也是, 平平緩緩的旋律, 不過很好聽。 平淡嗎? 總覺得是平淡中帶著會令人落淚的憂傷, 可能這也跟看過劇情有關係, 所以聽著音樂, 腦海中總會浮現出某些片段的劇情, 好看的影片, 原聲帶也總是賣的不錯。</p>
 
-<p>我選用的 CodeIgniter, 沒看到有繁體中文的站台在介紹, PHP framework 在台灣比較紅的就屬 CakePHP 啦! 但是我看不懂他的 Document XD 而 CodeIgniter 的 Document 則是清楚明瞭, 而且就 framework 來說, 自由度很高! 門檻也不高, 所以我就選用 CodeIgniter 啦! 用 framework 就是要快阿~ 花太多時間在跨越門檻, 那就反了 XD</p>
+<blockquote>最初描繪的夢想, 你現在還記得嗎?</blockquote>
 
-<p>framework 的其中一個特點就是, 他提供許多讓你快速開發程式的 function, 例如 Database class, 可以用 ActiveRecord 來存取資料庫, 而提供許多的 Database driver, 如: mysql, mssql &#8230;等, 即使你換資料庫, 你也只需要更改 Database driver 即可。以下是 ActiveRecord 小範例:</p>
 
-<p>原本 PHP 的做法:
-<code>mysql_query('SELECT * FROM mytable');</code></p>
+<p>這是貫穿全劇的一句話, 追求自己的夢想, 這才是重點吧! 這我又想到身邊的一些人, 現在錢對我來說根本不是重點, 我做音樂不是為了錢, 音樂是我的興趣, 無聊時彈吉他、寫歌、彈鋼琴或是錄製自己的歌, 錄歌給自己聽, 聽著自己完成的歌曲, 會有莫名的成就感, 這樣就夠了, 有人聽、有人喜歡當然最好, 但是請別跟我說, 這首歌可以賺多少錢, 以後出名可以賺多少錢或者是你出去表演、練團有時候都還要自己花錢, 那又如何, just for fun!</p>
 
-<p>使用 CodeIgniter ActiveRecord:
-<code>$this->db->get('mytable');</code></p>
+<p>總之, 最初描繪的夢想, 你現在還記得嗎?</p>
+</div>
+  
+  
 
-<p>使用 ActiveRecord 來作, 簡潔許多, 另外 framework 也幫你做了預防 SQL Injection 的動作。</p>
 
-<p>framework 中還有像是 Image_lib 的 library 讓你方便的就可以對圖片做 crop, resize 的動作, 還有一個很貼心的東西就是 input class, 每當在存取 $<em>POST 的時候, 總是要用 if 加上 isset 來檢查, 不存在就要另外將變數指定為 empty, 當 $</em>POST 變數很多的時候, 判斷式也相對的增多, 這時候程式就會變得很雜亂, 很難看, 然而 CodeIgniter 提供的 input class 很貼心, 當讀不到某 $_POST 變數的時候, 他會幫你自動將這個變數設為 empty, 舉例如下:</p>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/797">是新歌&#8230;..的 Solo 喔!</a></h1>
+    
+    
+      <p class="meta">
+        
 
-<p>原本的 PHP 做法:
-<code>if (isset($_POST['foo'])){</p>
 
-<pre><code>$foo = $_POST['foo'];
+
+
+
+  
+
+
+
+<time datetime="2007-03-19T02:13:16+08:00" pubdate  data-updated="true" >Mar 19<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/425510333/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/159/425510333_f781d6bd39.jpg" width="500" height="375" alt="bass 掉了..." /></a>
+算是有點小 high XD &#8230;過幾天在放上整首歌。不過, 在剛要錄 bass 的時候, bass 居然掉了!!! :o 我的天阿, 我心愛的 bass >&lt;</p>
+
+<p>另外一提, 這次 drum machine 用的是新的 addictive drum, 比起上次的 EZDrummer 好用上許多, 不過也很耗資源, 不過音色很棒, 內建的 loop 也很好用, 又好聽, 推!!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/796">Javascript: slimAnchor()</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-03-14T17:36:27+08:00" pubdate  data-updated="true" >Mar 14<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>[source:javascript]
+function slimAnchor(limitChar){</p>
+
+<pre><code>var alink = document.getElementsByTagName('a');
+for (var i=0; i&lt; alink.length; i++){
+    pre = alink[i].innerHTML.substr(0,4);
+    if (pre =='http' &amp;&amp; alink[i].innerHTML.length &gt; limitChar){
+        alink[i].innerHTML = alink[i].innerHTML.substr(0,limitChar) + '...';
+    }
+}
 </code></pre>
 
-<p>} else {</p>
+<p>}
+[/source]</p>
 
-<pre><code>$foo = '';
+<p>如果在 table 裡面有一個超長的連結, 那麼在 firefox, 這個 table 將會被撐的很開, 所以寫了這個函式, 會將頁面所有的 A tag 都縮短, 避免 table 被撐開的問題, 當然, 縮的是 a.innerHTML 不是 a.href。</p>
+
+<p>其中有個判斷是判斷 a.innerHTML 是否為 &#8216;http&#8217;, 不然 IMG tag 或是一些 EMBED tag 包在 A tag 裡面, 那麼就出問題了。</p>
+
+<p><em>PS. 今天把 flash 的 width 跟 height  截掉過 XD</em></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/video/795">大衛白爛魔術 SHOW</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-03-13T11:20:22+08:00" pubdate  data-updated="true" >Mar 13<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><object width="425" height="350"><param name="movie" value="http://www.youtube.com/v/C3kCpxXYX_8"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/C3kCpxXYX_8" type="application/x-shockwave-flash" wmode="transparent" width="425" height="350"></embed></object>
+
+
+<p>昨天 clothocs 傳了這個影片給我, 看了之後, 即使是在上班時間, 我還是忍不著笑了出來, 雖然可能中間覺得有點白爛, 但是, 整體來說, 讓我久久不能忘懷, 想到都還會笑 XD</p>
+
+<p>不過今天跟 clothocs 說, 昨天的影片真的是太爆笑了, 他卻說道, 他有傳給另一個人看, 可是好像笑不出來, 就覺得白爛而已, 恩, 有看過大衛布萊恩的話, 請注意大衛白爛的表情, 真的是很好笑, 而且找來的大衛白爛還真的長的滿像的內 XD</p>
+
+<p>所以有看過 AXN 台的大衛布萊恩的話, 這部包你笑出來, 但首先, 你得抱著一顆白爛的心 XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/mac/794">My Own Dashboard Widget: Email Notifier</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-03-12T00:01:33+08:00" pubdate  data-updated="true" >Mar 12<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/417556029/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/172/417556029_13c8dd191e_o.jpg" width="124" height="121" alt="notifier_front.jpg" align='left' /></a>這兩天因為值班, 所以都待在家裡, 也不知道為什麼就開始寫 Dashboard widget &#8230;..明明還有好多東西要讀。只記得是想寫一個可以用來看有多少 unread mail 的東西, 雖然這網路上, 似乎已經有其他類似的東西了, 不過我一開始好像是想說來寫個看自己智邦免費信箱有多少 unread mail 用的，雖然從 Gmail 開始後就都沒在用了。 先前我都用他自動轉信到 Gmail XD 不過我的智邦免費信箱可是 ms1 的帳號阿! 好像很 cool, 所以還是要多少用一下好了。</p>
+
+<p>其實我覺得, 現在除了 web service 之外, 有個 Desktop application 來結合你的 web service , 這樣對使用者來說會比較 high, 例如: Myshare widget! 這個應該不錯 XD</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/mac/794">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/793">Javascript Validate Function</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-03-09T12:18:51+08:00" pubdate  data-updated="true" >Mar 9<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>[source:javascript]
+String.prototype.validate = function(type){</p>
+
+<pre><code>var pattern = new Array();
+
+pattern['email'] = /^\w[\w-\.]+@\w+(\.\w+)+$/;
+pattern['url'] = /^http:\/\/\w+\.\w+\/?.*$/;
+pattern['password'] = /^[\w\.]+$/;
+pattern['id'] = /^[a-zA-Z][0-9]{9}$/;
+
+return this.match(pattern[type]);
 </code></pre>
 
-<p>}</code></p>
+<p>}
+[/source]</p>
 
-<p>CodeIgniter 的做法:
-<code>$foo = $this->input->post('foo');</code></p>
+<p>昨天寫的一個用來檢查輸入的函式, 直接掛在 String Object 下面, 這樣就可以直接這樣使用:
+如, 檢查 email 是否正確</p>
 
-<p>這樣一來, 程式就簡潔了許多, 需要打的字也少了許多, 也方便以後維護, 當然還有其他許多貼心的 function,  不過後來發現其實裡面有些 function, 反倒要花上更多的行數, 來解決相同的事情, 但是後來才發現 framework 這個東西, 做主要的其中一項功能, 其實是要讓你方便維護你的程式碼阿!! 只能說 PHP 寫起來真的是很亂 XD</p>
+<blockquote>
+&#8220;foo@bar.com&#8221;.validate(&#8216;email&#8217;);
+</blockquote>
 
-<p>其實寫到最後, 感覺像有種在做設定的感覺, 所以整個程式碼變得很簡潔, 井然有序, 以後再來寫一些介紹文好了!</p>
+
+<p>或是網址是否正確</p>
+
+<blockquote>
+&#8220;http://tzangms.com&#8221;.validate(&#8216;url&#8217;);
+</blockquote>
+
+
+<p>如果回傳值為 null 那就是錯誤啦! 不過 regular expression 的 pattern 還需要改進就是了~</p>
 </div>
   
   
@@ -136,7 +346,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/podcast/866">小海 Podcast 第 5 集</a></h1>
+      <h1 class="entry-title"><a href="/music/792">其實我是很 Metal 的! Toontrack EZDrummer Try Out</a></h1>
     
     
       <p class="meta">
@@ -150,22 +360,20 @@
 
 
 
-<time datetime="2007-05-25T23:37:35+08:00" pubdate  data-updated="true" >May 25<span>th</span>, 2007</time>
+<time datetime="2007-03-08T00:28:02+08:00" pubdate  data-updated="true" >Mar 8<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>哈! 這集隔了好久 :p 雖然這集只介紹了4首歌. 不過也快半小時了:p 這集講了一下蘭卡威之旅的心得, 大家都該去體驗一下蘭卡威大自然的威力才對 XD</p>
+  <div class="entry-content"><p>本來在讀一些程式設計的東西的, 網路程式設計要懂得東西好多, 所以想說上禮拜寫完&#8221;眉頭&#8221;, 這禮拜就來休息一下讀一些書, 誰知道剛才就突然又玩了起來 XD</p>
 
-<ol>
-<li>沙漏(木吉他板) by <a href="http://tzangms.com">小海</a></li>
-<li>癮 by <a href="http://www.wretch.cc/blog/cowboy731216">姆貓</a></li>
-<li>multiply by <a href="http://profile.myspace.com/index.cfm?fuseaction=user.viewprofile&amp;friendID=28818054">a women of no importance</a></li>
-<li>in for a ride by <a href="http://www.anekdoten.se/">Anekdoten</a></li>
-</ol>
+<p>先前用過幾個 Drum machines, BFD 是沒辦法在我的 Macbook 跑, 不過之前聽人家用過感覺不錯, 只是界面醜了點 XD anyway 反正不能用, 就換用 Battery 3, 聲音聽起來就滿不賴的, 也可以調的很細, 可以聽聽看我先前錄的<a href='http://tzangms.com/?p=770'>自然而然</a>, 用 Battery 3 的 pop kits。</p>
 
+<p>今天突然就玩起來 <a href='http://www.toontrack.com/'>toontrack EZDrummer</a>, 呵, 原來他有那麼方便的 groove 可以用, 他的 groove 就跟 Garageband、Logic 用的 loops 一樣意思, 不過我覺得好用、直覺上許多, 這首的鼓都用拖的, 超方便! 而且他有超 Metal 的鼓組 - Drumkits From Hell (DFH), 話說 BFD 也有 DFH, 不過我只是業餘的, 用 EZDrummer 就很夠了! 由於整個鼓組太 Metal, 電吉他就又拿起來了, 其實我是很 Metal 的阿! 聽 Metallica 長大的阿! ㄜ&#8230;我從二專開始聽的。</p>
+
+<p>吉他彈得不好大家請見諒, 這篇是介紹鼓的, 更何況我又是 Bass 手, 別太苛求 :p 另外該買 Pick 了, 鈍掉超難泛音的 Orz</p>
 </div>
   
   
@@ -178,7 +386,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/864">[串連] 我的惡臭經驗</a></h1>
+      <h1 class="entry-title"><a href="/old demo/790">[Demo] 眉頭</a></h1>
     
     
       <p class="meta">
@@ -192,64 +400,26 @@
 
 
 
-<time datetime="2007-05-25T00:32:11+08:00" pubdate  data-updated="true" >May 25<span>th</span>, 2007</time>
+<time datetime="2007-03-04T11:58:58+08:00" pubdate  data-updated="true" >Mar 4<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.bio.url.tw/smell.html" target="_blank"><img src="http://www.bio.url.tw/bio.gif" width=150 height=60 border="0" align='left' /></a>被<a href="http://www.christabelle.idv.tw/">迴紋針老師</a>點名了! XD 今天中午聽到迴紋針老師跟 <a href="http://www.dearjohn.idv.tw">DearJohn</a> 提到&#8221;臭&#8221;這個字眼, 沒想到是這個串連, 下午看到迴老師的網誌才知道是這個題目, 噗~ 我突然覺得我錯了 XD 還真的要想好一陣子才能說我的惡臭經驗。</p>
+  <div class="entry-content"><p>這次用了大量的弦樂, 大概弦樂就 10 軌了, 不過果然不是彈 KB 的料, 編的很累 XD。 這首總共做了 21 軌, 好累! 編曲真的是件累人的事情, 不過每次在編完錄吉他 solo 的時候, 總覺得很爽! 自 high 吧! 當然也要 solo 編的出來 XD 不然會很煩&#8230;.</p>
 
-<p>說到惡臭經驗, 我想機車族的朋友們, 騎機車在路上應該都會有碰到垃圾車擋在前方的經驗, 有時候可真的是跑都跑不掉, 生長在空氣清新的宜蘭鄉下的我, 又沒有帶口罩的習慣, 所以碰到躲不掉的狀況, 真的是生不如死! 各位有相同經驗的朋友們應該有同感吧! XD 覺得垃圾車應該有除臭兼芳香的功能才是!</p>
+<p>幸虧有 Macbook, 不然這首歌根本沒辦法錄, 之前的 iBook G4 800 大概 8 軌弦樂就掛點了, 這次電吉他有 3 軌用 Guitar Rig 2 來當效果器, 然後 10 軌弦樂的音色是 Apple Jam pack 4 Orchestra 裡的音色, 然後 Bass 用 AmpegSVX 做 preamp, 鼓是用 Battery 3 當音源, 不過我只用了 pop kits preview 的音色。</p>
 
-<p>來說重點吧! 從小生長在漁村的我, 其實對於魚腥味已經是習以為常了, 但是每當經過魚貨上岸的魚市, 又正當豔陽高照, 那個味道可不是一般人可以忍受的, 更何況是對外地來的遊客。我在想, 其實當遊客一進到南方澳漁港的時候, 應該就覺得空氣中已經瀰漫著一股&#8221;漁村的味道&#8221;吧!? 不過對我這個當地人則是已經很習慣了。</p>
+<p>這首歌有 7 分鐘, 有點長~ 檔案也很大,  8 MB</p>
 
-<p>其實最讓我不能忍受的是, 因為是住在鄉下的漁村, 而隔壁的阿嬤總是三不五時的在醃魚, 就放在他家門口, 噗, 問題是, 我家大門就常只關著紗門, 所以就也需要三不五時的遭受到醃魚味道的攻擊, 也許有些人覺得醃魚很好吃, 但是我真的是沒辦法接受醃魚過程中所產生的味道!! 不知道 bio 有沒有相關產品, 可以讓醃魚的時候在旁邊擺罐醃魚專用芳香劑 XD</p>
-
-<p>話說&#8230;這個串連要點名三位朋友~ 不知道有沒有人自願的? XD 不過故意點的好像比較好玩, 噗~ 被點到不要怪我 XD 那就&#8230;. <a href="http://blog.roodo.com/Rinslet">Rins</a>, <a href="http://blog.pixnet.net/jel0627">jel</a>, <a href="http://annpo.pixnet.net/blog">阿潑</a> ? 噗~</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/862">最近像一攤死水</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-05-24T01:31:20+08:00" pubdate  data-updated="true" >May 24<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>最近卡好多事, 光是公司的是就忙翻了~ 回家還要寫歌~ 越寫不出來就越卡, 快變成一攤死水了~ 然後下班後就整個人懶掉, 原本昨天就該寫蘭卡威之旅下集, 但是怎麼也提不起勁, 也沒那個心情讀書、讀文件, 這禮拜應該會把公司的一個專案做一個階段性的收尾 不過公司的程式設計師怎麼都請不到?</p>
-
-<p>一直在搞目前的專案, 原本預估一個月, 用 CodeIgniter 來 porting,  不過 porting 時程超過我當初的預計, 當然這多少也跟我經驗不足有關, 但最主要的是這個專案原本就寫的很爛 XD 這我不知道說幾遍了, 不只要 porting, 還要修原本的 bug, 而程式碼的數量也是當初所沒估計到的, 還有它的程式比我原本想像的還爛, 靠~ 害我浪費時間 port 了好幾次原本應該可以作成同一支 function 的 code。</p>
+<p>另外和音真的滿重要的, 整個氣氛都帶出來了 XD 聽聽看吧!</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/life/862">Read on &rarr;</a>
+      <a rel="full-article" href="/old demo/790">Read on &rarr;</a>
     </footer>
   
 
@@ -261,7 +431,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/861">蘭卡威之旅上集!</a></h1>
+      <h1 class="entry-title"><a href="/web/789">銀河系律法? XD</a></h1>
     
     
       <p class="meta">
@@ -275,59 +445,22 @@
 
 
 
-<time datetime="2007-05-22T01:24:55+08:00" pubdate  data-updated="true" >May 22<span>nd</span>, 2007</time>
+<time datetime="2007-03-03T23:54:08+08:00" pubdate  data-updated="true" >Mar 3<span>rd</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/505957082/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/220/505957082_29e64aec8b.jpg" width="500" height="375" alt="100_0852.JPG" /></a>
-<a href="http://www.flickr.com/photos/tzangms/505985093/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/220/505985093_4acf084b5a_s.jpg" width="75" height="75" alt="100_0854.JPG" /></a> <a href="http://www.flickr.com/photos/tzangms/505955380/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/232/505955380_9924697188_s.jpg" width="75" height="75" alt="100_0862.JPG" /></a> <a href="http://www.flickr.com/photos/tzangms/505954516/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/227/505954516_8c368746af_s.jpg" width="75" height="75" alt="100_0864.JPG" /></a>
-在出國之前, 每次跟朋友說我要去蘭卡威, 朋友都會回問說, 蘭卡威在哪? 就在馬來西亞阿! 就叫你們讀地理不讀 XD 呵, 馬來西亞還真是夠熱的, 但是總比這幾天台灣一直下雨來的好! 空氣清新、風景優美阿!! 最棒的就是, 跟一堆魚一起在海裡游泳, 這次浮潛, 超漂亮! 即使我從小就生長在漁村, 住在海邊, 對於每天都可以看到一堆魚的我來說, 這次真的是一次前所未有的體驗!</p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/408776934/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/162/408776934_f11aab00fc_o.gif" width="455" height="368" alt="google_doc" /></a>
+剛才在 Gmail 上沒事無聊就去點一下 Docs &amp; Spreadsheets, 想說看看最近變得怎樣了, 不過, 居然出現這個頁面, 不過銀河系律法是怎麼一回事, 整個 XD</p>
 
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/life/861">Read on &rarr;</a>
-    </footer>
-  
+<p>另外, 是翻譯有問題還是&#8230;</p>
+
+<blockquote>支援「Google 文件」的 Safari 即將問世！</blockquote>
 
 
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/860">出國囉!!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-05-17T00:55:44+08:00" pubdate  data-updated="true" >May 17<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>要跟親愛的各位, 說聲掰掰囉! 這一去就要 4 天了! 這可是我人生中第一次出國, 第一次坐飛機內!!</p>
-
-<p>回來在跟大家分享出國旅遊的心得吧!! 呵! 希望這次出國能找些靈感! 回來可以寫新歌! 本來這幾天要做 小海 Podcast 第五集的, 不過最近真的忙到翻了! 也在準備出國的一些事情跟東西~ 所以等我回來吧! 我終於可以跟電腦說掰掰了! 不過我怕我沒有電腦會很難過! XD 呵!</p>
-
-<p>anyway, 蘭卡威我來啦!!!! see ya, guys!!</p>
+<p>到底是支援 Safari 的「Google 文件」要出來, 還是 Safari 真的要出新版? XD</p>
 </div>
   
   
@@ -340,7 +473,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/858">我買 Jaguar 了!!!</a></h1>
+      <h1 class="entry-title"><a href="/programming/788">Javascript Trim Function</a></h1>
     
     
       <p class="meta">
@@ -354,149 +487,32 @@
 
 
 
-<time datetime="2007-05-14T23:54:50+08:00" pubdate  data-updated="true" >May 14<span>th</span>, 2007</time>
+<time datetime="2007-03-02T15:43:07+08:00" pubdate  data-updated="true" >Mar 2<span>nd</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/497956438/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/189/497956438_3bc39d7067.jpg" width="500" height="375" alt="Fender Jaguar" /></a></p>
+  <div class="entry-content"><p>[source:javascript]
+String.prototype.trim = function(){</p>
 
+<pre><code>return this.replace(/(^\s*)|(\s*$)/g, "");
+</code></pre>
+
+<p>}
+[/source]
+這個是用來增加 trim 這個 function 到 javascript 的 String object, jQuery 居然沒有 trim function。</p>
+
+<p>Update:
+找到了 XD jQuery 有 trim 啦~ 只是當初沒在 Visual jQuery 的 Events 看到 Orz, 原來是在 Javascript Section。
+下面這一頁的最下方:
+<a href='http://docs.jquery.com/JavaScript'>http://docs.jquery.com/JavaScript</a></p>
+
+<p>然後就可以這樣用了:
+[source:javascript]$.trim(&#8221;  hello, how are you?  &#8220;);[/source]</p>
 </div>
   
-  
-    <footer>
-      <a rel="full-article" href="/life/858">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/mac/854">想玩 Joost 嗎?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-05-10T22:53:39+08:00" pubdate  data-updated="true" >May 10<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.joost.com">joost</a> 是一個利用 P2P 技術的網路電視軟體, 今天小玩了一下, 速度還滿不錯的, 畫質也 ok, 當然不像 DVD 那樣 XD 不過可以看到許多外國的電視節目, MV, 樂團現場表演! 挺不賴的! 不過只有 Mac user 才能玩呦~! 是吧? XD</p>
-
-<p>screenshot 可以看<a href="https://www.joost.com/screenshots/">這裡</a>。joost 的界面整個很華麗阿! 加上全螢幕的電視播放畫面, 感覺超氣派! 而且即使在換節目的過程中, 也不會讓你等太久, 不過這基本上應該還是要取決於你的網路頻寬啦! 不過就我用 8M 的 Hinet ADSL 來說, 速度滿不賴的! 這就是所謂 P2P 的魔力嗎? XD</p>
-
-<p>呵, 今天早上剛拿到了邀請函, 超 high 的! 由於目前 joost 還沒有開放註冊, 不過已經讓有帳號的人可以邀請朋友一起來玩! 就跟先前的 gmail 一樣, 更增加了 joost 的吸引力阿!! 有種看得到卻吃不到的討厭感覺 XD</p>
-
-<p>昨天在網路上晃, 看到 <a href="http://www.i-marco.nl/weblog/">The Net is Dead</a> 的這篇文章 <a href="http://www.i-marco.nl/weblog/archive/2007/05/09/want_a_joost_invite">Want a Joost invite?</a> Sure!!! 呵, 還被我搶到第一篇阿! 今天一起床就收到的邀請函, cool!!</p>
-
-<p>所以我現在也來送邀請函!! 我的朋友們~ 有用 Mac 也想玩 joost 的, 留下你的 comments 吧! XD</p>
-
-<p>限量是殘酷的! XD</p>
-
-<blockquote><strong>更新!!</strong>
-噗~ 剛才看到 <a href="http://klandor.twbbs.org/">klandor</a> 的comments &#8220;竟然mac也可以用&#8221;, 才去 Google 一下, 看到了<a href="http://www.sharecool.org">酷玩意部落格</a>的<a href="http://www.sharecool.org/archives/227">這一篇文章</a>, 其實 Windows 也可以 Joost 阿!! 我忘記從哪來的錯誤資訊了 Orz</blockquote>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/848">小海首張個人專輯!?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-05-08T00:35:01+08:00" pubdate  data-updated="true" >May 8<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/488464509/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/218/488464509_d9e243690a.jpg" width="500" height="364" alt="my own CD Album" /></a>
-小海首張個人專輯!? :o</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/music/848">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/847">給媽咪的禮物~</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-05-07T00:35:17+08:00" pubdate  data-updated="true" >May 7<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/486598804/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/218/486598804_d15009b688.jpg" width="500" height="375" alt="100_0812.JPG" /></a>
-終於出社會有了第一份工作, 用自己賺來的錢買禮物送媽咪</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/life/847">Read on &rarr;</a>
-    </footer>
   
 
 

@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="感謝阿吱姐 @AmberTaipei、 @LeeGuitars 還有 @stephenlee 才有這次的表演。為了這次的活動特地寫了一首新歌, 而這首新歌的副歌歌詞都是阿吱姐寫的, 而且我想這首新歌應該是當天我的歌裡面最好聽的一首了。 超感謝阿吱姐~ 也感謝到場的推友們, 大家真捧場!還有, ...">
+  <meta name="description" content="CouchDB: The Definitive Guide 這本書以 Creative Commons 釋出, 可以直接線上閱讀, 而網站還做的真漂亮, 還滿易讀的。其實我一直還滿喜歡 CouchDB 的, 主要是 Futon, 還有像是 couchapp 可以很方便弄一些簡單的又 power...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -60,227 +60,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/2720">9/15 LeeGuitars 推特之夜</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-09-17T01:13:17+08:00" pubdate  data-updated="true" >Sep 17<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/lomographer/4995043941/" title="IMG_1194 by lomographer, on Flickr"><img src="http://farm5.static.flickr.com/4085/4995043941_7789465c80.jpg" width="333" height="500" alt="IMG_1194" /></a></p>
-
-<p>感謝阿吱姐 @AmberTaipei、 @LeeGuitars 還有 @stephenlee 才有這次的表演。</p>
-
-<p>為了這次的活動特地寫了一首新歌, 而這首新歌的副歌歌詞都是阿吱姐寫的, 而且我想這首新歌應該是當天我的歌裡面最好聽的一首了。 超感謝阿吱姐~ 也感謝到場的推友們, 大家真捧場!</p>
-
-<p>還有, 當天拿的吉他可是縱貫線世界巡迴時用的吉他, 全世界只有一把, 太屌了 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2716">sorl.thumbnail 可能停止開發</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-09-13T00:26:07+08:00" pubdate  data-updated="true" >Sep 13<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天因為在寫某個東西, 需要在圖片上傳之後, 再視情況自動產生不同大小的縮圖, 而不能再上傳的時候就產生縮圖, 當時直覺想到的就是 sorl.thumbnail, 沒想到一進 sorl.thumbnail 的 google code 首頁就看到這個連結: <a href="http://code.google.com/p/sorl-thumbnail/wiki/Future">Future</a>。</p>
-
-<p>其實 sorl.thumbnail 超方便的, 可是因為效能跟 scale 的問題, 所以當初再 SV 的網站上沒有大量採用, 就自己刻了一個縮圖的 library, sorl.thumbnail 只用在一小部分資料量非常少的地方。 先前 sorl.thumbnail 還是 django wiki 上列為最推薦的縮圖 library, 沒想到現在 &#8230;</p>
-
-<p>稍微介紹一下好了, sorl.thumbnail 在 template 裡的使用方式大致上如下, 縮圖不存在的話, 則會自動依照給的尺寸、參數來自動產生縮圖</p>
-
-<pre><code>{% thumbnail photo.image 640x480 crop upscale %}</code></pre>
-
-
-<p>是真的很方便, 只是先前在 glusterfs 上面用, 暴慢, 雖然說應該歸咎於 glusterfs, 但是有些事情我無力去改變, 只好在多追一點效能, 捨棄 sorl.thumbnail 自己刻。</p>
-
-<p>anyway, 另外值得一提的是, 在 python 處理圖像主要都是用 PIL, 而不像 PHP, Ruby 都用 Imagemagick 系列 ( 不要跟我提 GD 嘿 ), 可是在處理過幾百萬張圖片之後, 就會發現 PIL 其實有點廢, 不時就會來個 IOError, 後來找到其中一個原因是, 一堆有問題的照片都是 Adobe Photoshop 7 處理過的 ( EXIF 裡面有標 )</p>
-
-<p>而 sorl.thumbnail 在 Future 一文當中提到下面這兩個 project, 甚至都比 sorl.thumbnail 好用</p>
-
-<p><a href="http://github.com/SmileyChris/easy-thumbnails">easy-thumbnails</a>
-<a href="http://bitbucket.org/aino/aino-convert">aino-convert</a></p>
-
-<p>其中 <a href="http://bitbucket.org/aino/aino-convert">aino-convert</a> 則是用 imagemagick, 這個應該有趣多了, 最近得找時間來試一下。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/2713">常在 Dr. House 裡面聽到的 MRI</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-09-05T00:39:44+08:00" pubdate  data-updated="true" >Sep 5<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/andrewacomb/2678447487/" title="MRI of My Lower Back by andrewacomb, on Flickr"><img src="http://farm4.static.flickr.com/3144/2678447487_3cf962677c.jpg" width="500" height="500" alt="MRI of My Lower Back" /></a>
-<a href="http://www.flickr.com/photos/andrewacomb/2678447487/">MRI photo of Andrew Acomb</a></p>
-
-<p>MRI 照出來大概看起來像上面這樣。  不過我拿到的檔案透過軟體來瀏覽是可以動的。</p>
-
-<p>其實是上禮拜我爸到台北長庚醫院照 MRI 後, 拿回了一片光碟, 然後要我這禮拜帶著我的筆記型電腦回宜蘭, 要去給認識的醫生看 MRI 照出來的圖像, 看看身體狀況如何。</p>
-
-<p>誰知道回來後一把光碟放進去 Mac mini, 卻看到的是 autorun.exe 而裡面有一堆 windows 的 dll, cab 等檔案。 anyway, 想說翻找一下資料應該可以直接找到我要的照片檔案, 直接打開來看好了, 沒想到怎麼都打不開。</p>
-
-<p>最後乾脆開 terminal 用 vim 開啟這個檔案, 幸好在檔案裡頭有看到關鍵字「GE Medical Systems/DICOM Part 10 file」 後來就 google 了起來, 翻找了一陣子, 找到了 Mac 可用的 open source 軟體叫 <a href="http://www.osirix-viewer.com/">OsiriX</a>, 才把檔案打開。 我倒是從沒想到過也有跟醫療相關的  open source  軟體 :p</p>
-
-<p>是說, 其實長庚醫院給的光碟裡面的圖片才 256x256 以及 512x512, 有沒有那麼弱阿?</p>
-
-<p>最後, 醫生說 MRI 看起來沒有什麼太大的問題, 不過還是希望我爸身體可以健康一點就是了。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/2712">昨天下午到華山進行拍照企劃</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-09-04T11:25:02+08:00" pubdate  data-updated="true" >Sep 4<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/4953580279/" title="小吱超專業! by tzangms, on Flickr"><img src="http://farm5.static.flickr.com/4129/4953580279_ae4f28ee48.jpg" width="500" height="375" alt="小吱超專業!" /></a></p>
-
-<p>我主要是負責當內容物, 而換組拍攝時我在一旁拍了一些照片, 昨天下午太陽很大, 用 iPhone 拍起來也不錯看。 不過昨天也跟照片上一樣跳阿跳的, 今天早上差點爬不起來, 累翻了。</p>
-
-<p>哈, 照片中大家可以看到小吱導演多專業!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2711">還滿好笑的影片: MongoDB Is Web Scale</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-09-02T09:31:55+08:00" pubdate  data-updated="true" >Sep 2<span>nd</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><object width="480" height="390"><param name="movie" value="http://www.xtranormal.com/site_media/players/jwplayer.swf"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><param name="flashvars"value="height=390&width=480&file=http://newvideos.xtranormal.com/web_final_lo/574b3910-afc9-11df-914b-003048d69c21_27_web_final_lo_web_finallo-flv.flv&image=http://newvideos.xtranormal.com/web_final_lo/574b3910-afc9-11df-914b-003048d69c21_27_web_final_lo_poster.jpg&link=http://www.xtranormal.com/watch/6995033&searchbar=false&autostart=false"/><embed src="http://www.xtranormal.com/site_media/players/jwplayer.swf" width="480" height="390" allowscriptaccess="always" allowfullscreen="true" flashvars="height=390&width=480&file=http://newvideos.xtranormal.com/web_final_lo/574b3910-afc9-11df-914b-003048d69c21_27_web_final_lo_web_finallo-flv.flv&image=http://newvideos.xtranormal.com/web_final_lo/574b3910-afc9-11df-914b-003048d69c21_27_web_final_lo_poster.jpg&link=http://www.xtranormal.com/watch/6995033&searchbar=false&autostart=false"></embed></object>
-
-
-<object width="480" height="390"><param name="movie" value="http://www.xtranormal.com/site_media/players/embedded-xnl-stats.swf"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.xtranormal.com/site_media/players/embedded-xnl-stats.swf" width="1" height="1" allowscriptaccess="always"></embed></object>
-
-
-<p>跟鬼打牆一樣 XD</p>
-
-<p>&#8220;mongodb is web scale&#8221; <em>repeat</em></p>
-
-<p>另外, 這個影片是用 <a href="http://www.xtranormal.com/">xtranormal</a> 這個網站的 text-to-movie 做出來的, 還滿酷的 XD</p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -380,45 +159,6 @@ sorted_list.reverse() # 如果要新的時間在前的話, reverse 一下</code>
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/2705">頗酷的 iPad 的 PHP IDE: Lemon ADE</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-08-28T02:19:01+08:00" pubdate  data-updated="true" >Aug 28<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><iframe class="youtube-player" type="text/html" width="500" height="400" src="http://www.youtube.com/embed/HR6BUlS_Eig" frameborder="0"></iframe>
-
-
-<p>稍微玩了一下, 真的還滿酷的, 不過有一些圖示要記, 程式寫完還可以直接上傳到 server 內!! cool ~</p>
-
-<p><a href="http://itunes.apple.com/us/app/the-lemon-ade/id369025015?mt=8">iTunes link</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
       <h1 class="entry-title"><a href="/programming/2702">Facebook 接下來的動作</a></h1>
     
     
@@ -497,6 +237,239 @@ sorted_list.reverse() # 如果要新的時間在前的話, reverse 一下</code>
   <div class="entry-content"><p><a href="http://tzangms.com/wp-content/uploads/2010/08/128214283337813.png"><img src="http://tzangms.com/wp-content/uploads/2010/08/128214283337813-375x500.png" alt="" title="128214283337813" width="375" height="500" class="aligncenter size-large wp-image-2701" /></a></p>
 
 <p>這張是推友 @kikathetomato 前幾天幫我畫的一張, 看到整個超感動的 (淚) 除了衣服跟吉他就跟第一張專輯的宣傳照一樣之外, 背後還有 python 的兩隻蛇, 你說這酷不酷!? 超酷阿!!!!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/computer/2693">買了高級鍵盤</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-07-31T02:05:27+08:00" pubdate  data-updated="true" >Jul 31<span>st</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>由於先前把 mac mini 跟鍵盤都拿回家裡給媽媽用了, 所以現在手邊只剩下一台有點不夠力的 macbook, 然後下班繼續寫 code 的狀況維持一陣子, 覺得手真的是快廢了, 後來就覺得 macbook 鍵盤超難打,  所以打算買個高級鍵盤。</p>
+
+<p>而一直以來常在推特上看到小恩恩在講高級鍵盤的事情, 又最近看到了<a href="http://blog.andytn.tw/2010/07/filco.html">小恩恩不小心代言的高級鍵盤</a>, 所以就想說也來買一支高級鍵盤好了, 畢竟每天從早到晚都要寫大量的 code, 所以詢問推特大神之後, 大家都推薦金鍵盤, 所以 google 一下金鍵盤的地址之後, 下班就跑了過去。 不過有點難找, 尤其我對光華商場本來就不熟 ~&#8221;~</p>
+
+<p>到了金鍵盤之後, 覺得金鍵盤的老闆人真的超 nice, 跟我解釋很多東西, 青軸、茶軸、黑軸、白軸 &#8230; blah blah blah, 總之試打了一會, 看了價位就買了 Filcon 的 Mejestouch 不知道型號的黑軸鍵盤, 花了 3000 塊。</p>
+
+<p>然後老闆還問說有沒有需要 N-key, 所以又跟我解釋了 N-key 的用途, 然後又問需不需要中文。最後當然是不用 N-key 不用中文, 單純英文鍵盤即可, 看起來乾淨多了~ 總之老闆人超 nice ~</p>
+
+<p>不過其實我覺得最好打的是架上標價 6800 的鍵盤 &#8230; 也許下個月就可以買一支放公司用之類的。 畢竟靠打字賺錢的, 對自己的手好一點也是應該的 (笑)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2690">Stashboard</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-07-24T11:23:32+08:00" pubdate  data-updated="true" >Jul 24<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.stashboard.org/"><img src="http://tzangms.com/wp-content/uploads/2010/07/螢幕快照-2010-07-24-上午11.19.57-500x138.png" alt="" title="螢幕快照 2010-07-24 上午11.19.57" width="500" height="138" class="aligncenter size-large wp-image-2691" /></a></p>
+
+<p><a href="http://www.stashboard.org/">Stashboard</a>, 類似 Google 的 <a href="http://www.google.com/appsstatus">Apps Status Dashboard</a> 及 Amazon 的 <a href="http://status.aws.amazon.com/">AWS Service Health Dashboard</a> 的 Status page。</p>
+
+<p>UI 看起來很不賴, 用 Python 在 Google App Engine 上面跑。 所以只需要下載 source code 回來改一下 app-id 就可以 deploy 上 GAE, 只需要不到一分鐘就可以架起來了。 而且有 REST API 喔!</p>
+
+<p>不過我本來以為有自動監測這種功能說 XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/2687">iPad 入手</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-07-14T22:24:01+08:00" pubdate  data-updated="true" >Jul 14<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天下班就跑去八德路那邊買了 iPad 3G 版 32GB, 用起來感覺很不爽, 看網頁, epub 超爽的! 哈! 只是 124 個小朋友就這麼離我而去了 &#8230;.</p>
+
+<p>結果在回家的時候, 想都沒想就坐上反方向的捷運了 &#8230;</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/stuff/2680">StreetVoice 徵正職 Web Developer</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-07-12T21:47:41+08:00" pubdate  data-updated="true" >Jul 12<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>小弟目前在 <a href="http://tw.beta.streetvoice.com/music/">StreetVoice</a> 工作, 要徵 web developer 一名, 對音樂或獨立音樂有興趣的人可以來談一下。</p>
+
+<p>這份工作主要是寫 python + django, 不過由於寫 python 的人比較難找, 所以之前是寫其他語言的人也歡迎來應徵。基本上閱讀英文文章不太有問題、不排斥持續學習新東西的話, 就是你了!!</p>
+
+<p>有問題要發問或是要應徵的話, 請來信 tzangms [at] streetvoice.com 或是留言給我吧!</p>
+
+<p>PS. 有看到的朋友們, 也煩請轉給你的朋友們看看吧!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/2685">關於苗栗大埔</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-07-07T13:23:19+08:00" pubdate  data-updated="true" >Jul 7<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/bi1qkUFwuZM&amp;hl=zh_TW&amp;fs=1?hd=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/bi1qkUFwuZM&amp;hl=zh_TW&amp;fs=1?hd=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed></object>
+
+
+<p>你還不知道苗栗大埔這件事嗎? 可以的話煩請看一下這個影片。</p>
+
+<p>在看這個影片的同時我一直在想, 如果事情是發生在我身上, 我該怎麼處置, 該如何應對, 在打這篇的同時我哭了, 似乎事情真的發生在我身上時, 我又能如何? 好像也只能看著自己被毀壞、撕裂。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web design/2681">很厲害的 Fluid Layout</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-06-28T11:55:39+08:00" pubdate  data-updated="true" >Jun 28<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://hicksdesign.co.uk/journal/finally-a-fluid-hicksdesign">Finally, a fluid Hicksdesign</a></p>
+
+<p>Layout 會隨著瀏覽器視窗拖拉而調整, amazing!</p>
 </div>
   
   

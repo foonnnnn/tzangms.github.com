@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="我的部落格終於有名字了! 話說起因是昨天在 twitter 上, 跟某位跟我一樣玩 Linux、寫程式的音樂製作人 - 阿怪說到 VCS (版本控制系統) 的東西。 一開始我是在 twitter 上說, 該來好好研究 SVN, 不然程式設計師一多, 程式會很難維護。阿怪看到就回我說:「水銀!!...">
+  <meta name="description" content="寫 web app 當然一定都會存取資料庫啦! 在用過 CodeIgniter 一陣子, 中文的使用者應該就會發現到, CI 似乎沒有地方可以直接設定資料庫語系的地方, 所以如果當資料庫的語系不是我們要的, 那麼出來的東西就會都是亂碼, 所以就需要在每次的 query 之前都要先送出個 SET...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/943">部落格有名字囉! 「Oceanic | 人生海海」</a></h1>
+      <h1 class="entry-title"><a href="/programming/902">設定 CodeIgniter 資料庫語系</a></h1>
     
     
       <p class="meta">
@@ -80,26 +80,97 @@
 
 
 
-<time datetime="2007-08-22T23:19:51+08:00" pubdate  data-updated="true" >Aug 22<span>nd</span>, 2007</time>
+<time datetime="2007-07-03T21:51:32+08:00" pubdate  data-updated="true" >Jul 3<span>rd</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>我的部落格終於有名字了! 話說起因是昨天在 twitter 上, 跟某位跟我一樣玩 Linux、寫程式的音樂製作人 - 阿怪說到 VCS (版本控制系統) 的東西。 一開始我是在 twitter 上說, 該來好好研究 SVN, 不然程式設計師一多, 程式會很難維護。</p>
+  <div class="entry-content"><p>寫 web app 當然一定都會存取資料庫啦! 在用過 CodeIgniter 一陣子, 中文的使用者應該就會發現到, CI 似乎沒有地方可以直接設定資料庫語系的地方, 所以如果當資料庫的語系不是我們要的, 那麼出來的東西就會都是亂碼, 所以就需要在每次的 query 之前都要先送出個 SET NAMES 的 query, 但是在 CodeIgniter 這個 framework 應該會有好一點的方法吧? 應該可以直接在 config/database.php 裡直接設定我們所要的語系這樣才對, 嗯, 沒有目前辦法 XD</p>
 
-<p>阿怪看到就回我說:「水銀!!」噗, 我完全搞不清楚狀況, 原來阿怪說的是 <a href="http://selenic.com/mercurial">mercurial</a> 這個東西, 跟 SVN 類似也是一個 VCS。接著我就又提到, 先前 linus 不是才搞一個 <a href="http://git.or.cz/">git</a> ? 媽的! 先前才為了在 PHP 上面選用那一套 framework 才煩惱好一陣子, 選錯的話, 有時候可能會一失足成千古恨阿! XD</p>
+<p>好吧! 其實要修改一下 system/database/DB_driver.php 如下即可:</p>
 
-<p>然而當選定了我想要用的 PHP framework, 現在又有 VCS 要選嗎? 後來 google 了一下, 這些 VCS 在用途上似乎稍有不同? 阿災, 還沒時間去研究。</p>
+<pre>
+<code>// Select the database
+        if ($this->database != '')
+        {
+            if ( ! $this->db_select())
+            {
+                log_message('error', 'Unable to select database: '.$this->database);
+            
+                if ($this->db_debug)
+                {
+                    $this->display_error('db_unable_to_select', $this->database);
+                }
+                return FALSE;
+            }
+            elseif( ! empty($this->init_sql) )
+            {
+                $this->_execute($this->init_sql);
+            }
+        }</code>
+</pre>
 
-<p>Anyway, 總之在當時我就整個感覺很悶, 有種想吐的感覺 (這是稍微誇大了一點啦 XD), 難道我得了資訊焦慮症? 因為不光是 framework 和 VCS, 還有每天都要讀上的大量 RSS feeds 阿!</p>
+
+<p>看到上面的 code , 其實增加的只有下面這個部份</p>
+
+<pre>
+<code>            elseif( ! empty($this->init_sql) )
+            {
+                $this->_execute($this->init_sql);
+            }</code>
+</pre>
+
+
+<p>嗯, 接下來, 我們就可以在 config/database.php 裡面, 增加一行設定, 在資料庫動作的時候, 都會執行這個設定的動作, 這麼一來我們就可以用類似於設定的方式來設定資料庫的語系, 而不用在每次 query 之前都送出 SET NAMES 這個動作, 那麼增加的設定如下</p>
+
+<p><code>$db['default']['init_sql'] = "SET NAMES 'utf8' "</code></p>
+
+<p>畢竟 CI 是外國人寫的, 不過我想資料庫語系設定這一點, 在新版的 CI 應該會獲得解決吧!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/901">智邦部落客美食聚!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-07-01T11:59:01+08:00" pubdate  data-updated="true" >Jul 1<span>st</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/683300841/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1093/683300841_707ad7c43f.jpg" width="500" height="375" alt="100_1821.JPG" /></a>
+你好, 我是接待小弟! XD</p>
+
+<p>雖然昨天是禮拜六, 不過我要上班! 昨天是補端午節的假, 比起一般公司的補上班時間晚了一個禮拜。基本上美食聚當天我是負責打雜的, 還有當接待小弟, 就是在會場門口發名牌給到達的部落客, 雖然早上一到公司我的心還是在程式上, 因為要把 MySQL 換成 MS SQL Server 果然是有點麻煩, 不過幸好我把問題給解決掉了 XD 哈! 所以寫完之後就可以專心弄會場的佈置等等, 不然程式寫不出來, 我的心情會不好 XD</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/blog/943">Read on &rarr;</a>
+      <a rel="full-article" href="/life/901">Read on &rarr;</a>
     </footer>
   
 
@@ -111,7 +182,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/939">Zend Framework 初探</a></h1>
+      <h1 class="entry-title"><a href="/life/899">淡水一日遊</a></h1>
     
     
       <p class="meta">
@@ -125,32 +196,21 @@
 
 
 
-<time datetime="2007-08-21T15:50:39+08:00" pubdate  data-updated="true" >Aug 21<span>st</span>, 2007</time>
+<time datetime="2007-06-27T22:18:53+08:00" pubdate  data-updated="true" >Jun 27<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>因為上週末我掰咖了, 所以都在房間裡看書, 看電影。我把 iWoz 這本書看完了, 也看了門徒, 看了 Linda Linda Linda, 然後一整天都在吃泡麵 XD 也玩了一下 <a href="http://framework.zend.com/">Zend Framework</a>(以下簡稱 ZF), 試用一下可不可以單獨拿 ZF 其中的元件來用, 因為 ZF 的文件看起來好像可以這麼做。</p>
-
-<p>在開始之前, 由於 ZF 只能在 PHP5 上面跑, 而我的 Mac OS X 預設的環境是 Apache 1.3 + PHP4, 所以我找到了<a href="http://www.entropy.ch/software/macosx/php/">這裡</a>, 可以下載包好給 Mac 用的 PHP5 binary 套件, 很方便! 裝完只要 restart apache 就好了!</p>
-
-<p>OK! 首先先<a href="http://framework.zend.com/download">下載 Zend framework</a>, 然後我是解開放到</p>
-
-<p><code> /usr/local/php5/lib/php/Zend</code></p>
-
-<p>接著設定 php.ini 的 include_path, 加入 /usr/local/php5/lib/php/Zend/library, 變成</p>
-
-<p><code>include_path = ".:/usr/local/php5/lib/php/Zend/library" </code></p>
-
-<p>接著參照 ZF 的文件, 試一下 Zend_Service_Delicious 這個元件, 寫一小段程式如下, 哈! 馬上就可以列出我在 del.icio.us 裡的書簽 title, 真方便!</p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/638301137/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1173/638301137_7003dac28b.jpg" width="500" height="375" alt="100_1616.JPG" /></a>
+上禮拜六, 公司住在淡水的同事 sanni 帶我去淡水一日遊, 陽光開心的一天!</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/programming/939">Read on &rarr;</a>
+      <a rel="full-article" href="/life/899">Read on &rarr;</a>
     </footer>
   
 
@@ -162,7 +222,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/941">搬家成功!!</a></h1>
+      <h1 class="entry-title"><a href="/life/897">多好笑小海來電.mp3</a></h1>
     
     
       <p class="meta">
@@ -176,26 +236,77 @@
 
 
 
-<time datetime="2007-08-21T01:12:29+08:00" pubdate  data-updated="true" >Aug 21<span>st</span>, 2007</time>
+<time datetime="2007-06-26T22:35:43+08:00" pubdate  data-updated="true" >Jun 26<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>由於這個週末整個掰咖, 我只能在家裡打電腦、上網, 不是打開 bloglines 看看, 就是 twitter, 當然自己的 blog 也要看看, 但是自己的 blog 越看就越生氣, 整個慢到不行, 想想剛開始用 bluehost 的時候還滿快的, 當初也很滿意 bluehost 的速度, 怎麼感覺越來越慢了, 我的天阿!!</p>
+  <div class="entry-content"><p>話說, 事情就發生在昨天&#8230;
+就在昨天, 我把 Happy! GO! 錄好之後, 想要馬上傳給志豪聽, 不過志豪居然沒在線上, 我就只好撥電話過去給志豪, 看他在幹嘛, 因為我心裡想說, 待會志豪聽了一定會哭 XD</p>
 
-<p>查一下自己的 bluehost 還剩兩百多天可以用, 但是 blog 載入到一半就掛了的這種速度, 我實在是沒辦法繼續用下去, 所以心裡就想說:「媽的! 一定要搬家!」</p>
+<p>打電話了過去, 志豪說他跟信宏在彈 bass 跟吉他, 另外還有大貓, anyway, 我就叫志豪快點上線, 想快點給他聽 Happy! GO! 這首歌, 後來志豪就叫我聽信宏的新空心電吉他, 我話都還沒說&#8230; 他們就這樣自顧自的彈起來了&#8230;&#8230;..我想一想不對&#8230;. 是我打電話過去ㄝ&#8230;..我趕緊就說:「 X! 電話是不用錢是不是」&#8230;.. 最後叫志豪快點上線, 我就掛了電話。</p>
 
-<p>所以一開始我就先把 h2oband.net 這個 domain 先 transfer 到 <a href="http://godaddy.com">GoDaddy.com</a>, 先來試看看, 反正之後要搬到那裡, 直接指過去就好了, 另一個原因是因為&#8230; bluehost 的 domain 管理真的很陽春, 只能指 name server, 沒辦法設 CNAME, MX 之類的東西 (也許是我沒發現 XD), 所以我就先把 h2oband.net 這個目前沒在用的 domain 先 transfer 到 GoDaddy 試看看, 沒想到~ 居然發現 GoDaddy 有在賣 hosting!!</p>
+<p>沒想到, 當時志豪居然開著麥克風在錄音, 在我掛完電話沒多久後, 志豪就傳來一個 mp3, 名稱叫做&#8221;<strong>多好笑小海來電.mp3</strong>&#8221; 媽的! 我剛才的對話都被錄下來了阿!!!!</p>
 
-<p>在處理 h2oband.net 的 domain transfer 的時候, 感覺 GoDaddy 的速度感覺還滿快的, 相對的, bluehost 就一整個慢到爆! 就想說先在 GoDaddy 買個一個月玩玩看好了, 結果~ 馬上就花了 $6.99 美金, 噗~</p>
+<p>我講話很粗魯嗎? 最後我跟志豪討論的結果是, 這才是真性情阿!! XD  Anyway 可以聽聽信宏彈的一小段 blues ~</p>
+
+<p>不過不知道誰在最後補一句 &#8220;好好笑&#8221; = =</p>
+
+<p>(PS. 內有真性情談話 XD 不喜勿聽)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/896">[Demo] Happy! GO!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-06-26T00:29:00+08:00" pubdate  data-updated="true" >Jun 26<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>這首歌是我們家 Bass 手 - 志豪寫的, 不過由我重新錄製, 跟修曲, 把這首歌完整弄出來, 不過由於沒有歌詞, 所以這一首歌整首都在啦~啦~啦~ XD</p>
+
+<p>先前志豪就寫了一首 happy go, 我也不知道為啥要叫這個歌名, 因為~ 聽當時志豪的錄音檔, 他亂哼的歌詞明明是悲的, 當時我就覺得 happy go 還不錯聽, 不過志豪就沒有繼續把這首歌做出來。</p>
+
+<p>一直到昨天晚上, 志豪又傳來了一首新歌, 檔案名稱叫 happy gone , 心想:</p>
+
+<p>「跟 happy go 是同一首嗎?」</p>
+
+<p>不過聽了之後, 好像只有編曲類似, 沒有曲, 也就是沒有唱歌的部份, 不過這首 happy gone 多了開頭的吉他 solo, 一開始聽的時候, 我就跟志豪說 :</p>
+
+<p>「靠北, 你吉他是在彈啥小!」XD</p>
+
+<p>不過志豪說他是 bass 手, 吉他彈得出來感覺就好了, 好吧! 就原諒他, 不過就在我又聽了幾遍之後&#8230;&#8230;. 我哭了!</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/blog/941">Read on &rarr;</a>
+      <a rel="full-article" href="/music/896">Read on &rarr;</a>
     </footer>
   
 
@@ -207,7 +318,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/938">聖帕摔車記錄</a></h1>
+      <h1 class="entry-title"><a href="/music/895">[Demo] 打爆你的大頭</a></h1>
     
     
       <p class="meta">
@@ -221,21 +332,130 @@
 
 
 
-<time datetime="2007-08-17T23:45:19+08:00" pubdate  data-updated="true" >Aug 17<span>th</span>, 2007</time>
+<time datetime="2007-06-24T18:52:40+08:00" pubdate  data-updated="true" >Jun 24<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/1149766914/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1321/1149766914_45863504d6.jpg" width="375" height="500" alt="100_2631.JPG" /></a><br />
-今天摔車了!!&#8230;</p>
+  <div class="entry-content"><p>這首是先前錄好的版本拿來改的, 由於先前用 iBook G4 800, Guitar Rig 跑不動, Drum machine 也跑不動, 所以吉他跟鼓都直接用 Logic express 內建的效果器跟 Drum kits, 聲音不是很好聽, 今天把吉他都掛上 Guitar rig 2, 另外鼓用 Addictive drum 來作音源, 聲音就好多了, 最後用新麥克風重新錄製了 Vocal 的部份。</p>
+
+<p>媽的! Guitar rig 2 的 tone 都調不好, Balance 也很爛 Orz</p>
+
+<p>anyway, 有興趣可以聽聽<a href="http://tzangms.com/?p=676">先前的版本</a>, 比較看看, 不過說真的, 這首錄的很隨便 XD</p>
+
+<p>[歌詞]
+為何你總是要跟著我 跟在我身後
+還以為我不知道你在左右
+只是我只想一個人走 不要跟著我
+我沒有力氣在去聽你囉唆</p>
+
+<p>我說我快要無法呼吸 (給我一點距離)
+你卻說你會很安靜 (要我一直陪著你)</p>
+
+<p>不要再跟著我
+小心我打爆你的大頭
+不要在囉唆</p>
+
+<p>不要再跟著我
+小心我打爆你的大頭
+不要在囉唆
+喔~喔~喔~喔~</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/894">[Demo] 你不解釋</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-06-24T17:30:38+08:00" pubdate  data-updated="true" >Jun 24<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>[歌詞] by 非非
+你不解釋 永不解釋
+總是扳著臉 結束我的疑問</p>
+
+<p>你不認錯 永不認錯
+總是無辜地說 你沒有做錯</p>
+
+<p>你不道歉 永不道歉
+總是在我抱怨之前 先對我翻臉</p>
+
+<p>你不挽回 永不挽回
+木然的表情 總是起身準備離去</p>
+
+<p>你沈默的嘴角
+冷漠的眼神
+像是冬天吹起的一陣 冷風</p>
+
+<p>你挺直的背影
+訴說著你
+寧願 孤獨一生</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/893">我的木吉他</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-06-23T02:17:06+08:00" pubdate  data-updated="true" >Jun 23<span>rd</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/590433079/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1145/590433079_4da1bf6f7c.jpg" width="500" height="375" alt="100_1565.JPG" /></a>
+既然有人問到我的木吉他, 我也想幫我的木吉他寫篇文章感謝他一下, 那麼就來讓我的木吉他拍幾張照片, 亮相一下吧!</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/life/938">Read on &rarr;</a>
+      <a rel="full-article" href="/music/893">Read on &rarr;</a>
     </footer>
   
 
@@ -247,7 +467,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/937">藍眼關注!! 得獎!</a></h1>
+      <h1 class="entry-title"><a href="/blog/892">噗~主機 CPU 用量過高</a></h1>
     
     
       <p class="meta">
@@ -261,191 +481,18 @@
 
 
 
-<time datetime="2007-08-14T01:16:53+08:00" pubdate  data-updated="true" >Aug 14<span>th</span>, 2007</time>
+<time datetime="2007-06-22T14:41:28+08:00" pubdate  data-updated="true" >Jun 22<span>nd</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/975405574/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1324/975405574_58f0e83fcb.jpg" width="500" height="400" alt="超燦爛 at pepper lunch" /></a>
-呵, 上次入圍藍眼關注只向公司幾位同事拉票, 只有 4 位吧! 沒有太積極, 想說這樣應該就夠了, 噗~ 其實公司這幾位同事大多都是綠眼關注 XD 所以一票就值好多分, 將近一百分吧? 不過上次的藍眼關注我還是落選了, 所以這次就有積極的拉票了, 這次可以得獎, 真的是感謝大家的幫忙阿!! 看看! 我這張照片笑的多開心阿!! (應該很有得獎開心的 fu 吧? XD)</p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/581780379/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1322/581780379_8033c58aab_m.jpg" width="240" height="177" alt="my blog exceed the CPU limit" align='left' /></a>噗~ 真的是不知道該高興還是&#8230;., 這張圖是在說, 我的主機 CPU 用量過高, 所以我的網站暫時被鎖住了, 其實&#8230; 最近這幾天還滿常看到的， 尤其以昨天最為嚴重 XD</p>
 
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/937">Read on &rarr;</a>
-    </footer>
-  
+<p>我是向 bluehost 租用虛擬主機的, 雖然不像以往看到一些租用 dreamhost 的朋友們的悲慘狀況, 而是暫時的被 block 住, 所以昨天就把主機上一些沒用的服務給關掉, 哈, 其實只有我的 blog 跟 tzangms.com 旗下的零星 blog 有在用之外, 先前架設的論壇也沒人用, 相簿我也是用 Flickr Pro XD 另外, 昨天也把目前 blog 的一些外掛關掉, 把佈景主題中一些不必要的 code 給拿掉, 看來狀況是有好一些。</p>
 
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/stuff/936">Moo Stickerbook</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-08-13T02:06:43+08:00" pubdate  data-updated="true" >Aug 13<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/1051632713/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1107/1051632713_c1e9a4a741.jpg" width="500" height="375" alt="moo StickeBook cover" /></a>
-在上個月底, 在 twitter 看到<a href="http://www.christabelle.idv.tw/rewrite.php/read-533.html">迴老師又訂了 Moo 的新東西</a>, 而且七月底前免運費!!! 所以馬上我就跑到 <a href="http://www.moo.com">Moo 的網站</a>去看迴老師說的 Stickerbook。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/stuff/936">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/935">主持@電腦應用展</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-08-12T02:00:07+08:00" pubdate  data-updated="true" >Aug 12<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/1030911337/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1196/1030911337_a9ed155a69.jpg" width="500" height="375" alt="1029519896_a7270a3973_o.jpg" /></a></p>
-
-<p>嗯, 上禮拜日公司在電腦應用展參展, 輪到我支援, 幫忙參展的活動, 但沒想到我真的下海當主持人 XD 至於旁邊這兩位, 則是公司請來的工讀生(show girl?)</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/life/935">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/933">Sonia@FIN</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-08-11T16:07:36+08:00" pubdate  data-updated="true" >Aug 11<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/998107724/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1405/998107724_12b67bfbda.jpg" width="500" height="375" alt="100_2349.JPG" /></a>
-我又跑去剪頭髮了, 話說找 Sonia 剪了三次頭髮, 三次都在不同的店, 上次<a href="http://tzangms.com/?p=887">這篇</a>寫到 Sonia 是在斐瑟的對應髮廊 I, 結果這次又換到了捷運中山站附近的 FIN。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/life/933">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/934">Blog 串連罷免宜蘭縣長呂國華</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-08-08T23:50:00+08:00" pubdate  data-updated="true" >Aug 8<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>真的是每天都有新鮮事, 最近累積了好多文章想寫, 誰知道又來這個東西。 就是說, 今天一早打開 Bloglines 就看到 Mark 的 blog 的一篇文章: 「<a href="http://blog.markplace.net/marks_place/8/2007/08/07/274">Blog 串連罷免宜蘭縣長呂國華</a>」 這個標題馬上吸引了我, 嗯, 沒錯, 我是宜蘭人阿! 在看到 Mark 的這篇文章之後, 我就馬上把他收到 Myshare, 希望有更多的宜蘭人可以看到&#8230;</p>
-
-<p>我想大家應該都有在我 Blog 的右邊有看到兩張貼紙, 這兩張是在今天中午 Jas 做出來的, 超有行動力!! 其實在早上看到 Mark 的文章之後, 我就馬上去找了一堆相關新聞來看, 然後就想說今天一定要發文來串連這篇活動, 才想到&#8230;沒有貼紙阿! 沒有貼紙怎麼可以算得上是串連活動呢!? 所幸 Jas 馬上就在他 Blog 發文, 貼出這兩枚精美的貼紙, 該稱這兩枚貼紙為精美嗎? 對我來說, 這兩枚貼紙充滿著宜蘭人的憤怒阿!! 宜蘭童玩節舉辦了十二個年頭了, 現在突然說要停辦, 真的是很氣人!</p>
-
-<p>「我不知道宜蘭有什麼好玩的。」當朋友問起我宜蘭有哪裡好玩的地方, 我總是這麼回答他們。 但是我還是會擠出幾個東西, 其中一個就是童玩節。如果童玩節沒了, 你要我還能說出宜蘭有哪裡好玩? 好吧! 這是我個人膚淺的玩笑話。童玩節, 我想台灣北部大多數的人一到暑假, 都會想到宜蘭的童玩節, 不是嗎? 好吧! 至少我是, 我身邊的朋友也是, 如今卻為了這麼爛的理由, 這個爛縣長要停辦。</p>
-
-<p>就像 Mark 跟 Jas 所說的, 碰到問題不去解決, 而是決定放棄、停辦, 那麼請你下台!</p>
-
-<p>身為宜蘭人的你, 如果你有 Blog, 也同樣對這件事情感到氣憤, 煩請加入這個串連活動! 在你的 Blog 貼上這兩枚貼紙。如果你不是宜蘭人, 但也關心宜蘭童玩節的話, 你也可以只貼上「搶救童玩節」的貼紙, 「罷免呂國華」的貼紙就交給我們宜蘭人吧!!</p>
-
-<p>貼紙請至這裡取用<a href="http://jas9.blogspot.com/2007/08/blog-post_3920.html">「搶救童玩節」「罷免呂國華」串聯語法</a></p>
-
-<p>[ 延伸閱讀 ]</p>
-
-<p><a href="http://blog.markplace.net/marks_place/8/2007/08/07/274">Blog 串連罷免宜蘭縣長呂國華 | Mark&#8217;s Place</a></p>
-
-<p><a href="http://jas9.blogspot.com/2007/08/blog-post_08.html">不辦童玩節就請下台 | Jas9 Taipei</a></p>
+<p>問題是, 我的 blog 也沒有很多人看阿! 平均一天也才 200 左右的點閱次數, 倒是頻寬流量比較大一點點就是了, 因為放 Podcast, 放自己的音樂, 一個月大概會用掉 10 到 12G 的流量, 所以說, 在 page view 沒那麼多的情況下, 應該是 Wordpress 或是外掛的問題, 看來也許該換個簡單一些的佈景主題吧!?</p>
 </div>
   
   
@@ -458,7 +505,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/linux/930">Fedora 台灣愛用者社群 (FTUG) 贊助活動開跑!</a></h1>
+      <h1 class="entry-title"><a href="/life/887">新髮型 & 設計師 Sonia</a></h1>
     
     
       <p class="meta">
@@ -472,24 +519,24 @@
 
 
 
-<time datetime="2007-08-07T22:26:06+08:00" pubdate  data-updated="true" >Aug 7<span>th</span>, 2007</time>
+<time datetime="2007-06-21T21:08:26+08:00" pubdate  data-updated="true" >Jun 21<span>st</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>好久沒有在我的 Blog 寫到跟 Linux 相關的東西了, 這次是為了 <a href="http://fedora.tw/">FTUG</a> 的贊助活動而特地寫這一篇的。雖然小弟只在這個社群當過一段短暫時間的怠職板主, 也沒真的參與過這個社群所辦的活動, 原因是我已經轉換跑到到 Mac 好長一段日子了, 所以也沒辦法繼續兼顧 Linux 這一塊了。</p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/553043211/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1076/553043211_13dd9d38ca_m.jpg" width="180" height="240" alt="me and my hair stylist, sonia" class='left' /></a> 在去<a href="http://tzangms.com/?p=861">蘭卡威</a>之前才剪了個<a href='http://tzangms.com/?p=874'>新髮型</a>, 不過上禮拜就又開始覺得頭髮整個很厚, 沒辦法, 我頭髮長好快! 所以前幾天 sanni 就又陪我去剪頭髮了。 這次剪髮是同一個髮型設計師 Sonia, 呵, Sonia 超正的! 不過~ 她本人比照片正上很多 :D</p>
 
-<p>說到我玩 Linux 也有好長一段時間, 記得當初還在讀高中的時候, 接觸到一本名叫光碟月刊的雜誌, 當中介紹了許多 Linux 的東西, 還有每一期都會附上一片光碟, 裡面滿滿都是 Linux 的應用軟體, 我就在當中看到某個叫做 XFCE 的 Window manager, 那個畫面到現在還記憶猶新阿!! 當時我就深深的被這個與 Windows 極其不同的畫面所吸引, 對 Linux 產生了極大的興趣。</p>
+<p>不過我這個新髮型, 好像有點太短了 XD 本來其實只是覺得頭髮太厚, 修一下就好, 不過後來還是都交給了 Sonia 處理, 呵, 所以目前的頭髮真的是滿短的, 似乎比我當兵時還短, 噗~ 不過我當兵時是真的留滿長的, 呵!</p>
 
-<p>然而高中那時後, Linux 的資訊極其的少, 上網也是透過 33.6k 的數據機撥接上線, 然而 Linux 又是透過網路來散怖, 所以當時為了要取得 Linux 的套件來安裝真的是很麻煩, 幸好在高職的時候, 讀的是資訊科, 常在電腦中心混, 所以就利用了學術網路來下載當時最新的 Slackware 3.2, 不過當時並不是下載所謂的 iso 檔, 燒成光碟開機就可以開始安裝了, 當初我的電腦還不能用光碟開機勒!! Orz</p>
+<p>以前剪頭髮都是在鄉下, 剪一次大概才兩百塊, 就隨便剪一剪, 不然就是去家庭理髮 XD 當然在大學時代, 還是有被當時的女朋友拉去,  稍微比較高級的地方剪, 但是習慣了鄉下的環境, 突然換到高級的地方就很不適應。一開始去找 Sonia 剪頭髮的時候, 那個地方就讓我覺得有點高級的恐怖, 整個人不自在, 還要努力的掩飾自己不是鄉下來的 XD 哈哈哈。</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/linux/930">Read on &rarr;</a>
+      <a rel="full-article" href="/life/887">Read on &rarr;</a>
     </footer>
   
 

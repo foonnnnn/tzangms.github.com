@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="在使用 CodeIgniter 在開發的時候, 其實一直覺得 CI 的架構好像有點不足, 少了什麼東西。 例如說我想要有個使用者聯播的功能區塊, 有很多地方都想掛上這個功能區塊, 但是我該怎麼做? 在 CodeIgniter 現有的架構中, 看來就是寫成 Library 然後掛個 View, ...">
+  <meta name="description" content="因為快過新年了! 所以也該換個版面吧? 總之最近應該會滿常看到這個 blog 一直變來變去的就是了。會想換版面的主要原因, 其實因為看到了 Idea Grapes &raquo; 2008年的blog設計趨勢 這篇文章, 其中剛好提到了 the morning after 這個 wordpre...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/codeigniter/1093">CodeIgniter Modular Extension: HMVC</a></h1>
+      <h1 class="entry-title"><a href="/web design/1060">新年快到了! 換個新版面吧!</a></h1>
     
     
       <p class="meta">
@@ -80,20 +80,26 @@
 
 
 
-<time datetime="2008-03-08T00:50:05+08:00" pubdate  data-updated="true" >Mar 8<span>th</span>, 2008</time>
+<time datetime="2008-01-28T00:24:47+08:00" pubdate  data-updated="true" >Jan 28<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>在使用 <a href="http://codeigniter.com">CodeIgniter</a> 在開發的時候, 其實一直覺得 CI 的架構好像有點不足, 少了什麼東西。 例如說我想要有個使用者聯播的功能區塊, 有很多地方都想掛上這個功能區塊, 但是我該怎麼做? 在 CodeIgniter 現有的架構中, 看來就是寫成 Library 然後掛個 View, 然後把輸出 return 到呼叫的 Controller, 但是我總覺得這樣很亂, 而且東西一多, 會很難維護, Library 會不像 Library 而 View 到底是給 Controller 用還是 Library 用, 甚至 Model 也會一起捲進來, 這樣程式的架構會很雜亂。</p>
+  <div class="entry-content"><p><img src='http://tzangms.com/wp-content/uploads/2008/01/2007_old_theme.jpg' alt='2007_old_theme.jpg' class='left' />因為快過新年了! 所以也該換個版面吧? 總之最近應該會滿常看到這個 blog 一直變來變去的就是了。</p>
 
-<p>所以後來我就自己動手 extends CI 開始寫起了 module 功能, 寫沒多久就發現! 原來早就有類似的東西, 而且在 CodeIgniter wiki 就有提到了, 就是 <a href="http://codeigniter.com/wiki/Modular_Extensions_-_HMVC/">Modular Extensions - HMVC</a>。</p>
+<p>會想換版面的主要原因, 其實因為看到了 <a href="http://blog.yoren.info/2008/01/25/487/">Idea Grapes &raquo; 2008年的blog設計趨勢</a> 這篇文章, 其中剛好提到了 <a href="http://themasterplan.in/themes/the-morning-after/">the morning after</a> 這個 wordpress 的佈景主題, 一看就滿喜歡的, 就興起一股想換佈景主題的念頭, 雖然還是很捨不得換掉先前的版面樣式。</p>
 
-<p>HMVC 可以用來幫 CI 加上 module 的功能, 我一直想要的就是這個功能阿!! 可以擺脫先前雜亂的方式, 可以很方便寫個模組化的功能。</p>
+<p>其實先前很喜歡一個叫做 <a href="http://www.revolutiontheme.com/">Revolution</a> 的佈景主題,  他主要是設計給雜誌或新聞用的樣式, 不過 Revolution 這個佈景主題要付費購買, 最便宜的方案還要 $79.95 美元, 當然是不可能買來用阿!</p>
 
-<p>簡單說明一下 HMVC, 在掛上 HMVC 之後就可以呼叫 module, 而 module 有自己的 Controller、View 跟 Model, 這樣一來寫好 module 之後, 直接在 Controller 呼叫 module 就可以了, 這個整個程式架構就非常的明朗阿!! 整個 module 的 code 都在同一個資料夾裡面, 非常清爽!  所以說 Framework 早該有 module 這功能的 XD</p>
+<p>不過前幾天看到這個 <a href="http://themasterplan.in/themes/the-morning-after/">the morning after</a> 這個佈景主題, 就覺得有點類似, 滿符合心中想要的樣式, 可以比較快速的改成自己想要的樣子, 雖然其中運用了許多 meta key 的運用, 才能跟 the morning after 所展示的樣子類似, 這點倒是麻煩了點 :p</p>
+
+<p>在  <a href="http://blog.yoren.info/2008/01/25/487/">Idea Grapes &raquo; 2008年的blog設計趨勢</a> 這篇文章中也提到了 <a href="http://www.mikeindustries.com/sifr">sifr</a> 這個頗妙的東西。在設計網頁的時候, 我們只能用大部分電腦系統上通用、都有的字形, 以確保大家看到的設計樣式是一致的。 sifr 可以讓我們擺脫這個限制, 可以用你想要的字形來顯示你想要的字, 但使用者的電腦上卻不需要有這個字形, 其實就是用 javascript 跟 flash 來作這個動作, 有興趣的可以去看一看。</p>
+
+<p>不過記得好多年前 netscape 也有某個解決使用者字形的方案, 就是在網頁上嵌入某段語法, 如果使用者沒有網頁所指定的字形的話, 將會自動下載。但是這兩種方法在中文上都可以算是無解。 排除標點符號&#8230;等不說, 中文不像英文只有 26 個英文字母阿! 所以不是一兩百k可以解決的事情, 而是好幾 MB 的事阿!!</p>
+
+<p>最後的結論是, 我要來換版面了! 反正我的部落格也沒啥人在看, 所以可以隨心所欲一點 XD</p>
 </div>
   
   
@@ -106,7 +112,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/stuff/1091">iPod Touch</a></h1>
+      <h1 class="entry-title"><a href="/programming/1058">Tutorials Point</a></h1>
     
     
       <p class="meta">
@@ -120,22 +126,71 @@
 
 
 
-<time datetime="2008-03-01T23:39:02+08:00" pubdate  data-updated="true" >Mar 1<span>st</span>, 2008</time>
+<time datetime="2008-01-25T10:26:20+08:00" pubdate  data-updated="true" >Jan 25<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2243097997/" title="ipod touch by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2119/2243097997_6b922e4876.jpg" width="500" height="375" alt="ipod touch" /></a></p>
+  <div class="entry-content"><p><a href="http://www.tutorialspoint.com">Tutorials Point</a>, 看起來跟 <a href="http://www.w3schools.com/">W3School</a> 類似, 不過比較偏 Programming 就是了, 剛剛稍微看了一下, 看起來還滿舒服、滿順的。</p>
+</div>
+  
+  
 
-<p>其實在過年前就買了這一台 iPod touch 16G 了, 一直忘記寫, 現在寫只是想記得說, 哪時候過保 XD</p>
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/linux/1054">Lighttpd Simple-vhost 設定</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-01-22T21:10:30+08:00" pubdate  data-updated="true" >Jan 22<span>nd</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>lighttpd 的 simple-vhost 設定還真是簡單阿~ XD</p>
+
+<p>首先設定 server.modules 打開 mod_simple_vhost, 我的 server.modules 大概像這樣
+[source:php]
+server.modules = (</p>
+
+<pre><code>"mod_rewrite",
+"mod_access",
+"mod_auth",
+"mod_status",
+"mod_simple_vhost",
+"mod_compress",
+</code></pre>
+
+<p>)
+[/source]</p>
+
+<p>然後設定下面這幾行, 就好了 :o</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/stuff/1091">Read on &rarr;</a>
+      <a rel="full-article" href="/linux/1054">Read on &rarr;</a>
     </footer>
   
 
@@ -147,7 +202,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/codeigniter/1090">Lighttpd Rewrite Rules for CodeIgniter</a></h1>
+      <h1 class="entry-title"><a href="/life/1057">Workspace Planner 找出正確坐姿</a></h1>
     
     
       <p class="meta">
@@ -161,102 +216,23 @@
 
 
 
-<time datetime="2008-03-01T19:49:24+08:00" pubdate  data-updated="true" >Mar 1<span>st</span>, 2008</time>
+<time datetime="2008-01-21T08:50:42+08:00" pubdate  data-updated="true" >Jan 21<span>st</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>由於 CodeIgniter 使用 index.php 當作 font controller, 所以基本上把所有的東西都 rewrite 到 index.php 就可以了! 不過由於還是有 images, js 跟 css 檔案不能做 rewrite, 所以再加上類似於 public 那一行就行了! (我習慣是把 images, js 跟 css 資料夾都放在 public 資料夾裡面)</p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2205546576/" title="Wworkspace Planner by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2365/2205546576_d4786b77b9.jpg" width="500" height="297" alt="Wworkspace Planner" /></a>
+今天在 <a href="http://lifehacker.com/">lifehacker</a> 的文章中找到的一個計算你工作環境的工具 <a href="http://www.ergotron.com/tabid/305/language/en-US/default.aspx">Workspace Planner</a> 用來衡量你現在工作的坐姿是否正確。</p>
 
-<pre><code>$HTTP["host"] =~ "tzangms.com" {
-    url.rewrite = (
-        "^/public/.*$" => "$0",
-        "^/(.*)$" => "index.php/$1"
-    )
-}</code></pre>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/1089">看 Http Header 找工作 XD</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-02-29T14:48:42+08:00" pubdate  data-updated="true" >Feb 29<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天在寫 header 相關的 coding, 要來測一下是不是各家 BSP 提供的 RSS 都有 Last-Modified 的欄位, 測到 wordpress.com 的時候, 看到一個 extra 的欄位叫 X-hacker , 內容如下, 呵, 還滿有趣的 :p</p>
-
-<blockquote>X-hacker: If you&#8217;re reading this, you should visit automattic.com/jobs and apply to join the fun, mention this header.</blockquote>
-
-
-<p>要不要去 apply 阿? XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/1086">新吉他! Line 6 Variax 300</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-02-26T00:46:45+08:00" pubdate  data-updated="true" >Feb 26<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2291677546/" title="100_3546 by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2094/2291677546_e99485bcb1.jpg" width="375" height="500" alt="100_3546" /></a>
-沒錯! 我又買了新吉他了: Line 6 Variax 300! 買這把最主要的用意, 其實是因為先前買的 <a href="http://tzangms.com/life/858">Fender Jaguar</a> 的 tone 比較特殊, 有點太亮(可是 Jaguar 真的很漂亮 >&#8221;&lt;), 所以需要這一把, 有很多經典 tone 可以調勒!</p>
+<p>其實每天上班其實不用多久, 我就會覺得肩膀很難過, 我一直是覺得公司的桌子、椅子&#8230; anyway, 反正就是不人體工學嘛!</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/music/1086">Read on &rarr;</a>
+      <a rel="full-article" href="/life/1057">Read on &rarr;</a>
     </footer>
   
 
@@ -268,7 +244,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/computer/1084">減少 Skype 佔用的記憶體</a></h1>
+      <h1 class="entry-title"><a href="/linux/1055">Lighttpd Rewrite Rules for Wordpress Permalink</a></h1>
     
     
       <p class="meta">
@@ -282,24 +258,157 @@
 
 
 
-<time datetime="2008-02-20T09:54:17+08:00" pubdate  data-updated="true" >Feb 20<span>th</span>, 2008</time>
+<time datetime="2008-01-20T09:24:52+08:00" pubdate  data-updated="true" >Jan 20<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>最近在公司覺得電腦的記憶體太小(1G 其實夠用啦! 只是當然越大越好 XD), 所以就移除了一堆程式, 也開工作管理員看看哪些程式吃掉比較多的記憶體。</p>
+  <div class="entry-content"><p>先前由於把 Apache 換成 Lighttpd, 忘記還有 permalink 這東西, 所以 Wordpress 的 permalink 就掛點了。lighttpd 的 rewrite 好像沒有可以判斷檔案不在才做 rewrite 的條件, 又由於對 lighttpd 不熟, 只好在網路上找, 不過找到有些 rewrite rules 都嘛有問題, 所以參考一些找到的 rewrite rules, 然後修改成下面這樣 :p</p>
 
-<p>一直覺得很奇怪, 除了 Skype.exe 佔掉了 40MB 左右之外, 還有一個不知名的 skypePM.exe 佔掉了 20幾MB。查一下才知道, 原來 skypePM.exe 是 Skype Plugin Manager (放在 C:\Program Files\Skype\Plugin Manager 底下), 不過其實用都沒用過阿! 不會只有我沒用過吧? 囧</p>
+<pre>
+<code>url.rewrite = (
+    "^/blog/?$" => "/blog/index.php",
+    "^/blog/(?.*)$" => "/blog/index.php$1",
+    "^/blog/(wp-.+)$" => "$0",
+    "^/blog/([^.]+)/?$" => "/blog/index.php?$1",
+)</code>
+</pre>
 
-<p>Anyway, 為了空出這 20~30MB 的寶貴記憶體, 就來把它關掉吧!</p>
+
+<p>目前跑的都還正常, 有問題麻煩請通知 XD</p>
+
+<p><strong>update:</strong>
+用了好多天才知道, 這個 rewrite 有問題, 例如像下面這個網址重複兩個 blog 就掛點了</p>
+
+<blockquote>http://tzangms.com/blog/975</blockquote>
+
+
+<p>後來才重新看一下最後一個 rule, 把原本的 index.php/$1 改成 index.php?$1 就好了&#8230; hmm 我直覺上是這樣啦 XD anyway 總之這樣就正常了 XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/old demo/1056">[Demo] 你不解釋 (重新混音)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-01-19T16:01:44+08:00" pubdate  data-updated="true" >Jan 19<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>其實這首歌本來混的就不錯 XD 不過其實還是有差~</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/1053">My Open ID</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-01-18T14:31:12+08:00" pubdate  data-updated="true" >Jan 18<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>紀錄一下, 我的 Open ID 是 tzangms.myopenid.com 這麼一長串, 真的是頗難記的, 如果自己有 blog, 或 domain 可以參考這一篇「<a href="http://www.dedestruct.com/2008/01/13/how-to-use-blog-as-openid-url/"> How-To: Use your Blog/Website as your OpenID URL</a>」來用自己的 domain 或網址來當作自己的 Open ID</p>
+
+<p>在 header 裡面加上這幾行就可以了
+[source:html]
+<link rel="openid.server" href="http://myopenid.com/server" />
+<link rel="openid.delegate" href="http://tzangms.myopenid.com/" />
+<meta http-equiv="X-XRDS-Location" content="http://tzangms.myopenid.com/xrds" />
+[/source]</p>
+
+<p>如果我放在 tzangms.com 的首頁, 那就可以用 tzangms.com 來當成我的 Open ID 了, 雖然 tzangms.myopenid.com 已經夠好記的了 囧</p>
+
+<p>[參考連結]
+<a href="http://blog.bcse.info/openid/">Lvx ex Cælis | openid</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/1052">熱舞正妹? 其實我想說的是音樂</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-01-07T15:20:37+08:00" pubdate  data-updated="true" >Jan 7<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/0TNBJd3Hk4k&hl=zh_TW&fs=1"></param><param name="allowFullScreen" value="true"></param><embed src="http://www.youtube.com/v/0TNBJd3Hk4k&hl=zh_TW&fs=1" type="application/x-shockwave-flash" allowfullscreen="true" width="425" height="344"></embed></object>
+
+
+<p>其實一直很想寫這一篇, 只是標題一直不知道該怎麼下, 只因為這支影片, 令人讚嘆的點太多。</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/computer/1084">Read on &rarr;</a>
+      <a rel="full-article" href="/music/1052">Read on &rarr;</a>
     </footer>
   
 
@@ -311,7 +420,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/1085">PHP Question</a></h1>
+      <h1 class="entry-title"><a href="/linux/1051">Gentoo Su (Gpasswd)</a></h1>
     
     
       <p class="meta">
@@ -325,20 +434,18 @@
 
 
 
-<time datetime="2008-02-19T20:47:55+08:00" pubdate  data-updated="true" >Feb 19<span>th</span>, 2008</time>
+<time datetime="2008-01-07T02:46:57+08:00" pubdate  data-updated="true" >Jan 7<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>在一本書上看到的問題如下:</p>
+  <div class="entry-content"><p>在 Gentoo 上在新增 user 的時候將 user 加入 wheel 群組, user 就可以 su, 如果是事後才要將 user 加入 wheel 群組, 可以這樣做, ex:</p>
 
-<p><code>$a = 1;
-$a = $a-- +1;
-echo $a;</code></p>
+<p><code>gpasswd -a tzangms wheel</code></p>
 
-<p>這時候 $a 會等於多少? XD</p>
+<p>不過~ 覺得這個指令字面上的意義跟動作不大合</p>
 </div>
   
   
@@ -351,7 +458,7 @@ echo $a;</code></p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/1083">NuSOAP for PHP5</a></h1>
+      <h1 class="entry-title"><a href="/old demo/1050">[Demo] 現在的我 從前的你 (With Bass)</a></h1>
     
     
       <p class="meta">
@@ -365,110 +472,16 @@ echo $a;</code></p>
 
 
 
-<time datetime="2008-02-19T10:09:52+08:00" pubdate  data-updated="true" >Feb 19<span>th</span>, 2008</time>
+<time datetime="2008-01-06T08:05:02+08:00" pubdate  data-updated="true" >Jan 6<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>由於在 PHP5 已經有 SOAP extension 了, 如果把 SOAP extension 也編進 PHP5 的話, <a href="http://sourceforge.net/projects/nusoap/">NuSOAP </a>就會跟 SOAP extension 的  class name 衝到, 所以有了 <a href="http://code.google.com/p/nusoap-for-php5/downloads/list">nusoap-for-php5</a>, 放在 Google code。</p>
+  <div class="entry-content"><p>本來想說這一首歌, 這樣就已經夠了, 不過其實一直還覺得缺了些什麼, 這幾天不知道花了多久的時間在調 bass 的 tone 跟錄 bass, 現在算一算, 這一首的 bass 好像花了至少有 15 幾個小時&#8230; Orz</p>
 
-<p>不過把 class 名稱改成 soapclientnusoap 會不會有點太長? 我覺得改成 nu_soapclient 會比較好吧? 還是拿 原本的 NuSOAP 自己來改好了 XD</p>
-
-<p><strong>== UPDATE ==</strong>
-剛看了一下 nusoap 的 changelog, 原來因為 NuSOAP 會跟 PHP5 的 SOAP extension 衝到, 所以 class 名稱已經改了勒 o_O, 下面這一段可以看到, 已經從 soapclient 改成 nusoapclient 。</p>
-
-<blockquote>2007-03-19, version 0.7.2
-- soapclient: declare as nusoapclient, then also subclass soapclient if SOAP extension not loaded
-- soapclientmime: declare as nusoapclientmime, then also subclass soapclientmime if SOAP extension not loaded</blockquote>
-
-
-<p>再來看到這一段,</p>
-
-<blockquote>2007-04-09, version 0.7.2
-&#8230;
-- nusoapclient: rename class to nusoap_client
-&#8230;</blockquote>
-
-
-<p>現在 class name 是改成 nusoap_client 勒, 所以&#8230; 記得以後網路上找文章要注意日期阿 XD 像 NuSOAP 只有 code 的話&#8230;就只能靠自己多挖依下程式碼了&#8230;不然也要看過 readme, changelog 先。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/1081">Web Developer Resources</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-02-18T20:10:58+08:00" pubdate  data-updated="true" >Feb 18<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.forwebdesigners.com/">http://www.forwebdesigners.com/</a>
-<a href="http://www.tlbox.com/">http://www.tlbox.com/</a>
-<a href="http://webdevelopersfieldguide.com/">http://webdevelopersfieldguide.com/</a>
-<a href="http://www.alvit.de/handbook/">http://www.alvit.de/handbook/</a>
-<a href="http://webstandardsgroup.org/resources/">http://webstandardsgroup.org/resources/</a>
-<a href="http://webdeveloper.econsultant.com/">http://webdeveloper.econsultant.com/</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/uncategorized/1080">灌西比想像中的還紅</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-02-15T14:09:24+08:00" pubdate  data-updated="true" >Feb 15<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2265786795/" title="Eddie chen is famous in torrent search XD by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2219/2265786795_fc71607544.jpg" width="500" height="382" alt="Eddie chen is famous in torrent search XD" /></a>
-<a href="http://www.youtorrent.com/">youtorrent.com</a> 是用來搜尋國外各大 BT 種子的搜尋引擎, 想找某個軟體來(試)用, 沒想到搜尋框下方的標籤雲, 最大 tag 的竟然是 <strong>edison chen</strong>  XD 第二大的 tag 就是目前廣告打的頗兇, 我還滿想看的電影: jumper (移動世界)</p>
-
-<p>嗯~ 灌西比我想像中的還紅 XD</p>
+<p>回頭去聽<a href="http://tzangms.com/demo/988">沒有 bass 的版本</a>, 頓時覺得空洞了許多, 現在這個版本聽起來很不賴 :p</p>
 </div>
   
   

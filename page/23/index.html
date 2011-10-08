@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="以往在要使用某個 class 的時候, 都會用 require, require_once 或 include 來讀 class 的檔案, 然後在 new 物件出來。 而 PHP 5 的 autoload 可以簡化這個部份, 使用 autoload 之後就不需要先用 require 來讀取 p...">
+  <meta name="description" content="昨天更新了 stickeraction 貼紙管理的界面, 加上了可以指定貼紙&#8221;連結 / 轉址&#8221;的功能 (其實是之前拿掉了 XD), 後來趁著有空, 就開了 stickeraction 的 blog, 以後 stickeraction 的訊息更新就在那裡發怖了&#8230...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/2346">PHP Autoload</a></h1>
+      <h1 class="entry-title"><a href="/stickeraction/2330">Stickeraction 部落格開張囉~</a></h1>
     
     
       <p class="meta">
@@ -80,32 +80,97 @@
 
 
 
-<time datetime="2009-01-26T21:29:17+08:00" pubdate  data-updated="true" >Jan 26<span>th</span>, 2009</time>
+<time datetime="2009-01-17T12:56:50+08:00" pubdate  data-updated="true" >Jan 17<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>以往在要使用某個 class 的時候, 都會用 require, require_once 或 include 來讀 class 的檔案, 然後在 new 物件出來。 而 PHP 5 的 autoload 可以簡化這個部份, 使用 autoload 之後就不需要先用 require 來讀取 php, 就可以直接用 new 來建立物件, 而 require 的部份則就交給 autoload 來處理, 稱之為 lazy loading。</p>
+  <div class="entry-content"><p>昨天更新了 <a href="http://stickeraction.com">stickeraction</a> 貼紙管理的界面, 加上了可以指定貼紙&#8221;連結 / 轉址&#8221;的功能 (其實是之前拿掉了 XD), 後來趁著有空, 就開了 <a href="http://blog.stickeraction.com">stickeraction 的 blog</a>, 以後 stickeraction 的訊息更新就在那裡發怖了&#8230; 只是如果沒人去看&#8230; 就&#8230;</p>
 
-<p>最基本的方式就是用 __autoload 函式來處理。</p>
-
-<pre><code>
-function __autoload($class) {
-    $class = str_replace('_', '/', $class);
-    require $class . '.php';
-}
-</code></pre>
+<p><a href="http://blog.stickeraction.com">stickeraction blog</a>
+<a href="http://twitter.com/stickeraction">stickeraction on twitter</a></p>
+</div>
+  
+  
 
 
-<p>而看了幾個為了 PHP 5 寫的 framework 或 package 都採用 <a href="http://tw.php.net/manual/en/function.spl-autoload-register.php">spl_autoload_register</a> 來作 autoload 的處理。</p>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/2326">Koumis @ 女巫店就在明天!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-14T22:48:43+08:00" pubdate  data-updated="true" >Jan 14<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>[caption id=&#8221;attachment_2327&#8221; align=&#8221;alignleft&#8221; width=&#8221;308&#8221; caption=&#8221;koumis @ 女巫店 1/15 9:30&#8221;]<img src="http://tzangms.com/wp-content/uploads/2009/01/32940029.jpg" alt="koumis @ 女巫店 1/15 9:30" title="koumis @ 女巫店" width="308" height="529" class="size-full wp-image-2327" />[/caption] 上次在河岸留言聽了 <a href="http://blog.koumis.cc">koumis</a> 的表演, 不過當天除了 koumis 跟 stephenlee 之外, 還多了一位吉他手/口風琴手 - 阿燦, 當天進行了一場三人編制的演出。</p>
+
+<p>當天第一次聽到 koumis 以三人的編制來進行表演, 雖然光是 koumis 跟 stephenlee 兩個人的 live 演出, 就足已讓台下的聽眾沈醉在 koumis 的音樂中, 不過三個人編制讓整個音樂又更顯豐富了, 而且恰到好處, 沒聽過的人都真該來聽看看 koumis 那乾淨的聲線, 以及那讓人沈醉其中的音樂。</p>
+
+<p>有興趣的朋友, 可以到 <a href="http://blog.koumis.cc/">koumis 的官方網站</a> 看看, 也有上次在河岸留言表演的影片, 不過可別光只是看, 明天來看一次 koumis 的 live 表演, 你才能真正體會 koumis 的魅力。</p>
+
+<p>而我明天也會出現, 擔任 koumis 的 special guest, 有空可以前往的朋友們, 記得明天要來呦! koumis 真的很棒! 而明天我將會演唱將會放在第二張專輯的歌曲, 想聽嗎? 錯過就不知道還要等多久囉! XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/2319">Twitthat Firefox Extension!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-13T00:46:29+08:00" pubdate  data-updated="true" >Jan 13<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>[caption id=&#8221;attachment_2322&#8221; align=&#8221;aligncenter&#8221; width=&#8221;580&#8221; caption=&#8221;you can access twitthat on the right click menu&#8221;]<img src="http://tzangms.com/wp-content/uploads/2009/01/twitthat_rightclick_menu1.png" alt="you can access twitthat on the right click menu" title="twitthat right click menu" width="580" height="435" class="size-full wp-image-2322" />[/caption] 感謝 <a href="http://blog.kej.tw">kej</a> 大大幫 <a href="http://twitthat.com">twitthat</a> 做了個 firefox 的外掛! 大家可以到 twitthat 的<a href="http://twitthat.com/help/firefox_extension">這個頁面</a>點 Click here to install 進行安裝, 或是到 <a href="https://addons.mozilla.org/zh-TW/firefox/addon/10335">TwitThat :: Firefox 附加元件</a> 這個頁面進行安裝 ( 需要帳號 )</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/programming/2346">Read on &rarr;</a>
+      <a rel="full-article" href="/web/2319">Read on &rarr;</a>
     </footer>
   
 
@@ -117,7 +182,7 @@ function __autoload($class) {
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/2343">用 Zend Framework 加速 Twitter App (Mashup) 開發</a></h1>
+      <h1 class="entry-title"><a href="/mac/2315">Happy Designer: GarageBand Workshop</a></h1>
     
     
       <p class="meta">
@@ -131,37 +196,35 @@ function __autoload($class) {
 
 
 
-<time datetime="2009-01-26T16:32:24+08:00" pubdate  data-updated="true" >Jan 26<span>th</span>, 2009</time>
+<time datetime="2009-01-12T22:08:08+08:00" pubdate  data-updated="true" >Jan 12<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>我不太喜歡 Zend Framework 提供的 MVC, 覺得有點太複雜, 不過 Zend Framework 真的是提供許多元件, 可以用來加速 PHP 的開發。 由於深感自己對 PHP 認識的不足, 所以開始研究 PHP 的功能, 而會寫這一篇主要是因為在研究 PHP 的 autoload, 所以拿了 Zend Framework 的元件來做實驗, 最熟悉的就是 Twitter 這個 Service 了, 所以來記錄一下。</p>
+  <div class="entry-content"><p>[caption id=&#8221;attachment_2317&#8221; align=&#8221;alignleft&#8221; width=&#8221;150&#8221; caption=&#8221;GarageBand&#8221;]<img src="http://tzangms.com/wp-content/uploads/2009/01/garageband_icon-150x150.jpg" alt="GarageBand" title="garageband" width="150" height="150" class="size-thumbnail wp-image-2317" />[/caption]</p>
 
-<p>Zend Framework 提供了以下的 Web Service library:</p>
+<p><strong>更新!!</strong>
+<strong>正式活動定在 2/7 囉! 詳情請見<a href="http://tzangms.com/mac/2338">這篇文章</a></strong></p>
 
-<blockquote>Zend_Service_Akismet
-Zend_Service_Amazon
-Zend_Service_Audioscrobbler
-Zend_Service_Delicious
-Zend_Service_Flickr
-Zend_Service_Nirvanix
-Zend_Service_ReCaptcha
-Zend_Service_Simpy
-Zend_Service_SlideShare
-Zend_Service_StrikeIron
-Zend_Service_Technorati
-Zend_Service_Twitter
-Zend_Service_Yahoo</blockquote>
+<p>在 <a href="http://hlb.yichi.org/blog/">hlb</a> 的慫恿之下, 準備在2月開一個 GarageBand Workshop, 我會先來跟大家介紹 <a href="http://www.apple.com/tw/ilife/garageband/what-is-garageband.html">GarageBand</a> 關於 loop 以及軟體樂器&#8230;等等的功能, 並示範如何用 GarageBand 做出一首歌曲, 最後會有時間給來參與的夥伴們也現場來實作一下, 有問題的可以跟我詢問, 我覺得這將會是一個非常有趣的活動 :D 希望大家一塊來玩!</p>
 
+<p>不過這次的 GarageBand Workshop 有條件限制如下:</p>
+
+<ul>
+    <li>有蘋果電腦的朋友才可參加, 所以請攜帶你的蘋果筆記型電腦 ( 並請確認 GarageBand 還存在 )</li>
+    <li>有實作時間, 所以限制二十個參加名額</li>
+</ul>
+
+
+<p>由於要先統計大概人數以及參與的時間, 所以在 <a href="http://wellmeet.net/">We&#8217;ll Meet</a> 來開了一個活動頁面: <a href="http://wellmeet.net/event/20081231/andyaHNh/9691">HappyDesigner GarageBand Workshop</a>, 希望有興趣參與的朋友可以先到<a href="http://wellmeet.net/event/20081231/andyaHNh/9691">活動頁面</a>填寫您可參與的時間, 對了, 目前暫定的舉辦地點會是在台北市的<a href="http://www.gozcafe.com/">果子咖啡</a>, 報名費 $150, 含飲料, 在確定報名日期後, 之後會用 <a href="http://registrano.com">registrano</a> 來開放正式報名。</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/programming/2343">Read on &rarr;</a>
+      <a rel="full-article" href="/mac/2315">Read on &rarr;</a>
     </footer>
   
 
@@ -173,7 +236,7 @@ Zend_Service_Yahoo</blockquote>
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/2341">簡單的 Front Controller</a></h1>
+      <h1 class="entry-title"><a href="/programming/2311">Twitter Dm Plus</a></h1>
     
     
       <p class="meta">
@@ -187,27 +250,22 @@ Zend_Service_Yahoo</blockquote>
 
 
 
-<time datetime="2009-01-26T00:55:25+08:00" pubdate  data-updated="true" >Jan 26<span>th</span>, 2009</time>
+<time datetime="2009-01-11T18:35:05+08:00" pubdate  data-updated="true" >Jan 11<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>基本上是參考 <a href="http://codeigniter.com">CodeIgniter</a> 的方式來實作, 不過省掉很多東西, 而目錄結構大概就參照 CodeIgniter 如下。</p>
+  <div class="entry-content"><p>[caption id=&#8221;attachment_2313&#8221; align=&#8221;aligncenter&#8221; width=&#8221;580&#8221; caption=&#8221;twitter dm plus main page&#8221;]<img src="http://tzangms.com/wp-content/uploads/2009/01/twitter_dm_plus_main.png" alt="twitter dm plus main page" title="twitter_dm_plus_main" width="580" height="408" class="size-full wp-image-2313" />[/caption]</p>
 
-<pre><code>/index.php
-/application/controllers
-...</code></pre>
-
-
-<p>寫這個的目的主要是想了解 Front Controller 是怎麼做的。 另外因為依照 CodeIgniter 慣例的 Controller 名稱, 很容易跟其他 class name 衝到, 如果要使用 ORM 的話, 很容易會發生名稱碰撞, 所以實作一下 front controller, 另外改進這個問題, 不過其實就是在 class name 加上 postfix 而已, 而其他 framework 也都這麼做。</p>
+<p>這個已經寫好久了, 可是一直沒放出來, 這兩天 UI 弄一弄, 先放出來給大家玩玩好了, 如果有人要玩的話 &#8230;</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/programming/2341">Read on &rarr;</a>
+      <a rel="full-article" href="/programming/2311">Read on &rarr;</a>
     </footer>
   
 
@@ -219,7 +277,7 @@ Zend_Service_Yahoo</blockquote>
       
   <header>
     
-      <h1 class="entry-title"><a href="/mac/2338">Garageband Workshop 正式報名!</a></h1>
+      <h1 class="entry-title"><a href="/life/2309">我站在河岸留言舞台上</a></h1>
     
     
       <p class="meta">
@@ -233,22 +291,150 @@ Zend_Service_Yahoo</blockquote>
 
 
 
-<time datetime="2009-01-24T20:32:09+08:00" pubdate  data-updated="true" >Jan 24<span>th</span>, 2009</time>
+<time datetime="2009-01-10T20:36:33+08:00" pubdate  data-updated="true" >Jan 10<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><img src="http://tzangms.com/wp-content/uploads/2009/01/garageband_workshop.png" alt="garageband_workshop" title="garageband_workshop" width="500" height="461" class="aligncenter size-full wp-image-2339" /></p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/3183350537/" title="小海@河岸 by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3355/3183350537_6e77072281.jpg" width="332" height="500" alt="小海@河岸" class='alignleft' /></a> 這張照片對我來說還滿有意義的, 感謝<a href="http://www.dingdong161.com/">叮咚</a>幫我拍這張! 真的! 超感謝!</p>
 
-<p><strong>依據先前在 <a href="http://wellmeet.net/event/20081231/andyaHNh/9691">wellmeet 的日期投票</a>, 2/7 勝出, 所以就辦在 2/7 囉! 時間是禮拜六晚上 7 點 ~ 9點, 請有興趣的朋友到 <a href="http://registrano.com/events/garageband-workshop">registrano 的報名頁面進行報名</a></strong></p>
+<p>以前在學生時代玩團時, 就很想到台北表演, 想要到 the Wall、地下社會、海邊的卡夫卡、女巫店跟河岸留言, 這些聽獨立音樂的人都一定知道的地方表演, 終於我也站上河岸留言的舞台, 唱起自己的歌了。</p>
+
+<p>雖然這對大部分在台北的樂團、音樂人來說似乎不是大不了的事。</p>
+
+<p>只是台北跟台北以外的音樂資訊落差真的頗大, 當台北的音樂人都在唱著自己創作而不唱 copy 時, 在台北以外的地方, 卻呈現相反的狀況, 我在二技時唱著自己的創作, 每次得到的回應都是: &#8220;怎麼都唱一些沒聽過的歌&#8221; 不然就是 &#8220;我想聽周杰倫的雙節棍&#8221; &#8230;. 但是我還是這樣唱了好久, 唱到大家都會跟著我一起唱, 一起唱我的歌。</p>
+
+<p>當時覺得在台北唱歌仍然是遙不可及的, 一直覺得程度差太多, 怎麼可能有辦法到這些地方唱。 不過當時就打定主意, 決定將來一定要到台北找工作, 在台北玩團, 這樣我一定也可以到這些地方唱我自己的歌。 只是等到鼓手去當兵退伍後, 貝斯手也準備要去當兵了, 我的樂團似乎怎麼也搭不起來。</p>
+
+<p>最後誰知道我現在把時間都花在寫程式了。</p>
+
+<p>幹, 下一個人生的目標就是 &#8230; 出第二張唱片, 然後把這些地方全都唱過一遍!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/2305">Twitthat 新增字數檢查</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-07T16:00:57+08:00" pubdate  data-updated="true" >Jan 7<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>[caption id=&#8221;attachment_2306&#8221; align=&#8221;alignleft&#8221; width=&#8221;300&#8221; caption=&#8221;twitthat word limit count function.&#8221;]<a href="http://tzangms.com/web/2305/attachment/twitthat-word-count" rel="attachment wp-att-2306"><img src="http://tzangms.com/wp-content/uploads/2009/01/twitthat-word-count-300x250.png" alt="twitthat word limit count function." title="twitthat-word-count" width="300" height="250" class="size-medium wp-image-2306" /></a>[/caption] 今天幫 <a href="http://twitthat.com">twitthat</a> 加上了字數檢查的功能, 這也是一個擱了很久的功能阿~ (茶)</p>
+
+<p>因為常看到有些 <a href="http://twitthat.com">twitthat</a> 送出到 twitter 的訊息, 由於字數太多, 超過 140 個字, 而放在訊息最後面的網址都被截斷了, 所以加上這個功能, 用來提示還剩下幾個字, 避免訊息在 timeline 頁面被截斷。 話說 <a href="http://blog.xdite.net">xdite</a> 的 <a href="http://twitio.us">twitio.us</a> 的做法就不賴, 把 user 另外想加上的文字放在最後面, 其實滿清楚的。 只是我在想 UI 要怎麼做會比較簡單 ~&#8221;~</p>
+
+<p>為了維持簡單的界面, 基本上字數沒有超過 130 個字, 是不會看見這個提示的。 一直到訊息超過 130 個字, 提示才會出現, 提醒還有幾個字可以打, 避免網址又被截斷。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web design/2302">Twitthat UI Improvement</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-06T23:25:12+08:00" pubdate  data-updated="true" >Jan 6<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>[caption id=&#8221;attachment_2303&#8221; align=&#8221;alignleft&#8221; width=&#8221;300&#8221; caption=&#8221;twitthat UI improvement screenshot&#8221;]<a href="http://tzangms.com/web-design/2302/attachment/twitthat_ui_improvement" rel="attachment wp-att-2303"><img src="http://tzangms.com/wp-content/uploads/2009/01/twitthat_ui_improvement-300x250.png" alt="twitthat UI improvement screenshot" title="twitthat_ui_improvement" width="300" height="250" class="size-medium wp-image-2303" /></a>[/caption] 其實覺得 <a href="http://twitthat.com">twitthat</a> 的 UI 頗刺眼, 所以今天就改了 twitthat 的 UI, 不過還真的是 UI 苦手 Orz</p>
+
+<p>然後開始用一堆 css 圓角來取代先前的圖片圓角, 這樣應該會比較快, 不過&#8230; 這個 css 圓角完全不支援 ie (笑) 請換掉 ie, 好嗎?</p>
+
+<p>ok 開始離題, 其實本來是想把 twitthat 整個搬到 <a href="http://code.google.com/intl/zh-TW/appengine/">Google App Engine</a> 上去, 也寫一半了, 因為 <a href="http://twitthat.com/public_timeline">public timeline</a> 目前已經快要 20 萬筆, 所以整個變很慢, 然後我 SQL 又超弱, 所以想說搬過去, 用 datastore 應該就不會有這個問題。 不過後來想一下, 這剛好就是學習的好機會阿! 所以昨天就花時間開著 MySQL 來打 Query, 看看怎麼樣會比較快。</p>
+
+<p>hmm, 使用者的 twits 是存放在 &#8220;bookmarks&#8221; 這個 table, 而先前取得 public timeline 的方式, 是用 &#8220;bookmarks&#8221; 來 join &#8220;users&#8221; 跟 &#8220;links&#8221; 這 2 個 table, 很笨對吧 XD 因為要取得網址跟使用者資料, 所以 join 了這兩個 table&#8230;  anyway, 以前資料量小還沒感覺, 現在資料多, 感覺就很明顯了。 越後面的頁數, SQL 查詢的時間就越久, 要看 public timeline 的最後一頁時, 居然要花上 15 ~ 17 秒。</p>
+
+<p>結果昨天就改用 sub query 的方式而不用 join, 原本要花上十幾秒的最後一頁, 變成只花了 0.3 秒 (咳) 真的是差太多了! 真的該好好學一下 SQL 的 Orz</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/linux/2297">Linode 更換 Data Center</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-05T21:45:04+08:00" pubdate  data-updated="true" >Jan 5<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>有買 <a href="http://linode.com">Linode</a> 的人就知道, 他們目前在美國有 4 個機房, 可以讓你選擇 VPS 要放的機房, 所以好像通常都會選加州的機房, 因為會比較快(?), 其實之前我就買過一次 Linode, 不過因為當時加州已經沒得放, 所以就選了德州 Dallas 的機房, 而這次買就是選加州的機房, ping time 還滿不賴的, 比起我<a href="http://tzangms.com/linux/2294">手上有的主機</a>都還要好。</p>
+
+<p>不過今天傑洛大大問到我 Linode 的使用心得, 我回答說:「ping time 很不錯阿!」, 傑洛大就問說:「那實際速度呢?」後來才用 ftp 實際測一下上下傳速度, 沒想到&#8230; 我這台位於加州的 Linode, 上傳有 170k/s 但是下載居然只有 20k/s Orz 感謝傑洛大, 幫我上了一課。 就算 ping time 快, 但是檔案下載很慢也是於事無補阿 XD ( 應該是這樣吧? 有人可以來開導我一下嗎? )</p>
+
+<p>後來我找到了<a href="http://www.linode.com/forums/viewtopic.php?t=2636">這篇文章</a>, 實際測試了一下下載的速度, 結果 dallas 跟 atlanta 機房的下載速度都有 200k/s 阿! 而我那個機房的下載只有 20k/s 真是糟糕 Orz</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/mac/2338">Read on &rarr;</a>
+      <a rel="full-article" href="/linux/2297">Read on &rarr;</a>
     </footer>
   
 
@@ -260,7 +446,7 @@ Zend_Service_Yahoo</blockquote>
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/2337">原來我學過這些程式語言</a></h1>
+      <h1 class="entry-title"><a href="/linux/2296">unixBench</a></h1>
     
     
       <p class="meta">
@@ -274,239 +460,41 @@ Zend_Service_Yahoo</blockquote>
 
 
 
-<time datetime="2009-01-24T14:14:12+08:00" pubdate  data-updated="true" >Jan 24<span>th</span>, 2009</time>
+<time datetime="2009-01-04T22:27:16+08:00" pubdate  data-updated="true" >Jan 4<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>從高中開始接觸電腦, 一開始就是上網, 然後開始接觸 HTML, 因為聊天室可以用 font, 覺得很厲害, 然後開始學怎麼做網頁, 然後學 Photo Impact 3 然後又換到 Photoshop 4, 然後接著用 Dreamweaver 來作網頁, 就這樣開始對網頁製作有興趣, 畢竟在用電腦之前, 我都是在畫畫。</p>
+  <div class="entry-content"><p>在參閱了<a href="http://twntwn.info/blog/ajer001/archives/2771">阿駕的這篇文章</a>中提到的 <a href="http://www.webhostingtalk.com/showthread.php?s=&threadid=308055">unixBench</a> 之後, 也對新買的 <a href="http://linode.com">Linode</a> VPS 做了測試, 以下為測試數據, 但我只看得懂 final score :p</p>
+
+<pre>
+<code>Start Benchmark Run: Sun Jan  4 08:40:56 EST 2009
+ 08:40:56 up 3 min,  1 user,  load average: 0.55, 0.26, 0.09
+
+End Benchmark Run: Sun Jan  4 08:51:16 EST 2009
+ 08:51:16 up 13 min,  1 user,  load average: 14.16, 6.14, 2.77
+
+
+                     INDEX VALUES            
+TEST                                        BASELINE     RESULT      INDEX
+
+Dhrystone 2 using register variables        376783.7 18888406.9      501.3
+Double-Precision Whetstone                      83.1     1423.9      171.3
+Execl Throughput                               188.3     6072.9      322.5
+File Copy 1024 bufsize 2000 maxblocks         2672.0   144184.0      539.6
+File Copy 256 bufsize 500 maxblocks           1077.0    39609.0      367.8
+File Read 4096 bufsize 8000 maxblocks        15382.0  1233740.0      802.1
+Pipe Throughput                             111814.6  2586931.5      231.4
+Pipe-based Context Switching                 15448.6   433533.2      280.6
+Process Creation                               569.3    11267.0      197.9
+Shell Scripts (8 concurrent)                    44.8     1818.4      405.9
+System Call Overhead                        114433.5  1939609.2      169.5
+                                                                 =========
+     FINAL SCORE                                                     322.3</code>
+</pre>
 
-<p>接著高二開始碰 Linux, 然後學校的課程開始教 QB 然後 VB, 後來高三的課程甚至要用 VB 來處理圖片的明暗度平衡, 現在想起來真是厲害, 只是寫不出正確的處理方法 XD 而高中除了 VB 之外還學組合語言, 單晶片 PIC 阿什麼的。</p>
-
-<p>然後上了二專, 仍然是組合語言, 8051, 然後還有 PC AT/XT 界面設計, 所以學 C 語言, 然後還有 VHDL, 一直到了專題用了 C 語言寫了一個射擊遊戲過關 XD</p>
-
-<p>到了二技, 程式設計的課程變少了, 只有教 C 而且居然教最基本的, 但是我一點都不在意, 因為那時都在玩樂團, 然後到了最後一年, 有一門 3D 圖學的課程, 我用 java + swing 來交作業, 現在想想還真的是不可思議, 我居然會寫 java。 然後專題我負責的某個部份是用 Flash Communication Server, 所以我就開始摸 Action Script, 寫 Client / Server 端, 記得當時只有一本原文書在講 FCS, 只是後來也沒人用就是了。</p>
-
-<p>以上其實是因為在二專跟二技我幾乎所有的時間都在玩樂團&#8230; 所以&#8230; 對以上這些東西沒有太大印象, 所以想起來, 自己才覺得訝異, 寫出來紀念一下。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2336">Master One, Then Learn Another</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-01-24T13:49:58+08:00" pubdate  data-updated="true" >Jan 24<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><blockquote>Master one, then learn another</blockquote>
-
-
-<p>這句話忘記從哪裡看來的, 基本上是說, 精通一個程式語言以後, 在去看看其他的。</p>
-
-<p>其實這一篇完全無重點, 碎念類。</p>
-
-<p>我主要使用的語言就是 PHP, 但是完全稱不上精通, 畢竟也才兩年半的時間, 從我的第一份工作, 才開始學 PHP。 記得剛進公司每天都是開著 php.net 查 manual, 當時連 substr 都不清楚, 而 HTML 的 FORM POST 也不太清楚怎麼運作。 而 SQL 語法也是一直上網查, 除了 SELECT 之外都不會。</p>
-
-<p>然後工作了一段時間, 大約半年才開始學 javascript, 然後對 javascript 不清不楚的狀況下就開始用 jQuery, 一直到了大概半年多前開始讀了 DOM scripting 這本書後, 才對 javascript 稍微了解一些, 才懂得 document.getElementById 這類的東西。</p>
-
-<p>而我的 PHP 也是很弱, 一直到了大約一年前開始用 CodeIgniter 之後, 才慢慢的解決我心裡對 PHP 的焦慮, 因為 SQL Injection, XSS 等, 都交給了 CodeIgniter, 然而之前學了 ruby, 最近學了 python 跟 django, 只是似乎對 PHP 的部份還是很弱, 似乎還不到去學其他語言的地步。 也許該來好好學一下 PHP 吧。</p>
-
-<p>又忘記哪裡看到的一句話說:</p>
-
-<blockquote>你可以用 library 跟 framework 來減輕你對程式語言能力不足及焦慮, 但當你使用這些工具之後, 慢慢不在感到焦慮時, 你該去研究你用的 library、 framework 來補足你還不清楚的地方。</blockquote>
-
-
-<p>Anyway, 先前在學 ruby 跟 python 時, 還滿有啟發的, 看到了很多不同的東西, 使用的程式語言不同, 想法、思維也跟著不同。 只是 PHP 才是我目前唯一能謀生的東西, 所以該回頭來好好研究一下 PHP 吧。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2335">Amazon S3 使用記錄</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-01-23T21:41:21+08:00" pubdate  data-updated="true" >Jan 23<span>rd</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>昨天開始碰 <a href="http://aws.amazon.com/s3/">Amazon S3</a>, 因為一直覺得 <a href="http://stickeraction.com">stickeraction</a> 的貼紙圖檔放在 VPS 上還是不太安全, 所以前天就開始用 Amazon S3, 把貼紙圖檔都丟上去, 順便當 cdn 用。</p>
-
-<p>一開始是先看 <a href="http://plog.longwin.com.tw/news-technology/2008/02/21/amazon_s3_s3cmd_php_2008">Tsung 大大的文章</a>, 然後就開始用 <a href="http://s3tools.logix.cz/s3cmd">s3cmd</a>  開始玩看看 S3 怎麼用。</p>
-
-<p>首先就是在 <a href="http://www.gentoo.org">gentoo</a> 上裝 s3cmd 啦, 不過試了 x86 跟 amd64 的平台好像都是 masked, 所以就用 ACCEPT_KEYWORDS 裝起來</p>
-
-<pre><code>ACCEPT_KEYWORDS='~x86' emerge s3cmd</code></pre>
-
-
-<p>然後就是用 <code>s3cmd --configure</code> 這個指令來設定, 填入 Amazon S3 提供的 access key 跟 secret key, 接著就可以開始用 s3cmd 來丟檔案到 s3 上做測試了。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/2335">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/2334">Minus the Bear</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-01-20T22:43:15+08:00" pubdate  data-updated="true" >Jan 20<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>一開始注意到這個團是 <a href="http://frank0624.wordpress.com/">frank</a> 從 msn 上傳來的 Knights 這一首歌, frank 說我應該會喜歡, 沒想到聽起來還真不賴, 完全被吉他的部份所吸引, 後來就陸續聽了一些 <a href="http://www.minusthebear.com/">Minus the bear</a> 的歌, 才發現他們吉他手的風格還真的是很特殊, 甚至在 Highly Refined Pirates 這張專輯中的 Thanks For The Killer Game Of Crisco Twister 這首歌, 幾乎都是用點弦在彈, 所以營造出來的風格真的是很特殊阿! 來看看 Minus the bear 在 Youtube 上的的影片就知道了。</p>
-
-<object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/msFQBNo3PnM&hl=zh_TW&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/msFQBNo3PnM&hl=zh_TW&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed></object>
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/music/2334">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web design/2333">Stickeraction New Design Mockup</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-01-20T01:00:15+08:00" pubdate  data-updated="true" >Jan 20<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a title="stickeraction new design mockup by photoshop by tzangms, on Flickr" href="http://www.flickr.com/photos/tzangms/3209369577/"><img class="aligncenter" src="http://farm4.static.flickr.com/3414/3209369577_95f50c2a22.jpg" alt="stickeraction new design mockup by photoshop" width="500" height="438" /></a>
-最近都在弄 <a href="http://stickeraction.com">stickeraction</a> 的東西, 然後首頁想要改的好看、乾淨一點, 只是今天想了一個晚上, 還是想不出來要怎麼改, 一直到剛才洗澡前, 才有點靈感, 洗玩澡後馬上用 photoshop 畫了上面這個 mockup (?) 記錄一下。</p>
-
-<p>UI 真的是很困難阿 Orz</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/2332">小海@女巫店</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-01-17T22:08:08+08:00" pubdate  data-updated="true" >Jan 17<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>[caption id=&#8221;attachment_2331&#8221; align=&#8221;aligncenter&#8221; width=&#8221;580&#8221; caption=&#8221;小海@女巫店 took by kej&#8221;]<img src="http://tzangms.com/wp-content/uploads/2009/01/tzangms-at-witch.jpg" alt="小海@女巫店 taken by kej" title="tzangms-at-witch" width="580" height="435" class="size-full wp-image-2331" />[/caption] 1/15 那天晚上終於第一次到女巫店, 也是第一次在女巫店唱歌, 感謝 koumis, <a href="http://www.dingdong161.com/">叮咚</a>, <a href="http://stephenlee.pixnet.net/blog">stephenlee</a>。 只可惜當天沒看到叮咚出現。</p>
-
-<p>這次在女巫店, 跟上次河岸留言的表演比起來, 幾乎是根本不緊張, 聲音狀況還不錯, 木吉他編曲的&#8221;我自己&#8221;似乎也頗受好評。 也許是上次在河岸用 loop station 來表演, 對器材的不熟悉, 所以增加了一些不安的感覺。 而這次演唱的都是自己熟悉的歌曲, 所以感覺穩定了許多。</p>
-
-<p>而這次大學玩樂團的朋友也有來, 有他們幫忙合音的感覺真不賴, 可惜的是他們還是沒辦法接受太安靜的音樂 XD 最後, 用偷吃步的方式站上了河岸以及女巫店的舞台, 不過&#8230; 我會自己來唱過一次的!! 到時候, <a href="http://biasonica.blogspot.com/">小掰</a>, 我會找你來幫忙的!</p>
 </div>
   
   

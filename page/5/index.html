@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="今天玩了一下 Defensio 的 API, 用來偵測 SPAM 文件跟留言, 官方提供的 python library 也挺方便易用的, 也有提供 async 跟 async_callback。from defensio import Defensioapi = Defensio(DEFEN...">
+  <meta name="description" content="  突然懷疑升級完全是為了搭配簡單生活節的行銷活動 (咦) 不過既然被推出來了, 所以也只好宣傳一下, 不然串連數很少很難看阿!!!所以, 麻煩有部落格的大家都來串連一下, 你說好不好阿!!? XD 趕快到 串連貼紙頁面 去複製貼紙語法回去部落格貼一下吧!! 拜託不要讓我這張貼紙的串連數字太難...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -60,249 +60,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2746">Defensio SPAM 偵測</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-11-07T19:29:56+08:00" pubdate  data-updated="true" >Nov 7<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天玩了一下 <a href="http://defensio.com/">Defensio</a> 的 API, 用來偵測 SPAM 文件跟留言, 官方提供的 python library 也挺方便易用的, 也有提供 async 跟 async_callback。</p>
-
-<pre><code>from defensio import Defensio
-
-api = Defensio(DEFENSIO_API_KEY)
-doc = {
-    'type': 'article',
-    'platform': 'streetvoice',
-    'title': title,
-    'content': content,
-    'author-ip': request.META['REMOTE_ADDR'],
-    'author-name': username,
-    'author-email': email,
-    'referrer': request.META['HTTP_REFERER'],
-}
-
-status_code, response = api.post_document(doc)
-if status_code == 200:
-    classification = response['defensio-result']['classification']
-    if classification == 'spam':
-        print "You got SPAM"
-</code></pre>
-
-
-<p>目前 Defensio 免費的帳號可以每個月有 25000 次的 quota, 所以只能稍作測試一下, 目前偵測了幾個小時的部落格文章, 超準的ㄝ!</p>
-
-<p>不過在玩 Defensio 之前有先玩了 <a href="http://akismet.com/">Akismet</a>, 也挺簡單的。</p>
-
-<pre><code>from akismet import Akismet
-
-spam_data = {
-    'user_ip': request.META['REMOTE_ADDR'],
-    'user_agent': request.META['HTTP_USER_AGENT'],
-    'referrer': request.META.get('HTTP_REFERRER', 'unknown'),
-    'comment_author': username,
-    'comment_author_email': email,
-}
-
-api = Akismet(AKISMET_API_KEY)
-if api.comment_check(comment, spam_data):
-    print 'is spam'
-else:
-    print 'not spam'
-</code></pre>
-
-
-<p>不管是 Defensio 跟 Akismet 都有很簡單易用的 Python library 可以用, 只是 Defense 的價格好貴阿!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/2739">about.me</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-10-27T01:23:54+08:00" pubdate  data-updated="true" >Oct 27<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://about.me/tzangms/"><img src="http://tzangms.com/wp-content/uploads/2010/10/About.me-tzangms-500x458.png" alt="" title="About.me - tzangms" width="500" height="458" class="aligncenter size-large wp-image-2740" /></a></p>
-
-<p>前幾天<a href="http://about.me/tzangms/">我的 about.me</a> 終於開通了, 照片放來放去最後還是放了宣傳照, 可是看起來太膩了, 後來昨天不小心自拍了一張照片, 看起來還不錯, 所以終於可以 release <a href="http://about.me/tzangms/">我的 about.me</a> 了 :D</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/2737">我只是幸運</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-10-17T23:53:01+08:00" pubdate  data-updated="true" >Oct 17<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>先前同事說：「像你就比較幸運, 上面的都比較聽你的, 我的話就都沒人聽」</p>
-
-<p>我今天想一想, 感覺有點嘔, 似乎這位同事完全無視我在這家公司做的努力, 我花了一年半的時間在把 asp 改成 python, 做你們辦不到的事情, 老實說這並沒有很困難, 不是我多厲害, 而是你們不去做而已。</p>
-
-<p>然而這過程當中遭遇到多少的困難, 都沒有人幫我。一直到現在網站從原本需要 10 秒以上的載入時間, 變成不用 1 秒, 卻被說我只是幸運, 我是希望我真的能夠很幸運。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/2735">用 iPhone 玩樂團有搞頭!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-10-16T00:58:16+08:00" pubdate  data-updated="true" >Oct 16<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>其實 iPhone 上的軟體樂器都做的很不錯, 所以在 youtube 可以看到越來多人或是樂團用 iPhone/iPad 來表演, 而且 quality 都還不錯, 我想大家越練越熟了吧 (笑)</p>
-
-<p>雖然不像真的在 Live 表演或是練團時, gain 可以開很大很爽, 不過透過 iPhone 可以到處表演, 甚至有某種程度上的「快閃」意味, 的確是會有某種虛榮感。 幾年前也用過 NDSL 的吉他軟體唱過現場 XD 老實說感覺頗酷的! 比拿真的吉他還酷!</p>
-
-<p>可以看看下面這兩個影片, quality 都不錯, 第一個影片最欣賞的就是吉他的 tone, 還真的不錯聽ㄝ~</p>
-
-<iframe title="YouTube video player" class="youtube-player" type="text/html" width="560" height="345" src="http://www.youtube.com/embed/NAllFWSl998?hd=1" frameborder="0"></iframe>
-
-
-<p>這一個是香港的樂團, 音樂好熱血阿! 而且還自己背小音箱! 熱血++</p>
-
-<iframe title="YouTube video player" class="youtube-player" type="text/html" width="560" height="345" src="http://www.youtube.com/embed/blWtj2kvxBg?hd=1" frameborder="0"></iframe>
-
-
-<p>不過我想, 如果有個好的設備, 可以輕鬆的讓這麼多 iPhone 同時擴音輸出, 我想這件事應該會更普及吧!</p>
-
-<p>如果不知道 iPhone 樂器的品質到底如何的人可以看看下面這支影片, 所有的樂器都是透過 iPhone 的軟體樂器所錄製, 很厲害吧! 當然要用這些軟體樂器做出一首歌, 也不是那麼簡單的, you need talent in music! 否則就只是製造聲響而已 XD</p>
-
-<iframe title="YouTube video player" class="youtube-player" type="text/html" width="560" height="345" src="http://www.youtube.com/embed/a-jhElp6WJs?hd=1" frameborder="0"></iframe>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/2734">Padfoot for Ipad</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-10-13T22:12:02+08:00" pubdate  data-updated="true" >Oct 13<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/5077846625/" title="IMG_0010 by tzangms, on Flickr"><img src="http://farm5.static.flickr.com/4019/5077846625_2da83d4af8.jpg" width="500" height="500" alt="IMG_0010" /></a></p>
-
-<p>居然大概只花了 7 天就送來了! 今天第一次在 UPS 的機器上簽名 XD 有興趣要買的可以看看<a href="http://www.michielcornelissen.com/padfoot_stand_for_ipad.html">這裡</a>, 倒是我有點後悔買黑色的了 ~&#8221;~</p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -498,6 +255,227 @@ else:
 
 
 <p>如果有缺開發機的話, 我到覺得在 ap-southeast-1 開台 micro instance 來用挺不錯的, ssh 反應速度很不賴。 另外就是因為在 AWS zone 裡, 玩 simpledb 跟 AWS 其他的服務其實是有點優勢的, 像我現在就是在寫跑 cronjob 寫 simpledb 的玩具, 就這幾點來看還是有好玩的地方啦。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/2720">9/15 LeeGuitars 推特之夜</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-09-17T01:13:17+08:00" pubdate  data-updated="true" >Sep 17<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/lomographer/4995043941/" title="IMG_1194 by lomographer, on Flickr"><img src="http://farm5.static.flickr.com/4085/4995043941_7789465c80.jpg" width="333" height="500" alt="IMG_1194" /></a></p>
+
+<p>感謝阿吱姐 @AmberTaipei、 @LeeGuitars 還有 @stephenlee 才有這次的表演。</p>
+
+<p>為了這次的活動特地寫了一首新歌, 而這首新歌的副歌歌詞都是阿吱姐寫的, 而且我想這首新歌應該是當天我的歌裡面最好聽的一首了。 超感謝阿吱姐~ 也感謝到場的推友們, 大家真捧場!</p>
+
+<p>還有, 當天拿的吉他可是縱貫線世界巡迴時用的吉他, 全世界只有一把, 太屌了 XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2716">sorl.thumbnail 可能停止開發</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-09-13T00:26:07+08:00" pubdate  data-updated="true" >Sep 13<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天因為在寫某個東西, 需要在圖片上傳之後, 再視情況自動產生不同大小的縮圖, 而不能再上傳的時候就產生縮圖, 當時直覺想到的就是 sorl.thumbnail, 沒想到一進 sorl.thumbnail 的 google code 首頁就看到這個連結: <a href="http://code.google.com/p/sorl-thumbnail/wiki/Future">Future</a>。</p>
+
+<p>其實 sorl.thumbnail 超方便的, 可是因為效能跟 scale 的問題, 所以當初再 SV 的網站上沒有大量採用, 就自己刻了一個縮圖的 library, sorl.thumbnail 只用在一小部分資料量非常少的地方。 先前 sorl.thumbnail 還是 django wiki 上列為最推薦的縮圖 library, 沒想到現在 &#8230;</p>
+
+<p>稍微介紹一下好了, sorl.thumbnail 在 template 裡的使用方式大致上如下, 縮圖不存在的話, 則會自動依照給的尺寸、參數來自動產生縮圖</p>
+
+<pre><code>{% thumbnail photo.image 640x480 crop upscale %}</code></pre>
+
+
+<p>是真的很方便, 只是先前在 glusterfs 上面用, 暴慢, 雖然說應該歸咎於 glusterfs, 但是有些事情我無力去改變, 只好在多追一點效能, 捨棄 sorl.thumbnail 自己刻。</p>
+
+<p>anyway, 另外值得一提的是, 在 python 處理圖像主要都是用 PIL, 而不像 PHP, Ruby 都用 Imagemagick 系列 ( 不要跟我提 GD 嘿 ), 可是在處理過幾百萬張圖片之後, 就會發現 PIL 其實有點廢, 不時就會來個 IOError, 後來找到其中一個原因是, 一堆有問題的照片都是 Adobe Photoshop 7 處理過的 ( EXIF 裡面有標 )</p>
+
+<p>而 sorl.thumbnail 在 Future 一文當中提到下面這兩個 project, 甚至都比 sorl.thumbnail 好用</p>
+
+<p><a href="http://github.com/SmileyChris/easy-thumbnails">easy-thumbnails</a>
+<a href="http://bitbucket.org/aino/aino-convert">aino-convert</a></p>
+
+<p>其中 <a href="http://bitbucket.org/aino/aino-convert">aino-convert</a> 則是用 imagemagick, 這個應該有趣多了, 最近得找時間來試一下。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/2713">常在 Dr. House 裡面聽到的 MRI</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-09-05T00:39:44+08:00" pubdate  data-updated="true" >Sep 5<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/andrewacomb/2678447487/" title="MRI of My Lower Back by andrewacomb, on Flickr"><img src="http://farm4.static.flickr.com/3144/2678447487_3cf962677c.jpg" width="500" height="500" alt="MRI of My Lower Back" /></a>
+<a href="http://www.flickr.com/photos/andrewacomb/2678447487/">MRI photo of Andrew Acomb</a></p>
+
+<p>MRI 照出來大概看起來像上面這樣。  不過我拿到的檔案透過軟體來瀏覽是可以動的。</p>
+
+<p>其實是上禮拜我爸到台北長庚醫院照 MRI 後, 拿回了一片光碟, 然後要我這禮拜帶著我的筆記型電腦回宜蘭, 要去給認識的醫生看 MRI 照出來的圖像, 看看身體狀況如何。</p>
+
+<p>誰知道回來後一把光碟放進去 Mac mini, 卻看到的是 autorun.exe 而裡面有一堆 windows 的 dll, cab 等檔案。 anyway, 想說翻找一下資料應該可以直接找到我要的照片檔案, 直接打開來看好了, 沒想到怎麼都打不開。</p>
+
+<p>最後乾脆開 terminal 用 vim 開啟這個檔案, 幸好在檔案裡頭有看到關鍵字「GE Medical Systems/DICOM Part 10 file」 後來就 google 了起來, 翻找了一陣子, 找到了 Mac 可用的 open source 軟體叫 <a href="http://www.osirix-viewer.com/">OsiriX</a>, 才把檔案打開。 我倒是從沒想到過也有跟醫療相關的  open source  軟體 :p</p>
+
+<p>是說, 其實長庚醫院給的光碟裡面的圖片才 256x256 以及 512x512, 有沒有那麼弱阿?</p>
+
+<p>最後, 醫生說 MRI 看起來沒有什麼太大的問題, 不過還是希望我爸身體可以健康一點就是了。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/2712">昨天下午到華山進行拍照企劃</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-09-04T11:25:02+08:00" pubdate  data-updated="true" >Sep 4<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/4953580279/" title="小吱超專業! by tzangms, on Flickr"><img src="http://farm5.static.flickr.com/4129/4953580279_ae4f28ee48.jpg" width="500" height="375" alt="小吱超專業!" /></a></p>
+
+<p>我主要是負責當內容物, 而換組拍攝時我在一旁拍了一些照片, 昨天下午太陽很大, 用 iPhone 拍起來也不錯看。 不過昨天也跟照片上一樣跳阿跳的, 今天早上差點爬不起來, 累翻了。</p>
+
+<p>哈, 照片中大家可以看到小吱導演多專業!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2711">還滿好笑的影片: MongoDB Is Web Scale</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-09-02T09:31:55+08:00" pubdate  data-updated="true" >Sep 2<span>nd</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><object width="480" height="390"><param name="movie" value="http://www.xtranormal.com/site_media/players/jwplayer.swf"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><param name="flashvars"value="height=390&width=480&file=http://newvideos.xtranormal.com/web_final_lo/574b3910-afc9-11df-914b-003048d69c21_27_web_final_lo_web_finallo-flv.flv&image=http://newvideos.xtranormal.com/web_final_lo/574b3910-afc9-11df-914b-003048d69c21_27_web_final_lo_poster.jpg&link=http://www.xtranormal.com/watch/6995033&searchbar=false&autostart=false"/><embed src="http://www.xtranormal.com/site_media/players/jwplayer.swf" width="480" height="390" allowscriptaccess="always" allowfullscreen="true" flashvars="height=390&width=480&file=http://newvideos.xtranormal.com/web_final_lo/574b3910-afc9-11df-914b-003048d69c21_27_web_final_lo_web_finallo-flv.flv&image=http://newvideos.xtranormal.com/web_final_lo/574b3910-afc9-11df-914b-003048d69c21_27_web_final_lo_poster.jpg&link=http://www.xtranormal.com/watch/6995033&searchbar=false&autostart=false"></embed></object>
+
+
+<object width="480" height="390"><param name="movie" value="http://www.xtranormal.com/site_media/players/embedded-xnl-stats.swf"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.xtranormal.com/site_media/players/embedded-xnl-stats.swf" width="1" height="1" allowscriptaccess="always"></embed></object>
+
+
+<p>跟鬼打牆一樣 XD</p>
+
+<p>&#8220;mongodb is web scale&#8221; <em>repeat</em></p>
+
+<p>另外, 這個影片是用 <a href="http://www.xtranormal.com/">xtranormal</a> 這個網站的 text-to-movie 做出來的, 還滿酷的 XD</p>
 </div>
   
   

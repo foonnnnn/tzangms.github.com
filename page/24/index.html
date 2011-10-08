@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="昨天更新了 stickeraction 貼紙管理的界面, 加上了可以指定貼紙&#8221;連結 / 轉址&#8221;的功能 (其實是之前拿掉了 XD), 後來趁著有空, 就開了 stickeraction 的 blog, 以後 stickeraction 的訊息更新就在那裡發怖了&#8230...">
+  <meta name="description" content="這篇文章是我在 VPS 上裝 Gentoo 的記錄, 方便以後要裝 VPS 的時候可以參考1. 安裝 vim首先在 gentoo 剛裝好之後, 第一件事情就是裝 vim, 不然會很痛苦emerge vim 2. 設定 CFLAGScat /proc/cpuinfo 看看主機用的 CPU 是哪顆...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/stickeraction/2330">Stickeraction 部落格開張囉~</a></h1>
+      <h1 class="entry-title"><a href="/linux/2295">Gentoo on VPS</a></h1>
     
     
       <p class="meta">
@@ -80,97 +80,59 @@
 
 
 
-<time datetime="2009-01-17T12:56:50+08:00" pubdate  data-updated="true" >Jan 17<span>th</span>, 2009</time>
+<time datetime="2009-01-02T00:39:12+08:00" pubdate  data-updated="true" >Jan 2<span>nd</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>昨天更新了 <a href="http://stickeraction.com">stickeraction</a> 貼紙管理的界面, 加上了可以指定貼紙&#8221;連結 / 轉址&#8221;的功能 (其實是之前拿掉了 XD), 後來趁著有空, 就開了 <a href="http://blog.stickeraction.com">stickeraction 的 blog</a>, 以後 stickeraction 的訊息更新就在那裡發怖了&#8230; 只是如果沒人去看&#8230; 就&#8230;</p>
+  <div class="entry-content"><p>這篇文章是我在 VPS 上裝 Gentoo 的記錄, 方便以後要裝 VPS 的時候可以參考</p>
 
-<p><a href="http://blog.stickeraction.com">stickeraction blog</a>
-<a href="http://twitter.com/stickeraction">stickeraction on twitter</a></p>
-</div>
-  
-  
+<h3>1. 安裝 vim</h3>
 
 
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/2326">Koumis @ 女巫店就在明天!</a></h1>
-    
-    
-      <p class="meta">
-        
+<p>首先在 gentoo 剛裝好之後, 第一件事情就是裝 vim, 不然會很痛苦</p>
+
+<pre><code>emerge vim</code></pre>
 
 
+<p> </p>
+
+<h3>2. 設定 CFLAGS</h3>
 
 
+<p><code>cat /proc/cpuinfo</code> 看看主機用的 CPU 是哪顆, 然後根據 CPU 的 model name 來設定 CFLAGS, 可以看看 <a href="http://en.gentoo-wiki.com/wiki/CFLAGS" target="_blank">CFLAGS - Gentoo Linux Wiki</a> 及 <a href="http://en.gentoo-wiki.com/Safe_Cflags" target="_blank">Safe CFLAGS - Gentoo Linux Wiki</a>。</p>
 
-  
+<p>例如我在 slicehost 買的 256slice 的 cpu model name 是 Dual-Core AMD Opteron(tm) Processor 2212 HE, 所以我設定的 CFLAGS 如下。</p>
 
-
-
-<time datetime="2009-01-14T22:48:43+08:00" pubdate  data-updated="true" >Jan 14<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
+<pre><code>CFLAGS="-march=opteron -O2 -pipe"</code></pre>
 
 
-  <div class="entry-content"><p>[caption id=&#8221;attachment_2327&#8221; align=&#8221;alignleft&#8221; width=&#8221;308&#8221; caption=&#8221;koumis @ 女巫店 1/15 9:30&#8221;]<img src="http://tzangms.com/wp-content/uploads/2009/01/32940029.jpg" alt="koumis @ 女巫店 1/15 9:30" title="koumis @ 女巫店" width="308" height="529" class="size-full wp-image-2327" />[/caption] 上次在河岸留言聽了 <a href="http://blog.koumis.cc">koumis</a> 的表演, 不過當天除了 koumis 跟 stephenlee 之外, 還多了一位吉他手/口風琴手 - 阿燦, 當天進行了一場三人編制的演出。</p>
+<p>而 Linode 的 CFLAGS 如下:</p>
 
-<p>當天第一次聽到 koumis 以三人的編制來進行表演, 雖然光是 koumis 跟 stephenlee 兩個人的 live 演出, 就足已讓台下的聽眾沈醉在 koumis 的音樂中, 不過三個人編制讓整個音樂又更顯豐富了, 而且恰到好處, 沒聽過的人都真該來聽看看 koumis 那乾淨的聲線, 以及那讓人沈醉其中的音樂。</p>
-
-<p>有興趣的朋友, 可以到 <a href="http://blog.koumis.cc/">koumis 的官方網站</a> 看看, 也有上次在河岸留言表演的影片, 不過可別光只是看, 明天來看一次 koumis 的 live 表演, 你才能真正體會 koumis 的魅力。</p>
-
-<p>而我明天也會出現, 擔任 koumis 的 special guest, 有空可以前往的朋友們, 記得明天要來呦! koumis 真的很棒! 而明天我將會演唱將會放在第二張專輯的歌曲, 想聽嗎? 錯過就不知道還要等多久囉! XD</p>
-</div>
-  
-  
+<pre><code>CFLAGS="-march=prescott -O2 -pipe"</code></pre>
 
 
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/2319">Twitthat Firefox Extension!</a></h1>
-    
-    
-      <p class="meta">
-        
+<p>話說根據這篇 <a href="http://bugs.gentoo.org/103806" target="_blank">gentoo bug report</a> 提到, 在 GCC 3.4 以後的 XEN VPS 似乎可以加上下面這個 CFLAG, 只是我在 <a href="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Optimize-Options.html#Optimize-Options" target="_blank">GCC 4.1.2 的 Options That Control Optimization</a> 這份文件當中, 沒有找到這個 CFLAG 還有其相關說明。</p>
+
+<pre><code>-mno-tls-direct-seg-ref</code></pre>
 
 
+<h3>3. 設定 MAKEOPTS</h3>
 
 
+<p>從 cpuinfo 也可以得知有 4 顆 CPU, 所以依據 gentoo 文件上所寫的 MAKEOPTS 等於 n + 1, 可以將 MAKEOPTS 設為 5, 讓編譯的動作可以同時進行多個來加快速度。</p>
 
-  
-
-
-
-<time datetime="2009-01-13T00:46:29+08:00" pubdate  data-updated="true" >Jan 13<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
+<pre><code>MAKEOPTS="-j5</code>&#8221;</pre>
 
 
-  <div class="entry-content"><p>[caption id=&#8221;attachment_2322&#8221; align=&#8221;aligncenter&#8221; width=&#8221;580&#8221; caption=&#8221;you can access twitthat on the right click menu&#8221;]<img src="http://tzangms.com/wp-content/uploads/2009/01/twitthat_rightclick_menu1.png" alt="you can access twitthat on the right click menu" title="twitthat right click menu" width="580" height="435" class="size-full wp-image-2322" />[/caption] 感謝 <a href="http://blog.kej.tw">kej</a> 大大幫 <a href="http://twitthat.com">twitthat</a> 做了個 firefox 的外掛! 大家可以到 twitthat 的<a href="http://twitthat.com/help/firefox_extension">這個頁面</a>點 Click here to install 進行安裝, 或是到 <a href="https://addons.mozilla.org/zh-TW/firefox/addon/10335">TwitThat :: Firefox 附加元件</a> 這個頁面進行安裝 ( 需要帳號 )</p>
-
-</div>
+<p>不過, 當線上有服務在跑, 而且記憶體太小時, 得衡量一下這個數字。
+  </div>
   
   
     <footer>
-      <a rel="full-article" href="/web/2319">Read on &rarr;</a>
+      <a rel="full-article" href="/linux/2295">Read on &rarr;</a>
     </footer>
   
 
@@ -182,7 +144,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/mac/2315">Happy Designer: GarageBand Workshop</a></h1>
+      <h1 class="entry-title"><a href="/linux/2294">新買了一台 Linode</a></h1>
     
     
       <p class="meta">
@@ -196,35 +158,116 @@
 
 
 
-<time datetime="2009-01-12T22:08:08+08:00" pubdate  data-updated="true" >Jan 12<span>th</span>, 2009</time>
+<time datetime="2009-01-02T00:37:53+08:00" pubdate  data-updated="true" >Jan 2<span>nd</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>[caption id=&#8221;attachment_2317&#8221; align=&#8221;alignleft&#8221; width=&#8221;150&#8221; caption=&#8221;GarageBand&#8221;]<img src="http://tzangms.com/wp-content/uploads/2009/01/garageband_icon-150x150.jpg" alt="GarageBand" title="garageband" width="150" height="150" class="size-thumbnail wp-image-2317" />[/caption]</p>
+  <div class="entry-content"><p>目前我手上總共有 4 台 VPS, 為 2 台 256MB 的 <a href="http://slicehost.com/" target="_blank">slicehost</a>, 一台 512MB 的 <a href="http://thenynoc.com/" target="_blank">NY NOC</a> 然後還有昨天新買的 540MB 的 <a href="http://linode.com/" target="_blank">Linode</a>, 新買的 Linode 想拿來取代 slicehost 那兩台, 因為現在沒工作, 所以要省一點。</p>
 
-<p><strong>更新!!</strong>
-<strong>正式活動定在 2/7 囉! 詳情請見<a href="http://tzangms.com/mac/2338">這篇文章</a></strong></p>
+<p>540MB 的 Linode 要價 $29.95, 而兩台 256MB 的 slicehost, 要價 $40, 本來是想買 720MB 的 Linode, 不過想說這樣就沒省到錢了, 只好買 540MB 的 Linode, 反正之後可以直接加 RAM。</p>
 
-<p>在 <a href="http://hlb.yichi.org/blog/">hlb</a> 的慫恿之下, 準備在2月開一個 GarageBand Workshop, 我會先來跟大家介紹 <a href="http://www.apple.com/tw/ilife/garageband/what-is-garageband.html">GarageBand</a> 關於 loop 以及軟體樂器&#8230;等等的功能, 並示範如何用 GarageBand 做出一首歌曲, 最後會有時間給來參與的夥伴們也現場來實作一下, 有問題的可以跟我詢問, 我覺得這將會是一個非常有趣的活動 :D 希望大家一塊來玩!</p>
+<p>而 NY NOC 那一台目前只有跑我的 blog, 跟一些實驗性的東西。 不過 NY NOC 真的是很便宜, 只是 ping time 不好, performance 也不太好, 不敢把 <a href="http://stickeraction.com/" target="_blank">stickeraction</a> 或是 <a href="http://twitthat.com/" target="_blank">twitthat</a> 搬過去, 不過那麼便宜的 VPS 就不要強求了 :p</p>
 
-<p>不過這次的 GarageBand Workshop 有條件限制如下:</p>
+<p>剛才 ping 了一下, 這三家的 ping time 如下, Linode 選 Fremont, CA 還滿快的:</p>
 
-<ul>
-    <li>有蘋果電腦的朋友才可參加, 所以請攜帶你的蘋果筆記型電腦 ( 並請確認 GarageBand 還存在 )</li>
-    <li>有實作時間, 所以限制二十個參加名額</li>
-</ul>
+<p>Linode: 16x ms
+Slicehost: 19x ms
+NY NOC: 37x ms</p>
+
+<p>而在 <a href="http://gentoo.org/" target="_blank">Gentoo</a> 的支援上, Slicehost 倒是比 Linode 好多了, Linode 到現在還是只有 Gentoo 2007.0 的 image, 害我今天在升級 packages 的時候碰到好幾個 package block, 跟 collision.</p>
+
+<p>update: 阿駕說他那邊 ping NY NOC 都 15x, 我這邊是 hinet …. Orz</p>
+</div>
+  
+  
 
 
-<p>由於要先統計大概人數以及參與的時間, 所以在 <a href="http://wellmeet.net/">We&#8217;ll Meet</a> 來開了一個活動頁面: <a href="http://wellmeet.net/event/20081231/andyaHNh/9691">HappyDesigner GarageBand Workshop</a>, 希望有興趣參與的朋友可以先到<a href="http://wellmeet.net/event/20081231/andyaHNh/9691">活動頁面</a>填寫您可參與的時間, 對了, 目前暫定的舉辦地點會是在台北市的<a href="http://www.gozcafe.com/">果子咖啡</a>, 報名費 $150, 含飲料, 在確定報名日期後, 之後會用 <a href="http://registrano.com">registrano</a> 來開放正式報名。</p>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/2292">河岸留言初體驗</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-12-30T00:34:56+08:00" pubdate  data-updated="true" >Dec 30<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p> </p>
+
+<p>[caption id=&#8221;attachment_2293&#8221; align=&#8221;aligncenter&#8221; width=&#8221;528&#8221; caption=&#8221;koumis 在河岸留言&#8221;]<img class="size-full wp-image-2293" title="koumis1" src="http://tzangms.com/wp-content/uploads/2009/01/koumis1.jpg" alt="koumis 在河岸留言" width="528" height="528" />[/caption]</p>
+
+<p>上週末 12/25 <a href="http://www.koumis.cc/" target="_blank">koumis</a> 在河岸留言表演, 找了我去擔任 special guest, 真的是很感謝他們給了我一個這樣的機會, 讓我有機會可以在河岸留言演出。
+可能樂團玩久了, 對一個人表演感到有點恐懼, 似乎音樂永遠是空洞的感覺, 當然隨意的場合我就不那麼擔心, 只是這次可是在河岸留言阿! 而且幾乎都是不認識的人 Orz 不過為了這幾次表演, 我在上次的 SimpleLife 結束後我就跑去買了一把 Taylor 花了近三萬, 沒工作還做的出這種事… anyway, 想說以後要拿木吉他唱的話, 還是得要一把稍微好一點的吉他, 反正舊的那把吉他也爛掉了。</p>
+
+<p>而這次主要是用上了買來卻沒用過幾次的 loop station: <a href="http://tzangms.com/music/846" target="_blank">BOSS RC-20XL</a>, 哈, 所以更加緊張了。 不過實際用 loop station 表演的結果, 其實還不錯, 出去外場的聲音比想像中的好, 而不像在家裡用音箱出來的聲音 XD 所以之後類似的表演環境, 另外再加上麥克風收鈴鼓應該也有很不錯的效果, 就待下次有機會試試看了。</p>
+
+<p>但是我得先克服的是一個人表演時, 那令人緊張的安靜。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/2290">Punch Party 9</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-12-29T00:30:39+08:00" pubdate  data-updated="true" >Dec 29<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p> [caption id=&#8221;attachment_2291&#8221; align=&#8221;aligncenter&#8221; width=&#8221;580&#8221; caption=&#8221;Punch Party me and Kej by KirinLin&#8221;]<img class="size-full wp-image-2291" title="punchparty9-tzangms-and-kej" src="http://tzangms.com/wp-content/uploads/2009/01/punchparty9-tzangms-and-kej.jpg" alt="Punch Party me and Kej by KirinLin" width="580" height="368" />[/caption]</p>
+
+<p>這次的 <a href="http://blog.punchparty.org/" target="_blank">Punch Party</a> 讚不讚, 讚!
+這次的 <a href="http://blog.punchparty.org/" target="_blank">Punch Party</a> 9 真的是太 high 了, 而且還辦在 the wall! 我覺得真的是名符其實的 Party 阿! 而這也是我第一次去 the wall XD 這一次的 sessions 我覺得都還不錯。 除了女王, 還有部落客旅行團的部份感覺是在宣傳之外 XD 其他的 7 分鐘快講, 我都覺得很有趣 :D 尤其是蛙大的 session, 我覺得很棒! 不過參加過幾次 Punch Party, 相較之下… 快講都顯得比大講有趣的多。 也許因為快講的緊湊, 比較能讓聽眾的注意, 專心聽講 (?)</p>
+
+<p>然而這次的 Punch Party 真的是多了非常多不認識的人, 真的是辦得越來越大了 :D 也幸好這次是辦在 the wall, 才有夠大的場地可以容納這麼多人。 另外這次的食物真的是很豐富阿!!! 絕對是可以吃到飽的那種, 一整個就是 Party 的 fu。 而且場地夠大, 氣氛也很適合聊天, 所以… 似乎滿多人在交誼的, but it’s party ! 雖然當中有因為還在大講中, 所以工頭有跑去後方, 提示一下太過喧譁的朋友 XD</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/mac/2315">Read on &rarr;</a>
+      <a rel="full-article" href="/web/2290">Read on &rarr;</a>
     </footer>
   
 
@@ -236,7 +279,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/2311">Twitter Dm Plus</a></h1>
+      <h1 class="entry-title"><a href="/life/2289">我今天就要知道龜趣來嘻台灣台的開砲情形，今天!</a></h1>
     
     
       <p class="meta">
@@ -250,67 +293,17 @@
 
 
 
-<time datetime="2009-01-11T18:35:05+08:00" pubdate  data-updated="true" >Jan 11<span>th</span>, 2009</time>
+<time datetime="2008-12-27T00:29:08+08:00" pubdate  data-updated="true" >Dec 27<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>[caption id=&#8221;attachment_2313&#8221; align=&#8221;aligncenter&#8221; width=&#8221;580&#8221; caption=&#8221;twitter dm plus main page&#8221;]<img src="http://tzangms.com/wp-content/uploads/2009/01/twitter_dm_plus_main.png" alt="twitter dm plus main page" title="twitter_dm_plus_main" width="580" height="408" class="size-full wp-image-2313" />[/caption]</p>
+  <div class="entry-content"><p>現在是凌晨, 昨天 <a href="http://www.bigsound.org/portnoy/" target="_blank">Portnoy</a> 的部落格上出現了這一篇: <a href="http://www.bigsound.org/portnoy/weblog/004711.html" target="_blank">我今天就要知道野草莓台北場的收支情形，今天。</a> 不過現在已經 1:15 了, Portnoy 剛才還在<a href="http://www.bigsound.org/portnoy/weblog/004712.html" target="_blank">悼念飯島愛</a>。 hmm…</p>
 
-<p>這個已經寫好久了, 可是一直沒放出來, 這兩天 UI 弄一弄, 先放出來給大家玩玩好了, 如果有人要玩的話 &#8230;</p>
+<h2>如果在我睡覺之前我看不到龜趣來嘻台灣台的開砲情形，我就要推我媽 <a href="http://annpo.pixnet.net/blog" target="_blank">阿潑</a> 出來開砲!!</h2>
 
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/2311">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/2309">我站在河岸留言舞台上</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-01-10T20:36:33+08:00" pubdate  data-updated="true" >Jan 10<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/3183350537/" title="小海@河岸 by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3355/3183350537_6e77072281.jpg" width="332" height="500" alt="小海@河岸" class='alignleft' /></a> 這張照片對我來說還滿有意義的, 感謝<a href="http://www.dingdong161.com/">叮咚</a>幫我拍這張! 真的! 超感謝!</p>
-
-<p>以前在學生時代玩團時, 就很想到台北表演, 想要到 the Wall、地下社會、海邊的卡夫卡、女巫店跟河岸留言, 這些聽獨立音樂的人都一定知道的地方表演, 終於我也站上河岸留言的舞台, 唱起自己的歌了。</p>
-
-<p>雖然這對大部分在台北的樂團、音樂人來說似乎不是大不了的事。</p>
-
-<p>只是台北跟台北以外的音樂資訊落差真的頗大, 當台北的音樂人都在唱著自己創作而不唱 copy 時, 在台北以外的地方, 卻呈現相反的狀況, 我在二技時唱著自己的創作, 每次得到的回應都是: &#8220;怎麼都唱一些沒聽過的歌&#8221; 不然就是 &#8220;我想聽周杰倫的雙節棍&#8221; &#8230;. 但是我還是這樣唱了好久, 唱到大家都會跟著我一起唱, 一起唱我的歌。</p>
-
-<p>當時覺得在台北唱歌仍然是遙不可及的, 一直覺得程度差太多, 怎麼可能有辦法到這些地方唱。 不過當時就打定主意, 決定將來一定要到台北找工作, 在台北玩團, 這樣我一定也可以到這些地方唱我自己的歌。 只是等到鼓手去當兵退伍後, 貝斯手也準備要去當兵了, 我的樂團似乎怎麼也搭不起來。</p>
-
-<p>最後誰知道我現在把時間都花在寫程式了。</p>
-
-<p>幹, 下一個人生的目標就是 &#8230; 出第二張唱片, 然後把這些地方全都唱過一遍!</p>
 </div>
   
   
@@ -323,7 +316,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/web/2305">Twitthat 新增字數檢查</a></h1>
+      <h1 class="entry-title"><a href="/blog/2287">Wordpress 2.7 Threaded Comments</a></h1>
     
     
       <p class="meta">
@@ -337,18 +330,19 @@
 
 
 
-<time datetime="2009-01-07T16:00:57+08:00" pubdate  data-updated="true" >Jan 7<span>th</span>, 2009</time>
+<time datetime="2008-12-26T00:28:03+08:00" pubdate  data-updated="true" >Dec 26<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>[caption id=&#8221;attachment_2306&#8221; align=&#8221;alignleft&#8221; width=&#8221;300&#8221; caption=&#8221;twitthat word limit count function.&#8221;]<a href="http://tzangms.com/web/2305/attachment/twitthat-word-count" rel="attachment wp-att-2306"><img src="http://tzangms.com/wp-content/uploads/2009/01/twitthat-word-count-300x250.png" alt="twitthat word limit count function." title="twitthat-word-count" width="300" height="250" class="size-medium wp-image-2306" /></a>[/caption] 今天幫 <a href="http://twitthat.com">twitthat</a> 加上了字數檢查的功能, 這也是一個擱了很久的功能阿~ (茶)</p>
+  <div class="entry-content"><p><img src="http://tzangms.com/wp-content/uploads/2009/01/wordpress_threaded_comments.jpg" alt="wordpress_threaded_comments" title="wordpress_threaded_comments" width="580" height="421" class="aligncenter size-full wp-image-2288" />
+今天在搬我的 blog, 把他從 http://tzangms.com/blog 搬成 http://tzangms.com。 本來首頁一直保留著, 想說之後可以弄個什麼東西的, 不過忘記從哪一版開始的 wordpress 就可以另外把某個 page 指定為首頁, 然後又心血來潮, 所以就乾脆把 blog 往上搬一層。</p>
 
-<p>因為常看到有些 <a href="http://twitthat.com">twitthat</a> 送出到 twitter 的訊息, 由於字數太多, 超過 140 個字, 而放在訊息最後面的網址都被截斷了, 所以加上這個功能, 用來提示還剩下幾個字, 避免訊息在 timeline 頁面被截斷。 話說 <a href="http://blog.xdite.net">xdite</a> 的 <a href="http://twitio.us">twitio.us</a> 的做法就不賴, 把 user 另外想加上的文字放在最後面, 其實滿清楚的。 只是我在想 UI 要怎麼做會比較簡單 ~&#8221;~</p>
+<p>另外也把 lighttpd 換成 apache, 因為 lighttpd 好像不支援 301 的 redirect 方式。</p>
 
-<p>為了維持簡單的界面, 基本上字數沒有超過 130 個字, 是不會看見這個提示的。 一直到訊息超過 130 個字, 提示才會出現, 提醒還有幾個字可以打, 避免網址又被截斷。</p>
+<p>就玩著玩著, 突然發現了後台的 discussion 設定, 可以開啟 threaded comments, 就開來玩看看了, 哈, 也剛好我目前用的 theme 就有支援 threaded comments, 真不錯! 以後不用再 @ 來 @ 去了 XD</p>
 </div>
   
   
@@ -361,7 +355,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/web design/2302">Twitthat UI Improvement</a></h1>
+      <h1 class="entry-title"><a href="/stickeraction/2267">Stickeraction on Twitter</a></h1>
     
     
       <p class="meta">
@@ -375,22 +369,24 @@
 
 
 
-<time datetime="2009-01-06T23:25:12+08:00" pubdate  data-updated="true" >Jan 6<span>th</span>, 2009</time>
+<time datetime="2008-12-16T23:43:51+08:00" pubdate  data-updated="true" >Dec 16<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>[caption id=&#8221;attachment_2303&#8221; align=&#8221;alignleft&#8221; width=&#8221;300&#8221; caption=&#8221;twitthat UI improvement screenshot&#8221;]<a href="http://tzangms.com/web-design/2302/attachment/twitthat_ui_improvement" rel="attachment wp-att-2303"><img src="http://tzangms.com/wp-content/uploads/2009/01/twitthat_ui_improvement-300x250.png" alt="twitthat UI improvement screenshot" title="twitthat_ui_improvement" width="300" height="250" class="size-medium wp-image-2303" /></a>[/caption] 其實覺得 <a href="http://twitthat.com">twitthat</a> 的 UI 頗刺眼, 所以今天就改了 twitthat 的 UI, 不過還真的是 UI 苦手 Orz</p>
+  <div class="entry-content"><p>我很無聊的幫 <a href="http://stickeraction.com">stickeraction</a> 弄了個 <a href="http://twitter.com/stickeraction">twitter 帳號</a>, 當有新的串連貼紙發起的時候, 會自動送到 twitter 上 &#8230;</p>
 
-<p>然後開始用一堆 css 圓角來取代先前的圖片圓角, 這樣應該會比較快, 不過&#8230; 這個 css 圓角完全不支援 ie (笑) 請換掉 ie, 好嗎?</p>
+<p>Anyway, 開始離題! 嗯~ 前三天都在為了 stickeraction 跟各家部落格的相容性做處理, 寫了一堆 class 來作, 可以判斷各家部落格。  其實目前新的機制也可以用來抓, 不是部落格的網站, 像是 google site, wikidot &#8230;.等, 只需要另外繼承個 class 出來, 設定好基本的格式就可以了。</p>
 
-<p>ok 開始離題, 其實本來是想把 twitthat 整個搬到 <a href="http://code.google.com/intl/zh-TW/appengine/">Google App Engine</a> 上去, 也寫一半了, 因為 <a href="http://twitthat.com/public_timeline">public timeline</a> 目前已經快要 20 萬筆, 所以整個變很慢, 然後我 SQL 又超弱, 所以想說搬過去, 用 datastore 應該就不會有這個問題。 不過後來想一下, 這剛好就是學習的好機會阿! 所以昨天就花時間開著 MySQL 來打 Query, 看看怎麼樣會比較快。</p>
+<p>基本上就是寫了一個 BQ_Base 的 class, 用來抓取通用的 blog。 然後 BQ_BSP 繼承 BQ_Base 提供 BSP 才有的功能, 然後再由 BQ_BSP生出 BQ_Yahoo, BQ_Wretch, BQ_Pixnet &#8230; 等等, 然後在寫個 BlogQueue 的 factory 來存取, 這樣一來可以減少很多 stickeraction 的後續處理。 ( PS. BQ 指的是 BlogQueue )</p>
 
-<p>hmm, 使用者的 twits 是存放在 &#8220;bookmarks&#8221; 這個 table, 而先前取得 public timeline 的方式, 是用 &#8220;bookmarks&#8221; 來 join &#8220;users&#8221; 跟 &#8220;links&#8221; 這 2 個 table, 很笨對吧 XD 因為要取得網址跟使用者資料, 所以 join 了這兩個 table&#8230;  anyway, 以前資料量小還沒感覺, 現在資料多, 感覺就很明顯了。 越後面的頁數, SQL 查詢的時間就越久, 要看 public timeline 的最後一頁時, 居然要花上 15 ~ 17 秒。</p>
+<p>不過今天凌晨我資料庫那一台 slice 掛點&#8230; slicehost 最近還滿多問題的, 其實&#8230; Orz 所以現在又都先把 db 跟 www server 放到同一台了, 256slice 還真會撐! XD 不愧是 gentoo 阿!</p>
 
-<p>結果昨天就改用 sub query 的方式而不用 join, 原本要花上十幾秒的最後一頁, 變成只花了 0.3 秒 (咳) 真的是差太多了! 真的該好好學一下 SQL 的 Orz</p>
+<p>另外我想說把 <a href="http://twitthat.com">twitthat</a> 跟 stickeraction 分開, 不然晚上 stickeraction 那邊的 request 太多, 加上如果又跑 cron, 有時候真的是會拖慢到 twitthat。 剛好今天資料庫那一台炸掉, 就想說把 twitthat 搬到 <a href="http://code.google.com/intl/zh-TW/appengine/">GAE</a> 好了, 所以今天就又開始在寫苦手的 python, hmm&#8230; 至少現在可以推了。</p>
+
+<p>所以要來開始重新學 python 了, hmm&#8230; 主機掛點才會有動力阿!!!!!</p>
 </div>
   
   
@@ -403,7 +399,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/linux/2297">Linode 更換 Data Center</a></h1>
+      <h1 class="entry-title"><a href="/music/2266">[廣告] Koumis 最近表演行程</a></h1>
     
     
       <p class="meta">
@@ -417,25 +413,28 @@
 
 
 
-<time datetime="2009-01-05T21:45:04+08:00" pubdate  data-updated="true" >Jan 5<span>th</span>, 2009</time>
+<time datetime="2008-12-15T22:44:24+08:00" pubdate  data-updated="true" >Dec 15<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>有買 <a href="http://linode.com">Linode</a> 的人就知道, 他們目前在美國有 4 個機房, 可以讓你選擇 VPS 要放的機房, 所以好像通常都會選加州的機房, 因為會比較快(?), 其實之前我就買過一次 Linode, 不過因為當時加州已經沒得放, 所以就選了德州 Dallas 的機房, 而這次買就是選加州的機房, ping time 還滿不賴的, 比起我<a href="http://tzangms.com/linux/2294">手上有的主機</a>都還要好。</p>
+  <div class="entry-content"><p><a href="http://blog.koumis.cc/search/label/演出行程%2FSHOW"><img src="http://tzangms.com/wp-content/uploads/2008/12/koumis.jpg" alt="koumis" title="koumis" width="531" height="285" class="aligncenter size-full wp-image-2324" /></a></p>
 
-<p>不過今天傑洛大大問到我 Linode 的使用心得, 我回答說:「ping time 很不錯阿!」, 傑洛大就問說:「那實際速度呢?」後來才用 ftp 實際測一下上下傳速度, 沒想到&#8230; 我這台位於加州的 Linode, 上傳有 170k/s 但是下載居然只有 20k/s Orz 感謝傑洛大, 幫我上了一課。 就算 ping time 快, 但是檔案下載很慢也是於事無補阿 XD ( 應該是這樣吧? 有人可以來開導我一下嗎? )</p>
+<p>12/25(四) 21:00-22:00 <a href="http://www.riverside.com.tw/">河岸留言音樂藝文咖啡</a>
+special guest: 小海 ticket:NT 350</p>
 
-<p>後來我找到了<a href="http://www.linode.com/forums/viewtopic.php?t=2636">這篇文章</a>, 實際測試了一下下載的速度, 結果 dallas 跟 atlanta 機房的下載速度都有 200k/s 阿! 而我那個機房的下載只有 20k/s 真是糟糕 Orz</p>
+<p>01/15(四) 21:30-23:00 <a href="http://www.witchhouse.org/">女巫店</a>
+ticket:NT 300</p>
 
+<p>我好像沒在我的 blog 上提過 <a href="http://www.koumis.cc/">koumis</a>, 我覺得他們的歌很好聽! 有幾首歌聽現場都還讓我起雞皮疙瘩, 特別是在吉他手 stephenlee 有合音的時候。 這兩天我也都會去, 會去亂入, 有空的人來聽聽吧! 我最近都在為了這個 special guest 練吉他, 不會像之前那麼隨便了 XD 畢竟這是 koumis 的場子阿! 要認真 :p</p>
+
+<p>先到 <a href="http://blog.koumis.cc/">koumis 的官方部落格</a>, 看看 koumis 的表演影片, 聽聽 koumis 的歌, 再決定要不要來嘛! XD</p>
+
+<p>go! go! go!</p>
 </div>
   
-  
-    <footer>
-      <a rel="full-article" href="/linux/2297">Read on &rarr;</a>
-    </footer>
   
 
 
@@ -446,7 +445,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/linux/2296">unixBench</a></h1>
+      <h1 class="entry-title"><a href="/web design/2265">解決透明 Png 在 Ie 6 下的問題: jQuery pngFix</a></h1>
     
     
       <p class="meta">
@@ -460,41 +459,73 @@
 
 
 
-<time datetime="2009-01-04T22:27:16+08:00" pubdate  data-updated="true" >Jan 4<span>th</span>, 2009</time>
+<time datetime="2008-12-15T21:38:11+08:00" pubdate  data-updated="true" >Dec 15<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>在參閱了<a href="http://twntwn.info/blog/ajer001/archives/2771">阿駕的這篇文章</a>中提到的 <a href="http://www.webhostingtalk.com/showthread.php?s=&threadid=308055">unixBench</a> 之後, 也對新買的 <a href="http://linode.com">Linode</a> VPS 做了測試, 以下為測試數據, 但我只看得懂 final score :p</p>
+  <div class="entry-content"><p>透明 png 在 ie 6 下面的問題真的是很糟糕, 以前挑戰過好幾次, 不過每次都不成功, 到最後, 我只好把 png 一個一個轉成 gif 。 Orz 幸好今天挑戰成功了! 應該是因為有 <a href="http://jiwostudio.com/">Leo Lin</a> 跟 <a href="http://blog.othree.net/">othree</a> 這兩位大大的指導跟關心, 所以問題全都迎刃而解了 XD</p>
+
+<p>anyway, 基本上就是用 jQuery 的外掛, <a href="http://jquery.andreaseberhard.de/pngFix/">jQuery pngFix</a>, 就可以解決了, 可能我之前一直搞錯, 沒認真看文件吧 Orz</p>
 
 <pre>
-<code>Start Benchmark Run: Sun Jan  4 08:40:56 EST 2009
- 08:40:56 up 3 min,  1 user,  load average: 0.55, 0.26, 0.09
-
-End Benchmark Run: Sun Jan  4 08:51:16 EST 2009
- 08:51:16 up 13 min,  1 user,  load average: 14.16, 6.14, 2.77
-
-
-                     INDEX VALUES            
-TEST                                        BASELINE     RESULT      INDEX
-
-Dhrystone 2 using register variables        376783.7 18888406.9      501.3
-Double-Precision Whetstone                      83.1     1423.9      171.3
-Execl Throughput                               188.3     6072.9      322.5
-File Copy 1024 bufsize 2000 maxblocks         2672.0   144184.0      539.6
-File Copy 256 bufsize 500 maxblocks           1077.0    39609.0      367.8
-File Read 4096 bufsize 8000 maxblocks        15382.0  1233740.0      802.1
-Pipe Throughput                             111814.6  2586931.5      231.4
-Pipe-based Context Switching                 15448.6   433533.2      280.6
-Process Creation                               569.3    11267.0      197.9
-Shell Scripts (8 concurrent)                    44.8     1818.4      405.9
-System Call Overhead                        114433.5  1939609.2      169.5
-                                                                 =========
-     FINAL SCORE                                                     322.3</code>
+<code>&lt;script type="text/javascript" src="/js/jquery.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="/js/jquery.pngFix.pack.js"&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+$(function(){
+    $(document).pngFix();
+});
+&lt;/script&gt;</code>
 </pre>
 
+
+<p>我之前好像是寫成下面這樣才失敗的&#8230;</p>
+
+<pre>
+<code>$('img').pngFix();</code>
+</pre>
+
+
+<p>實例可以看看 <a href="http://stickeraction.com">stickeraction</a> 的 nav bar :p</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2264">Wordpress 2.7 後台選單外掛 : Admin Drop Down Menu</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-12-14T13:39:36+08:00" pubdate  data-updated="true" >Dec 14<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>[caption id=&#8221;attachment_2299&#8221; align=&#8221;aligncenter&#8221; width=&#8221;580&#8221; caption=&#8221;wordpress admin drop down menu plugin&#8221;]<img src="http://tzangms.com/wp-content/uploads/2008/12/wp27-ozh-admin-pluginjpg.png" alt="wordpress admin drop down menu plugin" title="wp27-ozh-admin-pluginjpg" width="580" height="200" class="size-full wp-image-2299" />[/caption]
+我覺得 wordpress 2.7 後台的選單變成由上往下, 真的是很麻煩! 我的螢幕是寬的阿! 因為如果選的功能是在最下方的話, 我就得去把 scrollbar 往下拉才能看得到子選項, what the&#8230;</p>
+
+<p>anyway, 在 RSS reader 看到這個 <a href="http://planetozh.com/blog/my-projects/wordpress-admin-menu-drop-down-css/">Worpdress Admin Drop Down Menu</a> 外掛, 用起來舒服多了。</p>
 </div>
   
   

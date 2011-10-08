@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="用 midi 玩出無限花樣阿~ 不想看說明可以直接跳到 1:42 開始精采的部分, 超好聽!">
+  <meta name="description" content="現在在公司用 django 在開發, 在開發過程當中, 用了許多套件, 不過都是直接裝在系統上 ( 就是裝在 site-packages 裡 ), 而 project 本身是用 mercurial 來作版本控制, 所以其他開發人員在不同機器上要開發時, 在 clone 了 source cod...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -60,481 +60,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/2464">Humanthesizer - 用一堆正妹當樂器 (無誤)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-08-12T10:40:13+08:00" pubdate  data-updated="true" >Aug 12<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><object width="560" height="340"><param name="movie" value="http://www.youtube.com/v/IObPkUFq0hg&hl=zh_TW&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/IObPkUFq0hg&hl=zh_TW&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="560" height="340"></embed></object>
-
-
-<p>用 midi 玩出無限花樣阿~ 不想看說明可以直接跳到 1:42 開始精采的部分, 超好聽!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2461">Pip + Virtualenv + Mod_wsgi</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-08-09T22:02:36+08:00" pubdate  data-updated="true" >Aug 9<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>之前有寫過 <a href="http://tzangms.com/programming/2439">pip &amp; requirements file</a>, 可以在開發 project 時可以寫好 requirements file, 在每當要 deploy 到新的機器的時候, 就可以直接透過一個 pip 指令, 把 deploy project 所需要的 dependencies 都給裝好。</p>
-
-<p>而 <a href="http://pypi.python.org/pypi/virtualenv">virtualenv</a> 這個工具, 可以讓你在同一台機器開發不同 project 時, 使用不同的 dependencies, 例如: 原本有舊的 project 使用的 django 版本是 0.96, 另外又有新的 project 需要用上 django 1.1。 然而舊的 project 用 django 1.1 一定掛的一踏糊塗, 所以這時候就可以透過 virtualenv 把這兩個 project 所需要的環境給區隔開來。 ( 通常使用 easy_install 或 pip 安裝套件的時候, 都會直接裝在 site wide 的 site-packages 裡。)</p>
-
-<p>先來簡單介紹 virtualenv 的使用方法, 首先就是建立一個 virtual enviroment:</p>
-
-<pre><code>virtualenv PROJECT_ENV</code></pre>
-
-
-<p>會有下列訊息</p>
-
-<pre><code>New python executable in PROJECT_ENV/bin/python
-Installing setuptools............done.</code></pre>
-
-
-<p>完成之後會多一個叫做 PROJECT_ENV 的資料夾, 裡面會有基本的開發環境, 這個資料夾裡面會有三個目錄</p>
-
-<pre><code>bin/
-include/
-lib/
-</code></pre>
-
-
-<p>接下來在 PROJECT_ENV 裡執行下列指令就可以進入這個虛擬的開發環境</p>
-
-<pre><code>source bin/activate</code></pre>
-
-
-<p>不過我偏好加上 <code>--no-site-package</code> 這個參數</p>
-
-<pre><code>virtualenv PROJECT_ENV --no-site-package</code></pre>
-
-
-<p>這個參數用來告訴 virtualenv 不使用 site wide 的 site-package, 也就是說, 如果原本系統就有裝了 django, mysql-python, 那麼在進入用 <code>--no-site-package</code> 這個參數所建立的 virtualenv 的時候, 就讀不到 django, mysql-python, 得在這個 virtualenv 在裝一遍, 但是我個人覺得這樣比較乾淨 (潔癖? XD)</p>
-
-<p>基本上 virtualenv 就是提供虛擬開發環境, 可以避免套件版本不同的衝突。</p>
-
-<p>而 pip 跟 virtualenv 就是好兄弟啦, 在透過 pip 安裝套件時, 就可以直接指定要安裝的 virtualenv, 像是:</p>
-
-<pre><code>pip install -E PROJECT_ENV -r requirements.txt</code></pre>
-
-
-<p>如果沒有已經存在的 virtual env 的話, 這個指令就會直接建立一個新的 virtual env ( 預設是 <code>--no-site-package</code> ), 然後把 requirements 都給裝進去。</p>
-
-<p>或是已經在 PROJECT_ENV 裡的話, 就直接打 <code>pip install -E . package-x.x</code></p>
-
-<p>最後, 如果 www server 可以直接用 virtualenv 的話, 不是就很完美了嗎? :D</p>
-
-<p>其實 <a href="http://code.google.com/p/modwsgi/">mod_wsgi</a> 2.0 之後的版本, 可以很方便的來使用 virtualenv, 如果你是 apache + mod_wsgi 的話 XD</p>
-
-<p>只要在你的 wsgi file 加上這一段即可</p>
-
-<pre><code>import site
-site.addsitedir('/var/django/PROJECT_ENV/lib/python2.5/site-packages')</code></pre>
-
-
-<p>pip + virtualenv + mod_wsgi 真是個完美的組合壓 :D</p>
-
-<p>PS. 補充一下 <a href="http://blog.xdite.net">xdite</a> 大大在 twitter 上提到 rails 在這塊的做法:</p>
-
-<blockquote>pip 的作用在 rails 裡面寫 config.gems 然後 rake gems:install 就有了。至於 virtrualenv 在 config/enviroments.rb 上面指定 RAILS_GEM_VERSION 就可以 XD</blockquote>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2460">Stickeraction 主機搬到 Prgmr</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-08-09T19:57:05+08:00" pubdate  data-updated="true" >Aug 9<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>其實 <a href="http://prgmr.com/xen/">prgmr</a> 已經買了一個多月了, 可是最近超懶, 提不起勁幫 <a href="http://stickeraction.com">stickeraction</a> 搬家, 剛好由於這幾天 stickeraction 一直當機, 所以乾脆提起勁來把 stickeraction 從 <a href="http://linode.com">linode</a> 搬到 prgmr。</p>
-
-<p>其實最主要是想省點錢, 因為 linode 每個月就要花掉我大約一千塊的台幣, 可能也是因為這大半年來幾乎都沒在改 stickeraction 的東西, 就一直擺在那邊, 所以感覺有點浪費錢的感覺 XD</p>
-
-<p>而目前在 prgmr 買的主機是一台 512MB RAM, 不過只有一顆 CPU, 跑起來感覺滿&#8221;ㄍㄧㄥ&#8221;的 XD</p>
-
-<p>Linode ($29, 540MB, 4CPU)</p>
-
-<pre><code>vendor_id    : GenuineIntel
-cpu family  : 6
-model       : 23
-model name  : Intel(R) Xeon(R) CPU           L5420  @ 2.50GHz
-stepping    : 6
-cpu MHz     : 2500.086
-cache size  : 64 KB</code></pre>
-
-
-<p>Prgmr ($12, 512MB, 1CPU)</p>
-
-<pre><code>vendor_id    : AuthenticAMD
-cpu family  : 16
-model       : 4
-model name  : Quad-Core AMD Opteron(tm) Processor 2374 HE
-stepping    : 2
-cpu MHz     : 2200.000
-cache size  : 512 KB</code></pre>
-
-
-<p>4 顆 xeon 比起 1 顆 Quad-Core 不知道哪個比較夠力? anyway, 省點錢用 ~&#8221;~</p>
-
-<p>這幾天的不穩定大家請多包含了 Orz</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/2453">Aeron Chair</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-07-31T23:18:31+08:00" pubdate  data-updated="true" >Jul 31<span>st</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://tzangms.com/wp-content/uploads/2009/07/aeron.JPG"><img src="http://tzangms.com/wp-content/uploads/2009/07/aeron.JPG" alt="aeron" title="aeron" width="500" height="374" class="aligncenter size-full wp-image-2455" /></a>
-這張椅子真的太 high 了, 今天送到公司, 一坐上去就整個人飛起來了!!!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2447">Django Grappelli</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-07-23T22:27:55+08:00" pubdate  data-updated="true" >Jul 23<span>rd</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://tzangms.com/wp-content/uploads/2009/07/grappelli.jpg"><img src="http://tzangms.com/wp-content/uploads/2009/07/grappelli-300x173.jpg" alt="grappelli" title="grappelli" width="300" height="173" class="alignleft size-medium wp-image-2448" /></a> <a href="http://code.google.com/p/django-grappelli/">django grappelli</a> 真的是滿酷的, 裝好之後, <a href="http://www.djangoproject.com/">django</a> admin 馬上就變成這樣, 而且還加上了 bookmarks 的功能, 還可以自定 navigation, 而整個界面整個質感提升了 :D</p>
-
-<p>另外, 最主要的一點就是, grappelli 稍微讓 django admin 在 Content Type 的 UI 處理, 改善了一些, 不過應該可以更好就是了, 有空再來改。</p>
-
-<p>另外, 如果只想改善 django admin 的 content type, 可以試試看這個 <a href="http://code.google.com/p/django-genericadmin/">django-genericadmin</a>, 不過我還沒試過就是了 XD</p>
-
-<p>話說, 剛剛查了一下 grappelli 這個字, 指的是 <a href="http://en.wikipedia.org/wiki/Stéphane_Grappelli">Stéphane_Grappelli</a>, 似乎他的稱號是&#8221;一代爵士小提琴宗師格拉佩里&#8221;, 而 django 指的是  <a href="http://en.wikipedia.org/wiki/Django_Reinhardt">Django Reinhardt</a>, 一位爵士吉他手。 而看了 Stéphane_Grappelli 才知道, 他們有一起玩音樂阿!!!! 名字取的太妙了 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2445">Gondola CMS</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-07-22T22:27:31+08:00" pubdate  data-updated="true" >Jul 22<span>nd</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://gondolacms.com/">Gondola CMS</a>, 前幾天看到這個用 <a href="http://www.djangoproject.com/">django</a> 做的 CMS 的影片真的是太驚為天人了阿!!! 請看 video!! 不過&#8230; 還沒 release XD</p>
-
-<p style="text-align: center;"><object id="viddler" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="437" height="288" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="allowScriptAccess" value="always" /><param name="allowFullScreen" value="true" /><param name="src" value="http://www.viddler.com/player/6351613c/" /><param name="name" value="viddler" /><param name="allowfullscreen" value="true" /><embed id="viddler" type="application/x-shockwave-flash" width="437" height="288" src="http://www.viddler.com/player/6351613c/" name="viddler" allowfullscreen="true" allowscriptaccess="always"></embed></object>
-
-超帥的吧!! 如果有用過 django admin 並試著去 extend 自己的 admin template 的人應該就可以了解。
-
-以前有找過一些用 django 寫的 cms 或是 blog, 不過他們的後台都直接用 django admin, 也不是不好看, 可是就是沒有產品的感覺, 舉例來說, 像是 wordpress 這樣的後台, 就有一種他是一個產品之類感覺。 之類的啦 XD
-
-不過也可能是因為 django admin 真的是太方便了, model 訂好, admin.site.register 一下後台就出現了。 anyway, Gondola CMS 他的 admin 後台真的自訂的太恐怖了!!!
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2444">Django-pagination</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-07-21T21:30:28+08:00" pubdate  data-updated="true" >Jul 21<span>st</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>我只能說, <a href="http://github.com/ericflo/django-pagination/tree/master">django-pagination</a> 真是一個好物。</p>
-
-<p>雖然說 <a href="http://www.djangoproject.com/">django</a> 本身提供的 <a href="http://docs.djangoproject.com/en/dev/topics/pagination/#topics-pagination">pagination</a> 就已經很不錯用了, 可是在使用上還是稍嫌多餘了些, 得在 view 重複的打上那一段 code, 而 template 那邊也是, 除非就是自己寫 template tag 來處理。</p>
-
-<p>django 原本提供的 pagination, 在寫 view 的時候大概像是這樣: (直接拿 django 的 example)</p>
-
-<pre><code>from django.core.paginator import Paginator, InvalidPage, EmptyPage
-
-def listing(request):
-    contact_list = Contacts.objects.all()
-    paginator = Paginator(contact_list, 25)
-
-    try:
-        page = int(request.GET.get('page', '1'))
-    except ValueError:
-        page = 1
-
-    try:
-        contacts = paginator.page(page)
-    except (EmptyPage, InvalidPage):
-        contacts = paginator.page(paginator.num_pages)
-
-    return render_to_response('list.html', {"contacts": contacts})
-</code></pre>
-
-<p>而如果使用 django-pagination 的話, 看到 view 就真的是會笑出來了 XD</p>
-
-<pre><code>def listing(request):
-    contacts = Contacts.objects.all()
-    return render_to_response('list.html', {"contacts": contacts})
-</code></pre>
-
-<p>就這樣! 而且還不用 import Paginator。</p>
-
-<p>基本上 django-pagination 的處理動作都在 template 那邊, 看起來大概像是這樣</p>
-
-<pre><code>{% load pagination_tags %} # 載入 template tag
-
-{% autopaginate contacts 10 %} # 加上這一行處理分頁
-{% for contact in contacts %}
-    {{ contact.name }}
-{% endfor %}
-
-{% paginate %} # 秀出分頁
-</code></pre>
-
-<p>That&#8217;s all! :D</p>
-
-<p>比照一下 django 內建的 pagination, 就可以明顯比較出 template 之間差別了, django-pagination 真是超令人開心的一個套件阿, 而且作者還提供了一個 <a href="http://eflorenzano.com/blog/post/first-two-django-screencasts/#using-django-pagination">screencast</a>。</p>
-
-<p>真的是太貼心了阿~</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2443">Django 1.0.2 ModelForm 的地雷</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-07-21T18:14:17+08:00" pubdate  data-updated="true" >Jul 21<span>st</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><pre><code>'RelatedObject' object has no attribute 'unique' thrown by ModelForm validation</code></pre>
-
-
-<p>今天在使用 Django ModelForm 的時候採到一個地雷, 秀出了上面這一串訊息, 然後是發生在 form.is_valid() 的時候, google 了一下, 原來是因為我在 form 裡面放了一個不屬於 model 的欄位。 <a href="http://code.djangoproject.com/ticket/10069">可以看看 django trac 的這個 ticket</a></p>
-
-<p>簡單舉例一下, 我有 Song model 跟 SongStyle model 這兩個 model, 而 SongStyle 當然要 form 秀出來給使用者填選, 所以我在 Song 的 ModelForm 加上了一個 song_styles  的 ChoiceField, 結果就出現了錯誤。( SongStyle 有個 ForeignKey 指向 Song )</p>
-
-<p>不過這個問題 django 1.1 已經解決了, 1.0.2 還是有這個問題, 如果不想用 django 1.1 的話 &#8230; 看看<a href="http://code.djangoproject.com/changeset/9777">這裡</a>自己 patch 吧。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/uncategorized/2440">治國週記</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-07-20T01:14:49+08:00" pubdate  data-updated="true" >Jul 20<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>幹, 居然有人預錄所謂的治國週記, 這根本就是在欺騙大眾、公然說謊。</p>
-
-<p>看來以後的學生在學期一開始的時候拿到週記, 就可以馬上把一整個學期的週記寫完, 然後交給老師。 如果被老師退, 或是被老師罵的時候, 只需要回: &#8220;老師, 我這是在向總統學習!!&#8221;</p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -621,6 +146,348 @@ python-memcached
 <p>當然, 千萬別忘記了, 要裝 github 上的東西, 你得先把 git 裝好, 要裝 svn 來源的套件, 也別忘了裝 svn 了 XD</p>
 
 <p>不過 pip 如果搭配 <a href="http://pypi.python.org/pypi/virtualenv">virtualenv</a> 才夠 high, 下一篇再來記錄 virtualenv。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/2436">Pingdom</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-07-18T11:50:12+08:00" pubdate  data-updated="true" >Jul 18<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="http://tzangms.com/wp-content/uploads/2009/07/Untitled.jpg" alt="pingdom" title="pingdom" width="250" height="78" class="alignleft size-full wp-image-2438" /><a href="http://www.pingdom.com/">pingdom</a> 一個網站監測的服務, 有提供免費的帳號可以用, 可以監測一個網站, 然後提供了 20 則簡訊, 不過不知道免費帳號是不是每個月 20 則, 還是 20 則用完就沒了。 另外, 也有 email 通知的服務, 由於 mobileme 有提供 push, 所以其實沒簡訊也 ok。 在台灣也可以收到簡訊呦 XD</p>
+
+<p>之前在上一家公司, 是用 <a href="http://www.nagios.org/">nagios</a> 然後透過第三類(?)電信業者來發送簡訊通知網站管理者或值班人員, 不過其實現在似乎用 pingdom 就可以取代。</p>
+
+<p>不像之前看過的一些服務, 只有基本的監測功能, pingdom 還可以設定要丟什麼 POST data 跟 header 預期會有什麼 response 的動作, 有自己架服務的朋友可以玩看看。 除了 web 之外, 也有 TCP Port, Ping, DNS, UDP, SMTP, POP3, IMAP 等類型可以測, 我覺得功能上還滿完整的。</p>
+
+<p>目前先拿來 <a href="http://stickeraction.com">stickeraction</a> 來測看看, 只是自從把 apc 換成 xcache, lighttpd 也換成 nginx 之後, 就沒在當過了, 不知道測不測的出什麼東西。 anyway, 如果真的都沒發生事情至少還有圖表可以看檢測的狀況 XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/iphone/2434">iPhone OS 3.0</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-06-21T23:39:32+08:00" pubdate  data-updated="true" >Jun 21<span>st</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>6/18 一早醒來就把手上的 iPhone 2G 更新到 OS 3.0, 其實還滿怕升級後就沒辦法打電話的, 不過幸好一點事都沒有 (笑) 其實 OS 3.0 感覺沒啥太大差別的, 尤其是注音輸入真是他媽的爛!  所以強迫了自己學拼音輸入法, 不過好多推都打到一半就放棄了, 嗯, 還是 iAcces 好用。</p>
+
+<p>撇開注音輸入法不談 (因為真是爛透了阿!!), 至少還有 copy &amp; paste 算是個明顯、好用的功能, 只是似乎也用不太上。 Anyway, 至少還有 Find my iPhone, 這個真的很不錯, 至少當手機不見時, 可以透過 MobileMe 遠端清除 iPhone 的資料。</p>
+
+<p>最後就是感覺 iPhone 變慢了 &#8230;</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/demo/2427">我自己</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-06-14T22:59:53+08:00" pubdate  data-updated="true" >Jun 14<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>對生活感到無奈的無病聲吟, 還有&#8230; 太多人喜歡說教, 去你媽的!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/demo/2425">Slow Ride</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-06-14T22:36:09+08:00" pubdate  data-updated="true" >Jun 14<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>一首有緩飆 fu 的歌</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/demo/2424">Is Sugizo Out There?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-06-14T22:18:49+08:00" pubdate  data-updated="true" >Jun 14<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>一首電子樂, 加上交響樂以及 sugizo 的經典樂句, 用以向 sugizo 致敬。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/2413">Readernaut</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-06-13T23:58:39+08:00" pubdate  data-updated="true" >Jun 13<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天看到 <a href="http://readernaut.com">Readernaut</a> 感覺不錯, 原來現在看書都可以用上 follow 這個詞了, 不過我不知道會用多久。 其實我沒用過其他類似的服務, 不知道其他類似服務功能如何。因為以前不喜歡讀書 (笑)</p>
+
+<p>Anyway, <a href="http://readernaut.com">Readernaut</a> 可以直接搜尋書名. 然後加到自己的書架, 馬上就有書的封面, 書的頁數等其他資訊, 然後每本書可以有自己的讀書進度, 還有提供按鈕可以把進度直接送到 twitter :D 另外可以對頁數做 notes, 看別人的 review, 或者是 follow 加朋友。 主要是界面整個很不賴內。 希望能夠有點作用 XD 因為上次書買回來&#8230; 就沒有再看了 (笑)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2412">Webfaction</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-06-13T19:31:37+08:00" pubdate  data-updated="true" >Jun 13<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>幾個月前把 blog 跟 <a href="http://twitthat.com">twitthat</a> 搬到 <a href="http://mediatemple.net/">media temple</a> 去, 因為越來越懶得管 server, 可是跑了一陣子之後, 發現 media temple 的 mysql 離線的次數離譜的高, 一天至少會收到 10 封 DB 連不到的信。 當然這一切也有可能是因為我比較衰的緣故。只是, 一個月 20 塊美金的價格, 怎麼感覺像是在用 godaddy 或是 bluehost ( 當然我說得比較離譜 XD )。 只是&#8230;這種服務價格比未免也差距太大。 而且還要開 grid container 才能用 django 或是 rails。</p>
+
+<p>後來我在 <a href="http://www.djangoproject.com/community/">django community</a> 看到 <a href="http://djangofriendly.com/hosts/">Django friendly</a> 這個站, 上面列出一些用 django 的網友選出的 hosting, 第一名是 <a href="http://www.webfaction.com/?affiliate=tzangms">webfaction</a>, 再來是 <a href="http://slicehost.com">slicehost</a> 跟 <a href="http://linode.com">linode</a>, 而 webfaction 的分數贏很多阿~ 所以探查了一下之後, 就買了一年的 webfaction 的 shared hosting, 一個月才 $8.5 塊, 還算便宜。</p>
+
+<p><a href="http://www.webfaction.com/?affiliate=tzangms">webfaction</a> 的 shared hosting 除了可以 ssh, 也可以自己從 source compile 裝 git, mercurial 在自己的 home, 我還是第一次看到這種 shared hosting, 覺得他的價格未免也太划算了, 而且還可以跑 django, rails 勒。另外也有 TurboGear 跟 CherryPy 可以選擇呦!</p>
+
+<p>目前用了兩個多月, 感覺都還不錯, 目前唯一一個缺點就是 PHP 沒辦法直接用 mail function 寄信, 除此之外, 我覺得 <a href="http://www.webfaction.com/?affiliate=tzangms">webfaction</a> 的 C/P 值真是太高了阿!!! 最後, 如果有要買 <a href="http://www.webfaction.com/?affiliate=tzangms">webfaction</a> 的朋友們, referer 不知道填誰的話, 可以填我的帳號喔 XD</p>
+
+<p>( 其實我在上面的 webfaction 的連結都做了手腳 LOL )</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/2410">WE&#8217;RE HUGE on TWITTER</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-06-11T21:27:53+08:00" pubdate  data-updated="true" >Jun 11<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p style="text-align: center;"><a title="4533_103869102213_725367213_2841385_269543_n by tzangms, on Flickr" href="http://www.flickr.com/photos/tzangms/3615723444/"><img class="aligncenter" src="http://farm3.static.flickr.com/2460/3615723444_6e4417c452.jpg" alt="4533_103869102213_725367213_2841385_269543_n" width="500" height="375" /></a></p>
+
+
+<p style="text-align: left;">這是敝公司的推特小隊 XD 不過在這裡要先澄清一下, 雖然是在敝公司頂樓拍的, 小隊成員也都是公司同事, 但是這並不表示我們是利用上班時間到頂樓拍照, 請各位放心。</p>
+
+
+<p style="text-align: left;">另外請跟我們一起擺 POSE, 一起推特吧 !!! 推特小隊衝阿!</p>
+
+
+<p style="text-align: left;"></div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/life/2410">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/2409">I&#8217;M HUGE on TWITTER</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-06-07T00:19:53+08:00" pubdate  data-updated="true" >Jun 7<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p style="text-align: center;"><a title="I'M HUGE ON TWITTER by tzangms, on Flickr" href="http://www.flickr.com/photos/tzangms/3599288165/"><img class="aligncenter" src="http://farm3.static.flickr.com/2483/3599288165_b7e9706316.jpg" alt="I'M HUGE ON TWITTER" width="375" height="500" /></a></p>
+
+
+<p style="text-align: center;">not really XD</p>
+
 </div>
   
   

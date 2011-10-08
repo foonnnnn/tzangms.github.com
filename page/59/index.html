@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="[source:javascript]function slimAnchor(limitChar){var alink = document.getElementsByTagName('a');for (var i=0; i&lt; alink.length; i++){    pre = a...">
+  <meta name="description" content="基本上, vi 要編輯 utf-8 文件, 做下面兩件事就可以了    設定 vi : set encoding=utf-8    將你的 terminal 設為 utf-8(or unicode)不過最近需要在 big5 跟 utf-8 之間跑來跑去, 本來在 vimrc 裡設定的是:set...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/796">Javascript: slimAnchor()</a></h1>
+      <h1 class="entry-title"><a href="/programming/755">用 Vi 在 Big5 與 Utf-8 之間穿梭</a></h1>
     
     
       <p class="meta">
@@ -80,33 +80,42 @@
 
 
 
-<time datetime="2007-03-14T17:36:27+08:00" pubdate  data-updated="true" >Mar 14<span>th</span>, 2007</time>
+<time datetime="2007-01-09T16:59:17+08:00" pubdate  data-updated="true" >Jan 9<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>[source:javascript]
-function slimAnchor(limitChar){</p>
+  <div class="entry-content"><p>基本上, vi 要編輯 utf-8 文件, 做下面兩件事就可以了</p>
 
-<pre><code>var alink = document.getElementsByTagName('a');
-for (var i=0; i&lt; alink.length; i++){
-    pre = alink[i].innerHTML.substr(0,4);
-    if (pre =='http' &amp;&amp; alink[i].innerHTML.length &gt; limitChar){
-        alink[i].innerHTML = alink[i].innerHTML.substr(0,limitChar) + '...';
-    }
-}
-</code></pre>
+<ul>
+    <li>設定 vi : set encoding=utf-8</li>
+    <li>將你的 terminal 設為 utf-8(or unicode)</li>
+</ul>
 
-<p>}
-[/source]</p>
 
-<p>如果在 table 裡面有一個超長的連結, 那麼在 firefox, 這個 table 將會被撐的很開, 所以寫了這個函式, 會將頁面所有的 A tag 都縮短, 避免 table 被撐開的問題, 當然, 縮的是 a.innerHTML 不是 a.href。</p>
+<p>不過最近需要在 big5 跟 utf-8 之間跑來跑去, 本來在 vimrc 裡設定的是:
+<code>set ts=4</code></p>
 
-<p>其中有個判斷是判斷 a.innerHTML 是否為 &#8216;http&#8217;, 不然 IMG tag 或是一些 EMBED tag 包在 A tag 裡面, 那麼就出問題了。</p>
+<p>不過每次編輯不同編碼的檔案時, 都要再設定一次 encoding, 所以另外做一份 vimrc 放在 home, 叫做.vimrc_utf-8, 內容如下:</p>
 
-<p><em>PS. 今天把 flash 的 width 跟 height  截掉過 XD</em></p>
+<p><code>syntax on
+set ts=4
+set encoding=utf-8
+set backspace=indent,eol,start</code></p>
+
+<p>然後在寫一個 bash, 命名為 joe 內容如下:
+<code>#!/bin/bash
+vim -u ~/.vimrc_utf-8 $1</code></p>
+
+<p>這麼一來要編輯 big5 編碼的檔案還是用 vi 這個指令, 要編輯 utf-8 編碼的檔案就用 joe 啦!當然這個 bash 的名字你可以自己取你喜歡的名字, 例如: vi-utf8, vi8 ?</p>
+
+<p>不過這些都太難打了, 剛好想到在學 vi 之前都用 joe 這個文字編輯器, server上又剛好沒裝joe所以就把這個 bash 命名做 joe, 還滿喜歡這個名字的, 因為滿好打的, 之前很喜歡的一個編輯器, 雖然後來 joe 也加入了color syntax, 不過 joe 好像還是越來越式微了。</p>
+
+<p>另外, 給 utf-8 用的 vimrc 比起原有的 vimrc 多出了好幾行的設定, 似乎是指定特定的 vimrc 後, vi 就不會讀取預設的設定, 所以又再多加了一些設定。 不知道 vi 可不可以自動偵測編碼? XD</p>
+
+<p>PS. screen 搭配 vi 來編輯 utf-8 文件還是有問題, 請愛用 :e # 吧! XD</p>
 </div>
   
   
@@ -119,7 +128,7 @@ for (var i=0; i&lt; alink.length; i++){
       
   <header>
     
-      <h1 class="entry-title"><a href="/video/795">大衛白爛魔術 SHOW</a></h1>
+      <h1 class="entry-title"><a href="/life/751">Day Schedule of 2007</a></h1>
     
     
       <p class="meta">
@@ -133,21 +142,36 @@ for (var i=0; i&lt; alink.length; i++){
 
 
 
-<time datetime="2007-03-13T11:20:22+08:00" pubdate  data-updated="true" >Mar 13<span>th</span>, 2007</time>
+<time datetime="2007-01-03T23:29:22+08:00" pubdate  data-updated="true" >Jan 3<span>rd</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><object width="425" height="350"><param name="movie" value="http://www.youtube.com/v/C3kCpxXYX_8"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/C3kCpxXYX_8" type="application/x-shockwave-flash" wmode="transparent" width="425" height="350"></embed></object>
+  <div class="entry-content"><p><ol>
+    <li>19:30 ~ 20:00 dinner</li>
+    <li>20:00 ~ 22:00 music</li>
+    <li>22:00 ~ 23:00 reading</li>
+    <li>23:00 ~ 23:30 shower</li>
+    <li>23:30 ~ 12:30 chat XD</li>
+    <li>12:30 ~ 01:00 prepare for sleep</li>
+</ol>
+</p>
 
 
-<p>昨天 clothocs 傳了這個影片給我, 看了之後, 即使是在上班時間, 我還是忍不著笑了出來, 雖然可能中間覺得有點白爛, 但是, 整體來說, 讓我久久不能忘懷, 想到都還會笑 XD</p>
+<p>Today I was reading <a href='http://smarty.php.net/distributions/manual/en/Smarty-2.6.14-docs.pdf'>this</a> PHP Smarty documents, coz I found out that there are too many builtin functions for me to use, but I didn&#8217;t know it at all. I had done so many stupid things in coding PHP with Smarty XD So, I decide to schedule my time. I have to reading at least one hour! Today I had read this document to page 55. (There are 181 pages total.)</p>
 
-<p>不過今天跟 clothocs 說, 昨天的影片真的是太爆笑了, 他卻說道, 他有傳給另一個人看, 可是好像笑不出來, 就覺得白爛而已, 恩, 有看過大衛布萊恩的話, 請注意大衛白爛的表情, 真的是很好笑, 而且找來的大衛白爛還真的長的滿像的內 XD</p>
 
-<p>所以有看過 AXN 台的大衛布萊恩的話, 這部包你笑出來, 但首先, 你得抱著一顆白爛的心 XD</p>
+
+
+<p>I am writing this post in English, hope you guys can read, not because you guys can&#8217;t read, but my poor English. Guys! correct me, as you can, thanx!</p>
+
+
+
+
+<p>幹! 我的英文還真的很爛 XD</p>
+
 </div>
   
   
@@ -160,7 +184,7 @@ for (var i=0; i&lt; alink.length; i++){
       
   <header>
     
-      <h1 class="entry-title"><a href="/mac/794">My Own Dashboard Widget: Email Notifier</a></h1>
+      <h1 class="entry-title"><a href="/life/750">新年快樂! 2006年回憶錄</a></h1>
     
     
       <p class="meta">
@@ -174,22 +198,20 @@ for (var i=0; i&lt; alink.length; i++){
 
 
 
-<time datetime="2007-03-12T00:01:33+08:00" pubdate  data-updated="true" >Mar 12<span>th</span>, 2007</time>
+<time datetime="2006-12-31T20:31:40+08:00" pubdate  data-updated="true" >Dec 31<span>st</span>, 2006</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/417556029/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/172/417556029_13c8dd191e_o.jpg" width="124" height="121" alt="notifier_front.jpg" align='left' /></a>這兩天因為值班, 所以都待在家裡, 也不知道為什麼就開始寫 Dashboard widget &#8230;..明明還有好多東西要讀。只記得是想寫一個可以用來看有多少 unread mail 的東西, 雖然這網路上, 似乎已經有其他類似的東西了, 不過我一開始好像是想說來寫個看自己智邦免費信箱有多少 unread mail 用的，雖然從 Gmail 開始後就都沒在用了。 先前我都用他自動轉信到 Gmail XD 不過我的智邦免費信箱可是 ms1 的帳號阿! 好像很 cool, 所以還是要多少用一下好了。</p>
-
-<p>其實我覺得, 現在除了 web service 之外, 有個 Desktop application 來結合你的 web service , 這樣對使用者來說會比較 high, 例如: Myshare widget! 這個應該不錯 XD</p>
+  <div class="entry-content"><p>天氣好冷，我家這邊又一直下雨，不過放假三天在家休息感覺很悠閒。很快的一年就過去了，去年的這個時候剛退伍，現在退伍滿一年囉!今年前半年，過著很頹廢的生活，每天幾乎都快天亮才睡，然後隔天下午才醒來，然後到處表演，每天幾乎都是練團，不然就是表演，身分呢?應該就算是職業樂手吧!? 不過一首歌也沒有寫，畢竟也沒有真正屬於自己的生活，就我的觀點，沒有創作，只copy歌曲，一點也不好玩。其實根本就沒有自己的感覺，所以說我還是不適合當職業樂手。過著沒有收入、被當作棋子的生活，本來就沒有存款，加上根本沒賺到錢，一直到後來負債大概差不多五、六萬塊，根本沒法在繼續做下去，其實本來就想離開了，但是又爆發一些很不愉快的事情，讓我不得不離開，從沒想過自己會作出這樣的事情，當然我只能說自己很該死!</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/mac/794">Read on &rarr;</a>
+      <a rel="full-article" href="/life/750">Read on &rarr;</a>
     </footer>
   
 
@@ -201,7 +223,7 @@ for (var i=0; i&lt; alink.length; i++){
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/793">Javascript Validate Function</a></h1>
+      <h1 class="entry-title"><a href="/music/749">跳! 打爆你的大頭!H2O表演影片</a></h1>
     
     
       <p class="meta">
@@ -215,45 +237,124 @@ for (var i=0; i&lt; alink.length; i++){
 
 
 
-<time datetime="2007-03-09T12:18:51+08:00" pubdate  data-updated="true" >Mar 9<span>th</span>, 2007</time>
+<time datetime="2006-12-28T08:38:19+08:00" pubdate  data-updated="true" >Dec 28<span>th</span>, 2006</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>[source:javascript]
-String.prototype.validate = function(type){</p>
+  <div class="entry-content"><p><embed style="width:400px; height:326px;" id="VideoPlayback" type="application/x-shockwave-flash" src="http://video.google.com/googleplayer.swf?docId=4699550264074134656&hl=en" flashvars=""> </embed>
+這是上禮拜六, 算是聖誕節的表演, 大家都很High, 感覺真不錯! 雖然有唱錯一句, 不過是我寫的歌, 也沒差 XD 放上&#8221;打爆你的大頭&#8221;的影片給大家看看! 大家一起跳吧! XD</p>
+</div>
+  
+  
 
-<pre><code>var pattern = new Array();
 
-pattern['email'] = /^\w[\w-\.]+@\w+(\.\w+)+$/;
-pattern['url'] = /^http:\/\/\w+\.\w+\/?.*$/;
-pattern['password'] = /^[\w\.]+$/;
-pattern['id'] = /^[a-zA-Z][0-9]{9}$/;
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/748">聖誕節快樂阿~!</a></h1>
+    
+    
+      <p class="meta">
+        
 
-return this.match(pattern[type]);
-</code></pre>
 
-<p>}
-[/source]</p>
 
-<p>昨天寫的一個用來檢查輸入的函式, 直接掛在 String Object 下面, 這樣就可以直接這樣使用:
-如, 檢查 email 是否正確</p>
+
+
+  
+
+
+
+<time datetime="2006-12-25T20:09:41+08:00" pubdate  data-updated="true" >Dec 25<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/331957458/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/166/331957458_d519a48b17.jpg" width="450" height="337" alt="H2O" class='border' /></a></p>
+
+<p>大家聖誕節快樂阿! 今天下班還是一個人回到房間，煮水餃吃，因為聖誕節已經High過了XD 前天也就是禮拜六，已經表演過了，雖然很冷，但是超High！很好玩，超開心的。表演曲目如下:</p>
+
+
+
+
+<ul>
+   <li>我的未來不是夢(試音)</li>
+   <li>打爆你的大頭 - H2O</li>
+   <li>Masquerade - Hyde</li>
+   <li>不只是朋友 - 黃小琥</li>
+   <li>期待 - H2O</li>
+   <li>飛躍夢想的天空 - 桔子</li>
+</ul>
+
+
+<p>已經High過了，所以就&#8230;.在家裡讀書 XD 這個禮拜要來讀一些XSS(Cross Site Scripting)跟SQL Injection的議題，然後還要讀LDAP，經理的LDAP那本書還在我桌上，呵，只讀了一下下，把程式寫好就放著了，一只想說要把他讀完，不過前一陣子都在寫歌，沒時間讀書，這禮拜休息一下，可以好好來K一下。</p>
+
+<p>至於XSS跟SQL Injection的議題是一定要注意的阿~ 不然被破會很糗 XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/747">[Demo] 浮沈</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-12-21T20:10:50+08:00" pubdate  data-updated="true" >Dec 21<span>st</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>[簡介]
+本來想加入一堆東西的，但是加入合聲感覺沒有很好，加入弦樂也是，也許未來的版本會有，誰知道？所以最後保留了木吉他的原味 :D</p>
+
+<p>這次的吉他solo部份全都是神來之筆，突然就有靈感，還有吉他的分解和絃也是，不曉得怎麼來的，就整個有Inoran的味道，光聽吉他就夠滿足我自己的了。聽聽看吧!</p>
+
+<p>[歌詞]</p>
 
 <blockquote>
-&#8220;foo@bar.com&#8221;.validate(&#8216;email&#8217;);
+我仍在人海中浮沈
+擦肩而過的全是陌生的人
+信箱裡不再有你的音訊
+每天 摸索到的是些
+沒有答案的疑問
+
+遺忘有什麼不好
+就讓它拭去斑斑淚痕
+
+我怎麼也不肯承認
+這一回 你是真的走出了我的世界
+如同今生不再出現
+遙遠記憶深處的你
 </blockquote>
 
-
-<p>或是網址是否正確</p>
-
-<blockquote>
-&#8220;http://tzangms.com&#8221;.validate(&#8216;url&#8217;);
-</blockquote>
-
-
-<p>如果回傳值為 null 那就是錯誤啦! 不過 regular expression 的 pattern 還需要改進就是了~</p>
 </div>
   
   
@@ -266,7 +367,7 @@ return this.match(pattern[type]);
       
   <header>
     
-      <h1 class="entry-title"><a href="/music/792">其實我是很 Metal 的! Toontrack EZDrummer Try Out</a></h1>
+      <h1 class="entry-title"><a href="/life/746">練團總是這麼的坎坷~</a></h1>
     
     
       <p class="meta">
@@ -280,20 +381,18 @@ return this.match(pattern[type]);
 
 
 
-<time datetime="2007-03-08T00:28:02+08:00" pubdate  data-updated="true" >Mar 8<span>th</span>, 2007</time>
+<time datetime="2006-12-17T23:53:33+08:00" pubdate  data-updated="true" >Dec 17<span>th</span>, 2006</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>本來在讀一些程式設計的東西的, 網路程式設計要懂得東西好多, 所以想說上禮拜寫完&#8221;眉頭&#8221;, 這禮拜就來休息一下讀一些書, 誰知道剛才就突然又玩了起來 XD</p>
+  <div class="entry-content"><p>第一次的坎坷，去搭火車，結果被網路火車時刻給騙了，根本沒那班車，只好搭下一班，結果坐上了，女性專用車廂，不過還是很多男的，也很想睡，所以就眼睛閉起來睡覺~</p>
 
-<p>先前用過幾個 Drum machines, BFD 是沒辦法在我的 Macbook 跑, 不過之前聽人家用過感覺不錯, 只是界面醜了點 XD anyway 反正不能用, 就換用 Battery 3, 聲音聽起來就滿不賴的, 也可以調的很細, 可以聽聽看我先前錄的<a href='http://tzangms.com/?p=770'>自然而然</a>, 用 Battery 3 的 pop kits。</p>
+<p>第二次的坎坷，去搭火車，心裡想著這一次，不可能在坐到女性專用車廂，所以在坐火車的時候，很注意的看了一下，標示有女性專用的車廂過了，心想太好了! 這次不可能在讓我搭到了吧! 所以等到車子停了我就上車，一上車就看到位置，雖然旁邊都是女生，不過沒差阿～所以坐了下來，拿出我的隨身聽~只不過發現怎麼對面也都是女生，還有一些人用著異樣的眼光在看著我，臉上應該沒怪東西吧！但是看了一下四周，居然玻璃上有著&#8221;女性專用車廂&#8221;的牌子！！ Oh my god~ 我的天阿！女性專用車廂不是過了嗎!!? 難道有好幾節!! Orz 在當看到牌子之後，開始全身發熱，然後旁邊又上來了高中女生，他的男性友人知道這是女性專用車廂，所以要到下一節車廂去坐，可是高中女生卻指著我小聲的說，&#8221;他都坐這邊了！你就跟我們一起坐嘛!!&#8221; Orz 媽的，乾我屁事。後來我就想說算了，沒位子也沒關係，待會到下一站，來換車廂好了～不過在到下一站的時間還真久，然後突然想到，我的機車鑰始呢? 沒在身上!! 該不會插在機車上吧!!? 我的天阿!! 但是我要怎麼辦！根本沒有朋友可以幫我處理！我要下車坐下一班回去嗎？也只能這麼做了 Orz 但是搭下一班還要很久，而且一定超過練團時間的！所以一氣之下，就回去拔機車鑰始，然後很氣憤的想坐機車從台北南下新竹，但是，在途中，我居然又迷路了!! 我的天阿!! 到最後看到板橋火車站，我放棄了，直接停車去搭火車南下新竹&#8230;..Orz 只好跟別團借時間來練團，在隔天回來的時候從板橋火車站騎機車回家~ 幹! 我又迷路了~ 真是&#8230;..</p>
 
-<p>今天突然就玩起來 <a href='http://www.toontrack.com/'>toontrack EZDrummer</a>, 呵, 原來他有那麼方便的 groove 可以用, 他的 groove 就跟 Garageband、Logic 用的 loops 一樣意思, 不過我覺得好用、直覺上許多, 這首的鼓都用拖的, 超方便! 而且他有超 Metal 的鼓組 - Drumkits From Hell (DFH), 話說 BFD 也有 DFH, 不過我只是業餘的, 用 EZDrummer 就很夠了! 由於整個鼓組太 Metal, 電吉他就又拿起來了, 其實我是很 Metal 的阿! 聽 Metallica 長大的阿! ㄜ&#8230;我從二專開始聽的。</p>
-
-<p>吉他彈得不好大家請見諒, 這篇是介紹鼓的, 更何況我又是 Bass 手, 別太苛求 :p 另外該買 Pick 了, 鈍掉超難泛音的 Orz</p>
+<p>第三次的坎坷，這一次終於沒坐上女性專用車廂了，也提早到，但是下大雨又超冷，只好換拖鞋去練團，然後雨衣、雨褲全部出馬～然後效果器被借走也沒還來，只好用Marshall音箱的破音了～不過聲音還不錯 XD 然後昨天晚上心怡幫我染頭髮，居然沒染上什麼顏色！然後今天睡起來，頭超痛的! 記得上次染頭髮隔天頭也很痛! 但是還是得練團，一邊唱歌一邊頭痛，唱越大力頭越痛 Orz 最恐怖的一件事就是！剛才練完團，回到台北要去牽機車的時候，怎麼~我的機車不見了!! Oh my god！不見了！不見了！到底是被拖走還是被幹走？地上也沒寫字，幹！也晚了，只好先坐計程車回家，然後找了一下汽機車拖吊查詢的電話，找一下是不是被拖走，查了一下~還真的被拖吊了！幹! 我明明停那個地方停了不知道幾次了，居然這次被拖吊，而且才過一晚而已~ 明天看來要走路上班了~ 然後下班去拖吊場牽車，但是好像要行照駕照，可是~ 我身上沒有行照阿!! Orz</p>
 </div>
   
   
@@ -306,7 +405,7 @@ return this.match(pattern[type]);
       
   <header>
     
-      <h1 class="entry-title"><a href="/old demo/790">[Demo] 眉頭</a></h1>
+      <h1 class="entry-title"><a href="/programming/741">Uuencode 的格式</a></h1>
     
     
       <p class="meta">
@@ -320,27 +419,48 @@ return this.match(pattern[type]);
 
 
 
-<time datetime="2007-03-04T11:58:58+08:00" pubdate  data-updated="true" >Mar 4<span>th</span>, 2007</time>
+<time datetime="2006-12-09T14:39:03+08:00" pubdate  data-updated="true" >Dec 9<span>th</span>, 2006</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>這次用了大量的弦樂, 大概弦樂就 10 軌了, 不過果然不是彈 KB 的料, 編的很累 XD。 這首總共做了 21 軌, 好累! 編曲真的是件累人的事情, 不過每次在編完錄吉他 solo 的時候, 總覺得很爽! 自 high 吧! 當然也要 solo 編的出來 XD 不然會很煩&#8230;.</p>
+  <div class="entry-content"><p>昨天碰到uuencode的東西，找了一下相關的東西。 uuencode 是古老時代的東西，現在都被MIME所取代了。windows上一定也有相關的uuencode編解碼的工具，當我在高中的時候還有看到uuencode的工具，不過昨天隨便找了一下，沒找著，就重開機到Linux去，想說直接打uuencode指令，來試看看，誰知道Ubuntu Linux預設並沒有安裝這個套件。</p>
 
-<p>幸虧有 Macbook, 不然這首歌根本沒辦法錄, 之前的 iBook G4 800 大概 8 軌弦樂就掛點了, 這次電吉他有 3 軌用 Guitar Rig 2 來當效果器, 然後 10 軌弦樂的音色是 Apple Jam pack 4 Orchestra 裡的音色, 然後 Bass 用 AmpegSVX 做 preamp, 鼓是用 Battery 3 當音源, 不過我只用了 pop kits preview 的音色。</p>
+<p>使用apt-get install uuencode也沒辦法找到套件，原來是包含在sharutils這個套件裡頭，所以說要在Ubuntu Linux安裝、使用 uuencode的話，請打以下指令:</p>
 
-<p>這首歌有 7 分鐘, 有點長~ 檔案也很大,  8 MB</p>
+<blockquote>sudo apt-get install sharutils</blockquote>
 
-<p>另外和音真的滿重要的, 整個氣氛都帶出來了 XD 聽聽看吧!</p>
 
+<p>在安裝完畢之後，當然就針對binary檔案來作encode</p>
+
+<blockquote>uuencode foo.jpg bar.jpg</blockquote>
+
+
+<p>然後出現的格式大致如下:</p>
+
+<blockquote>begin 644 bar.jpg
+M_]C_X&#8220;02D9)1@`!`@&#8220;9`!D&#8220;#_[&#8220;11&#8217;5C:WD&#8220;0`$&#8220;&#8220;/&#8220;`_^X`#D%D
+M;V)E`&3&#8220;&#8220;&#8220;?_;`(0`!@0$!`4$!@4%!@D&!08)&#8221;P@&!@@+#`H*&#8221;PH*#!`,
+M#`P,#`P0#`X/$`&#46;#!,3%!03$QP;&QL<'Q\?'Q\?'Q\?'P$'!P<-#`T8$!`8
+M...略
+M)D;5J]EWOTFE,TUF<2CD*2(45551R[^.O*+*J@:WY=LI!>N6_J<%+]:8R:\E
+M&8Q1=->7^$!,&#8221;.;Q;U.]BPYDFD/,[MXDZF6,#0&M%`%&#8217;.<7&IVKSUD
+ML4T1-$31$T1-$3AM]NB)HB:(FB)HB:(FB)HB:(FB)HB:(FB)HB:(FB)HB:(F
+2B)HB:(FB)HB:(FB)HB:(O__9
+`
+end</blockquote>
+
+
+<p>uuencode編碼過後看起來就像上面這樣，主要就是begin開頭，中間就是編碼過的檔案，以M作為每一行的開頭，然後以end作為檔案的結尾。如果我把這個檔案直接貼上然後mail給你，如果你的mail client有支援uuencode的話，那麼你將會看到一個bar.jpg的附檔，當然，沒有內文。</p>
+
+<p>來看一下Squirrelmail的一個叫get_uuencode的plugin裡面判斷是否為uuencode Message的一段regular expression
+<code>$uu_file = '/((begin|begin-base64)' . '\s+' . '[0-7]{3}' . '\s+' .
+'([<sup>\n]+))'</sup> . '\n' . '(.+?)' . '\n' . '(end|====)' . '/s';</code>
+大家看了這一段應該就比較知道如何去判別uuencode的檔案格式是否正確，不過基本上，uuencode應該用不太到了 XD</p>
 </div>
   
-  
-    <footer>
-      <a rel="full-article" href="/old demo/790">Read on &rarr;</a>
-    </footer>
   
 
 
@@ -351,7 +471,7 @@ return this.match(pattern[type]);
       
   <header>
     
-      <h1 class="entry-title"><a href="/web/789">銀河系律法? XD</a></h1>
+      <h1 class="entry-title"><a href="/life/740">值班結束~ 果然有拜拜有差 XD 客服日</a></h1>
     
     
       <p class="meta">
@@ -365,22 +485,18 @@ return this.match(pattern[type]);
 
 
 
-<time datetime="2007-03-03T23:54:08+08:00" pubdate  data-updated="true" >Mar 3<span>rd</span>, 2007</time>
+<time datetime="2006-12-09T01:48:57+08:00" pubdate  data-updated="true" >Dec 9<span>th</span>, 2006</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/408776934/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/162/408776934_f11aab00fc_o.gif" width="455" height="368" alt="google_doc" /></a>
-剛才在 Gmail 上沒事無聊就去點一下 Docs &amp; Spreadsheets, 想說看看最近變得怎樣了, 不過, 居然出現這個頁面, 不過銀河系律法是怎麼一回事, 整個 XD</p>
+  <div class="entry-content"><p>終於值班結束了 :D 這次值班給我的印象還不錯~ 不像前兩次，讓我有種值班還真累的感覺，不過相較於當資訊兵的時候，其實還滿輕鬆的。</p>
 
-<p>另外, 是翻譯有問題還是&#8230;</p>
+<p>除了第一天接值班半夜的時候機器掛點，勞煩Tommy大大出馬去機房之外，24 emergency call這次就少了很多。一整個禮拜，晚上幾乎都沒有emergency call，除了有一天的凌晨2點(其實3點多才聽到XD)的emergency call之外，每天都睡得很安穩。而每天晚上也都讓我有種沒有在值班的感覺，所以~很輕鬆的就又過了一次值班，果然～有拜拜真的有差阿!! XD</p>
 
-<blockquote>支援「Google 文件」的 Safari 即將問世！</blockquote>
-
-
-<p>到底是支援 Safari 的「Google 文件」要出來, 還是 Safari 真的要出新版? XD</p>
+<p>今天回家就讓自己休息一下吧! 不過我又把iTzangms remote拿出來寫，好久沒寫了，這次加入了Smarty來作樣板，還有改名叫iTunes web remote好了！明天繼續寫吧！對了！明天還要上班！充當客服 :D 基本上只是當個電話小弟~ 希望大家都去選舉吧!!</p>
 </div>
   
   
@@ -393,7 +509,7 @@ return this.match(pattern[type]);
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/788">Javascript Trim Function</a></h1>
+      <h1 class="entry-title"><a href="/music/738">用Reason來作現場~</a></h1>
     
     
       <p class="meta">
@@ -407,108 +523,22 @@ return this.match(pattern[type]);
 
 
 
-<time datetime="2007-03-02T15:43:07+08:00" pubdate  data-updated="true" >Mar 2<span>nd</span>, 2007</time>
+<time datetime="2006-12-06T22:59:47+08:00" pubdate  data-updated="true" >Dec 6<span>th</span>, 2006</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>[source:javascript]
-String.prototype.trim = function(){</p>
+  <div class="entry-content"><p>最近轉職當KB手~雖然沒有合成器之類的鍵盤，但其實一直都有傢伙可以用。我的配備呢~ iBook G4 800 with Reason 3+ M-Audio Radium 49 + M-Audio Firewire 410，這樣呢就可以做現場了啦! 但是碰到一個重點了，歌曲的音色都調好了，那要怎麼去切換呢？難道要用滑鼠去點嗎？這幾天一直被這個困擾著，一直到剛剛突然領悟到了。</p>
 
-<pre><code>return this.replace(/(^\s*)|(\s*$)/g, "");
-</code></pre>
+<p>Reason > Options > Additional Remote Overrides 可以在這裡面設定，在裡面可以看到Target Next Track、Target Previous Track，這裡說得就是，切換上一軌跟下一軌啦！真的太high啦!!</p>
 
-<p>}
-[/source]
-這個是用來增加 trim 這個 function 到 javascript 的 String object, jQuery 居然沒有 trim function。</p>
+<p>先前買一本keyboard magazine出的laptop live!特集，裡面有提到reason不只是個強大的錄音室工具，也非常適合現場表演。我現在終於知道了 XD</p>
 
-<p>Update:
-找到了 XD jQuery 有 trim 啦~ 只是當初沒在 Visual jQuery 的 Events 看到 Orz, 原來是在 Javascript Section。
-下面這一頁的最下方:
-<a href='http://docs.jquery.com/JavaScript'>http://docs.jquery.com/JavaScript</a></p>
+<p>不過由於我的M-Audio Radium 49並沒有專門用來切換音色的按鈕，所以即使我知道怎麼設定也沒有用阿，剛才把fader拿來當切換鈕，但是太不直覺了，要推fader推到midi訊號滿格(也就是127)，reason才會做切換的動作，太麻煩了，所以結論就是，我可以用reason來作現場了，但是我卻沒有一個適合作現場 master keyboard XD</p>
 
-<p>然後就可以這樣用了:
-[source:javascript]$.trim(&#8221;  hello, how are you?  &#8220;);[/source]</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/787">228 正義無敵!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-03-02T02:19:37+08:00" pubdate  data-updated="true" >Mar 2<span>nd</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/405884692/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/141/405884692_1e121c48aa.jpg" width="500" height="375" alt="Spirit of taiwan" /></a>
-228 去看正義無敵, 感覺大多數人都是衝著 muse 去的，本人則是衝著 Tizzy Bac 阿! 不過 muse 真的是猛阿!!</p>
-
-<p>本來禮拜三(2/28)是放假的阿! 不過我們公司禮拜六不上班, 突然改成禮拜三, 可是過年前正義無敵的票就都買好了($1200), 所以禮拜三也只好請假了, 嗚, 我的假期! XD</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/music/787">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/786">最近錄音片段, 弦樂!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-02-27T00:07:43+08:00" pubdate  data-updated="true" >Feb 27<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>最近在錄新歌, 因為用電吉他一直都想不出來要彈什麼, 過年九天都過完了, 特地提早一點回來想編曲, 結果還是沒想出來, 到最後就拿起 KB 彈起弦樂來了。昨天做了 4 軌弦樂, 不過好像戴了有 12 個小時的監聽耳機, 最後頭痛的要命, 監聽耳機能不戴還是不戴的好。</p>
-
-<p>今天又在加了 3 軌弦樂, 聽起來不錯! 有興趣的聽聽看吧!</p>
+<p>所以最近想要換master keyboard，M-Audio 新出來的Axiom看起來很棒! 不過Novation更精緻 XD 來一台 Novation X-Station吧!!</p>
 </div>
   
   

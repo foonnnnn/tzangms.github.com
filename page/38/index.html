@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content=" 首先打開終端機&#8230;然後打入下面這一行say hello world哈, 好好玩! XD 不過只能念英文就是了 :p">
+  <meta name="description" content="之前在 Tsung 那邊看到 大量檢查 PHP 程式是否有 Syntax Error 這一篇文章, 後來每次想到要檢查的時候, 都因為這一段太長記不下來 XD 所以我每次就又都從 Google 找這篇文章, 今天想說把它寫下來, 寫成一個 shell script 好了 XD我把檔名叫 php...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/mac/1169">[Mac] 用終端機說英文</a></h1>
+      <h1 class="entry-title"><a href="/programming/1129">PHP 語法錯誤檢查</a></h1>
     
     
       <p class="meta">
@@ -80,27 +80,197 @@
 
 
 
-<time datetime="2008-05-15T23:26:10+08:00" pubdate  data-updated="true" >May 15<span>th</span>, 2008</time>
+<time datetime="2008-04-03T13:07:35+08:00" pubdate  data-updated="true" >Apr 3<span>rd</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p> <a title="mac_say by tzangms, on Flickr" href="http://www.flickr.com/photos/tzangms/2494254123/"><img src="http://farm4.static.flickr.com/3033/2494254123_3e980f910f.jpg" alt="mac_say" width="500" height="292" /></a></p>
+  <div class="entry-content"><p>之前在 <a href="http://plog.longwin.com.tw/">Tsung </a>那邊看到 <a href="http://plog.longwin.com.tw/programming/2008/01/20/php_command_line_script_check_2008">大量檢查 PHP 程式是否有 Syntax Error</a> 這一篇文章, 後來每次想到要檢查的時候, 都因為這一段太長記不下來 XD 所以我每次就又都從 Google 找這篇文章, 今天想說把它寫下來, 寫成一個 shell script 好了 XD</p>
 
-<p>首先打開終端機&#8230;然後打入下面這一行</p>
+<p>我把檔名叫 phplint
+<code>#!/bin/bash
+find . -name *.php ! -exec php -l {} ;
+</code></p>
 
-<blockquote>say hello world</blockquote>
+<p>在 chmod +x phplint 之後, 在想要檢查的目錄打 phplint 就可以了。</p>
+
+<p>基本上我是在自己的 home 有開一個 bin 的目錄, 然後再 .bashrc 裡加上
+<code>export PATH=$PATH":~/bin"</code></p>
+
+<p>之前的 <a href="http://tzangms.com/web/1095">twit shell script</a> 也是這麼作 :p</p>
+</div>
+  
+  
 
 
-<p>哈, 好好玩! XD 不過只能念英文就是了 :p</p>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1117">[網摘] April 2nd 2008</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-04-02T20:28:32+08:00" pubdate  data-updated="true" >Apr 2<span>nd</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+    <li><a href="http://960.gs/" target="_blank">960 Grid System</a></li>
+</ul>
+
+
+<p style="padding-left: 30px;">用 grid 來做網頁 layout, 還滿屌的構想, 也頗實用, 可以用來快速做  prototype, 跟開發。</p>
+
+
+
+
+<ul>
+    <li><a href="http://speckyboy.com/2008/03/28/top-12-css-frameworks-and-how-to-understand-them/" target="_blank">Top 12 CSS Frameworks and How to Understand Them</a></li>
+</ul>
+
+
+<p style="padding-left: 30px;">CSS framework, 又到了選邊站的時候了嗎? XD 基本上就是那哪個爽就用哪個阿! 至少文件看起來清楚、爽是一個重點, 像是 CodeIgniter 文件看起來就很爽, 上手也快!</p>
+
+
+
+
+<ul>
+    <li><a href="http://www.webdesignerwall.com/tutorials/jquery-tutorials-for-designers/" target="_blank">jQuery Tutorials for Designers</a></li>
+</ul>
+
+
+<div style="padding-left: 30px;">看標題就知道了吧, 我覺得這篇真的還滿值得一看的, 也許可以先看看他的 <a href="http://www.webdesignerwall.com/demo/jquery/" target="_blank">Demo</a> 。 這篇是由 <a href="http://www.webdesignerwall.com/" target="_blank">WebDesignerWall</a> 所寫的一篇教學, 話說 <a href="http://www.webdesignerwall.com/" target="_blank">WebDesignerWall</a> 的網頁設計真是屌到翻 (Y) 。</div>
+
+
+<div style="padding-left: 30px;">看了之後, 本來已為是稍微有點難度的動畫效果, 沒想到好簡單勒! 本來就都知道的用法, 可是重點就是在 CSS 跟美術設計的部份, 讓他看起來真的很 fancy。</div>
+
+
+<ul>
+    <li><a class="title-link" href="http://www.codinghorror.com/blog/archives/001079.html">The First Rule of Programming: It&#8217;s Always Your Fault</a></li>
+</ul>
+
+
+<div style="padding-left: 30px;">程式設計守則第一條, 永遠是你自己的錯 XD 嗯阿! (雖然我也常陷入一種, 以為是看到鬼的狀態) , 但是就絕大多數的開發經驗來說, 通常都是 programmer 的錯, 或者甚至是非常笨的 bug, 而不是 library 或是機器的錯, 所以記得先從自己的錯找起會比較快 XD 又或者是跟其他開發者一起開發的時候, 先確定不是自己的錯, 在去說人家, 避免大家不爽阿 XD</div>
+
+
+<ul>
+    <li><a href="http://css.dzone.com/news/reform-css-form-design-templat-1" target="_blank">reForm</a></li>
+</ul>
+
+
+<div style="padding-left: 30px;">這也是一個很屌的東西阿! 網路上最常用到的還是表單(Form), 最早表單都用 table 來作排版, 現在已經捨棄 table, 像我就是利用 label 來作, 這個 reForm 則是用 javascript 來做表單的自動排版, 看起來真的很屌, 可以先看看他的 <a href="http://houstonupa.org/reForm/demo.html" target="_blank">Demo</a>, 多帥氣! 當然這也是之後有空在研究, 畢竟我只是作 PHP Coding (只是現在寫 Web app 的, 誰能免得了不碰 UI 呢?)</div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1126">[PHP] XML Schema 驗證</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-04-01T13:56:07+08:00" pubdate  data-updated="true" >Apr 1<span>st</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>記得之前再翻 PHP Manual 時, 看到 <a href="http://www.php.net/manual/tw/ref.dom.php">DOM</a> 裡有 <a href="http://www.php.net/manual/tw/function.dom-domdocument-schemavalidate.php">schemaValidate</a> 這個東西, 也因為工作需要, 所以來試一下, 還真方便好用。</p>
+
+<p><code>$xml = file_get_contents('http://tzangms.com/foo.xml');
+$dom = new DOMDocument;
+$dom->loadXML($xml);</p>
+
+<p>$is_validate = $dom->schemaValidate('bar.xsd');</code></p>
+
+<p>或是用 load 讀 xml 檔名</p>
+
+<p><code>$dom = new DOMDocument;
+$dom->load('foo.xml');</p>
+
+<p>$is_validate = $dom->schemaValidate('bar.xsd');</code></p>
+
+<p>另外 xsd 的部分, 也有 <a href="http://www.php.net/manual/tw/function.dom-domdocument-schemavalidatesource.php">schemaValidateSource </a>可用
+<code>$dom->schemaValidateSource($xsd);</code></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/1118">拉亞漢堡</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-03-30T12:49:22+08:00" pubdate  data-updated="true" >Mar 30<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a title="拉亞漢堡 起士燻火腿潛艇堡 by tzangms, on Flickr" href="http://www.flickr.com/photos/tzangms/2337050889/"><img src="http://farm3.static.flickr.com/2020/2337050889_96fb654161.jpg" alt="拉亞漢堡 起士燻火腿潛艇堡" width="500" height="375" /></a></p>
+
+<p>之前在當兵時, 回學校表演的時候, 志豪有帶我去吃過拉亞, 在畢業前還沒開~ 以前早餐都吃起士火腿蛋加奶茶, 突然到拉亞卻不知道吃啥。 結果現在在台北租房子的附近就新開了一間拉亞。 現在每次週末六日的早餐, 都想著要吃拉亞 XD</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/mac/1169">Read on &rarr;</a>
+      <a rel="full-article" href="/life/1118">Read on &rarr;</a>
     </footer>
   
 
@@ -112,7 +282,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/codeigniter/1168">CodeIgniter 1.6.2 Released!</a></h1>
+      <h1 class="entry-title"><a href="/podcast/1119">小海 Podcast 第 8 集</a></h1>
     
     
       <p class="meta">
@@ -126,18 +296,22 @@
 
 
 
-<time datetime="2008-05-14T08:30:33+08:00" pubdate  data-updated="true" >May 14<span>th</span>, 2008</time>
+<time datetime="2008-03-28T19:12:07+08:00" pubdate  data-updated="true" >Mar 28<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>昨天才在說 CI 1.6.2 快出來了, 沒想到睡前就看到 <a href="http://codeigniter.com/news/codeigniter_v162_released/" target="_blank">CI 1.6.2 發佈的新聞</a> ( <a href="http://codeigniter.com/user_guide/changelog.html" target="_blank">Change log</a> )。</p>
+  <div class="entry-content"><p>事隔半年, <strong>語無倫次</strong>的小海 Podcast 第 8 集終於出來啦! 這次真的是亂講一通, 哈哈哈!</p>
 
-<p>CI 的 User Guide 新增了 <a href="http://codeigniter.com/user_guide/general/common_functions.html" target="_blank">Common Functions</a> 跟 <a href="http://codeigniter.com/user_guide/general/reserved_names.html" target="_blank">Reserved Names</a> 兩個頁面, 從 Common Functions 發現了原來有 config_item 這個  function!! 另外也發現了 HTML Helper 有 img() 這個 function, 看來我忽略他好一陣子了 Orz</p>
+<ol>
+    <li>Misery business - <a href="http://www.paramore.net/" target="_blank">Paramore</a></li>
+    <li>Kiss to send us off  - <a href="http://www.enjoyincubus.com/" target="_blank">Incubus</a></li>
+    <li>Whole wide world - <a href="http://www.wrecklesseric.com/" target="_blank">Wreckless eric</a></li>
+    <li>眉頭 - 小海</li>
+</ol>
 
-<p>基本上沒有太重大的更新, helpers 的功能新增比較多, 也多了一個 <a href="http://codeigniter.com/user_guide/helpers/compatibility_helper.html" target="_blank">Compatibility Helper</a>。 不過&#8230;值得一提的是 CodeIgniter 有也 <a href="http://twitter.com/CodeIgniter" target="_blank">twitter</a> 了 XD 看來 twitter 已經變成是發佈訊息的一個管道, 像是 RSS 一樣, 不過 twitter 接續的應用似乎比 RSS 多上許多。 Anyway, 快去 <span style="text-decoration: line-through;">Follow</span> 更新 CodeIgniter  吧!</p>
 </div>
   
   
@@ -150,7 +324,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/1167">關於 PHP 6 的改變</a></h1>
+      <h1 class="entry-title"><a href="/programming/1111">[網摘] March 25th 2008</a></h1>
     
     
       <p class="meta">
@@ -164,27 +338,70 @@
 
 
 
-<time datetime="2008-05-13T08:52:40+08:00" pubdate  data-updated="true" >May 13<span>th</span>, 2008</time>
+<time datetime="2008-03-25T23:13:00+08:00" pubdate  data-updated="true" >Mar 25<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>看了 <a href="http://www.ibm.com/developerworks/opensource/library/os-php-future/?S_TACT=105AGX54&amp;S_CMP=B0508&amp;ca=dnw-918">The future of PHP</a> 這一篇後, 來記錄一下, 關於 PHP 6 的改變, 主要是有些東西會拿掉, 現在應該就要避免去用到, 不過其實也應該沒什麼人在用了吧? XD</p>
+  <div class="entry-content"><ul>
+    <li><a href="http://www.37signals.com/svn/posts/913-question-your-work">Question your work</a></li>
+</ul>
 
-<p>簡單來說就是 PHP6 增進了下面這兩點
-Improved Unicode support
-Namespaces (PHP 5.3 已經有了)</p>
 
-<p>然後下面是 PHP6 會拿掉的東西
-magic_quotes
-register_globals
-register_long_arrays (像是: $HTTP<em>*</em>VARS)
-safe_mode
-PHP tags (asp style) (像是 &lt;% %&gt;)
-FreeType 1 and GD 1
-ereg</p>
+<p style="padding-left: 30px;">當你要開發產品的新功能的時候, 曾經想過為何要開發嗎? 這個功能是否真的有用? 帶來的價值是? 更重要的是它是否符合使用者的需求? 也許跳出來這個框框, 先看看你自己覺得好不好用?</p>
+
+
+
+
+<ul>
+    <li><a href="http://www.jaisenmathai.com/blog/2008/02/28/10-tips-to-make-your-php-application-scream-part-1-of-n/">10 tips to make your PHP application scream</a></li>
+</ul>
+
+
+<p style="padding-left: 30px;">一些關於 php.ini 設定的東西, 像是 HTTP_POST_VARS 你還會用到嗎? 不用就關掉它吧!</p>
+
+
+
+
+<ul>
+    <li><a href="http://www.smashingmagazine.com/2008/03/11/the-secrets-of-grunge-design/">The Secrets Of Grunge Design</a></li>
+</ul>
+
+
+<p style="padding-left: 30px;">關於 Grunge style 的設計風格, 有人說這是 web 2.0 之後網頁設計的新趨勢?</p>
+
+
+
+
+<ul>
+    <li><a href="http://htmlpurifier.org/">HTML Purifier</a></li>
+</ul>
+
+
+<p style="padding-left: 30px;">用來過濾 XSS (filter)的 PHP library, 另外在它網頁上也列了出來<a href="http://htmlpurifier.org/comparison.html">其他相同功能的產品的比較</a>, 說明的滿詳細的, 也有 Wordpress 的 plugin, 另外<a href="http://www.mindloop.be/nieuws/nieuwe-ontwikkelingen/htmlpurifier-and-the-codeigniter-framework">也提到有 CodeIgniter 的 library</a>, 但是其實只是說明, 如何在 CI 裡使用 HTML Purifier, 可是我覺得它範例所寫的使用方式, 覺得有點遭, 另外, 雖然這支 library 功能很強, 但是&#8230;好胖 XD<a href="http://www.mindloop.be/nieuws/nieuwe-ontwikkelingen/htmlpurifier-and-the-codeigniter-framework"></a></p>
+
+
+
+
+<ul>
+    <li><a href="http://reinholdweber.com/?p=23">Really cool CSS diagnostics script</a></li>
+</ul>
+
+
+<p style="padding-left: 30px;">這真的還滿酷的, 只要掛上這個 CSS, 就可以在網頁上看出哪些東西、屬性是需要修正的, 有稍微玩一下, 有空再來研究看看。</p>
+
+
+
+
+<ul>
+    <li><a href="http://www.designvsart.com/blog/2008/03/19/simplicity-on-the-web-disgning-to-hide-features/">Simplicity On The Web: Designing To Hide Features</a></li>
+</ul>
+
+
+<p style="padding-left: 30px;">做 UI 設計應該可以看一下, 其中有介紹一些知名網站的範例, 避免一次給使用者太多資訊。</p>
+
 </div>
   
   
@@ -197,7 +414,7 @@ ereg</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/1140">[網摘] May 09th 2008</a></h1>
+      <h1 class="entry-title"><a href="/life/1116">新髮型 by Sonia@FIN</a></h1>
     
     
       <p class="meta">
@@ -211,30 +428,19 @@ ereg</p>
 
 
 
-<time datetime="2008-05-09T20:42:03+08:00" pubdate  data-updated="true" >May 9<span>th</span>, 2008</time>
+<time datetime="2008-03-20T21:21:35+08:00" pubdate  data-updated="true" >Mar 20<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://jonathanhedley.com/articles/2008/04/guide-to-website-speed-optimization">How-to: Optimize your site for speed</a>
-這篇文章好長一篇, 不過做網站的都該看看。</p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2337857224/" title="me and Sonia by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2356/2337857224_fb20fb0979.jpg" alt="me and Sonia" class="left" height="500" width="375" /></a> 沒事, 只是記錄一下禮拜日剪了個新髮型, 還有 sonia 很正, 就醬。想找 sonia 剪的可以看看<a href="http://tzangms.com/life/933">這一篇</a>。</p>
 
-<p><a href="http://www.blogdesignblog.com/blog-design/30-comment-designs-for-webdesigners/">30 Must See Comment Designs for Web Designers</a>
-comments 的設計, 似乎凸顯板主的 comments 是一個首要的重點。</p>
+<p>走超短文路線才是王道阿!</p>
 
-<p><a href="http://www.yellowmug.com/yemuzip/">yemuzip</a>
-之前要傳東西給用 Windows 的朋友, 常常用 Mac 內建的壓縮功能(封存)壓好傳過去, 可是對方卻解不開, 也許可以試看看這個 yemuzip。</p>
+<div style='clear:both'></div>
 
-<p><a href="http://css.dzone.com/news/different-techniques-applying-">The Different Techniques for Applying the PNG Hack</a>
-png 在 ie 上一直讓人很頭痛阿~ 這篇介紹了一些解法</p>
-
-<p><a href="http://blog.jeremymartin.name/2008/04/introducing-kwicks-for-jquery.html">Introducing: Kwicks for jQuery</a>
-這個特效真的是超棒的, 當時 Mootools 出來的時候, 這個叫 Kwicks 的效果真的是很吸引人, 當時一度讓我想換用 Mootools 阿!!</p>
-
-<p><a href="http://luddep.se/notebook/2008/04/charts_with_php_and_google_charts_api">Charts with PHP and Google Charts API</a>
-這個真的超方便的阿!!!</p>
 </div>
   
   
@@ -247,7 +453,7 @@ png 在 ie 上一直讓人很頭痛阿~ 這篇介紹了一些解法</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/web/1162">Funp 筆記本</a></h1>
+      <h1 class="entry-title"><a href="/programming/1113">對 PHP 沒信心嗎?</a></h1>
     
     
       <p class="meta">
@@ -261,21 +467,31 @@ png 在 ie 上一直讓人很頭痛阿~ 這篇介紹了一些解法</p>
 
 
 
-<time datetime="2008-05-09T07:55:37+08:00" pubdate  data-updated="true" >May 9<span>th</span>, 2008</time>
+<time datetime="2008-03-19T21:55:17+08:00" pubdate  data-updated="true" >Mar 19<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2468190950/" title="funp notebook by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2333/2468190950_9931daf982.jpg" width="500" height="375" alt="funp notebook" /></a>
-上禮拜參加了 <a href="http://blog.punchparty.asia">Punch Party</a> 4, 著實收穫不少, 先前的 Punch Party 都因為剛好有事而沒辦法參加, 這一次參加有種開了眼界的感覺,  也跟多位網路上的朋友碰面交談, 另外在上台講完 twitthat, 回到座位上之後, funp 的 brian 則送了我這本 funp 筆記本, 頗開心 :D 因為&#8230; 我在公司的筆記本快寫完了 XD</p>
+  <div class="entry-content"><p>如果這一陣子因為 Ruby 跟 RoR 的爆紅, 讓你急著想轉換到 Ruby (好吧! 至少我偷學了 Ruby XD) 也許可以看看 <a href="http://www.cio.com">CIO</a> 的這一篇 <a href="http://www.cio.com/article/176250">You Used PHP to Write WHAT?!</a> 的 <a href="http://comments.cio.com/node/176250">comments</a>。 由於文章中提到的一些論點讓 PHP的擁護者倒彈, 像是&#8230;</p>
+
+<blockquote>Q: When should you use PHP?
+A: Prototyping an application that will be converted to Java or some other language.</blockquote>
+
+
+<p>或是</p>
+
+<blockquote>For large enterprise solutions, PHP makes a great prototyping or feasibility tool, but heavily loaded sites that require thread safety, security and stability should use Java.</blockquote>
+
+
+<p>結果因為這篇作者的言論, 似乎有點瞧不起 PHP, 導致 comments 被 PHP 擁護者洗版, 結果最後在這篇文章中多了下面這一段 XD</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/web/1162">Read on &rarr;</a>
+      <a rel="full-article" href="/programming/1113">Read on &rarr;</a>
     </footer>
   
 
@@ -287,7 +503,7 @@ png 在 ie 上一直讓人很頭痛阿~ 這篇介紹了一些解法</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/1164">PHP: 去除 UTF-8 BOM</a></h1>
+      <h1 class="entry-title"><a href="/old demo/1110">[Demo] 眉頭, 我很愛的一首歌</a></h1>
     
     
       <p class="meta">
@@ -301,113 +517,26 @@ png 在 ie 上一直讓人很頭痛阿~ 這篇介紹了一些解法</p>
 
 
 
-<time datetime="2008-05-08T19:57:38+08:00" pubdate  data-updated="true" >May 8<span>th</span>, 2008</time>
+<time datetime="2008-03-16T22:08:18+08:00" pubdate  data-updated="true" >Mar 16<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>今天在作處理、轉換 csv 的東西, 碰到一個 UTF-8 的 csv 檔, 結果轉換出來的檔案因為 BOM 掛點。下面這一段可以用來將 BOM 去掉。</p>
+  <div class="entry-content"><p>眉頭, 應該可以列入我最愛的歌曲 Top 10 吧! 每天晚上睡覺我都一定會播著這首歌伴我入睡, 常常是歌曲還沒結束我就睡著了。</p>
 
-<p>[source:php]
-function remove_bom($str){</p>
+<p>這幾個月, 都一直在把先前的歌曲都重新處理過, 一直重複在聽著先前錄好的歌曲, 聽著哪首歌哪裡有問題, 哪裡 bass 聲太小, vocal 哪裡唱的不好, 或者是鼓太小、太大聲之類的等等細節。</p>
 
-<pre><code>if(substr($str, 0,3) == pack("CCC",0xef,0xbb,0xbf)) {
-    $str = substr($str, 3);
-}
-return $str;
-</code></pre>
+<p>有些東西需要反覆聆聽, 有些則要經過一些時間, 才能聽出來哪裡不對勁。 有時下班之後, 一整晚都在處理同一首歌, 或者是星期日待在家裡, 戴著監聽耳機聽上一整天。 甚至是上班就已經很累, 下班回家吃完晚餐之後, 仍戴上耳機繼續弄歌。 有幾次, 弄歌弄到很晚, 已經很累了, 想說要來準備洗澡睡覺, 可是一拿掉監聽耳機站起來, 卻整個人暈眩。</p>
 
-<p>}
-[/source]</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1161">學習 XPath</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-05-07T21:14:24+08:00" pubdate  data-updated="true" >May 7<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這幾天在研究 XPath 這個東西, 我想下面這三個看完應該就差不多了吧! 先看看 w3schools 跟 Wikipedia, 最後看看 zvon 上的範例頗有幫助的。</p>
-
-<p>XPath Tutorial - w3schools
-<a href="http://www.w3schools.com/xpath/default.asp" target="_blank"> http://www.w3schools.com/xpath/default.asp</a></p>
-
-<p>XPath - Wikipedia
-<a href="http://zh.wikipedia.org/wiki/XPath" target="_blank"> http://zh.wikipedia.org/wiki/XPath</a></p>
-
-<p>XPath Tutorial - zvon
-<a href="http://www.zvon.org/xxl/XPathTutorial/General/examples.html" target="_blank"> http://www.zvon.org/xxl/XPathTutorial/General/examples.html</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/1160">Punch Party 4!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-05-05T22:30:30+08:00" pubdate  data-updated="true" >May 5<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p style="text-align: center;"><a href="http://www.flickr.com/photos/kovis/2462188052/"><img class="aligncenter" src="http://farm4.static.flickr.com/3042/2461354135_7e090dacd3.jpg" alt="" width="500" height="333" />
-</a></p>
-
-
-<p>在上禮拜五教召結束後, 隨即而來的就是 Punch Party 4, 其實這是我第一次參加 <a href="http://blog.punchparty.asia" target="_blank">Punch Party</a>, 也剛好凱洛找我去講 <a href="http://twitthat.com" target="_blank">twitthat</a>, 所以第一次就是以講員的身分參加 PP :p 基本上我是很害羞且不擅言語的, 有在 PP 現場看的人應該都可以看得出來 (笑)</p>
+<p>而眉頭這首歌, 其實我好擔心, 因為&#8230; 前幾個月打開眉頭的錄音檔時, 卻發現 vocal track 不見了, guitar solo 也不見了, 不曉得是什麼原因, 總之就是不見了阿!!! 所以這幾個月都在擔心, 怕擔心錄不出來當初的感覺。 而且當初的 bass 也有點小聲, 鼓也聽起來有點虛。 所以每次當睡覺聽到眉頭的時候, 就會讓我想起這件事, 像是在我心上壓了一塊石頭, 甚至有時就因此失眠, 即使這首歌是我的睡覺歌。</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/web/1160">Read on &rarr;</a>
+      <a rel="full-article" href="/old demo/1110">Read on &rarr;</a>
     </footer>
   
 
@@ -419,7 +548,7 @@ return $str;
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/1159">教召體驗</a></h1>
+      <h1 class="entry-title"><a href="/programming/1109">[網摘] March 14th 2008</a></h1>
     
     
       <p class="meta">
@@ -433,59 +562,34 @@ return $str;
 
 
 
-<time datetime="2008-05-04T22:55:35+08:00" pubdate  data-updated="true" >May 4<span>th</span>, 2008</time>
+<time datetime="2008-03-14T18:38:46+08:00" pubdate  data-updated="true" >Mar 14<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>這次教召一共4天, 簡短來說&#8230;就是超無聊 XD 不過也幸好不是在夏天去, 否則應該會更難渡過這漫長的教召生活。</p>
+  <div class="entry-content"><ul>
+    <li><a href="http://thislab.com/2008/02/23/notes-on-choosing-a-php-framework-a-quick-comparison-of-codeigniter-and-kohana/">Notes on Choosing a PHP Framework: A Quick Comparison of CodeIgniter and Kohana</a>
 
-<p>其實教召讓我有種去當少爺的感覺 XD 這裡說的少爺, 其實是相較於新訓的時候, 爽的非常之多, 不過還是要集合、點名、洗餐盤&#8230;等等。</p>
+這篇是 CodeIgniter 跟 Kohana 的比較, 寫的很詳細, 有在玩 CI 的都該看看。</li>
+    <li><a href="http://www.ajaxray.com/blog/2008/03/08/php-universal-feed-generator-supports-rss-10-rss-20-and-atom/">PHP Universal Feed Generator (supports RSS 1.0, RSS 2.0 and ATOM)</a>
 
-<p>想當初在新訓的時候, 真的是非常非常的不自由, 連走路都覺得有壓力。 然而現在重回同一個營區, 但是感覺卻差非常多。集合..可以慢慢來&#8230; 等到大家都排好隊形了之後, 在慢慢走過去也不是問題。 上課要戴上鋼盔, 戴個一分鐘就拿下來, 也是ok的。所有當初新訓時的痛苦, 現在全都被大家當成了玩笑在開。 例如像是有人對連長講話沒加報告, 大家就會開玩笑的嗆他: 跟連長講話是不會加報告嗎?&#8221; 諸如此類的事。</p>
+PHP Feed generator, 還沒用過, 不過看過範例, 覺得頗好用的, 先記下來。 話說我目前產生 RSS Feed 是用 template 的方式, 還滿方便、快速的。</li>
+    <li><a href="http://sixrevisions.com/resources/20_websites_better_web_developer/">20 Websites That Made Me A Better Web Developer</a>
 
-<p>生活作息還是跟當兵一樣, 5點半起床, 10 點就寢, 但是時間卻充裕, 因為不管是蚊帳或者是棉被都隨便折一折, 因為&#8230;.之後會有阿兵哥幫你折 XD 而教召回去就是上課, 上課就是一天當中最難度過的時間, 因為大部分的時間其實都是在發呆, 而身邊的人也不認識, 所以上課時, 就是坐著很難坐的板凳乾等, 真的是很難熬。 不過慢慢的跟身邊的人熟了起來, 認識好多各種行業的人, 有人自己創業當老闆, 有人養魚、賣房子、做音響, 甚至還有人是當 Model。</p>
+這篇最主要是讓我看到 37 Signals (也就是 basecamp 的開發公司)的 Getting real, 裡面提到的一些程式開發的論點, 還不錯的感覺。</li>
+    <li> <a href="http://www.mostinspired.com/blog/2008/03/06/standout-website/">6 Methods to Make Your Website Standout</a>
 
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/life/1159">Read on &rarr;</a>
-    </footer>
-  
+我突然想買繪圖板了 o_O</li>
+    <li><a href="http://php.dzone.com/news/php-email-validator-email-mx-d">PHP Email Validator - Email MX DNS Record Check</a>
 
+我完全不知道 PHP 有 checkdnsrr 這個 function, 看來沒事還是要多看看 PHP manual 阿! 還可避免重新造輪 XD</li>
+    <li><a href="http://www.haughin.com/2008/01/22/progressing-your-career-as-a-developer/">Progressing your career as a developer</a>
 
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/uncategorized/1158">當兵去~</a></h1>
-    
-    
-      <p class="meta">
-        
+Programmer 可以看看這篇, 裡面提到一些 programmer 具有的特質, 及缺少哪些特質。</li>
+</ul>
 
-
-
-
-
-  
-
-
-
-<time datetime="2008-04-29T09:00:23+08:00" pubdate  data-updated="true" >Apr 29<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>待會要來準備出發去教召了~ 為期 4 天, 禮拜五晚上回來 :p 每天上班打電腦, 讓我的肩膀簡直就快廢了, 看來這次的教召會是個好機會, 強迫我離開電腦 4 天, 休息一下, 也許狀況會好一點, 各位掰掰! (揮手)</p>
 </div>
   
   

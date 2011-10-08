@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="由於自己租的 slicehost 只有 256MB 的記憶體, 架 mail server 又很麻煩 (因為我也不懂 XD), 又似乎 mail 有啥反解的問題, 而直接透過 sendmail 這樣寄信會被當成垃圾信, 所以就申請了 Google app, 然後用申請到的帳號透過 SMTP 來...">
+  <meta name="description" content="這兩天下班後, 都在玩 AppEngine, 不過我不太會 python, 也不懂 django, 只有上禮拜花了一天晚上看完 python tutorial, 就開始亂玩 ~&#8221;~ 所以寫了一個 twitter easy unfollow 的 twitter 應用 XD (因為實在...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/codeigniter/1233">設定 CodeIgniter 透過 Gmail 發信</a></h1>
+      <h1 class="entry-title"><a href="/programming/1189">Google AppEngine 試玩</a></h1>
     
     
       <p class="meta">
@@ -80,36 +80,22 @@
 
 
 
-<time datetime="2008-07-17T19:54:28+08:00" pubdate  data-updated="true" >Jul 17<span>th</span>, 2008</time>
+<time datetime="2008-06-18T00:57:13+08:00" pubdate  data-updated="true" >Jun 18<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>由於自己租的 <a href="http://www.slicehost.com/">slicehost</a> 只有 256MB 的記憶體, 架 mail server 又很麻煩 (因為我也不懂 XD), 又似乎 mail 有啥反解的問題, 而直接透過 sendmail 這樣寄信會被當成垃圾信, 所以就申請了 Google app, 然後用申請到的帳號透過 SMTP 來發送信件。 由於 Gmail 的 SMTP 又跟一般的設定稍微不一樣(有 SSL), 所以記錄一下。</p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2587661644/" title="twitter easy unfollow on AppEngine by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3275/2587661644_dd12f877e6.jpg" width="500" height="299" alt="twitter easy unfollow on AppEngine" /></a></p>
 
-<p>在 <a href="http://codeigniter.com">CodeIgniter</a> 上面其實就只是設定個 config 檔就可以了, 設定檔如下:</p>
-
-<p>application/config/email.php</p>
-
-<pre><code>
-$config['protocol'] = 'smtp';
-$config['smtp_host'] = 'ssl://smtp.gmail.com';
-$config['smtp_user'] = 'your_email';
-$config['smtp_pass'] = 'your_password';
-$config['smtp_port'] = '465';
-$config['smtp_timeout'] = '5';
-$config['newline'] = "\r\n";
-$config['crlf'] = "\r\n";
-</code></pre>
-
+<p>這兩天下班後, 都在玩 <a href="http://code.google.com/appengine/">AppEngine</a>, 不過我不太會 <a href="http://www.python.org/">python</a>, 也不懂 <a href="http://www.djangoproject.com/">django</a>, 只有上禮拜花了一天晚上看完 <a href="http://docs.python.org/tut/tut.html">python tutorial</a>, 就開始亂玩 ~&#8221;~ 所以寫了一個 twitter easy unfollow 的 twitter 應用 XD (因為實在太不穩就不放連結上來了 :p )</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/codeigniter/1233">Read on &rarr;</a>
+      <a rel="full-article" href="/programming/1189">Read on &rarr;</a>
     </footer>
   
 
@@ -121,7 +107,7 @@ $config['crlf'] = "\r\n";
       
   <header>
     
-      <h1 class="entry-title"><a href="/stickeraction/1220">stickeraction.com 可以使用 OpenID 囉!</a></h1>
+      <h1 class="entry-title"><a href="/web/1188">Google Developer Day 2008</a></h1>
     
     
       <p class="meta">
@@ -135,16 +121,21 @@ $config['crlf'] = "\r\n";
 
 
 
-<time datetime="2008-07-16T18:36:30+08:00" pubdate  data-updated="true" >Jul 16<span>th</span>, 2008</time>
+<time datetime="2008-06-15T20:23:15+08:00" pubdate  data-updated="true" >Jun 15<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>應<a href="http://blog.bobchao.net/">柏強</a>的要求, 昨天晚上把 <a href="http://stickeraction.com">stickeraction.com</a> 加上了 <a href="http://openid.net/">OpenID</a>, 不過目前只能用在註冊新帳號, 不能 attach 舊有的帳號 :p 其實本來會員帳號想直接都用 OpenID 來作, 不過想說 OpenID 並不是那麼多人知道, 怕會沒人用 XD 所以還是寫了一個會員帳號的機制 :p</p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2577778730/" title="100_3701 by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3183/2577778730_6b0744ef71.jpg" width="500" height="375" alt="100_3701" /></a>
+這一次參加 Google Developer Day 2008, 還滿有收穫的, 主要是&#8221;AppEngine 進階&#8221;這門課, 講到了關於 AppEngine 的 DataStore, 由於 Datastore 本身就是 scalable 的架構, 在運用上跟平常用的關聯式資料庫觀念不同, 聽了這門課真的是很值得。 在進階這門課上講了一個 Counter 的範例, 這個範例就用上了 Entity Groups, transaction 跟 memcache。</p>
 
-<p>stickeraction.com 用的是 <a href="http://janrain.com/">janrain</a> 的 <a href="http://openidenabled.com/">OpenID Library</a>, 有興趣可以看看。 另外 <a href="http://openid.yahoo.com/">Yahoo 也好像要推 OpenID</a>, 不過只能用 OpenID 2.0 版本勒, 不要選錯 library 了 XD</p>
+<p>下午由於沒能排到 AppEngine 實作課程, 所以去聽了 OpenSocial, 但是可能是沒先玩過, 或是興趣不是很大, 所以聽到想睡覺 XD 不過最主要也是因為 OpenSocial 沒介紹什麼, 入門跟進階都講差不多的東西阿!!</p>
+
+<p>在每門課的結尾都有發問的時間, 其實我比較好奇的是&#8230; 有些發問可能是因為口音的關係, 我都快聽不懂了, 可是外國人都聽的懂ㄝ! o_O</p>
+
+<p>當天的遺憾就是&#8230; 我沒能參加到 AppEngine 的實作, 因為只有 50 人的限制 ~&#8221;~ 而且實作這門課還有送另外一件 AppEngine 的 t-shirt 阿!!!! (那件真的很好看阿!! Randylien 還故意秀給我看!! ~&#8221;~ )</p>
 </div>
   
   
@@ -157,7 +148,7 @@ $config['crlf'] = "\r\n";
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/1210">Kohana PHP Framework 試玩心得</a></h1>
+      <h1 class="entry-title"><a href="/programming/1187">The PHP Benchmark</a></h1>
     
     
       <p class="meta">
@@ -171,24 +162,34 @@ $config['crlf'] = "\r\n";
 
 
 
-<time datetime="2008-07-16T08:15:50+08:00" pubdate  data-updated="true" >Jul 16<span>th</span>, 2008</time>
+<time datetime="2008-06-09T01:12:14+08:00" pubdate  data-updated="true" >Jun 9<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://kohanaphp.com/">Kohana</a> 前身叫做 BlueFlame, 是由 <a href="http://codeigniter.com/">CodeIgniter</a> 衍生出來的 PHP framework, 所以要從 CI 跳槽還滿快的 XD 而 Kohana 跟 CodeIgniter 最大的不同就是, Kohana 只能在 PHP 5 上跑。 不過其實&#8230; 現在都該換到 PHP5 了啦:p 重點是! Kohana 解決了 CodeIgniter 很多不足的地方。</p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2562298047/" title="phpbenchmark by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3139/2562298047_bae14157c1.jpg" width="500" height="263" alt="phpbenchmark" /></a>
+<a href="http://www.phpbench.com/">The PHP Benchmark</a> 。 有寫 PHP 的話, 這個站一定要看一下的阿! 其中有些 benchmark 好像推翻了先前所讀過的東西。</p>
 
-<p>像是 Namespace 的問題, 在 CI 上如果有相同名稱的 library、Model 或是 Controller 就會衝到, Kohana 則解決了這個問題。 另外在 CI 上如果有自定的 helper 的話, 其他維護者並不容易找出是寫在哪支 helper 裡, 而 Kohana 的 helper 是用 class 來作, class name 的 prefix, 則可以容易辨識出是哪支 helper, 也減少 function name 衝突的問題, 對於維護上方便很多。</p>
+<p>像是以前讀過說, while 比 for 快, for 又比 foreach 快 (雖然我還是一直用 foreach, 因為 code 比較乾淨 XD), 不過這個 PHP Benchmark 在測試 loop 的結論提到, 其實 foreach 是比較快。</p>
 
-<p>另外 Kohana 也提供了 module 的機制, module 擁有自己的 controller, model 跟 view, 可以將程式劃分的更細。例如 Konaha 本身就提供了 Auth module (ACL)。 雖然 CI 也有 <a href="http://code.google.com/p/matchbox/">matchbox</a> 提供了相同的功能, 但是需要 override CI_Loader, 萬一 CI 的版本升級,  CI_Loader 有所改變呢? 當然還是比不上 Kohana 內建的好。</p>
+<p>另外就是, 在用 for 的時候到底要不要先算過要 loop 的次數? 以往看到的文章都是說, 在掃某個陣列之前, 要先算出這個陣列的長度, 再開始跑 for loop, 例如像下面這一段。 因為在跑 loop 的時候, 都會再執行過一次陣列長度的計算。</p>
+
+<pre>
+<code>for ($i = 0; $i < count($foo); $i++) {
+    // blah
+}</code>
+</pre>
+
+
+<p>所以後來我就變成這樣寫 &#8230;</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/programming/1210">Read on &rarr;</a>
+      <a rel="full-article" href="/programming/1187">Read on &rarr;</a>
     </footer>
   
 
@@ -200,7 +201,7 @@ $config['crlf'] = "\r\n";
       
   <header>
     
-      <h1 class="entry-title"><a href="/stickeraction/1209">stickeraction.com 一起來玩貼紙串連吧!</a></h1>
+      <h1 class="entry-title"><a href="/programming/1184">幾個程式碼搜尋引擎</a></h1>
     
     
       <p class="meta">
@@ -214,348 +215,21 @@ $config['crlf'] = "\r\n";
 
 
 
-<time datetime="2008-07-13T22:07:28+08:00" pubdate  data-updated="true" >Jul 13<span>th</span>, 2008</time>
+<time datetime="2008-06-07T13:02:09+08:00" pubdate  data-updated="true" >Jun 7<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href='http://stickeraction.com'><img src='http://farm4.static.flickr.com/3086/2664170152_7ccc331c54.jpg' /></a></p>
-
-<div style='float: left; margin: 0px 5px 2px 2px'>
-<script type='text/javascript' src='http://stickeraction.com/stickeraction/blogs_count.js'></script>
-</div>
-
-
-<p>一直以來都在想&#8230; 貼紙串連這種活動到底可以發揮多少功效, 現今的貼紙串連方式似乎都只是做個貼紙, 然後讓支持這個訴求的網友們把貼紙的語法貼到自己的部落格。 然而活動發起之後, 活動發起人卻也無法得知, 到底有多少個部落格響應了這個活動。</p>
-
-<p>似乎在網路上的貼紙串連活動就是這樣, 一直沒有辦法凝聚一個較為實質的力量出來, 即使行之有年的&#8221;自動播放撲滅委員會&#8221; , 但是我們仍時常會逛到會自動播放音樂的部落格&#8230;。</p>
-
-<p>如果有個東西可以統計, 可以讓響應這個活動的人知道, 這個活動到底凝聚了多少部落格的力量, 或者也許可以讓這個活動的頁面當成是一個連署書? 貼給自動播放音樂的部落格的網友們看, 到底有多少人支持這個活動!! 又或者讓舉辦海洋音樂季的台北縣政府知道, 到底有多少網友覺得他們根本在意的不是獨立音樂? 或者是貼個我愛星野亞希之類的 XD</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/stickeraction/1209">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/old demo/1207">[Demo] 說再見 (重新混音)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-07-05T14:00:36+08:00" pubdate  data-updated="true" >Jul 5<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>先前的版本, 彈分解的那一把吉他, 其實一點都沒有結構, 反倒像是亂彈的, 這個版本除了重新咪過之外, 也重新錄了那把彈分解的吉他, 有結構多了, 感覺好多了 :p</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/1203">identi.ca - PHP Open Source Twitter?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-07-03T19:35:44+08:00" pubdate  data-updated="true" >Jul 3<span>rd</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://identi.ca/">identi.ca</a>, 一個新的微網誌服務, 其實現在微網誌服務真的是很多了, 不過這個比較特別一點的是, <a href="http://identi.ca/">identi.ca</a> 用 PHP 開發, 可以用 jabber/GTalk, 也可以用 openid 來登入, 而且是 open source!!?</p>
-
-<p>不過目前為止連到這個網址 <a href="http://identi.ca/doc/source">http://identi.ca/doc/source</a>, 上面是這樣寫的:</p>
-
-<blockquote>You can get a copy of the software from the <a href="http://laconi.ca/">Laconica</a> main site. The version of the software that runs on <em>this</em> site is unmodified from that version. The site also depends on certain libraries and other software; you can get those at the Laconica site, too.</blockquote>
-
-
-<p>不過找了一下, 還沒看到任何 source code 的蹤影 :p 不過那不重要, 因為&#8230;可以離開 twitter 就很厲害了 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1202">PHP Framework 的效能比較</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-07-02T22:18:52+08:00" pubdate  data-updated="true" >Jul 2<span>nd</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天看到前幾天才出爐的測試, <a href="http://www.avnetlabs.com/php/php-framework-comparison-benchmarks">PHP framework comparison benchmarks</a>, 其實應該就是在比 framework 的結構跟設計對於效能的影響?</p>
-
-<table class="frameworks" border="0" width="100%">
-<tbody>
-<tr>
-<td> </td>
-<td class="highlight-cell">
-<p align="right">Run 1</p>
-</td>
-<td class="highlight-cell">
-<p align="right">Run 2</p>
-</td>
-<td class="highlight-cell">
-<p align="right">Run 3</p>
-</td>
-<td class="highlight-cell">
-<p align="right">Run 4</p>
-</td>
-<td class="highlight-cell">
-<p align="right">Average</p>
-</td>
-</tr>
-<tr>
-<td class="highlight-cell">Baseline HTML</td>
-<td>
-<p align="right">1327.5</p>
-</td>
-<td>
-<p align="right">1326.5</p>
-</td>
-<td>
-<p align="right">1328.6</p>
-</td>
-<td>
-<p align="right">1329.1</p>
-</td>
-<td>
-<p align="right"><strong>1327.9</strong></p>
-</td>
-</tr>
-<tr>
-<td class="highlight-cell">Baseline PHP</td>
-<td>
-<p align="right">331.6</p>
-</td>
-<td>
-<p align="right">332.1</p>
-</td>
-<td>
-<p align="right">331.4</p>
-</td>
-<td>
-<p align="right">332.0</p>
-</td>
-<td>
-<p align="right"><strong>331.8</strong></p>
-</td>
-</tr>
-<tr>
-<td class="highlight-cell">CakePHP</td>
-<td>
-<p align="right">3.6</p>
-</td>
-<td>
-<p align="right">3.7</p>
-</td>
-<td>
-<p align="right">3.8</p>
-</td>
-<td>
-<p align="right">3.5</p>
-</td>
-<td>
-<p align="right"><strong>3.7</strong></p>
-</td>
-</tr>
-<tr>
-<td class="highlight-cell">CodeIgniter</td>
-<td>
-<p align="right">21.5</p>
-</td>
-<td>
-<p align="right">21.2</p>
-</td>
-<td>
-<p align="right">21.7</p>
-</td>
-<td>
-<p align="right">21.7</p>
-</td>
-<td>
-<p align="right"><strong>21.5</strong></p>
-</td>
-</tr>
-<tr>
-<td class="highlight-cell">Zend Framework</td>
-<td>
-<p align="right">9.3</p>
-</td>
-<td>
-<p align="right">9.1</p>
-</td>
-<td>
-<p align="right">9.2</p>
-</td>
-<td>
-<p align="right">9.3</p>
-</td>
-<td>
-<p align="right"><strong>9.2</strong></p>
-</td>
-</tr>
-</tbody></table>
-
-
-<p><a href="http://www.avnetlabs.com/php/php-framework-comparison-benchmarks">這篇文章</a>中比較了 <a href="http://cakephp.org/">CakePHP</a>, <a href="http://framework.zend.com/">Zend Framework</a> 跟 <a href="http://codeigniter.com">CodeIgniter</a>, 然後還有一般的 html 及 plain php, 另外還有使用/不使用 <a href="http://pecl.php.net/package/APC">APC</a> 跟 <a href="http://eaccelerator.net/">eAccelerator</a> 來比較這三個 framework 的效能。當然, 基本上一定是 html 最快, 然後是 plain php, 再來才會是 framework。而 Framework 中當然最快的是 CodeIgniter 啦! 接著是 Zend Framework, 最後是效能很糟的 CakePHP ( XD )</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/1202">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/old demo/1199">[Demo] 沙漏 (重新混音)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-06-29T23:25:15+08:00" pubdate  data-updated="true" >Jun 29<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>其實一直覺得這首歌太單調, 為了這一首頭痛好久, 花了快兩個禮拜, 在想怎麼加東西進去, 可能最近也真的是一點靈感都沒有吧 ~&#8221;~ anyway, 總算弄出了一把彈分散的吉他, 讓原來的編曲不那麼單調, 聽起來好多了 :D</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1198">Vim 也可以有 Textmate 的 Snippet 功能!!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-06-28T12:52:03+08:00" pubdate  data-updated="true" >Jun 28<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.vim.org/scripts/script.php?script_id=1318">snippetsemu</a> 真是好物阿!!</p>
-
-<p>話說 <a href="http://macromates.com/">textmate</a> 真的是很屌, 可是我還是離不開 vim, vim 的 dd, yy 真的是很贊阿! XD 其實最主要的是, 上班不會帶 mac 去公司, 在公司又是用 windows, 所以通常都直接 ssh 上測試環境的 server 用 vi 在寫程式。</p>
-
-<p>今天突然想到 vim 搞不好有 textmate snippet 外掛, 所以就找了一下, 就找到了 snippetsemu 啦!! 真的是很 high!</p>
-
-<p>記一下安裝方式:</p>
-
-<ol>
-    <li>首先要有 vim 7</li>
-    <li>到 <a href="http://www.vim.org/scripts/script.php?script_id=1318">snippetsemu</a> 在 vim.org 的頁面下載 snippy_plugin.vba 跟 snippy_bundles.vba</li>
-    <li>然後用 vi 打開 snippy_plugin.vba, 應該會在最下面一行看到 ***vimball***  Source this file to extract it! (:so %)</li>
-    <li>接著就照做啦, 打 :so% 就會裝上 snippy plugin</li>
-    <li>最後對著 snippy_bundles.vba 依同樣步驟做即可</li>
+  <div class="entry-content"><ol>
+    <li><a href="http://www.google.com/codesearch">Google Code Search</a></li>
+    <li><a href="http://www.krugle.com/">Krugle</a></li>
+    <li><a href="http://www.koders.com/">Koders</a></li>
+    <li><a href="http://www.codase.com/">CodeBase</a></li>
+    <li><a href="http://www.codefetch.com/">CodeFetch</a></li>
 </ol>
 
-
-<p>再來就是測試一下, 編輯個 foo.php, 先輸入 for 然後打 &lt;tab&gt; 看看, 哈! 超 high 的勒!</p>
-
-<p>[ links ]
-<a href="http://code.google.com/p/snippetsemu/">snippetsemu on Google Code</a>
-<a href="http://slipperysnippets.blogspot.com/">snippets blog</a></p>
 </div>
   
   
@@ -568,7 +242,7 @@ $config['crlf'] = "\r\n";
       
   <header>
     
-      <h1 class="entry-title"><a href="/codeigniter/1196">CodeIgniter 1.6.3 Released</a></h1>
+      <h1 class="entry-title"><a href="/programming/1185">還不錯用的 jQuery Template</a></h1>
     
     
       <p class="meta">
@@ -582,24 +256,220 @@ $config['crlf'] = "\r\n";
 
 
 
-<time datetime="2008-06-27T09:06:55+08:00" pubdate  data-updated="true" >Jun 27<span>th</span>, 2008</time>
+<time datetime="2008-06-06T19:08:05+08:00" pubdate  data-updated="true" >Jun 6<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>這次主要是加強安全性的更新, 除了加強了 xss_clean 函式, 另外也可以用 xss_clean 來測試上傳的圖片是否安全。 詳細的資訊可以看看 <a href="http://codeigniter.com/user_guide/changelog.html">change log</a></p>
+  <div class="entry-content"><p>隨著 AJAX 用的越來越多, 覺得 javascript 真的是需要一個 template 的機制。由於平常都用 jQuery, 所以找了一下 jQuery template, 找到這個 <a href="http://www.stanlemon.net/index/articles/jquery-templates.html">jQuery Templates</a>, 裡面只簡單提供了一個 <a href="http://stanlemon.net/files/jquery.template.js">js 檔</a>, 也沒有說明, 不過打開 js 檔來看, 其實說明跟用法都在裡面了, 參考如下, 試了一下還不錯用。</p>
 
-<p>在 library 方面:
-<a href="http://codeigniter.com/user_guide/libraries/pagination.html">pagination library</a> 加上了可以用 query string 來作分頁的功能, 但還是覺得用 uri_segment 來做比較漂亮, 不過用 query string 也許有他方便的地方。</p>
+<pre><code>var t = $.template('<div id="foo">Hello ${name}, how are you ${question}?  I am ${me:substr(0,10)}</div>');
 
-<p><a href="http://codeigniter.com/user_guide/libraries/input.html">input library</a> 則是加入了 get_post() 可以用來取得 $<em>GET 跟 $</em>POST 的資料, 而我已經用了好一陣子的 get() 也終於加上了文件說明, 畢竟 CodeIgniter 設計是不用 get 來傳資料的。</p>
+$(selector).append( t , {
+   name: 'Stan',
+   question: 'feeling',
+   me: 'doing quite well myself, thank you very much!'
+});</code></pre>
 
-<p>在 helper 方面:
-增加了 <a href="http://codeigniter.com/user_guide/helpers/number_helper.html">Number helper</a>。</p>
+</div>
+  
+  
 
-<p>而 <a href="http://codeigniter.com/user_guide/helpers/form_helper.html">Form helper</a> 中的 from_input 函式, 自動加入 size 跟 maxlength 這兩個 attributes 的功能, 在這個版本也已經拿掉了。 size 拿掉是不錯, 省了每次都要去設定 size 的動作, 因為預設的size是 30 稍微長 了點, 不過我倒是覺得 maxlength 應該留著阿 ~&#8221;~</p>
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/1186">線上製作簡報 Online Keynote!?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-06-06T13:58:56+08:00" pubdate  data-updated="true" >Jun 6<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://280slides.com/"><img src="http://farm4.static.flickr.com/3099/2555652816_b7a23520de.jpg" width="500" height="376" alt="280slides" /></a>
+這真的是太屌了, 這是線上的 <a href="http://www.apple.com.tw/iwork/keynote/">Keynote</a> 阿!!!! 快去 <a href="http://280slides.com/">280Slides</a> 試看看吧! 還要說什麼嗎? 我只能說, 280Slides 的介面真的是太屌了!!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/1182">Hellotxt ! 一次同步所有的微網誌!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-06-05T22:02:11+08:00" pubdate  data-updated="true" >Jun 5<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2553151299/" title="hellotxt.jpg by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3127/2553151299_f453ec6257.jpg" width="500" height="291" alt="hellotxt.jpg" /></a>
+不管是 twitter, jaiku, pownce, plurk, fanfou 甚至是 facebook, linkedin, myspace, hi5, 都可以一次透過 <a href="http://hellotxt.com">hellotxt</a> 來發送到以上的服務, 真的是太帥了! 但是問題是&#8230;</p>
+
+<p>我是沒這個需要, 只是不曉得&#8230;.怎麼大家都想同步來同步去的? anyway, 有這個需要就到 <a href="http://hellotxt.com">hellotxt.com</a> 看看吧!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/1180">小雨傘</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-06-01T21:08:24+08:00" pubdate  data-updated="true" >Jun 1<span>st</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Rihanna 的 umbrella 這首歌真的好紅, 可是我完全聽的都是 cover 版本, 這首歌的 cover 版本在 youtube 上真的是超多的!! 小雨傘這首歌真的很適合拿來唱 Rock, 尤其~ 我超愛看龐克團作 cover !! 來看看一個來自義大利羅馬的龐克團, 叫 Vanilla sky, 我覺得翻的超好聽的! 但是&#8230; 好噁 :x 看看以下影片就知道了 XD</p>
+
+<object width="425" height="355"><param name="movie" value="http://www.youtube.com/v/TvC6VS4Np4U&hl=en"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/TvC6VS4Np4U&hl=en" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed></object>
+
+
+<p>幹! 我真的超愛龐克團作 cover 啊!!!</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/music/1180">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/1179">Mbox 2 Mini</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-05-31T00:20:53+08:00" pubdate  data-updated="true" >May 31<span>st</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2534416651/" title="Mbox 2 mini!! by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2127/2534416651_ee0e8c9206.jpg" width="500" height="375" alt="Mbox 2 mini!!" /></a>
+禮拜五晚上下班跑去 midimall 買了這一台 mbox 2 mini, 因為我原本的錄音介面(M-Audio Firewire 410)差不多掛點了, 在這個節骨眼也沒有時間去送修, 所以我就買了這一台 mbox 2 mini, 讓他陪伴我完成剩下的錄音過程。</p>
+
+<p>這台花了 $9000, 滿小一台的, 大小差不多是原本錄音介面的一半, 方便攜帶吧! 而且外型真的不錯 XD 不過由於 digidesign 除了 HD 的產品之外, 他的 driver 不支援 Mac OS X Leopard, 所以我又花了兩天的下班時間, 把系統重灌為 Tiger, 然後在把所有需要的外掛在一一裝回去。</p>
+
+<p>就快了, 加油吧!!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1178">Adobe AIR 還滿好玩的</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-05-27T00:22:57+08:00" pubdate  data-updated="true" >May 27<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2520669043/" title="MyTwitter AIR by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3176/2520669043_7dda8151d8.jpg" width="500" height="273" alt="MyTwitter AIR" /></a>
+昨天禮拜日, 瞇歌瞇到很累了, 就開始玩起 Adobe AIR, 寫了這一支用來抓 twitter 的 user_timeline, 不過這也只是測試跟練習用的, 大家都在用 twhirl 了, 更何況&#8230; twitter 都快掛了 XD</p>
+
+<p>hmm&#8230; AIR 頗適合用來作一些 API 存取應用的 :p</p>
+
+<p>來記一下一些文件的連結, 因為好難找 Orz 好不容易才又找到
+<a href="http://livedocs.adobe.com/air/1/devappshtml/help.html?content=AIR_extension_1.html">Developing Adobe® AIR™ Applications with HTML and Ajax</a>
+<a href="http://livedocs.adobe.com/air/1/jslr/index.html">Adobe® AIR™ Language Reference for HTML Developers</a>
+<a href="http://livedocs.adobe.com/air/1/devappshtml/help.html?content=File_formats_1.html#1051537">Setting AIR application properties</a></p>
 </div>
   
   

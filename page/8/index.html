@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="由於這一陣子用 app engine 寫了一些玩具跟 myaudiocast, 所以來記錄一下心得。雖然 app engine 不用錢, 似乎不用怕資料庫 scale 的問題, 可是比起一般使用關聯式資料庫來說, 開始 run 之前得更仔細規劃, 因為有些資料在寫入後就無法更動了。上面這張圖是...">
+  <meta name="description" content="由於 app engine 無法上傳大檔案, 即使使用 BlobStore 單檔最大也只能到 50MB 而已, 對於 MyAudioCast 來說, 豬小草的 Podcast 檔案幾乎都是超過 100MB, 所以看來就只能用 S3 來放檔案, 可是 app engine 的 urlfetch ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -60,324 +60,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2664">App Engine Datastore 效能心得</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-06-10T01:29:20+08:00" pubdate  data-updated="true" >Jun 10<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>由於這一陣子用 <a href="http://code.google.com/intl/zh-TW/appengine/">app engine</a> 寫了一些玩具跟 <a href="http://www.myaudiocast.com">myaudiocast</a>, 所以來記錄一下心得。雖然 app engine 不用錢, 似乎不用怕資料庫 scale 的問題, 可是比起一般使用關聯式資料庫來說, 開始 run 之前得更仔細規劃, 因為有些資料在寫入後就無法更動了。</p>
-
-<p><a href="http://tzangms.com/wp-content/uploads/2010/06/myaudiocast-model.jpg"><img class="aligncenter size-full wp-image-2669" title="myaudiocast-model" src="http://tzangms.com/wp-content/uploads/2010/06/myaudiocast-model.jpg" alt="" width="481" height="404" /></a></p>
-
-<p>上面這張圖是 <a href="http://www.myaudiocast.com">myaudiocast</a> 簡單的示意圖, 接下來就用這張圖來說一下關於  datastore 使用上的心得</p>
-
-<h2>單筆資料 ( one-to-one )</h2>
-
-
-<p>像是 User 對 Podcast 在我的規劃上是 one-to-one, 所以如果是 one-to-one 這類的資料就給定 key_name, 直接用 key_name 來抓單筆資料, 而不是先用 filter 之後在用  get 來取得單筆資料。 因為用 appstats 就發現後面這個方法常常是花最多時間的, 然而因為之前的資料都沒給 key_name 現在也來不及了 &#8230;</p>
-
-<h2>多筆資料 ( one-to-many, many-to-many )</h2>
-
-
-<p>像是 Episode 這類 one-to-many, 會有多筆的資料, 沒事就不用給 key_name 了, 因為通常都是透過 filter 來取出多筆資料, 所以只需要寫入時指定 parent, 讓 user 的 episodes 可以成為一個 entity group, 這樣抓取資料比較快。</p>
-
-<h2>盡量使用 memcache</h2>
-
-
-<p>datastore 其實並沒有很快, 甚至 model api 沒有 query cache, 而 memcache 的 quota 其實滿大的, 所以要盡量用 memcache。</p>
-
-<h2>避免在 template 透過關連取資料</h2>
-
-
-<p>像是 podcast 跟 episodes 都可以透過關連, 像是 user.podcast 跟 user.episodes 來取得資料, 所以因為寫 django 的經驗, 我可能就直接丟 user 變數進 template, 然後都用 user.podcast, 跟 user.episodes 來取得資料, 可是這在 app engine 則是要避免的, 因為 app engine 的 model 並沒有 query cache, 所以可能會像下面這樣的作法, 就會對 podcast 做兩次 query。</p>
-
-<pre><code>
-</code></pre>
-
-
-<p>所以得一開始就把 user 跟 podcast 丟進 template, 直接取得資料而不是透過物件關連。</p>
-
-<p>不過有時候就是一定得透過關連來做, 那麼就請使用  django 1.0 以上的 template, 透過 <a href="http://docs.djangoproject.com/en/dev/ref/templates/builtins/#with">with</a> 這個 template tag 來避免多次 query, 或者是在 model 新增一個 property 然後用 memcache 來解決, 像是我的作法</p>
-
-<pre><code>class User(db.Model):
-    ...
-
-    @property
-    def podcast(self):
-        cache_key = 'user-podcast-%s' % self.key()
-        p = memcache.get(cache_key)
-        if not p:
-            p = self.podcasts.ancestor(self).get()
-            memcache.add(cache_key, p)
-
-        return p</code></pre>
-
-
-<p>先前說過, 以前不懂忘記給 key_name, 現在只能這樣 query 了, 頂多加上個 ancestor (默)</p>
-
-<h2>結論</h2>
-
-
-<p>datastore 雖然不太需要擔心 scale 的問題, 可是在 run 之前卻得更仔細規劃, 否則效能低落, 花的只是更多錢阿 XD 而 memcache 則是一定得用, 否則跑起來的確是不夠快。</p>
-
-<p>大概是這樣, 希望沒有哪裡有寫錯的, 如果有的話, 也請多多留言指指教, 謝謝 :p</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/computer/2666">Graffletopia - Omni Graffle 模版庫</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-06-07T23:23:34+08:00" pubdate  data-updated="true" >Jun 7<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>前一陣子因為要畫 deployment 的示意圖放在 wiki 給同事看, 所以用了 Mac 上的 <a href="http://www.omnigroup.com/products/omnigraffle/">Omni graffle</a> 來畫, 真的是滿好用的。 今天要畫 App engine 的 model, 就在 <a href="http://graffletopia.com/">Graffletopia</a> 找到了 Django model 的 stencils, 畫出來也很讚, 像是下面這樣。</p>
-
-<p><a href="http://tzangms.com/wp-content/uploads/2010/06/myaudiocast-model2.jpg"><img src="http://tzangms.com/wp-content/uploads/2010/06/myaudiocast-model2.jpg" alt="" title="myaudiocast-model" width="481" height="404" class="aligncenter size-full wp-image-2668" /></a></p>
-
-<p>以上是 <a href="http://www.myaudiocast.com/">myaudiocast</a> 簡化過的 model, 畫出來真的看起來真不錯 :D <a href="http://graffletopia.com/">Graffletopia</a> 上面還有很多 stencils 可以用, 像是 UI 、iPhone Server 相關跟 Mac &#8230; 等, 可以去翻看看。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2660">App Engine 效能檢測</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-06-07T21:37:53+08:00" pubdate  data-updated="true" >Jun 7<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>先前 <a href="http://code.google.com/intl/zh-TW/appengine/">app engine</a> 推出了 <a href="http://code.google.com/intl/zh-TW/appengine/docs/python/tools/appstats.html">appstats</a>, 一整個做的超好, 而且很簡單! 很容易就知道那邊吃掉比較多資源。</p>
-
-<p>按照<a href="http://code.google.com/intl/zh-TW/appengine/docs/python/tools/appstats.html">文件</a>把 appstats 裝好 run 起來後, 就可以在 app engine 後台的 log 上看到 appstats 添加的 link, 如下圖反白的網址
-<a href="http://tzangms.com/wp-content/uploads/2010/06/appstats-log.jpg"><img src="http://tzangms.com/wp-content/uploads/2010/06/appstats-log-500x364.jpg" alt="" title="appstats-log" width="500" height="364" class="aligncenter size-large wp-image-2663" /></a></p>
-
-<p>連過去這個網址就可以看到下面這個 bar chart
-<a href="http://tzangms.com/wp-content/uploads/2010/06/appstats-graph.jpg"><img src="http://tzangms.com/wp-content/uploads/2010/06/appstats-graph-500x288.jpg" alt="" title="appstats-graph" width="500" height="288" class="aligncenter size-large wp-image-2662" /></a></p>
-
-<p>在 bar chart 上點選一個比較長的  bar 就可以看到下圖, appstats 幫你把吃掉比較多資源的 code 給標出來
-<a href="http://tzangms.com/wp-content/uploads/2010/06/appstats-code.jpg"><img src="http://tzangms.com/wp-content/uploads/2010/06/appstats-code-499x436.jpg" alt="" title="appstats-code" width="499" height="436" class="aligncenter size-large wp-image-2661" /></a></p>
-
-<p>超方便的! 真的很容易找出程式慢在哪。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/2656">MyAudioCast 新版型</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-05-30T20:28:04+08:00" pubdate  data-updated="true" >May 30<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://tzangms.com/wp-content/uploads/2010/05/MyAudioCast-輕鬆建立你自己的-Podcast.png"><img src="http://tzangms.com/wp-content/uploads/2010/05/MyAudioCast-輕鬆建立你自己的-Podcast-411x500.png" alt="" title="MyAudioCast - 輕鬆建立你自己的 Podcast!" width="411" height="500" class="aligncenter size-large wp-image-2655" /></a></p>
-
-<p>這兩天都在改 <a href="http://www.myaudiocast.com/">MyAudioCast</a> 的版型跟一些 code, 現在這樣看起來好多了 :D</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/2653">Koumis 蓓麗 - 誰 MV</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-05-29T13:56:41+08:00" pubdate  data-updated="true" >May 29<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><object width="560" height="340"><param name="movie" value="http://www.youtube.com/v/pEQIJlWdcJM&hl=zh_TW&fs=1&rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/pEQIJlWdcJM&hl=zh_TW&fs=1&rel=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="560" height="340"></embed></object>
-
-
-<p>聽了~ 就哭了~</p>
-
-<p>stephenlee 的和聲超棒! 另外我一直想翻唱這一首, 可惜我的 vocal 不適合這麼輕柔的歌曲 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2646">簡易的 App Engine 全文檢索</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-05-24T15:39:53+08:00" pubdate  data-updated="true" >May 24<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>之前在弄 app engine 的全文檢索, 在官方文件都沒找到, 不過<a href="http://weblog.xeonchen.org/">小 x 大大</a>指點小弟我說有 SearchableModel 可以用, 才去翻了一下 app engine sdk 的 svn 找到 <a href="http://code.google.com/p/googleappengine/source/browse/trunk/python/google/appengine/ext/search/__init__.py">search 的這個 module</a>, 只是實際試用一下, 這個功能沒支援中文, 它似乎只會把空格切開, 所以對於中文來說, 基本上就是無法使用, 用下面這個訊息舉例:</p>
-
-<blockquote>前幾天在弄 app engine 的全文檢索</blockquote>
-
-
-<p>這句的全文檢索資料會存成下面這樣的一個 List</p>
-
-<blockquote>[&#8216;前幾天在弄&#8217;, &#8216;app&#8217;, &#8216;engine&#8217;, &#8216;的全文檢索&#8217;]</blockquote>
-
-
-<p>除了 &#8220;app&#8221; 跟 &#8220;engine&#8221; 可以搜尋到之外, 就只能用 &#8220;前幾天在弄&#8221; 跟 &#8220;的全文檢索&#8221; 這幾個詞可以搜尋到這則訊息, 所以只好捨棄了 SearchableModel 自己來做, 不過因為不熟 app engine, 所以沒有跟 model 做一個很好的整合, 嗯, 是根本沒有 XD 總之就是記錄一下自己的作法, 跟碰到效能的問題。</p>
-
-<p>由於 app engine 的 model 可以直接用 list 來 filter 出結果, 像是:</p>
-
-<pre><code>keywords = ['少女', '時代']
-Message.all().filter('keywords IN', keywords)</code></pre>
-
-
-<p>所以在建立 Message model 時, 就定個叫 keywords 的 StringListProperty, 把我們切好的字都存進去, 之後便可以透過上面的方法來搜尋。</p>
-
-<p>而切字的作法是基本上跟 SearchableModel 的做法一樣, 先用空白切, 這樣就可以切開有正常空格的英文字, 但是得仍常會看到英文跟中文黏在一起的狀況,  像是:</p>
-
-<blockquote>測試twitter備份功能</blockquote>
-
-
-<p>相上面這種狀況這也得另外處理, 然後把中文相鄰的兩個字, 一組一組切開, 像是:</p>
-
-<blockquote>[&#8216;測試&#8217;, &#8216;twitter&#8217;, &#8216;備份&#8217;, &#8216;份功&#8217;, &#8216;功能&#8217;]</blockquote>
-
-
-<p>其實原本我是切一個字跟兩個字, 不過因為 StringListProperty 在存入大量的 List 的時候, 會吃掉許多效能, 在 app engine dashboard 會一直看到紅字, 透過 <a href="http://tzangms.com/programming/2606">appstats</a> 就一直看到是在寫入 keywords 得部分吃掉最多 cpu time, 所以後來就只切兩個字, 減少 List 的長度。</p>
-
-<p>反正基本上不允許搜尋一個字的就是了, 不過都只切成兩個字的話, 使用者搜尋的時候就不能打三個字或四個字來進行搜尋, 這時候就得把搜尋的字串也切一下, 例如上面這一句的狀況, 使用者可能會輸入 &#8220;備份功能&#8221;, 這時候用同一個切字功能切成下面這樣就完全 match 了 XD</p>
-
-<blockquote>[&#8216;備份&#8217;, &#8216;份功&#8217;, &#8216;功能&#8217;]</blockquote>
-
-
-<p>總之就變成使用者一定得輸入兩個字以上才能進行搜尋。 anyway 這樣一來就可以做個簡易的全文檢索了 ~ 當然 keywords 得給個 index 囉。</p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -644,6 +326,253 @@ local_time = created_at + user_timezone.utcoffset(created_at)</code></pre>
 
 <p>times ago
 <a href="http://tzangms.com/wp-content/uploads/2010/05/螢幕快照-2010-05-05-上午1.09.11.png"><img src="http://tzangms.com/wp-content/uploads/2010/05/螢幕快照-2010-05-05-上午1.09.11-500x266.png" alt="" title="螢幕快照 2010-05-05 上午1.09.11" width="500" height="266" class="aligncenter size-large wp-image-2639" /></a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2632">寫新玩具: 推特 / 噗浪備份</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-05-03T00:31:55+08:00" pubdate  data-updated="true" >May 3<span>rd</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://tzangms.com/wp-content/uploads/2010/05/螢幕快照-2010-05-03-上午12.19.18.png"><img src="http://tzangms.com/wp-content/uploads/2010/05/螢幕快照-2010-05-03-上午12.19.18-500x379.png" alt="" title="螢幕快照 2010-05-03 上午12.19.18" width="500" height="379" class="aligncenter size-large wp-image-2635" /></a></p>
+
+<p>這個禮拜日除了吃飯之外的時間都在弄這個, 因為想把自己的&#8221;推&#8221;都備份下來, 想說還可以弄成像日曆之類的, 不過 UI 還沒完成就是了, 目前看起來大概上面這樣。</p>
+
+<p>這次在 <a href="http://code.google.com/intl/zh-TW/appengine/">App Engine</a> 加上 <a href="http://code.google.com/p/google-app-engine-django/">Google App Engine Helper for Django</a> 來寫, 找了個 <a href="http://github.com/mikeknapp/AppEngine-OAuth-Library">app engine oauth library</a>, 稍微改一下, twitter 的部份一下子就弄好了。 時間稍微多花了一點在 plurk 上, 因為沒找到 plurk 在 app engine 的 library 可以用, 只好自己刻一個, 不過主要是在搞清楚回傳的資料, 跟建 model 時多花了一些時間。</p>
+
+<p>hmm~ 還是要有玩具, 可以用來忘記公司的一些煩人事情。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/2631">Switch</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-04-29T11:20:31+08:00" pubdate  data-updated="true" >Apr 29<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://tzangms.com/wp-content/uploads/2010/04/IMG_0118.jpg"><img src="http://tzangms.com/wp-content/uploads/2010/04/IMG_0118-375x500.jpg" alt="" title="IMG_0118" width="375" height="500" class="aligncenter size-large wp-image-2630" /></a></p>
+
+<p>上一本 linchpin 其實還沒看完, 因為 linchpin 這本書的用字遣詞稍微艱深了一些些, 至少對照我以往的讀物來說, 是這樣沒錯。 不過稍微翻了一下昨天拿到的這本 switch, 讀起來感覺就舒服多了 XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/2627">Linchpin: Are You Indispensable?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-04-20T21:57:51+08:00" pubdate  data-updated="true" >Apr 20<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://tzangms.com/wp-content/uploads/2010/04/IMG_00531.jpg"><img src="http://tzangms.com/wp-content/uploads/2010/04/IMG_00531-375x500.jpg" alt="" title="IMG_0053" width="375" height="500" class="aligncenter size-large wp-image-2628" /></a></p>
+
+<p>Rework 讀完了, 接下來讀這本, 最近想要先離開程式設計相關的書籍。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/2623">Rework</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-04-16T20:45:37+08:00" pubdate  data-updated="true" >Apr 16<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://tzangms.com/wp-content/uploads/2010/04/IMG_0017.jpg"><img src="http://tzangms.com/wp-content/uploads/2010/04/IMG_0017-375x500.jpg" alt="" title="IMG_0017" width="375" height="500" class="aligncenter size-large wp-image-2624" /></a>
+今天到了, 居然是 hardback :D</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/2621">Vimium</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-04-16T12:51:34+08:00" pubdate  data-updated="true" >Apr 16<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://vimium.github.com/">vimium</a> 真的是超讚的!! 早上看到 <a href="http://jas9.blogspot.com/2010/04/vimiumchromeflash.html">jas 的新文章</a> 後, 今天到公司就從 safari 換到 chrome, 用 vim 的指令來瀏覽網頁, 對於平常都用 vim 來工作的我來說, 一整個大開心! 之前就一直想要擺脫滑鼠, 因為用滑鼠讓右手跟右肩很不舒服, 而且現在手都不用離開鍵盤, 真的是很讚!  用了一會, 現在大部分的動作都不用滑鼠, 而且本來就很習慣 vim, 現在一整個順, 哈哈哈哈!!</p>
+
+<p>不過現在因為 web 2.0 有些動作會是滑鼠 hover 才會出現, 或者部分 ajax 動作不是透過 form button 或 anchor, 所以有些動作就還是得透過滑鼠。 像是 google reader, 就得先透過滑鼠來進行點擊後才能用 hjkl 來切換文章。</p>
+
+<p>不過碰到可惡的 flash, 點了之後會把 focus 搶走, 用 tab 也切不出來 &#8230; 所以 vimium 也會失效 &#8230;</p>
+
+<p>Anyway, 現在還算滿 high 的 (笑)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2619">Twitter Anywhere 試玩</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-04-15T18:33:11+08:00" pubdate  data-updated="true" >Apr 15<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天玩了一下 <a href="http://dev.twitter.com/anywhere/">twitter anywhere</a>, 只要照著<a href="http://dev.twitter.com/anywhere/begin">文件</a> 加個幾行 javascript, 很容易就可以弄出來了。</p>
+
+<p>目前有下面幾個功能</p>
+
+<ol>
+    <li>Linkify</li>
+    <li>Hovercards</li>
+    <li>Follow Buttons</li>
+    <li>Tweetbox</li>
+    <li>Connect</li>
+</ol>
+
+
+<p>Linkify 跟 Hovercards 的功能差不多, Linkify 就是自動幫你把 @ 加 twitter 帳號的字串, 自動加上連結。 而 Hovercards 基本上就是 Linkify 不過加上了當 mouseover 的時候, 會 popup 一個 twitter 的 user info 的功能。</p>
+
+<p>例如:</p>
+
+<p>@tzangms 或 @stickeraction 甚至是 @myaudiocast XD</p>
+
+<p>至於 Follow Buttons, 可以看到我部落格左邊的 button, 可以直接讓人家按下去 follow。 至於 Tweetbox 我就沒試了, 倒是 Connect, 幹, 文件根本就寫錯嘛!!! 目前是可以 connect, 可是 connect 之後卻取不到 user 的資訊, 就等文件更新了 &#8230; anyway, 大概是這樣。</p>
+
+<p>不過大家還是可以先按下面的按鈕, 先跟我的 blog connect 一下 XD</p>
+
+<div id="twitter-connect-button"></div>
+
+
+
 </div>
   
   

@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="嗯, 前天在用 jQuery 的 next() 來抓取 HTML element, 網頁範例如下, 就是說~ 會有很多個 li, 然後每個 li 之後都會跟著一個 div 。我想要做的事情是, 當網頁載入時, 所有 class 為 foo_text 的 div 都會先隱藏的, 當按下某個 li...">
+  <meta name="description" content="這裡是針對單一個 SVN  repository 作備份, 可以匯出成單一個檔案, 不過如果你 SVN 是用 FSFS 當作儲存後端的話, 應該是可以目錄整個 tar 起來備份的。用 Berkeley DB 的話, 應該就沒辦法這樣做。(阿災, 沒用過 Berkeley DB, collabN...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/984">關於 jQuery 的 Next()</a></h1>
+      <h1 class="entry-title"><a href="/programming/946">關於 SVN 的備份</a></h1>
     
     
       <p class="meta">
@@ -80,22 +80,127 @@
 
 
 
-<time datetime="2007-10-06T09:44:27+08:00" pubdate  data-updated="true" >Oct 6<span>th</span>, 2007</time>
+<time datetime="2007-08-30T10:38:14+08:00" pubdate  data-updated="true" >Aug 30<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>嗯, 前天在用 <a href="http://jquery.com">jQuery</a> 的 next() 來抓取 HTML element, 網頁範例如下, 就是說~ 會有很多個 li, 然後每個 li 之後都會跟著一個 div 。我想要做的事情是, 當網頁載入時, 所有 class 為 foo_text 的 div 都會先隱藏的, 當按下某個 li 後, 接在這個 li 之後的 div 才會顯示出來。</p>
+  <div class="entry-content"><p>這裡是針對單一個 SVN  repository 作備份, 可以匯出成單一個檔案, 不過如果你 SVN 是用 FSFS 當作儲存後端的話, 應該是可以目錄整個 tar 起來備份的。用 Berkeley DB 的話, 應該就沒辦法這樣做。(阿災, 沒用過 Berkeley DB, collabNet 也建議用 FSFS)</p>
 
-<p>來解釋一下好了, 就當作是 li 是標題, 接在後面的 div 則是他的內文, 一開始只有標題, 當按了某個標題之後, 這個標題的內文才會顯示出來。而每個標題跟內文都是由別的程式所產生的, 所以沒有辦法加上特別的 id 或是 class, 所以只能將標題跟內文分別給不同的 class 來做判別, 所以只好用 next 來抓取物件, 當時第一次用 next, 不過看著 <a href="http://visualjquery.com/">visual jquery</a>, 一下子就寫好了如下的程式碼。</p>
+<p>備份指令如下:</p>
+
+<blockquote>
+svnadmin dump foobar &gt; foobar.dump
+</blockquote>
+
+
+<p>還原指令如下:</p>
+
+<blockquote>
+svnadmin load foobar &lt; fooar.dump
+</blockquote>
+
+
+<p>例如我的 svn repository 是放在 /var/svn, 然後有個 project 叫做 stickeraction
+那麼我要 dump 就是下這個指令</p>
+
+<pre><code>svnadmin dump /var/svn/stickeraction > stickeraction.svndump</code></pre>
+
+
+<p>那要還原的話就是</p>
+
+<pre><code>svnadmin load /var/svn/stickeraction < stickeraction.svndump</code></pre>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/945">好忙! 來點靈感吧!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-08-29T00:54:57+08:00" pubdate  data-updated="true" >Aug 29<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>最近真的是太忙了, 每天回家就是在 K 這本「<a href='http://www.pragmaticprogrammer.com/titles/svn/'>Pragmatic Version Control Using Subversion, 2nd Edition</a>」, 本來是想用來管理自己的程式碼, 才在公司架 SVN 來用。</p>
+
+<p>而最近在帶公司新進來的 Programmer, ken, 要檢視他的 code, 幫忙更新, 雖然幸好有 SVN, 幫上我很多忙, 可以很方便的就知道 ken 改了哪些程式碼, 看完 ok, 就把程式碼 commit 到 SVN, 接著更新到線上的機器, 但是慢慢發現不強迫 ken 也用 SVN 不行了, 當他修了 2~3 個 bug 都沒有 commit changes 的時候, 我就沒辦法知道哪些 code 是修同一支 bug, 更何況我有時候也要修同一個 project 的 bug, 所以在同一個 working copy 下改 code 就會很麻煩。所以教他用 SVN, 建立一些規則, 這樣之後程式碼的管理及更新就方便多了, 當然最好是可以弄到 auto deployment。</p>
+
+<p>Anyway, 以前只有一個 programmer 在 maintain 一個 project 的時候, 就不會有什麼問題, 但是公司的 programmer 越來越多了! 最近公司多了一位顧問, 然後 10 月又會來一位新的 Programmer, 所以我就意識到, 媽的! 先不 K Ruby 了, 開始每天下班回家猛 K SVN!! 甚至這幾天我連上班都在 K。 目前除了手上的 Project 要弄, 每個禮拜都要開會, 然後要帶新人, 檢查他的 Code、更新, 然而這禮拜又加上值班, 還有一些零星的 request, 其實真的是有點喘不過氣。 (好吧! 帶新人只是個過度期&#8230;.)</p>
+
+<p>阿!! 我也不算舊人阿!! Orz</p>
+
+<p>所以最近 twitter 少 mur 了許多, blog 也沒時間寫, msn 每天掛忙碌或離線, 昨天才抽空彈一下吉他, 錄下點靈感, 呵, 不過聽起來應該跟亂唱沒啥兩樣, 其實還有錄另一首, 不過這首比較可以放上來 :p 只是&#8230;.副歌唱一半&#8230;.聽起來應該會很難過 XD 哈哈哈, 沒辦法&#8230;好忙阿 Orz</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/943">部落格有名字囉! 「Oceanic | 人生海海」</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-08-22T23:19:51+08:00" pubdate  data-updated="true" >Aug 22<span>nd</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>我的部落格終於有名字了! 話說起因是昨天在 twitter 上, 跟某位跟我一樣玩 Linux、寫程式的音樂製作人 - 阿怪說到 VCS (版本控制系統) 的東西。 一開始我是在 twitter 上說, 該來好好研究 SVN, 不然程式設計師一多, 程式會很難維護。</p>
+
+<p>阿怪看到就回我說:「水銀!!」噗, 我完全搞不清楚狀況, 原來阿怪說的是 <a href="http://selenic.com/mercurial">mercurial</a> 這個東西, 跟 SVN 類似也是一個 VCS。接著我就又提到, 先前 linus 不是才搞一個 <a href="http://git.or.cz/">git</a> ? 媽的! 先前才為了在 PHP 上面選用那一套 framework 才煩惱好一陣子, 選錯的話, 有時候可能會一失足成千古恨阿! XD</p>
+
+<p>然而當選定了我想要用的 PHP framework, 現在又有 VCS 要選嗎? 後來 google 了一下, 這些 VCS 在用途上似乎稍有不同? 阿災, 還沒時間去研究。</p>
+
+<p>Anyway, 總之在當時我就整個感覺很悶, 有種想吐的感覺 (這是稍微誇大了一點啦 XD), 難道我得了資訊焦慮症? 因為不光是 framework 和 VCS, 還有每天都要讀上的大量 RSS feeds 阿!</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/programming/984">Read on &rarr;</a>
+      <a rel="full-article" href="/blog/943">Read on &rarr;</a>
     </footer>
   
 
@@ -107,7 +212,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/music/982">中秋練團</a></h1>
+      <h1 class="entry-title"><a href="/programming/939">Zend Framework 初探</a></h1>
     
     
       <p class="meta">
@@ -121,21 +226,32 @@
 
 
 
-<time datetime="2007-10-03T00:29:56+08:00" pubdate  data-updated="true" >Oct 3<span>rd</span>, 2007</time>
+<time datetime="2007-08-21T15:50:39+08:00" pubdate  data-updated="true" >Aug 21<span>st</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/1468162143/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1161/1468162143_a3f502364a.jpg" width="500" height="333" alt="H2O" /></a>
-玩團多辛苦, 還要一直跳, 都是為了拍照 XD 另外我也搞不懂其他兩個人的姿勢怎麼那麼的不同凡響 XD 不過真正好笑的是宜豐, 也就是幫我拍宣傳照的攝影師, 他拍了幾張相片真的是太屌了 XD</p>
+  <div class="entry-content"><p>因為上週末我掰咖了, 所以都在房間裡看書, 看電影。我把 iWoz 這本書看完了, 也看了門徒, 看了 Linda Linda Linda, 然後一整天都在吃泡麵 XD 也玩了一下 <a href="http://framework.zend.com/">Zend Framework</a>(以下簡稱 ZF), 試用一下可不可以單獨拿 ZF 其中的元件來用, 因為 ZF 的文件看起來好像可以這麼做。</p>
+
+<p>在開始之前, 由於 ZF 只能在 PHP5 上面跑, 而我的 Mac OS X 預設的環境是 Apache 1.3 + PHP4, 所以我找到了<a href="http://www.entropy.ch/software/macosx/php/">這裡</a>, 可以下載包好給 Mac 用的 PHP5 binary 套件, 很方便! 裝完只要 restart apache 就好了!</p>
+
+<p>OK! 首先先<a href="http://framework.zend.com/download">下載 Zend framework</a>, 然後我是解開放到</p>
+
+<p><code> /usr/local/php5/lib/php/Zend</code></p>
+
+<p>接著設定 php.ini 的 include_path, 加入 /usr/local/php5/lib/php/Zend/library, 變成</p>
+
+<p><code>include_path = ".:/usr/local/php5/lib/php/Zend/library" </code></p>
+
+<p>接著參照 ZF 的文件, 試一下 Zend_Service_Delicious 這個元件, 寫一小段程式如下, 哈! 馬上就可以列出我在 del.icio.us 裡的書簽 title, 真方便!</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/music/982">Read on &rarr;</a>
+      <a rel="full-article" href="/programming/939">Read on &rarr;</a>
     </footer>
   
 
@@ -147,7 +263,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/980">Bash Fetch Cron Job</a></h1>
+      <h1 class="entry-title"><a href="/blog/941">搬家成功!!</a></h1>
     
     
       <p class="meta">
@@ -161,249 +277,26 @@
 
 
 
-<time datetime="2007-10-02T10:46:51+08:00" pubdate  data-updated="true" >Oct 2<span>nd</span>, 2007</time>
+<time datetime="2007-08-21T01:12:29+08:00" pubdate  data-updated="true" >Aug 21<span>st</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>如果網站上有某個區塊的頁面是去讀另一台機器產生出來的檔案的時候, 似乎通常會抓一份回來, 然後直接 include 進來, 而不是 include 遠端的頁面, 所以似乎都會寫一份 bash 然後用 cron 來跑, 用 curl 把檔案抓回來放。</p>
+  <div class="entry-content"><p>由於這個週末整個掰咖, 我只能在家裡打電腦、上網, 不是打開 bloglines 看看, 就是 twitter, 當然自己的 blog 也要看看, 但是自己的 blog 越看就越生氣, 整個慢到不行, 想想剛開始用 bluehost 的時候還滿快的, 當初也很滿意 bluehost 的速度, 怎麼感覺越來越慢了, 我的天阿!!</p>
 
-<p>先前看人家再寫這種東西的時候, 都沒有用迴圈再跑, 所以剛才寫了一下 bash, 用 array 來放要抓取的檔案連結, 然後用 for 迴圈來跑, 再用 curl 來抓東西回來。</p>
+<p>查一下自己的 bluehost 還剩兩百多天可以用, 但是 blog 載入到一半就掛了的這種速度, 我實在是沒辦法繼續用下去, 所以心裡就想說:「媽的! 一定要搬家!」</p>
 
-<p>嗯, 剛剛才知道 bash 的 array 怎麼用 XD</p>
+<p>所以一開始我就先把 h2oband.net 這個 domain 先 transfer 到 <a href="http://godaddy.com">GoDaddy.com</a>, 先來試看看, 反正之後要搬到那裡, 直接指過去就好了, 另一個原因是因為&#8230; bluehost 的 domain 管理真的很陽春, 只能指 name server, 沒辦法設 CNAME, MX 之類的東西 (也許是我沒發現 XD), 所以我就先把 h2oband.net 這個目前沒在用的 domain 先 transfer 到 GoDaddy 試看看, 沒想到~ 居然發現 GoDaddy 有在賣 hosting!!</p>
 
-<p>只是&#8230; 寫成下面這樣, 跟直接一行一行寫&#8230; 似乎也沒啥差別 XD</p>
-
-<pre><code>#!/bin/bash
-export path=$path:/usr/bin
-
-FETCH_PATH="/usr/local/apache2/htdocs/fetched"
-
-fetch[0]='http://tzangms.com/foo/bash.html'
-fetch[1]='http://tzangms.com/foo/php.html'
-fetch[2]='http://tzangms.com/foo/ruby.html'
-fetch[3]='http://tzangms.com/foo/java.html'
-
-cd $FETCH_PATH
-
-for element in $(seq 0 $((${#fetch[@]} - 1)))
-do
-    curl -f -O -o $FETCH_PATH ${fetch[element]}
-done
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/codeigniter/978">CodeIgniter Textmate Bundle</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-10-02T00:10:51+08:00" pubdate  data-updated="true" >Oct 2<span>nd</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.sellersrank.com/codeigniter-textmate-bundle-download/">CodeIgniter Textmate Bundle</a>, 前幾天在把 tzangms.com CI 化, 用 Textmate 來寫, 想說 ci bundle 真好用! 然後就順手又找了一下有沒有更新, 真的有勒!! 多了好多方便的東西阿!!!</p>
-
-<p>有用 Mac + Textmate + CodeIgniter 就一定要裝這個 ci bundle 阿!~</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/975">Oceanic 桌布</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-09-30T00:49:48+08:00" pubdate  data-updated="true" >Sep 30<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="http://farm2.static.flickr.com/1326/1443822972_092853c3e1_o.jpg" width="500" height="313" alt="oceanic wallpaper logo" /></p>
-
-<p>Oceanic 桌布，按右鍵下載 <a href='[download#2#url]'>1440x900</a> | <a href='[download#3#url]'>1280x1024</a>  | <a href='[download#4#url]'>1024x768</a></p>
-
-<p>上禮拜拍了一些照片, 因為覺得這一張很適合當桌布, 就順手做了一下。 其實就是調一下色調, 寫上幾個字, 然後裁成不同大小而已。1024x768 跟 1280x1024 應該是最多人用的螢幕解析度, 1440x900 則是我自己螢幕的解析度, 適合寬螢幕, 看起來也比較有 fu。</p>
-
-<p>哈, 公司已經有幾位同事的電腦慘遭我的毒手, 他們的桌布被我換成這張了 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/979">Apache Rewrite Rules for CodeIgniter</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-09-29T10:17:38+08:00" pubdate  data-updated="true" >Sep 29<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>CodeIgniter 本來的網址看起來像是這樣</p>
-
-<blockquote>http://tzangms.com/index.php/profile/edit</blockquote>
-
-
-<p>不過可以用 mod_rewrite 改寫成這樣</p>
-
-<blockquote>http://tzangms.com/profile/edit</blockquote>
-
-
-<p>一開始在用 CodeIgniter 的時候為了要把網址弄漂亮一點, 在 mod_rewrite 上搞了很久, 雖然 CodeIgniter 的 document 寫的很棒! 但是 <a href="http://codeigniter.com/user_guide/general/urls.html">CodeIgniter URLs</a> 這一篇裡面寫到關於 mod_rewrite 的部份就只有一點點。</p>
-
-<p>為了要將 tzangms.com CI 化, 就免不了要再處理一次 mod_rewrite, 只是這次是在 godaddy 租的主機, 所以只能寫 .htaccess 了, 在處理上一篇的 <a href="http://tzangms.com/?p=977">No input file specified. 的問題</a> 時, 看到了 CodeIgniter wiki 上的 <a href="http://codeigniter.com/wiki/mod_rewrite/">mod_rewrite</a> 章節, 這篇寫的很完整阿!!!</p>
-
-<p>所以直接! 第一個步驟, htaccess 內容如下, done!</p>
-
-<pre>
-<code>&lt;IfModule mod_rewrite.c&gt;
-    RewriteEngine On
-    RewriteBase /
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ index.php/$1 [L]
-&lt;/IfModule&gt;
-
-&lt;IfModule !mod_rewrite.c&gt;
-    ErrorDocument 404 /index.php
-&lt;/IfModule&gt;</code>
-</pre>
-
-
-<p>第二個步驟, 接著修改</p>
-
-<blockquote>system/application/config/config.php </blockquote>
-
-
-<p>找到下面這一行</p>
-
-<pre><code>$config['index_page'] = "index.php"; </code></pre>
-
-
-<p>改成</p>
-
-<pre><code>$config['index_page'] = ""; </code></pre>
-
-
-<p>沒錯, 這樣就樣就解決了阿!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/977">[CodeIgniter] No Input File Specified.</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-09-28T23:00:23+08:00" pubdate  data-updated="true" >Sep 28<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天在將 tzangms.com CI 化的時候碰到了個問題, 就是一直出現下面這一行訊息</p>
-
-<blockquote>No input file specified.</blockquote>
-
-
-<p>第一次碰到這個, 完全沒頭緒! 原本以為是因為 mod_rewrite 沒設定好的關係, 所以才出現這個訊息。之後我找了好多 mod_rewrite 相關的資料, 還是沒辦法解決問題, 一邊修改設定, 一邊測試下面這個網址, 仍然還是一樣顯示 No input file specified.</p>
-
-<blockquote>http://tzangms.com/main</blockquote>
-
-
-<p>後來才發現我取消 mod_rewrite, 直接打下面這段網址也是出現相同的錯誤訊息。</p>
-
-<blockquote>http://tzangms.com/index.php/main</blockquote>
-
-
-<p>這時候才知道, 原來 mod_rewrite 沒設錯阿!! mod_rewrite 一直正確的運作著, 所以上面這兩個網址是一直指到同一個地方, 所以我才一直看到相同的訊息, 這才恍然大悟! main 一直有正確的 rewrite 成 index.php/main 阿!</p>
+<p>在處理 h2oband.net 的 domain transfer 的時候, 感覺 GoDaddy 的速度感覺還滿快的, 相對的, bluehost 就一整個慢到爆! 就想說先在 GoDaddy 買個一個月玩玩看好了, 結果~ 馬上就花了 $6.99 美金, 噗~</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/programming/977">Read on &rarr;</a>
+      <a rel="full-article" href="/blog/941">Read on &rarr;</a>
     </footer>
   
 
@@ -415,7 +308,7 @@ done
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/976">最近要來做的事</a></h1>
+      <h1 class="entry-title"><a href="/life/938">聖帕摔車記錄</a></h1>
     
     
       <p class="meta">
@@ -429,30 +322,22 @@ done
 
 
 
-<time datetime="2007-09-28T01:49:58+08:00" pubdate  data-updated="true" >Sep 28<span>th</span>, 2007</time>
+<time datetime="2007-08-17T23:45:19+08:00" pubdate  data-updated="true" >Aug 17<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>最近開始在把以前的錄好的歌重新 mix, 有些部份也許要重錄, 也一邊在研究所謂的 mastering。找了一些關於 mastering 的資訊, 最後裝了 <a href="http://www.izotope.com/products/audio/ozone/">iZotope Ozone 3</a> 來作 mastering 的動作, 只是還有很多關於 mix down 跟 mastering 東西不了解, 所以一邊在研讀相關的資料。希望可以把錄好的歌曲調的好聽一些。</p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/1149766914/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1321/1149766914_45863504d6.jpg" width="375" height="500" alt="100_2631.JPG" /></a><br />
+今天摔車了!!&#8230;</p>
 
-<p>然後要開始準備進錄音室的前置工作, 先把工作帶(卡拉帶?)做出來, 先去錄看看 Vocal 的部份。接著要做 flash mp3 player (widget), 讓人家可以放在他們的 blog 上 XD</p>
-
-<p>之後還要再拍一些宣傳照 XD 然後拿來做封面、內頁, 這就要跟我們家西瓜哥借他的新相機了, 一台 8 萬塊, 加鏡頭跟一些有的沒的, 好像 12 萬勒&#8230;.</p>
-
-<p>做 wallpaper 宣傳用 XD (已經做好了)</p>
-
-<p> &#8212;&#8212;&#8212; 天馬行空分隔線 &#8212;&#8212;&#8212;&#8211;</p>
-
-<p>再來就是拍 MV, 要先想劇情, 畫分鏡&#8230;. 然後在學一下 FinalCut Studio 這種東西</p>
-
-<p>最後談通路, 把唱片放到玫瑰、大眾、誠品、佳佳, 還要有博客來網路書店 XD</p>
-
-<p>然後希望一個人可以把上面說的這些事情可以在三個月內弄完 XD</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/life/938">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -463,7 +348,7 @@ done
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/973">宣傳照?</a></h1>
+      <h1 class="entry-title"><a href="/blog/937">藍眼關注!! 得獎!</a></h1>
     
     
       <p class="meta">
@@ -477,22 +362,22 @@ done
 
 
 
-<time datetime="2007-09-24T17:29:48+08:00" pubdate  data-updated="true" >Sep 24<span>th</span>, 2007</time>
+<time datetime="2007-08-14T01:16:53+08:00" pubdate  data-updated="true" >Aug 14<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/1431289337/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1180/1431289337_a85dcc6d0a.jpg" width="334" height="500" alt="宣傳照 XD" class='left' /></a>星期六跑去跟以前學校熱音社的學弟妹們中秋烤肉, 雖然雨一陣一陣的, 不過絕大部份的時間都沒有雨, 一陣陣的秋風, 涼涼的~ 吹起來很舒服, 大家也烤的很開心, 一邊烤肉一邊彈吉他唱歌, 多 high。 隔天禮拜日, H2O 就又跑去練團, 把舊歌都跑一跑, 不過禮拜天跟禮拜六的天氣差異真的是很大, 禮拜日熱的要命, 不過也由於天氣很好, 陽光也很大, 就硬拉宜豐幫我拍照 :p 雖然才隨性的亂拍幾下, 但是拍完整個快熱死~ 馬上就跑去吃冰 (奔~)</p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/975405574/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1324/975405574_58f0e83fcb.jpg" width="500" height="400" alt="超燦爛 at pepper lunch" /></a>
+呵, 上次入圍藍眼關注只向公司幾位同事拉票, 只有 4 位吧! 沒有太積極, 想說這樣應該就夠了, 噗~ 其實公司這幾位同事大多都是綠眼關注 XD 所以一票就值好多分, 將近一百分吧? 不過上次的藍眼關注我還是落選了, 所以這次就有積極的拉票了, 這次可以得獎, 真的是感謝大家的幫忙阿!! 看看! 我這張照片笑的多開心阿!! (應該很有得獎開心的 fu 吧? XD)</p>
 
-<p>感謝攝影師宜豐還有修圖師小紅, 雖然有些圖修的有點過頭 XD</p>
-
-<p>果然我買這把 jaguar 是對的!! 拍起來多好看! 哈哈哈! (囧~ 吉他不是拿來拍照的阿!)</p>
-
-<p>拍起來很有宣傳照的感覺吧? 下次再找時間跟地點來拍照吧, 還滿好玩的, 只是不要那麼熱就好 XD</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/937">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -503,7 +388,7 @@ done
       
   <header>
     
-      <h1 class="entry-title"><a href="/web/972">Slideflickr.com : Flickr Slide 產生器</a></h1>
+      <h1 class="entry-title"><a href="/stuff/936">Moo Stickerbook</a></h1>
     
     
       <p class="meta">
@@ -517,21 +402,103 @@ done
 
 
 
-<time datetime="2007-09-21T20:39:08+08:00" pubdate  data-updated="true" >Sep 21<span>st</span>, 2007</time>
+<time datetime="2007-08-13T02:06:43+08:00" pubdate  data-updated="true" >Aug 13<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.slideflickr.com/">SlideFlickr.com</a> 還不錯用的一個 flickr 投影片產生器, 輸入你相片、set、tag 的網址 (collection 好像沒辦法), 就可以產生出來一個 flash 投影片跟語法給你貼到 blog 上, 還可以設定換頁速度、自定 logo 還有背景音樂 (只是個人非常不建議自動播放音樂), 產生出來的東西就像下面這個, 這是我上次去宜蘭玩拍的, 南方澳海邊 XD</p>
-
-<blockquote>靠! slideflickr 這個爛東西, 這篇才寫沒幾天勒&#8230;就爛掉了&#8230; 所以我就把 flash 也拿掉了! 果然不安全 XD</blockquote>
-
-
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/1051632713/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1107/1051632713_c1e9a4a741.jpg" width="500" height="375" alt="moo StickeBook cover" /></a>
+在上個月底, 在 twitter 看到<a href="http://www.christabelle.idv.tw/rewrite.php/read-533.html">迴老師又訂了 Moo 的新東西</a>, 而且七月底前免運費!!! 所以馬上我就跑到 <a href="http://www.moo.com">Moo 的網站</a>去看迴老師說的 Stickerbook。</p>
 
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/stuff/936">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/935">主持@電腦應用展</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-08-12T02:00:07+08:00" pubdate  data-updated="true" >Aug 12<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/1030911337/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1196/1030911337_a9ed155a69.jpg" width="500" height="375" alt="1029519896_a7270a3973_o.jpg" /></a></p>
+
+<p>嗯, 上禮拜日公司在電腦應用展參展, 輪到我支援, 幫忙參展的活動, 但沒想到我真的下海當主持人 XD 至於旁邊這兩位, 則是公司請來的工讀生(show girl?)</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/life/935">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/933">Sonia@FIN</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-08-11T16:07:36+08:00" pubdate  data-updated="true" >Aug 11<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/998107724/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1405/998107724_12b67bfbda.jpg" width="500" height="375" alt="100_2349.JPG" /></a>
+我又跑去剪頭髮了, 話說找 Sonia 剪了三次頭髮, 三次都在不同的店, 上次<a href="http://tzangms.com/?p=887">這篇</a>寫到 Sonia 是在斐瑟的對應髮廊 I, 結果這次又換到了捷運中山站附近的 FIN。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/life/933">Read on &rarr;</a>
+    </footer>
   
 
 

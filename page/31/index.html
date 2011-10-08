@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="10 Principles of the PHP Masters, 這篇真是好文! 只是標題這樣翻會不會很奇怪 XD">
+  <meta name="description" content="老實說, 我也不太清楚是怎麼一回事, 幸好資料庫有備份, 也有另外一台主機可以馬上接手資料庫的部份, 只是 stickeraction 的 cache 被清掉之後, 沒辦法一下子馬上處理那麼多的 request, 其實這也就表示當初程式的設計是有問題的, 沒辦法處理那麼大量的 request。...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/1628">PHP 大師們的 10 個原則</a></h1>
+      <h1 class="entry-title"><a href="/programming/1548">主機資料庫大爆炸</a></h1>
     
     
       <p class="meta">
@@ -80,14 +80,18 @@
 
 
 
-<time datetime="2008-09-11T09:59:37+08:00" pubdate  data-updated="true" >Sep 11<span>th</span>, 2008</time>
+<time datetime="2008-09-01T00:17:41+08:00" pubdate  data-updated="true" >Sep 1<span>st</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://nettuts.com/articles/10-principles-of-the-php-masters/">10 Principles of the PHP Masters</a>, 這篇真是好文! 只是標題這樣翻會不會很奇怪 XD</p>
+  <div class="entry-content"><p>老實說, 我也不太清楚是怎麼一回事, 幸好資料庫有備份, 也有另外一台主機可以馬上接手資料庫的部份, 只是 <a href="http://stickeraction.com">stickeraction</a> 的 cache 被清掉之後, 沒辦法一下子馬上處理那麼多的 request, 其實這也就表示當初程式的設計是有問題的, 沒辦法處理那麼大量的 request。 其實也是因為當初根本沒想說會有那麼多人用 XD</p>
+
+<p>除了 <a href="http://stickeraction.com">stickeraction</a> 之外, 我放在同一台主機的服務 <a href="http://twitthat.com">twitthat</a> 跟我的 blog 也都掛點, 幸好每天都有用 <a href="http://sourceforge.net/projects/automysqlbackup/">automysqlbackup</a> 在備份, 所以沒有釀成太大的悲劇 Orz</p>
+
+<p>總之, 目前 stickeraction 的狀況就是, 除了無法將已經貼了貼紙的新部落格加進來之外, 其他一切都正常 XD 接下來這幾天要來把 stickeraction 的架構重新寫一遍吧! 還沒有看到被加進串連的朋友請稍後幾天嘿!!</p>
 </div>
   
   
@@ -100,7 +104,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/web/1632">Imified 五分鐘建立自己的機器人</a></h1>
+      <h1 class="entry-title"><a href="/codeigniter/1201">CodeIgniter Layout 的做法</a></h1>
     
     
       <p class="meta">
@@ -114,170 +118,191 @@
 
 
 
-<time datetime="2008-09-10T21:16:19+08:00" pubdate  data-updated="true" >Sep 10<span>th</span>, 2008</time>
+<time datetime="2008-08-30T12:48:09+08:00" pubdate  data-updated="true" >Aug 30<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>今天看到 <a href="http://www.imified.com">imified</a> 就玩了一下, 真的是很神奇又方便阿!! <a href="http://www.imified.com">imified</a> 可以讓你建立一支機器人, 接著你只需要指定一個程式的網址, 就可以讓機器人開始運作了! 而且整個流程超簡單的 :p</p>
+  <div class="entry-content"><p>由於在開發網站過程中, 通常都有個 template 或稱作 layout, layout 包含了整個網站的外觀, 而網站的 layout 通常會切分為 header, content, footer 甚至還有 menu。 而這當中的 content view 則是會隨著不同頁面、功能而變動, 而 layout 則為固定, 這樣可以維持同一個網站界面的一致性, 然而 <a href="http://codeigniter.com">CodeIgniter</a> 並沒有對這種所謂 partial view 有較好的處理方式。</p>
 
-<p>在建立好機器人之後, 會讓你指定一個程式的網址, 接下來就是透過這支程式, 接收 imified 機器人的輸入, 而程式只要輸出(印出)訊息, 就會直接透過機器人發訊回覆。 不過目前申請的機器人好像就只有 Jabber/Gtalk(?)</p>
+<p>所以通常都會是像下面這樣的寫法。 載入 foo 這個 content view 到變數之後, 丟到 template view, 最後在 render 出來。</p>
 
-<p>用 PHP 做個簡單範例:
-[source:php]
-&lt;?php
-// 接收 im 訊息
-$msg = $_REQUEST[&#8216;msg&#8217;];</p>
+<p><code>$data['foo'] = $foo;
+$view['heading'] = 'heading text';
+$view['content'] = $this->load->view('foo', $data, true);
+$this->load->view('template', $view);</code></p>
 
-<p>// 輸出訊息到 im
-echo $msg;
-?>
-[/source]</p>
-
-<p>就是這樣, 非常簡單阿 XD</p>
-
-<p>所以一開始想到的, 就是寫一個可以送訊息到 twitter 的機器人, 不過由於帳號是寫死的, 就不公佈出來了 XD 然後在查 Yahoo! 奇摩字典的時候, 又突然想到, 乾脆寫個查單字的機器人好了, 由於抓 Yahoo! 奇摩字典的程式也是我之前就寫好的一個 library, 所以真的包含註冊帳號、設定跟寫程式的部份, 真的只花了差不多五分鐘就弄好了 :p</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/web/1632">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1593">用 jQuery 選取 Opener 中的物件</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-09-08T22:28:46+08:00" pubdate  data-updated="true" >Sep 8<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><code>$('#selector', opener.document)</code>
-沒錯! 就是醬!!</p>
-
-<p>阿! (大叫) 還沒有時間把 jQuery 學好 ~&#8221;~</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/stickeraction/1616">[Stickeraction] 新增貼紙點擊數統計</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-09-08T21:47:16+08:00" pubdate  data-updated="true" >Sep 8<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>其實這個功能很簡單, 一開始就應該做了, 不過先前都一直在為了 <a href="http://stickeraction.com">stickeraction</a> 的效能, 在重寫整個架構, 今天才把這個功能加上。點擊數統計的當然不是指貼紙&#8221;顯示&#8221;的次數, 而是貼紙的&#8221;點擊&#8221;次數, 畢竟顯示並不代表網友有看到, 如果網友有點擊貼紙, 多少都代表網友想知道這個貼紙是在幹嘛, 這樣的統計才多少比較有意義。</p>
-
-<p>不過這個功能對於早期就響應的網友(大部分是我在 twitter 上的推友 XD), 可能有影響, 可能需要去檢查一下貼紙的語法, 看看連結(&lt;a  href&gt;)是否有連到這個網址, 如下:</p>
-
-<blockquote>http://stickeraction.com/貼紙名稱/go</blockquote>
-
-
-<p>以<a href="http://stickeraction.com/made_in_taiwan">台灣貨‧暢其流</a>為例, 貼紙語法應該如下</p>
-
-<blockquote>&lt;a href=&#8217;http://stickeraction.com/made_in_taiwan/go&#8217;&gt;&lt;img src=&#8217;http://stickeraction.com/made_in_taiwan/sticker/1&#8217; alt=&#8217;台灣貨‧暢其流&#8217;&gt;&lt;/a&gt;</blockquote>
-
-
-<p>基本上就是要有個 go 就是了 XD 如果把貼紙連結的網址改掉, 也許改連到你的部落格, 那麼就沒辦法統計到貼紙的點擊數了。</p>
-
-<p>其實貼紙的連結功能是有預留導向功能的, 就是說一樣取用 stickeraction 提供的貼紙語法, 網友點了貼紙之後, 可以依照管理者的設定, 將連結連回發起人所設定的網址, 而不一定要連回到 stickeraction 的貼紙頁面。這個轉址功能之後還會在放回來的 :p</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1603">[PHP] 將 Array 強制轉型為 Object</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-09-06T11:50:11+08:00" pubdate  data-updated="true" >Sep 6<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.otton.org/2008/08/14/neat-php-tricks-casting-arrays-to-objects/">Neat PHP Tricks: Casting Arrays to Objects</a>, 我覺得這篇可以稍微看一下。</p>
-
-<p>近來其實滿不喜歡用 array 的, 另外也不喜歡用 for, 基本上就是覺得 array 會讓程式碼看起來很亂 ~&#8221;~ 尤其是在 view 裡面。 所以可以 foreach 的, 就不用 for, 可以用 object 就不用 array, 雖然有時候還是免不了 :p</p>
-
-<p>基本上我是覺得 object 的 code, 看起來比較不那麼亂 XD 由於之前在公司看到某段 code, 所以另外提一下 for 跟 foreach, 像是下面這一段, foreach 乾淨多了</p>
+<p>所以每個頁面就都得寫上兩行 load view 的動作, 寫久了便覺得繁瑣, 其實這個動作透過下面這個 Layout library 是可以簡化的。 這個 library 是在 <a href="http://codeigniter.com/wiki/layout_library/">CodeIgniter wiki</a> 上看來的, 只修改了幾個變數。</p>
 
 <pre>
-<code>// for
-$n = count($blogs);
-for ($i = 0; $i < $n; $i++) {
-    echo $blogs[$i]->title;
-}
+<code>&lt;?php
+class Layout
+{
+    var $obj;
+    var $layout;
 
-// foreach
-foreach($blogs as $blog) {
-    echo $blog->title;
+    function Layout($layout = "template")
+    {
+        $this->obj =& get_instance();
+        $this->layout = $layout;
+    }
+
+    function setLayout($layout)
+    {
+      $this->layout = $layout;
+    }
+
+    function view($view, $data=null, $return = false)
+    {
+        $data['content'] = $this->obj->load->view($view, $data, true);
+
+        if($return)
+        {
+            $output = $this->obj->load->view($this->layout, $data, true);
+            return $output;
+        }
+        else
+        {
+            $this->obj->load->view($this->layout, $data, false);
+        }
+    }
+}
+?&gt;</code></pre>
+
+
+<p>有了這個 Layout library 之後變可以將載入 view 的程式簡化如下:</p>
+
+<p><code>$data['foo'] = $foo;
+$data['heading'] = 'heading text';
+$this->layout->view('foo', $data);</code></p>
+
+<p>基本上以這個 library 為範例的話, 預設的 template 檔案就要命名為 template.php, 你也可以修改這個 library 的程式碼來符合你現在 template 的檔案名稱, 不過我是覺得就叫 template 還滿直覺的。
+而 template.php 裡面則是需要放入 $content 這個變數來存放 foo.php 這個 view。 簡單的 template.php 的範例如下:</p>
+
+<p><code>&lt;html&gt;
+&lt;body&gt;
+&lt;?=$content?&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></p>
+
+<p>當然這個 template 可以像文章一開始講到的, 另外做更細的切分, 我們可以另外開一個 template 的目錄, 裡面存放 header.php, footer.php, 然後在 template.php 裡面載入, template.php 如下:</p>
+
+<pre>
+<code>$this->load->view('template/header');
+&lt;?=$content?&gt;
+$this->load->view('template/footer');</code>
+</pre>
+
+
+<p>hmm&#8230; 這篇應該要有寫過 view in view 的人才看得懂吧? 超懶畫圖 XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/linux/1530">[Lighttpd] Get Real IP From Proxy</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-08-29T21:58:17+08:00" pubdate  data-updated="true" >Aug 29<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>由於先前在測試用 <a href="http://nginx.net">nginx</a> 放在原本的 <a href="http://www.lighttpd.net/">lighttpd</a> 前面作 load balance 還是 reverse proxy 什麼的, 不過因為完全沒碰過, 只能亂搞, 沒想到成功了 XD (雖然有設錯, 整個站有掛掉一下下)</p>
+
+<p>本來是想說到時候 <a href="http://stickeraction.com">StickerAction</a> 撐不住, 可以把 request 分到別台去, 不過看目前的情形都還撐得住, 最高也還沒到 20 req/s, 是我小看了 256slice 阿 ~&#8221;~ 不過應該也是因為加了之前做的, <a href="http://tzangms.com/php/1244">讓圖片快取住的功能</a>, 才能減少一些 request 的。</p>
+
+<p>不過當時唯一有問題的就是, 當我再看 log 跟 session 的時候, 發現, ip 全部都是 127.0.0.1 阿!! :o 幸好之前程式中 session 沒有要 match ip XD 原來 lighttpd 那邊要開 <a href="http://trac.lighttpd.net/trac/wiki/Docs/ModExtForward">mod_extforward</a> 來取得 client 經過 nginx proxy 後, 原本的 IP 位址。</p>
+
+<p>lighttpd 再 1.4.14 之後就都有 mod_extforward, 只是好像預設的 lighttpd.conf 都不會列出來。 所以只要再 server.modules 裡面載入 mod_extforward 就可以了, 只是記得要放在 mod_accesslog 後面載入, 如下:</p>
+
+<pre>
+<code>server.modules = (
+    "mod_rewrite",
+    ...
+    "mod_accesslog",
+    "mod_extforward"
+)</code>
+</pre>
+
+
+<p>然後加上個相信的 IP 來源就可以啦 :D</p>
+
+<pre>
+<code>extforward.forwarder = (
+   "127.0.0.1" => "trust"
+)</code>
+</pre>
+
+
+<p>雖然也不知道放個 nginx 在前面有沒有發揮什麼作用就是了 XD anyway 至少之後可以直接把 request 分到另外一台</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1503">關於 Simplepie Cache (Db Cache)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-08-28T08:29:57+08:00" pubdate  data-updated="true" >Aug 28<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>這篇還是記錄在 <a href="http://stickeraction.com">StickerAction</a> 的效能上做的處理。 <a href="http://stickeraction.com">StickerAction</a> 用 <a href="http://simplepie.org">Simplepie</a> 來讀取 RSS, 然後用上了 cache, 來避免一直對外部做 request, 也減少流量的支出。研究了一下 Simplepie 的 cache 儲存方式, Simplepie 就是把他所抓取的 url 做 md5 當成檔名存成 cache 檔案, 檔案裡面則是存放 serialize 後的資料。</p>
+
+<p>所以為了搭配<a href="http://tzangms.com/stickeraction/1488">上一篇所提到的存取控制</a>, 計算這次是否有對外部做了 request, 所以寫了下面這一段, 來判斷是否有對外存取, 進而做存取控制。</p>
+
+<pre>
+<code>function is_cached($url)
+        $cache_file = 'sp_cache/' . md5($url) . '.spc';
+        if (file_exists($cache_file)) {
+            return true;
+        }
+
+        return false;
 }</code>
 </pre>
 
@@ -286,7 +311,7 @@ foreach($blogs as $blog) {
   
   
     <footer>
-      <a rel="full-article" href="/programming/1603">Read on &rarr;</a>
+      <a rel="full-article" href="/programming/1503">Read on &rarr;</a>
     </footer>
   
 
@@ -298,7 +323,7 @@ foreach($blogs as $blog) {
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/1555">phpQuery - PHP 處理 HTML DOM 的好幫手阿!</a></h1>
+      <h1 class="entry-title"><a href="/web design/1487">簡單化的網頁設計</a></h1>
     
     
       <p class="meta">
@@ -312,42 +337,63 @@ foreach($blogs as $blog) {
 
 
 
-<time datetime="2008-09-05T22:02:53+08:00" pubdate  data-updated="true" >Sep 5<span>th</span>, 2008</time>
+<time datetime="2008-08-27T23:44:38+08:00" pubdate  data-updated="true" >Aug 27<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://code.google.com/p/phpquery/">phpQuery</a>, 在 PHP 處理 HTML DOM 的好幫手阿!! 哈! 這個 project 真不錯, 尤其是對於有使用 <a href="http://jquery.com">jQuery</a> 的人, 更容易上手阿 :p 顧名思義, 就是 PHP 的 jQuery 阿! DOM select 的語法跟 jQuery 完全一樣阿! 而且, 當然是 chainable :p 也就是說, 只有 PHP 5 能用囉 :p</p>
+  <div class="entry-content"><p>今天看了一篇文章 <a href="http://www.smashingmagazine.com/2008/08/26/how-simple-web-design-helps-your-business/">How Simple Web Design Helps Your Business</a> 說明為何網頁設計要朝向簡單化的設計方向, 不要在網頁上放入太多東西, 特別你是在賣東西阿!</p>
 
-<p>目前在 <a href="http://stickeraction.com">stickeraction</a> 有用到 phpQuery, 真的是很方便 :p</p>
+<p><a href="http://www.apple.com/tw/">Apple</a> 的網頁總是很精簡, 但很漂亮, 我也總能一目了然的就看出, 現在在主打哪個產品, 我想找的東西在哪, 都可以很快的找到我要的資訊, 或我想購買的產品頁面。像我用的 <a href="http://slicehost.com">Slicehost</a> 的網頁也非常簡單, 雖然說, 他們的產品線本來就很精簡 XD</p>
 
-<p>可以看看以下範例, 這一段是我用來抓取網頁中, rss feed url 跟 title 的。</p>
+<p>而且<a href="http://news.bbc.co.uk/1/hi/technology/7417496.stm">現在的網路使用者越來越沒有耐心</a>了阿, 所以當一個頁面放入太多東西, 會讓使用者找不到想要的東西, 或是被太多不相干的東西干擾視線。</p>
 
-<pre>
-<code>require 'phpQuery.php';
+<p>基本上, 我個人覺得 8 秒差不多吧, 8 秒過了還沒看到我想要的東西, 就會讓我覺得這個頁面設計的很爛, 因為我就會開始沒耐心了 &#8230;</p>
 
-$url = 'http://tzangms.com/blog';
-$html = file_get_contents($url);
-
-phpQuery::newDocument($html)->find('head');
-
-$title = pq('head > title')->text();
-$feed_url = pq('head > link[rel=alternate]:first')->attr('href');
-
-echo $title;
-echo $feed_url;</code>
-</pre>
+<p>太多重點, 等於沒有重點阿!!!!</p>
+</div>
+  
+  
 
 
-<p>本來這個工作是直接用 <a href="http://simplepie.org">simplepie</a> 來作, 直接就可以抓到 RSS feed url 跟 RSS , 可是在抓 xuite blog 的時候卻有問題, 都抓不到 feed_url。</p>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1488">StickerAction 對外 Request 被擋的處理</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-08-27T22:07:30+08:00" pubdate  data-updated="true" >Aug 27<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2761698350/" title="yahoo error 999 by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3169/2761698350_f458a4ea9b.jpg" width="500" height="313" alt="yahoo error 999" /></a>
+最近在為了減少 <a href="http://stickeraction.com">StickerAction</a> 對外部的 request 數量作處理, 花了好一些工夫 XD 因為 wretch 那邊大概只要有 50 個 request(一小時或半小時, 阿災), 就會被先前 <a href="http://blog.xdite.net">xdite大大</a> 說的 Yahoo 金鐘罩檔掉了。 請見上圖 Yahoo 999 XD</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/programming/1555">Read on &rarr;</a>
+      <a rel="full-article" href="/programming/1488">Read on &rarr;</a>
     </footer>
   
 
@@ -359,7 +405,7 @@ echo $feed_url;</code>
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/1476">CodeIgniter Based Open Source Software</a></h1>
+      <h1 class="entry-title"><a href="/programming/1471">紀錄一下 OTRS 連 SQL Server 的東西</a></h1>
     
     
       <p class="meta">
@@ -373,61 +419,41 @@ echo $feed_url;</code>
 
 
 
-<time datetime="2008-09-05T00:34:34+08:00" pubdate  data-updated="true" >Sep 5<span>th</span>, 2008</time>
+<time datetime="2008-08-27T00:24:14+08:00" pubdate  data-updated="true" >Aug 27<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>下面是兩個用 <a href="http://codeigniter.com">CodeIgniter</a> 開發的 open source 軟體, 有興趣可以看看, 大家應該已經知道 <a href="http://en.wikipedia.org/wiki/Model-view-controller">MVC</a> 是什麼。 但是 CI 自由度很高, 所以可能會有人不清楚 Model、Controller 怎樣寫才好, 或是怎樣寫會&#8221;比較好&#8221;? Anyway, 或許可以看看下面兩個用 CI 寫的軟體, 有個依據, 也許可以找出一些方向。 或是更確定自己的方法是比較好的 :p</p>
+  <div class="entry-content"><p>在 Perl 要連到 MS SQL Server 真的是很麻煩, 如果是透過 ODBC 的話, 則要設定好 <a href="http://www.freetds.org/">FreeTDS</a> 還有 <a href="http://www.unixodbc.org/">unixODBC</a>, 設定檔大概像下面這樣吧:</p>
 
-<p>Bamboo Invoice
-<a href="http://bambooinvoice.org/">http://bambooinvoice.org/</a></p>
+<p>FreeTDS (freetds.conf)</p>
 
-<p>Blaze
-<a href="http://blaze.haughin.com/">http://blaze.haughin.com/</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/1571">Google Chrome App</a></h1>
-    
-    
-      <p class="meta">
-        
+<pre><code>[OTRS]
+host = 192.168.1.1
+port = 1433
+tds version = 7.0
+client charset = UTF-8</code></pre>
 
 
+<p>unixODBC (odbc.ini)</p>
+
+<pre><code>[OTRS]
+Driver = FreeTDS
+Description = Microsoft SQL Server(OTRS)
+Trace = No
+Servername = OTRS
+Database = otrs_db</code></pre>
 
 
-
-  
-
-
-
-<time datetime="2008-09-04T21:21:48+08:00" pubdate  data-updated="true" >Sep 4<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2826723327/" title="google-chrome-app by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3029/2826723327_e7f1728b0e.jpg" width="500" height="349" alt="google-chrome-app" /></a>
-<a href="http://www.google.com/chrome">Google Chrome</a> 在大家用的過程中, 似乎都說, Chrome 在瀏覽 Google 的自家服務, 像是 Gmail, Google Reader 的時候, 跑起來的速度很不賴! 不過對於習慣使用有眾多 extension 的 <a href="http://mozilla.com">Firefox</a> 使用者來說, 總是覺得少了平常所習慣的功能。</p>
+<p>如果都運作正常的話, 執行下面的 Perl code 應該不會有錯誤訊息。</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/web/1571">Read on &rarr;</a>
+      <a rel="full-article" href="/programming/1471">Read on &rarr;</a>
     </footer>
   
 
@@ -439,7 +465,7 @@ echo $feed_url;</code>
       
   <header>
     
-      <h1 class="entry-title"><a href="/uncategorized/1553">QuarkBase</a></h1>
+      <h1 class="entry-title"><a href="/music/1464">Base Ball Bear - Change</a></h1>
     
     
       <p class="meta">
@@ -453,60 +479,117 @@ echo $feed_url;</code>
 
 
 
-<time datetime="2008-09-04T00:53:30+08:00" pubdate  data-updated="true" >Sep 4<span>th</span>, 2008</time>
+<time datetime="2008-08-23T18:11:52+08:00" pubdate  data-updated="true" >Aug 23<span>rd</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>QuarkBase (<a href="http://www.quarkbase.com/">http://www.quarkbase.com/</a>) 可以拿來查網站的一些資訊, 還不錯, 只要輸入網址就可以知道, 網站被收了幾次 delicious, digg 幾次, alexa, technorati 等, 甚至被 tweet 幾次都知道阿 XD 不過&#8230; subdomain 沒用。</p>
-
-<p>原來&#8230; <a href="http://twitthat.com">twitthat</a> alexa 的圖還不錯看 XD</p>
-</div>
-  
-  
+  <div class="entry-content"><object width="500" height="341">   <param name="allowfullscreen" value="true" />   <param name="allowscriptaccess" value="always" />   <param name="movie" value="http://www.vimeo.com/moogaloop.swf?clip_id=1205815&amp;server=www.vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1" /> <embed src="http://www.vimeo.com/moogaloop.swf?clip_id=1205815&amp;server=www.vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="500" height="341"></embed></object>
 
 
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1558">StickerAction 恢復正常!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-09-02T21:12:04+08:00" pubdate  data-updated="true" >Sep 2<span>nd</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://tzangms.com/wp-content/uploads/2008/09/stickeraction.jpg"><img src="http://tzangms.com/wp-content/uploads/2008/09/stickeraction.jpg" alt="" title="stickeraction" width="500" height="290" class="alignnone size-full wp-image-1561" /></a>
-因為前幾天的<a href="http://tzangms.com/programming/1548">資料庫大爆炸</a>, 導致 <a href="http://stickeraction.com">StickerAction</a> 的快取都不見了, 所以主機因為沒辦法接受那麼大量的 request, 所以就先把偵測的功能關掉, 這兩天就一直在重寫程式的架構, 終於在今天把 <a href="http://stickeraction.com">StickerAction</a> 給恢復正常了。</p>
-
-<p>由於 <a href="http://stickeraction.com">StickerAction</a> 最吃重的地方是在貼出去的貼紙, 貼紙的程式跑的時間越長,  request 累積越多, 效能則是直線往下掉。 一開始在寫 <a href="http://stickeraction.com">StickerAction</a> 的時候沒有考慮到太多效能的問題, 一方面也是因為很懶, 就想把工作一次做完, 所以其實一開始的架構根本就沒辦法負荷太多人貼貼紙。 一開始就只有對<a href="http://tzangms.com/php/1244">貼紙圖片加上一些讓瀏覽器快取的處理</a>, 減少 request。</p>
+<p>我覺得這支 MV 拍的很屌, 同一個人, 同時出現兩個, 而且是不同方向, 可是動作一樣, 應該是一次出動兩支攝影機, 之後在合起來, 阿災, 我亂猜的, 但是就覺得很屌, 喜歡這支 MV, bass 手一開始的動作也很帥。</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/programming/1558">Read on &rarr;</a>
+      <a rel="full-article" href="/music/1464">Read on &rarr;</a>
     </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1445">[網摘] Aug 23th 2008</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-08-23T17:42:21+08:00" pubdate  data-updated="true" >Aug 23<span>rd</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://phpimpact.wordpress.com/2008/08/17/no-need-for-setget-methods-in-python/">No need for set/get methods in Python</a></p>
+
+<p><a href="http://www.prodevtips.com/2008/08/15/jquery-json-with-php-json_encode-and-json_decode/">jQuery JSON with PHP json_encode and json_decode</a></p>
+
+<p><a href="http://roshanbh.com.np/2008/08/how-to-filter-user-submitted-data-easily-in-php.html">How to filter user submitted data easily in PHP?</a></p>
+
+<p><a href="http://blog.stuartherbert.com/php/2008/08/20/twittexcom-launches/">twittex.com Launches!</a>
+當中提到 <a href="http://twittex.com">twittex.com</a> 只花了 6 天就搞定了, 用的是 <a href="http://www.symfony-project.org/">symfony</a>, PHP, mysql 跟 <a href="http://q4m.31tools.com/">q4m</a></p>
+
+<p><a href="http://www.ibuildings.com/blog/archives/1241-Implementing-Iterators.html">Implementing Iterators</a></p>
+
+<p><a href="http://devzone.zend.com/article/3774-Dynamically-Creating-Graphs-and-Charts-with-PHP-and-GDChart">Dynamically Creating Graphs and Charts with PHP and GDChart</a></p>
+
+<p><a href="http://davidvancouvering.blogspot.com/2008/08/real-world-experience-with-new-netbeans.html">Real-world experience with the new NetBeans PHP and JavaScript editors</a>
+NetBeans 現在好像拿來寫 PHP 還不錯, 只記得以前用 NetBeans 寫 Java 交作業&#8230;</p>
+
+<p><a href="http://nettuts.com/javascript-ajax/building-a-better-blogroll-dynamic-fun-with-simplepie-and-jquery/">NETTUTS.com: Building a Better BlogRoll: Dynamic Fun with SimplePie and jQuery</a></p>
+
+<p><a href="http://www.zorba-xquery.com/index.php/24/">Running Zorba with PHP</a>
+Zorba, the XQuery processor</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/linux/1437">Gentoo 裝 Logrotate 真的是很簡單</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-08-22T08:38:23+08:00" pubdate  data-updated="true" >Aug 22<span>nd</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>由於 <a href="http://stickeraction.com">StickerAction</a> 的 request 數還算滿多的, 所以 access_log 一下子就累積到幾百 MB 了, 想說之前有聽過 logrotate 這種東西, 就用 portage 找了一下。</p>
+
+<p><a href="http://gentoo.org">Gentoo</a> 的 Portage 真的是很貼心阿, 在裝好 logrotate 之後, 自動把一些需要 logrotate 的服務設定也都作上去了, 似乎在裝的時候, 系統會看你目前的服務有那些, 然後把相關的服務都給設定好! 像是 lighttpd 跟 mysql 的 log 現在自動 rotate 了, 但是我只打了下面這一行進行安裝。</p>
+
+<p><code>emerge logrotate</code></p>
+
+<p>所以搞到最後我根本不知道怎麼設定 囧</p>
+</div>
+  
   
 
 
