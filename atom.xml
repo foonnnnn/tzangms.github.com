@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Oceanic / 人生海海]]></title>
-  <link href="http://tzangms.github.com/atom.xml" rel="self"/>
-  <link href="http://tzangms.github.com/"/>
-  <updated>2011-10-08T11:19:44+08:00</updated>
-  <id>http://tzangms.github.com/</id>
+  <link href="http://tzangms.com/atom.xml" rel="self"/>
+  <link href="http://tzangms.com/"/>
+  <updated>2011-10-08T12:08:39+08:00</updated>
+  <id>http://tzangms.com/</id>
   <author>
     <name><![CDATA[tzangms]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[tumblr 開張 (tzang.ms)]]></title>
-    <link href="http://tzangms.github.com/blog/new-tumblr"/>
+    <link href="http://tzangms.com/blog/new-tumblr"/>
     <updated>2011-06-08T20:25:00+08:00</updated>
-    <id>http://tzangms.github.com/blog/tumblr_開張_(tzang_ms)</id>
+    <id>http://tzangms.com/blog/tumblr_開張_(tzang_ms)</id>
     <content type="html"><![CDATA[<p>其實我後悔把 blog 從 wordpress 改成 <a href="http://www.blogofile.com/">blogofile</a> 了 XD 不過很多人說用 blogofile 才是真男人! 其實我忘記他們用英文說的實際句子是什麼了, 不過反正就是這個意思 XD</p>
 
 <p>anyway, 總之我前幾天跑去開了個 tumblr, 準備以後都在那邊寫, 因為真的太方便又簡單了阿!!! XD 本來想說把 tzangms.com 這個 domain 也轉過去, 反正 SEO 什麼的都是浮雲, 後來想到乾脆買一個新的 domain <a href="http://tzang.ms">tzang.ms</a>, 因為以前就很想買這個 domain。</p>
@@ -30,9 +30,9 @@
   
   <entry>
     <title type="html"><![CDATA[買了 Blue snowball]]></title>
-    <link href="http://tzangms.github.com/stuff/blue-snowball"/>
+    <link href="http://tzangms.com/stuff/blue-snowball"/>
     <updated>2011-05-17T12:10:00+08:00</updated>
-    <id>http://tzangms.github.com/stuff/買了_blue_snowball</id>
+    <id>http://tzangms.com/stuff/買了_blue_snowball</id>
     <content type="html"><![CDATA[<p>禮拜日晚上突然說應該來錄一些 tutorial 才對, 所以就想起了之前一直想買的 <a href="http://www.bluemic.com/snowball/">blue snowball</a>, 順便可以方便錄 Podcast, 不然距離上一集已經一年多了 XD</p>
 
 <p>所以就在 Y 拍上面開始找有沒有人在買的, 找到之後就馬上聯絡賣家, 想說能不能明天就帶回家 XD 沒想到賣家很快就回覆了, 而且還有現貨, 所以就直接約昨天下班的時候在昆陽捷運站面交, 超方便, 直接回家 XDDD</p>
@@ -50,9 +50,9 @@
   
   <entry>
     <title type="html"><![CDATA[關於 Django 1.3 的 staticfiles]]></title>
-    <link href="http://tzangms.github.com/programming/django-1.3-staticfiles"/>
+    <link href="http://tzangms.com/programming/django-1.3-staticfiles"/>
     <updated>2011-04-26T09:10:00+08:00</updated>
-    <id>http://tzangms.github.com/programming/關於_Django_1_3_的_staticfiles</id>
+    <id>http://tzangms.com/programming/關於_Django_1_3_的_staticfiles</id>
     <content type="html"><![CDATA[<p><a href="http://docs.djangoproject.com/en/dev/releases/1.3/">Django 1.3</a> 也出來好一陣子, 都快過一個月了, 剛好這一陣子有幾個新的 project, 就直接用 Django 1.3 來開發, 對 <a href="http://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/">staticfiles</a> 跟 <a href="http://docs.djangoproject.com/en/dev/topics/class-based-views/">class-based views</a> 稍微熟了一些, 就來記一下。</p>
 
 <h2>原本的問題</h2>
@@ -185,18 +185,18 @@
   
   <entry>
     <title type="html"><![CDATA[CSS Pivot]]></title>
-    <link href="http://tzangms.github.com/webdesign/css-pivot"/>
+    <link href="http://tzangms.com/webdesign/css-pivot"/>
     <updated>2011-04-26T01:13:00+08:00</updated>
-    <id>http://tzangms.github.com/webdesign/CSS_Pivot</id>
+    <id>http://tzangms.com/webdesign/CSS_Pivot</id>
     <content type="html"><![CDATA[<p><a href="http://www.csspivot.com/">CSS Pivot</a> 還滿方便的一個服務, 輸入網址後可以自己加上 custom css, 接著儲存可以拿到一個短網址, 然後 share 出去, 或許遠端討論可以這麼玩?</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[終於把 StreetVoice 改完了]]></title>
-    <link href="http://tzangms.github.com/life/new-streetvoice-is-done"/>
+    <link href="http://tzangms.com/life/new-streetvoice-is-done"/>
     <updated>2011-04-18T22:13:00+08:00</updated>
-    <id>http://tzangms.github.com/life/終於把_StreetVoice_改完了</id>
+    <id>http://tzangms.com/life/終於把_StreetVoice_改完了</id>
     <content type="html"><![CDATA[<p>其實 StreetVoice 改版完成也快一個月了, 兩年就這樣過去了, 本來是預估一年半就可以改完的, 不過其實這中間跑去支援金X獎、簡單生活節、文X會的案子、種花電信的案子, context switch 挺嚴重的, 所以導致 StreetVoice 改版完成時間一延就延了半年。</p>
 
 <p>所以現在改版完了, 最近就是在 refactor, 還有處理很多以前留下來所謂的堪用就好的功能。</p>
@@ -213,9 +213,9 @@
   
   <entry>
     <title type="html"><![CDATA[最近超愛的一首歌, hush 的天文特徵]]></title>
-    <link href="http://tzangms.github.com/music/hush-astronomy-features"/>
+    <link href="http://tzangms.com/music/hush-astronomy-features"/>
     <updated>2011-04-14T23:10:00+08:00</updated>
-    <id>http://tzangms.github.com/music/最近超愛的一首歌,_hush_的天文特徵</id>
+    <id>http://tzangms.com/music/最近超愛的一首歌,_hush_的天文特徵</id>
     <content type="html"><![CDATA[<p><embed src="http://tw.streetvoice.com/static/player/MusicPlayer.swf?srv=tw.streetvoice.com&ph=music&getv=config&skinID=6&au=126254&listtype=1&listsd=8487&autoStart=false&autoPlay=false&isEmbed=true&jsPlayer=false" allowFullScreen="false" allowScriptAccess="always" scale="noscale" type="application/x-shockwave-flash" width="330" height="100"></embed></p>
 
 <p>幾個月前, 聽到同事在談論著 <a href="http://tw.streetvoice.com/vocalwei/">Hush</a>, 所以當時就隨便挑了一首 Hush 的歌來聽, 樂器只有簡單的木吉他, 聽沒多久就因為工作繁忙就切掉, 沒繼續聽下去, 當時就這麼略過了 Hush 的歌曲, 錯過那個在數月後令我眼眶泛淚的沙啞嗓音。</p>
@@ -224,9 +224,9 @@
   
   <entry>
     <title type="html"><![CDATA[部落格轉換為 blogofile]]></title>
-    <link href="http://tzangms.github.com/blog/blogofile"/>
+    <link href="http://tzangms.com/blog/blogofile"/>
     <updated>2011-04-13T23:29:00+08:00</updated>
-    <id>http://tzangms.github.com/blog/部落格轉換為_blogofile</id>
+    <id>http://tzangms.com/blog/部落格轉換為_blogofile</id>
     <content type="html"><![CDATA[<p>由於收到了 <a href="http://www.webfaction.com">webfaction</a> 來的繳費通知, 剛好最近一直覺得花好多錢在主機費上面, 所以打算不續約了, 除了 twitthat 跟 stickeraction 之外, 儘管 myaudiocast 的流量費用有 pixnet 提供 cdn 支援, 可是現在 myaudiocast 的流量幾乎每天都超過 200G, 而 s3 費用也幾乎都每個月都燒掉我 30 ~ 40 塊美金 &#8230;</p>
 
 <p>所以想說應該要來減少這方面的金錢的支出, 可以減少就盡量減少, 至少拿掉 webfaction, 一年可以省下 3000 多塊台幣, 反正 blog 也不是那麼常動來動去的, 所以就乾脆換成 <a href="http://www.blogofile.com">blogofile</a>, 全部產生靜態檔然後丟上 s3, 這樣就省很多了 XD 不過昨天 @othree 說放在 github 更省錢 XD</p>
@@ -241,9 +241,9 @@
   
   <entry>
     <title type="html"><![CDATA[第二份工作滿兩年了]]></title>
-    <link href="http://tzangms.github.com/life/2847"/>
+    <link href="http://tzangms.com/life/2847"/>
     <updated>2011-03-07T23:32:41+08:00</updated>
-    <id>http://tzangms.github.com/life/第二份工作滿兩年了</id>
+    <id>http://tzangms.com/life/第二份工作滿兩年了</id>
     <content type="html"><![CDATA[<p>時間過好快, 第二份工作好快就滿兩年了, 想想寫程式也 4 年多了, 但是這份工作跟上一份工作差別最大的就是, 從網路產業跑到文化產業, 從原本有主管罩到沒有人罩。 而後來也不小心當了主管, 從原本沒有任何制度開始慢慢建立, 然後多了許多向外溝通的工作, 而後來都是在處理大量跟人相關的問題, 不像是以前只要專心寫 code 就好了, 所以覺得好忙碌。</p>
 
 <p>畢竟開始認真寫程式也才 4 年多, 而這份工作又從 php 轉到 python, 就好像把功力突然就廢掉了一般, 得重新學習, 而由於網路技術快速的更新, 所以下班得一直看書跟研究新的技術。 現在則是又因為當了主管, 就另外看起了關於技術管理相關的書籍, 像是因為有 programmer 是在北京, 所以看起了 <a href="http://www.amazon.com/Virtual-Team-Success-Practical-Distance/dp/0470532963">Virtual team success</a>,  以及 @xdite 推薦的 <a href="http://pragprog.com/titles/prj/ship-it">Ship it!</a> 以及 <a href="http://oreilly.com/catalog/9780596517717">Make things happen</a>, 真是忙呀 (茶)。</p>
@@ -260,9 +260,9 @@
   
   <entry>
     <title type="html"><![CDATA[Lifestream]]></title>
-    <link href="http://tzangms.github.com/stuff/2846"/>
+    <link href="http://tzangms.com/stuff/2846"/>
     <updated>2011-03-07T22:34:25+08:00</updated>
-    <id>http://tzangms.github.com/stuff/lifestream</id>
+    <id>http://tzangms.com/stuff/lifestream</id>
     <content type="html"><![CDATA[<p>想做這個 <a href="http://lifestream.ep.io/">Lifestream</a> 已經很久了, 不過其實先前就做了一個<a href="http://tzangms.com/stuff/2751">小玩具</a>, 用來記錄我的 twitter、plurk 跟 facebook 的訊息, 不過由於當初設計的方向只是方便自己以後查詢跟記錄, 後來因為 GAE 的關係也沒公開 ( 因為即便沒有公開, 前一陣子都已經開始跟我收錢了 &#8230; )</p>
 
 <p>其實因為服務開太多, 錢燒太兇, 所以開始在想一些省錢的方式, 所以這次就用了 <a href="http://ep.io/">ep.io</a> 跑 <a href="http://flask.pocoo.org/">flask</a>, 然後用 <a href="http://aws.amazon.com/simpledb/">simpledb</a> 來存放資料。 我想 ep.io 那應該是都不會被 charge 到才對, 而 simpledb 則是每個月的前 1GB 的資料存放是免費的 &#8230; 不知道有沒有理解錯誤? XD</p>
@@ -273,9 +273,9 @@
   
   <entry>
     <title type="html"><![CDATA[Lettuce - Behaviour-driven development]]></title>
-    <link href="http://tzangms.github.com/programming/2837"/>
+    <link href="http://tzangms.com/programming/2837"/>
     <updated>2011-03-05T00:29:08+08:00</updated>
-    <id>http://tzangms.github.com/programming/lettuce__behaviourdriven_development</id>
+    <id>http://tzangms.com/programming/lettuce__behaviourdriven_development</id>
     <content type="html"><![CDATA[<p>前幾天看到 <a href="http://lettuce.it/">Lettuce</a> 覺得挺有趣的, 昨天一玩就玩了兩個小時, 玩到半夜兩點 &#8230;</p>
 
 <p>沒想到我連做夢都在寫 test case, 然後一直到醒來腦袋還一直在想 unit test  &#8230; 然後就乾脆爬了起來, 一直到天亮才爬回去睡, 結果今天真是累死了 Orz</p>
@@ -322,9 +322,9 @@
   
   <entry>
     <title type="html"><![CDATA[感謝身邊的幾位貴人]]></title>
-    <link href="http://tzangms.github.com/life/2835"/>
+    <link href="http://tzangms.com/life/2835"/>
     <updated>2011-03-03T00:57:56+08:00</updated>
-    <id>http://tzangms.github.com/life/感謝身邊的幾位貴人</id>
+    <id>http://tzangms.com/life/感謝身邊的幾位貴人</id>
     <content type="html"><![CDATA[<p>最近發現身邊有幾位貴人, 特別是公司同事。 大家知道我個性特別易怒, 為了讓我提昇向上, 成為一個更好的人, 所以一直在訓練著我的耐性。  常常在事情發生的當下, 我一衝動就生氣了, 往往在事後回想才發現, 原來這是同事為了要讓我在這個社會生存下去, 為了要讓我知道這社會的險惡, 讓我可以度過往後漫長人生道路上的種種難關, 才會這麼對我、訓練我的。</p>
 
 <p>可說是我太不知感恩了, 還在網路上大喊大叫的, 甚至氣到快發抖, 現在想想, 我真是太不應該。</p>
@@ -343,9 +343,9 @@
   
   <entry>
     <title type="html"><![CDATA[Djangy 要收攤了]]></title>
-    <link href="http://tzangms.github.com/programming/2832"/>
+    <link href="http://tzangms.com/programming/2832"/>
     <updated>2011-02-28T11:29:45+08:00</updated>
-    <id>http://tzangms.github.com/programming/djangy_要收攤了</id>
+    <id>http://tzangms.com/programming/djangy_要收攤了</id>
     <content type="html"><![CDATA[<p>不久前寫的一篇 <a href="http://tzangms.com/programming/2807">python 的 heroku</a> , 沒想到今天早上一邊在看奧斯卡的同時, 看到 twitter 上 @dlackty  推了這一篇 <a href="http://blog.djangy.com/2011/02/27/final-djangy-newsletter/">Final Djangy Newsletter</a>, 居然 Djangy 開張沒有多久就要收了 &#8230;</p>
 
 <p>本來還想說 GAE 效能實在是不太好, 以後都用 Djangy 來試一些實驗性質的東西說&#8230; (默)</p>
@@ -356,9 +356,9 @@
   
   <entry>
     <title type="html"><![CDATA[iPhone Programming: The Big Nerd Ranch Guide]]></title>
-    <link href="http://tzangms.github.com/programming/2828"/>
+    <link href="http://tzangms.com/programming/2828"/>
     <updated>2011-02-27T20:44:43+08:00</updated>
-    <id>http://tzangms.github.com/programming/iphone_programming_the_big_nerd_ranch_guide</id>
+    <id>http://tzangms.com/programming/iphone_programming_the_big_nerd_ranch_guide</id>
     <content type="html"><![CDATA[<p><a href="http://www.bignerdranch.com/book/iphone_programming_the_big_nerd_ranch_guide"><img src="http://tzangms.com/wp-content/uploads/2011/02/41Msd4GFq5L-223x300.jpg" alt="" title="41Msd4GFq5L" width="223" height="300" class="size-medium wp-image-2829" /></a></p>
 
 <p>其實去年年底因為 <a href="http://www.peko.idv.tw/">OOBE</a> 的推薦, 就看過一遍這本書了, 不過當時即便看完了這本書, 對整個 iPhone programming 很是很模糊, 一直到今年一月底因為農曆過年, 在家沒事就又拿起 iPad 再重新看一遍, 這次終於搞懂了 delegate 這件事, 簡直就像打通了任督二脈阿! XD</p>
@@ -369,9 +369,9 @@
   
   <entry>
     <title type="html"><![CDATA[GoSquared: 超即時的 livestats]]></title>
-    <link href="http://tzangms.github.com/web/2825"/>
+    <link href="http://tzangms.com/web/2825"/>
     <updated>2011-02-20T19:33:30+08:00</updated>
-    <id>http://tzangms.github.com/web/gosquared_超即時的_livestats</id>
+    <id>http://tzangms.com/web/gosquared_超即時的_livestats</id>
     <content type="html"><![CDATA[<p><a href="http://www.gosquared.com/livestats/?ref=6776"><img src="http://tzangms.com/wp-content/uploads/2011/02/livestats_screenshot_05_inbrowser_672x444-500x296.png" alt="" title="livestats_screenshot_05_inbrowser_672x444" width="500" height="296" class="alignleft size-large wp-image-2827" /></a>
 今天才發現 <a href="http://www.gosquared.com/livestats/?ref=6776">GoSquared</a> 這個網站, 一整個比 getclicky 強太多了阿!!!! 介面未免也太即時了吧!! 一看到馬上就註冊了免費帳號來玩, 還滿好玩的ㄝ XD 一定要玩看看阿!</p>
 ]]></content>
@@ -379,9 +379,9 @@
   
   <entry>
     <title type="html"><![CDATA[Bleach - An easy, HTML5, whitelisting HTML sanitizer.]]></title>
-    <link href="http://tzangms.github.com/programming/2824"/>
+    <link href="http://tzangms.com/programming/2824"/>
     <updated>2011-02-20T13:26:25+08:00</updated>
-    <id>http://tzangms.github.com/programming/bleach__an_easy_html5_whitelisting_html_sanitizer_</id>
+    <id>http://tzangms.com/programming/bleach__an_easy_html5_whitelisting_html_sanitizer_</id>
     <content type="html"><![CDATA[<p><a href="https://github.com/jsocol/bleach">Bleach</a>, 不是 <a href="http://zh.wikipedia.org/wiki/黑崎一護">黑崎一護</a> 那個 bleach XD</p>
 
 <p>前一陣子不知道什麼原因, 有人把 delicious feed 送到 django planet, 所以 django planet 就爆炸了, 今天努力的在清 rss, 突然又找到了 bleach, 這個先前遺忘了的 html sanitize 工具。 而目前 mozilla 的 <a href="http://addons.mozilla.org/">addons</a> 跟 <a href="http://support.mozilla.com">support</a> 也都用了 bleach。 有人還不知道 mozilla 的 addons 跟 support 都換成 django 了嗎?</p>
@@ -398,9 +398,9 @@
   
   <entry>
     <title type="html"><![CDATA[新玩具: instawall]]></title>
-    <link href="http://tzangms.github.com/programming/2823"/>
+    <link href="http://tzangms.com/programming/2823"/>
     <updated>2011-02-20T00:15:25+08:00</updated>
-    <id>http://tzangms.github.com/programming/新玩具_instawall</id>
+    <id>http://tzangms.com/programming/新玩具_instawall</id>
     <content type="html"><![CDATA[<p><a href="http://instawall.djangy.com">http://instawall.djangy.com</a></p>
 
 <p>星期六早上收到了先前 <a href="http://instagr.am/">instagram</a> 發來的 api developer 啟用信, 就開始玩了起來。目前把 自己的照片 / 朋友的照片 / following / follower / popular / like / comments / 加好友 等功能都做上去了。</p>
@@ -417,9 +417,9 @@
   
   <entry>
     <title type="html"><![CDATA[Requests: Python HTTP Module (That Doesn’t Suck)]]></title>
-    <link href="http://tzangms.github.com/programming/2821"/>
+    <link href="http://tzangms.com/programming/2821"/>
     <updated>2011-02-19T23:52:00+08:00</updated>
-    <id>http://tzangms.github.com/programming/requests_python_http_module_(that_doesn’t_suck)</id>
+    <id>http://tzangms.com/programming/requests_python_http_module_(that_doesn’t_suck)</id>
     <content type="html"><![CDATA[<p><a href="http://kennethreitz.com/blog/introducing-requests/">Requests: Python HTTP Module (That Doesn’t Suck)</a></p>
 
 <p>一直都還滿喜歡 appengine urlfetch 的 api interface, Requests 就還滿像的, 感覺找到了好物, 獲得救贖的感覺 XD</p>
@@ -428,9 +428,9 @@
   
   <entry>
     <title type="html"><![CDATA[Django 發佈安全性更新 2/8]]></title>
-    <link href="http://tzangms.github.com/programming/2818"/>
+    <link href="http://tzangms.com/programming/2818"/>
     <updated>2011-02-14T00:36:06+08:00</updated>
-    <id>http://tzangms.github.com/programming/django_發佈安全性更新_28</id>
+    <id>http://tzangms.com/programming/django_發佈安全性更新_28</id>
     <content type="html"><![CDATA[<p>這篇也 delay 了好多天, 在 2/8 <a href="http://www.djangoproject.com/weblog/2011/feb/08/security/">Django 發佈了安全性更新</a>, 主要是針對 <a href="http://en.wikipedia.org/wiki/Cross-site_request_forgery">CSRF</a> 這件事。</p>
 
 <p>如果有用 Django 1.2 的人就一定知道 csrf 這個東西, 畢竟 Django 1.2 預設開啟了 csrf, csrf 簡單來說就是防止假造的 POST request, 不過其實 csrf 並沒有對 XMLHttpRequest 的 POST 做處理, 畢竟瀏覽器限制 XMLHttpRequest 得在同一個 domain 跟 protocol。</p>
@@ -443,9 +443,9 @@
   
   <entry>
     <title type="html"><![CDATA[Django 1.3 繁體中文翻譯人員徵求]]></title>
-    <link href="http://tzangms.github.com/django/2817"/>
+    <link href="http://tzangms.com/django/2817"/>
     <updated>2011-02-14T00:13:07+08:00</updated>
-    <id>http://tzangms.github.com/django/django_1_3_繁體中文翻譯人員徵求</id>
+    <id>http://tzangms.com/django/django_1_3_繁體中文翻譯人員徵求</id>
     <content type="html"><![CDATA[<p>前一陣子 Django 把 locale 翻譯的工作丟上了 <a href="http://www.transifex.net/projects/p/django/">transifex</a>, 上禮拜剛註冊完 transifex 的帳號後, 想說要來翻譯一下的, 回到 twitter 剛好看到 @jezdez 在徵 coordinator, 當中包含了 zh-TW tream, 所以就直接跟他說我可以幫忙, 下一個 reply 他就幫我加好了 coordinator。</p>
 
 <p>接下來幾天把 django core 翻到了 91%, 不過後來最近真的因為公事繁忙, 所以沒能持續翻下去, 都只能抽時間來翻, 不過 Django 1.3 在這個月 21 號就要 final release 了, 所以得找人來幫忙一下, 其實我早該貼這篇文了, 只是最近真的粉忙 ~&#8221;~</p>
@@ -458,9 +458,9 @@
   
   <entry>
     <title type="html"><![CDATA[myaudiocast 滿週歲]]></title>
-    <link href="http://tzangms.github.com/life/2813"/>
+    <link href="http://tzangms.com/life/2813"/>
     <updated>2011-01-31T00:33:51+08:00</updated>
-    <id>http://tzangms.github.com/life/myaudiocast_滿週歲</id>
+    <id>http://tzangms.com/life/myaudiocast_滿週歲</id>
     <content type="html"><![CDATA[<p>因為上禮拜收到了 godaddy 寄來的通知信, 才發現 <a href="http://www.myaudiocast.com/">myaudiocast</a> 即將滿一年了。 myaudiocast 算是我第一個正式 AppEngine project, 開發過程中讓我對 AppEngine 的 DataStore 不管是在規劃還是效能上有比較全盤的了解。</p>
 
 <p>來說說目前營運的狀況吧, 從最早開站沒幾個節目到現在, 已經有 201 個有上傳節目的 Podcast, 48個 Podcast 上了 iTunes Store, 而目前每天的流量差不多是 120G, 先前最高到 175G, 不過其實 pageview 挺少的 (笑), 大部分還是透過 iTunes 自動下載。 在這邊要感謝 <a href="http://www.pixnet.net/">pixnet</a> 提供 CDN 的支援, 不然我錢就燒光光惹 XD</p>
