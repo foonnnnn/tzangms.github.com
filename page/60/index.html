@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="今天一點快半，本來想說要睡了，沒想到才是地獄的開始&#8230;.一開始，手機響了，從值班交接之後，一直都很平靜，沒想到一開始就來個大攤的~ Orz 將機器重開機，無效 XD 第二次重開機，仍然掛點，後來只好求救於Tommy大大！大大只好耐著冷風披上外套衝到機房去了&#8230;辛苦了！Tom...">
+  <meta name="description" content="今天把PHP session給搞清楚了，然後把目前Project的使用者註冊、登入跟登出功能都搞定了。PHP session可以透過cookie或是session_id來儲存跟取得session變數，當然為了可攜性，所以我選用session_id，然後透過類似GET的方式在URL後面加上SID...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/737">我明明有拜拜的 Orz</a></h1>
+      <h1 class="entry-title"><a href="/uncategorized/626">SID or Cookie?</a></h1>
     
     
       <p class="meta">
@@ -80,18 +80,16 @@
 
 
 
-<time datetime="2006-12-02T04:02:09+08:00" pubdate  data-updated="true" >Dec 2<span>nd</span>, 2006</time>
+<time datetime="2006-03-21T03:49:00+08:00" pubdate  data-updated="true" >Mar 21<span>st</span>, 2006</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>今天一點快半，本來想說要睡了，沒想到才是地獄的開始&#8230;.</p>
+  <div class="entry-content"><p>今天把PHP session給搞清楚了，然後把目前Project的使用者註冊、登入跟登出功能都搞定了。</p>
 
-<p>一開始，手機響了，從值班交接之後，一直都很平靜，沒想到一開始就來個大攤的~ Orz 將機器重開機，無效 XD 第二次重開機，仍然掛點，後來只好求救於Tommy大大！大大只好耐著冷風披上外套衝到機房去了&#8230;辛苦了！Tommy大大。當然不愧是大大，處理了一下，然後在等在disk check的時間，就打電話來跟我小chat一下，不然他會睡著 XD 所以為了答謝大大，我當然就奉上我在flickr上的CUTE OL正妹，供大大振奮一下精神，以聊表小弟的心意，沒想到disk check在最令人滿意的時間內完成了！非常好！但是此刻我還沒洗澡，而且好餓，但是好餓我也不能吃東西，因為要減肥阿！所以只好去洗個澡，準備睡覺，但是現在都已經4點了 Orz</p>
-
-<p>果然沒錯，值班就是報肝的開始阿! 在此徵求許榮助保肝丸~幹，不行了，來睏。</p>
+<p>PHP session可以透過cookie或是session_id來儲存跟取得session變數，當然為了可攜性，所以我選用session_id，然後透過類似GET的方式在URL後面加上SID來傳遞及取得變數。然而一開始完全讀不到SID，後來試著把 session.use_cookie給關掉，居然SID就可以跑出來了，原來SID跟cookie這兩個之間存在著on/off的關係阿!讓我試了許久 Orz</p>
 </div>
   
   
@@ -104,7 +102,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/736">Squirrelmail Classes</a></h1>
+      <h1 class="entry-title"><a href="/music/625">John Mayer Trio</a></h1>
     
     
       <p class="meta">
@@ -118,28 +116,18 @@
 
 
 
-<time datetime="2006-12-01T00:00:50+08:00" pubdate  data-updated="true" >Dec 1<span>st</span>, 2006</time>
+<time datetime="2006-03-16T22:06:41+08:00" pubdate  data-updated="true" >Mar 16<span>th</span>, 2006</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>今天上班，一直在處理別的事情之外，下班前都在弄Squirrelmail，這次運用裡面的Classes的組合寫出了可以寄信的程式XD 可能有人會想說PHP就有內建mail啦! 但是，那個太簡單了，不夠帥 XD 所以為了耍帥，我就用了以下的Classes跟functions來作</p>
+  <div class="entry-content"><p><a title="Photo Sharing" href="http://www.flickr.com/photos/tzangms/113290877/"><img width="293" height="366" alt="John Mayer Trio" src="http://static.flickr.com/44/113290877_c85f14a6d8.jpg" /></a></p>
 
-<p>Deliver_SMTP.class.php
-Message.class.php
-Rfc822Header.class.php
-ContentType.class.php
-mime.php
-global.php
-&#8230;</p>
+<p>不知道大家有沒有聽過 John Mayer，我也忘記怎麼知道他的，曲風算是有點鄉村搖滾吧! 阿災。嗯，我不太會分曲風啦 :p 總知他的歌還滿棒的! 吉他很厲害，好像得過三次葛萊美獎?</p>
 
-<p>Deliver_SMTP是用來寄信的，但是要傳給他什麼呢？要傳Message Object，可是Message Object 要包含，Rfc822Header跟ContentType，看起來就很煩。Rfc822Header就是用來存from跟to等等的東西，ContentType就是用來包含encoding跟charset，那最主要的部份就是Message啦！除了需要存這兩個Object之外，最重要的就是，subject跟信件內文啦!</p>
-
-<p>在下班前終於把Message Object的必要資訊填好，不過寄出的信因為charset跟encoding的關係卻變成亂碼XD 看著大家都一個一個下班走了，我也只好打消繼續寫的念頭，不過又不甘心的寫了一下下，突然，哇!! 成功了！可以正常顯示啦!! 那麼就又可以繼續寫下去，不過~~在寫下去可能不知道幾點了，有時候寫到正high的時候真的是停不下來 XD 所以就把這個告一段落，完美的結束，明天在繼續 XD</p>
-
-<p>不過在這支程式之前，就用mail()，一行就可以達到相同功能 XD 可是一點也不帥氣 XD 好啦～！重點是mail較不那麼portable，跟Server的環境比較有關係，anyway明天繼續high :D</p>
+<p>這 次是在東引無聊在玩牌的時候，電視就開在 Channel V一直撥的MV，不知道為啥確是大陸的Channel V，後來就播到吉他很屌的開頭，我就停住，wow &#8220;John Mayer Trio&#8221; 留長髮變好帥喔! 只是不知道怎麼多了個 Trio 這個字，今天上網查才知道，原來這次是以三人的組合出現，John Mayer是主唱兼吉他，天阿! 彈那麼難的東西還可以唱拍子超亂的Vocal，而且曲風有點偏藍調，有 SRV 的感覺出來呢!! 好屌!  Who did you think I was 這首歌是我看到的MV，很棒!!快練好了:p 好屌阿!!</p>
 </div>
   
   
@@ -152,7 +140,7 @@ global.php
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/735">手邊的一些東西要看</a></h1>
+      <h1 class="entry-title"><a href="/life/624">我回到台灣啦!!</a></h1>
     
     
       <p class="meta">
@@ -166,25 +154,34 @@ global.php
 
 
 
-<time datetime="2006-11-29T22:05:29+08:00" pubdate  data-updated="true" >Nov 29<span>th</span>, 2006</time>
+<time datetime="2006-03-16T13:20:00+08:00" pubdate  data-updated="true" >Mar 16<span>th</span>, 2006</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>SQL 學習手冊 [O&#8217;Reilly]
-AJAX HACKS [O&#8217;Reilly]
-Mastering Logic 7 [Video Tutorial]
-Reason 3 Tutorial [Video Tutorial]</p>
+  <div class="entry-content"><p><a title="Photo Sharing" href="http://www.flickr.com/photos/tzangms/113175669/"><img width="500" height="375" alt="Red nail polish in matsu" src="http://static.flickr.com/38/113175669_da0d1f731b.jpg" /></a>我的天阿！這趟東引之旅真的是太恐怖了 Orz</p>
 
-<p>剛才在整理光碟片，順便把Reason 2.5 Adapted裝上去，只是想讓自己寫歌的靈感多一點，後來翻著翻著，找到了Mastering Logic 7，嗯~ 先前還沒看完，看著影片學真的是快很多，有興趣的可以來跟我要，當然看這個英文要有點程度才行，所以你就知道了，我是完全聽不懂 XD</p>
+<p><strong>3/10~3/11 坐船出發到東引</strong></p>
 
-<p>不知道這裡面有沒有講到關於MIDI mapping的東西，先前到小貓家，用iBook接上他的TASCAM US-122在接上他的YAMAHA電子鼓，然後套上BFD，出來的聲音就很棒! 只不過踩大鼓的時候，聲音是Hi-hat的聲音 XD 不過一時之間找不到如何去改Logic 上的 MIDI Mapping，不然就很好玩了，不過剛剛突然想到，BFD改用Battery 2 應該會快很多，可以直接把Sample直接Drag and Drop，這樣一來很快就可以對應到正確的鼓組了吧!? 下次來試試看，不過最安全還是把Logic 7的MIDI Mapping搞熟 :p</p>
+<blockquote>晚 上10點出發，隔天早上6點到達東引，吃個早餐然後小躺一下，10點就去架器材跟場佈了，一直架到4點多都還沒架好，然後接著排一下樂團的東西，就快7點 要開始表演了，6點40的時候還衝回飯店換裝，然後衝回表演場地，超趕 Orz 然後問題超多，因為幸運草的吉他手小白沒有帶到效果器的變壓器，所以使得我要把效果器重新配置，用電池來供電，然後把變壓器借給他，不然就完蛋了，但也因 為如此讓我整場的表演都很急，因此也出了點狀況，不過整場的表演也還算ok，所以&#8230;唉，這一天就快煩死了。效果器跟導線也都被泡泡機的泡泡給淹沒，真 是悲慘，而最後吉他背袋離四頭燈太近，所以燒了一個洞，只能說GGG我對不起你阿 Orz</blockquote>
 
-<p>然後又翻到了Reaso 3的Video Tutorial，先前也是看到一半就沒看了，那時候記得是在幫人家作電子樂編曲，然後因為太忙了最後也就忘記看了 XD</p>
 
-<p>至於SQL學習手冊這幾天應該是可以把他幹掉 XD 不過最近看得都是Kej大大的書，真是不好意思，討論一下還有啥書可以一起看的，我去買 XD 這週末要值班，來去天瓏晃一下好了 :D 買本 Ruby ?</p>
+<p><strong>3/12~3/13 回台灣的船沒開</strong></p>
+
+<blockquote>我的天阿! 不能回台灣了! 然後天氣又冷的要命，東引的物價又跟台北差不多，瘋了說！然後我的感冒又開始加重，然後，還被東引人抓去灌酒，我的天阿，我以為我差一點就要死在東引了，我想回台灣阿!</blockquote>
+
+
+<p><strong> 3/14 東引旅行團</strong></p>
+
+<blockquote>這 一天的天氣特別好! 出大太陽阿!! 所以駿仔就去跟鄉公所的人聯絡，然後鄉公所的大哥開了一台箱型車，準備帶著我們去逛東引，當然一台車不夠阿！所以跟晰華飯店也借了一台箱型車，就這樣衝 阿!!第一次我把我相機的128MB記憶體用光了， 這一天的旅行團，前幾天的無聊，總算有了點代價! 也還算值得。</blockquote>
+
+
+<p><strong>3/15 台灣我來啦!! </strong></p>
+
+<blockquote>今天9點就起床了，因為台馬輪有開阿!!呵呵，大家都好高興，10點就收拾完東西，然後趕去碼頭準備坐船，衝阿!! 總之，台灣真的是寶島阿!!</blockquote>
+
 </div>
   
   
@@ -197,7 +194,7 @@ Reason 3 Tutorial [Video Tutorial]</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/734">iPod Shuffle 2、Hyde Faith Live DVD</a></h1>
+      <h1 class="entry-title"><a href="/life/623">被困在東引了!!</a></h1>
     
     
       <p class="meta">
@@ -211,21 +208,16 @@ Reason 3 Tutorial [Video Tutorial]</p>
 
 
 
-<time datetime="2006-11-27T23:58:37+08:00" pubdate  data-updated="true" >Nov 27<span>th</span>, 2006</time>
+<time datetime="2006-03-13T14:48:04+08:00" pubdate  data-updated="true" >Mar 13<span>th</span>, 2006</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>最近每每看到人，每個人都說: &#8220;小海~你變胖了!&#8221;，恩！對我來說真的是天大的打擊！我知道我變胖了阿!!!</p>
+  <div class="entry-content"><p>嗚，被困在東引了，3/10出發來到東引表演，原本預計3/12要出發回台灣，結果現在都還在媽祖，my god!! 因為天氣不好，所以船沒開!! 不能回台灣了 Orz 現在超冷的，5度? 然後明天船還是確定不會開，我的天阿!!後天呢? 阿災? 重點是昨天差一點就死掉了，被抓去灌酒 Orz 我已為我就要死在媽祖了..</p>
 
-<p>所以最近開始運動了，上個月的週末就去跑步，然後上上上禮拜就練團，比跑步還累，差一點死掉了我，累死，上上禮拜則是練團兼表演，都有運動到，所以上禮拜量ㄧ下體重，呵！少了兩公斤內!! 超high的！不過因為回家，所以就又被餵胖了，又回升了一公斤，媽的！</p>
-
-<p><a href="http://www.flickr.com/photos/tzangms/307751340/" title="Photo Sharing"><img src="http://static.flickr.com/113/307751340_4b1694b7ea_m.jpg" width="240" height="192" alt="my iPod shuffle 2" border='0' class='alignleft' /></a>先前在跑步的時候，就覺得好無聊，今天就想到應該要帶著隨身聽跑步。不過由於原本的iPod mini太操了，不過才兩年，他的電池就已經差不多了，現在只能上班的時候接著電聽。其實以他的重量，應該也不是很適合帶著跑步，所以說，今天一下班就衝去Apple store買了一台iPod shuffle 2($2900、1G)，然後逛了一下，本想說買張CD來聽聽，不過卻看到了&#8221;Hyde Faith Live DVD&#8221; ($689、2 DVD)，超High的!! 所以二話不說就買了阿!!所以今天就又敗了好多錢，不過為了減肥iPod是必需的，Hyde DVD也是精神糧食，所以當然也是必需的阿!!</p>
-
-<p><a href="http://www.flickr.com/photos/tzangms/307756932/" title="Photo Sharing"><img src="http://static.flickr.com/102/307756932_f5279d7053.jpg" width="378" height="500" alt="Hyde Faith Live DVD" border='0' class='aligncenter' /></a>
-Hyde 超帥的阿!! 明天就來跑步吧!!!</p>
+<p>第一天來的時候，坐船過來東引，感覺好難過，我會暈船阿!! 超難過的，8個小時阿!!在船上睡覺的時候根本還是感覺在坐雲霄飛車，現在只希望後天船會開，然後希望回程的時候可以很好睡，我想念台灣阿!!現在感覺宜蘭根本就是個高科技城市!! XD</p>
 </div>
   
   
@@ -238,7 +230,7 @@ Hyde 超帥的阿!! 明天就來跑步吧!!!</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/733">小凱的Fender真帥!</a></h1>
+      <h1 class="entry-title"><a href="/uncategorized/622">h2oband.org?</a></h1>
     
     
       <p class="meta">
@@ -252,20 +244,24 @@ Hyde 超帥的阿!! 明天就來跑步吧!!!</p>
 
 
 
-<time datetime="2006-11-26T19:28:49+08:00" pubdate  data-updated="true" >Nov 26<span>th</span>, 2006</time>
+<time datetime="2006-03-06T13:07:27+08:00" pubdate  data-updated="true" >Mar 6<span>th</span>, 2006</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/307131716/" title="Photo Sharing"><img src="http://static.flickr.com/106/307131716_8f7de4db1a.jpg" width="334" height="500" alt="DSC04757.JPG" class='alignleft' border='0' /></a>目前使用的吉他是小凱(GGG)借我的Fender Stratocaster Vintage &#8216;57 裝著GGG慣用的Earnie Ball 010的弦，這張拍起來就還滿漂亮的，當然是用DSLR拍的才會那麼清楚阿 XD 這張照片是在上禮拜表演的時候拍的，帥氣! 這一切都要感謝GGG阿!!!</p>
+  <div class="entry-content"><p>日前，在剛把家裡的ADSL提升到8M/640K之後，就在想到時候要申請什麼樣的domain name，所以當時就打一些想到的domain，像是下面這幾個</p>
 
-<p>不過就很懷念之前H2O的編制，kyo跟GGG當吉他手的時候，我可以好好的彈我的BASS。很懷念kyo彈得吉他，邊的東西整個就跟H2O的味道很對，至於GGG就是整個藍調，就整個藍調龐克，然後整個搭起來就是所謂的前衛龐克阿!! (我自己說的 XD )</p>
+<blockquote>
+[N/A] h2o.com
+[N/A] h2o.org
+[N/A] h2oband.com
+[ OK ] h2oband.org
+</blockquote>
 
-<p>現在加入了新BASS手，我跑去彈吉他，新BASS手志豪就很認真，雖然會歌彈一彈就彈到別首歌去了，不過在我的調教之下，他可是進步神速 XD 要在變強阿！志豪。</p>
 
-<p>這次表演就真正了解到，鼓手小廖一個最嚴重的問題，就是練團的時候速度都正常，但是一到表演就整個飆快~恩~ 很快！ Orz 原本歌都已經夠快的了，200、8 beat 結果正式表演就不知道飆到哪裡去了。</p>
+<p>這四個就只剩h2oband.org還沒有人用，不過總是感覺h2o.com比較棒！不然就是直接來個tzangms.com好了？</p>
 </div>
   
   
@@ -278,7 +274,7 @@ Hyde 超帥的阿!! 明天就來跑步吧!!!</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/731">最近工作上的東西</a></h1>
+      <h1 class="entry-title"><a href="/music/621">3/4 表演超刺激 XD</a></h1>
     
     
       <p class="meta">
@@ -292,38 +288,26 @@ Hyde 超帥的阿!! 明天就來跑步吧!!!</p>
 
 
 
-<time datetime="2006-11-24T00:24:14+08:00" pubdate  data-updated="true" >Nov 24<span>th</span>, 2006</time>
+<time datetime="2006-03-05T04:40:34+08:00" pubdate  data-updated="true" >Mar 5<span>th</span>, 2006</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>作為一個網路程式設計師，好像一定必免不了要一直學習新的東西，相較於一般的Programer，學習新東西的速率是在是很可怕，可能我會這麼覺得是因為我太弱了XD</p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/107750851/" title="Photo Sharing"><img src="http://static.flickr.com/54/107750851_4a3b223eca.jpg" width="500" height="375" alt="DSCF0029.JPG" /></a>
+所有的狀況
+1. 效果器變壓器好像掉在練團室，所以跑去跟上一團借變壓器!
+2. 志豪在表演中背帶掉了!!
+3. 在第二首歌表演中，吉他弦斷了!!又跟上一團借了吉他!
+4. 志豪BASS背帶又掉第二次!!
+5. &#8230;族繁不及備載</p>
 
-<p>上個禮拜在coding一個活動的網頁，用上了PHP+PHP Pear+PHP Smarty，雖然都是PHP啦!但是Smarty跟Pear也是要另外搞懂，今天就跟不在的<a href='http://www.kej.tw'>Kej</a>大大借了PHP Smarty的書回來讀，雖然剛進公司就用PHP加Smarty寫了一個管理後台，當初只知道有Smarty這個東西，在寫的時候就ㄧ邊看<a href='http://smarty.php.net'>http://smarty.php.net</a>的document來寫。剛才在看跟Kej大大借回來的書的時候，大概看了不到2個小時就把看完這本書的一半了，剩下就是Smarty專案規劃，所以重點差不多就看完了。只是，哪有每天都有這種心情看書阿~</p>
+<p>總之，今天是我出過最多狀況的一次表演，也是第一次在表演時斷弦，總之，超刺激！
+不過今天在唱創作的時候，許多人聽到&#8221;都是當兵的錯&#8221;的時候，大家都笑了，臉上掛著笑容!! :D 應該都覺得很好笑，呵呵，大家開心這就夠了，H2O本來就是個搞笑樂團 XD
+雖然狀況一大堆，不過大家都說H2O的表演很好笑，也有人說我們的表演會吸引別人的目光！我想這真的很不錯，這表示我一直都有在進步當中 :D 當然志豪也累積到許多經驗值吧!照片我已經放到相簿裡囉! 要看照片請到Gallery喔。</p>
 
-<p>這幾天其實在公司沒事幹 XD 上禮拜有個活動的網頁co完就把裡面寫的一個圖片縮圖跟裁切的功能寫成一個class，然後就在修，方便以後使用，不過用GD縮的圖，品質不是很好，該來試試看imagemagick的Magic Wand for PHP，不過論portable當然是GD阿~真麻煩。後來修到一個段落，居然一點事都沒有，所以昨天就一直在看當初買的PHP實務[O&#8217;Reilly]，畢竟自己的PHP懂得不夠多，就讀了一些認證、安全的東西，然後為了要在Linux的console讀取MSSQL 就又去找了<a hre='http://www.sqsh.org/'>sqsh</a>，還滿好玩的，不然Linux怎麼用Enterprise Manager &#8230;</p>
-
-<p>今天也還是沒事情，所以幾乎一整天都在K <a href='http://www.ruby-lang.org'>Ruby</a>，然後k完了一份<a href='http://pine.fm/LearnToProgram/?Chapter=00'>tutorial</a>，回家繼續k ruby，一直到剛才想到有跟Kej大大借了Smarty來看，就先把這一本Smarty看完了。</p>
-
-<p>本來是想拿AJAX HACKS[O&#8217;Reilly]回來看的，不過後來想說，先把工作上用的到的東西k一k好了，所以Smarty看完之後，接下來該繼續看上個禮拜沒看完的SQL學習手冊[O&#8217;Reilly]，話說，這些書全部都是<a href='http://www.kej.tw'>Kej</a>大大的，感謝大大。</p>
-
-<p>話說SQL還滿難的，Create view，Sub Query之類的，還有兩層的sub query，害我上次看了之後有點頭痛 XD 像我現在只會基本的query而已，很糟糕，query的performance不好或是co的很笨的話，到時候經理看到程式碼我會很糗，所以SQL是一定要學的很好的。</p>
-
-<p>今天又聽到 mod_rewrite 這個東西，之前就有聽過，不過根本不知道幹嘛，不求甚解 XD 網路上找了一下才知道用來幹嘛，要用到我已經學了70%有的Regular expression，幸好已經有k了XD 結果更接近下班前，在處理mail的東西，才發現Linux檔案太多會沒辦法處理 XD 當要搬移有近一萬封mail的時候，居然出現 mv: Argument list too long :O 太屌了！Linux玩那麼久我真的第一次看到這個訊息，後來找了一下，可以用xarg來解決，不過當時不知道只好用regular expression來將檔案分次搬移了 XD 不然mv到死 XD</p>
-
-<p>另外要懂得東西還有Mail Server的架構: Mailhost、relay、mx..之類的，那還有LDAP、IMAP、SMTP跟qmail、dovecot的設定之類的，還有Maildir、mbox格式啦～blah, blah, blah &#8230;..</p>
-
-<p>javascript也是阿~要玩AJAX當然要熟Javascript，要熟Javascript也就要熟DOM，然後還要懂XML，那要非常懂XML的話也要懂DTD，然後繼XML之後又來了一個JSON，話說自己有一個XML in a nutshell[O&#8217;Reilly]當初花99塊賣的，媽的，上次在火車上看一看，看到DTD就頭痛了，沒事幹嘛買原文阿~</p>
-
-<p>沒辦法，買原文比較帥 XD</p>
-
-<p>然後昨天也把Perl[O&#8217;Reilly]帶去辦公室，有時間該來回顧一下，當兵後全忘了，跟我的Java、Bash一樣XD 忘光光啦！哈哈哈哈哈！突然又想到先前用applescript+PHP+AJAX寫的iTunes remote，過好久都還沒有進展，applescript該不會也忘了 XD 真糟糕，網路程式設計真的要學很多東西阿！</p>
-
-<p>PHP Pear Smarty Ruby RubyOnRail Perl Javascript AJAX JSON XML DTD LDAP IMAP SMTP POP3 DNS Bash Applescript CSS MailHeader JAVA JSP SQL UML ERM</p>
-
-<p>不過，說那麼多，其實心裡一直有個疑問，上班沒事都在k書，雖然是在增加自己的實力沒錯，但是心裡總是覺得沒在做事的感覺，就有人說，增進自己的實力，也就是增進公司的實力，公司應該會樂見，只不過是否該利用上班時間，雖然是空閒時間沒錯，但是總覺得沒有很踏實 XD 還是覺得忙一點，coding一整天這樣比較踏實 XD</p>
+<p>另外有個重點是，居然有漂亮女高中生去搭訕志豪，居然是說&#8221;你們主唱唱的不錯&#8221; Orz</p>
 </div>
   
   
@@ -336,7 +320,7 @@ Hyde 超帥的阿!! 明天就來跑步吧!!!</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/web/730">Flickr Pro</a></h1>
+      <h1 class="entry-title"><a href="/h2o/620">3/4 H2O新竹東門城廣場表演!</a></h1>
     
     
       <p class="meta">
@@ -350,14 +334,30 @@ Hyde 超帥的阿!! 明天就來跑步吧!!!</p>
 
 
 
-<time datetime="2006-11-18T12:07:30+08:00" pubdate  data-updated="true" >Nov 18<span>th</span>, 2006</time>
+<time datetime="2006-03-04T01:37:35+08:00" pubdate  data-updated="true" >Mar 4<span>th</span>, 2006</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>昨天去郵局領掛號，原來是信用卡下來了，所以為了測試就去把我的Flickr升級到pro了，只是我連一台相機都沒有 XD 更何況宅男要去哪拍照呢？</p>
+  <div class="entry-content"><blockquote>
+【狂暴聖音NO:63 － 我們都是菜鳥2】 
+日期:3/04(六)
+時間:pm7:00~9:40 
+地點:東門城廣場 
+！團序調整中！ 
+＊Mr.M 
+＊Balance 
+＊魄
+＊H2O 
+</blockquote>
+
+
+<p>H2O 好久沒有表演了，這是我退伍後第一場表演吧！因為吉他手kyo轉職當拍拍手了，所以說H2O自從吉他手小凱出國後，縮減成3人樂團，現在加入了新BASS手，又變回了4人樂團，只是吉他手kyo會在台下而已XD</p>
+
+<p>上一次的表演是在中國科技大學，那次的表演可是H2O原班人馬阿! 真懷念！現在小凱出國、kyo又轉職當拍拍手，H2O的轉變還真大，附上上次校慶的照片!懷念一下吧 Orz
+<a href="http://www.flickr.com/photos/tzangms/62642242/" title="Photo Sharing"><img src="http://static.flickr.com/32/62642242_096d8a3916.jpg" width="500" height="375" alt="H2O!" /></a></p>
 </div>
   
   
@@ -370,7 +370,7 @@ Hyde 超帥的阿!! 明天就來跑步吧!!!</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/computer/728">Whee E~e~e~ 超爆笑Firefox AD</a></h1>
+      <h1 class="entry-title"><a href="/music/619">3/1 中山醫學大學表演</a></h1>
     
     
       <p class="meta">
@@ -384,17 +384,15 @@ Hyde 超帥的阿!! 明天就來跑步吧!!!</p>
 
 
 
-<time datetime="2006-11-13T00:23:17+08:00" pubdate  data-updated="true" >Nov 13<span>th</span>, 2006</time>
+<time datetime="2006-03-02T04:05:52+08:00" pubdate  data-updated="true" >Mar 2<span>nd</span>, 2006</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><object width="425" height="350"><param name="movie" value="http://www.youtube.com/v/4kNsjdoeyro"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/4kNsjdoeyro" type="application/x-shockwave-flash" wmode="transparent" width="425" height="350"></embed></object>
-
-
-<p>剛才<a href='http://frank0624.wordpress.com/'>FrAnK</a>傳來的，因為今天早上跟Kej、clotho、FrAnK去參加Firefox 2 Party，然後剛才FrAnK就去找Firefox相關的東西，應該是想說會不會找到今天會場兩位cosplay妹妹的相簿還是影片吧? XD 然後就找到這個，真是超爆笑的！wee~e~e~ 其中最令我發笑的是ie，看了就知道，如果沒有笑的來找我領獎品，要摸著良心阿~</p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/106442701/" title="Photo Sharing"><img src="http://static.flickr.com/54/106442701_548a6a6577.jpg" width="500" height="375" alt="中山醫學大學表演" /></a>
+3/1 下午4點出發衝到台中的中山醫藥大學表演，原本預定6點開場表演，但是搞錯地方，一直以為是中國醫藥學院Orz 結果他們後來派人到市區接我們，帶我們到他們學校。到達中山醫學大學已經都過6點半了，到達的時候是DJ在放歌，前面一塊空空的，本來想說，嗚，中山醫學大學的學生似乎有點那麼high不起來的感覺，不過當地一首歌彈下去之後，我發現，我錯了!! Orz 大家馬上都往舞台靠了過來，超high的阿!! 我的天阿！我都要痛哭流涕了!! 中山醫學大學的同學們，我愛你們阿!! 不過今天最受歡迎的就屬鼓手小黑了，我的天阿！根本就是明星了，都沒人理我 Orz anyway，我這次有帶了相機去拍照，大家可以到<a href="http://tzangms.dyndns.org/gallery2/main.php?g2_view=core.ShowItem&g2_itemId=19">Gallery</a>看照片喔！</p>
 </div>
   
   
@@ -407,7 +405,7 @@ Hyde 超帥的阿!! 明天就來跑步吧!!!</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/727">豪洨~</a></h1>
+      <h1 class="entry-title"><a href="/h2o/616">H2O的吉他手出現了!? 阿kyo!</a></h1>
     
     
       <p class="meta">
@@ -421,25 +419,15 @@ Hyde 超帥的阿!! 明天就來跑步吧!!!</p>
 
 
 
-<time datetime="2006-11-12T00:27:46+08:00" pubdate  data-updated="true" >Nov 12<span>th</span>, 2006</time>
+<time datetime="2006-02-28T02:53:26+08:00" pubdate  data-updated="true" >Feb 28<span>th</span>, 2006</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><object width="425" height="350"><param name="movie" value="http://www.youtube.com/v/b_ssk4U1zG0"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/b_ssk4U1zG0" type="application/x-shockwave-flash" wmode="transparent" width="425" height="350"></embed></object>
-
-
-<p>這該說啥？王建民的是韓國人？祖先還叫金豪洨、金盃匕，記者也夠豪洨的了。剛剛在BBS上看到，本該是看過就算了，但是現在台灣新聞不知道是在衝啥小，所以來貼一下。</p>
-
-<p>在BBS上的鄉民說被報導的網路文章是網友掰的，而不是南韓啥外電新聞發的。光看到王建民的祖先叫&#8221;金豪洨&#8221;，我就確定，這應該就是某位鄉民掰出來的吧! 阿不然呢? 居然新聞就這樣把他給報導出來了，真是夠豪洨的了。從在當兵的時候，早上都會看新聞，那時候某台新聞就會有啥&#8221;早安讀報&#8221;，不過就是把報紙上的內容照念出來，也沒有啥新聞畫面，只有報紙翻拍的畫面，這啥小？除了這個，還時常會看到居然新聞就直接拿壹周刊出來報導？也沒有新聞畫面，有的只是壹週刊的封面，某位藝人被狗仔拍到的照片，真是靠北，說是新聞，那~ 你們報導的都是啥小，都是出版刊物的東西，新啥小？</p>
-
-<p>而且叫新聞主播念報紙就算了，居然連那麼會豪洨的壹週刊都拿來播，是怎樣？有刺激性的東西就可以拿來填你們新聞的時間就對了？居然也一點查證都沒有。今天看到這個影片真的讓我覺得，新聞整個是豪洨嘛！不查證，看到黑影就開槍，搞不好哪天新聞台說你老爸叫&#8221;金豪洨&#8221;，幹，真是夠了。</p>
-
-<p>還有，前一陣子流行啥爆料的東西，誰要爆料新聞就追著跑，搞得好像爆料者好像有很大的權力，爆料者對著某某某說你不下台的話，我就要爆料。恩~反正就是用爆料來威脅，他媽的，爆料是用來增加個人權力？對國家好對社會好，要改進就提出來嘛，阿如果是豪洨的話，丟賣鬧阿，阿現在的記者也真夠腦殘的，人家爆料你就播，他虎爛你也播，他豪洨你也播，他說你老爸叫&#8221;金豪洨&#8221;你播不播？</p>
-
-<p>幹!總之，現在的新聞跟政論就一整個豪洨。</p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/105377447/" title="Photo Sharing"><img src="http://static.flickr.com/51/105377447_75f0049605.jpg" width="500" height="375" alt="kyo" /></a>
+話說H2O的吉他手-阿kyo在27下午出現了:o 但是隨後又消失無蹤，似乎是為了要繳學費在賺錢。自從退伍之後，就沒在看過阿kyo，至今也已經兩個月了。剛退伍的時候，阿kyo生了場重病，從那刻之後，阿kyo就從來沒上過線、也沒更新網誌，也沒在我所到的地方出沒，似乎就這樣消失了，我曾懷疑阿kyo就這樣掛了，還想說去他家探望一下。(話說到這裡，該不會是鬼魂也會上網吧:O) 阿kyo到底回來了沒？我想這是大家心中的疑問！阿kyo！！H2O需要你阿！3/4 表演阿!</p>
 </div>
   
   
@@ -452,7 +440,7 @@ Hyde 超帥的阿!! 明天就來跑步吧!!!</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/music/726">[Demo] 現在的我 從前的你</a></h1>
+      <h1 class="entry-title"><a href="/life/615">高中正式同學會</a></h1>
     
     
       <p class="meta">
@@ -466,27 +454,19 @@ Hyde 超帥的阿!! 明天就來跑步吧!!!</p>
 
 
 
-<time datetime="2006-11-10T02:15:19+08:00" pubdate  data-updated="true" >Nov 10<span>th</span>, 2006</time>
+<time datetime="2006-02-27T21:29:48+08:00" pubdate  data-updated="true" >Feb 27<span>th</span>, 2006</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>[介紹]
-這首歌真的是歷經多變，一開始在寫這首歌的時候是低三個key在寫的，慢慢的升key一直升到比現在的key高兩個key，但是編曲就都不一樣了，因為吉他沒辦法彈出來相同的東西，所以上禮拜六、日就把這首歌整個用鋼琴跟弦樂編曲，花了整整兩天，好不容易把鋼琴編好，跟這首歌的作詞者非非討論之後，最後在禮拜一我就重新來過，用現在這個key來編曲，改用吉他為主，重現最原本的編曲。</p>
-
-<p>原本打算是弄個簡單吉他彈唱的版本，不過在禮拜一錄音錄完準備睡覺前，居然，我又錄了10軌，不過還是以木吉他為主，只是木吉他一共有4軌就是了，哈哈哈哈。</p>
-
-<p>現在這首歌總共用了13軌，吉他x5、弦樂x3、鋼琴x1、Vocalx1、和聲x1、鼓x1 還有前面的雨聲。
-這次使用的是7000塊的麥克風來錄Vocal跟收吉他，音質應該不錯，只是可能我在收音的技巧不是很好，我會去買EQ或Recording雜誌來讀的 XD 總之，這一首也還是個適合睡覺的歌曲，最後，這首並沒有電吉他跟bass出現，solo也是木吉他，還滿難得的，請大家多多指教，如果彈得不好，請見諒，唱的不好，也請見諒，畢竟小弟是bass手 XD (超好推責任的~~啦啦啦啦)</p>
+  <div class="entry-content"><p>
+<a href="http://www.flickr.com/photos/tzangms/105133042/" title="Photo Sharing"><img src="http://static.flickr.com/34/105133042_7e7b676ccd_o.jpg" width="360" height="270" alt="DSCF4940.jpg" /></a>
+呵呵，看到了許久不見的同學喔! 這次去的人跟上次的臨時同學會稍微不一樣，都是一些超久沒看過的人，呵呵。而這次是約在台北東區見面，去吃蛋糕、下午茶之類的東西吧！恩，最近很懶得寫東西，就先這樣吧:p 要看照片的人請點上面選單上的Gallery喔!</p>
 
 </div>
   
-  
-    <footer>
-      <a rel="full-article" href="/music/726">Read on &rarr;</a>
-    </footer>
   
 
 

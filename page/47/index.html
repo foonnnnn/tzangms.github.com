@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="Mashable 不定期會推出一篇, 某個主題相關的網路資源收集, 像是「12 Twitter Apps for Your Phone」或是「60+ Tools For Gmail」。這一篇「5000+ Resources to Do Just About Anything Online」是大...">
+  <meta name="description" content="由於最近一直在 porting , 不只是為了好玩, 也是未來的趨勢, 所以採用了 framework 來作 porting 的動作, 其實一開始對於 framework 可以做到的事情, 有點感到驚訝! 一開始 porting 還滿好玩的, 但是相較於單純只是要將 view 跟 code 分...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/web/961">5000+ Resources to Do Just About Anything Online</a></h1>
+      <h1 class="entry-title"><a href="/programming/867">最近使用 CodeIgniter 的雜亂心得</a></h1>
     
     
       <p class="meta">
@@ -80,16 +80,50 @@
 
 
 
-<time datetime="2007-09-11T14:25:02+08:00" pubdate  data-updated="true" >Sep 11<span>th</span>, 2007</time>
+<time datetime="2007-05-28T23:19:59+08:00" pubdate  data-updated="true" >May 28<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://mashable.com">Mashable</a> 不定期會推出一篇, 某個主題相關的網路資源收集, 像是「<a href="http://mashable.com/2007/07/09/twitter-mobile-2/">12 Twitter Apps for Your Phone</a>」或是「<a href="http://mashable.com/2007/08/10/gmail-toolbox/">60+ Tools For Gmail</a>」。</p>
+  <div class="entry-content"><p>由於最近一直在 porting , 不只是為了好玩, 也是未來的趨勢, 所以採用了 framework 來作 porting 的動作, 其實一開始對於 framework 可以做到的事情, 有點感到驚訝! 一開始 porting 還滿好玩的, 但是相較於單純只是要將 view 跟 code 分離來說, 原本應該會採用 Smarty, 那麼我就可以很輕鬆的把這個程式 port 完, 不過在先前就一直有在 survey 一些 PHP framework, 所以這次才就直接衝了, 選用 <a href="http://codeigniter.com/">CodeIgniter</a> 這個 framework 來做 porting!</p>
 
-<p>這一篇「<a href="http://mashable.com/2007/09/08/5000-resources-to-do-just-about-anything-online/">5000+ Resources to Do Just About Anything Online</a>」是大集合, 不知道有沒有人可以一次把這篇跟相關連結都看完&#8230; 我本來想下的標題是「這篇看完就吐了吧」&#8230;.</p>
+<p>其實用 Smarty 可以減少許多 porting 的時間, 因為只需要單純的將 logic 跟 view 分離, 原本程式中就有的 library 還是可以繼續保留、使用, 但是, 就先前使用 Smarty 在開發的過程中, 還是感覺 Smarty 對以後的維護還是很麻煩 XD 不過這次採用了 CodeIgniter 來 porting 真是嘗到苦頭了 XD 由於對 framework 的不熟悉, 需要一邊 study 一邊 porting, 還要研究要如何將 MVC 切的漂亮, 接著原本程式的數量還滿龐大的, 然後又使用 framework 來作, 幾乎是重新改寫的情況下, 我原本跟經理說得大約 1 個月, 變成我的壓力來源 XD 就叫自作自受阿! 哈哈哈! 不過其實公司是沒有人在催我進度, 頂多問一下做的如何了~ 嗯, 我自己耍帥, 要用不熟悉的東西來做 porting, 當然不能將時間延誤推給這個原因阿! 所以應該將近有 3 個禮拜的時間, 就整個人悶了, 整天想的都是 porting, anyway, 但是說真的, 用 framework,  MVC 來作, 的確會讓程式簡潔很多, 方便往後程式的維護開發。</p>
+
+<p>我選用的 CodeIgniter, 沒看到有繁體中文的站台在介紹, PHP framework 在台灣比較紅的就屬 CakePHP 啦! 但是我看不懂他的 Document XD 而 CodeIgniter 的 Document 則是清楚明瞭, 而且就 framework 來說, 自由度很高! 門檻也不高, 所以我就選用 CodeIgniter 啦! 用 framework 就是要快阿~ 花太多時間在跨越門檻, 那就反了 XD</p>
+
+<p>framework 的其中一個特點就是, 他提供許多讓你快速開發程式的 function, 例如 Database class, 可以用 ActiveRecord 來存取資料庫, 而提供許多的 Database driver, 如: mysql, mssql &#8230;等, 即使你換資料庫, 你也只需要更改 Database driver 即可。以下是 ActiveRecord 小範例:</p>
+
+<p>原本 PHP 的做法:
+<code>mysql_query('SELECT * FROM mytable');</code></p>
+
+<p>使用 CodeIgniter ActiveRecord:
+<code>$this->db->get('mytable');</code></p>
+
+<p>使用 ActiveRecord 來作, 簡潔許多, 另外 framework 也幫你做了預防 SQL Injection 的動作。</p>
+
+<p>framework 中還有像是 Image_lib 的 library 讓你方便的就可以對圖片做 crop, resize 的動作, 還有一個很貼心的東西就是 input class, 每當在存取 $<em>POST 的時候, 總是要用 if 加上 isset 來檢查, 不存在就要另外將變數指定為 empty, 當 $</em>POST 變數很多的時候, 判斷式也相對的增多, 這時候程式就會變得很雜亂, 很難看, 然而 CodeIgniter 提供的 input class 很貼心, 當讀不到某 $_POST 變數的時候, 他會幫你自動將這個變數設為 empty, 舉例如下:</p>
+
+<p>原本的 PHP 做法:
+<code>if (isset($_POST['foo'])){</p>
+
+<pre><code>$foo = $_POST['foo'];
+</code></pre>
+
+<p>} else {</p>
+
+<pre><code>$foo = '';
+</code></pre>
+
+<p>}</code></p>
+
+<p>CodeIgniter 的做法:
+<code>$foo = $this->input->post('foo');</code></p>
+
+<p>這樣一來, 程式就簡潔了許多, 需要打的字也少了許多, 也方便以後維護, 當然還有其他許多貼心的 function,  不過後來發現其實裡面有些 function, 反倒要花上更多的行數, 來解決相同的事情, 但是後來才發現 framework 這個東西, 做主要的其中一項功能, 其實是要讓你方便維護你的程式碼阿!! 只能說 PHP 寫起來真的是很亂 XD</p>
+
+<p>其實寫到最後, 感覺像有種在做設定的感覺, 所以整個程式碼變得很簡潔, 井然有序, 以後再來寫一些介紹文好了!</p>
 </div>
   
   
@@ -102,7 +136,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/music/959">[Recording] 多與少 2</a></h1>
+      <h1 class="entry-title"><a href="/podcast/866">小海 Podcast 第 5 集</a></h1>
     
     
       <p class="meta">
@@ -116,18 +150,22 @@
 
 
 
-<time datetime="2007-09-10T00:38:14+08:00" pubdate  data-updated="true" >Sep 10<span>th</span>, 2007</time>
+<time datetime="2007-05-25T23:37:35+08:00" pubdate  data-updated="true" >May 25<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>這首歌真的是很難編曲, 完全想不出來, 試過用鋼琴、或是加入小提琴、Bass 跟電吉他, 整個就是沒感覺, 不過其實小提琴是還滿 ok 的, 這幾天再來試看看。</p>
+  <div class="entry-content"><p>哈! 這集隔了好久 :p 雖然這集只介紹了4首歌. 不過也快半小時了:p 這集講了一下蘭卡威之旅的心得, 大家都該去體驗一下蘭卡威大自然的威力才對 XD</p>
 
-<p>這次是先加入了合音, 感覺還不賴, 不過還是亂唱, 反正就 demo 嘛, 後來又加入一整個亂彈的吉他, 完全是以自 high 為取向, 先記錄下來靈感, 這幾天再來試看看。 如果聽到背景有像鬼叫的聲音&#8230;沒錯! 那是我在亂叫 XD</p>
+<ol>
+<li>沙漏(木吉他板) by <a href="http://tzangms.com">小海</a></li>
+<li>癮 by <a href="http://www.wretch.cc/blog/cowboy731216">姆貓</a></li>
+<li>multiply by <a href="http://profile.myspace.com/index.cfm?fuseaction=user.viewprofile&amp;friendID=28818054">a women of no importance</a></li>
+<li>in for a ride by <a href="http://www.anekdoten.se/">Anekdoten</a></li>
+</ol>
 
-<p>這首編曲整個很難 Orz</p>
 </div>
   
   
@@ -140,7 +178,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/music/958">[Recording] 多與少</a></h1>
+      <h1 class="entry-title"><a href="/blog/864">[串連] 我的惡臭經驗</a></h1>
     
     
       <p class="meta">
@@ -154,18 +192,22 @@
 
 
 
-<time datetime="2007-09-09T10:42:23+08:00" pubdate  data-updated="true" >Sep 9<span>th</span>, 2007</time>
+<time datetime="2007-05-25T00:32:11+08:00" pubdate  data-updated="true" >May 25<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>這首歌是跟上一首&#8221;<a href="http://tzangms.com/?p=945">熟悉與陌生</a>&#8220;一起寫好的, 嗯&#8230; 應該不算是寫好, 而是有雛形, 因為在某些地方還不知道要怎麼唱, 所以有時只能亂哼, 這一兩個禮拜一直想把這兩首歌寫好, 可是就一直無法找出好的感覺。</p>
+  <div class="entry-content"><p><a href="http://www.bio.url.tw/smell.html" target="_blank"><img src="http://www.bio.url.tw/bio.gif" width=150 height=60 border="0" align='left' /></a>被<a href="http://www.christabelle.idv.tw/">迴紋針老師</a>點名了! XD 今天中午聽到迴紋針老師跟 <a href="http://www.dearjohn.idv.tw">DearJohn</a> 提到&#8221;臭&#8221;這個字眼, 沒想到是這個串連, 下午看到迴老師的網誌才知道是這個題目, 噗~ 我突然覺得我錯了 XD 還真的要想好一陣子才能說我的惡臭經驗。</p>
 
-<p>剛才終於大概算把曲寫好, 錄了一個片段, 由這個片段可以聽的出來, 我的假音有點弱 XD Anyway, 其實我比較煩惱的是這首歌要怎麼編曲 XD</p>
+<p>說到惡臭經驗, 我想機車族的朋友們, 騎機車在路上應該都會有碰到垃圾車擋在前方的經驗, 有時候可真的是跑都跑不掉, 生長在空氣清新的宜蘭鄉下的我, 又沒有帶口罩的習慣, 所以碰到躲不掉的狀況, 真的是生不如死! 各位有相同經驗的朋友們應該有同感吧! XD 覺得垃圾車應該有除臭兼芳香的功能才是!</p>
 
-<p>另外, 以前有人說我的聲音想伍思凱&#8230; 當然&#8230;我並不想像伍思凱, 我可是假龐克阿!!! 不過自己這個片段某些高音的地方, 還真的是有像伍思凱勒 Orz</p>
+<p>來說重點吧! 從小生長在漁村的我, 其實對於魚腥味已經是習以為常了, 但是每當經過魚貨上岸的魚市, 又正當豔陽高照, 那個味道可不是一般人可以忍受的, 更何況是對外地來的遊客。我在想, 其實當遊客一進到南方澳漁港的時候, 應該就覺得空氣中已經瀰漫著一股&#8221;漁村的味道&#8221;吧!? 不過對我這個當地人則是已經很習慣了。</p>
+
+<p>其實最讓我不能忍受的是, 因為是住在鄉下的漁村, 而隔壁的阿嬤總是三不五時的在醃魚, 就放在他家門口, 噗, 問題是, 我家大門就常只關著紗門, 所以就也需要三不五時的遭受到醃魚味道的攻擊, 也許有些人覺得醃魚很好吃, 但是我真的是沒辦法接受醃魚過程中所產生的味道!! 不知道 bio 有沒有相關產品, 可以讓醃魚的時候在旁邊擺罐醃魚專用芳香劑 XD</p>
+
+<p>話說&#8230;這個串連要點名三位朋友~ 不知道有沒有人自願的? XD 不過故意點的好像比較好玩, 噗~ 被點到不要怪我 XD 那就&#8230;. <a href="http://blog.roodo.com/Rinslet">Rins</a>, <a href="http://blog.pixnet.net/jel0627">jel</a>, <a href="http://annpo.pixnet.net/blog">阿潑</a> ? 噗~</p>
 </div>
   
   
@@ -178,7 +220,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/music/957">超熱血洛克人!!</a></h1>
+      <h1 class="entry-title"><a href="/life/862">最近像一攤死水</a></h1>
     
     
       <p class="meta">
@@ -192,23 +234,100 @@
 
 
 
-<time datetime="2007-09-09T08:47:37+08:00" pubdate  data-updated="true" >Sep 9<span>th</span>, 2007</time>
+<time datetime="2007-05-24T01:31:20+08:00" pubdate  data-updated="true" >May 24<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><object width="425" height="350"><param name="movie" value="http://www.youtube.com/v/CX-i-Tvb4zI"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/CX-i-Tvb4zI" type="application/x-shockwave-flash" wmode="transparent" width="425" height="350"></embed></object>
+  <div class="entry-content"><p>最近卡好多事, 光是公司的是就忙翻了~ 回家還要寫歌~ 越寫不出來就越卡, 快變成一攤死水了~ 然後下班後就整個人懶掉, 原本昨天就該寫蘭卡威之旅下集, 但是怎麼也提不起勁, 也沒那個心情讀書、讀文件, 這禮拜應該會把公司的一個專案做一個階段性的收尾 不過公司的程式設計師怎麼都請不到?</p>
+
+<p>一直在搞目前的專案, 原本預估一個月, 用 CodeIgniter 來 porting,  不過 porting 時程超過我當初的預計, 當然這多少也跟我經驗不足有關, 但最主要的是這個專案原本就寫的很爛 XD 這我不知道說幾遍了, 不只要 porting, 還要修原本的 bug, 而程式碼的數量也是當初所沒估計到的, 還有它的程式比我原本想像的還爛, 靠~ 害我浪費時間 port 了好幾次原本應該可以作成同一支 function 的 code。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/life/862">Read on &rarr;</a>
+    </footer>
+  
 
 
-<p>昨天在「<a href="http://blog.roodo.com/baga128">太陽底下無新鮮事</a>」那裡看到這個影片就整個熱血起來阿!!</p>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/861">蘭卡威之旅上集!</a></h1>
+    
+    
+      <p class="meta">
+        
 
-<p>原因就是在, 那首歌寫的太屌了!! 原本以為那中文字幕只是亂套上去搞笑的, 沒想到一邊看著影片, 聽著歌曲跟歌詞, 沒想到是真的照翻的阿!! 頓時就覺得, 好屌阿!! 真的是為洛克人寫了一首歌曲。而且!! Vocal 就整個日本熱血動畫 tone 阿!!! 而且他的編曲還真的是很熱血阿!! 多用心阿!! KB solo, Guitar solo 都不缺!</p>
 
-<p>其實我好想寫這種類似的歌曲, 雖然搞笑但卻很正經!! 我的天阿! 我不知道已經看了幾遍了&#8230; 如果有玩過洛客人, 你一定也會很熱血阿! 歌詞對遊戲的描述真的是很到點 XD 然後動畫也真的是很帥! 到最後洛客人跟空氣人對打的動作, 簡直就只有帥可以形容, 還可以瞬間移動 :o</p>
 
-<p>然後歌曲中聽到的這段「不管試了幾次 不管試了幾次」&#8230;. 我的天阿!! 真的是太熱血了阿!! (握拳)</p>
+
+
+  
+
+
+
+<time datetime="2007-05-22T01:24:55+08:00" pubdate  data-updated="true" >May 22<span>nd</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/505957082/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/220/505957082_29e64aec8b.jpg" width="500" height="375" alt="100_0852.JPG" /></a>
+<a href="http://www.flickr.com/photos/tzangms/505985093/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/220/505985093_4acf084b5a_s.jpg" width="75" height="75" alt="100_0854.JPG" /></a> <a href="http://www.flickr.com/photos/tzangms/505955380/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/232/505955380_9924697188_s.jpg" width="75" height="75" alt="100_0862.JPG" /></a> <a href="http://www.flickr.com/photos/tzangms/505954516/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/227/505954516_8c368746af_s.jpg" width="75" height="75" alt="100_0864.JPG" /></a>
+在出國之前, 每次跟朋友說我要去蘭卡威, 朋友都會回問說, 蘭卡威在哪? 就在馬來西亞阿! 就叫你們讀地理不讀 XD 呵, 馬來西亞還真是夠熱的, 但是總比這幾天台灣一直下雨來的好! 空氣清新、風景優美阿!! 最棒的就是, 跟一堆魚一起在海裡游泳, 這次浮潛, 超漂亮! 即使我從小就生長在漁村, 住在海邊, 對於每天都可以看到一堆魚的我來說, 這次真的是一次前所未有的體驗!</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/life/861">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/860">出國囉!!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-05-17T00:55:44+08:00" pubdate  data-updated="true" >May 17<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>要跟親愛的各位, 說聲掰掰囉! 這一去就要 4 天了! 這可是我人生中第一次出國, 第一次坐飛機內!!</p>
+
+<p>回來在跟大家分享出國旅遊的心得吧!! 呵! 希望這次出國能找些靈感! 回來可以寫新歌! 本來這幾天要做 小海 Podcast 第五集的, 不過最近真的忙到翻了! 也在準備出國的一些事情跟東西~ 所以等我回來吧! 我終於可以跟電腦說掰掰了! 不過我怕我沒有電腦會很難過! XD 呵!</p>
+
+<p>anyway, 蘭卡威我來啦!!!! see ya, guys!!</p>
 </div>
   
   
@@ -221,7 +340,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/music/953">StarFlower - Moment in the Sun</a></h1>
+      <h1 class="entry-title"><a href="/life/858">我買 Jaguar 了!!!</a></h1>
     
     
       <p class="meta">
@@ -235,22 +354,21 @@
 
 
 
-<time datetime="2007-09-09T01:32:43+08:00" pubdate  data-updated="true" >Sep 9<span>th</span>, 2007</time>
+<time datetime="2007-05-14T23:54:50+08:00" pubdate  data-updated="true" >May 14<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/1337015720/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1177/1337015720_7fb1e5a578_m.jpg" width="240" height="216" alt="StarFlower" class='left' /></a>上個月買了 StarFlower 這張專輯 Moment in the sun, StarFlower 算是 indie 掛的, 就是整個清新風, 不過看來我還是喜歡 Alternative Rock 多一些。</p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/497956438/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/189/497956438_3bc39d7067.jpg" width="500" height="375" alt="Fender Jaguar" /></a></p>
 
-<p>不過我滿喜歡他們這張專輯的第二首歌的, Dance Till Morning Light, 整個舒服的 fu, 吉他也編的很不錯, 據說他們對於他們吉他手的功力頗自豪 :p</p>
-
-<p>當初是在 <a href="http://beethobear.blogspot.com/2006/08/another-great-afternoon-another-great.html">Smash Hits Productions</a> 看到 StarFlower 的, 而 StarFlower 的廠牌 <a href="http://musicismygirlfriend.com/">Music Is My Girlfriend</a> 也提供了這張我覺得(唯一?)不錯聽的 <a href="http://musicismygirlfriend.com/audio/Starflower%20-%20Dance%20Til%20Morning%20Light.mp3">Dance Till Morning Light 的 mp3 下載</a>, 當初就是因為這首歌才會買這張唱片的, 也許還有封面? XD 我真的還滿喜歡他們這張的封面的 (笑)</p>
-
-<p>聽完 Dance Till Morning Light 這首歌之後, 想多聽聽 StarFlower 可以到 <a href="http://www.myspace.com/starflowerband">StarFlower 的 myspace</a> 聽聽其他歌曲, 另外這是 <a href="http://www.starflower-fields.com/">StarFlower 的官方網站</a></p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/life/858">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -261,7 +379,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/computer/956">語音聊天小撇步</a></h1>
+      <h1 class="entry-title"><a href="/music/848">小海首張個人專輯!?</a></h1>
     
     
       <p class="meta">
@@ -275,24 +393,22 @@
 
 
 
-<time datetime="2007-09-08T00:46:06+08:00" pubdate  data-updated="true" >Sep 8<span>th</span>, 2007</time>
+<time datetime="2007-05-08T00:35:01+08:00" pubdate  data-updated="true" >May 8<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>如何用筆記型電腦透過 skype 聊天不戴耳機, 又不怕有回授? 看到 <a href="http://www.lifeclever.com/get-clearer-audio-chats-on-your-laptop/">這篇文章</a> 寫了個小技巧, 應該滿有用的。</p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/488464509/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/218/488464509_d9e243690a.jpg" width="500" height="364" alt="my own CD Album" /></a>
+小海首張個人專輯!? :o</p>
 
-<p>其實他最主要說得就是, 如果你的麥克風在右邊, 那就把喇叭的聲道調到左邊, 相反的, 如果麥克風在左邊, 就把喇叭的聲道調到右邊, 這樣一來喇叭跟麥克風就有些距離, 可以減少喇叭出來的聲音直接回授 (feedback) 到麥克風的情形!</p>
-
-<p>不知道怎麼調喇叭聲道的話, 可以看看原文, 有圖解說明, Windows 跟 Mac 都有喔!</p>
-
-<p>哈, 之前都沒想過這個, 所以每當聊天的時候, 如果對方說我這邊都有回音, 聽起來很難過, 我就會接上耳機, 可是就感覺有那麼點受限制, 不是很舒服, 不過看來下次語音聊天, 可以試試看這個撇步 XD</p>
-
-<p>只是我的 Macbook 的麥克風在中間 &#8230; 好吧, 有點偏左 XD</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/music/848">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -303,7 +419,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/linux/954">2007自由軟體傑出應用推廣選拔大賽投票</a></h1>
+      <h1 class="entry-title"><a href="/life/847">給媽咪的禮物~</a></h1>
     
     
       <p class="meta">
@@ -317,28 +433,22 @@
 
 
 
-<time datetime="2007-09-07T01:36:11+08:00" pubdate  data-updated="true" >Sep 7<span>th</span>, 2007</time>
+<time datetime="2007-05-07T00:35:17+08:00" pubdate  data-updated="true" >May 7<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>「<a href="http://www.slat.org/poll_0607/view.php">2007自由軟體傑出應用推廣選拔大賽投票</a>」</p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/486598804/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/218/486598804_d15009b688.jpg" width="500" height="375" alt="100_0812.JPG" /></a>
+終於出社會有了第一份工作, 用自己賺來的錢買禮物送媽咪</p>
 
-<p>呵,  這是我一個朋友 Pake 傳來叫我幫他投票, 沒想到打開一看都是一些熟悉的名字! 像是 Pake、<a href="http://blog.markplace.net/">Mark Wu</a>、<a href="http://lightyror.thegiive.net/">thegiive</a> 呵, 沒多猶豫, 馬上就投完票了。</p>
-
-<p>Pake, FTUG (Fedora Taiwan User Group) 的 runner, 當初是因為 <a href="http://frank0624.wordpress.com">Frank</a> 認識 Pake 的, 說要介紹我工作, Linux 、Community 相關的工作, 哈, 當然好阿! 能夠為 Linux community 貢獻一份心力, 多棒阿!! 不過後來因為拖太久, 我就沒去了, 就跑到現在的公司 XD 至於 Pake 一直很用心的在運作 <a href="http://fedora.tw">fedora.tw</a>, 常常辦活動、聚會的, 真的是很有心阿!! Linux 的推廣不遺餘力! 另外 Pake 還是 Live CD 界的大大阿!</p>
-
-<p>先前 Pake 還為了 fedora.tw 到處募款, 我捐了 $999, 我想自從我從 Linux 跳槽到 Mac 之後, 這是我唯一能做的吧! 想當年還在 fedora.tw 擔任過一個小板主 XD 至於為啥捐 $999 呢? 因為這個數字比較帥 XD</p>
-
-<p>這次 Pake 入圍的是「傑出社群組織獎」跟「傑出社群網站獎」, 目前得到的票數真的是超前很多, 應該是不用幫 Pake 推了, 不過我還是將這個投票的消息貼上來, 希望有在關心自由軟體人們, 可以去投票, 也當作是給他們, 對自由軟體有貢獻的人們一個鼓勵!</p>
-
-<p>其實&#8230;就我公司或身邊的一些網管、RHCE, 完全對 Linux、Community 沒有所謂的熱忱, 這點其實我是很感到困惑的, 所以這個投票的人數, 似乎不多 ?</p>
-
-<p>PS. 除了把票投給了 Pake , 另外我還投了 LifeType 的 Mark Wu ( 我們家公司有贊助 LifeType XD )還有玩 Ruby 一定會知道的 thegiive, 大家衝阿!!。</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/life/847">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -349,7 +459,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/952">衰神纏身</a></h1>
+      <h1 class="entry-title"><a href="/music/846">新玩具入手! BOSS RC-20XL</a></h1>
     
     
       <p class="meta">
@@ -363,94 +473,22 @@
 
 
 
-<time datetime="2007-09-05T23:32:55+08:00" pubdate  data-updated="true" >Sep 5<span>th</span>, 2007</time>
+<time datetime="2007-05-04T23:52:53+08:00" pubdate  data-updated="true" >May 4<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>最近真的是衰神纏身, 全部都是跟機車有關的事, 自從摔車之後, 接著是安全帽被倒麵, 然後今天早上是上班發現, 機車發不動, 接著我跑去搭計程車, 上次搭很快, 然而這次碰到一個遜司機, 然後整個大塞車, 所以整個大遲到! 真的是快昏倒~</p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/483905204/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/227/483905204_128528b04f.jpg" width="500" height="375" alt="100_0738.JPG" /></a>
+話說, 前幾天看到了在<a href="http://guitar-city.blogspot.com">吉他城邦</a>看到了 <a href="http://guitar-city.blogspot.com/search/label/KT%20Tunstall">KT Tunstall 的介紹</a>, 沒想到原來一個人拿著木吉他也可以這樣表演, 讓我很驚訝! 沒想到原本覺得對自己沒啥作用的 Loop Station 居然可以這麼用, 這不正好解決了我煩惱很久的一件事嗎?! (一直在想怎麼一個人表演, 音樂又不會太單薄)。</p>
 
-<p>最近應該在人生低潮期吧! god damn low~</p>
-
-<p>不過今天晚上很開心 :D 就此轉變吧!</p>
 </div>
   
   
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/950">台北?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-09-04T01:23:38+08:00" pubdate  data-updated="true" >Sep 4<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這幾天突然覺得自己不適合住在台北, 上個週末回宜蘭, 悠閒的騎著機車在路上晃著, 呼吸到的空氣是多麼的清新阿! 想騎到對面車道就騎, 晃過來晃過去, 不必擔心, 也無須每個動作都要先看過後照鏡。 在宜蘭生活~ 多悠閒~</p>
-
-<p>昨天早上, 準備騎機車上班, 一看掛再機車上的安全帽, 居然裡面都是麵!! 真的是有病&#8230; you sick! man! 今天我突然對這不熟悉的環境, 感到害怕。</p>
-
-<p>又想起前幾天在宜蘭那悠閒的感覺, 頓時覺得我還是在適合鄉下。 縱使現在我的家鄉已被一堆外人入侵, 以往屬於我的海灘, 現在到處都充滿了一對對的眼睛, 不時的在看著, 我無法繼續的自在如我。</p>
-
-<p>我之後還是先考張船長執照, 開我家的船出海捕魚好了, 就都說人生海海了 &#8230;</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/949">來改版面吧!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-09-03T01:29:19+08:00" pubdate  data-updated="true" >Sep 3<span>rd</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>新名字當然要有新版面了阿!! 好想抄人家的樣式喔 XD (抄ing&#8230;) 反正最近 blog 看起來會很亂就是了 XD</p>
-</div>
-  
+    <footer>
+      <a rel="full-article" href="/music/846">Read on &rarr;</a>
+    </footer>
   
 
 

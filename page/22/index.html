@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="以往在要使用某個 class 的時候, 都會用 require, require_once 或 include 來讀 class 的檔案, 然後在 new 物件出來。 而 PHP 5 的 autoload 可以簡化這個部份, 使用 autoload 之後就不需要先用 require 來讀取 p...">
+  <meta name="description" content="12/25(四) 21:00-22:00 河岸留言音樂藝文咖啡special guest: 小海 ticket:NT 35001/15(四) 21:30-23:00 女巫店ticket:NT 300我好像沒在我的 blog 上提過 koumis, 我覺得他們的歌很好聽! 有幾首歌聽現場都還讓我...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/2346">PHP Autoload</a></h1>
+      <h1 class="entry-title"><a href="/music/2266">[廣告] Koumis 最近表演行程</a></h1>
     
     
       <p class="meta">
@@ -80,216 +80,24 @@
 
 
 
-<time datetime="2009-01-26T21:29:17+08:00" pubdate  data-updated="true" >Jan 26<span>th</span>, 2009</time>
+<time datetime="2008-12-15T22:44:24+08:00" pubdate  data-updated="true" >Dec 15<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>以往在要使用某個 class 的時候, 都會用 require, require_once 或 include 來讀 class 的檔案, 然後在 new 物件出來。 而 PHP 5 的 autoload 可以簡化這個部份, 使用 autoload 之後就不需要先用 require 來讀取 php, 就可以直接用 new 來建立物件, 而 require 的部份則就交給 autoload 來處理, 稱之為 lazy loading。</p>
+  <div class="entry-content"><p>12/25(四) 21:00-22:00 <a href="http://www.riverside.com.tw/">河岸留言音樂藝文咖啡</a>
+special guest: 小海 ticket:NT 350</p>
 
-<p>最基本的方式就是用 __autoload 函式來處理。</p>
+<p>01/15(四) 21:30-23:00 <a href="http://www.witchhouse.org/">女巫店</a>
+ticket:NT 300</p>
 
-<pre><code>
-function __autoload($class) {
-    $class = str_replace('_', '/', $class);
-    require $class . '.php';
-}
-</code></pre>
+<p>我好像沒在我的 blog 上提過 <a href="http://www.koumis.cc/">koumis</a>, 我覺得他們的歌很好聽! 有幾首歌聽現場都還讓我起雞皮疙瘩, 特別是在吉他手 stephenlee 有合音的時候。 這兩天我也都會去, 會去亂入, 有空的人來聽聽吧! 我最近都在為了這個 special guest 練吉他, 不會像之前那麼隨便了 XD 畢竟這是 koumis 的場子阿! 要認真 :p</p>
 
+<p>先到 <a href="http://blog.koumis.cc/">koumis 的官方部落格</a>, 看看 koumis 的表演影片, 聽聽 koumis 的歌, 再決定要不要來嘛! XD</p>
 
-<p>而看了幾個為了 PHP 5 寫的 framework 或 package 都採用 <a href="http://tw.php.net/manual/en/function.spl-autoload-register.php">spl_autoload_register</a> 來作 autoload 的處理。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/2346">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2343">用 Zend Framework 加速 Twitter App (Mashup) 開發</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-01-26T16:32:24+08:00" pubdate  data-updated="true" >Jan 26<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>我不太喜歡 Zend Framework 提供的 MVC, 覺得有點太複雜, 不過 Zend Framework 真的是提供許多元件, 可以用來加速 PHP 的開發。 由於深感自己對 PHP 認識的不足, 所以開始研究 PHP 的功能, 而會寫這一篇主要是因為在研究 PHP 的 autoload, 所以拿了 Zend Framework 的元件來做實驗, 最熟悉的就是 Twitter 這個 Service 了, 所以來記錄一下。</p>
-
-<p>Zend Framework 提供了以下的 Web Service library:</p>
-
-<blockquote>Zend_Service_Akismet
-Zend_Service_Amazon
-Zend_Service_Audioscrobbler
-Zend_Service_Delicious
-Zend_Service_Flickr
-Zend_Service_Nirvanix
-Zend_Service_ReCaptcha
-Zend_Service_Simpy
-Zend_Service_SlideShare
-Zend_Service_StrikeIron
-Zend_Service_Technorati
-Zend_Service_Twitter
-Zend_Service_Yahoo</blockquote>
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/2343">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2341">簡單的 Front Controller</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-01-26T00:55:25+08:00" pubdate  data-updated="true" >Jan 26<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>基本上是參考 <a href="http://codeigniter.com">CodeIgniter</a> 的方式來實作, 不過省掉很多東西, 而目錄結構大概就參照 CodeIgniter 如下。</p>
-
-<pre><code>/index.php
-/application/controllers
-...</code></pre>
-
-
-<p>寫這個的目的主要是想了解 Front Controller 是怎麼做的。 另外因為依照 CodeIgniter 慣例的 Controller 名稱, 很容易跟其他 class name 衝到, 如果要使用 ORM 的話, 很容易會發生名稱碰撞, 所以實作一下 front controller, 另外改進這個問題, 不過其實就是在 class name 加上 postfix 而已, 而其他 framework 也都這麼做。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/2341">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/mac/2338">Garageband Workshop 正式報名!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-01-24T20:32:09+08:00" pubdate  data-updated="true" >Jan 24<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="http://tzangms.com/wp-content/uploads/2009/01/garageband_workshop.png" alt="garageband_workshop" title="garageband_workshop" width="500" height="461" class="aligncenter size-full wp-image-2339" /></p>
-
-<p><strong>依據先前在 <a href="http://wellmeet.net/event/20081231/andyaHNh/9691">wellmeet 的日期投票</a>, 2/7 勝出, 所以就辦在 2/7 囉! 時間是禮拜六晚上 7 點 ~ 9點, 請有興趣的朋友到 <a href="http://registrano.com/events/garageband-workshop">registrano 的報名頁面進行報名</a></strong></p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/mac/2338">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2337">原來我學過這些程式語言</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-01-24T14:14:12+08:00" pubdate  data-updated="true" >Jan 24<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>從高中開始接觸電腦, 一開始就是上網, 然後開始接觸 HTML, 因為聊天室可以用 font, 覺得很厲害, 然後開始學怎麼做網頁, 然後學 Photo Impact 3 然後又換到 Photoshop 4, 然後接著用 Dreamweaver 來作網頁, 就這樣開始對網頁製作有興趣, 畢竟在用電腦之前, 我都是在畫畫。</p>
-
-<p>接著高二開始碰 Linux, 然後學校的課程開始教 QB 然後 VB, 後來高三的課程甚至要用 VB 來處理圖片的明暗度平衡, 現在想起來真是厲害, 只是寫不出正確的處理方法 XD 而高中除了 VB 之外還學組合語言, 單晶片 PIC 阿什麼的。</p>
-
-<p>然後上了二專, 仍然是組合語言, 8051, 然後還有 PC AT/XT 界面設計, 所以學 C 語言, 然後還有 VHDL, 一直到了專題用了 C 語言寫了一個射擊遊戲過關 XD</p>
-
-<p>到了二技, 程式設計的課程變少了, 只有教 C 而且居然教最基本的, 但是我一點都不在意, 因為那時都在玩樂團, 然後到了最後一年, 有一門 3D 圖學的課程, 我用 java + swing 來交作業, 現在想想還真的是不可思議, 我居然會寫 java。 然後專題我負責的某個部份是用 Flash Communication Server, 所以我就開始摸 Action Script, 寫 Client / Server 端, 記得當時只有一本原文書在講 FCS, 只是後來也沒人用就是了。</p>
-
-<p>以上其實是因為在二專跟二技我幾乎所有的時間都在玩樂團&#8230; 所以&#8230; 對以上這些東西沒有太大印象, 所以想起來, 自己才覺得訝異, 寫出來紀念一下。</p>
+<p>go! go! go!</p>
 </div>
   
   
@@ -302,7 +110,7 @@ Zend_Service_Yahoo</blockquote>
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/2336">Master One, Then Learn Another</a></h1>
+      <h1 class="entry-title"><a href="/web design/2265">解決透明 Png 在 Ie 6 下的問題: jQuery pngFix</a></h1>
     
     
       <p class="meta">
@@ -316,32 +124,36 @@ Zend_Service_Yahoo</blockquote>
 
 
 
-<time datetime="2009-01-24T13:49:58+08:00" pubdate  data-updated="true" >Jan 24<span>th</span>, 2009</time>
+<time datetime="2008-12-15T21:38:11+08:00" pubdate  data-updated="true" >Dec 15<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><blockquote>Master one, then learn another</blockquote>
+  <div class="entry-content"><p>透明 png 在 ie 6 下面的問題真的是很糟糕, 以前挑戰過好幾次, 不過每次都不成功, 到最後, 我只好把 png 一個一個轉成 gif 。 Orz 幸好今天挑戰成功了! 應該是因為有 <a href="http://jiwostudio.com/">Leo Lin</a> 跟 <a href="http://blog.othree.net/">othree</a> 這兩位大大的指導跟關心, 所以問題全都迎刃而解了 XD</p>
+
+<p>anyway, 基本上就是用 jQuery 的外掛, <a href="http://jquery.andreaseberhard.de/pngFix/">jQuery pngFix</a>, 就可以解決了, 可能我之前一直搞錯, 沒認真看文件吧 Orz</p>
+
+<pre>
+<code>&lt;script type="text/javascript" src="/js/jquery.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="/js/jquery.pngFix.pack.js"&gt;&lt;/script&gt;
+&lt;script type='text/javascript'&gt;
+$(function(){
+    $(document).pngFix();
+});
+&lt;/script&gt;</code>
+</pre>
 
 
-<p>這句話忘記從哪裡看來的, 基本上是說, 精通一個程式語言以後, 在去看看其他的。</p>
+<p>我之前好像是寫成下面這樣才失敗的&#8230;</p>
 
-<p>其實這一篇完全無重點, 碎念類。</p>
-
-<p>我主要使用的語言就是 PHP, 但是完全稱不上精通, 畢竟也才兩年半的時間, 從我的第一份工作, 才開始學 PHP。 記得剛進公司每天都是開著 php.net 查 manual, 當時連 substr 都不清楚, 而 HTML 的 FORM POST 也不太清楚怎麼運作。 而 SQL 語法也是一直上網查, 除了 SELECT 之外都不會。</p>
-
-<p>然後工作了一段時間, 大約半年才開始學 javascript, 然後對 javascript 不清不楚的狀況下就開始用 jQuery, 一直到了大概半年多前開始讀了 DOM scripting 這本書後, 才對 javascript 稍微了解一些, 才懂得 document.getElementById 這類的東西。</p>
-
-<p>而我的 PHP 也是很弱, 一直到了大約一年前開始用 CodeIgniter 之後, 才慢慢的解決我心裡對 PHP 的焦慮, 因為 SQL Injection, XSS 等, 都交給了 CodeIgniter, 然而之前學了 ruby, 最近學了 python 跟 django, 只是似乎對 PHP 的部份還是很弱, 似乎還不到去學其他語言的地步。 也許該來好好學一下 PHP 吧。</p>
-
-<p>又忘記哪裡看到的一句話說:</p>
-
-<blockquote>你可以用 library 跟 framework 來減輕你對程式語言能力不足及焦慮, 但當你使用這些工具之後, 慢慢不在感到焦慮時, 你該去研究你用的 library、 framework 來補足你還不清楚的地方。</blockquote>
+<pre>
+<code>$('img').pngFix();</code>
+</pre>
 
 
-<p>Anyway, 先前在學 ruby 跟 python 時, 還滿有啟發的, 看到了很多不同的東西, 使用的程式語言不同, 想法、思維也跟著不同。 只是 PHP 才是我目前唯一能謀生的東西, 所以該回頭來好好研究一下 PHP 吧。</p>
+<p>實例可以看看 <a href="http://stickeraction.com">stickeraction</a> 的 nav bar :p</p>
 </div>
   
   
@@ -354,7 +166,7 @@ Zend_Service_Yahoo</blockquote>
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/2335">Amazon S3 使用記錄</a></h1>
+      <h1 class="entry-title"><a href="/web/2252">BarCamp NANO Taipei!</a></h1>
     
     
       <p class="meta">
@@ -368,107 +180,22 @@ Zend_Service_Yahoo</blockquote>
 
 
 
-<time datetime="2009-01-23T21:41:21+08:00" pubdate  data-updated="true" >Jan 23<span>rd</span>, 2009</time>
+<time datetime="2008-12-07T11:19:08+08:00" pubdate  data-updated="true" >Dec 7<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>昨天開始碰 <a href="http://aws.amazon.com/s3/">Amazon S3</a>, 因為一直覺得 <a href="http://stickeraction.com">stickeraction</a> 的貼紙圖檔放在 VPS 上還是不太安全, 所以前天就開始用 Amazon S3, 把貼紙圖檔都丟上去, 順便當 cdn 用。</p>
+  <div class="entry-content"><p><a href='http://stickeraction.com/barcamptw/go'><img src='http://stickeraction.com/barcamptw/sticker' alt='Barcamp NANO 台北！' class='left'></a>Barcamp？「霸營」？「呷霸太贏」？</p>
 
-<p>一開始是先看 <a href="http://plog.longwin.com.tw/news-technology/2008/02/21/amazon_s3_s3cmd_php_2008">Tsung 大大的文章</a>, 然後就開始用 <a href="http://s3tools.logix.cz/s3cmd">s3cmd</a>  開始玩看看 S3 怎麼用。</p>
+<p>這是個「非典型」的研討會：一般研討會裡，籌辦人扮演導演的角色，他想拍什麼片就拍、然後邀請你來看；在 Barcamp 裡沒有導演—或者說，老爸老媽哥哥姊姊，只要有心人人都是導演。</p>
 
-<p>首先就是在 <a href="http://www.gentoo.org">gentoo</a> 上裝 s3cmd 啦, 不過試了 x86 跟 amd64 的平台好像都是 masked, 所以就用 ACCEPT_KEYWORDS 裝起來</p>
+<p>你有什麼想發表的東西？這裡給你舞台；早就想凹你朋友傳授一下技巧？要凹就凹到 Barcamp 上來講！在 Barcamp 裡所有的講題，都是現場提出、當場協調排定。只要你能取得「霸佔」時間空間的權利，要用來討論、分享、共同創作什麼的，都隨你主持。同時分多軌進行的特色，讓你想聽什麼就聽什麼，不必受制於別人。簡言之，這是充滿創意火花與驚喜的研討會，會碰見什麼玩意就只有來了才知道！</p>
 
-<pre><code>ACCEPT_KEYWORDS='~x86' emerge s3cmd</code></pre>
+<p><a href="http://www.barcamp.org/BarCampTaipei">BarCamp Taipei 官方wiki</a></p>
 
-
-<p>然後就是用 <code>s3cmd --configure</code> 這個指令來設定, 填入 Amazon S3 提供的 access key 跟 secret key, 接著就可以開始用 s3cmd 來丟檔案到 s3 上做測試了。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/2335">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/2334">Minus the Bear</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-01-20T22:43:15+08:00" pubdate  data-updated="true" >Jan 20<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>一開始注意到這個團是 <a href="http://frank0624.wordpress.com/">frank</a> 從 msn 上傳來的 Knights 這一首歌, frank 說我應該會喜歡, 沒想到聽起來還真不賴, 完全被吉他的部份所吸引, 後來就陸續聽了一些 <a href="http://www.minusthebear.com/">Minus the bear</a> 的歌, 才發現他們吉他手的風格還真的是很特殊, 甚至在 Highly Refined Pirates 這張專輯中的 Thanks For The Killer Game Of Crisco Twister 這首歌, 幾乎都是用點弦在彈, 所以營造出來的風格真的是很特殊阿! 來看看 Minus the bear 在 Youtube 上的的影片就知道了。</p>
-
-<object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/msFQBNo3PnM&hl=zh_TW&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/msFQBNo3PnM&hl=zh_TW&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed></object>
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/music/2334">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web design/2333">Stickeraction New Design Mockup</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-01-20T01:00:15+08:00" pubdate  data-updated="true" >Jan 20<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a title="stickeraction new design mockup by photoshop by tzangms, on Flickr" href="http://www.flickr.com/photos/tzangms/3209369577/"><img class="aligncenter" src="http://farm4.static.flickr.com/3414/3209369577_95f50c2a22.jpg" alt="stickeraction new design mockup by photoshop" width="500" height="438" /></a>
-最近都在弄 <a href="http://stickeraction.com">stickeraction</a> 的東西, 然後首頁想要改的好看、乾淨一點, 只是今天想了一個晚上, 還是想不出來要怎麼改, 一直到剛才洗澡前, 才有點靈感, 洗玩澡後馬上用 photoshop 畫了上面這個 mockup (?) 記錄一下。</p>
-
-<p>UI 真的是很困難阿 Orz</p>
+<p>Oh my god! 看了以上對 BarCamp 的簡略說明之後, 難道你不覺得很有趣嗎!!? 先<a href="http://www.barcamp.org/BarCampTaipei">看看官方 wiki</a>, 然後 12/10 晚上, 一起來去玩玩吧!</p>
 </div>
   
   
@@ -481,7 +208,7 @@ Zend_Service_Yahoo</blockquote>
       
   <header>
     
-      <h1 class="entry-title"><a href="/music/2332">小海@女巫店</a></h1>
+      <h1 class="entry-title"><a href="/programming/2251">用 Simplepie Live 讀取 RSS</a></h1>
     
     
       <p class="meta">
@@ -495,18 +222,521 @@ Zend_Service_Yahoo</blockquote>
 
 
 
-<time datetime="2009-01-17T22:08:08+08:00" pubdate  data-updated="true" >Jan 17<span>th</span>, 2009</time>
+<time datetime="2008-12-07T00:53:21+08:00" pubdate  data-updated="true" >Dec 7<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>[caption id=&#8221;attachment_2331&#8221; align=&#8221;aligncenter&#8221; width=&#8221;580&#8221; caption=&#8221;小海@女巫店 took by kej&#8221;]<img src="http://tzangms.com/wp-content/uploads/2009/01/tzangms-at-witch.jpg" alt="小海@女巫店 taken by kej" title="tzangms-at-witch" width="580" height="435" class="size-full wp-image-2331" />[/caption] 1/15 那天晚上終於第一次到女巫店, 也是第一次在女巫店唱歌, 感謝 koumis, <a href="http://www.dingdong161.com/">叮咚</a>, <a href="http://stephenlee.pixnet.net/blog">stephenlee</a>。 只可惜當天沒看到叮咚出現。</p>
+  <div class="entry-content"><p>昨天在弄我網站的首頁, 想說做個單純的 HTML, 不過想要在上面放個部落格最新文章的列表, 所以就想說用 <a href="http://live.simplepie.org/">Simplepie Live</a> 來玩玩看, 就寫了下面那一段。</p>
 
-<p>這次在女巫店, 跟上次河岸留言的表演比起來, 幾乎是根本不緊張, 聲音狀況還不錯, 木吉他編曲的&#8221;我自己&#8221;似乎也頗受好評。 也許是上次在河岸用 loop station 來表演, 對器材的不熟悉, 所以增加了一些不安的感覺。 而這次演唱的都是自己熟悉的歌曲, 所以感覺穩定了許多。</p>
+<p>首先要使用 Simplepie Live, 只要先放進他所提供的 javascript。</p>
 
-<p>而這次大學玩樂團的朋友也有來, 有他們幫忙合音的感覺真不賴, 可惜的是他們還是沒辦法接受太安靜的音樂 XD 最後, 用偷吃步的方式站上了河岸以及女巫店的舞台, 不過&#8230; 我會自己來唱過一次的!! 到時候, <a href="http://biasonica.blogspot.com/">小掰</a>, 我會找你來幫忙的!</p>
+<pre>
+<code>&lt;script type="text/javascript" src="http://live.simplepie.org/app/0.5/base.js"&gt;&lt;/script&gt;</code>
+</pre>
+
+
+<p>然後就有 Simplepie Live 的物件可以用來讀取 RSS 囉, 範例如下方。</p>
+
+<p>先說明一下下面這一段&#8230; 基本上, 就是網頁裡先有一個空的 ul tag, id 為 rss, 然後就用 Simplepie Live 把 RSS 文章的標題跟連結都包進一個 li tag, 然後放進 ul, 這樣。</p>
+
+<pre>
+<code>window.onload = function() {
+    var url = 'http://feeds.feedburner.com/tzangms';
+
+    var feed = new SimplePie(url, {
+        onSuccess: function(feed) {
+            var rss = document.getElementById('rss');
+            for (var i in feed.items) {
+                var title = feed.items[i].title;
+                var permalink = feed.items[i].permalink
+
+                var text = document.createTextNode(title);
+
+                var a = document.createElement('a');
+                a.setAttribute('href', permalink);
+                a.appendChild(text);
+
+                var li = document.createElement('li');
+                li.appendChild(a);
+
+                rss.appendChild(li);
+            }
+        }
+    });
+}</code>
+</pre>
+
+
+<p>不過, 其實用 <a href="http://code.google.com/apis/ajaxfeeds/">Google AJAX Feed API</a> 好像還比較快 XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web design/2250">CSS 透明</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-12-06T00:59:06+08:00" pubdate  data-updated="true" >Dec 6<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><pre>
+<code>filter:alpha(opacity=70);
+-moz-opacity:0.7;
+-khtml-opacity: 0.7;
+opacity: 0.7;</code>
+</pre>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2245">MovableType 4 轉 Wordpress 2.6</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-12-03T20:17:07+08:00" pubdate  data-updated="true" >Dec 3<span>rd</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>記錄一下由 <a href="http://www.movabletype.org/">MovableType</a> 轉換至 <a href="http://wordpress.org/">Wordpress</a> 的東西。 其實要從 MT 轉換到 Wordpress 還滿簡單的, 只要從 MT 匯出, 在從 Wordpress 匯入即可, 不過要顧及 SEO 的部份, 不讓原有的網址失效, 就得花點工夫來處理。</p>
+
+<p>在 MT 的匯出檔案中, 並沒有帶著每篇文章的 post id。 而匯入到 Wordpress 之後的 post id, 則是累加上去的, 所以在轉換、匯入到 Wordpress 之後, 無法根據文章的 post id 來做 url rewire, 把舊的網址給轉到新的網址。 這麼一來, 舊的網址就會失效, 原本的 page rank 也可以能隨之下降。</p>
+
+<p>所以這裡要來記錄, 如何在轉換之後, 能夠讓原本的網址連至新的網頁。 所以大多都是在針對 post id 的處理, 我們可以根據 post id, 來對應新舊文章。本篇文章以 MT 4.1 轉換至 Wordpress 2.6.5 為範例。</p>
+
+<p>在開始之前, 請先試著把 MT 匯出的檔案匯入到 Wordpress, 看看是否能夠順利匯入, 因為在匯入的時候, 發現到, 如果有重覆的文章標題 (title), 則無法正常進行匯入。 碰到重覆的文章標題時, php 會 time out。 如果有重覆標題時, 請把重覆的標題改掉。 當匯入正常時, 再進行以下步驟。</p>
+
+<ol>
+<li>首先, 因為 MT 在匯出檔案時, 是不會有 post id 的, 所以必須修改匯出的程式, 讓他可以匯出 post id。可以修改下面這個檔案:</li>
+</ol>
+
+
+<blockquote>cgi-bin/lib/MT/ImportExport.pm</blockquote>
+
+
+<p>找到約 480 行, 應該可以看到如下的程式碼:</p>
+
+<pre>
+<code>## Create template for exporting a single entry
+require MT::Template;
+require MT::Template::Context;
+my $tmpl = MT::Template->new;
+$tmpl->name('Export Template');
+$tmpl->text(<<'TEXT');
+AUTHOR: <$MTEntryAuthor strip_linefeeds="1"$>
+TITLE: <$MTEntryTitle strip_linefeeds="1"$>
+BASENAME: <$MTEntryBasename$>
+STATUS: <$MTEntryStatus strip_linefeeds="1"$>
+ALLOW COMMENTS: <$MTEntryFlag flag="allow_comments"$>
+CONVERT BREAKS: <$MTEntryFlag flag="convert_breaks"$>
+ALLOW PINGS: <$MTEntryFlag flag="allow_pings"$><MTIfNonEmpty tag="MTEntryCategory">
+PRIMARY CATEGORY: <$MTEntryCategory$></MTIfNonEmpty><MTEntryCategories>
+CATEGORY: <$MTCategoryLabel$></MTEntryCategories>
+DATE: <$MTEntryDate format="%m/%d/%Y %I:%M:%S %p"$><MTEntryIfTagged>
+<span style='color:red'>POSTID: <$MTEntryID$></span>
+TAGS: <MTEntryTags include_private="1" glue=","><$MTTagName quote="1"$></MTEntryTags></MTEntryIfTagged>
+-----
+BODY:
+<$MTEntryBody convert_breaks="0"$>
+-----</code>
+</pre>
+
+
+<p>在這裡, 只要加上紅色那一行, 即可讓 MT 在匯出時帶有 post id。</p>
+
+<ol>
+<li>在可以匯出有 post id 的檔案之後, 接下來就是要修改 Wordpress 匯入的部份, 讓 Wordpress 可以讀取檔案中的 post id。 首先修改下面這個檔案:</li>
+</ol>
+
+
+<blockquote>wp-admin/import/mt.php</blockquote>
+
+
+<p>找到約 330 行左右, 可以看到如下的程式碼:</p>
+
+<pre>
+<code>            } else if ( 0 === strpos($line, "TITLE:") ) {
+                $title = trim( substr($line, strlen("TITLE:")) );
+                if ( '' == $context )
+                    $post->post_title = $title;
+                else if ( 'ping' == $context )
+                    $ping->title = $title;
+            <span style='color:red'>} else if ( 0 === strpos($line, "POSTID:") ) {
+                $post_id = trim( substr($line, strlen("POSTID:")) );
+                $post->post_id = $post_id;</span>
+            } else if ( 0 === strpos($line, "STATUS:") ) {</code>
+</pre>
+
+
+<p>只需要加上紅色那三行, 即可讀取到 post id。</p>
+
+<ol>
+<li>接下來則是修改寫入資料庫的部份, 修改下面這個檔案:</li>
+</ol>
+
+
+<blockquote>wp-include/post.php </blockquote>
+
+
+<p>約在 1296 行左右, 可以看到程式碼如下:</p>
+
+<pre>
+<code>    if ( 'draft' != $post_status ) {
+    ...略...
+    }
+
+    <span style='color:red'>$post_ID = (int) $post_id;
+    $ID = (int) $post_id;</span>
+
+    // expected_slashed (everything!)
+    ...</code>
+</pre>
+
+
+<p>只需要加上紅色那兩行即可。 將我們所讀取到的 post id, 覆寫到要寫入資料庫的變數, 這麼一來, 之後匯入到 Wordpress 的 post id , 就會跟 MT 的 post id 相同, 我們就可以根據這個 post id 來對應新舊文章了!</p>
+
+<ol>
+<li><p>接著就開始匯入啦! 當然得先把資料庫清空囉。</p></li>
+<li><p>最後, 在匯入 Wordpress 完畢後, 可以在 .htaccess 加上 url rewrite 如下:
+PS. Wordpress 的 permalink 是選用 Numeric 的形式。</p></li>
+</ol>
+
+
+<pre>
+<code>&lt;IfModule mod_rewrite.c&gt;
+RewriteEngine On
+RewriteBase /
+RewriteRule ^archives/([0-9]{6})\.php$ archives/$1 [R=301,L]
+RewriteRule ^archives/(200[0-9])_([0-9]{1,2})\.php$ archives/date/$1/$2 [R=301,L]
+RewriteRule ^cgi-bin/mt-search\.cgi?tag=([^&]+).*$ archives/tag/$1 [R=301,L]
+RewriteRule ^atom\.xml$ feed/atom [R=301,L]
+RewriteRule ^rss\.xml$ feed [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+&lt;/IfModule&gt;</code>
+</pre>
+
+
+<p>差不多就是這樣吧!</p>
+
+<p>喔! 對了, 匯入成功之後, 記得把 wp-include/post.php 改回來嘿。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/2244">離職了</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-11-28T20:56:13+08:00" pubdate  data-updated="true" >Nov 28<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天我離職了, 告別這大約兩年半的第一份工作。要來好好休息一陣子了。</p>
+
+<p>不過我馬上就要趕回宜蘭, 明天是阿公做百日, 今天一定得趕回家的 Orz</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/2238">Dixie Chicks - Not Ready to Make Nice</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-11-27T20:01:02+08:00" pubdate  data-updated="true" >Nov 27<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/IHH8bfPhusM&hl=zh_TW&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/IHH8bfPhusM&hl=zh_TW&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+
+
+<p>今天早上從<a href="http://www.wretch.cc/blog/imgoodness/12898270">志豪那邊</a>看到這個影片, 就點來看看, 原本認為我會聽一小段就馬上跳開了, 沒想到讓我聽到眼淚都飆了出來, Vocal 未免也太猛了!! pitch 準到一個不行, 這可是 Live 阿!!</p>
+
+<p>我當時應該是聽到 1:47 - 2:15 這一段, 眼淚就飆出來了。</p>
+
+<p>題外話, 我覺得鼓手好像有跑去演 MIB 2 ? XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2212">PHP 使用 Memcache</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-11-27T00:06:01+08:00" pubdate  data-updated="true" >Nov 27<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>這次我第一次開始用 <a href="http://www.danga.com/memcached/">memcached</a>, 除了在 Google App Engine 上的 memcache 不算的話 XD</p>
+
+<p>首先先裝 <a href="http://www.danga.com/memcached/">memcached</a>, 我使用的是 <a href="http://gentoo.org">gentoo linux</a></p>
+
+<p><code>emerge memcached </code></p>
+
+<p>接著裝上 pecl-memcache</p>
+
+<p><code>emerge dev-php5/pecl-memcache</code></p>
+
+<p>不過目前 amd64 平台的 pecl-memcache 套件還是 masked, 所以只好加上 ACCEPT_KEYWORDS 來安裝。</p>
+
+<p><code>ACCEPT_KEYWORDS='~amd64' emerge dev-php5/pecl-memcache</code></p>
+
+<p>然後把 www server 重開就可以開始用 memcache 了 :D 當然 memcached 也要記得開起來阿 XD</p>
+
+<p>來個簡單的 php 範例:</p>
+
+<pre>
+<code>$memcache = new Memcache;
+$memcache->connect('127.0.0.1', 11211);
+$memcache->set('key', 'value', false, 3600);
+$cache_data = $memcache->get('key');</code>
+</pre>
+
+
+<p>大概就是這樣啦! 簡單方便好用阿! :D</p>
+
+<p>不過目前我的一些東西都會用到同一台 memcache server, 所以至少每個網站都得要各自的 key prefix, 才不會衝到, 所以寫了一個給 CodeIgniter 用的 mcache library, 基本上就是個 wrapper, 除了處理 key prefix, 連線, 還有把設定給寫到 config 檔, 可以直接修改 config 檔來設定 memcache, 跟 prefix。</p>
+
+<p>key prefix 處理大概像是這樣, 而 prefix 就是在 config 做設定了:</p>
+
+<pre>
+<code>    public function get($key)
+    {
+        if (!$this->status) return;
+
+        return $this->memcache->get($this->prefix . '_' . $key);
+    }
+
+    public function set($key, $value, $compressed = null, $expire = null)
+    {
+        if (!$this->status) return;
+
+        if (!isset($compressed))
+            $compressed = $this->compressed;
+
+        if (!isset($expire))
+            $expire = $this->expire;
+
+        $this->memcache->set($this->prefix . '_' . $key, $value, $compressed, $expire);
+    }</code>
+</pre>
+
+
+<p>而設定檔像是這樣:</p>
+
+<pre>
+<code>$config['memcache_host'] = '127.0.0.1';
+$config['memcache_port'] = 11211;
+$config['memcache_prefix'] = 'stickeraction';
+$config['memcache_compressed'] = MEMCACHE_COMPRESSED;
+$config['memcache_expire'] = 60*5;
+$config['memcache_pconnect'] = false;</code>
+</pre>
+
+
+<p>目前用來處理 <a href="http://stickeraction.com">stickeraction</a> 貼紙的部份, 大概從 0.01s 降到 0.003s 吧? 其實沒認真測 XD</p>
+
+<p>另外, 可以用 memcache 的 getStats 函式寫一個來看 memcache 的使用情形</p>
+
+<pre>
+<code>$memcache = new Memcache;
+$memcache->connect('127.0.0.1', 11211);
+$stats = $memcache->getStats();
+foreach ($stats as $key => $val) {
+    echo "$key : $val &lt;br /&gt;";
+}</code>
+</pre>
+
+
+<p>在 PHP Manual 的<a href="http://tw2.php.net/manual/en/function.memcache-getstats.php#69727">這裡</a>可以看到相對應的欄位說明, 如下:</p>
+
+<blockquote><pre>pid                       Process id of this server process
+uptime                    Number of seconds this server has been running
+time                      Current UNIX time according to the server
+version                   Version string of this server
+rusage_user               Accumulated user time for this process
+rusage_system             Accumulated system time for this process
+curr_items                Current number of items stored by the server
+total_items               Total number of items stored by this server ever since it started
+bytes                     Current number of bytes used by this server to store items
+curr_connections          Number of open connections
+total_connections         Total number of connections opened since the server started running
+connection_structures     Number of connection structures allocated by the server
+cmd_get                   Cumulative number of retrieval requests
+cmd_set                   Cumulative number of storage requests
+get_hits                  Number of keys that have been requested and found present
+get_misses                Number of items that have been requested and not found
+bytes_read                Total number of bytes read by this server from network
+bytes_written             Total number of bytes sent by this server to network
+limit_maxbytes            Number of bytes this server is allowed to use for storage.</pre></blockquote>
+
+
+<p>memcache 真的是簡單又好用阿! :D</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/2109">身體不適</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-11-19T23:34:45+08:00" pubdate  data-updated="true" >Nov 19<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>身體不適的狀況越來越嚴重, 我的肩膀跟脖子都有嚴重石化的傾向, 甚至在公司午休時無法趴睡, 而我的左手也幾乎無法出力。 每天起床的時候, 肩膀跟脖子痛的要死, 我也不清楚為何是在起床的時候特別痛。 而在睡覺時, 也會因為肩膀跟脖子的疼痛而睡不著。</p>
+
+<p>至於醒著的時候, 則是維持著基本的疼痛感, 可能由於這個疼痛的情形已經持續了快兩年, 我似乎是因為已經習慣了這個疼痛的感覺, 而視為理所當然。</p>
+
+<p>今年年初也去看過復健科, 去看過整骨&#8230; 等等, 不過好像也沒什麼用。甚至在做過復健的電療後, 脖子突出了一塊, 到現在都沒有消去。 也許就是電腦打太久, 工作環境不良, 沒有運動 &#8230; 等, 所以後來也開始斷斷續續的跑步, 只是狀況也沒有太大的好轉, 有時甚至更劇烈疼痛。</p>
+
+<p>不過一直到這半年來, 肩膀跟脖子疼痛越來越劇烈, 而且異常僵硬, 已經到了我需要以石化來稱呼。 其實一直在想, 到底是什麼原因造成的? 什麼時候開始的? 似乎就是在開始工作後的幾個月, 脖子開始覺得僵硬、疼痛。 一直持續到現在, 快兩年了, 其實我真的是滿會忍痛的。</p>
+
+<p>以前有過某個經驗, 因為牙齒有問題, 連帶影響到脖子的某條神經之類的, 牙齒治療好之後, 脖子的疼痛也不藥而癒。 所以在肩膀脖子剛開始疼痛的時候, 我想說可能會是類似原因, 就跑去看了牙醫, 只是這個疼痛依舊。 (攤手)</p>
+
+<p>一直在想著自己的身體怎麼會這樣, 一直到今年年初, 我開始覺得是因為工作環境問題, 可能桌椅不合人體工學? 當時在請假準備去看醫生的時候說出這個可能性猜測, 經理笑著說: 「那其他人怎麼不會?」 我也說不出個所以然來, 只笑著回答說:「我也不知道 :p」</p>
+
+<p>慢慢的, 我開始觀察, 疼痛的加重情況就有如一個循環。 從禮拜一上班開始就慢慢加重, 一直到禮拜六開始減緩, 但隨著上班的開始, 又開始加重。 所以我只能猜測是工作的桌椅問題。 不過公司每個人都用同樣的桌椅, 為何只有我會這樣? 看來是我坐姿非常的不良? 又或者是我的風水特別不好? 或者是也許剛好我跟這個桌椅不合吧!?</p>
+
+<p>我也不知道為何在家裡就不會有這種不舒服情況。 (攤手)</p>
+
+<p>幾個禮拜前, 在做推拿的姑姑, 看了一下我的狀況, 他說我的左邊肩膀已經移位了, 一整個往上移, 連帶的影響到了我的左手, 導致左手無法施力。 姑姑說還滿嚴重的, 所以就幫我把身體橋了一下(其實是橋很久, 讓我痛的幾乎無法呼吸), 這才稍微減輕這惱人的疼痛感。</p>
+
+<p>目前最近的狀況是, 上班時, 手靠在桌上想要打電腦, 肩膀、脖子就會痛, 只是可能習慣了, 就繼續打字、工作著, 然後到了下午, 疼痛感慢慢的增加。 然而最近疼痛越來越嚴重, 痛到我快要無法忍受, 也無法專心寫程式, 心情極度煩躁。</p>
+
+<p>我只能說, 我的手快廢了, 脖子肩膀快不能動了, 我深覺得我不能再這樣繼續下去了。</p>
 </div>
   
   

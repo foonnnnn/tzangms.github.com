@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="validation 超難用, 可是他的 ORM 超好用阿!!! 幹&#8230;">
+  <meta name="description" content="這幾天在研究 XPath 這個東西, 我想下面這三個看完應該就差不多了吧! 先看看 w3schools 跟 Wikipedia, 最後看看 zvon 上的範例頗有幫助的。XPath Tutorial - w3schools http://www.w3schools.com/xpath/defa...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/1435">要先放棄 Kohana 了 Orz</a></h1>
+      <h1 class="entry-title"><a href="/programming/1161">學習 XPath</a></h1>
     
     
       <p class="meta">
@@ -80,14 +80,23 @@
 
 
 
-<time datetime="2008-08-21T21:47:12+08:00" pubdate  data-updated="true" >Aug 21<span>st</span>, 2008</time>
+<time datetime="2008-05-07T21:14:24+08:00" pubdate  data-updated="true" >May 7<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>validation 超難用, 可是他的 ORM 超好用阿!!! 幹&#8230;</p>
+  <div class="entry-content"><p>這幾天在研究 XPath 這個東西, 我想下面這三個看完應該就差不多了吧! 先看看 w3schools 跟 Wikipedia, 最後看看 zvon 上的範例頗有幫助的。</p>
+
+<p>XPath Tutorial - w3schools
+<a href="http://www.w3schools.com/xpath/default.asp" target="_blank"> http://www.w3schools.com/xpath/default.asp</a></p>
+
+<p>XPath - Wikipedia
+<a href="http://zh.wikipedia.org/wiki/XPath" target="_blank"> http://zh.wikipedia.org/wiki/XPath</a></p>
+
+<p>XPath Tutorial - zvon
+<a href="http://www.zvon.org/xxl/XPathTutorial/General/examples.html" target="_blank"> http://www.zvon.org/xxl/XPathTutorial/General/examples.html</a></p>
 </div>
   
   
@@ -100,7 +109,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/1423">設定 Kohana 透過 Gmail 發信</a></h1>
+      <h1 class="entry-title"><a href="/web/1160">Punch Party 4!</a></h1>
     
     
       <p class="meta">
@@ -114,172 +123,24 @@
 
 
 
-<time datetime="2008-08-20T22:53:39+08:00" pubdate  data-updated="true" >Aug 20<span>th</span>, 2008</time>
+<time datetime="2008-05-05T22:30:30+08:00" pubdate  data-updated="true" >May 5<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>有了之前<a href="http://tzangms.com/codeigniter/1233">設定 CodeIgniter 透過 Gmail 發信</a>的經驗, 這次設定 <a href="http://kohanaphp.com">Kohana</a> 就快很多了 :p</p>
-
-<p>不過 <a href="http://codeigniter.com">CodeIgniter</a> 是 email library, 而 <a href="http://kohanaphp.com">Kohana</a> 則是 <a href="http://docs.kohanaphp.com/helpers/email">email helper</a> (實際上是使用 <a href="http://www.swiftmailer.org/">swift mailer</a>)。</p>
-
-<p>設定檔 /application/config/email.php</p>
-
-<pre>
-<code>$config['driver'] = 'smtp';
-$config['options'] = array(
-    'hostname' => 'smtp.gmail.com',
-    'username' => 'your_username',
-    'password' => 'your_password',
-    'port' => 465,
-    'encryption' => 'tls'
-);</code>
-</pre>
+  <div class="entry-content"><p style="text-align: center;"><a href="http://www.flickr.com/photos/kovis/2462188052/"><img class="aligncenter" src="http://farm4.static.flickr.com/3042/2461354135_7e090dacd3.jpg" alt="" width="500" height="333" />
+</a></p>
 
 
-<p>然後接著就可以用以下的 code 來發信啦!</p>
-
-<pre>
-<code>$to = 'foo@bar.com';
-$from = 'bar@foo.com';
-$subject = 'email subject';
-$message = 'Hello, World!';
-email::send($to, $from, $subject, $message);</code>
-</pre>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1414">The ORM Find_by_* Method Is Gone. (Kohana 2.2)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-08-20T00:05:43+08:00" pubdate  data-updated="true" >Aug 20<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>According to <a href="http://forum.kohanaphp.com/comments.php?DiscussionID=876">this post</a> in the kohana forum, the find_by_* method of ORM is not avaliable since <a href="http://kohanaphp.com">Kohana</a> 2.2 because the performance issue.</p>
-
-<p>In the previous version, Kohana 2.1.2, I used before. I can use <strong>find_by_*()</strong> method like this:</p>
-
-<pre><code>$user = new User_Model();
-$user-&gt;find_by_username('tzangms');
-</code></pre>
-
-
-<p>But for now, in Kohana 2.2, we should use <strong>where()</strong> instead, if we want to find by username, not by id.</p>
-
-<pre><code>$user = new User_Model()
-$user-&gt;where('username', 'tzangms')-&gt;find();
-</code></pre>
-
-
-<p>damn, find_by_* is so intuitive.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/1411">Funky Girl</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-08-19T23:24:50+08:00" pubdate  data-updated="true" >Aug 19<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/9cqW-WU5Usk&hl=zh_TW&fs=1"></param><param name="allowFullScreen" value="true"></param><embed src="http://www.youtube.com/v/9cqW-WU5Usk&hl=zh_TW&fs=1" type="application/x-shockwave-flash" allowfullscreen="true" width="425" height="344"></embed></object>
-
-
-<p>最近這一陣子, 滿喜歡 funk 的, 當然我最喜歡彈 bass slap 阿 XD 而最近彈吉他真的很喜歡刷 funk 的感覺, 人老了果然是會變阿&#8230; 想想.. 以前最愛 metal 了阿, metallica, megadeth 跟 DT 等&#8230; (茶)</p>
-
-<p>這個是我們家遠在美國的吉他手小凱, 別名 GGG 傳來的影片, tone 真的好讚阿, 甜甜溫溫的, 我喜歡最一開始的片段 :p</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/1395">拾參 - 馬臉水手的夏天</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-08-17T23:51:04+08:00" pubdate  data-updated="true" >Aug 17<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2771025924/" title="100_3806 by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3069/2771025924_667ab1d9d4.jpg" width="500" height="375" alt="100_3806" /></a></p>
-
-<p>好久沒聽到拾參這個團的名字了, 一直在前一陣子, 聽到拾參在某些 Rock pub 開始又有活動了, 想想, 距離第一次聽到拾參的時候, 真的是隔了很久。 這次被找去參加拾參在海邊的卡夫卡舉辦的試聽會, 本來在猶豫要不要去, 不過想想似乎好久沒看樂團表演了, 也許是該時候接受點衝擊了吧!</p>
+<p>在上禮拜五教召結束後, 隨即而來的就是 Punch Party 4, 其實這是我第一次參加 <a href="http://blog.punchparty.asia" target="_blank">Punch Party</a>, 也剛好凱洛找我去講 <a href="http://twitthat.com" target="_blank">twitthat</a>, 所以第一次就是以講員的身分參加 PP :p 基本上我是很害羞且不擅言語的, 有在 PP 現場看的人應該都可以看得出來 (笑)</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/music/1395">Read on &rarr;</a>
+      <a rel="full-article" href="/web/1160">Read on &rarr;</a>
     </footer>
   
 
@@ -291,7 +152,7 @@ $user-&gt;where('username', 'tzangms')-&gt;find();
       
   <header>
     
-      <h1 class="entry-title"><a href="/music/1390">Base Ball Bear - Electric Summer</a></h1>
+      <h1 class="entry-title"><a href="/life/1159">教召體驗</a></h1>
     
     
       <p class="meta">
@@ -305,21 +166,26 @@ $user-&gt;where('username', 'tzangms')-&gt;find();
 
 
 
-<time datetime="2008-08-17T13:38:46+08:00" pubdate  data-updated="true" >Aug 17<span>th</span>, 2008</time>
+<time datetime="2008-05-04T22:55:35+08:00" pubdate  data-updated="true" >May 4<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><embed src="http://www.veoh.com/veohplayer.swf?permalinkId=v369802mbMXDSnz&id=anonymous&player=videodetailsembedded&affiliateId=&videoAutoPlay=0" allowFullScreen="true" width="540" height="438" bgcolor="#FFFFFF" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed><br/><a href="http://www.veoh.com/">Online Videos by Veoh.com</a>
-以前看到<a href="http://tw.myblog.yahoo.com/klairelee">李小克</a>在 <a href="http://twitter.com">twitter</a> 上推了 base ball bear 的 electric summer, 馬上就愛上了這首歌, 超好聽的阿!!</p>
+  <div class="entry-content"><p>這次教召一共4天, 簡短來說&#8230;就是超無聊 XD 不過也幸好不是在夏天去, 否則應該會更難渡過這漫長的教召生活。</p>
+
+<p>其實教召讓我有種去當少爺的感覺 XD 這裡說的少爺, 其實是相較於新訓的時候, 爽的非常之多, 不過還是要集合、點名、洗餐盤&#8230;等等。</p>
+
+<p>想當初在新訓的時候, 真的是非常非常的不自由, 連走路都覺得有壓力。 然而現在重回同一個營區, 但是感覺卻差非常多。集合..可以慢慢來&#8230; 等到大家都排好隊形了之後, 在慢慢走過去也不是問題。 上課要戴上鋼盔, 戴個一分鐘就拿下來, 也是ok的。所有當初新訓時的痛苦, 現在全都被大家當成了玩笑在開。 例如像是有人對連長講話沒加報告, 大家就會開玩笑的嗆他: 跟連長講話是不會加報告嗎?&#8221; 諸如此類的事。</p>
+
+<p>生活作息還是跟當兵一樣, 5點半起床, 10 點就寢, 但是時間卻充裕, 因為不管是蚊帳或者是棉被都隨便折一折, 因為&#8230;.之後會有阿兵哥幫你折 XD 而教召回去就是上課, 上課就是一天當中最難度過的時間, 因為大部分的時間其實都是在發呆, 而身邊的人也不認識, 所以上課時, 就是坐著很難坐的板凳乾等, 真的是很難熬。 不過慢慢的跟身邊的人熟了起來, 認識好多各種行業的人, 有人自己創業當老闆, 有人養魚、賣房子、做音響, 甚至還有人是當 Model。</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/music/1390">Read on &rarr;</a>
+      <a rel="full-article" href="/life/1159">Read on &rarr;</a>
     </footer>
   
 
@@ -331,7 +197,7 @@ $user-&gt;where('username', 'tzangms')-&gt;find();
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/1386">SQL Buddy</a></h1>
+      <h1 class="entry-title"><a href="/uncategorized/1158">當兵去~</a></h1>
     
     
       <p class="meta">
@@ -345,16 +211,14 @@ $user-&gt;where('username', 'tzangms')-&gt;find();
 
 
 
-<time datetime="2008-08-17T12:23:02+08:00" pubdate  data-updated="true" >Aug 17<span>th</span>, 2008</time>
+<time datetime="2008-04-29T09:00:23+08:00" pubdate  data-updated="true" >Apr 29<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>前一陣子看到了 <a href="http://www.sqlbuddy.com/">SQL Buddy</a>, 真的很精簡方便, 所以就在我的主機上用 <a href="http://www.sqlbuddy.com/">SQL Buddy</a> 來取代 <a href="http://www.phpmyadmin.net">phpMyAdmin</a>, 因為根本不用設定, 即使要更新也非常方便, 下載回來解開就好了 :p (咳, 主要是我根本不會設定 phpMyAdmin 阿!!)</p>
-
-<p>然後最近也在開始幫 SQL Buddy 翻譯, 不過其實很懶, 我英文也不好, 所以有興趣的人, 去玩玩看 <a href="http://www.sqlbuddy.com/">SQL Buddy</a>, 我覺得很好用, 順便也到 <a href="http://www.sqlbuddy.com/translations/">這裡</a> 幫忙填一下繁體中文的翻譯吧 XD (不過這麼開放的翻譯方式, 不會被亂搞喔? )</p>
+  <div class="entry-content"><p>待會要來準備出發去教召了~ 為期 4 天, 禮拜五晚上回來 :p 每天上班打電腦, 讓我的肩膀簡直就快廢了, 看來這次的教召會是個好機會, 強迫我離開電腦 4 天, 休息一下, 也許狀況會好一點, 各位掰掰! (揮手)</p>
 </div>
   
   
@@ -367,7 +231,7 @@ $user-&gt;where('username', 'tzangms')-&gt;find();
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/1383">台灣對古巴</a></h1>
+      <h1 class="entry-title"><a href="/web/1155">說 Twitthat 抄襲的各位, 閉嘴吧!</a></h1>
     
     
       <p class="meta">
@@ -381,101 +245,250 @@ $user-&gt;where('username', 'tzangms')-&gt;find();
 
 
 
-<time datetime="2008-08-16T14:15:54+08:00" pubdate  data-updated="true" >Aug 16<span>th</span>, 2008</time>
+<time datetime="2008-04-23T20:48:33+08:00" pubdate  data-updated="true" >Apr 23<span>rd</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>打的不錯!! 其實昨天下午我就一直想著, 也許接下來都會打贏阿!! 因為~ 本來就沒有什麼是一定的.</p>
-</div>
-  
-  
+  <div class="entry-content"><p>首先~ 不想看長篇大論的人, 直接拉到文章中間, 有英文的地方開始看吧!</p>
 
+<p>沒想到昨天寫一篇還是不夠讓那些說抄襲的人閉嘴, 反而在論壇跟書籤網站上歡樂了起來, 這些人目的為何? 老實說, 我完全不知道, 我只覺得<a href="http://tzangms.com/web/1148" target="_blank">我被罵得莫名其妙</a>, 希望今天那些說 twitthat 抄襲 twitter 的人看到這一篇, 可以就此閉嘴。當然, 也僅限有理智的人, 對網路小白應該是無效的 XD</p>
 
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/1372">黑特那! Hatethat!</a></h1>
-    
-    
-      <p class="meta">
-        
+<p><a href="http://tzangms.com/web/1148" target="_blank">昨天文章</a>的後半段, 列出了好幾個網站的截圖, 都是網站的 logo 都是 copy twitter logo 來改的 twitter 相關服務。 只是看來我昨天貼那些圖, 還是沒讓罵 twitthat 抄襲的人搞懂, 為何我要列這些網站給大家看, 又為何這些網站會直接就抓 twitter logo 的圖來改, 甚至是用相同的背景, 為何你們都不想想或求證?</p>
 
+<p>一個服務的周邊, 當然希望跟這個服務風格一致, 這樣使用者才能無痛上手, 或是很快的熟悉這個衍生出來的服務, 當然這種情況, 也不只在 twitter 上發生, 在其他服務也是如此。</p>
 
+<p>也許有高手會來看, 不過我就先假設大家沒開發過 twitter 的相關服務, 跟大家說明一下。</p>
 
+<p>twitter 的使用者, 應該都有使用過 twitterfox, 或是最近很紅的 twhirl, 當用這些 client 發訊到 twitter 上, 在後面都會顯示 from xxxxx, 看下圖應該會比較清楚 (以下圖為例, 就是 from TwitterFox )</p>
 
+<p><a href="http://tzangms.com/wp-content/uploads/2008/04/twitterfrom.jpg"><img class="aligncenter size-full wp-image-1156" title="twitterfrom" src="http://tzangms.com/wp-content/uploads/2008/04/twitterfrom.jpg" alt="" width="500" height="56" /></a></p>
 
-  
-
-
-
-<time datetime="2008-08-06T01:12:08+08:00" pubdate  data-updated="true" >Aug 6<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2735305931/" title="logo by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3011/2735305931_8976521392_o.gif" width="256" height="91" alt="logo" /></a>
-由於<a href="http://bank.e04.us">黑特銀行</a>的出現, 覺得未來所謂 twitter like 的微網誌, 在台灣將會有所謂分眾性的可能發生 (誤) 所以, 深深覺得不只有幹可以在黑特銀行說, 對網站或文章不爽, 也該有個 bookmarklet 可以直接送到黑特銀行阿!!!</p>
-
-<p>所以<a href="http://hatethat.tzangms.com">黑特那!</a>就這麼誕生了 (囧) 基本上是直接拿 <a href="http://twitthat.com">twitthat</a> 來改, 所以今天晚上一下子就寫好了 XD 不過要登入<a href="http://hatethat.tzangms.com">黑特那!</a> 則是要先取得 api key, 所以請先登入黑特銀行之後, 點選帳戶資訊, 看到最下方就可以看到 api key 啦!</p>
-
-<p>另外&#8230; 下面開放建議<a href="http://hatethat.tzangms.com">黑特那!</a>的動作,  把他加進黑特那的選項, 目前有&#8230;
-1. 幹! 這什麼爛東西
-2. 幹! 這什麼爛文章
-3. 幹! 這什麼爛圖片
-4. 幹! 我快笑死了
-5. 幹! 我太失望了</p>
-
-<p>請大家踴躍發言 XD ( 噗, 突然覺得沒人會理我 ~&#8221;~ )</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/stickeraction/1337">[StickerAction] 串連貼紙通知功能!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-08-01T08:33:31+08:00" pubdate  data-updated="true" >Aug 1<span>st</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2716482235/" title="StickerAction notice function! by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3041/2716482235_d1f2543bc6.jpg" width="500" height="254" alt="StickerAction notice function!" /></a>
-由於以往的串連貼紙都是貼出去就, 活動發起人並沒有辦法通知響應這個貼紙的網友。 然而發起人跟響應的人之間的聯繫就只剩下貼出去的貼紙, 所以 stickeraction 加上了一個新功能, 可以啟用通知貼紙, 讓響應活動的網友, 能看到貼紙就知道有新活動。</p>
+<p>有開發過 twitter 相關服務的人就會知道, 要設定這個 from, 是需要跟 twitter 的開發人員聯繫, 寄 email 過去, 需要給他們說明, 網站顯示的名稱, 跟網址。</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/stickeraction/1337">Read on &rarr;</a>
+      <a rel="full-article" href="/web/1155">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/1148">Twitthis 復活! 以及關於 Twitthat 抄襲(?)事件</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-04-22T22:40:27+08:00" pubdate  data-updated="true" >Apr 22<span>nd</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>先說一下 <a href="http://twitthis.com">twitthis.com</a> 復活啦!!!</p>
+
+<p><a href="http://tzangms.com/wp-content/uploads/2008/04/twitthis.jpg"><img class="alignnone size-full wp-image-1147" title="twitthis" src="http://tzangms.com/wp-content/uploads/2008/04/twitthis.jpg" alt="" width="500" height="369" /></a>
+<a href="http://twitthat.com/" target="_blank"> twitthat</a> 的起源就是因為 <a href="http://twitthis.com/" target="_blank">twitthis</a> 無預警就掛掉了, 看到 twitter 上的推友們缺了 <a href="http://twitthis.com/" target="_blank">twitthis</a> 很不方便, 就在假日花了些時間, 把 <a href="http://twitthat.com" target="_blank">twitthat</a> 寫了出來, 很快的~ 隔天 <a href="http://blog.xdite.net/" target="_blank">xdite</a> 就把 <a href="http://twitio.us" target="_blank">twitio.us</a> 寫了出來, 又很快的, 今天又發現 <a href="http://twitthis.com/" target="_blank">twitthis</a> 復活了 XD</p>
+
+<p>好~ 下個主題, 也許今天大家都有看到來自於 <a href="http://www.mobile01.com/topicdetail.php?f=300&amp;t=593557#5811857#5802884" target="_blank">Mobile01 的一篇文章</a>, 不過其實在禮拜一一早, 起床開電腦的時候就看到 twitter 上看到下面這一則 twit
+<a href="http://tzangms.com/wp-content/uploads/2008/04/wt1.jpg"><img class="aligncenter size-full wp-image-1149" title="wt1" src="http://tzangms.com/wp-content/uploads/2008/04/wt1.jpg" alt="" width="500" height="151" /></a></p>
+
+<p>其實有點莫名其妙, 我根本不認識這位仁兄, 而會看到這位仁兄的 twits 則是因為不久前他有在 twitter 上 follow 我, 我就回 follow 他了, 好奇的去看了這位仁兄的 twitter, 才知道~ 這位仁兄不知道在什麼時候就 unfollow 我了, 我就直覺的認為來者不善, 更何況看了上面這則 twit, 我就不客氣的 twit 了一則 &#8221;<a href="http://twitter.com/tzangms/statuses/793271151" target="_blank">靠北啥小</a>&#8221;, 我想對這種口出惡言的人也沒什麼好客氣, 更何況, 我也沒指名道姓的說 XD</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/web/1148">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/1139">twitthat.com 新功能!: 個人頁面</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-04-13T22:19:34+08:00" pubdate  data-updated="true" >Apr 13<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>昨天晚上幫 <a href="http://twitthat.com">twitthat.com</a> 加了個人頁面, 就是說每個使用 <a href="http://twitthat.com">twitthat.com</a> 的人都會有個人頁面, 大家可以到下面這個網址看看:</p>
+
+<p>http://twitthat.com/你的帳號</p>
+
+<p>例如我的個人頁面就是 <a href="http://twitthat.com/tzangms">http://twitthat.com/tzangms</a> 畫面顯示如下
+<a href="http://www.flickr.com/photos/tzangms/2410390752/" title="twitthat.com bookmark by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3034/2410390752_67ae705f5a.jpg" width="482" height="500" alt="twitthat.com bookmark" /></a></p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/web/1139">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/old demo/1136">[Demo] 我想忘記你 (新版)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-04-10T22:26:10+08:00" pubdate  data-updated="true" >Apr 10<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>前幾個禮拜, 我把我想忘記你這首歌, 不管是吉他、Bass、鋼琴&#8230;所有的樂器跟 Vocal 都從頭到尾都重新錄了一遍, 而且還升了半音。 錄玩之後, 兩個版本一對照起來, 我聽了連自己也嚇了一大跳! <a href="http://tzangms.com/music/660">原來的版本</a>是完全只用  Logic 7 express 內建的外掛來錄製, 像是電吉他跟 Bass 用的是內建的 Guitar Amps 來當效果器, 鼓則是用 GarageBand 的 Drum kits, 鋼琴也是, 而當時的 Vocal 也是用一支 $199 的便宜麥克風和不到兩千塊的音效卡, 然後用以前舊的 iBook G4 800 來完成整首歌的錄製。</p>
+
+<p>當時, 或是說是在幾個禮拜前, 我認為原來的版本就不錯聽了, 不過現在聽新錄製好的歌曲, 一聽就可以聽出來, 這兩個版本之間, 錄音品質的差別有多大! </p>
+
+<p>這次在重新唱跟重新錄製這首歌的過程中, 由於錄音品質差太多, 所以在這當中最難抓的就是原本歌曲所營造出來的感覺, 畢竟也聽習慣了原先錄製的版本。所以不管是在唱, 或是後製的過程, 都吃足了苦頭。 要在錄製那麼近、清楚的狀況下, 再去加入原來版本所營造出來的空間感, 真的是兩難。不過在經過了非常多天的嘗試跟後製, 總算弄出了我想要的感覺, 有了現在這個還算不錯的版本 :p</p>
+
+<p>不過其實現在聽到的這首歌, 還沒算完全後製完成, 還是稍有些小瑕疵, 而且整首歌也還沒達到讓我滿意的程度, 不過我就是想放上來給喜歡聽我的歌的人聽聽 :p 老話一句, 這首歌也是很適合睡覺聽 XD</p>
+
+<p>歌詞跟原來的版本可以到<a href="http://tzangms.com/music/660">原來的版本</a>聽聽、看看。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/1134">CSS Naked Day!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-04-09T08:35:48+08:00" pubdate  data-updated="true" >Apr 9<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今年終於參加到 <a href="http://naked.dustindiaz.com/" target="_blank">CSS Naked day</a> 啦!! 沒錯就是今天! 哈, 一雪去年沒趕上之恨, 現在我的 blog 一整個白 (囧), 可不是 blog 壞了勒 XD</p>
+
+<p>Wordpress user 可以用這個<a href="http://wordpress.org/extend/plugins/css-naked-day-noscript/" target="_blank">外掛</a>來做的, 還挺方便的 XD</p>
+
+<p>話說~ 無名小站之前好像三不五時就會響應 CSS Naked 這個活動, 真是有心 XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1132">twitthat.com</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-04-07T23:09:58+08:00" pubdate  data-updated="true" >Apr 7<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>上週末就發現 <a href="http://twitthis.com" target="_blank">twitthis.com</a> 好像掛掉了, 這幾天看到想要推的文章, 也只能忍住, 然後告訴自己 twitthis 掛點了阿!! 不過也剛好因為這禮拜接公司機房值班, 基本上都要待在家裡, 乾脆就趁這個時間來寫一下替代品好了。 至於名字想不大出來要叫啥好, 原本的叫 twitthis, 那我這個就叫 twitthat 好了 XD <span style="text-decoration: line-through;">目前先放在我的 sub domain 下: </span><span style="text-decoration: line-through;">twitthat.tzangms.com</span><span style="text-decoration: line-through;"> </span></p>
+
+<p><strong>UPDATE: 現在 twitthat 網址正式換到 </strong><a href="http://twitthat.com" target="_blank"><strong>twitthat.com</strong></a><strong> !!</strong> (沒料到有那麼多人用, 早知道一開始就這冊這個 domain XD)</p>
+
+<p>花了差不多兩個小時的時間就把 twitthat 寫好了, 只是現在界面都還是英文的說, 不過我想用習慣 twitthis 的朋友們, 也應該都很習慣英文界面, 所以應該沒差 :p 不過因為後來繼續在錄歌, 所以也沒繼續弄 twitthat。</p>
+
+<p>今天一早上班沒多久, 就看見<a href="http://www.christabelle.idv.tw" target="_blank">迴老師</a>就<a href="http://twitter.com/jchristabelle/statuses/784121288" target="_blank">推了這個訊息</a>, 才想起~ 阿! 我寫好的 twitthat 都還沒找人來測試勒~ 所以中午就稍作包裝一下, 然後開始就在 twitter 上<a href="http://twitter.com/tzangms/statuses/784237036" target="_blank">推了這一則</a>, 相信有人看到&#8221;Reading:&#8221;這個熟係的字眼, 可能會以為 twitthis 好了吧! XD</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/1132">Read on &rarr;</a>
     </footer>
   
 

@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content=" 從 django 1.1 開始, django admin 開始多了一個 actions 的功能, 預設就提供了刪除的動作, 方便許多, 不過其實要新增自定的功能也很容易。例如這張圖上面的&#8221;不再列表顯示&#8221;就是我另外加上的功能選單, 可以一次勾選多個要處理項目進行處理。...">
+  <meta name="description" content="從 django 1.1 開始, django admin 開始多了一個 actions 的功能, 預設就提供了刪除的動作, 方便許多, 不過其實要新增自定的功能也很容易。例如這張圖上面的&#8221;不再列表顯示&#8221;就是我另外加上的功能選單, 可以一次勾選多個要處理項目進行處理。 ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -84,7 +84,7 @@
   </header>
 
 
-<div class="entry-content"><p><a href="http://tzangms.com/wp-content/uploads/2009/11/django-admin-actions.png"><img src="http://tzangms.com/wp-content/uploads/2009/11/django-admin-actions.png" alt="django admin actions" title="django admin actions" width="348" height="153" class="alignleft size-full wp-image-2507" /></a> 從 <a href="http://www.djangoproject.com/">django</a> 1.1 開始, django admin 開始多了一個 actions 的功能, 預設就提供了刪除的動作, 方便許多, 不過其實要新增自定的功能也很容易。</p>
+<div class="entry-content"><p>從 <a href="http://www.djangoproject.com/">django</a> 1.1 開始, django admin 開始多了一個 actions 的功能, 預設就提供了刪除的動作, 方便許多, 不過其實要新增自定的功能也很容易。</p>
 
 <p>例如這張圖上面的&#8221;不再列表顯示&#8221;就是我另外加上的功能選單, 可以一次勾選多個要處理項目進行處理。 如果對 customize django admin 有經驗的話, 那麼自定功能對你來說就更簡單了, 基本上新增 action 的方法, 就是自定一個 ModelAdmin 的 method, 像是下面這樣, 就可以了 :D</p>
 
@@ -96,12 +96,11 @@
     not_list_in_public.short_description = '不再列表顯示'
 </code></pre>
 
-
 <p>這裡唯一得注意的一點就是, 這裡處理的對象是 queryset 喔~ 所以是複數滴, 記得考慮所有處理的東西都會是一個以上。 另外, 要存取 many to many 的東西, 像是 Site 的話, 直接像下面這樣處理就可以了。</p>
 
 <pre><code>for item in queryset:
-    item.add(mysite)</code></pre>
-
+    item.add(mysite)
+</code></pre>
 </div>
 
 

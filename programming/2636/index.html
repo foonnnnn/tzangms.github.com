@@ -131,12 +131,6 @@ local_time = created_at + user_timezone.utcoffset(created_at)</code></pre>
 <p>之後使用的時候直接 import tz_helper 的 timezone 來用即可。</p>
 
 <p>其實現在 SNS 的時間大多都直接採用 3 hours ago 之類的方式來顯示時間, 我想最主要的原因就是, 這樣可以很容易因應世界各地使用者不同時區的問題, 而不是直接顯示這個日期。 誰知道我今天兩個方式都要有, 分別像是下面兩張圖的方式呈現, 所以就得處理 time offset 的問題。 總不能我在 5 月 5 號早上七點的推訊仍舊被記到 5 月 4 號。 而存放成台灣時間, 結果用 UTC +0000 去做 minutes ago, 顯示出來都是 0 minutes ago。</p>
-
-<p>日期
-<a href="http://tzangms.com/wp-content/uploads/2010/05/螢幕快照-2010-05-05-上午1.00.39.png"><img src="http://tzangms.com/wp-content/uploads/2010/05/螢幕快照-2010-05-05-上午1.00.39-499x296.png" alt="" title="螢幕快照 2010-05-05 上午1.00.39" width="499" height="296" class="aligncenter size-large wp-image-2637" /></a></p>
-
-<p>times ago
-<a href="http://tzangms.com/wp-content/uploads/2010/05/螢幕快照-2010-05-05-上午1.09.11.png"><img src="http://tzangms.com/wp-content/uploads/2010/05/螢幕快照-2010-05-05-上午1.09.11-500x266.png" alt="" title="螢幕快照 2010-05-05 上午1.09.11" width="500" height="266" class="aligncenter size-large wp-image-2639" /></a></p>
 </div>
 
 

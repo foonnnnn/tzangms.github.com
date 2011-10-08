@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="去年在參加完 Google Developer Day 2008 之後, 因為當時 twitter 很慢, 所以寫了 easy unfollow 這個工具, 希望大家能夠 unfollow 你親愛的推友, 來救 twitter, anyway 不過當時不會 python, 所以 bug 太多也...">
+  <meta name="description" content="基本上是參考 CodeIgniter 的方式來實作, 不過省掉很多東西, 而目錄結構大概就參照 CodeIgniter 如下。/index.php/application/controllers...寫這個的目的主要是想了解 Front Controller 是怎麼做的。 另外因為依照 Cod...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/2384">Easy Unfollow 重出江湖!</a></h1>
+      <h1 class="entry-title"><a href="/programming/2341">簡單的 Front Controller</a></h1>
     
     
       <p class="meta">
@@ -80,332 +80,27 @@
 
 
 
-<time datetime="2009-03-13T23:53:52+08:00" pubdate  data-updated="true" >Mar 13<span>th</span>, 2009</time>
+<time datetime="2009-01-26T00:55:25+08:00" pubdate  data-updated="true" >Jan 26<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://easyunfollow.appspot.com"><img src="http://tzangms.com/wp-content/uploads/2009/03/easy_unfollow.png" alt="easy_unfollow" title="easy_unfollow" width="550" height="245" class="aligncenter size-full wp-image-2385" /></a>
-去年在參加完 Google Developer Day 2008 之後, 因為當時 twitter 很慢, 所以寫了 easy unfollow 這個工具, 希望大家能夠 unfollow 你親愛的推友, 來救 twitter, anyway 不過當時不會 python, 所以 bug 太多也就沒有正式 release 了 XD</p>
+  <div class="entry-content"><p>基本上是參考 <a href="http://codeigniter.com">CodeIgniter</a> 的方式來實作, 不過省掉很多東西, 而目錄結構大概就參照 CodeIgniter 如下。</p>
 
-<p>由於最近在開始學 python, 然後明天要去吃哈跟大使, 所以稍微練習一下, 把這個 <a href="http://easyunfollow.appspot.com">easy unfollow</a> 這個工具重新寫出來 ( 因為之前的 source code 都不見了 XD ), 複習一下 <a href="http://code.google.com/appengine/">Google App Engine</a>, 也體驗一下令人驚豔的 <a href="http://doc-zhtw.gaeo.org/">GAE Framework: GAEO</a>。</p>
+<pre><code>/index.php
+/application/controllers
+...</code></pre>
 
-<p>不過還是有 bug, 目前知道的是在 session expire 時好像會有錯誤 XD</p>
 
-<p>有興趣, 想要 unfollow 你在 twitter 上面的好友的話, 歡迎試用! :D 請到 <a href="http://easyunfollow.appspot.com">http://easyunfollow.appspot.com</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2382">Django 的 Deploy 工具: Fabric</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-03-12T16:28:20+08:00" pubdate  data-updated="true" >Mar 12<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>昨天在 twitter 上問了:「django 有像 capistrano 這種工具嗎?」 後來就有人 <a href="http://twitter.com/howiworkdaily">howiworkdaily</a> 回我說:「try fabric for your capistrano needs http://www.nongnu.org/fab/」, 所以就發現了 <a href="http://www.nongnu.org/fab/">Fabric</a> 這個工具。</p>
-
-<p>接著我就順勢看了這位推友的 following, 沒想到 twitter 上還真多 django 的相關帳號。</p>
-
-<ul>
-    <li><strong></strong><strong><a id="djangocon_profile_link" class="url uid" title="Django Conference. Follow @robertlofthouse (DjangoCon/EuroDjangoCon Chairman). " rel="contact" href="http://twitter.com/djangocon">djangocon</a></strong></li>
-    <li><strong></strong><strong><a id="DjangoTracker_profile_link" class="url uid" title="Direct feed from the Django trunk." rel="contact" href="http://twitter.com/DjangoTracker">DjangoTracker</a></strong></li>
-    <li><strong><a id="djangolinks_profile_link" class="url uid" title="Interested in Django, find the latest links here. " rel="contact" href="http://twitter.com/djangolinks"><span class="nickname">djangolinks</span></a></strong></li>
-    <li><strong></strong><strong><a id="djangotips_profile_link" class="url uid" title="little bits of django goodness in 140 characters or less. and it's all powered by you, the django community. :)" rel="contact" href="http://twitter.com/djangotips">djangotips</a></strong></li>
-    <li><strong></strong><strong><a id="DailyDjango_profile_link" class="url uid" title="Another weekday, another bit of Django (and/or Python) from @trey. Feedback welcome." rel="contact" href="http://twitter.com/DailyDjango">DailyDjango</a></strong></li>
-    <li><strong></strong><strong><a id="geodjango_profile_link" class="url uid" title="World-Class Geographic Web Framework" rel="contact" href="http://twitter.com/geodjango">geodjango</a></strong></li>
-    <li><strong><a id="django_dev_profile_link" class="url uid" rel="contact" href="http://twitter.com/django_dev"><span class="nickname">django_dev</span></a></strong></li>
-    <li><strong><a id="djangodash_profile_link" class="url uid" title="A 2-day sprint to build the best Django app." rel="contact" href="http://twitter.com/djangodash"><span class="nickname">djangodash</span></a></strong></li>
-</ul>
-
-
-<p>hmm~ 看的懂中文的阿多仔也不少 (誤)</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/2381">用 iPhone 樂器軟體來玩樂團</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-03-05T08:57:41+08:00" pubdate  data-updated="true" >Mar 5<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><object width="480" height="295"><param name="movie" value="http://www.youtube.com/v/rjx5_-SPhk0&hl=zh_TW&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/rjx5_-SPhk0&hl=zh_TW&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="295"></embed></object>
-
-
-<p>現在在 app store 上, iPhone 樂器越來越多, 不過能夠玩成這樣也真的是滿厲害的 XD 其實他們是一個搖滾樂團, 叫 <a href="http://www.thementalists.co.uk/">The Mentalist!</a>, 只是他們的歌我聽不太習慣 XD</p>
-
-<p>anyway, 他們使用到的樂器有 <a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=293053479&mt=8">Ocarina</a>, <a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=297498715&mt=8">Retro Synth</a>, <a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=292140261&mt=8">miniSynth</a> 跟 <a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=295500313&mt=8">DigiDrummer Lite</a> 有興趣可以看看 :p</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/2380">第二份工作即將開始</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-03-01T23:40:48+08:00" pubdate  data-updated="true" >Mar 1<span>st</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>明天, 3/2 是新工作的開始, 其他想說的就省略了&#8230;</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/2379">Fender Jaguar Bridge &#8230;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-02-28T00:35:12+08:00" pubdate  data-updated="true" >Feb 28<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/497956438/" title="Fender Jaguar by tzangms, on Flickr"><img src="http://farm1.static.flickr.com/189/497956438_3bc39d7067.jpg" width="500" height="375" alt="Fender Jaguar" class="aligncenter" /></a></p>
-
-<p>其實我會買 Fender jaguar 單純只是外型 XD 一直到了今天把我的 jaguar 拿出來想要換成 010 的弦, 也順便調一下 bridge。 可是 bridge 調來調去, buzz 聲卻完全沒有改善 Orz 在放棄的同時, 居然發現第一弦的 saddle 居然掉了一隻腳 ~&#8221;~</p>
-
-<p>所以我就開始 google 一些資料, 想說有沒有改 bridge 的相關文章, 買 saddle 零件, 不如直接換 bridge 之類的, 不然 Jaguar 的 saddle 真的是為人所詬病, buzz 聲!! 還有弦也容易移位, 最後就是 saddle 腳會鬆掉, 然後就不見了!!! 就像我這把一樣&#8230; Orz</p>
-
-<p>後來找到這個站 <a href="http://www.jag-stang.com/JaguarHtml/modsIndex.php">Jaguar Modification &#8211; Jag-Stang.com</a>, 當中提到了很多關於 Jaguar 的 setup 、電路配置, 還有更換 pickup 等等資訊。 我想換 pickup, 只是多年沒用焊槍了 XD Anyway, 重點是! 在<a href="http://www.jag-stang.com/JaguarHtml/bridgeMod.php">這一篇文章</a>中提到, 可以直接換 Fender Mustang 的 Bridge ( 應該說是 saddle ) 阿!!!! 換用 Mustang 的 saddle 就可以解決上面提到 Jaguar 的問題, 而且! 是最快速、經濟的方法, 因為 bridge 是一樣的阿!</p>
-
-<p>不過後來又看到<a href="http://www.jag-stang.com/tomMod.php">把 bridge 換成 Tune-O-Matic 的文章</a> , 這篇文章中有提到 Kurt Cobain was a huge fan of the Tune-o-matic. XD 所以我又開始想把 bridge 換成 Tune-O-Matic, 只是看一看之後, 好像還是換 Mustang 的 saddle 快多了 XD 最後, 我開始在 <a href="http://www.guitarpartsresource.com/">Guitar Parts Resouce</a> 找零件, 當中有直接賣 Mustang saddle 害我就想直接買下去, 另外還有給 Jaguar 用的 Buzz Stop, 真的是太酷了阿!!  只是, 還是先等工作後在買好了 &#8230; Orz</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2378">從 PHP 5.2 到 PHP 5.3 須注意的一些事項</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-02-27T12:16:29+08:00" pubdate  data-updated="true" >Feb 27<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>看了這一篇文章 <a href="http://www.ibm.com/developerworks/opensource/library/os-php-5.3new5/index.html?ca=dgr-lnxw64Migrate2PHP5.3&S_TACT=105AGY46&S_CMP=grsitejw64">What&#8217;s new in PHP V5.3, Part 5: Upgrading from PHP V5.2</a>, 大概列出來下面這幾項:</p>
-
-<ul>
-    <li>function name 不能用 namespace (保留字)</li>
-    <li>class name 不能用 Closure (保留字)</li>
-    <li>加了 goto</li>
-    <li>處理 array 相關的函式不能直接丟 object 進去了, 得先轉型成 array</li>
-    <li>magic method ( __get, __set 等函式 ) 的 visibility 得為 public</li>
-    <li>FileInfo, intl, Phar, mysqlnd, SQLite3 extensions 納入 PHP Core</li>
-    <li>ncurse, fpdf, dbase, fbsql, ming extensions 從 PHP Core 移出</li>
-    <li>PCRE, Reflection, SPL 無法 disable</li>
-    <li>可以在 ini 檔案裡使用變數</li>
-    <li>增加了可以針對網站或目錄的 ini 設定</li>
-    <li>然後有一些東西 disabled 了, 像是 ereg, Ticks .. 等</li>
-</ul>
-
-
-<p>原文有提供範例, 詳細多了。 話說終於要支援 SQLite3 了阿~</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/2376">geekbrief.tv</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-02-26T21:10:17+08:00" pubdate  data-updated="true" >Feb 26<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="http://tzangms.com/wp-content/uploads/2009/02/7423_logo.png" alt="7423_logo" title="7423_logo" width="300" height="300" class="alignleft size-full wp-image-2377" />最近裝了 <a href="http://www.getmiro.com/">Miro</a> 然後找了幾個節目來看, 其中 <a href="http://www.geekbrief.tv/">geekbrief.tv</a> 這個節目我還滿喜歡的, 除了是 HD 的畫質之外, 主持人 <a href="http://twitter.com/calilewis">cali lewis</a> 也算頗正 XD 而最近還有一集在介紹 <a href="http://www.tweetdeck.com">tweetdeck</a>, 功能介紹的還真的是很仔細。</p>
-
-<p>另外就是可以練練聽力, 主持人 cali lewis 講的還真的是飛快, 不過不是英國腔我就還可以接受。</p>
-
-<p>話說台灣的你推我報也停播了, 先前看電視台還看到你推我報的主持人 - 果凍, 在幼幼台出現說 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2375">URI Class</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-02-26T00:29:39+08:00" pubdate  data-updated="true" >Feb 26<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>在 CodeIgniter 跟 Kohana 這兩個 framework, 在網址傳遞變數時, 都不是透過 query string 來傳遞變數, 而是用所謂比較漂亮網址來取得變數, 例如:</p>
-
-<p>以往 PHP 在傳遞變數的方式為:</p>
-
-<pre><code>http://tzangms.com/user.php?name=tzangms</code></pre>
-
-
-<p>而 CodeIgniter 的方式則是像這樣</p>
-
-<pre><code>http://tzangms.com/user/tzangms</code></pre>
-
-
-<p>使用 framework 的網址漂亮許多, 看起來也比較直覺, 如果有使用 CI 的人就會知道, 這類的網址是透過下面這個方式來取得變數:</p>
-
-<pre><code>$this->uri->segment(2); // 取得 'tzangms'</code></pre>
-
-
-<p>所以我實作了一個 URI class, 透過取得 PATH_INFO 之後, 將其分段後取得需要的變數:</p>
+<p>寫這個的目的主要是想了解 Front Controller 是怎麼做的。 另外因為依照 CodeIgniter 慣例的 Controller 名稱, 很容易跟其他 class name 衝到, 如果要使用 ORM 的話, 很容易會發生名稱碰撞, 所以實作一下 front controller, 另外改進這個問題, 不過其實就是在 class name 加上 postfix 而已, 而其他 framework 也都這麼做。</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/programming/2375">Read on &rarr;</a>
+      <a rel="full-article" href="/programming/2341">Read on &rarr;</a>
     </footer>
   
 
@@ -417,7 +112,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/2373">好站 Command-Line Fu</a></h1>
+      <h1 class="entry-title"><a href="/mac/2338">Garageband Workshop 正式報名!</a></h1>
     
     
       <p class="meta">
@@ -431,30 +126,61 @@
 
 
 
-<time datetime="2009-02-25T00:50:00+08:00" pubdate  data-updated="true" >Feb 25<span>th</span>, 2009</time>
+<time datetime="2009-01-24T20:32:09+08:00" pubdate  data-updated="true" >Jan 24<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.commandlinefu.com">Command-Line Fu</a> 是個學習 Linux 指令的好地方阿!</p>
+  <div class="entry-content"><p><strong>依據先前在 <a href="http://wellmeet.net/event/20081231/andyaHNh/9691">wellmeet 的日期投票</a>, 2/7 勝出, 所以就辦在 2/7 囉! 時間是禮拜六晚上 7 點 ~ 9點, 請有興趣的朋友到 <a href="http://registrano.com/events/garageband-workshop">registrano 的報名頁面進行報名</a></strong></p>
 
-<p>光是 Popular 那一塊, 就讓我太驚訝了阿! 像是</p>
-
-<ol>
-<li><code>$ sudo !! </code> - 用 sudo 重新執行上一個指令。</li>
-</ol>
-
-
-<p>如果跟我一樣, 常常忘記打 sudo, 那麼這個指令一定要記起來阿!!</p>
-
-<ol>
-<li><code>$ ^foo<sup>bar</code></sup> - 重新執行上一個指令, 不過會先置換掉文字, 再開始執行。</li>
-</ol>
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/mac/2338">Read on &rarr;</a>
+    </footer>
+  
 
 
-<p>Command-Line Fu Rocks!!!</p>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2337">原來我學過這些程式語言</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-24T14:14:12+08:00" pubdate  data-updated="true" >Jan 24<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>從高中開始接觸電腦, 一開始就是上網, 然後開始接觸 HTML, 因為聊天室可以用 font, 覺得很厲害, 然後開始學怎麼做網頁, 然後學 Photo Impact 3 然後又換到 Photoshop 4, 然後接著用 Dreamweaver 來作網頁, 就這樣開始對網頁製作有興趣, 畢竟在用電腦之前, 我都是在畫畫。</p>
+
+<p>接著高二開始碰 Linux, 然後學校的課程開始教 QB 然後 VB, 後來高三的課程甚至要用 VB 來處理圖片的明暗度平衡, 現在想起來真是厲害, 只是寫不出正確的處理方法 XD 而高中除了 VB 之外還學組合語言, 單晶片 PIC 阿什麼的。</p>
+
+<p>然後上了二專, 仍然是組合語言, 8051, 然後還有 PC AT/XT 界面設計, 所以學 C 語言, 然後還有 VHDL, 一直到了專題用了 C 語言寫了一個射擊遊戲過關 XD</p>
+
+<p>到了二技, 程式設計的課程變少了, 只有教 C 而且居然教最基本的, 但是我一點都不在意, 因為那時都在玩樂團, 然後到了最後一年, 有一門 3D 圖學的課程, 我用 java + swing 來交作業, 現在想想還真的是不可思議, 我居然會寫 java。 然後專題我負責的某個部份是用 Flash Communication Server, 所以我就開始摸 Action Script, 寫 Client / Server 端, 記得當時只有一本原文書在講 FCS, 只是後來也沒人用就是了。</p>
+
+<p>以上其實是因為在二專跟二技我幾乎所有的時間都在玩樂團&#8230; 所以&#8230; 對以上這些東西沒有太大印象, 所以想起來, 自己才覺得訝異, 寫出來紀念一下。</p>
 </div>
   
   
@@ -467,7 +193,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/stickeraction/2372">Stickeraction Click Chart</a></h1>
+      <h1 class="entry-title"><a href="/programming/2336">Master One, Then Learn Another</a></h1>
     
     
       <p class="meta">
@@ -481,20 +207,291 @@
 
 
 
-<time datetime="2009-02-24T22:00:46+08:00" pubdate  data-updated="true" >Feb 24<span>th</span>, 2009</time>
+<time datetime="2009-01-24T13:49:58+08:00" pubdate  data-updated="true" >Jan 24<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><img src="http://tzangms.com/wp-content/uploads/2009/02/click_chart.png" alt="click_chart" title="click_chart" width="500" height="240" class="aligncenter size-full wp-image-2371" /></p>
+  <div class="entry-content"><blockquote>Master one, then learn another</blockquote>
 
-<p>由於 <a href="http://stickeraction.com">stickeraction</a> 已經可以偵測哪個貼上串連的貼紙帶來了多少 click, 不過一直沒有一個比較視覺化的方式來顯示點擊數。 所以今天幫 stickeraction 加上了 click chart, 用來顯示今天有哪些部落格為串連貼紙帶來了多少的 click。</p>
 
-<p>只是這個功能還沒開放出來就是了 :p 其實是覺得 <a href="http://stickeraction.com">stickeraction</a> 可以往串連貼紙計數器之類的方向發展, 所以之後後台應該會在改。</p>
+<p>這句話忘記從哪裡看來的, 基本上是說, 精通一個程式語言以後, 在去看看其他的。</p>
+
+<p>其實這一篇完全無重點, 碎念類。</p>
+
+<p>我主要使用的語言就是 PHP, 但是完全稱不上精通, 畢竟也才兩年半的時間, 從我的第一份工作, 才開始學 PHP。 記得剛進公司每天都是開著 php.net 查 manual, 當時連 substr 都不清楚, 而 HTML 的 FORM POST 也不太清楚怎麼運作。 而 SQL 語法也是一直上網查, 除了 SELECT 之外都不會。</p>
+
+<p>然後工作了一段時間, 大約半年才開始學 javascript, 然後對 javascript 不清不楚的狀況下就開始用 jQuery, 一直到了大概半年多前開始讀了 DOM scripting 這本書後, 才對 javascript 稍微了解一些, 才懂得 document.getElementById 這類的東西。</p>
+
+<p>而我的 PHP 也是很弱, 一直到了大約一年前開始用 CodeIgniter 之後, 才慢慢的解決我心裡對 PHP 的焦慮, 因為 SQL Injection, XSS 等, 都交給了 CodeIgniter, 然而之前學了 ruby, 最近學了 python 跟 django, 只是似乎對 PHP 的部份還是很弱, 似乎還不到去學其他語言的地步。 也許該來好好學一下 PHP 吧。</p>
+
+<p>又忘記哪裡看到的一句話說:</p>
+
+<blockquote>你可以用 library 跟 framework 來減輕你對程式語言能力不足及焦慮, 但當你使用這些工具之後, 慢慢不在感到焦慮時, 你該去研究你用的 library、 framework 來補足你還不清楚的地方。</blockquote>
+
+
+<p>Anyway, 先前在學 ruby 跟 python 時, 還滿有啟發的, 看到了很多不同的東西, 使用的程式語言不同, 想法、思維也跟著不同。 只是 PHP 才是我目前唯一能謀生的東西, 所以該回頭來好好研究一下 PHP 吧。</p>
 </div>
   
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2335">Amazon S3 使用記錄</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-23T21:41:21+08:00" pubdate  data-updated="true" >Jan 23<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>昨天開始碰 <a href="http://aws.amazon.com/s3/">Amazon S3</a>, 因為一直覺得 <a href="http://stickeraction.com">stickeraction</a> 的貼紙圖檔放在 VPS 上還是不太安全, 所以前天就開始用 Amazon S3, 把貼紙圖檔都丟上去, 順便當 cdn 用。</p>
+
+<p>一開始是先看 <a href="http://plog.longwin.com.tw/news-technology/2008/02/21/amazon_s3_s3cmd_php_2008">Tsung 大大的文章</a>, 然後就開始用 <a href="http://s3tools.logix.cz/s3cmd">s3cmd</a>  開始玩看看 S3 怎麼用。</p>
+
+<p>首先就是在 <a href="http://www.gentoo.org">gentoo</a> 上裝 s3cmd 啦, 不過試了 x86 跟 amd64 的平台好像都是 masked, 所以就用 ACCEPT_KEYWORDS 裝起來</p>
+
+<pre><code>ACCEPT_KEYWORDS='~x86' emerge s3cmd</code></pre>
+
+
+<p>然後就是用 <code>s3cmd --configure</code> 這個指令來設定, 填入 Amazon S3 提供的 access key 跟 secret key, 接著就可以開始用 s3cmd 來丟檔案到 s3 上做測試了。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/2335">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/2334">Minus the Bear</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-20T22:43:15+08:00" pubdate  data-updated="true" >Jan 20<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>一開始注意到這個團是 <a href="http://frank0624.wordpress.com/">frank</a> 從 msn 上傳來的 Knights 這一首歌, frank 說我應該會喜歡, 沒想到聽起來還真不賴, 完全被吉他的部份所吸引, 後來就陸續聽了一些 <a href="http://www.minusthebear.com/">Minus the bear</a> 的歌, 才發現他們吉他手的風格還真的是很特殊, 甚至在 Highly Refined Pirates 這張專輯中的 Thanks For The Killer Game Of Crisco Twister 這首歌, 幾乎都是用點弦在彈, 所以營造出來的風格真的是很特殊阿! 來看看 Minus the bear 在 Youtube 上的的影片就知道了。</p>
+
+<object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/msFQBNo3PnM&hl=zh_TW&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/msFQBNo3PnM&hl=zh_TW&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed></object>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/music/2334">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web design/2333">Stickeraction New Design Mockup</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-20T01:00:15+08:00" pubdate  data-updated="true" >Jan 20<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a title="stickeraction new design mockup by photoshop by tzangms, on Flickr" href="http://www.flickr.com/photos/tzangms/3209369577/"><img class="aligncenter" src="http://farm4.static.flickr.com/3414/3209369577_95f50c2a22.jpg" alt="stickeraction new design mockup by photoshop" width="500" height="438" /></a>
+最近都在弄 <a href="http://stickeraction.com">stickeraction</a> 的東西, 然後首頁想要改的好看、乾淨一點, 只是今天想了一個晚上, 還是想不出來要怎麼改, 一直到剛才洗澡前, 才有點靈感, 洗玩澡後馬上用 photoshop 畫了上面這個 mockup (?) 記錄一下。</p>
+
+<p>UI 真的是很困難阿 Orz</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/2332">小海@女巫店</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-17T22:08:08+08:00" pubdate  data-updated="true" >Jan 17<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>1/15 那天晚上終於第一次到女巫店, 也是第一次在女巫店唱歌, 感謝 koumis, <a href="http://www.dingdong161.com/">叮咚</a>, <a href="http://stephenlee.pixnet.net/blog">stephenlee</a>。 只可惜當天沒看到叮咚出現。</p>
+
+<p>這次在女巫店, 跟上次河岸留言的表演比起來, 幾乎是根本不緊張, 聲音狀況還不錯, 木吉他編曲的&#8221;我自己&#8221;似乎也頗受好評。 也許是上次在河岸用 loop station 來表演, 對器材的不熟悉, 所以增加了一些不安的感覺。 而這次演唱的都是自己熟悉的歌曲, 所以感覺穩定了許多。</p>
+
+<p>而這次大學玩樂團的朋友也有來, 有他們幫忙合音的感覺真不賴, 可惜的是他們還是沒辦法接受太安靜的音樂 XD 最後, 用偷吃步的方式站上了河岸以及女巫店的舞台, 不過&#8230; 我會自己來唱過一次的!! 到時候, <a href="http://biasonica.blogspot.com/">小掰</a>, 我會找你來幫忙的!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/2326">Koumis @ 女巫店就在明天!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-14T22:48:43+08:00" pubdate  data-updated="true" >Jan 14<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>上次在河岸留言聽了 <a href="http://blog.koumis.cc">koumis</a> 的表演, 不過當天除了 koumis 跟 stephenlee 之外, 還多了一位吉他手/口風琴手 - 阿燦, 當天進行了一場三人編制的演出。</p>
+
+<p>當天第一次聽到 koumis 以三人的編制來進行表演, 雖然光是 koumis 跟 stephenlee 兩個人的 live 演出, 就足已讓台下的聽眾沈醉在 koumis 的音樂中, 不過三個人編制讓整個音樂又更顯豐富了, 而且恰到好處, 沒聽過的人都真該來聽看看 koumis 那乾淨的聲線, 以及那讓人沈醉其中的音樂。</p>
+
+<p>有興趣的朋友, 可以到 <a href="http://blog.koumis.cc/">koumis 的官方網站</a> 看看, 也有上次在河岸留言表演的影片, 不過可別光只是看, 明天來看一次 koumis 的 live 表演, 你才能真正體會 koumis 的魅力。</p>
+
+<p>而我明天也會出現, 擔任 koumis 的 special guest, 有空可以前往的朋友們, 記得明天要來呦! koumis 真的很棒! 而明天我將會演唱將會放在第二張專輯的歌曲, 想聽嗎? 錯過就不知道還要等多久囉! XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/mac/2315">Happy Designer: GarageBand Workshop</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-12T22:08:08+08:00" pubdate  data-updated="true" >Jan 12<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>更新!!</strong>
+<strong>正式活動定在 2/7 囉! 詳情請見<a href="http://tzangms.com/mac/2338">這篇文章</a></strong></p>
+
+<p>在 <a href="http://hlb.yichi.org/blog/">hlb</a> 的慫恿之下, 準備在2月開一個 GarageBand Workshop, 我會先來跟大家介紹 <a href="http://www.apple.com/tw/ilife/garageband/what-is-garageband.html">GarageBand</a> 關於 loop 以及軟體樂器&#8230;等等的功能, 並示範如何用 GarageBand 做出一首歌曲, 最後會有時間給來參與的夥伴們也現場來實作一下, 有問題的可以跟我詢問, 我覺得這將會是一個非常有趣的活動 :D 希望大家一塊來玩!</p>
+
+<p>不過這次的 GarageBand Workshop 有條件限制如下:</p>
+
+<ul>
+    <li>有蘋果電腦的朋友才可參加, 所以請攜帶你的蘋果筆記型電腦 ( 並請確認 GarageBand 還存在 )</li>
+    <li>有實作時間, 所以限制二十個參加名額</li>
+</ul>
+
+
+<p>由於要先統計大概人數以及參與的時間, 所以在 <a href="http://wellmeet.net/">We&#8217;ll Meet</a> 來開了一個活動頁面: <a href="http://wellmeet.net/event/20081231/andyaHNh/9691">HappyDesigner GarageBand Workshop</a>, 希望有興趣參與的朋友可以先到<a href="http://wellmeet.net/event/20081231/andyaHNh/9691">活動頁面</a>填寫您可參與的時間, 對了, 目前暫定的舉辦地點會是在台北市的<a href="http://www.gozcafe.com/">果子咖啡</a>, 報名費 $150, 含飲料, 在確定報名日期後, 之後會用 <a href="http://registrano.com">registrano</a> 來開放正式報名。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/mac/2315">Read on &rarr;</a>
+    </footer>
   
 
 

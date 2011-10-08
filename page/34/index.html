@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="Kohana 前身叫做 BlueFlame, 是由 CodeIgniter 衍生出來的 PHP framework, 所以要從 CI 跳槽還滿快的 XD 而 Kohana 跟 CodeIgniter 最大的不同就是, Kohana 只能在 PHP 5 上跑。 不過其實&#8230; 現在都該換...">
+  <meta name="description" content="The Wall Street Journal 的這一篇文章 Bigger Computer Monitors = More ProductivityPeople using the 24-inch screen completed the tasks 52% faster than peop...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/1210">Kohana PHP Framework 試玩心得</a></h1>
+      <h1 class="entry-title"><a href="/nothing/1108">較大的螢幕等於較高的生產力!?</a></h1>
     
     
       <p class="meta">
@@ -80,24 +80,105 @@
 
 
 
-<time datetime="2008-07-16T08:15:50+08:00" pubdate  data-updated="true" >Jul 16<span>th</span>, 2008</time>
+<time datetime="2008-03-14T13:41:58+08:00" pubdate  data-updated="true" >Mar 14<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://kohanaphp.com/">Kohana</a> 前身叫做 BlueFlame, 是由 <a href="http://codeigniter.com/">CodeIgniter</a> 衍生出來的 PHP framework, 所以要從 CI 跳槽還滿快的 XD 而 Kohana 跟 CodeIgniter 最大的不同就是, Kohana 只能在 PHP 5 上跑。 不過其實&#8230; 現在都該換到 PHP5 了啦:p 重點是! Kohana 解決了 CodeIgniter 很多不足的地方。</p>
+  <div class="entry-content"><p>The Wall Street Journal 的這一篇文章 <a href="http://blogs.wsj.com/biztech/2008/03/10/bigger-computer-monitors-more-productivity/">Bigger Computer Monitors = More Productivity</a></p>
 
-<p>像是 Namespace 的問題, 在 CI 上如果有相同名稱的 library、Model 或是 Controller 就會衝到, Kohana 則解決了這個問題。 另外在 CI 上如果有自定的 helper 的話, 其他維護者並不容易找出是寫在哪支 helper 裡, 而 Kohana 的 helper 是用 class 來作, class name 的 prefix, 則可以容易辨識出是哪支 helper, 也減少 function name 衝突的問題, 對於維護上方便很多。</p>
+<blockquote>People using the 24-inch screen completed the tasks 52% faster than people who used the 18-inch monitor; people who used the two 20-inch monitors were 44% faster than those with the 18-inch ones. There is an upper limit, however: Productivity dropped off again when people used a 26-inch screen.</blockquote>
 
-<p>另外 Kohana 也提供了 module 的機制, module 擁有自己的 controller, model 跟 view, 可以將程式劃分的更細。例如 Konaha 本身就提供了 Auth module (ACL)。 雖然 CI 也有 <a href="http://code.google.com/p/matchbox/">matchbox</a> 提供了相同的功能, 但是需要 override CI_Loader, 萬一 CI 的版本升級,  CI_Loader 有所改變呢? 當然還是比不上 Kohana 內建的好。</p>
+
+<p>文中提到, 使用 24 吋螢幕的人, 其完成工作的速度約比使用 18 吋的人快上 52%, 而使用 20 吋「雙」螢幕的也比使用 18 吋的人快上 44%。至於超過 26 吋好像沒有差太多了。 當然, 用個 100 吋的螢幕, 也不會讓你在 1 秒就完成工作阿! XD</p>
+
+<p>(咳) 我在公司使用的是 15 吋的螢幕, 不過&#8230; 有人說, 換上更好的設備, 加班就要加越久, 所以我還是繼續用15 吋的就好了 XD</p>
+
+<p>話說, 台灣好像沒有人在用 18 吋的螢幕?</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/codeigniter/1093">CodeIgniter Modular Extension: HMVC</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-03-08T00:50:05+08:00" pubdate  data-updated="true" >Mar 8<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在使用 <a href="http://codeigniter.com">CodeIgniter</a> 在開發的時候, 其實一直覺得 CI 的架構好像有點不足, 少了什麼東西。 例如說我想要有個使用者聯播的功能區塊, 有很多地方都想掛上這個功能區塊, 但是我該怎麼做? 在 CodeIgniter 現有的架構中, 看來就是寫成 Library 然後掛個 View, 然後把輸出 return 到呼叫的 Controller, 但是我總覺得這樣很亂, 而且東西一多, 會很難維護, Library 會不像 Library 而 View 到底是給 Controller 用還是 Library 用, 甚至 Model 也會一起捲進來, 這樣程式的架構會很雜亂。</p>
+
+<p>所以後來我就自己動手 extends CI 開始寫起了 module 功能, 寫沒多久就發現! 原來早就有類似的東西, 而且在 CodeIgniter wiki 就有提到了, 就是 <a href="http://codeigniter.com/wiki/Modular_Extensions_-_HMVC/">Modular Extensions - HMVC</a>。</p>
+
+<p>HMVC 可以用來幫 CI 加上 module 的功能, 我一直想要的就是這個功能阿!! 可以擺脫先前雜亂的方式, 可以很方便寫個模組化的功能。</p>
+
+<p>簡單說明一下 HMVC, 在掛上 HMVC 之後就可以呼叫 module, 而 module 有自己的 Controller、View 跟 Model, 這樣一來寫好 module 之後, 直接在 Controller 呼叫 module 就可以了, 這個整個程式架構就非常的明朗阿!! 整個 module 的 code 都在同一個資料夾裡面, 非常清爽!  所以說 Framework 早該有 module 這功能的 XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/stuff/1091">iPod Touch</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-03-01T23:39:02+08:00" pubdate  data-updated="true" >Mar 1<span>st</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2243097997/" title="ipod touch by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2119/2243097997_6b922e4876.jpg" width="500" height="375" alt="ipod touch" /></a></p>
+
+<p>其實在過年前就買了這一台 iPod touch 16G 了, 一直忘記寫, 現在寫只是想記得說, 哪時候過保 XD</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/programming/1210">Read on &rarr;</a>
+      <a rel="full-article" href="/stuff/1091">Read on &rarr;</a>
     </footer>
   
 
@@ -109,7 +190,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/stickeraction/1209">stickeraction.com 一起來玩貼紙串連吧!</a></h1>
+      <h1 class="entry-title"><a href="/codeigniter/1090">Lighttpd Rewrite Rules for CodeIgniter</a></h1>
     
     
       <p class="meta">
@@ -123,31 +204,102 @@
 
 
 
-<time datetime="2008-07-13T22:07:28+08:00" pubdate  data-updated="true" >Jul 13<span>th</span>, 2008</time>
+<time datetime="2008-03-01T19:49:24+08:00" pubdate  data-updated="true" >Mar 1<span>st</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href='http://stickeraction.com'><img src='http://farm4.static.flickr.com/3086/2664170152_7ccc331c54.jpg' /></a></p>
+  <div class="entry-content"><p>由於 CodeIgniter 使用 index.php 當作 font controller, 所以基本上把所有的東西都 rewrite 到 index.php 就可以了! 不過由於還是有 images, js 跟 css 檔案不能做 rewrite, 所以再加上類似於 public 那一行就行了! (我習慣是把 images, js 跟 css 資料夾都放在 public 資料夾裡面)</p>
 
-<div style='float: left; margin: 0px 5px 2px 2px'>
-<script type='text/javascript' src='http://stickeraction.com/stickeraction/blogs_count.js'></script>
+<pre><code>$HTTP["host"] =~ "tzangms.com" {
+    url.rewrite = (
+        "^/public/.*$" => "$0",
+        "^/(.*)$" => "index.php/$1"
+    )
+}</code></pre>
+
 </div>
+  
+  
 
 
-<p>一直以來都在想&#8230; 貼紙串連這種活動到底可以發揮多少功效, 現今的貼紙串連方式似乎都只是做個貼紙, 然後讓支持這個訴求的網友們把貼紙的語法貼到自己的部落格。 然而活動發起之後, 活動發起人卻也無法得知, 到底有多少個部落格響應了這個活動。</p>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/1089">看 Http Header 找工作 XD</a></h1>
+    
+    
+      <p class="meta">
+        
 
-<p>似乎在網路上的貼紙串連活動就是這樣, 一直沒有辦法凝聚一個較為實質的力量出來, 即使行之有年的&#8221;自動播放撲滅委員會&#8221; , 但是我們仍時常會逛到會自動播放音樂的部落格&#8230;。</p>
 
-<p>如果有個東西可以統計, 可以讓響應這個活動的人知道, 這個活動到底凝聚了多少部落格的力量, 或者也許可以讓這個活動的頁面當成是一個連署書? 貼給自動播放音樂的部落格的網友們看, 到底有多少人支持這個活動!! 又或者讓舉辦海洋音樂季的台北縣政府知道, 到底有多少網友覺得他們根本在意的不是獨立音樂? 或者是貼個我愛星野亞希之類的 XD</p>
+
+
+
+  
+
+
+
+<time datetime="2008-02-29T14:48:42+08:00" pubdate  data-updated="true" >Feb 29<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天在寫 header 相關的 coding, 要來測一下是不是各家 BSP 提供的 RSS 都有 Last-Modified 的欄位, 測到 wordpress.com 的時候, 看到一個 extra 的欄位叫 X-hacker , 內容如下, 呵, 還滿有趣的 :p</p>
+
+<blockquote>X-hacker: If you&#8217;re reading this, you should visit automattic.com/jobs and apply to join the fun, mention this header.</blockquote>
+
+
+<p>要不要去 apply 阿? XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/1086">新吉他! Line 6 Variax 300</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-02-26T00:46:45+08:00" pubdate  data-updated="true" >Feb 26<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2291677546/" title="100_3546 by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2094/2291677546_e99485bcb1.jpg" width="375" height="500" alt="100_3546" /></a>
+沒錯! 我又買了新吉他了: Line 6 Variax 300! 買這把最主要的用意, 其實是因為先前買的 <a href="http://tzangms.com/life/858">Fender Jaguar</a> 的 tone 比較特殊, 有點太亮(可是 Jaguar 真的很漂亮 >&#8221;&lt;), 所以需要這一把, 有很多經典 tone 可以調勒!</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/stickeraction/1209">Read on &rarr;</a>
+      <a rel="full-article" href="/music/1086">Read on &rarr;</a>
     </footer>
   
 
@@ -159,7 +311,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/old demo/1207">[Demo] 說再見 (重新混音)</a></h1>
+      <h1 class="entry-title"><a href="/computer/1084">減少 Skype 佔用的記憶體</a></h1>
     
     
       <p class="meta">
@@ -173,210 +325,24 @@
 
 
 
-<time datetime="2008-07-05T14:00:36+08:00" pubdate  data-updated="true" >Jul 5<span>th</span>, 2008</time>
+<time datetime="2008-02-20T09:54:17+08:00" pubdate  data-updated="true" >Feb 20<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>先前的版本, 彈分解的那一把吉他, 其實一點都沒有結構, 反倒像是亂彈的, 這個版本除了重新咪過之外, 也重新錄了那把彈分解的吉他, 有結構多了, 感覺好多了 :p</p>
-</div>
-  
-  
+  <div class="entry-content"><p>最近在公司覺得電腦的記憶體太小(1G 其實夠用啦! 只是當然越大越好 XD), 所以就移除了一堆程式, 也開工作管理員看看哪些程式吃掉比較多的記憶體。</p>
 
+<p>一直覺得很奇怪, 除了 Skype.exe 佔掉了 40MB 左右之外, 還有一個不知名的 skypePM.exe 佔掉了 20幾MB。查一下才知道, 原來 skypePM.exe 是 Skype Plugin Manager (放在 C:\Program Files\Skype\Plugin Manager 底下), 不過其實用都沒用過阿! 不會只有我沒用過吧? 囧</p>
 
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/1203">identi.ca - PHP Open Source Twitter?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-07-03T19:35:44+08:00" pubdate  data-updated="true" >Jul 3<span>rd</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://identi.ca/">identi.ca</a>, 一個新的微網誌服務, 其實現在微網誌服務真的是很多了, 不過這個比較特別一點的是, <a href="http://identi.ca/">identi.ca</a> 用 PHP 開發, 可以用 jabber/GTalk, 也可以用 openid 來登入, 而且是 open source!!?</p>
-
-<p>不過目前為止連到這個網址 <a href="http://identi.ca/doc/source">http://identi.ca/doc/source</a>, 上面是這樣寫的:</p>
-
-<blockquote>You can get a copy of the software from the <a href="http://laconi.ca/">Laconica</a> main site. The version of the software that runs on <em>this</em> site is unmodified from that version. The site also depends on certain libraries and other software; you can get those at the Laconica site, too.</blockquote>
-
-
-<p>不過找了一下, 還沒看到任何 source code 的蹤影 :p 不過那不重要, 因為&#8230;可以離開 twitter 就很厲害了 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1202">PHP Framework 的效能比較</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-07-02T22:18:52+08:00" pubdate  data-updated="true" >Jul 2<span>nd</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天看到前幾天才出爐的測試, <a href="http://www.avnetlabs.com/php/php-framework-comparison-benchmarks">PHP framework comparison benchmarks</a>, 其實應該就是在比 framework 的結構跟設計對於效能的影響?</p>
-
-<table class="frameworks" border="0" width="100%">
-<tbody>
-<tr>
-<td> </td>
-<td class="highlight-cell">
-<p align="right">Run 1</p>
-</td>
-<td class="highlight-cell">
-<p align="right">Run 2</p>
-</td>
-<td class="highlight-cell">
-<p align="right">Run 3</p>
-</td>
-<td class="highlight-cell">
-<p align="right">Run 4</p>
-</td>
-<td class="highlight-cell">
-<p align="right">Average</p>
-</td>
-</tr>
-<tr>
-<td class="highlight-cell">Baseline HTML</td>
-<td>
-<p align="right">1327.5</p>
-</td>
-<td>
-<p align="right">1326.5</p>
-</td>
-<td>
-<p align="right">1328.6</p>
-</td>
-<td>
-<p align="right">1329.1</p>
-</td>
-<td>
-<p align="right"><strong>1327.9</strong></p>
-</td>
-</tr>
-<tr>
-<td class="highlight-cell">Baseline PHP</td>
-<td>
-<p align="right">331.6</p>
-</td>
-<td>
-<p align="right">332.1</p>
-</td>
-<td>
-<p align="right">331.4</p>
-</td>
-<td>
-<p align="right">332.0</p>
-</td>
-<td>
-<p align="right"><strong>331.8</strong></p>
-</td>
-</tr>
-<tr>
-<td class="highlight-cell">CakePHP</td>
-<td>
-<p align="right">3.6</p>
-</td>
-<td>
-<p align="right">3.7</p>
-</td>
-<td>
-<p align="right">3.8</p>
-</td>
-<td>
-<p align="right">3.5</p>
-</td>
-<td>
-<p align="right"><strong>3.7</strong></p>
-</td>
-</tr>
-<tr>
-<td class="highlight-cell">CodeIgniter</td>
-<td>
-<p align="right">21.5</p>
-</td>
-<td>
-<p align="right">21.2</p>
-</td>
-<td>
-<p align="right">21.7</p>
-</td>
-<td>
-<p align="right">21.7</p>
-</td>
-<td>
-<p align="right"><strong>21.5</strong></p>
-</td>
-</tr>
-<tr>
-<td class="highlight-cell">Zend Framework</td>
-<td>
-<p align="right">9.3</p>
-</td>
-<td>
-<p align="right">9.1</p>
-</td>
-<td>
-<p align="right">9.2</p>
-</td>
-<td>
-<p align="right">9.3</p>
-</td>
-<td>
-<p align="right"><strong>9.2</strong></p>
-</td>
-</tr>
-</tbody></table>
-
-
-<p><a href="http://www.avnetlabs.com/php/php-framework-comparison-benchmarks">這篇文章</a>中比較了 <a href="http://cakephp.org/">CakePHP</a>, <a href="http://framework.zend.com/">Zend Framework</a> 跟 <a href="http://codeigniter.com">CodeIgniter</a>, 然後還有一般的 html 及 plain php, 另外還有使用/不使用 <a href="http://pecl.php.net/package/APC">APC</a> 跟 <a href="http://eaccelerator.net/">eAccelerator</a> 來比較這三個 framework 的效能。當然, 基本上一定是 html 最快, 然後是 plain php, 再來才會是 framework。而 Framework 中當然最快的是 CodeIgniter 啦! 接著是 Zend Framework, 最後是效能很糟的 CakePHP ( XD )</p>
+<p>Anyway, 為了空出這 20~30MB 的寶貴記憶體, 就來把它關掉吧!</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/programming/1202">Read on &rarr;</a>
+      <a rel="full-article" href="/computer/1084">Read on &rarr;</a>
     </footer>
   
 
@@ -388,7 +354,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/old demo/1199">[Demo] 沙漏 (重新混音)</a></h1>
+      <h1 class="entry-title"><a href="/programming/1085">PHP Question</a></h1>
     
     
       <p class="meta">
@@ -402,14 +368,20 @@
 
 
 
-<time datetime="2008-06-29T23:25:15+08:00" pubdate  data-updated="true" >Jun 29<span>th</span>, 2008</time>
+<time datetime="2008-02-19T20:47:55+08:00" pubdate  data-updated="true" >Feb 19<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>其實一直覺得這首歌太單調, 為了這一首頭痛好久, 花了快兩個禮拜, 在想怎麼加東西進去, 可能最近也真的是一點靈感都沒有吧 ~&#8221;~ anyway, 總算弄出了一把彈分散的吉他, 讓原來的編曲不那麼單調, 聽起來好多了 :D</p>
+  <div class="entry-content"><p>在一本書上看到的問題如下:</p>
+
+<p><code>$a = 1;
+$a = $a-- +1;
+echo $a;</code></p>
+
+<p>這時候 $a 會等於多少? XD</p>
 </div>
   
   
@@ -422,7 +394,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/1198">Vim 也可以有 Textmate 的 Snippet 功能!!</a></h1>
+      <h1 class="entry-title"><a href="/programming/1083">NuSOAP for PHP5</a></h1>
     
     
       <p class="meta">
@@ -436,35 +408,34 @@
 
 
 
-<time datetime="2008-06-28T12:52:03+08:00" pubdate  data-updated="true" >Jun 28<span>th</span>, 2008</time>
+<time datetime="2008-02-19T10:09:52+08:00" pubdate  data-updated="true" >Feb 19<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.vim.org/scripts/script.php?script_id=1318">snippetsemu</a> 真是好物阿!!</p>
+  <div class="entry-content"><p>由於在 PHP5 已經有 SOAP extension 了, 如果把 SOAP extension 也編進 PHP5 的話, <a href="http://sourceforge.net/projects/nusoap/">NuSOAP </a>就會跟 SOAP extension 的  class name 衝到, 所以有了 <a href="http://code.google.com/p/nusoap-for-php5/downloads/list">nusoap-for-php5</a>, 放在 Google code。</p>
 
-<p>話說 <a href="http://macromates.com/">textmate</a> 真的是很屌, 可是我還是離不開 vim, vim 的 dd, yy 真的是很贊阿! XD 其實最主要的是, 上班不會帶 mac 去公司, 在公司又是用 windows, 所以通常都直接 ssh 上測試環境的 server 用 vi 在寫程式。</p>
+<p>不過把 class 名稱改成 soapclientnusoap 會不會有點太長? 我覺得改成 nu_soapclient 會比較好吧? 還是拿 原本的 NuSOAP 自己來改好了 XD</p>
 
-<p>今天突然想到 vim 搞不好有 textmate snippet 外掛, 所以就找了一下, 就找到了 snippetsemu 啦!! 真的是很 high!</p>
+<p><strong>== UPDATE ==</strong>
+剛看了一下 nusoap 的 changelog, 原來因為 NuSOAP 會跟 PHP5 的 SOAP extension 衝到, 所以 class 名稱已經改了勒 o_O, 下面這一段可以看到, 已經從 soapclient 改成 nusoapclient 。</p>
 
-<p>記一下安裝方式:</p>
-
-<ol>
-    <li>首先要有 vim 7</li>
-    <li>到 <a href="http://www.vim.org/scripts/script.php?script_id=1318">snippetsemu</a> 在 vim.org 的頁面下載 snippy_plugin.vba 跟 snippy_bundles.vba</li>
-    <li>然後用 vi 打開 snippy_plugin.vba, 應該會在最下面一行看到 ***vimball***  Source this file to extract it! (:so %)</li>
-    <li>接著就照做啦, 打 :so% 就會裝上 snippy plugin</li>
-    <li>最後對著 snippy_bundles.vba 依同樣步驟做即可</li>
-</ol>
+<blockquote>2007-03-19, version 0.7.2
+- soapclient: declare as nusoapclient, then also subclass soapclient if SOAP extension not loaded
+- soapclientmime: declare as nusoapclientmime, then also subclass soapclientmime if SOAP extension not loaded</blockquote>
 
 
-<p>再來就是測試一下, 編輯個 foo.php, 先輸入 for 然後打 &lt;tab&gt; 看看, 哈! 超 high 的勒!</p>
+<p>再來看到這一段,</p>
 
-<p>[ links ]
-<a href="http://code.google.com/p/snippetsemu/">snippetsemu on Google Code</a>
-<a href="http://slipperysnippets.blogspot.com/">snippets blog</a></p>
+<blockquote>2007-04-09, version 0.7.2
+&#8230;
+- nusoapclient: rename class to nusoap_client
+&#8230;</blockquote>
+
+
+<p>現在 class name 是改成 nusoap_client 勒, 所以&#8230; 記得以後網路上找文章要注意日期阿 XD 像 NuSOAP 只有 code 的話&#8230;就只能靠自己多挖依下程式碼了&#8230;不然也要看過 readme, changelog 先。</p>
 </div>
   
   
@@ -477,7 +448,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/codeigniter/1196">CodeIgniter 1.6.3 Released</a></h1>
+      <h1 class="entry-title"><a href="/web/1081">Web Developer Resources</a></h1>
     
     
       <p class="meta">
@@ -491,94 +462,19 @@
 
 
 
-<time datetime="2008-06-27T09:06:55+08:00" pubdate  data-updated="true" >Jun 27<span>th</span>, 2008</time>
+<time datetime="2008-02-18T20:10:58+08:00" pubdate  data-updated="true" >Feb 18<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>這次主要是加強安全性的更新, 除了加強了 xss_clean 函式, 另外也可以用 xss_clean 來測試上傳的圖片是否安全。 詳細的資訊可以看看 <a href="http://codeigniter.com/user_guide/changelog.html">change log</a></p>
-
-<p>在 library 方面:
-<a href="http://codeigniter.com/user_guide/libraries/pagination.html">pagination library</a> 加上了可以用 query string 來作分頁的功能, 但還是覺得用 uri_segment 來做比較漂亮, 不過用 query string 也許有他方便的地方。</p>
-
-<p><a href="http://codeigniter.com/user_guide/libraries/input.html">input library</a> 則是加入了 get_post() 可以用來取得 $<em>GET 跟 $</em>POST 的資料, 而我已經用了好一陣子的 get() 也終於加上了文件說明, 畢竟 CodeIgniter 設計是不用 get 來傳資料的。</p>
-
-<p>在 helper 方面:
-增加了 <a href="http://codeigniter.com/user_guide/helpers/number_helper.html">Number helper</a>。</p>
-
-<p>而 <a href="http://codeigniter.com/user_guide/helpers/form_helper.html">Form helper</a> 中的 from_input 函式, 自動加入 size 跟 maxlength 這兩個 attributes 的功能, 在這個版本也已經拿掉了。 size 拿掉是不錯, 省了每次都要去設定 size 的動作, 因為預設的size是 30 稍微長 了點, 不過我倒是覺得 maxlength 應該留著阿 ~&#8221;~</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/1194">Twitter 越爛大家越愛?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-06-25T19:29:23+08:00" pubdate  data-updated="true" >Jun 25<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2610383878/" title="google trend shows twitter is still more and more popular by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3190/2610383878_9ca828c049.jpg" width="500" height="197" alt="google trend shows twitter is still more and more popular" /></a>
-看看上面這張圖, 真的是很妙, 似乎是說著 twitter 越爛越多人用阿! XD 可是這有什麼辦法呢? (攤手) 這一切都是因為愛阿!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/1190">Firefox 3 Download Day 2008</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-06-19T00:18:26+08:00" pubdate  data-updated="true" >Jun 19<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2588455563/" title="Firefox 3 Download Day Cert. by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3163/2588455563_8b6111c5ac.jpg" width="500" height="380" alt="Firefox 3 Download Day Cert." /></a>
-真的是很 high 的一天阿! 今天一到公司就裝起了 Firefox 3, 只能說&#8230;好快!! 來個安全帶吧!!! 哈哈哈!! (對不起, 我失態了 XD)</p>
+  <div class="entry-content"><p><a href="http://www.forwebdesigners.com/">http://www.forwebdesigners.com/</a>
+<a href="http://www.tlbox.com/">http://www.tlbox.com/</a>
+<a href="http://webdevelopersfieldguide.com/">http://webdevelopersfieldguide.com/</a>
+<a href="http://www.alvit.de/handbook/">http://www.alvit.de/handbook/</a>
+<a href="http://webstandardsgroup.org/resources/">http://webstandardsgroup.org/resources/</a>
+<a href="http://webdeveloper.econsultant.com/">http://webdeveloper.econsultant.com/</a></p>
 </div>
   
   

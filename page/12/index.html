@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="其實新版的 stickeraction 上線了一個禮拜左右了, 除了版面整個改掉之外, 也從 php + codeigniter 換成 python + django, 換成用最大的好處就是馬上就多了後台可以用 ( 笑 ) 看起來像是下面這樣。另外這次也加了多國語系, 目前有繁體中文、簡體中文...">
+  <meta name="description" content="MyAudioCast 現在會產生 100% 符合 iTunes Podcast 的 RSS Feed ( 好啦 98% ), 所以現在只要在上傳節目後, 把必要的 Podcast 資訊填上, 就可以依照 MyAudioCast 管理後台的發佈指示發送到 Podcast, 接著就等 apple...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,213 +66,6 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/2568">Stickeraction 全新改版</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-03-01T00:22:00+08:00" pubdate  data-updated="true" >Mar 1<span>st</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://tzangms.com/wp-content/uploads/2010/02/StickerAction.png"><img src="http://tzangms.com/wp-content/uploads/2010/02/StickerAction-303x500.png" alt="" title="StickerAction" width="303" height="500" class="aligncenter size-large wp-image-2569" /></a></p>
-
-<p>其實新版的 <a href="http://stickeraction.com">stickeraction</a> 上線了一個禮拜左右了, 除了版面整個改掉之外, 也從 php + codeigniter 換成 python + django, 換成用最大的好處就是馬上就多了後台可以用 ( 笑 ) 看起來像是下面這樣。
-<a href="http://tzangms.com/wp-content/uploads/2010/02/django-admin-tools.jpg"><img src="http://tzangms.com/wp-content/uploads/2010/02/django-admin-tools-500x307.jpg" alt="" title="django-admin-tools" width="500" height="307" class="aligncenter size-large wp-image-2570" /></a></p>
-
-<p>另外這次也加了多國語系, 目前有繁體中文、簡體中文以及英文 ( 我想也不會有其他的語系了 XD ), 會依照瀏覽器的語系自動切換, 或者可以從網頁的 footer 來切換語系。</p>
-
-<p>這是我的第二個 django project, 由於第一個是公司的網站, 所以不太能亂搞, 弄個一個自己的以後, 想要衝 trunk 就衝, 完全沒再怕的 XD 至少目前知道 django 1.2 rc 1 用 1.1.1 的設定直接衝上去是沒有問題的 XD</p>
-
-<p>其實沒有管 <a href="http://stickeraction.com">stickeraction</a> 已經好一陣子了, 都靠 <a href="http://mmonit.com/monit/">monit</a> 在幫我重開 <a href="http://www.lighttpd.net/">lighttpd</a>, 可是 php fastcgi 仍舊一直變殭屍一直到把記憶體吃光 Orz</p>
-
-<p>機器仍舊是一台 <a href="http://www.linode.com/">Linode</a> 540MB 的 VPS, deploy 方式是用 apache2 + <a href="http://code.google.com/p/modwsgi/">mod_wsgi</a> 然後一樣是用 <a href="http://pypi.python.org/pypi/virtualenv">virtualenv</a> + <a href="http://pip.openplans.org/">pip</a> 來跑。</p>
-
-<p>剛上線的時候比較慘的是, 目前 stickeraction 的 request 差不多是 30 reqs/sec, 晚上會到 40+ reqs/sec, 所以 Apache 的 KeepAlive 沒有關掉, 一上線就被打掛了, 害我一度以為 apache + python 撐不住, 想說程式白寫的了, 趕快開了 server status 來看才知道是怎麼一回事。</p>
-
-<p>目前看來跑起來都很順, 只是 cpu 較先前吃多了點, 不知道是哪個環節, 因為 lighttpd 換成了 apache, php 換成了 python, 而大部分的 mysql table 也都從 MyISAM 換成了 Innodb, 之後在來試一些東西。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/2566">女孩與機器人 預告首部曲</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-02-26T11:50:45+08:00" pubdate  data-updated="true" >Feb 26<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/6TTO_kBNMQQ&hl=zh_TW&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/6TTO_kBNMQQ&hl=zh_TW&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
-
-
-<p>有 fu, 看就對了!!</p>
-
-<p>看完可以接著去<a href="http://thegirlandtherobots.blogspot.com/">女孩與機器人的 blog</a> 了解一下他們, 另外也可以幫忙貼一下<a href="http://stickeraction.com/tgntr_2nd_ep">女孩與機器人第二張 ep 的串連貼紙</a>喔!!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/django/2564">Django Template Repl</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-02-19T00:00:58+08:00" pubdate  data-updated="true" >Feb 19<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這個 django template debug app 真的是太酷了!</p>
-
-<object width="560" height="340"><param name="movie" value="http://www.youtube.com/v/XplchLFDlZA&hl=zh_TW&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/XplchLFDlZA&hl=zh_TW&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="560" height="340"></embed></object>
-
-
-<p><a href="http://github.com/codysoyland/django-template-repl">source 放在 github</a>, 不過通常來說不太會需要對 template 做 debug, 可是真的碰上了奇怪的問題的話, boom! 這個就真的很有用!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2563">Stickeraction Reborn Soon</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-02-18T01:43:29+08:00" pubdate  data-updated="true" >Feb 18<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/4365073697/" title="StickerAction reborn ... soon ... by tzangms, on Flickr"><img src="http://farm5.static.flickr.com/4013/4365073697_955eca0ea0.jpg" width="396" height="500" alt="StickerAction reborn ... soon ..." /></a></p>
-
-<p>除了把 <a href="http://stickeraction.com/">stickeraction</a> 從 <a href="http://php.net">php</a> + <a href="http://codeigniter.com">codeigniter</a> 整個換成 <a href="http://python.org">python</a> + <a href="http://djangoproject.org">django</a> 之外, UI 也整個翻新了, 希望能夠趕快弄好上線, 我就不想管了 (攤)</p>
-
-<p>弄 html + css 真的是比寫 code 還要困難, 而且花時間 ~&#8221;~</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2562">App Engine Custom Domain</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-02-11T11:13:21+08:00" pubdate  data-updated="true" >Feb 11<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.google.com/apps/intl/zh-TW/business/index.html">google app</a> ( <a href="http://code.google.com/intl/zh-TW/appengine/">engine</a> ) 不支援 naked domain 實在是太遺憾了, 好像是後來才拿掉支援的。 這樣一來就一定得用 <a href="http://www.myaudiocast.com">www.myaudiocast.com</a>, 而不能用 <a href="http://myaudiocast.com">myaudiocast.com</a>。</p>
-
-<p>所以也只能透過 domain forwarding 來把 <a href="http://myaudiocast.com">myaudiocast.com</a> 轉到 <a href="http://www.myaudiocast.com">www.myaudiocast.com</a> 這個方法了, 真是遺憾 ~&#8221;~</p>
-
-<p>只好在我的 Godaddy 打開 forwarding, redirect permanently 到 <a href="http://www.myaudiocast.com">www.myaudiocast.com</a>, 然後修改 @ 的 ARecord, 指到 64.202.189.170 如下</p>
-
-<p>ARecord @   64.202.189.170</p>
-
-<p>以上這 ARecord 是 godaddy 的說明上寫的, 可是有點難找, 所以才寫出來記錄一下。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
       <h1 class="entry-title"><a href="/myaudiocast/2559">MyAudioCast 發佈 Podcast 到 iTunes Store</a></h1>
     
     
@@ -294,9 +87,7 @@
   </header>
 
 
-  <div class="entry-content"><p><a href="http://tzangms.com/wp-content/uploads/2010/02/螢幕快照-2010-02-10-下午11.10.18.png"><img src="http://tzangms.com/wp-content/uploads/2010/02/螢幕快照-2010-02-10-下午11.10.18-500x319.png" alt="" title="螢幕快照 2010-02-10 下午11.10.18" width="500" height="319" class="aligncenter size-large wp-image-2560" /></a></p>
-
-<p><a href="http://myaudiocast.appspot.com/">MyAudioCast</a> 現在會產生 100% 符合 iTunes Podcast 的 RSS Feed ( 好啦 98% ), 所以現在只要在上傳節目後, 把必要的 Podcast 資訊填上, 就可以依照 <a href="http://myaudiocast.appspot.com/">MyAudioCast</a> 管理後台的發佈指示發送到 Podcast, 接著就等 apple 的回信說你通過囉! :D</p>
+  <div class="entry-content"><p><a href="http://www.myaudiocast.com/">MyAudioCast</a> 現在會產生 100% 符合 iTunes Podcast 的 RSS Feed ( 好啦 98% ), 所以現在只要在上傳節目後, 把必要的 Podcast 資訊填上, 就可以依照 <a href="http://www.myaudiocast.com/">MyAudioCast</a> 管理後台的發佈指示發送到 Podcast, 接著就等 apple 的回信說你通過囉! :D</p>
 
 <p>之後就看到像可以上面那張圖, 在 iTunes Store ( US ) 看到你的 Podcast 出現。 沒錯, 就是 US, 沒有 TW 這回事 XD</p>
 
@@ -474,6 +265,211 @@ if result.status_code == 200:
 <p>如果可以的話, 看到這篇文章的朋友, 也幫我多宣傳一下吧 :p 雖然很容易超過 free quota, 不過初期其實要燒也燒不了多少吧。 超過的都算我的吧, 趕快上傳 Podcast 來聽阿!!!</p>
 
 <p>話說有人要幫忙我做 logo 嗎?  XD 另外有什麼想法也提一下吧 ~</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/2552">少女時代 Girl&#8217;s Generation 第二張專輯, 首發單曲 Oh!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-01-29T01:17:05+08:00" pubdate  data-updated="true" >Jan 29<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><object width="560" height="340"><param name="movie" value="http://www.youtube.com/v/TGbwL8kSpEk&hl=zh_TW&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/TGbwL8kSpEk&hl=zh_TW&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="560" height="340"></embed></object>
+
+
+<p>這個影片我這幾天不知道看了多少遍了, 超可愛的!! 然後上班的時候我也一直重覆播放這首單曲, <strong>oh!</strong> 超好聽的!!! jessica 的聲音超甜的! :D</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2535">Dynamic Translation Apps for Django</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-01-20T11:02:36+08:00" pubdate  data-updated="true" >Jan 20<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>其實大部分跟介面相關的文字都直接寫在 config 裡面, 然後用 gettext 處理多國語系的部份, 不過免不了還是有些東西需要放在資料庫也要多國語系, 所以先前用了 <a href="http://code.google.com/p/django-transmeta/">django transmeta</a>, 只是沒很好用就是了。可能是因為 zh-TW, zh-CN 的關係吧 囧rz</p>
+
+<p>有類似需求的話, 可以參考一下下面這篇
+<a href="http://www.muhuk.com/2010/01/dynamic-translation-apps-for-django/">Dynamic Translation Apps for Django</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/2547">2010 the Next Big Thing</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-01-11T17:27:00+08:00" pubdate  data-updated="true" >Jan 11<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><embed src="http://tw.streetvoice.com/video/SVVideo.swf?tn=20973&srv=tw.streetvoice.com&ph=video&getv=videoconf.asp&autoStart=false" allowFullScreen="true" allowScriptAccess="always" type="application/x-shockwave-flash" width="400" height="325"></embed></p>
+
+<p>廣告一下表演活動 <a href="http://tw.streetvoice.com/article/user-article.asp?dn=297356">2010 The Next Big Thing</a>, 基本上我是覺得這個影片跟音樂弄的還不錯, 另外, 這場表演的樂團大部分我也都滿喜歡的, 所以來推一下。</p>
+
+<p>這場表演的樂團有我之前寫過的 <a href="http://tzangms.com/music-related/2502">The Girl &amp; The Robots</a>, 然後還有 <a href="http://tw.beta.streetvoice.com/music/hideto810006/">Mary See The Future</a>, 我滿喜歡這兩個團的, 雖然說喜歡 Mary See The Future 是因為他們翻唱的 <a href="http://tw.beta.streetvoice.com/music/hideto810006/song/95439/">Close to you</a> 這首歌。</p>
+
+<p>Close to you 這首真的很好聽</p>
+
+<p><embed src="http://tw.beta.streetvoice.com/static/player/MusicPlayer.swf?srv=tw.beta.streetvoice.com&ph=music&getv=config&skinID=6&au=95439&listtype=1&listsd=11408&autoStart=false&autoPlay=false&isEmbed=true&jsPlayer=false" allowFullScreen="false" allowScriptAccess="always" scale="noscale" type="application/x-shockwave-flash" width="330" height="100"></embed></p>
+
+<p>最後, 對台灣獨立樂團有興趣的 1/15 號可以考慮到 <a href="http://www.legacy.com.tw/">Legacy</a> 看一下這場表演, 詳情可以看一下<a href="http://www.legacy.com.tw/program_detai_100115.htm">這裡</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/2539">The XX</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-01-10T20:55:55+08:00" pubdate  data-updated="true" >Jan 10<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><object width="560" height="340"><param name="movie" value="http://www.youtube.com/v/n0LdA8wHJ80&hl=zh_TW&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/n0LdA8wHJ80&hl=zh_TW&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="560" height="340"></embed></object>
+
+
+<p>平常我是根本接觸不到 <a href="http://www.myspace.com/thexx">The XX</a> 這種類型的音樂的, 不過自從在 jeph 的 podcast - <a href="http://jeph.bluecircus.net/archives/podcast/sounspiracy_8_2009_mixtape.php">「音謀論 Podcast」第八輯</a>, 聽到 The XX 的 Intro 這首歌, 一整個上癮, 似乎每天都得聽過一遍才行。</p>
+
+<p>但是會聽 The XX 的音樂完全是在聽了 jeph 的 podcast 之後, 同事好像是聽了 podcast 當天就跑去買了 CD。 在下班時聊了一下, 同事就把 CD 借我了, 於是我就這麼聽了起來。</p>
+
+<p>上面這個影片一開始就是 Intro, 真的超好聽的!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/database/2537">Beginning CouchDB</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-01-10T12:27:26+08:00" pubdate  data-updated="true" >Jan 10<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>上上週週末讀完了這本書, 真的是很 Beginning level, 還滿好讀的, 所以一下子就讀完了, 大概 300 多頁。 可能是 CouchDB 設計的真的很方便, 內建了 Futon 這個 web 介面可以用來管理資料庫, 從視覺上的確比較容易了解整個資料的架構。</p>
+
+<p>第四章, 示範了用 curl 來對 CouchDB 操作的 CRUD, 超上手! 感覺真的很方便, 所有的動作都透過 curl 就可以達成。</p>
+
+<p>第五章介紹使用 Futon 這個介面, 整個感到 Amazing, 怎麼這麼方便呀! 其實書中圖滿多的, 所以頁數也佔掉很多, 但就還滿容易看的, 因為一下子就翻了一頁, 感覺很有成就感 XD</p>
+
+<p>第七章是 CouchDB 的 Views, 第八章則是 Map/Reduce, 這兩章就是 CouchDB 的重點了, 好像 Map/Reduce 也沒那麼難懂 (狀態顯示為第一次讀 Map/Reduce ) XD 或者這真的是 beginnng level o_O</p>
+
+<p>最後還有提到 <a href="http://github.com/jchris/couchapp">CouchApp</a> 以及 <a href="http://couchdbkit.org/">Couchdbkit</a> ( python ) 跟 <a href="http://github.com/jchris/couchrest">CouchRest</a> ( ruby ), CouchApp 還滿值得看一下的耶, 而 couchdbkit 就提供了一個 ORM like 的 Document 定義方式, 也有提供 django 用的 module, 用法就跟 django 的 ORM 類似, 甚至還有提供類似 ModelForm 的 form 喔!</p>
+
+<p>不過 couchdb 不像 <a href="http://www.mongodb.org/homepage.action">mongodb</a> 有 collection, database 下就直接是 document, 而書中也沒有提到一些使用上的 scenario, 目前還不知道可以用在哪比較好。</p>
+
+<p>其實對 <a href="http://www.mongodb.org/homepage.action">mongodb</a> 比較有興趣 :p</p>
 </div>
   
   

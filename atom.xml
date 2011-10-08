@@ -4,7 +4,7 @@
   <title><![CDATA[Oceanic / 人生海海]]></title>
   <link href="http://tzangms.com/atom.xml" rel="self"/>
   <link href="http://tzangms.com/"/>
-  <updated>2011-10-08T15:31:23+08:00</updated>
+  <updated>2011-10-08T16:53:08+08:00</updated>
   <id>http://tzangms.com/</id>
   <author>
     <name><![CDATA[tzangms]]></name>
@@ -308,19 +308,6 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[iPhone Programming: The Big Nerd Ranch Guide]]></title>
-    <link href="http://tzangms.com/programming/2828"/>
-    <updated>2011-02-27T20:44:43+08:00</updated>
-    <id>http://tzangms.com/programming/iphone_programming_the_big_nerd_ranch_guide</id>
-    <content type="html"><![CDATA[<p><a href="http://www.bignerdranch.com/book/iphone_programming_the_big_nerd_ranch_guide"><img src="http://tzangms.com/wp-content/uploads/2011/02/41Msd4GFq5L-223x300.jpg" alt="" title="41Msd4GFq5L" width="223" height="300" class="size-medium wp-image-2829" /></a></p>
-
-<p>其實去年年底因為 <a href="http://www.peko.idv.tw/">OOBE</a> 的推薦, 就看過一遍這本書了, 不過當時即便看完了這本書, 對整個 iPhone programming 很是很模糊, 一直到今年一月底因為農曆過年, 在家沒事就又拿起 iPad 再重新看一遍, 這次終於搞懂了 delegate 這件事, 簡直就像打通了任督二脈阿! XD</p>
-
-<p>不過 iOS 開發之路對我來說還很漫長, 倒是這本書還滿值得推薦的。</p>
-]]></content>
-  </entry>
-  
-  <entry>
     <title type="html"><![CDATA[Bleach - An easy, HTML5, whitelisting HTML sanitizer.]]></title>
     <link href="http://tzangms.com/programming/2824"/>
     <updated>2011-02-20T13:26:25+08:00</updated>
@@ -537,6 +524,18 @@ cloud.result(jid)
 <p>在去北京前特地跟<a href="http://www.christabelle.idv.tw/">迴老師</a>借了底片機「喵兔」才有辦法拍出上面這些照片, 不過技術不好, 可以看的就幾張而已 (笑)</p>
 
 <p>如果順利的話, 今年應該還有機會去北京待一陣子, 到時候見啦, 北京的推友們 ~ XD</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Livereload 網頁開發好物]]></title>
+    <link href="http://tzangms.com/programming/2797"/>
+    <updated>2011-01-02T21:59:37+08:00</updated>
+    <id>http://tzangms.com/programming/livereload_網頁開發好物</id>
+    <content type="html"><![CDATA[<iframe title="YouTube video player" class="youtube-player" type="text/html" width="500" height="405" src="http://www.youtube.com/embed/EZ8vy_cNMVQ" frameborder="0"></iframe>
+
+
+<p>好久之前就看過 <a href="http://blog.xdite.net/?p=1791">xdite 大大介紹</a>過 <a href="https://github.com/mockko/livereload">livereload</a>, 不過我當時似乎是因為很忙, 所以匆匆的就瀏覽過, 接著就忘記了。 一直到前幾天看到 @sillyleo 又提到 <a href="https://github.com/mockko/livereload">livereload</a> 跟 <a href="http://compass-style.org/">compass</a>, 才想起來, 今天剛好有空試一下, 哈, 真的是超棒的! 看看影片就知道了 ~</p>
 ]]></content>
   </entry>
   

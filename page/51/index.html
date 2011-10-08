@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="寫 web app 當然一定都會存取資料庫啦! 在用過 CodeIgniter 一陣子, 中文的使用者應該就會發現到, CI 似乎沒有地方可以直接設定資料庫語系的地方, 所以如果當資料庫的語系不是我們要的, 那麼出來的東西就會都是亂碼, 所以就需要在每次的 query 之前都要先送出個 SET...">
+  <meta name="description" content="該說些什麼 該做些什麼其實什麼都不對你能有什麼想法 沒有你早已被這個社會會限制住從國小讀書到高中、大學 出社會你早已被教育為社會的一顆螺絲就這樣終其一生的過下去起床上班工作 下班回家看電視你是否想過你的未來？">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/902">設定 CodeIgniter 資料庫語系</a></h1>
+      <h1 class="entry-title"><a href="/life/778">但終究你還是免不了一死</a></h1>
     
     
       <p class="meta">
@@ -80,54 +80,344 @@
 
 
 
-<time datetime="2007-07-03T21:51:32+08:00" pubdate  data-updated="true" >Jul 3<span>rd</span>, 2007</time>
+<time datetime="2007-02-11T03:21:41+08:00" pubdate  data-updated="true" >Feb 11<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>寫 web app 當然一定都會存取資料庫啦! 在用過 CodeIgniter 一陣子, 中文的使用者應該就會發現到, CI 似乎沒有地方可以直接設定資料庫語系的地方, 所以如果當資料庫的語系不是我們要的, 那麼出來的東西就會都是亂碼, 所以就需要在每次的 query 之前都要先送出個 SET NAMES 的 query, 但是在 CodeIgniter 這個 framework 應該會有好一點的方法吧? 應該可以直接在 config/database.php 裡直接設定我們所要的語系這樣才對, 嗯, 沒有目前辦法 XD</p>
+  <div class="entry-content"><p>該說些什麼 該做些什麼
+其實什麼都不對</p>
 
-<p>好吧! 其實要修改一下 system/database/DB_driver.php 如下即可:</p>
+<p>你能有什麼想法 沒有
+你早已被這個社會會限制住</p>
+
+<p>從國小讀書到高中、大學 出社會
+你早已被教育為社會的一顆螺絲
+就這樣終其一生的過下去</p>
+
+<p>起床上班工作 下班回家看電視
+你是否想過你的未來？</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/life/778">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/777">生日快樂!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-02-11T01:28:34+08:00" pubdate  data-updated="true" >Feb 11<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/385566780/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/168/385566780_d883a2d7a7.jpg" width="500" height="137" alt="kodak v705 tryout" /></a></p>
+
+<p>用新相機拍的全景, pretty cool!</p>
+
+<p>生日快樂阿! 星期五生日(2/9), 其實生日沒很多人知道, 當天就請假沒去上班了, 出去踏踏青, 跟小利妹出去晃晃, 跑到金山, 去喝咖啡, 看看海, 吹吹風, 散散心, 好累喔&#8230;. 可能辦公室坐太久了吧。</p>
+
+<p>今天下午由於宜豐要去買鏡頭, 又想跟我買 iBook, 所以我就拿過去給他試機玩一下, 然後小廖也到了, 呵, 結果我就也一起去看電玩展了, 還不錯看, 超好看的 :p (但我不是看電玩 :x)</p>
+
+<p>之前就想買相機了, 今天就敗下去啦! 算是生日禮物 :D kodak v705 cool!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/linux/774">在 Linux 存取 MS SQL Server: Sqsh</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-02-05T15:30:47+08:00" pubdate  data-updated="true" >Feb 5<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>sqsh (<a href="http://www.sqsh.org/">http://www.sqsh.org/</a>) 在 linux 下存取 MS SQL Server? SQL Server當然沒有 Linux 版啦, 好像 Sybase 的 isql 可以用來存取 SQL Server, 但是好像很舊了? 阿災, 我一開始為了要在 Linux 下存取 SQL Server, 就是找到 sqsh 就是 SQL Shell, 滿酷的! SQL Server 取出來的資料, 可以在透過 shell 來做一些後續的處理, 而不只是執行一些 SQL 指令而已。看你要將取出來的資料丟到 pipe, 或是處理過後 cat 到 text file, 都很簡單, 總而言之, 很酷, 不過好幾年沒有繼續 maintain 了, 這一陣子才又換人接手。</p>
+
+<p>在 MySQL 要秀出 table 或是資料庫的話, 用 show 嘛, 那 SQL Server 呢? 用滑鼠 XD
+這裡有個對照表 (<a href='http://users.pandora.be/pecop/sqlr/sqlbasics.html'>SQL Basics</a>) 看了大概就知道, 不過還是要先看看 sqsh 的 manual。</p>
+
+<p><strong>與 SQL Server 連線:</strong>
+<code>sqsh -S servername -U username -P password</code></p>
+
+<p>PS. 這邊注意一下, sqsh 的 man page 裏面還可以看到有個選項是 -H  hostname, 一開始我一直以為這是 server address, 原來 -S 才是阿!!</p>
+
+<p><strong>用 X 輸出結果: (應該是用 tk)</strong>
+<code>1> sp_databases
+2> \go -x</code></p>
+
+<p>這邊順便示範一下秀出資料庫的範例, 只是在結尾時多加了一個 -x 就是表是用 X 輸出啦! 在輸出的時候會跑出一個看起來是 tk 的 window, 通常, 由於輸出的結果都會大於 console 可顯示的寬度, 所以就在顯示大量資料的時候用 -x 透過 X 來輸出顯示結果看起來比較清楚。</p>
+
+<p>先這樣啦~</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/771">H2O - Hyde Masquerade</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-02-02T08:37:13+08:00" pubdate  data-updated="true" >Feb 2<span>nd</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><embed style="width:400px; height:326px;" id="VideoPlayback" type="application/x-shockwave-flash" src="http://video.google.com/googleplayer.swf?docId=8995380981155854586&hl=en" flashvars=""> </embed></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/770">[Demo] 自然而然</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-01-31T00:14:28+08:00" pubdate  data-updated="true" >Jan 31<span>st</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>其實已經錄好幾天了, 不過一直沒時間放上來, 這次用了 Battery 3 的 pop drum kits 來作鼓的音色, 其實滿不賴的, 加點 reverb 效果就很好了, 當然, 有花時間編還是有差的, 畢竟這首都唱好久, 鼓都會打了 XD</p>
+
+<p>前些陣子都在試一些鼓機, BFD、Battery、RM IV 跟 EZ Drummer, 感覺 BFD 的音色好棒! 但是目前好像還是沒有支援 x86 base 的 Mac? 不知道, Library 就是裝不起來。而 RM IV 感覺就還好, 音色聽起來就沒有很棒, 畢竟 Library 也不大, 跟 BFD 的兩片 DVD 比起來, 差太多了, 而 Battery 3 的 Library 就還可以跟 BFD 拼一下, 而感覺方便好用的就是名福其實的 EZ Drummer 啦! 一個 Drum pack 大概也才一片 CD, 算是很輕便的 XD 如果跟我一樣不是專業的音樂人士, 就用 EZ Drummer 吧, 推!</p>
+
+<p>這首自然而然是在我二專的時候, 加入的第一個樂團的創作歌曲, 這首是吉他手阿翔所寫的, 阿翔說靈感是因為, 看到 KB 手小欣跟他男朋友剛在一起的時候甜蜜的感覺。記得當初我是擔任 BASS 手, 剛開始彈BASS, 什麼都不會, 不管什麼歌我都是根音到底 XD 還記得那時候根本不敢唱歌, 總覺得主唱小恩超會唱的!!</p>
+
+<p>過了好多年的, 現在樂團的人, 都已經沒有人在玩音樂了, 小恩跟鼓手不知道在幹嘛, 吉他手繼承家業, 至於我, 目前在當程式設計師, 而 KB 手小欣現在在寫小說, 還已經出了兩三本了, 好厲害! 筆名叫&#8221;貓咪詩人&#8221;, 他目前正在著手寫新書, 以當初樂團的點滴為背景, 還會寫到我ㄝ :O 呵呵! 超期待的。</p>
+
+<p>這首歌在樂團解散之後, H2O 也都還一直唱, 阿翔說, 就把他發陽光大吧! XD 阿翔現在都快不會彈吉他了! 這幾天趁著空閒時間把歌曲重新編曲,  終於把這首歌錄完了!</p>
+
+<p>先前做了好多悲傷的歌曲, 這次來點陽光的民謠搖滾吧!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/769">Mod_rewrite Memo</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-01-29T14:34:06+08:00" pubdate  data-updated="true" >Jan 29<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>httpd.conf
+<code><Directory "/usr/local/apache2/htdocs/">
+Options FollowSymLinks
+AllowOverride All
+</Directory></code></p>
+
+<p>.htaccess
+<code>RewriteEngine On
+RewriteRule ^/book/(.<em>)/(.</em>) /cgi-bin/book.cgi?topic=$1&amp;author=$2 [PT]</code></p>
+
+<p>用上面的 rewrite rule 就可以將這個網址</p>
+
+<blockquote>http://example.com/cgi-bin/book.cgi?author=bowen&topic=apache</blockquote>
+
+
+<p>變成用這個網址來連線</p>
+
+<blockquote>http://example.com/book/bowen/apache</blockquote>
+
+
+<p>至於 httpd.conf 的 <em>Options FollowSymLinks </em>就好像一定要設定, 不然會轉不過去 XD 然後要將設定寫在 .htaccess, 就要加 <em>AllowOverride</em>, 想要什麼東西都在 .htaccess 設定的話就設 <em>All</em> 囉!詳細的設定選項請看下列網址</p>
+
+<blockquote><a href='http://httpd.apache.org/docs/2.0/mod/core.html#allowoverride'>http://httpd.apache.org/docs/2.0/mod/core.html#allowoverride</a>
+</blockquote>
+
+
+<p>不過說真的, apache 的 document 可能是看不習慣, 有點難理解。說真的, mod_rewrite 滿難搞的 XD</p>
+
+<p>memo:
+把 rewriterule 寫在 httpd.conf, 跟 .htaccess 會有檔案路徑上的差異? 剛才在 try 的時候, 原本寫在 httpd.conf 的檔案路徑有 / (slash) 開頭, 而寫到 .htaccess 則要去掉 / (slash), 嗯~ 阿災, 繼續摸索中, 還有好多 flag 要看。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/768">Mb_string 字元編碼偵測轉換</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-01-25T19:11:19+08:00" pubdate  data-updated="true" >Jan 25<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>除了 iconv, mb_string 也是一個用來轉換偵測字元編碼的好東西。先前再做信件編碼處理的部份, 都是用到 iconv, 不過這次用 mb_string 處理一些簡體、繁體及UTF-8之間的轉換, 所以來寫一下 memo。(基本上只對簡體繁體及UTF-8做處理)</p>
+
+<p>偵測字元編碼我用下面這一段</p>
 
 <pre>
-<code>// Select the database
-        if ($this->database != '')
-        {
-            if ( ! $this->db_select())
-            {
-                log_message('error', 'Unable to select database: '.$this->database);
-            
-                if ($this->db_debug)
-                {
-                    $this->display_error('db_unable_to_select', $this->database);
-                }
-                return FALSE;
-            }
-            elseif( ! empty($this->init_sql) )
-            {
-                $this->_execute($this->init_sql);
-            }
-        }</code>
+<code>function detectCharset($str){
+    $encoding_list = 'ASCII, EUC-CN, BIG-5, UTF-8';
+    return mb_detect_encoding($str, $encoding_list);
+}</code>
 </pre>
 
 
-<p>看到上面的 code , 其實增加的只有下面這個部份</p>
+<p>嗯~ 看到 $encoding_list , EUC-CN 是..?? 嗯, 在 mb_string 中 EUC-CN 代表的就是 GB2312, 而平常在打的 big5 在 mb_string 則是要成 BIG-5, 就是要多一個 dash ( - ), 跟一般用的編碼名稱稍微有些不一樣, 這裡列出部分 mb_string 的 encoding 名稱:</p>
+
+<ul>
+    <li>UTF-8</li>
+    <li>EUC-JP</li>
+    <li>ISO-2022-JP</li>
+    <li>EUC-CN</li>
+    <li>CP936</li>
+    <li>BIG-5</li>
+</ul>
+
+
+<p>在這個列表上怎麼沒看到 GB2312 跟 GBK, 其實, GB2312 就是先前提到的 EUC-CN, 而 GBK 就是 CP936。</p>
+
+<p>在繁簡中文以及UTF-8的偵測的時候, 要注意 $encoding_list 的順序, 如果將 $encoding_list 變成下列的順序位置, 那麼結果可能不會是你想要的。</p>
+
+<p><code>$encoding_list = 'BIG-5, UTF-8, EUC-CN';</code></p>
+
+<p>如果用這個 encoding_list 來偵測 GB2312 的字元的時候, 所得到的結果將會是 BIG-5。我想這個結果可能是因為, BIG-5 也包含了一些簡體字元, 不過我測試過的數量不多, 也許會有例外, 但目前這個 encoding_list 的順序還不錯, 可以正確抓到我要的結果。</p>
+
+<p>至於在轉換部份, 看下面這個:</p>
 
 <pre>
-<code>            elseif( ! empty($this->init_sql) )
-            {
-                $this->_execute($this->init_sql);
-            }</code>
+<code>function convertCharset($str, $encoding){
+    if ($encoding == 'EUC-CN') $encoding = 'CP936';
+    if ($encoding == 'UTF-8' || $encoding == 'ASCII')
+        return $str;
+    else
+        return mb_convert_encoding($str, 'UTF-8', $encoding);
+}</code>
 </pre>
 
 
-<p>嗯, 接下來, 我們就可以在 config/database.php 裡面, 增加一行設定, 在資料庫動作的時候, 都會執行這個設定的動作, 這麼一來我們就可以用類似於設定的方式來設定資料庫的語系, 而不用在每次 query 之前都送出 SET NAMES 這個動作, 那麼增加的設定如下</p>
+<p>這樣就可以把字串轉成 UTF-8 的編碼啦! 而先前使用 iconv 轉 GB2312 到 UTF-8 的時後, 碰到某些字元會有斷字的現象, 後來乾脆先轉成 GBK, 再轉為 UTF-8, 這樣就解決了文字被截斷的現象了, 即使在 mb_string 裡還是會有類似的狀況, 所以我還是先轉 GBK 再說, 畢竟 GBK 向下相容, 擴充的字元也較多, 例如: 我打&#8217;小海&#8217;的時候, GB2312 轉成 UTF-8 之後, &#8220;海&#8221;這個就會亂掉, 而 GBK 就沒這個問題, 只是&#8221;海&#8221;會變成&#8221;烸&#8221;, anyway, 我測試的方式是直接打字(用新注音)進 GB2312 的頁面, 但是不管如何, GBK 總是比較沒問題。</p>
 
-<p><code>$db['default']['init_sql'] = "SET NAMES 'utf8' "</code></p>
-
-<p>畢竟 CI 是外國人寫的, 不過我想資料庫語系設定這一點, 在新版的 CI 應該會獲得解決吧!</p>
+<p>先這樣啦&#8230;</p>
 </div>
   
   
@@ -140,7 +430,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/901">智邦部落客美食聚!</a></h1>
+      <h1 class="entry-title"><a href="/programming/767">MS SQL Server Datetime 用 PHP 取不出秒數?</a></h1>
     
     
       <p class="meta">
@@ -154,24 +444,32 @@
 
 
 
-<time datetime="2007-07-01T11:59:01+08:00" pubdate  data-updated="true" >Jul 1<span>st</span>, 2007</time>
+<time datetime="2007-01-23T19:13:14+08:00" pubdate  data-updated="true" >Jan 23<span>rd</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/683300841/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1093/683300841_707ad7c43f.jpg" width="500" height="375" alt="100_1821.JPG" /></a>
-你好, 我是接待小弟! XD</p>
+  <div class="entry-content"><p>今天用 PHP 要從 SQL Server SELECT datetime 欄位的時候, 居然都 SELECT 不出秒數, 不像 MySQL 直接 SELECT 時間即可, 原來還需要 CONVERT 這個動作, 原本還試了 CAST 來把 datetime 轉成 char, 但還試失敗, 不管直接取出來還是 CAST 成 char , 取出來的時間就都是下列的格式, 即使轉成 unix timestamp 也還是漏了秒數(都是 00 )，直接SELECT出來的時間格式如下。</p>
 
-<p>雖然昨天是禮拜六, 不過我要上班! 昨天是補端午節的假, 比起一般公司的補上班時間晚了一個禮拜。基本上美食聚當天我是負責打雜的, 還有當接待小弟, 就是在會場門口發名牌給到達的部落客, 雖然早上一到公司我的心還是在程式上, 因為要把 MySQL 換成 MS SQL Server 果然是有點麻煩, 不過幸好我把問題給解決掉了 XD 哈! 所以寫完之後就可以專心弄會場的佈置等等, 不然程式寫不出來, 我的心情會不好 XD</p>
+<blockquote> 09 Feb 2007 02:09AM</blockquote>
 
+
+<p>最後終於知道了, CONVERT 阿! 如下列:</p>
+
+<p><code>SELECT myid, CONVERT(char, mydate, 113) AS mytime FROM table</code></p>
+
+<p>其中的 113 是所謂的 style , 可以代換成別的數字,  來表示不同時間格式, 也沒多做研究格式, 我就用 113 然後轉成 timestamp 就可以用了, 果然秒數出來啦!! 有興趣的可以看看下列的 MSDN: ( PS. 我身邊應該很多人看到MSDN不想點進去吧!? XD)</p>
+
+<blockquote><a href="http://msdn2.microsoft.com/zh-tw/library/ms187928.aspx">http://msdn2.microsoft.com/zh-tw/library/ms187928.aspx</a></blockquote>
+
+
+<p>Anyway, just a memo.</p>
+
+<p><strong>2007/2/1 附註. 120 好像比較好? 剛才用113轉出來有問題, try 了 120 就正常了。</strong></p>
 </div>
   
-  
-    <footer>
-      <a rel="full-article" href="/life/901">Read on &rarr;</a>
-    </footer>
   
 
 
@@ -182,7 +480,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/899">淡水一日遊</a></h1>
+      <h1 class="entry-title"><a href="/programming/766">addLoadEvent</a></h1>
     
     
       <p class="meta">
@@ -196,22 +494,36 @@
 
 
 
-<time datetime="2007-06-27T22:18:53+08:00" pubdate  data-updated="true" >Jun 27<span>th</span>, 2007</time>
+<time datetime="2007-01-23T10:28:04+08:00" pubdate  data-updated="true" >Jan 23<span>rd</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/638301137/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1173/638301137_7003dac28b.jpg" width="500" height="375" alt="100_1616.JPG" /></a>
-上禮拜六, 公司住在淡水的同事 sanni 帶我去淡水一日遊, 陽光開心的一天!</p>
+  <div class="entry-content"><pre>
+<code>function addLoadEvent(func) {
+    var oldonload = window.onload;
 
+    if (typeof window.onload != 'function') {
+        window.onload = func;
+    } else {
+        window.onload = function() {
+            oldonload();
+            func();
+        }
+    }
+}</code>
+</pre>
+
+
+<p>usage:
+<code>addLoadEvent(firstFunction);
+addLoadEvent(secondFunction);</code></p>
+
+<p>Take a memo, I saw this script in DOM scripting,the book I was reading, and it&#8217;s written by Simon Willison (http://simon.incutio.com/)</p>
 </div>
   
-  
-    <footer>
-      <a rel="full-article" href="/life/899">Read on &rarr;</a>
-    </footer>
   
 
 
@@ -222,7 +534,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/897">多好笑小海來電.mp3</a></h1>
+      <h1 class="entry-title"><a href="/music/765">[Demo] 沙漏</a></h1>
     
     
       <p class="meta">
@@ -236,159 +548,7 @@
 
 
 
-<time datetime="2007-06-26T22:35:43+08:00" pubdate  data-updated="true" >Jun 26<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>話說, 事情就發生在昨天&#8230;
-就在昨天, 我把 Happy! GO! 錄好之後, 想要馬上傳給志豪聽, 不過志豪居然沒在線上, 我就只好撥電話過去給志豪, 看他在幹嘛, 因為我心裡想說, 待會志豪聽了一定會哭 XD</p>
-
-<p>打電話了過去, 志豪說他跟信宏在彈 bass 跟吉他, 另外還有大貓, anyway, 我就叫志豪快點上線, 想快點給他聽 Happy! GO! 這首歌, 後來志豪就叫我聽信宏的新空心電吉他, 我話都還沒說&#8230; 他們就這樣自顧自的彈起來了&#8230;&#8230;..我想一想不對&#8230;. 是我打電話過去ㄝ&#8230;..我趕緊就說:「 X! 電話是不用錢是不是」&#8230;.. 最後叫志豪快點上線, 我就掛了電話。</p>
-
-<p>沒想到, 當時志豪居然開著麥克風在錄音, 在我掛完電話沒多久後, 志豪就傳來一個 mp3, 名稱叫做&#8221;<strong>多好笑小海來電.mp3</strong>&#8221; 媽的! 我剛才的對話都被錄下來了阿!!!!</p>
-
-<p>我講話很粗魯嗎? 最後我跟志豪討論的結果是, 這才是真性情阿!! XD  Anyway 可以聽聽信宏彈的一小段 blues ~</p>
-
-<p>不過不知道誰在最後補一句 &#8220;好好笑&#8221; = =</p>
-
-<p>(PS. 內有真性情談話 XD 不喜勿聽)</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/896">[Demo] Happy! GO!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-06-26T00:29:00+08:00" pubdate  data-updated="true" >Jun 26<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這首歌是我們家 Bass 手 - 志豪寫的, 不過由我重新錄製, 跟修曲, 把這首歌完整弄出來, 不過由於沒有歌詞, 所以這一首歌整首都在啦~啦~啦~ XD</p>
-
-<p>先前志豪就寫了一首 happy go, 我也不知道為啥要叫這個歌名, 因為~ 聽當時志豪的錄音檔, 他亂哼的歌詞明明是悲的, 當時我就覺得 happy go 還不錯聽, 不過志豪就沒有繼續把這首歌做出來。</p>
-
-<p>一直到昨天晚上, 志豪又傳來了一首新歌, 檔案名稱叫 happy gone , 心想:</p>
-
-<p>「跟 happy go 是同一首嗎?」</p>
-
-<p>不過聽了之後, 好像只有編曲類似, 沒有曲, 也就是沒有唱歌的部份, 不過這首 happy gone 多了開頭的吉他 solo, 一開始聽的時候, 我就跟志豪說 :</p>
-
-<p>「靠北, 你吉他是在彈啥小!」XD</p>
-
-<p>不過志豪說他是 bass 手, 吉他彈得出來感覺就好了, 好吧! 就原諒他, 不過就在我又聽了幾遍之後&#8230;&#8230;. 我哭了!</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/music/896">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/895">[Demo] 打爆你的大頭</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-06-24T18:52:40+08:00" pubdate  data-updated="true" >Jun 24<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這首是先前錄好的版本拿來改的, 由於先前用 iBook G4 800, Guitar Rig 跑不動, Drum machine 也跑不動, 所以吉他跟鼓都直接用 Logic express 內建的效果器跟 Drum kits, 聲音不是很好聽, 今天把吉他都掛上 Guitar rig 2, 另外鼓用 Addictive drum 來作音源, 聲音就好多了, 最後用新麥克風重新錄製了 Vocal 的部份。</p>
-
-<p>媽的! Guitar rig 2 的 tone 都調不好, Balance 也很爛 Orz</p>
-
-<p>anyway, 有興趣可以聽聽<a href="http://tzangms.com/?p=676">先前的版本</a>, 比較看看, 不過說真的, 這首錄的很隨便 XD</p>
-
-<p>[歌詞]
-為何你總是要跟著我 跟在我身後
-還以為我不知道你在左右
-只是我只想一個人走 不要跟著我
-我沒有力氣在去聽你囉唆</p>
-
-<p>我說我快要無法呼吸 (給我一點距離)
-你卻說你會很安靜 (要我一直陪著你)</p>
-
-<p>不要再跟著我
-小心我打爆你的大頭
-不要在囉唆</p>
-
-<p>不要再跟著我
-小心我打爆你的大頭
-不要在囉唆
-喔~喔~喔~喔~</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/894">[Demo] 你不解釋</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-06-24T17:30:38+08:00" pubdate  data-updated="true" >Jun 24<span>th</span>, 2007</time>
+<time datetime="2007-01-23T00:45:04+08:00" pubdate  data-updated="true" >Jan 23<span>rd</span>, 2007</time>
         
       </p>
     
@@ -396,148 +556,23 @@
 
 
   <div class="entry-content"><p>[歌詞] by 非非
-你不解釋 永不解釋
-總是扳著臉 結束我的疑問</p>
+沙子不急不徐地滴落
+時間不慢不快地消失
+倒過來 是她的容顏
+倒過去 是她的身影</p>
 
-<p>你不認錯 永不認錯
-總是無辜地說 你沒有做錯</p>
+<p>沙子不急不徐地流動
+生命不急不緩地消逝
+倒過來 是她的笑容
+倒過去 是她的依偎</p>
 
-<p>你不道歉 永不道歉
-總是在我抱怨之前 先對我翻臉</p>
+<p>閉上眼
+是我的呼喚和她的憔悴！</p>
 
-<p>你不挽回 永不挽回
-木然的表情 總是起身準備離去</p>
-
-<p>你沈默的嘴角
-冷漠的眼神
-像是冬天吹起的一陣 冷風</p>
-
-<p>你挺直的背影
-訴說著你
-寧願 孤獨一生</p>
+<p>閉上眼
+是她的聲音和我的眼淚！</p>
 </div>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/893">我的木吉他</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-06-23T02:17:06+08:00" pubdate  data-updated="true" >Jun 23<span>rd</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/590433079/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1145/590433079_4da1bf6f7c.jpg" width="500" height="375" alt="100_1565.JPG" /></a>
-既然有人問到我的木吉他, 我也想幫我的木吉他寫篇文章感謝他一下, 那麼就來讓我的木吉他拍幾張照片, 亮相一下吧!</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/music/893">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/892">噗~主機 CPU 用量過高</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-06-22T14:41:28+08:00" pubdate  data-updated="true" >Jun 22<span>nd</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/581780379/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1322/581780379_8033c58aab_m.jpg" width="240" height="177" alt="my blog exceed the CPU limit" align='left' /></a>噗~ 真的是不知道該高興還是&#8230;., 這張圖是在說, 我的主機 CPU 用量過高, 所以我的網站暫時被鎖住了, 其實&#8230; 最近這幾天還滿常看到的， 尤其以昨天最為嚴重 XD</p>
-
-<p>我是向 bluehost 租用虛擬主機的, 雖然不像以往看到一些租用 dreamhost 的朋友們的悲慘狀況, 而是暫時的被 block 住, 所以昨天就把主機上一些沒用的服務給關掉, 哈, 其實只有我的 blog 跟 tzangms.com 旗下的零星 blog 有在用之外, 先前架設的論壇也沒人用, 相簿我也是用 Flickr Pro XD 另外, 昨天也把目前 blog 的一些外掛關掉, 把佈景主題中一些不必要的 code 給拿掉, 看來狀況是有好一些。</p>
-
-<p>問題是, 我的 blog 也沒有很多人看阿! 平均一天也才 200 左右的點閱次數, 倒是頻寬流量比較大一點點就是了, 因為放 Podcast, 放自己的音樂, 一個月大概會用掉 10 到 12G 的流量, 所以說, 在 page view 沒那麼多的情況下, 應該是 Wordpress 或是外掛的問題, 看來也許該換個簡單一些的佈景主題吧!?</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/887">新髮型 & 設計師 Sonia</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-06-21T21:08:26+08:00" pubdate  data-updated="true" >Jun 21<span>st</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/553043211/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1076/553043211_13dd9d38ca_m.jpg" width="180" height="240" alt="me and my hair stylist, sonia" class='left' /></a> 在去<a href="http://tzangms.com/?p=861">蘭卡威</a>之前才剪了個<a href='http://tzangms.com/?p=874'>新髮型</a>, 不過上禮拜就又開始覺得頭髮整個很厚, 沒辦法, 我頭髮長好快! 所以前幾天 sanni 就又陪我去剪頭髮了。 這次剪髮是同一個髮型設計師 Sonia, 呵, Sonia 超正的! 不過~ 她本人比照片正上很多 :D</p>
-
-<p>不過我這個新髮型, 好像有點太短了 XD 本來其實只是覺得頭髮太厚, 修一下就好, 不過後來還是都交給了 Sonia 處理, 呵, 所以目前的頭髮真的是滿短的, 似乎比我當兵時還短, 噗~ 不過我當兵時是真的留滿長的, 呵!</p>
-
-<p>以前剪頭髮都是在鄉下, 剪一次大概才兩百塊, 就隨便剪一剪, 不然就是去家庭理髮 XD 當然在大學時代, 還是有被當時的女朋友拉去,  稍微比較高級的地方剪, 但是習慣了鄉下的環境, 突然換到高級的地方就很不適應。一開始去找 Sonia 剪頭髮的時候, 那個地方就讓我覺得有點高級的恐怖, 整個人不自在, 還要努力的掩飾自己不是鄉下來的 XD 哈哈哈。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/life/887">Read on &rarr;</a>
-    </footer>
   
 
 

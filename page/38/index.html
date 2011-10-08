@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="之前在 Tsung 那邊看到 大量檢查 PHP 程式是否有 Syntax Error 這一篇文章, 後來每次想到要檢查的時候, 都因為這一段太長記不下來 XD 所以我每次就又都從 Google 找這篇文章, 今天想說把它寫下來, 寫成一個 shell script 好了 XD我把檔名叫 php...">
+  <meta name="description" content="積欠了阿潑好久了的一篇文章, 這張明信片應該是 9 月底就寄到了我家裡, 但是其實我在 10 月底才回家, 才真的看到這張從北京寄來的明信片。">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/1129">PHP 語法錯誤檢查</a></h1>
+      <h1 class="entry-title"><a href="/life/1012">收到從外國寄來的第一張明信片</a></h1>
     
     
       <p class="meta">
@@ -80,197 +80,21 @@
 
 
 
-<time datetime="2008-04-03T13:07:35+08:00" pubdate  data-updated="true" >Apr 3<span>rd</span>, 2008</time>
+<time datetime="2007-11-24T12:54:21+08:00" pubdate  data-updated="true" >Nov 24<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>之前在 <a href="http://plog.longwin.com.tw/">Tsung </a>那邊看到 <a href="http://plog.longwin.com.tw/programming/2008/01/20/php_command_line_script_check_2008">大量檢查 PHP 程式是否有 Syntax Error</a> 這一篇文章, 後來每次想到要檢查的時候, 都因為這一段太長記不下來 XD 所以我每次就又都從 Google 找這篇文章, 今天想說把它寫下來, 寫成一個 shell script 好了 XD</p>
-
-<p>我把檔名叫 phplint
-<code>#!/bin/bash
-find . -name *.php ! -exec php -l {} ;
-</code></p>
-
-<p>在 chmod +x phplint 之後, 在想要檢查的目錄打 phplint 就可以了。</p>
-
-<p>基本上我是在自己的 home 有開一個 bin 的目錄, 然後再 .bashrc 裡加上
-<code>export PATH=$PATH":~/bin"</code></p>
-
-<p>之前的 <a href="http://tzangms.com/web/1095">twit shell script</a> 也是這麼作 :p</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1117">[網摘] April 2nd 2008</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-04-02T20:28:32+08:00" pubdate  data-updated="true" >Apr 2<span>nd</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><ul>
-    <li><a href="http://960.gs/" target="_blank">960 Grid System</a></li>
-</ul>
-
-
-<p style="padding-left: 30px;">用 grid 來做網頁 layout, 還滿屌的構想, 也頗實用, 可以用來快速做  prototype, 跟開發。</p>
-
-
-
-
-<ul>
-    <li><a href="http://speckyboy.com/2008/03/28/top-12-css-frameworks-and-how-to-understand-them/" target="_blank">Top 12 CSS Frameworks and How to Understand Them</a></li>
-</ul>
-
-
-<p style="padding-left: 30px;">CSS framework, 又到了選邊站的時候了嗎? XD 基本上就是那哪個爽就用哪個阿! 至少文件看起來清楚、爽是一個重點, 像是 CodeIgniter 文件看起來就很爽, 上手也快!</p>
-
-
-
-
-<ul>
-    <li><a href="http://www.webdesignerwall.com/tutorials/jquery-tutorials-for-designers/" target="_blank">jQuery Tutorials for Designers</a></li>
-</ul>
-
-
-<div style="padding-left: 30px;">看標題就知道了吧, 我覺得這篇真的還滿值得一看的, 也許可以先看看他的 <a href="http://www.webdesignerwall.com/demo/jquery/" target="_blank">Demo</a> 。 這篇是由 <a href="http://www.webdesignerwall.com/" target="_blank">WebDesignerWall</a> 所寫的一篇教學, 話說 <a href="http://www.webdesignerwall.com/" target="_blank">WebDesignerWall</a> 的網頁設計真是屌到翻 (Y) 。</div>
-
-
-<div style="padding-left: 30px;">看了之後, 本來已為是稍微有點難度的動畫效果, 沒想到好簡單勒! 本來就都知道的用法, 可是重點就是在 CSS 跟美術設計的部份, 讓他看起來真的很 fancy。</div>
-
-
-<ul>
-    <li><a class="title-link" href="http://www.codinghorror.com/blog/archives/001079.html">The First Rule of Programming: It&#8217;s Always Your Fault</a></li>
-</ul>
-
-
-<div style="padding-left: 30px;">程式設計守則第一條, 永遠是你自己的錯 XD 嗯阿! (雖然我也常陷入一種, 以為是看到鬼的狀態) , 但是就絕大多數的開發經驗來說, 通常都是 programmer 的錯, 或者甚至是非常笨的 bug, 而不是 library 或是機器的錯, 所以記得先從自己的錯找起會比較快 XD 又或者是跟其他開發者一起開發的時候, 先確定不是自己的錯, 在去說人家, 避免大家不爽阿 XD</div>
-
-
-<ul>
-    <li><a href="http://css.dzone.com/news/reform-css-form-design-templat-1" target="_blank">reForm</a></li>
-</ul>
-
-
-<div style="padding-left: 30px;">這也是一個很屌的東西阿! 網路上最常用到的還是表單(Form), 最早表單都用 table 來作排版, 現在已經捨棄 table, 像我就是利用 label 來作, 這個 reForm 則是用 javascript 來做表單的自動排版, 看起來真的很屌, 可以先看看他的 <a href="http://houstonupa.org/reForm/demo.html" target="_blank">Demo</a>, 多帥氣! 當然這也是之後有空在研究, 畢竟我只是作 PHP Coding (只是現在寫 Web app 的, 誰能免得了不碰 UI 呢?)</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1126">[PHP] XML Schema 驗證</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-04-01T13:56:07+08:00" pubdate  data-updated="true" >Apr 1<span>st</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>記得之前再翻 PHP Manual 時, 看到 <a href="http://www.php.net/manual/tw/ref.dom.php">DOM</a> 裡有 <a href="http://www.php.net/manual/tw/function.dom-domdocument-schemavalidate.php">schemaValidate</a> 這個東西, 也因為工作需要, 所以來試一下, 還真方便好用。</p>
-
-<p><code>$xml = file_get_contents('http://tzangms.com/foo.xml');
-$dom = new DOMDocument;
-$dom->loadXML($xml);</p>
-
-<p>$is_validate = $dom->schemaValidate('bar.xsd');</code></p>
-
-<p>或是用 load 讀 xml 檔名</p>
-
-<p><code>$dom = new DOMDocument;
-$dom->load('foo.xml');</p>
-
-<p>$is_validate = $dom->schemaValidate('bar.xsd');</code></p>
-
-<p>另外 xsd 的部分, 也有 <a href="http://www.php.net/manual/tw/function.dom-domdocument-schemavalidatesource.php">schemaValidateSource </a>可用
-<code>$dom->schemaValidateSource($xsd);</code></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/1118">拉亞漢堡</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-03-30T12:49:22+08:00" pubdate  data-updated="true" >Mar 30<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a title="拉亞漢堡 起士燻火腿潛艇堡 by tzangms, on Flickr" href="http://www.flickr.com/photos/tzangms/2337050889/"><img src="http://farm3.static.flickr.com/2020/2337050889_96fb654161.jpg" alt="拉亞漢堡 起士燻火腿潛艇堡" width="500" height="375" /></a></p>
-
-<p>之前在當兵時, 回學校表演的時候, 志豪有帶我去吃過拉亞, 在畢業前還沒開~ 以前早餐都吃起士火腿蛋加奶茶, 突然到拉亞卻不知道吃啥。 結果現在在台北租房子的附近就新開了一間拉亞。 現在每次週末六日的早餐, 都想著要吃拉亞 XD</p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/1919565567/" title="Photo Sharing"><img src="http://farm3.static.flickr.com/2209/1919565567_ddff273c2f.jpg" width="500" height="375" alt="postcard from annpo" /></a>
+積欠了<a href="http://blog.pixnet.net/annpo">阿潑</a>好久了的一篇文章, 這張明信片應該是 9 月底就寄到了我家裡, 但是其實我在 10 月底才回家, 才真的看到這張從北京寄來的明信片。</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/life/1118">Read on &rarr;</a>
+      <a rel="full-article" href="/life/1012">Read on &rarr;</a>
     </footer>
   
 
@@ -282,7 +106,7 @@ $dom->load('foo.xml');</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/podcast/1119">小海 Podcast 第 8 集</a></h1>
+      <h1 class="entry-title"><a href="/life/1018">I&#8217;m So Fucking Tired&#8230; Still</a></h1>
     
     
       <p class="meta">
@@ -296,22 +120,14 @@ $dom->load('foo.xml');</p>
 
 
 
-<time datetime="2008-03-28T19:12:07+08:00" pubdate  data-updated="true" >Mar 28<span>th</span>, 2008</time>
+<time datetime="2007-11-19T21:18:30+08:00" pubdate  data-updated="true" >Nov 19<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>事隔半年, <strong>語無倫次</strong>的小海 Podcast 第 8 集終於出來啦! 這次真的是亂講一通, 哈哈哈!</p>
-
-<ol>
-    <li>Misery business - <a href="http://www.paramore.net/" target="_blank">Paramore</a></li>
-    <li>Kiss to send us off  - <a href="http://www.enjoyincubus.com/" target="_blank">Incubus</a></li>
-    <li>Whole wide world - <a href="http://www.wrecklesseric.com/" target="_blank">Wreckless eric</a></li>
-    <li>眉頭 - 小海</li>
-</ol>
-
+  <div class="entry-content"><p><img src="http://farm3.static.flickr.com/2345/2047159396_2f5c7f7a84_o.jpg" alt="" /></p>
 </div>
   
   
@@ -324,7 +140,7 @@ $dom->load('foo.xml');</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/1111">[網摘] March 25th 2008</a></h1>
+      <h1 class="entry-title"><a href="/music/1013">NDSL 自彈自唱@憂鬱馬戲團團聚</a></h1>
     
     
       <p class="meta">
@@ -338,160 +154,25 @@ $dom->load('foo.xml');</p>
 
 
 
-<time datetime="2008-03-25T23:13:00+08:00" pubdate  data-updated="true" >Mar 25<span>th</span>, 2008</time>
+<time datetime="2007-11-12T22:55:41+08:00" pubdate  data-updated="true" >Nov 12<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><ul>
-    <li><a href="http://www.37signals.com/svn/posts/913-question-your-work">Question your work</a></li>
-</ul>
+  <div class="entry-content"><center>                                                            <script type="text/javascript" src="http://blip.tv/scripts/pokkariPlayer.js?ver=2007100301"></script><script type="text/javascript" src="http://blip.tv/syndication/write_player?skin=js&posts_id=482468&source=3&autoplay=true&file_type=flv&player_width=&player_height="></script><div id="blip_movie_content_482468"><a rel="enclosure" href="http://blip.tv/file/get/Thecarol-260.flv" onclick="play_blip_movie_482468(); return false;"><img title="Click to play" alt="Video thumbnail. Click to play"  src="http://blip.tv/file/get/Thecarol-260.flv.jpg" border="0" title="Click To Play" /></a><br /><a rel="enclosure" href="http://blip.tv/file/get/Thecarol-260.flv" onclick="play_blip_movie_482468(); return false;">Click To Play</a></div>                                     </center>
 
 
-<p style="padding-left: 30px;">當你要開發產品的新功能的時候, 曾經想過為何要開發嗎? 這個功能是否真的有用? 帶來的價值是? 更重要的是它是否符合使用者的需求? 也許跳出來這個框框, 先看看你自己覺得好不好用?</p>
+<p>Mr. BIG - to be with you by <a href="http://carol.bluecircus.net/">Carol</a></p>
 
-
-
-
-<ul>
-    <li><a href="http://www.jaisenmathai.com/blog/2008/02/28/10-tips-to-make-your-php-application-scream-part-1-of-n/">10 tips to make your PHP application scream</a></li>
-</ul>
-
-
-<p style="padding-left: 30px;">一些關於 php.ini 設定的東西, 像是 HTTP_POST_VARS 你還會用到嗎? 不用就關掉它吧!</p>
-
-
-
-
-<ul>
-    <li><a href="http://www.smashingmagazine.com/2008/03/11/the-secrets-of-grunge-design/">The Secrets Of Grunge Design</a></li>
-</ul>
-
-
-<p style="padding-left: 30px;">關於 Grunge style 的設計風格, 有人說這是 web 2.0 之後網頁設計的新趨勢?</p>
-
-
-
-
-<ul>
-    <li><a href="http://htmlpurifier.org/">HTML Purifier</a></li>
-</ul>
-
-
-<p style="padding-left: 30px;">用來過濾 XSS (filter)的 PHP library, 另外在它網頁上也列了出來<a href="http://htmlpurifier.org/comparison.html">其他相同功能的產品的比較</a>, 說明的滿詳細的, 也有 Wordpress 的 plugin, 另外<a href="http://www.mindloop.be/nieuws/nieuwe-ontwikkelingen/htmlpurifier-and-the-codeigniter-framework">也提到有 CodeIgniter 的 library</a>, 但是其實只是說明, 如何在 CI 裡使用 HTML Purifier, 可是我覺得它範例所寫的使用方式, 覺得有點遭, 另外, 雖然這支 library 功能很強, 但是&#8230;好胖 XD<a href="http://www.mindloop.be/nieuws/nieuwe-ontwikkelingen/htmlpurifier-and-the-codeigniter-framework"></a></p>
-
-
-
-
-<ul>
-    <li><a href="http://reinholdweber.com/?p=23">Really cool CSS diagnostics script</a></li>
-</ul>
-
-
-<p style="padding-left: 30px;">這真的還滿酷的, 只要掛上這個 CSS, 就可以在網頁上看出哪些東西、屬性是需要修正的, 有稍微玩一下, 有空再來研究看看。</p>
-
-
-
-
-<ul>
-    <li><a href="http://www.designvsart.com/blog/2008/03/19/simplicity-on-the-web-disgning-to-hide-features/">Simplicity On The Web: Designing To Hide Features</a></li>
-</ul>
-
-
-<p style="padding-left: 30px;">做 UI 設計應該可以看一下, 其中有介紹一些知名網站的範例, 避免一次給使用者太多資訊。</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/1116">新髮型 by Sonia@FIN</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-03-20T21:21:35+08:00" pubdate  data-updated="true" >Mar 20<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2337857224/" title="me and Sonia by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2356/2337857224_fb20fb0979.jpg" alt="me and Sonia" class="left" height="500" width="375" /></a> 沒事, 只是記錄一下禮拜日剪了個新髮型, 還有 sonia 很正, 就醬。想找 sonia 剪的可以看看<a href="http://tzangms.com/life/933">這一篇</a>。</p>
-
-<p>走超短文路線才是王道阿!</p>
-
-<div style='clear:both'></div>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1113">對 PHP 沒信心嗎?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-03-19T21:55:17+08:00" pubdate  data-updated="true" >Mar 19<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>如果這一陣子因為 Ruby 跟 RoR 的爆紅, 讓你急著想轉換到 Ruby (好吧! 至少我偷學了 Ruby XD) 也許可以看看 <a href="http://www.cio.com">CIO</a> 的這一篇 <a href="http://www.cio.com/article/176250">You Used PHP to Write WHAT?!</a> 的 <a href="http://comments.cio.com/node/176250">comments</a>。 由於文章中提到的一些論點讓 PHP的擁護者倒彈, 像是&#8230;</p>
-
-<blockquote>Q: When should you use PHP?
-A: Prototyping an application that will be converted to Java or some other language.</blockquote>
-
-
-<p>或是</p>
-
-<blockquote>For large enterprise solutions, PHP makes a great prototyping or feasibility tool, but heavily loaded sites that require thread safety, security and stability should use Java.</blockquote>
-
-
-<p>結果因為這篇作者的言論, 似乎有點瞧不起 PHP, 導致 comments 被 PHP 擁護者洗版, 結果最後在這篇文章中多了下面這一段 XD</p>
+<p>第一次參加<a href="http://blog.bluecircus.net/">憂鬱馬戲團</a>的團聚, 第一次嘗試用 NDSL 做現場表演, 有困難到, 也忘詞忘和絃的 XD 不過團聚頗好玩, 也看到了許多知名部落客 XD 也有玩到奶爸的 EeePc 跟 iPod touch, 當天唱了兩首歌, 認識了一些人 :p 另外 jeph 的 DJ 玩具也頗屌! 搭配 Tracktor DJ 感覺很好玩!!!</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/programming/1113">Read on &rarr;</a>
+      <a rel="full-article" href="/music/1013">Read on &rarr;</a>
     </footer>
   
 
@@ -503,7 +184,7 @@ A: Prototyping an application that will be converted to Java or some other langu
       
   <header>
     
-      <h1 class="entry-title"><a href="/old demo/1110">[Demo] 眉頭, 我很愛的一首歌</a></h1>
+      <h1 class="entry-title"><a href="/blog/1015">Better Tomorrow</a></h1>
     
     
       <p class="meta">
@@ -517,26 +198,107 @@ A: Prototyping an application that will be converted to Java or some other langu
 
 
 
-<time datetime="2008-03-16T22:08:18+08:00" pubdate  data-updated="true" >Mar 16<span>th</span>, 2008</time>
+<time datetime="2007-11-12T11:07:11+08:00" pubdate  data-updated="true" >Nov 12<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>眉頭, 應該可以列入我最愛的歌曲 Top 10 吧! 每天晚上睡覺我都一定會播著這首歌伴我入睡, 常常是歌曲還沒結束我就睡著了。</p>
+  <div class="entry-content"><p><img src="http://farm3.static.flickr.com/2320/1963108352_6c8d59400b.jpg" alt="better tomorrow" /></p>
 
-<p>這幾個月, 都一直在把先前的歌曲都重新處理過, 一直重複在聽著先前錄好的歌曲, 聽著哪首歌哪裡有問題, 哪裡 bass 聲太小, vocal 哪裡唱的不好, 或者是鼓太小、太大聲之類的等等細節。</p>
+<p>在 <a href="http://shanecoast.wordpress.com/">shanecoast 的 blog</a> 看到他<a href="http://shanecoast.wordpress.com/2007/11/11/better-tomorrow/">這一篇文章</a>的這張照片, 「better tomorrow」。呵, 其實我一直滿理性的, 以前如果在展覽會場看到這個的話, 我應該就只是看看, 不大可能花錢買下來這個空瓶子&#8230;</p>
 
-<p>有些東西需要反覆聆聽, 有些則要經過一些時間, 才能聽出來哪裡不對勁。 有時下班之後, 一整晚都在處理同一首歌, 或者是星期日待在家裡, 戴著監聽耳機聽上一整天。 甚至是上班就已經很累, 下班回家吃完晚餐之後, 仍戴上耳機繼續弄歌。 有幾次, 弄歌弄到很晚, 已經很累了, 想說要來準備洗澡睡覺, 可是一拿掉監聽耳機站起來, 卻整個人暈眩。</p>
+<p>不過現在我看到搞不好會買一個回家, 擺在桌上, 然後丟糖果進去。好像打開這個瓶子, 吞下一顆糖果, 真的會有 better tomorrow 的感覺 :)</p>
+</div>
+  
+  
 
-<p>而眉頭這首歌, 其實我好擔心, 因為&#8230; 前幾個月打開眉頭的錄音檔時, 卻發現 vocal track 不見了, guitar solo 也不見了, 不曉得是什麼原因, 總之就是不見了阿!!! 所以這幾個月都在擔心, 怕擔心錄不出來當初的感覺。 而且當初的 bass 也有點小聲, 鼓也聽起來有點虛。 所以每次當睡覺聽到眉頭的時候, 就會讓我想起這件事, 像是在我心上壓了一塊石頭, 甚至有時就因此失眠, 即使這首歌是我的睡覺歌。</p>
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/1014">[YEAH] Loop Station 效果器可以怎麼用呢?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-11-11T02:26:11+08:00" pubdate  data-updated="true" >Nov 11<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><object width="425" height="355"><param name="movie" value="http://www.youtube.com/v/ebd7ONuE-PA&rel=1"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/ebd7ONuE-PA&rel=1" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed></object>
+
+
+<p>這是好久之前在買 <a href="http://tzangms.com/music/846/">Boss RC-20XL</a> 之前上 youtube 做  survey 的時候找到的! 然而前一陣子 bass 手志豪在練團時都會用 bass 彈 Usher 的 yeah 這首歌的 riff, 每次聽到都覺得很好笑 XD</p>
+
+<p>所以為了彌補最近太累, 根本沒有力氣寫 blog, 就分享一下這個我覺得很屌的影片, 另外可以看看。 木吉他加上 loop station 也可以用來唱 rap !!! 好聽! 又很屌!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/codeigniter/1006">將 Zend Framework 放進 CodeIgniter</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-11-10T22:43:45+08:00" pubdate  data-updated="true" >Nov 10<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>基本上這裡所謂的整合就是用 CodeIgniter 的 hooks 來做, 單純用 hooks 來設定 include_path, 不然直接設定 include_path, 把 Zend Framework 當成跟 PEAR 類似的放著也可以, 不過由於這樣整合看起來比較帥, 之後程式如果搬家也不會因為失誤而漏了 ZF :p 又, 用 SVN 來管理也方便</p>
+
+<p><strong>1. 下載 ZF, 把 library 放進 CodeIgniter</strong>
+就依我的方式, 我是把 ZF 解開後, 把 library copy 放到 CodeIgniter 的 system 下面, 命名為 zendframework</p>
+
+<p>/project/system/zendframework</p>
+
+<p><strong>2. 開啟 CodeIgniter hook</strong>
+修改 /project/system/application/config/config.php</p>
+
+<p><code>$config['enable_hooks'] = TRUE;</code></p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/old demo/1110">Read on &rarr;</a>
+      <a rel="full-article" href="/codeigniter/1006">Read on &rarr;</a>
     </footer>
   
 
@@ -548,7 +310,7 @@ A: Prototyping an application that will be converted to Java or some other langu
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/1109">[網摘] March 14th 2008</a></h1>
+      <h1 class="entry-title"><a href="/life/1011">畫家夢</a></h1>
     
     
       <p class="meta">
@@ -562,34 +324,134 @@ A: Prototyping an application that will be converted to Java or some other langu
 
 
 
-<time datetime="2008-03-14T18:38:46+08:00" pubdate  data-updated="true" >Mar 14<span>th</span>, 2008</time>
+<time datetime="2007-11-05T00:51:48+08:00" pubdate  data-updated="true" >Nov 5<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><ul>
-    <li><a href="http://thislab.com/2008/02/23/notes-on-choosing-a-php-framework-a-quick-comparison-of-codeigniter-and-kohana/">Notes on Choosing a PHP Framework: A Quick Comparison of CodeIgniter and Kohana</a>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/1856985293/" title="Photo Sharing"><img src="http://farm3.static.flickr.com/2407/1856985293_9cd1499e9a.jpg" width="375" height="500" alt="畫家夢, 小六畫的素描" /></a>
+從上次翻出<a href="http://tzangms.com/life/1005/">我第一台相機的素描</a>(速寫?)之後, 整個就又燃起我的畫家夢。這是我小學六年級所畫的素描。</p>
 
-這篇是 CodeIgniter 跟 Kohana 的比較, 寫的很詳細, 有在玩 CI 的都該看看。</li>
-    <li><a href="http://www.ajaxray.com/blog/2008/03/08/php-universal-feed-generator-supports-rss-10-rss-20-and-atom/">PHP Universal Feed Generator (supports RSS 1.0, RSS 2.0 and ATOM)</a>
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/life/1011">Read on &rarr;</a>
+    </footer>
+  
 
-PHP Feed generator, 還沒用過, 不過看過範例, 覺得頗好用的, 先記下來。 話說我目前產生 RSS Feed 是用 template 的方式, 還滿方便、快速的。</li>
-    <li><a href="http://sixrevisions.com/resources/20_websites_better_web_developer/">20 Websites That Made Me A Better Web Developer</a>
 
-這篇最主要是讓我看到 37 Signals (也就是 basecamp 的開發公司)的 Getting real, 裡面提到的一些程式開發的論點, 還不錯的感覺。</li>
-    <li> <a href="http://www.mostinspired.com/blog/2008/03/06/standout-website/">6 Methods to Make Your Website Standout</a>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/1009">校慶 &#8216;07</a></h1>
+    
+    
+      <p class="meta">
+        
 
-我突然想買繪圖板了 o_O</li>
-    <li><a href="http://php.dzone.com/news/php-email-validator-email-mx-d">PHP Email Validator - Email MX DNS Record Check</a>
 
-我完全不知道 PHP 有 checkdnsrr 這個 function, 看來沒事還是要多看看 PHP manual 阿! 還可避免重新造輪 XD</li>
-    <li><a href="http://www.haughin.com/2008/01/22/progressing-your-career-as-a-developer/">Progressing your career as a developer</a>
 
-Programmer 可以看看這篇, 裡面提到一些 programmer 具有的特質, 及缺少哪些特質。</li>
-</ul>
 
+
+  
+
+
+
+<time datetime="2007-10-29T21:52:48+08:00" pubdate  data-updated="true" >Oct 29<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="http://farm3.static.flickr.com/2056/1788846409_1f64ae2684.jpg" alt="H2O Jump!" /></p>
+
+<p>只在學校讀了兩年(二技), 不過卻連續在學校校慶連續表演了六年, 不過我想這應該是最後一次回學校表演了吧!</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/music/1009">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/1008">I&#8217;m So Fucking Tired &#8230;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-10-26T01:18:24+08:00" pubdate  data-updated="true" >Oct 26<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/1747671777/" title="Photo Sharing"><img src="http://farm3.static.flickr.com/2088/1747671777_e8f9977006.jpg" width="500" height="375" alt="I am so fucking tired" /></a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/1005">我的第一台相機 Fujifilm F402</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-10-25T09:46:36+08:00" pubdate  data-updated="true" >Oct 25<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/1735598361/" title="Photo Sharing"><img src="http://farm3.static.flickr.com/2155/1735598361_6286ebe320.jpg" width="500" height="375" alt="sketch, my first digital camera, fujifilm F402" /></a>
+我喜歡輕便的相機, 另外我好像也不管功能性, 只看外型, 所以我的第一台相機就買了 Fujifilm F402, 我真的覺得他很小台, 好可愛, 不過現在只剩下這張照片。</p>
+
+<p>這是剛才想從 iPhoto 找照片時突然看到的, 當時是大學生, 很閒~ 所以有時間畫圖 XD 記得當時好像是太無聊, 拿起黑色的原子筆就畫了起來。嗯, 我已經好久好久沒畫畫了, 不過現在也沒有那個閒時間才是。 Orz</p>
+
+<p>anyway, 這張素描是我第一台相機唯一留下的一張&#8221;身影&#8221;, 最後, 唉~ 希望我現在可以像那時候那麼悠閒的畫畫。</p>
 </div>
   
   

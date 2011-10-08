@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="由於 app engine 無法上傳大檔案, 即使使用 BlobStore 單檔最大也只能到 50MB 而已, 對於 MyAudioCast 來說, 豬小草的 Podcast 檔案幾乎都是超過 100MB, 所以看來就只能用 S3 來放檔案, 可是 app engine 的 urlfetch ...">
+  <meta name="description" content="今天才意識到 timezone 的處理是有那麼一點麻煩, 存放、顯示要怎麼做之類的, 之前都沒處理過這類的問題, 不過也只能先解決問題, 之後有空在來深入研究 timezone。這兩三天在用 appengine 寫 twitter/plurk 備份的東西, 而 twitter 跟 plurk ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -60,192 +60,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2649">透過 Swfupload 直接上傳到 S3</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-05-12T22:27:20+08:00" pubdate  data-updated="true" >May 12<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>由於 <a href="http://code.google.com/intl/zh-TW/appengine/">app engine</a> 無法上傳大檔案, 即使使用 <a href="http://tzangms.com/programming/2556">BlobStore</a> 單檔最大也只能到 50MB 而已, 對於 <a href="http://www.myaudiocast.com/">MyAudioCast</a> 來說, 豬小草的 Podcast 檔案幾乎都是超過 100MB, 所以看來就只能用 S3 來放檔案, 可是 app engine 的 urlfetch 也只能傳 1MB, 所以後來就直接採用 S3 提供的 form upload 的方式, 直接用 HTML POST Form 把檔案送到 S3, 有興趣的話可以看看 <a href="http://developer.amazonwebservices.com/connect/entry.jspa?externalID=1434">Browser Uploads to S3 using HTML POST Forms</a> 這一篇文章, 所以就可以不用透過後端程式, 直接從前端上傳檔案到 S3 然後 redirect 回來。所以在這邊記錄一下。</p>
-
-<p>然而這樣出現了一個問題, 沒辦法檢查上傳的檔案類型, 甚至知道檔案大小 ( 原本的作法是上傳完之後, 再去 s3 抓檔案大小的資料 ), 所以研究了一下用 swfupload 來做檔案進度顯示以及顯示, 並限制檔案的類型、大小, 同時也可以取得檔案的大小。</p>
-
-<p>原本的 POST FORM 看起來像是下面這樣</p>
-
-<pre><code>&lt;form id="upload_form" action="http://myaudiocast.s3.amazonaws.com/"
-    method="post" enctype="multipart/form-data"&gt;
-&lt;input type="hidden" name="key" value="" /&gt;
-&lt;input type="hidden" name="AWSAccessKeyId" value="" /&gt;
-&lt;input type="hidden" name="acl" value="" /&gt;
-&lt;input type="hidden" name="policy" value="" /&gt;
-&lt;input type="hidden" name="signature" value="" /&gt;
-&lt;input type="hidden" name="Content-Type" value="" /&gt;
-&lt;input type="hidden" name="Cache-Control" value="" /&gt;
-&lt;input type="hidden" name="Expires" value="" /&gt;
-&lt;input type="hidden" name="success_action_redirect" value="" /&gt;
-...
-&lt;/form&gt;</code></pre>
-
-
-<p>基本上的作法就是把原本 policy conditions 當中的 success_action_redirect 改成 success_action_status, 也就是把轉址改成吐 201 的 status code, 然後在 policy conditions 移除 success_action_redirect, 並加上下面兩個項目即可。</p>
-
-<pre><code>["starts-with", "$Filename", ""],
-["eq", '$success_action_status', "201"]
-</code></pre>
-
-
-<p>而 swfupload 的 PostParams 也是把原本要 POST 出去的欄位加上即可</p>
-
-<pre><code>swfu.setPostParams({
-    'key': key,
-    'AWSAccessKeyId': "",
-    'acl': "",
-    'policy': "",
-    'signature': "",
-    'Content-Type': "",
-    'Cache-Control': "",
-    'Expires': "",
-    'success_action_status': 
-});</code></pre>
-
-
-<p>然後 s3 bucket 那邊也得加上一個 /crossdomain.xml, 否則 Flash 會有 security error, 檔案內容如下。</p>
-
-<pre><code>&lt;?xml version="1.0"?&gt;
-&lt;!DOCTYPE cross-domain-policy SYSTEM 
-    "http://www.macromedia.com/xml/dtds/cross-domain-policy.dtd"&gt;
-&lt;cross-domain-policy&gt;
-    &lt;allow-access-from domain="*.myaudiocast.com" secure="false" /&gt;
-&lt;/cross-domain-policy&gt;</code></pre>
-
-
-<p><code> </code></p>
-
-<p>最後就是, 由於 Flash 接到 200 以外的 status code 都會視為失敗 ( 至少我查到的資訊都是這麼說 ), 所以 swfupload 接到 201 的 status code 也是會認為失敗, 所以就得再 uploadError 這個 handler 判斷 status_code 是否為 201, 如果 201 則是上傳成功, 所以這點得再注意一下, 我目前的作法是這樣。</p>
-
-<p>這篇主要只是記錄一下, S3 真是好服務, 而 app engine 也很好, 不過限制太多, 得自己繞路就是了 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/2647">IK Multimedia 推出 iPhone App: AmpliTube iRig</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-05-11T11:45:56+08:00" pubdate  data-updated="true" >May 11<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/LTP3dZEaFhM&hl=zh_TW&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/LTP3dZEaFhM&hl=zh_TW&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed></object>
-
-
-<p>好想現在就 pre-order 阿!!! 不過 $39.99 只是那個外接介面價格, 不包含 iPhone app, 因為, iPhone app 又分 Free 跟 Full, 不過似乎是可以透過下載來新增效果, In-app purchase ? 不管了&#8230; 好想玩阿!!! 細節可以到<a href="http://www.ikmultimedia.com/irig/features/">這裡</a>看</p>
-
-<p>如果再來個藍芽的 pedal switch 那就很讚了  XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2643">新玩具封測</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-05-08T00:20:59+08:00" pubdate  data-updated="true" >May 8<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>之前在<a href="http://tzangms.com/programming/2632">這一篇</a> 寫到我在寫備份推特跟噗浪的工具, 其實說是備份有人可能會誤會, 其實不會備份你以前的訊息, 而是從現在開始幫你記錄你的推噗而已。</p>
-
-<p>基本上是依我自己的需求來開發的, 記錄下來的推噗可以用每日以及日曆呈現, 然後可以搜尋, 以及用 hash tag 分類, 日曆的方式大概看起來像下面這樣
-<a href="http://tzangms.com/wp-content/uploads/2010/05/螢幕快照-2010-05-07-下午11.49.01.png"><img src="http://tzangms.com/wp-content/uploads/2010/05/螢幕快照-2010-05-07-下午11.49.01-499x386.png" alt="" title="螢幕快照 2010-05-07 下午11.49.01" width="499" height="386" class="aligncenter size-large wp-image-2645" /></a></p>
-
-<p>其實用來記錄推噗後, 可以回顧先前每天的訊息記錄, 可以很快就知道哪一天在幹嘛之類的, 就當成日記, 不過其實這也要看個人推噗的使用習慣啦。 另外透過 hash tag 來當書籤其實也滿好用的, 至少我自己覺得很不錯 XD</p>
-
-<p>不過目前沒打算開放給太多人用, 畢竟有些人覺得沒這個需要, 所以有需要的人。 麻煩你在推特 follow 我, 並發送訊息下面這段訊息</p>
-
-<blockquote>小海 @tzangms 你好帥! 我要試用新玩具!</blockquote>
-
-
-<p>或者是</p>
-
-<blockquote>小海 @tzangms 我愛你! 我要試用新玩具!</blockquote>
-
-
-<p>甚至是你不想試用, 你也可以在你的推特發送下列訊息</p>
-
-<blockquote>小海 @tzangms 你超帥的! </blockquote>
-
-
-<p>我看到就會 DM 網址給你, 謝謝! XD</p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -320,12 +134,6 @@ local_time = created_at + user_timezone.utcoffset(created_at)</code></pre>
 <p>之後使用的時候直接 import tz_helper 的 timezone 來用即可。</p>
 
 <p>其實現在 SNS 的時間大多都直接採用 3 hours ago 之類的方式來顯示時間, 我想最主要的原因就是, 這樣可以很容易因應世界各地使用者不同時區的問題, 而不是直接顯示這個日期。 誰知道我今天兩個方式都要有, 分別像是下面兩張圖的方式呈現, 所以就得處理 time offset 的問題。 總不能我在 5 月 5 號早上七點的推訊仍舊被記到 5 月 4 號。 而存放成台灣時間, 結果用 UTC +0000 去做 minutes ago, 顯示出來都是 0 minutes ago。</p>
-
-<p>日期
-<a href="http://tzangms.com/wp-content/uploads/2010/05/螢幕快照-2010-05-05-上午1.00.39.png"><img src="http://tzangms.com/wp-content/uploads/2010/05/螢幕快照-2010-05-05-上午1.00.39-499x296.png" alt="" title="螢幕快照 2010-05-05 上午1.00.39" width="499" height="296" class="aligncenter size-large wp-image-2637" /></a></p>
-
-<p>times ago
-<a href="http://tzangms.com/wp-content/uploads/2010/05/螢幕快照-2010-05-05-上午1.09.11.png"><img src="http://tzangms.com/wp-content/uploads/2010/05/螢幕快照-2010-05-05-上午1.09.11-500x266.png" alt="" title="螢幕快照 2010-05-05 上午1.09.11" width="500" height="266" class="aligncenter size-large wp-image-2639" /></a></p>
 </div>
   
   
@@ -573,6 +381,112 @@ local_time = created_at + user_timezone.utcoffset(created_at)</code></pre>
 
 
 
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/2617">不知道為什麼我要這麼累</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-04-13T23:18:25+08:00" pubdate  data-updated="true" >Apr 13<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>我已經快不知道為什麼我要這麼累了, 為什麼我要處理這麼多別人該弄好的東西? 然後一堆東西都不得不往自己身上攬, 幹! 還我青春阿!!!</p>
+
+<p>(嘆) 不過會這樣抱怨, 其實這也說明了我自身能力不足 &#8230;</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2616">Nginx 居然這麼好玩!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-04-12T15:42:38+08:00" pubdate  data-updated="true" >Apr 12<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://agentzh.org/misc/slides/nginx-conf-scripting/nginx-conf-scripting.html#1">Introduction to nginx.conf scripting</a> 看到可以直接寫 SQL 讀資料庫然後吐 json 的部分, 就一整個 high 了起來 XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/uncategorized/2615">環保署真是他媽的爛透了!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-04-07T09:57:47+08:00" pubdate  data-updated="true" >Apr 7<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>有空的人可以看一下慕情這篇 <a href="http://gaea-choas.blogspot.com/2010/04/blog-post_07.html">抹黑記者，打壓新聞自由，環保署會不會太過份了？</a></p>
+
+<p>環保署真是他媽的爛透了!!</p>
 </div>
   
   

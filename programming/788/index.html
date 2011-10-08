@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="[source:javascript]String.prototype.trim = function(){return this.replace(/(^\s*)|(\s*$)/g, "");}[/source]這個是用來增加 trim 這個 function 到 javascript 的 S...">
+  <meta name="description" content="String.prototype.trim = function(){    return this.replace(/(^\s*)|(\s*$)/g, "");}這個是用來增加 trim 這個 function 到 javascript 的 String object, jQuery 居然沒...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -84,23 +84,17 @@
   </header>
 
 
-<div class="entry-content"><p>[source:javascript]
-String.prototype.trim = function(){</p>
-
-<pre><code>return this.replace(/(^\s*)|(\s*$)/g, "");
+<div class="entry-content"><pre><code>String.prototype.trim = function(){
+    return this.replace(/(^\s*)|(\s*$)/g, "");
+}
 </code></pre>
 
-<p>}
-[/source]
-這個是用來增加 trim 這個 function 到 javascript 的 String object, jQuery 居然沒有 trim function。</p>
+<p>這個是用來增加 trim 這個 function 到 javascript 的 String object, jQuery 居然沒有 trim function。</p>
 
 <p>Update:
 找到了 XD jQuery 有 trim 啦~ 只是當初沒在 Visual jQuery 的 Events 看到 Orz, 原來是在 Javascript Section。
 下面這一頁的最下方:
 <a href='http://docs.jquery.com/JavaScript'>http://docs.jquery.com/JavaScript</a></p>
-
-<p>然後就可以這樣用了:
-[source:javascript]$.trim(&#8221;  hello, how are you?  &#8220;);[/source]</p>
 </div>
 
 

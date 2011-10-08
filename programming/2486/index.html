@@ -108,16 +108,15 @@ def deploy():
         sudo('service apache2 reload')
 </code></pre>
 
-
 <p>fabfile.py 大概像上面這樣, 接著就可以用下面指令來 deploy 到 dev 的環境:</p>
 
-<pre><code>fab dev deploy</code></pre>
-
+<pre><code>fab dev deploy
+</code></pre>
 
 <p>或者 deploy 到 production:</p>
 
-<pre><code>fab prod deploy</code></pre>
-
+<pre><code>fab prod deploy
+</code></pre>
 
 <p>真是超方便的 :p 不過當然這個 fabfile 簡化了許多實際上在 deploy 的手續, 不過應該可以描劃出基本 deploy 的方式, 以往用 capistrano 可以搭配 transaction 寫 rollback, 還有加上 deploy 版本的處理, 可以直接 rollback 版本, 不過後來超懶, 直接用 mercurial revert, 然後 pull -u, anyway, 有興趣的人在玩看看吧 :p</p>
 </div>

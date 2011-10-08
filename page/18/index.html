@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="現在在公司用 django 在開發, 在開發過程當中, 用了許多套件, 不過都是直接裝在系統上 ( 就是裝在 site-packages 裡 ), 而 project 本身是用 mercurial 來作版本控制, 所以其他開發人員在不同機器上要開發時, 在 clone 了 source cod...">
+  <meta name="description" content="參考這一篇文章 Django FastCGI init.d script for Gentoo Linux , 加上一點小修改, 然後將設定值搬到 conf.d 裡面。 用來跑 lighttpd + fastcgi + django。然後只要在 /var/django 裡面用 django-a...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/2439">Pip & Requirements File</a></h1>
+      <h1 class="entry-title"><a href="/programming/2387">Django Fastcgi init.d Script for Gentoo</a></h1>
     
     
       <p class="meta">
@@ -80,72 +80,76 @@
 
 
 
-<time datetime="2009-07-19T01:40:47+08:00" pubdate  data-updated="true" >Jul 19<span>th</span>, 2009</time>
+<time datetime="2009-03-17T08:08:53+08:00" pubdate  data-updated="true" >Mar 17<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>現在在公司用 <a href="http://www.djangoproject.com/">django</a> 在開發, 在開發過程當中, 用了許多套件, 不過都是直接裝在系統上 ( 就是裝在 site-packages 裡 ), 而 project 本身是用 mercurial 來作版本控制, 所以其他開發人員在不同機器上要開發時, 在 clone 了 source code 之後, 以為可以跑了, 但是在 runserver 時就會碰到缺了很多套件的狀況, 而套件的來源很多, 甚至有不同版本, 這一點就造成了很大的困擾。</p>
+  <div class="entry-content"><p>參考這一篇文章 <a href="http://code.djangoproject.com/wiki/InitdScriptForGentooLinux">Django FastCGI init.d script for Gentoo Linux </a>, 加上一點小修改, 然後將設定值搬到 conf.d 裡面。 用來跑 lighttpd + fastcgi + django。</p>
 
-<p>而上禮拜研究了一下 pip, 可以解決上面提到的問題, 來記錄一下。</p>
+<p>然後只要在 /var/django 裡面用 django-admin.py startproject mysite 來建立 project 之後, 到設定檔的 DJANGO_SITES 加入 project 即可。</p>
 
-<p>研究了 pip 之後, 覺得 pip 真的是超方便。 基本上寫個 Requirements Files, 在裡面列出需要的套件以及版本, 接著執行 一個指令, pip 就會把需要的套件通通裝好。 而套件來源包含原本就可透過 easy_install 來安裝的套件, 或者是網路上的檔案, 甚至 svn, hg 或 git 都行, 對於現在許多 django 套件都放在 github 跟 bitbucket 來說, 真的是很方便的一個功能。</p>
+<p>/etc/conf.d/django-fastcgi</p>
 
-<p>簡單來說明一下 pip 的 requirement file 怎麼寫, 詳細說明就看看 <a href="http://pip.openplans.org/">pip 的文件</a>囉。</p>
-
-<p>如果是透過 easy_install 就可以裝的套件, 只要寫套件名稱即可, 如:</p>
-
-<pre><code>BeautifulSoup</code></pre>
-
-
-<p>或是加上指定某個版本, 如:</p>
-
-<pre><code>BeautifulSoup==3.1.0.1</code></pre>
+<pre><code>DJANGO_SITES="mysite mysite2"
+SITES_PATH="/var/django"
+RUNFILES_PATH="$SITES_PATH/run"
+HOST="127.0.0.1"
+PORT_START=3000
+RUN_AS="www"</code></pre>
 
 
-<p>也可以直接裝 github 上的某個套件, 如:</p>
+<p>/etc/init.d/django-fastcgi</p>
 
-<pre><code>-e git://github.com/jtauber/django-mailer.git#egg=django-mailer</code></pre>
+<pre><code>#!/sbin/runscript
+# Copyright 1999-2009 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
 
+depend() {
+    need lighttpd
+}
 
-<p>甚至某個 changeset, 如:</p>
+start() {
+    ebegin "Starting django-fastcgi"
+    PORT=${PORT_START}
+    for SITE in ${DJANGO_SITES}
+    do
+        VERBOSE_NAME="${SITE} ${HOST}:${PORT}"
+        if [ -f ${RUNFILES_PATH}/${SITE}.pid ]; then
+            ewarn "${VERBOSE_NAME} already running (${RUNFILES_PATH}/${SITE}.pid)"
+        else
+            start-stop-daemon --start \
+                --chuid ${RUN_AS} --exec /usr/bin/env -- python \
+                ${SITES_PATH}/${SITE}/manage.py runfcgi \
+                method=threaded host=${HOST} port=${PORT} \
+                pidfile=${RUNFILES_PATH}/${SITE}.pid
+            chmod 400 ${RUNFILES_PATH}/${SITE}.pid
+            einfo "${VERBOSE_NAME} started"
+        fi
+        let "PORT = ${PORT} + 1"
+    done
+    eend $?
+}
 
-<pre><code>-e git://github.com/svetlyak40wt/django-tagging-ng.git@0289ad4d34[...]#egg=django-tagging-ng</code></pre>
+stop() {
+    ebegin "Stopping django-fastcgi"
+    for SITE in ${DJANGO_SITES}
+    do
+        VERBOSE_NAME=${SITE}
+        start-stop-daemon --stop \
+            --pidfile ${RUNFILES_PATH}/${SITE}.pid \
+            && einfo "${VERBOSE_NAME} stopped" \
+            || ewarn "${VERBOSE_NAME} not running"
+        if [ -f ${RUNFILES_PATH}/${SITE}.pid ]; then
+            rm ${RUNFILES_PATH}/${SITE}.pid
+        fi
+    done
+    eend $?
+}</code></pre>
 
-
-<p>當然也可以直接裝某個 tag</p>
-
-<pre><code>-e git://github.com/danielfm/django-flash.git@1.2#egg=django-flash</code></pre>
-
-
-<p>指定版本這個功能真的是滿重要的, 尤其是 github 或是 bitbucket 上的套件, 因為我在裝 django-flash 時, 發現最新的版本是有問題的 XD 或者可能新版本可能有某個功能被 deprecated。 所以指定套件版本可以避免因為套件更新, 或者不同版本間的差異, 而導致 project 無法執行的狀況。</p>
-
-<p>而 requirements file 大致上如下:</p>
-
-<pre><code>BeautifulSoup==3.1.0.1
-django-flashpolicies
-http://effbot.org/downloads/Imaging-1.1.6.tar.gz
-mysql-python
-python-memcached
--e svn+http://svn.navi.cx/misc/trunk/pycaptcha/#egg=pycaptcha
--e svn+http://code.djangoproject.com/svn/django/tags/releases/1.0.2#egg=django
--e git://github.com/danielfm/django-flash.git@1.2#egg=django-flash
-...
-</code></pre>
-
-
-<p>所以當有人要一起 cowork, 要 deploy 他們自己的開發環境, 他們只要執行</p>
-
-<pre><code>pip install -r requirements.txt</code></pre>
-
-
-<p>一個指令就可以把需要的套件給裝好了, 或者是要 deploy 新的 server 的時候, 也可以直接透過相同的方式來 deploy, 方便多了。 其實在 github 上看到某些套件, 也都提供了 requirements.txt 提供安裝所需要的 dependencies。</p>
-
-<p>當然, 千萬別忘記了, 要裝 github 上的東西, 你得先把 git 裝好, 要裝 svn 來源的套件, 也別忘了裝 svn 了 XD</p>
-
-<p>不過 pip 如果搭配 <a href="http://pypi.python.org/pypi/virtualenv">virtualenv</a> 才夠 high, 下一篇再來記錄 virtualenv。</p>
 </div>
   
   
@@ -158,7 +162,7 @@ python-memcached
       
   <header>
     
-      <h1 class="entry-title"><a href="/web/2436">Pingdom</a></h1>
+      <h1 class="entry-title"><a href="/programming/2382">Django 的 Deploy 工具: Fabric</a></h1>
     
     
       <p class="meta">
@@ -172,20 +176,30 @@ python-memcached
 
 
 
-<time datetime="2009-07-18T11:50:12+08:00" pubdate  data-updated="true" >Jul 18<span>th</span>, 2009</time>
+<time datetime="2009-03-12T16:28:20+08:00" pubdate  data-updated="true" >Mar 12<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><img src="http://tzangms.com/wp-content/uploads/2009/07/Untitled.jpg" alt="pingdom" title="pingdom" width="250" height="78" class="alignleft size-full wp-image-2438" /><a href="http://www.pingdom.com/">pingdom</a> 一個網站監測的服務, 有提供免費的帳號可以用, 可以監測一個網站, 然後提供了 20 則簡訊, 不過不知道免費帳號是不是每個月 20 則, 還是 20 則用完就沒了。 另外, 也有 email 通知的服務, 由於 mobileme 有提供 push, 所以其實沒簡訊也 ok。 在台灣也可以收到簡訊呦 XD</p>
+  <div class="entry-content"><p>昨天在 twitter 上問了:「django 有像 capistrano 這種工具嗎?」 後來就有人 <a href="http://twitter.com/howiworkdaily">howiworkdaily</a> 回我說:「try fabric for your capistrano needs http://www.nongnu.org/fab/」, 所以就發現了 <a href="http://www.nongnu.org/fab/">Fabric</a> 這個工具。</p>
 
-<p>之前在上一家公司, 是用 <a href="http://www.nagios.org/">nagios</a> 然後透過第三類(?)電信業者來發送簡訊通知網站管理者或值班人員, 不過其實現在似乎用 pingdom 就可以取代。</p>
+<p>接著我就順勢看了這位推友的 following, 沒想到 twitter 上還真多 django 的相關帳號。</p>
 
-<p>不像之前看過的一些服務, 只有基本的監測功能, pingdom 還可以設定要丟什麼 POST data 跟 header 預期會有什麼 response 的動作, 有自己架服務的朋友可以玩看看。 除了 web 之外, 也有 TCP Port, Ping, DNS, UDP, SMTP, POP3, IMAP 等類型可以測, 我覺得功能上還滿完整的。</p>
+<ul>
+    <li><strong></strong><strong><a id="djangocon_profile_link" class="url uid" title="Django Conference. Follow @robertlofthouse (DjangoCon/EuroDjangoCon Chairman). " rel="contact" href="http://twitter.com/djangocon">djangocon</a></strong></li>
+    <li><strong></strong><strong><a id="DjangoTracker_profile_link" class="url uid" title="Direct feed from the Django trunk." rel="contact" href="http://twitter.com/DjangoTracker">DjangoTracker</a></strong></li>
+    <li><strong><a id="djangolinks_profile_link" class="url uid" title="Interested in Django, find the latest links here. " rel="contact" href="http://twitter.com/djangolinks"><span class="nickname">djangolinks</span></a></strong></li>
+    <li><strong></strong><strong><a id="djangotips_profile_link" class="url uid" title="little bits of django goodness in 140 characters or less. and it's all powered by you, the django community. :)" rel="contact" href="http://twitter.com/djangotips">djangotips</a></strong></li>
+    <li><strong></strong><strong><a id="DailyDjango_profile_link" class="url uid" title="Another weekday, another bit of Django (and/or Python) from @trey. Feedback welcome." rel="contact" href="http://twitter.com/DailyDjango">DailyDjango</a></strong></li>
+    <li><strong></strong><strong><a id="geodjango_profile_link" class="url uid" title="World-Class Geographic Web Framework" rel="contact" href="http://twitter.com/geodjango">geodjango</a></strong></li>
+    <li><strong><a id="django_dev_profile_link" class="url uid" rel="contact" href="http://twitter.com/django_dev"><span class="nickname">django_dev</span></a></strong></li>
+    <li><strong><a id="djangodash_profile_link" class="url uid" title="A 2-day sprint to build the best Django app." rel="contact" href="http://twitter.com/djangodash"><span class="nickname">djangodash</span></a></strong></li>
+</ul>
 
-<p>目前先拿來 <a href="http://stickeraction.com">stickeraction</a> 來測看看, 只是自從把 apc 換成 xcache, lighttpd 也換成 nginx 之後, 就沒在當過了, 不知道測不測的出什麼東西。 anyway, 如果真的都沒發生事情至少還有圖表可以看檢測的狀況 XD</p>
+
+<p>hmm~ 看的懂中文的阿多仔也不少 (誤)</p>
 </div>
   
   
@@ -198,7 +212,7 @@ python-memcached
       
   <header>
     
-      <h1 class="entry-title"><a href="/iphone/2434">iPhone OS 3.0</a></h1>
+      <h1 class="entry-title"><a href="/music/2381">用 iPhone 樂器軟體來玩樂團</a></h1>
     
     
       <p class="meta">
@@ -212,18 +226,19 @@ python-memcached
 
 
 
-<time datetime="2009-06-21T23:39:32+08:00" pubdate  data-updated="true" >Jun 21<span>st</span>, 2009</time>
+<time datetime="2009-03-05T08:57:41+08:00" pubdate  data-updated="true" >Mar 5<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>6/18 一早醒來就把手上的 iPhone 2G 更新到 OS 3.0, 其實還滿怕升級後就沒辦法打電話的, 不過幸好一點事都沒有 (笑) 其實 OS 3.0 感覺沒啥太大差別的, 尤其是注音輸入真是他媽的爛!  所以強迫了自己學拼音輸入法, 不過好多推都打到一半就放棄了, 嗯, 還是 iAcces 好用。</p>
+  <div class="entry-content"><object width="480" height="295"><param name="movie" value="http://www.youtube.com/v/rjx5_-SPhk0&hl=zh_TW&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/rjx5_-SPhk0&hl=zh_TW&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="295"></embed></object>
 
-<p>撇開注音輸入法不談 (因為真是爛透了阿!!), 至少還有 copy &amp; paste 算是個明顯、好用的功能, 只是似乎也用不太上。 Anyway, 至少還有 Find my iPhone, 這個真的很不錯, 至少當手機不見時, 可以透過 MobileMe 遠端清除 iPhone 的資料。</p>
 
-<p>最後就是感覺 iPhone 變慢了 &#8230;</p>
+<p>現在在 app store 上, iPhone 樂器越來越多, 不過能夠玩成這樣也真的是滿厲害的 XD 其實他們是一個搖滾樂團, 叫 <a href="http://www.thementalists.co.uk/">The Mentalist!</a>, 只是他們的歌我聽不太習慣 XD</p>
+
+<p>anyway, 他們使用到的樂器有 <a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=293053479&mt=8">Ocarina</a>, <a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=297498715&mt=8">Retro Synth</a>, <a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=292140261&mt=8">miniSynth</a> 跟 <a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=295500313&mt=8">DigiDrummer Lite</a> 有興趣可以看看 :p</p>
 </div>
   
   
@@ -236,7 +251,7 @@ python-memcached
       
   <header>
     
-      <h1 class="entry-title"><a href="/demo/2427">我自己</a></h1>
+      <h1 class="entry-title"><a href="/life/2380">第二份工作即將開始</a></h1>
     
     
       <p class="meta">
@@ -250,14 +265,14 @@ python-memcached
 
 
 
-<time datetime="2009-06-14T22:59:53+08:00" pubdate  data-updated="true" >Jun 14<span>th</span>, 2009</time>
+<time datetime="2009-03-01T23:40:48+08:00" pubdate  data-updated="true" >Mar 1<span>st</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>對生活感到無奈的無病聲吟, 還有&#8230; 太多人喜歡說教, 去你媽的!</p>
+  <div class="entry-content"><p>明天, 3/2 是新工作的開始, 其他想說的就省略了&#8230;</p>
 </div>
   
   
@@ -270,7 +285,7 @@ python-memcached
       
   <header>
     
-      <h1 class="entry-title"><a href="/demo/2425">Slow Ride</a></h1>
+      <h1 class="entry-title"><a href="/music/2379">Fender Jaguar Bridge &#8230;</a></h1>
     
     
       <p class="meta">
@@ -284,14 +299,22 @@ python-memcached
 
 
 
-<time datetime="2009-06-14T22:36:09+08:00" pubdate  data-updated="true" >Jun 14<span>th</span>, 2009</time>
+<time datetime="2009-02-28T00:35:12+08:00" pubdate  data-updated="true" >Feb 28<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>一首有緩飆 fu 的歌</p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/497956438/" title="Fender Jaguar by tzangms, on Flickr"><img src="http://farm1.static.flickr.com/189/497956438_3bc39d7067.jpg" width="500" height="375" alt="Fender Jaguar" class="aligncenter" /></a></p>
+
+<p>其實我會買 Fender jaguar 單純只是外型 XD 一直到了今天把我的 jaguar 拿出來想要換成 010 的弦, 也順便調一下 bridge。 可是 bridge 調來調去, buzz 聲卻完全沒有改善 Orz 在放棄的同時, 居然發現第一弦的 saddle 居然掉了一隻腳 ~&#8221;~</p>
+
+<p>所以我就開始 google 一些資料, 想說有沒有改 bridge 的相關文章, 買 saddle 零件, 不如直接換 bridge 之類的, 不然 Jaguar 的 saddle 真的是為人所詬病, buzz 聲!! 還有弦也容易移位, 最後就是 saddle 腳會鬆掉, 然後就不見了!!! 就像我這把一樣&#8230; Orz</p>
+
+<p>後來找到這個站 <a href="http://www.jag-stang.com/JaguarHtml/modsIndex.php">Jaguar Modification &#8211; Jag-Stang.com</a>, 當中提到了很多關於 Jaguar 的 setup 、電路配置, 還有更換 pickup 等等資訊。 我想換 pickup, 只是多年沒用焊槍了 XD Anyway, 重點是! 在<a href="http://www.jag-stang.com/JaguarHtml/bridgeMod.php">這一篇文章</a>中提到, 可以直接換 Fender Mustang 的 Bridge ( 應該說是 saddle ) 阿!!!! 換用 Mustang 的 saddle 就可以解決上面提到 Jaguar 的問題, 而且! 是最快速、經濟的方法, 因為 bridge 是一樣的阿!</p>
+
+<p>不過後來又看到<a href="http://www.jag-stang.com/tomMod.php">把 bridge 換成 Tune-O-Matic 的文章</a> , 這篇文章中有提到 Kurt Cobain was a huge fan of the Tune-o-matic. XD 所以我又開始想把 bridge 換成 Tune-O-Matic, 只是看一看之後, 好像還是換 Mustang 的 saddle 快多了 XD 最後, 我開始在 <a href="http://www.guitarpartsresource.com/">Guitar Parts Resouce</a> 找零件, 當中有直接賣 Mustang saddle 害我就想直接買下去, 另外還有給 Jaguar 用的 Buzz Stop, 真的是太酷了阿!!  只是, 還是先等工作後在買好了 &#8230; Orz</p>
 </div>
   
   
@@ -304,7 +327,7 @@ python-memcached
       
   <header>
     
-      <h1 class="entry-title"><a href="/demo/2424">Is Sugizo Out There?</a></h1>
+      <h1 class="entry-title"><a href="/programming/2378">從 PHP 5.2 到 PHP 5.3 須注意的一些事項</a></h1>
     
     
       <p class="meta">
@@ -318,14 +341,31 @@ python-memcached
 
 
 
-<time datetime="2009-06-14T22:18:49+08:00" pubdate  data-updated="true" >Jun 14<span>th</span>, 2009</time>
+<time datetime="2009-02-27T12:16:29+08:00" pubdate  data-updated="true" >Feb 27<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>一首電子樂, 加上交響樂以及 sugizo 的經典樂句, 用以向 sugizo 致敬。</p>
+  <div class="entry-content"><p>看了這一篇文章 <a href="http://www.ibm.com/developerworks/opensource/library/os-php-5.3new5/index.html?ca=dgr-lnxw64Migrate2PHP5.3&S_TACT=105AGY46&S_CMP=grsitejw64">What&#8217;s new in PHP V5.3, Part 5: Upgrading from PHP V5.2</a>, 大概列出來下面這幾項:</p>
+
+<ul>
+    <li>function name 不能用 namespace (保留字)</li>
+    <li>class name 不能用 Closure (保留字)</li>
+    <li>加了 goto</li>
+    <li>處理 array 相關的函式不能直接丟 object 進去了, 得先轉型成 array</li>
+    <li>magic method ( __get, __set 等函式 ) 的 visibility 得為 public</li>
+    <li>FileInfo, intl, Phar, mysqlnd, SQLite3 extensions 納入 PHP Core</li>
+    <li>ncurse, fpdf, dbase, fbsql, ming extensions 從 PHP Core 移出</li>
+    <li>PCRE, Reflection, SPL 無法 disable</li>
+    <li>可以在 ini 檔案裡使用變數</li>
+    <li>增加了可以針對網站或目錄的 ini 設定</li>
+    <li>然後有一些東西 disabled 了, 像是 ereg, Ticks .. 等</li>
+</ul>
+
+
+<p>原文有提供範例, 詳細多了。 話說終於要支援 SQLite3 了阿~</p>
 </div>
   
   
@@ -338,7 +378,7 @@ python-memcached
       
   <header>
     
-      <h1 class="entry-title"><a href="/web/2413">Readernaut</a></h1>
+      <h1 class="entry-title"><a href="/web/2376">geekbrief.tv</a></h1>
     
     
       <p class="meta">
@@ -352,16 +392,18 @@ python-memcached
 
 
 
-<time datetime="2009-06-13T23:58:39+08:00" pubdate  data-updated="true" >Jun 13<span>th</span>, 2009</time>
+<time datetime="2009-02-26T21:10:17+08:00" pubdate  data-updated="true" >Feb 26<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>今天看到 <a href="http://readernaut.com">Readernaut</a> 感覺不錯, 原來現在看書都可以用上 follow 這個詞了, 不過我不知道會用多久。 其實我沒用過其他類似的服務, 不知道其他類似服務功能如何。因為以前不喜歡讀書 (笑)</p>
+  <div class="entry-content"><p>最近裝了 <a href="http://www.getmiro.com/">Miro</a> 然後找了幾個節目來看, 其中 <a href="http://www.geekbrief.tv/">geekbrief.tv</a> 這個節目我還滿喜歡的, 除了是 HD 的畫質之外, 主持人 <a href="http://twitter.com/calilewis">cali lewis</a> 也算頗正 XD 而最近還有一集在介紹 <a href="http://www.tweetdeck.com">tweetdeck</a>, 功能介紹的還真的是很仔細。</p>
 
-<p>Anyway, <a href="http://readernaut.com">Readernaut</a> 可以直接搜尋書名. 然後加到自己的書架, 馬上就有書的封面, 書的頁數等其他資訊, 然後每本書可以有自己的讀書進度, 還有提供按鈕可以把進度直接送到 twitter :D 另外可以對頁數做 notes, 看別人的 review, 或者是 follow 加朋友。 主要是界面整個很不賴內。 希望能夠有點作用 XD 因為上次書買回來&#8230; 就沒有再看了 (笑)</p>
+<p>另外就是可以練練聽力, 主持人 cali lewis 講的還真的是飛快, 不過不是英國腔我就還可以接受。</p>
+
+<p>話說台灣的你推我報也停播了, 先前看電視台還看到你推我報的主持人 - 果凍, 在幼幼台出現說 XD</p>
 </div>
   
   
@@ -374,7 +416,7 @@ python-memcached
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2412">Webfaction</a></h1>
+      <h1 class="entry-title"><a href="/programming/2375">URI Class</a></h1>
     
     
       <p class="meta">
@@ -388,69 +430,37 @@ python-memcached
 
 
 
-<time datetime="2009-06-13T19:31:37+08:00" pubdate  data-updated="true" >Jun 13<span>th</span>, 2009</time>
+<time datetime="2009-02-26T00:29:39+08:00" pubdate  data-updated="true" >Feb 26<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>幾個月前把 blog 跟 <a href="http://twitthat.com">twitthat</a> 搬到 <a href="http://mediatemple.net/">media temple</a> 去, 因為越來越懶得管 server, 可是跑了一陣子之後, 發現 media temple 的 mysql 離線的次數離譜的高, 一天至少會收到 10 封 DB 連不到的信。 當然這一切也有可能是因為我比較衰的緣故。只是, 一個月 20 塊美金的價格, 怎麼感覺像是在用 godaddy 或是 bluehost ( 當然我說得比較離譜 XD )。 只是&#8230;這種服務價格比未免也差距太大。 而且還要開 grid container 才能用 django 或是 rails。</p>
+  <div class="entry-content"><p>在 CodeIgniter 跟 Kohana 這兩個 framework, 在網址傳遞變數時, 都不是透過 query string 來傳遞變數, 而是用所謂比較漂亮網址來取得變數, 例如:</p>
 
-<p>後來我在 <a href="http://www.djangoproject.com/community/">django community</a> 看到 <a href="http://djangofriendly.com/hosts/">Django friendly</a> 這個站, 上面列出一些用 django 的網友選出的 hosting, 第一名是 <a href="http://www.webfaction.com/?affiliate=tzangms">webfaction</a>, 再來是 <a href="http://slicehost.com">slicehost</a> 跟 <a href="http://linode.com">linode</a>, 而 webfaction 的分數贏很多阿~ 所以探查了一下之後, 就買了一年的 webfaction 的 shared hosting, 一個月才 $8.5 塊, 還算便宜。</p>
+<p>以往 PHP 在傳遞變數的方式為:</p>
 
-<p><a href="http://www.webfaction.com/?affiliate=tzangms">webfaction</a> 的 shared hosting 除了可以 ssh, 也可以自己從 source compile 裝 git, mercurial 在自己的 home, 我還是第一次看到這種 shared hosting, 覺得他的價格未免也太划算了, 而且還可以跑 django, rails 勒。另外也有 TurboGear 跟 CherryPy 可以選擇呦!</p>
+<pre><code>http://tzangms.com/user.php?name=tzangms</code></pre>
 
-<p>目前用了兩個多月, 感覺都還不錯, 目前唯一一個缺點就是 PHP 沒辦法直接用 mail function 寄信, 除此之外, 我覺得 <a href="http://www.webfaction.com/?affiliate=tzangms">webfaction</a> 的 C/P 值真是太高了阿!!! 最後, 如果有要買 <a href="http://www.webfaction.com/?affiliate=tzangms">webfaction</a> 的朋友們, referer 不知道填誰的話, 可以填我的帳號喔 XD</p>
 
-<p>( 其實我在上面的 webfaction 的連結都做了手腳 LOL )</p>
+<p>而 CodeIgniter 的方式則是像這樣</p>
+
+<pre><code>http://tzangms.com/user/tzangms</code></pre>
+
+
+<p>使用 framework 的網址漂亮許多, 看起來也比較直覺, 如果有使用 CI 的人就會知道, 這類的網址是透過下面這個方式來取得變數:</p>
+
+<pre><code>$this->uri->segment(2); // 取得 'tzangms'</code></pre>
+
+
+<p>所以我實作了一個 URI class, 透過取得 PATH_INFO 之後, 將其分段後取得需要的變數:</p>
+
 </div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/2410">WE&#8217;RE HUGE on TWITTER</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-06-11T21:27:53+08:00" pubdate  data-updated="true" >Jun 11<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p style="text-align: center;"><a title="4533_103869102213_725367213_2841385_269543_n by tzangms, on Flickr" href="http://www.flickr.com/photos/tzangms/3615723444/"><img class="aligncenter" src="http://farm3.static.flickr.com/2460/3615723444_6e4417c452.jpg" alt="4533_103869102213_725367213_2841385_269543_n" width="500" height="375" /></a></p>
-
-
-<p style="text-align: left;">這是敝公司的推特小隊 XD 不過在這裡要先澄清一下, 雖然是在敝公司頂樓拍的, 小隊成員也都是公司同事, 但是這並不表示我們是利用上班時間到頂樓拍照, 請各位放心。</p>
-
-
-<p style="text-align: left;">另外請跟我們一起擺 POSE, 一起推特吧 !!! 推特小隊衝阿!</p>
-
-
-<p style="text-align: left;"></div>
   
   
     <footer>
-      <a rel="full-article" href="/life/2410">Read on &rarr;</a>
+      <a rel="full-article" href="/programming/2375">Read on &rarr;</a>
     </footer>
   
 
@@ -462,7 +472,7 @@ python-memcached
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/2409">I&#8217;M HUGE on TWITTER</a></h1>
+      <h1 class="entry-title"><a href="/programming/2373">好站 Command-Line Fu</a></h1>
     
     
       <p class="meta">
@@ -476,18 +486,71 @@ python-memcached
 
 
 
-<time datetime="2009-06-07T00:19:53+08:00" pubdate  data-updated="true" >Jun 7<span>th</span>, 2009</time>
+<time datetime="2009-02-25T00:50:00+08:00" pubdate  data-updated="true" >Feb 25<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p style="text-align: center;"><a title="I'M HUGE ON TWITTER by tzangms, on Flickr" href="http://www.flickr.com/photos/tzangms/3599288165/"><img class="aligncenter" src="http://farm3.static.flickr.com/2483/3599288165_b7e9706316.jpg" alt="I'M HUGE ON TWITTER" width="375" height="500" /></a></p>
+  <div class="entry-content"><p><a href="http://www.commandlinefu.com">Command-Line Fu</a> 是個學習 Linux 指令的好地方阿!</p>
+
+<p>光是 Popular 那一塊, 就讓我太驚訝了阿! 像是</p>
+
+<ol>
+<li><code>$ sudo !! </code> - 用 sudo 重新執行上一個指令。</li>
+</ol>
 
 
-<p style="text-align: center;">not really XD</p>
+<p>如果跟我一樣, 常常忘記打 sudo, 那麼這個指令一定要記起來阿!!</p>
 
+<ol>
+<li><code>$ ^foo<sup>bar</code></sup> - 重新執行上一個指令, 不過會先置換掉文字, 再開始執行。</li>
+</ol>
+
+
+<p>Command-Line Fu Rocks!!!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/2368">Twitthat on Mashable and TechCrunch</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-02-23T00:10:41+08:00" pubdate  data-updated="true" >Feb 23<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>沒想到 <a href="http://twitthat.com">twitthat</a> 也可以出現在 <a href="http://mashable.com">Mashable</a> 跟 <a href="http://techcrunch.com">TechCrunch</a> 的文章內, 雖然只是出現在眾多 link 中的其中一個, 不過還是寫一篇紀念、虛榮一下 XD</p>
+
+<p><a href="http://www.techcrunch.com/2009/02/19/the-top-21-twitter-clients-according-to-twitstat/">The Top 21 Twitter Clients (According To TwitStat)</a></p>
+
+<p><a href="http://tzangms.com/web/2368/attachment/techcrunch_twitthat" rel="attachment wp-att-2369"><img src="http://tzangms.com/wp-content/uploads/2009/02/techcrunch_twitthat-200x300.jpg" alt="techcrunch_twitthat" title="techcrunch_twitthat" width="200" height="300" class="aligncenter size-medium wp-image-2369" /></a></p>
+
+<p><a href="http://mashable.com/2009/01/29/twitter-tools-for-firefox">20+ Great Twitter Tools for Firefox</a>
+<a href="http://tzangms.com/web/2368/attachment/mashable_twitthat" rel="attachment wp-att-2370"><img src="http://tzangms.com/wp-content/uploads/2009/02/mashable_twitthat-113x300.jpg" alt="mashable_twitthat" title="mashable_twitthat" width="113" height="300" class="aligncenter size-medium wp-image-2370" /></a></p>
 </div>
   
   

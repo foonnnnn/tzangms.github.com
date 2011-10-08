@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="[source:javascript]String.prototype.validate = function(type){var pattern = new Array();pattern['email'] = /^\w[\w-\.]+@\w+(\.\w+)+$/;pattern['url'...">
+  <meta name="description" content="String.prototype.validate = function(type){    var pattern = new Array();    pattern['email'] = /^\w[\w-\.]+@\w+(\.\w+)+$/;    pattern['url'] = /^h...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -84,36 +84,28 @@
   </header>
 
 
-<div class="entry-content"><p>[source:javascript]
-String.prototype.validate = function(type){</p>
+<div class="entry-content"><pre><code>String.prototype.validate = function(type){
+    var pattern = new Array();
 
-<pre><code>var pattern = new Array();
+    pattern['email'] = /^\w[\w-\.]+@\w+(\.\w+)+$/;
+    pattern['url'] = /^http:\/\/\w+\.\w+\/?.*$/;
+    pattern['password'] = /^[\w\.]+$/;
+    pattern['id'] = /^[a-zA-Z][0-9]{9}$/;
 
-pattern['email'] = /^\w[\w-\.]+@\w+(\.\w+)+$/;
-pattern['url'] = /^http:\/\/\w+\.\w+\/?.*$/;
-pattern['password'] = /^[\w\.]+$/;
-pattern['id'] = /^[a-zA-Z][0-9]{9}$/;
-
-return this.match(pattern[type]);
+    return this.match(pattern[type]);
+}
 </code></pre>
-
-<p>}
-[/source]</p>
 
 <p>昨天寫的一個用來檢查輸入的函式, 直接掛在 String Object 下面, 這樣就可以直接這樣使用:
 如, 檢查 email 是否正確</p>
 
-<blockquote>
-&#8220;foo@bar.com&#8221;.validate(&#8216;email&#8217;);
-</blockquote>
-
+<pre><code>"foo@bar.com".validate('email');
+</code></pre>
 
 <p>或是網址是否正確</p>
 
-<blockquote>
-&#8220;http://tzangms.com&#8221;.validate(&#8216;url&#8217;);
-</blockquote>
-
+<pre><code>"http://tzangms.com".validate('url');
+</code></pre>
 
 <p>如果回傳值為 null 那就是錯誤啦! 不過 regular expression 的 pattern 還需要改進就是了~</p>
 </div>

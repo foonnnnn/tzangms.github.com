@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="今天在作處理、轉換 csv 的東西, 碰到一個 UTF-8 的 csv 檔, 結果轉換出來的檔案因為 BOM 掛點。下面這一段可以用來將 BOM 去掉。[source:php]function remove_bom($str){if(substr($str, 0,3) == pack("CCC...">
+  <meta name="description" content="今天在作處理、轉換 csv 的東西, 碰到一個 UTF-8 的 csv 檔, 結果轉換出來的檔案因為 BOM 掛點。下面這一段可以用來將 BOM 去掉。function remove_bom($str){    if(substr($str, 0,3) == pack("CCC",0xef,0...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -86,17 +86,13 @@
 
 <div class="entry-content"><p>今天在作處理、轉換 csv 的東西, 碰到一個 UTF-8 的 csv 檔, 結果轉換出來的檔案因為 BOM 掛點。下面這一段可以用來將 BOM 去掉。</p>
 
-<p>[source:php]
-function remove_bom($str){</p>
-
-<pre><code>if(substr($str, 0,3) == pack("CCC",0xef,0xbb,0xbf)) {
-    $str = substr($str, 3);
+<pre><code>function remove_bom($str){
+    if(substr($str, 0,3) == pack("CCC",0xef,0xbb,0xbf)) {
+        $str = substr($str, 3);
+    }
+    return $str;
 }
-return $str;
 </code></pre>
-
-<p>}
-[/source]</p>
 </div>
 
 

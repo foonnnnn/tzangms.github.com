@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="這篇文章是我在 VPS 上裝 Gentoo 的記錄, 方便以後要裝 VPS 的時候可以參考1. 安裝 vim首先在 gentoo 剛裝好之後, 第一件事情就是裝 vim, 不然會很痛苦emerge vim 2. 設定 CFLAGScat /proc/cpuinfo 看看主機用的 CPU 是哪顆...">
+  <meta name="description" content="最近碰到要處理經過 UCS-2 編碼過的字串, 幸好不會太困難 汗。 不過我對 unicode 相關的東西, 只是一知半解, 下面純為紀錄, 有問題煩請糾正 :p這個 UCS-2 編碼字串看起來像是這個樣子4F60597D002C901988E1662F6E2C8A66其實是指你好,這裡是測試...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/linux/2295">Gentoo on VPS</a></h1>
+      <h1 class="entry-title"><a href="/programming/1921">UCS-2 字碼轉 UTF-8</a></h1>
     
     
       <p class="meta">
@@ -80,59 +80,34 @@
 
 
 
-<time datetime="2009-01-02T00:39:12+08:00" pubdate  data-updated="true" >Jan 2<span>nd</span>, 2009</time>
+<time datetime="2008-10-25T13:22:08+08:00" pubdate  data-updated="true" >Oct 25<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>這篇文章是我在 VPS 上裝 Gentoo 的記錄, 方便以後要裝 VPS 的時候可以參考</p>
+  <div class="entry-content"><p>最近碰到要處理經過 UCS-2 編碼過的字串, 幸好不會太困難 <em>汗</em>。 不過我對 unicode 相關的東西, 只是一知半解, 下面純為紀錄, 有問題煩請糾正 :p</p>
 
-<h3>1. 安裝 vim</h3>
+<p>這個 UCS-2 編碼字串看起來像是這個樣子
+<code>4F60597D002C901988E1662F6E2C8A66</code></p>
 
+<p>其實是指</p>
 
-<p>首先在 gentoo 剛裝好之後, 第一件事情就是裝 vim, 不然會很痛苦</p>
-
-<pre><code>emerge vim</code></pre>
-
-
-<p> </p>
-
-<h3>2. 設定 CFLAGS</h3>
+<blockquote>你好,這裡是測試</blockquote>
 
 
-<p><code>cat /proc/cpuinfo</code> 看看主機用的 CPU 是哪顆, 然後根據 CPU 的 model name 來設定 CFLAGS, 可以看看 <a href="http://en.gentoo-wiki.com/wiki/CFLAGS" target="_blank">CFLAGS - Gentoo Linux Wiki</a> 及 <a href="http://en.gentoo-wiki.com/Safe_Cflags" target="_blank">Safe CFLAGS - Gentoo Linux Wiki</a>。</p>
+<p>而在 UCS-2 中, 一個字固定是由 4 個 Bytes 所組成, 所以我們可以將這個 UCS-2 字串拆成像下面這樣, 看起來會比較清楚。</p>
 
-<p>例如我在 slicehost 買的 256slice 的 cpu model name 是 Dual-Core AMD Opteron(tm) Processor 2212 HE, 所以我設定的 CFLAGS 如下。</p>
+<p><code>4F60 597D 002C 9019 88E1 662F 6E2C 8A66</code></p>
 
-<pre><code>CFLAGS="-march=opteron -O2 -pipe"</code></pre>
+<p>可以到 <a href="http://www.unicode.org/charts/unihan.html">Unihan Database</a> 輸入4F60 看看, 就會得到「你」這個字, 跟其他相關資料。</p>
 
-
-<p>而 Linode 的 CFLAGS 如下:</p>
-
-<pre><code>CFLAGS="-march=prescott -O2 -pipe"</code></pre>
-
-
-<p>話說根據這篇 <a href="http://bugs.gentoo.org/103806" target="_blank">gentoo bug report</a> 提到, 在 GCC 3.4 以後的 XEN VPS 似乎可以加上下面這個 CFLAG, 只是我在 <a href="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Optimize-Options.html#Optimize-Options" target="_blank">GCC 4.1.2 的 Options That Control Optimization</a> 這份文件當中, 沒有找到這個 CFLAG 還有其相關說明。</p>
-
-<pre><code>-mno-tls-direct-seg-ref</code></pre>
-
-
-<h3>3. 設定 MAKEOPTS</h3>
-
-
-<p>從 cpuinfo 也可以得知有 4 顆 CPU, 所以依據 gentoo 文件上所寫的 MAKEOPTS 等於 n + 1, 可以將 MAKEOPTS 設為 5, 讓編譯的動作可以同時進行多個來加快速度。</p>
-
-<pre><code>MAKEOPTS="-j5</code>&#8221;</pre>
-
-
-<p>不過, 當線上有服務在跑, 而且記憶體太小時, 得衡量一下這個數字。
-  </div>
+</div>
   
   
     <footer>
-      <a rel="full-article" href="/linux/2295">Read on &rarr;</a>
+      <a rel="full-article" href="/programming/1921">Read on &rarr;</a>
     </footer>
   
 
@@ -144,7 +119,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/linux/2294">新買了一台 Linode</a></h1>
+      <h1 class="entry-title"><a href="/programming/1918">[轉載] 程式設計師的格言</a></h1>
     
     
       <p class="meta">
@@ -158,116 +133,30 @@
 
 
 
-<time datetime="2009-01-02T00:37:53+08:00" pubdate  data-updated="true" >Jan 2<span>nd</span>, 2009</time>
+<time datetime="2008-10-24T20:25:04+08:00" pubdate  data-updated="true" >Oct 24<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>目前我手上總共有 4 台 VPS, 為 2 台 256MB 的 <a href="http://slicehost.com/" target="_blank">slicehost</a>, 一台 512MB 的 <a href="http://thenynoc.com/" target="_blank">NY NOC</a> 然後還有昨天新買的 540MB 的 <a href="http://linode.com/" target="_blank">Linode</a>, 新買的 Linode 想拿來取代 slicehost 那兩台, 因為現在沒工作, 所以要省一點。</p>
+  <div class="entry-content"><p>這一篇應該是我第一次轉載別人家過來的文章吧, 應該很多人都看過了, 我相信身為 Programmer 的朋友, 看到這一篇應該都心有戚戚焉吧? XDDDD</p>
 
-<p>540MB 的 Linode 要價 $29.95, 而兩台 256MB 的 slicehost, 要價 $40, 本來是想買 720MB 的 Linode, 不過想說這樣就沒省到錢了, 只好買 540MB 的 Linode, 反正之後可以直接加 RAM。</p>
+<p>anyway, 心情不好時, 就可以看看這一篇, 應該就可以<del>認命</del>釋懷了吧!!?</p>
 
-<p>而 NY NOC 那一台目前只有跑我的 blog, 跟一些實驗性的東西。 不過 NY NOC 真的是很便宜, 只是 ping time 不好, performance 也不太好, 不敢把 <a href="http://stickeraction.com/" target="_blank">stickeraction</a> 或是 <a href="http://twitthat.com/" target="_blank">twitthat</a> 搬過去, 不過那麼便宜的 VPS 就不要強求了 :p</p>
+<p>本篇文章出處來源為:</p>
 
-<p>剛才 ping 了一下, 這三家的 ping time 如下, Linode 選 Fremont, CA 還滿快的:</p>
-
-<p>Linode: 16x ms
-Slicehost: 19x ms
-NY NOC: 37x ms</p>
-
-<p>而在 <a href="http://gentoo.org/" target="_blank">Gentoo</a> 的支援上, Slicehost 倒是比 Linode 好多了, Linode 到現在還是只有 Gentoo 2007.0 的 image, 害我今天在升級 packages 的時候碰到好幾個 package block, 跟 collision.</p>
-
-<p>update: 阿駕說他那邊 ping NY NOC 都 15x, 我這邊是 hinet …. Orz</p>
-</div>
-  
-  
+<blockquote>程式設計師的格言 &laquo; but, or bug
+<a href="http://buttaiwan.wordpress.com/2008/10/12/programmers_rule/">http://buttaiwan.wordpress.com/2008/10/12/programmers_rule/</a></blockquote>
 
 
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/2292">河岸留言初體驗</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-12-30T00:34:56+08:00" pubdate  data-updated="true" >Dec 30<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p> </p>
-
-<p>[caption id=&#8221;attachment_2293&#8221; align=&#8221;aligncenter&#8221; width=&#8221;528&#8221; caption=&#8221;koumis 在河岸留言&#8221;]<img class="size-full wp-image-2293" title="koumis1" src="http://tzangms.com/wp-content/uploads/2009/01/koumis1.jpg" alt="koumis 在河岸留言" width="528" height="528" />[/caption]</p>
-
-<p>上週末 12/25 <a href="http://www.koumis.cc/" target="_blank">koumis</a> 在河岸留言表演, 找了我去擔任 special guest, 真的是很感謝他們給了我一個這樣的機會, 讓我有機會可以在河岸留言演出。
-可能樂團玩久了, 對一個人表演感到有點恐懼, 似乎音樂永遠是空洞的感覺, 當然隨意的場合我就不那麼擔心, 只是這次可是在河岸留言阿! 而且幾乎都是不認識的人 Orz 不過為了這幾次表演, 我在上次的 SimpleLife 結束後我就跑去買了一把 Taylor 花了近三萬, 沒工作還做的出這種事… anyway, 想說以後要拿木吉他唱的話, 還是得要一把稍微好一點的吉他, 反正舊的那把吉他也爛掉了。</p>
-
-<p>而這次主要是用上了買來卻沒用過幾次的 loop station: <a href="http://tzangms.com/music/846" target="_blank">BOSS RC-20XL</a>, 哈, 所以更加緊張了。 不過實際用 loop station 表演的結果, 其實還不錯, 出去外場的聲音比想像中的好, 而不像在家裡用音箱出來的聲音 XD 所以之後類似的表演環境, 另外再加上麥克風收鈴鼓應該也有很不錯的效果, 就待下次有機會試試看了。</p>
-
-<p>但是我得先克服的是一個人表演時, 那令人緊張的安靜。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/2290">Punch Party 9</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-12-29T00:30:39+08:00" pubdate  data-updated="true" >Dec 29<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p> [caption id=&#8221;attachment_2291&#8221; align=&#8221;aligncenter&#8221; width=&#8221;580&#8221; caption=&#8221;Punch Party me and Kej by KirinLin&#8221;]<img class="size-full wp-image-2291" title="punchparty9-tzangms-and-kej" src="http://tzangms.com/wp-content/uploads/2009/01/punchparty9-tzangms-and-kej.jpg" alt="Punch Party me and Kej by KirinLin" width="580" height="368" />[/caption]</p>
-
-<p>這次的 <a href="http://blog.punchparty.org/" target="_blank">Punch Party</a> 讚不讚, 讚!
-這次的 <a href="http://blog.punchparty.org/" target="_blank">Punch Party</a> 9 真的是太 high 了, 而且還辦在 the wall! 我覺得真的是名符其實的 Party 阿! 而這也是我第一次去 the wall XD 這一次的 sessions 我覺得都還不錯。 除了女王, 還有部落客旅行團的部份感覺是在宣傳之外 XD 其他的 7 分鐘快講, 我都覺得很有趣 :D 尤其是蛙大的 session, 我覺得很棒! 不過參加過幾次 Punch Party, 相較之下… 快講都顯得比大講有趣的多。 也許因為快講的緊湊, 比較能讓聽眾的注意, 專心聽講 (?)</p>
-
-<p>然而這次的 Punch Party 真的是多了非常多不認識的人, 真的是辦得越來越大了 :D 也幸好這次是辦在 the wall, 才有夠大的場地可以容納這麼多人。 另外這次的食物真的是很豐富阿!!! 絕對是可以吃到飽的那種, 一整個就是 Party 的 fu。 而且場地夠大, 氣氛也很適合聊天, 所以… 似乎滿多人在交誼的, but it’s party ! 雖然當中有因為還在大講中, 所以工頭有跑去後方, 提示一下太過喧譁的朋友 XD</p>
+<p><strong>直接連過去出處來源看比較好!!  出處排版好看很多阿!!! (茶)</strong></p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/web/2290">Read on &rarr;</a>
+      <a rel="full-article" href="/programming/1918">Read on &rarr;</a>
     </footer>
   
 
@@ -279,7 +168,7 @@ NY NOC: 37x ms</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/2289">我今天就要知道龜趣來嘻台灣台的開砲情形，今天!</a></h1>
+      <h1 class="entry-title"><a href="/linux/1923">Gamin Circular Dependency With &#8216;Fam&#8217; USE Flag</a></h1>
     
     
       <p class="meta">
@@ -293,17 +182,64 @@ NY NOC: 37x ms</p>
 
 
 
-<time datetime="2008-12-27T00:29:08+08:00" pubdate  data-updated="true" >Dec 27<span>th</span>, 2008</time>
+<time datetime="2008-10-24T17:23:16+08:00" pubdate  data-updated="true" >Oct 24<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>現在是凌晨, 昨天 <a href="http://www.bigsound.org/portnoy/" target="_blank">Portnoy</a> 的部落格上出現了這一篇: <a href="http://www.bigsound.org/portnoy/weblog/004711.html" target="_blank">我今天就要知道野草莓台北場的收支情形，今天。</a> 不過現在已經 1:15 了, Portnoy 剛才還在<a href="http://www.bigsound.org/portnoy/weblog/004712.html" target="_blank">悼念飯島愛</a>。 hmm…</p>
+  <div class="entry-content"><p>在 <a href="http://www.gentoo.org/">gentoo linux</a> 上應該是很少有機會會碰到 circular dependency, 如果真的碰到了, 就是過一陣子 <code>emerge --sync</code> 看看, 或是去作 bug report。 這次是為了要將 <a href="http://www.lighttpd.net/">lighttpd</a> 的 stat-cache-engine 設定為 fam, 而第一次碰到 portage 的 circular dependency。</p>
 
-<h2>如果在我睡覺之前我看不到龜趣來嘻台灣台的開砲情形，我就要推我媽 <a href="http://annpo.pixnet.net/blog" target="_blank">阿潑</a> 出來開砲!!</h2>
+<p>嗯, 這個問題是發生在 gamin 跟 glib 這兩個套件, 其實之前一直放著不管, 就把時間拿去弄唱片了, 可是過了好久, 這個問題還沒解決, 一直到今天才又換了方法試一下, 沒想到就成功了!! :D</p>
 
+<ol>
+<li>首先 use flag 先不加 fam, 先把 glib 跟 gamin 裝上去</li>
+</ol>
+
+
+<p><code>USE='-fam' emerge gamin</code></p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/linux/1923">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/1913">唱片樣本</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-10-22T11:02:10+08:00" pubdate  data-updated="true" >Oct 22<span>nd</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2963477902/" title="唱片樣本 by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3150/2963477902_43ff9d8fa4.jpg" width="500" height="375" alt="唱片樣本" /></a></p>
+
+<p>超興奮的! 明後天就可以收到完成品囉!</p>
 </div>
   
   
@@ -316,7 +252,7 @@ NY NOC: 37x ms</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2287">Wordpress 2.7 Threaded Comments</a></h1>
+      <h1 class="entry-title"><a href="/music/1896">專輯印刷校稿</a></h1>
     
     
       <p class="meta">
@@ -330,19 +266,60 @@ NY NOC: 37x ms</p>
 
 
 
-<time datetime="2008-12-26T00:28:03+08:00" pubdate  data-updated="true" >Dec 26<span>th</span>, 2008</time>
+<time datetime="2008-10-17T00:11:34+08:00" pubdate  data-updated="true" >Oct 17<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><img src="http://tzangms.com/wp-content/uploads/2009/01/wordpress_threaded_comments.jpg" alt="wordpress_threaded_comments" title="wordpress_threaded_comments" width="580" height="421" class="aligncenter size-full wp-image-2288" />
-今天在搬我的 blog, 把他從 http://tzangms.com/blog 搬成 http://tzangms.com。 本來首頁一直保留著, 想說之後可以弄個什麼東西的, 不過忘記從哪一版開始的 wordpress 就可以另外把某個 page 指定為首頁, 然後又心血來潮, 所以就乾脆把 blog 往上搬一層。</p>
+  <div class="entry-content"><p style="text-align: center;"><a title="專輯印刷校稿 - 封面 by tzangms, on Flickr" href="http://www.flickr.com/photos/tzangms/2946646242/"><img class="aligncenter" src="http://farm4.static.flickr.com/3207/2946646242_5dc345be98.jpg" alt="專輯印刷校稿 - 封面" width="375" height="500" /></a></p>
 
-<p>另外也把 lighttpd 換成 apache, 因為 lighttpd 好像不支援 301 的 redirect 方式。</p>
 
-<p>就玩著玩著, 突然發現了後台的 discussion 設定, 可以開啟 threaded comments, 就開來玩看看了, 哈, 也剛好我目前用的 theme 就有支援 threaded comments, 真不錯! 以後不用再 @ 來 @ 去了 XD</p>
+<p>昨天壓片廠業務連絡我說盤面的設計稍微有些問題,  然後一整個窒息感湧上, 所以下班回家就把盤面印刷的部份修了一下, 等待隔天的到來。 而今天一早就傳給壓片廠, 經過壓片廠的美工確認過無誤後, 並修正一些小問題之後, 回傳給我確認, 無誤之後才又鬆了一口氣, 否則壓片的進度就可能會 delay 到 ~&#8221;~</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/music/1896">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1890">[GM] Twitter Retweet 0.5</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-10-16T11:18:07+08:00" pubdate  data-updated="true" >Oct 16<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>由於 twitter html 有稍作更動, 所以更新一下 retweet script。</p>
+
+<p>差點忘記說, 這個版本是 based on <a href="http://blog.kej.tw/">kej 大大</a>所<a href="http://blog.kej.tw/2008-10/03/twitter-retweet-gm-script-04/">修改的 0.4 版</a>而來的 :p</p>
+
+<p><a href="http://tzangms.com/code/retweet-0.5.user.js">安裝 twitter retweet 0.5</a></p>
 </div>
   
   
@@ -355,7 +332,7 @@ NY NOC: 37x ms</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/stickeraction/2267">Stickeraction on Twitter</a></h1>
+      <h1 class="entry-title"><a href="/life/1886">唱片送壓了 &#8230;</a></h1>
     
     
       <p class="meta">
@@ -369,24 +346,22 @@ NY NOC: 37x ms</p>
 
 
 
-<time datetime="2008-12-16T23:43:51+08:00" pubdate  data-updated="true" >Dec 16<span>th</span>, 2008</time>
+<time datetime="2008-10-14T23:27:05+08:00" pubdate  data-updated="true" >Oct 14<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>我很無聊的幫 <a href="http://stickeraction.com">stickeraction</a> 弄了個 <a href="http://twitter.com/stickeraction">twitter 帳號</a>, 當有新的串連貼紙發起的時候, 會自動送到 twitter 上 &#8230;</p>
+  <div class="entry-content"><p>今天下午請假, 把CD跟要印刷的東西送到壓片廠, 然後簽約了, 如果順利的話, 應該下禮拜二就可以看到成品, 不順利的話, 應該會是印刷品質上的問題, 可能要在跟壓片廠的業務確認, 不過這次找的壓片廠的業務人很好, 很熱心, 今天確認過一些東西, 所以應該不會有太大的問題, 總之希望品質能夠不錯。</p>
 
-<p>Anyway, 開始離題! 嗯~ 前三天都在為了 stickeraction 跟各家部落格的相容性做處理, 寫了一堆 class 來作, 可以判斷各家部落格。  其實目前新的機制也可以用來抓, 不是部落格的網站, 像是 google site, wikidot &#8230;.等, 只需要另外繼承個 class 出來, 設定好基本的格式就可以了。</p>
+<p>在這邊也要感謝許多推友的幫忙, 也要跟朱百說聲抱歉, 原本<a href="http://graniphoc.blogspot.com/">朱百</a>要幫忙我做封面設計, 然而我整個沒辦法承受唱片繼續拖下去的壓力, 所以就趁上禮拜的連假躲在家裡, 把東西都弄完, 真是對不起朱百 Orz</p>
 
-<p>基本上就是寫了一個 BQ_Base 的 class, 用來抓取通用的 blog。 然後 BQ_BSP 繼承 BQ_Base 提供 BSP 才有的功能, 然後再由 BQ_BSP生出 BQ_Yahoo, BQ_Wretch, BQ_Pixnet &#8230; 等等, 然後在寫個 BlogQueue 的 factory 來存取, 這樣一來可以減少很多 stickeraction 的後續處理。 ( PS. BQ 指的是 BlogQueue )</p>
+<p>另外還有<a href="http://biasonica.blogspot.com/">小掰</a>, 感謝小掰幫我寫文案, 雖然&#8230; (咳) 文案可能變成只在網站上出現 Orz</p>
 
-<p>不過今天凌晨我資料庫那一台 slice 掛點&#8230; slicehost 最近還滿多問題的, 其實&#8230; Orz 所以現在又都先把 db 跟 www server 放到同一台了, 256slice 還真會撐! XD 不愧是 gentoo 阿!</p>
+<p>以上種種, 我只能歸咎於我覺得自己壓力太大&#8230; 白天上完班後就已經頭昏腦脹的了, 下班後有時還要寫程式弄網站, 然後還有弄唱片的東西, 而最近又弄著一堆自己不懂、沒接觸過的東西 &#8230; 然而時間拖越久, 失眠機率就越高。 然後又對自己辜負到朱百跟小掰的好意感到懊惱 Orz</p>
 
-<p>另外我想說把 <a href="http://twitthat.com">twitthat</a> 跟 stickeraction 分開, 不然晚上 stickeraction 那邊的 request 太多, 加上如果又跑 cron, 有時候真的是會拖慢到 twitthat。 剛好今天資料庫那一台炸掉, 就想說把 twitthat 搬到 <a href="http://code.google.com/intl/zh-TW/appengine/">GAE</a> 好了, 所以今天就又開始在寫苦手的 python, hmm&#8230; 至少現在可以推了。</p>
-
-<p>所以要來開始重新學 python 了, hmm&#8230; 主機掛點才會有動力阿!!!!!</p>
+<p>anyway, 接下來就是等唱片交貨吧! 感謝大家的支持! (淚、累)</p>
 </div>
   
   
@@ -399,7 +374,7 @@ NY NOC: 37x ms</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/music/2266">[廣告] Koumis 最近表演行程</a></h1>
+      <h1 class="entry-title"><a href="/life/1876">愛怕摸摸 [粗獷 Version]</a></h1>
     
     
       <p class="meta">
@@ -413,26 +388,23 @@ NY NOC: 37x ms</p>
 
 
 
-<time datetime="2008-12-15T22:44:24+08:00" pubdate  data-updated="true" >Dec 15<span>th</span>, 2008</time>
+<time datetime="2008-10-13T21:08:20+08:00" pubdate  data-updated="true" >Oct 13<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://blog.koumis.cc/search/label/演出行程%2FSHOW"><img src="http://tzangms.com/wp-content/uploads/2008/12/koumis.jpg" alt="koumis" title="koumis" width="531" height="285" class="aligncenter size-full wp-image-2324" /></a></p>
+  <div class="entry-content"><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="500" height="400" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="flashvars" value="&amp;offsite=true&amp;intl_lang=en-us&amp;page_show_url=%2Fphotos%2Ftzangms%2Fsets%2F72157607984101628%2Fshow%2F&amp;page_show_back_url=%2Fphotos%2Ftzangms%2Fsets%2F72157607984101628%2F&amp;set_id=72157607984101628&amp;jump_to=" /><param name="bgcolor" value="#000000" /><param name="allowFullScreen" value="true" /><param name="src" value="http://www.flickr.com/apps/slideshow/show.swf?v=59913" /><embed type="application/x-shockwave-flash" width="500" height="400" src="http://www.flickr.com/apps/slideshow/show.swf?v=59913" allowfullscreen="true" bgcolor="#000000" flashvars="&amp;offsite=true&amp;intl_lang=en-us&amp;page_show_url=%2Fphotos%2Ftzangms%2Fsets%2F72157607984101628%2Fshow%2F&amp;page_show_back_url=%2Fphotos%2Ftzangms%2Fsets%2F72157607984101628%2F&amp;set_id=72157607984101628&amp;jump_to="></embed></object>
 
-<p>12/25(四) 21:00-22:00 <a href="http://www.riverside.com.tw/">河岸留言音樂藝文咖啡</a>
-special guest: 小海 ticket:NT 350</p>
 
-<p>01/15(四) 21:30-23:00 <a href="http://www.witchhouse.org/">女巫店</a>
-ticket:NT 300</p>
+<p>我一直覺得手機阿什麼的, 通常都是喜歡他的外型才會買。 只是&#8230;. 常常看到有人會在自己漂亮的手機外面加上一個手機套, 我是完全不做這種事的, 我覺得這樣手機會哭。</p>
 
-<p>我好像沒在我的 blog 上提過 <a href="http://www.koumis.cc/">koumis</a>, 我覺得他們的歌很好聽! 有幾首歌聽現場都還讓我起雞皮疙瘩, 特別是在吉他手 stephenlee 有合音的時候。 這兩天我也都會去, 會去亂入, 有空的人來聽聽吧! 我最近都在為了這個 special guest 練吉他, 不會像之前那麼隨便了 XD 畢竟這是 koumis 的場子阿! 要認真 :p</p>
+<p>為螢幕加上個看不出來的保護膜當然ok, 不過加個手機套還是護套什麼的, 那不是我的作風, 因為那&#8230; 根本就不是原來的外型了阿!!!</p>
 
-<p>先到 <a href="http://blog.koumis.cc/">koumis 的官方部落格</a>, 看看 koumis 的表演影片, 聽聽 koumis 的歌, 再決定要不要來嘛! XD</p>
+<p>所以!! (拍桌) &#8230;&#8230; <strong>愛怕摸摸 [粗礦 version]</strong> 就這麼出現了!!</p>
 
-<p>go! go! go!</p>
+<p>可能有人會好奇&#8230; 為什麼要用 <strong>version</strong> 而不用 <strong>版</strong> 這個字。 &#8230;&#8230;..  因為這樣好像比較有 fu。</p>
 </div>
   
   
@@ -445,7 +417,7 @@ ticket:NT 300</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/web design/2265">解決透明 Png 在 Ie 6 下的問題: jQuery pngFix</a></h1>
+      <h1 class="entry-title"><a href="/linux/1846">Slicehost 設定 Private Ip</a></h1>
     
     
       <p class="meta">
@@ -459,38 +431,25 @@ ticket:NT 300</p>
 
 
 
-<time datetime="2008-12-15T21:38:11+08:00" pubdate  data-updated="true" >Dec 15<span>th</span>, 2008</time>
+<time datetime="2008-10-11T19:18:01+08:00" pubdate  data-updated="true" >Oct 11<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>透明 png 在 ie 6 下面的問題真的是很糟糕, 以前挑戰過好幾次, 不過每次都不成功, 到最後, 我只好把 png 一個一個轉成 gif 。 Orz 幸好今天挑戰成功了! 應該是因為有 <a href="http://jiwostudio.com/">Leo Lin</a> 跟 <a href="http://blog.othree.net/">othree</a> 這兩位大大的指導跟關心, 所以問題全都迎刃而解了 XD</p>
+  <div class="entry-content"><p>上禮拜又買了一台 256slice, 主要是想拿來玩 <a href="http://www.rubyonrails.org/">RoR</a>, 因為原本舊的那一台記憶體就很小, 而且有服務在跑, 還是不要亂動的好, 所以就買一台新的 256slice, 然後用 rsync 來備份原本那台主機, 另外也許可以拿來作 load balance。</p>
 
-<p>anyway, 基本上就是用 jQuery 的外掛, <a href="http://jquery.andreaseberhard.de/pngFix/">jQuery pngFix</a>, 就可以解決了, 可能我之前一直搞錯, 沒認真看文件吧 Orz</p>
+<p>不過目前就只是單純把資料庫放到新的那一台, 只是這幾天流量重刷了之後, 沒想到才過差不多 3 天, 兩台 slice 就用了 30G, 不應該這麼多的, 因為已經用了 webamp 了阿! 不過主要是注意到第一台的 in 跟第二台的 out 流量是差不多的, 才想到應該是資料庫存取的流量。 然後今天才想到有內部 IP 這回事 Orz (用內部 IP 不會算流量)</p>
 
-<pre>
-<code>&lt;script type="text/javascript" src="/js/jquery.js"&gt;&lt;/script&gt;
-&lt;script type="text/javascript" src="/js/jquery.pngFix.pack.js"&gt;&lt;/script&gt;
-&lt;script type='text/javascript'&gt;
-$(function(){
-    $(document).pngFix();
-});
-&lt;/script&gt;</code>
-</pre>
+<p>基本上 <a href="http://slicehost.com">slicehost</a> 服務真的是很不錯, 雖然到目前我只反應過兩個問題, 不過每次做 help request 的時候, 都在 2 分鐘之內收到回信了。</p>
 
-
-<p>我之前好像是寫成下面這樣才失敗的&#8230;</p>
-
-<pre>
-<code>$('img').pngFix();</code>
-</pre>
-
-
-<p>實例可以看看 <a href="http://stickeraction.com">stickeraction</a> 的 nav bar :p</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/linux/1846">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -501,7 +460,7 @@ $(function(){
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2264">Wordpress 2.7 後台選單外掛 : Admin Drop Down Menu</a></h1>
+      <h1 class="entry-title"><a href="/life/1842">我的 LCD 裡面住著一隻螞蟻</a></h1>
     
     
       <p class="meta">
@@ -515,17 +474,17 @@ $(function(){
 
 
 
-<time datetime="2008-12-14T13:39:36+08:00" pubdate  data-updated="true" >Dec 14<span>th</span>, 2008</time>
+<time datetime="2008-10-07T23:22:52+08:00" pubdate  data-updated="true" >Oct 7<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>[caption id=&#8221;attachment_2299&#8221; align=&#8221;aligncenter&#8221; width=&#8221;580&#8221; caption=&#8221;wordpress admin drop down menu plugin&#8221;]<img src="http://tzangms.com/wp-content/uploads/2008/12/wp27-ozh-admin-pluginjpg.png" alt="wordpress admin drop down menu plugin" title="wp27-ozh-admin-pluginjpg" width="580" height="200" class="size-full wp-image-2299" />[/caption]
-我覺得 wordpress 2.7 後台的選單變成由上往下, 真的是很麻煩! 我的螢幕是寬的阿! 因為如果選的功能是在最下方的話, 我就得去把 scrollbar 往下拉才能看得到子選項, what the&#8230;</p>
+  <div class="entry-content"><object type="application/x-shockwave-flash" width="500" height="375" data="http://www.flickr.com/apps/video/stewart.swf?v=60247" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"> <param name="flashvars" value="intl_lang=en-us&amp;photo_secret=1f454c9d8f&amp;photo_id=2921229919&amp;show_info_box=true"></param> <param name="movie" value="http://www.flickr.com/apps/video/stewart.swf?v=60247"></param> <param name="bgcolor" value="#000000"></param> <param name="allowFullScreen" value="true"></param><embed type="application/x-shockwave-flash" src="http://www.flickr.com/apps/video/stewart.swf?v=60247" bgcolor="#000000" allowfullscreen="true" flashvars="intl_lang=en-us&amp;photo_secret=1f454c9d8f&amp;photo_id=2921229919&amp;flickr_show_info_box=true" height="375" width="500"></embed></object>
 
-<p>anyway, 在 RSS reader 看到這個 <a href="http://planetozh.com/blog/my-projects/wordpress-admin-menu-drop-down-css/">Worpdress Admin Drop Down Menu</a> 外掛, 用起來舒服多了。</p>
+
+
 </div>
   
   

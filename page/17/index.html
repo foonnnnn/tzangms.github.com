@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="在推特上看到史丹利推的這個影片, 今天就連續看了超過 10 次, 真的是超可愛的。 當看到貓跳上枕頭然後往後倒, 就像蓋棉被一樣, 我就會忍不住笑出來, 每看必笑 XD">
+  <meta name="description" content="這是敝公司的推特小隊 XD 不過在這裡要先澄清一下, 雖然是在敝公司頂樓拍的, 小隊成員也都是公司同事, 但是這並不表示我們是利用上班時間到頂樓拍照, 請各位放心。另外請跟我們一起擺 POSE, 一起推特吧 !!! 推特小隊衝阿!">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/nothing/2471">會蓋棉被的貓 XD</a></h1>
+      <h1 class="entry-title"><a href="/life/2410">WE&#8217;RE HUGE on TWITTER</a></h1>
     
     
       <p class="meta">
@@ -80,19 +80,28 @@
 
 
 
-<time datetime="2009-08-16T23:11:54+08:00" pubdate  data-updated="true" >Aug 16<span>th</span>, 2009</time>
+<time datetime="2009-06-11T21:27:53+08:00" pubdate  data-updated="true" >Jun 11<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/Ox5_FOWqEaU&hl=zh_TW&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/Ox5_FOWqEaU&hl=zh_TW&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+  <div class="entry-content"><p style="text-align: center;"><a title="4533_103869102213_725367213_2841385_269543_n by tzangms, on Flickr" href="http://www.flickr.com/photos/tzangms/3615723444/"><img class="aligncenter" src="http://farm3.static.flickr.com/2460/3615723444_6e4417c452.jpg" alt="4533_103869102213_725367213_2841385_269543_n" width="500" height="375" /></a></p>
 
 
-<p>在推特上看到史丹利推的這個影片, 今天就連續看了超過 10 次, 真的是超可愛的。 當看到貓跳上枕頭然後往後倒, 就像蓋棉被一樣, 我就會忍不住笑出來, 每看必笑 XD</p>
-</div>
+<p style="text-align: left;">這是敝公司的推特小隊 XD 不過在這裡要先澄清一下, 雖然是在敝公司頂樓拍的, 小隊成員也都是公司同事, 但是這並不表示我們是利用上班時間到頂樓拍照, 請各位放心。</p>
+
+
+<p style="text-align: left;">另外請跟我們一起擺 POSE, 一起推特吧 !!! 推特小隊衝阿!</p>
+
+
+<p style="text-align: left;"></div>
   
+  
+    <footer>
+      <a rel="full-article" href="/life/2410">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -103,7 +112,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/web/2465">Monit</a></h1>
+      <h1 class="entry-title"><a href="/life/2409">I&#8217;M HUGE on TWITTER</a></h1>
     
     
       <p class="meta">
@@ -117,201 +126,17 @@
 
 
 
-<time datetime="2009-08-16T14:52:22+08:00" pubdate  data-updated="true" >Aug 16<span>th</span>, 2009</time>
+<time datetime="2009-06-07T00:19:53+08:00" pubdate  data-updated="true" >Jun 7<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>這一陣子 <a href="http://stickeraction.com">stickeraction</a> 的 lighttpd 都會因為 php fcgi 死掉然後吐 500, 但是參數怎麼調都沒用. 後來看到 monit 這個東西, 真是個好物, 我就用 <a href="http://mmonit.com/monit/">monit</a> 來監測 lighttpd 有沒有死掉, 如果有死掉的話就自動把 lighttpd 重開。</p>
+  <div class="entry-content"><p style="text-align: center;"><a title="I'M HUGE ON TWITTER by tzangms, on Flickr" href="http://www.flickr.com/photos/tzangms/3599288165/"><img class="aligncenter" src="http://farm3.static.flickr.com/2483/3599288165_b7e9706316.jpg" alt="I'M HUGE ON TWITTER" width="375" height="500" /></a></p>
 
-<p>用了 <a href="http://mmonit.com/monit/">monit</a> 之後, stickeraction 再也沒 down time 了 LOL  ( 好啦~ 最多會有兩分鐘 XD )</p>
 
-<p>我還滿喜歡 monit 的設定的, 簡單又清楚, 範例如下:</p>
-
-<pre><code>check process lighttpd with pidfile /var/run/lighttpd.pid
-    start program = "/etc/init.d/lighttpd start"
-    stop program = "/etc/init.d/lighttpd stop"
-    if failed host stickeraction.com port 80 protocol http
-        with timeout 15 seconds
-        then restart
-</code></pre>
-
-
-<p>會監看 lighttpd, timeout 15 秒就會把 lighttpd resart。</p>
-
-<p>另外 monit 也提供了一個 web 界面, 設定也很簡單如下, 而在 web 界面上就可以直接 start, stop 或重開 service, 滿方便的</p>
-
-<pre><code>set httpd port 8080 and
-    allow 0.0.0.0
-    allow your_username:your_password</code></pre>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2466">Skulpt</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-08-16T10:53:59+08:00" pubdate  data-updated="true" >Aug 16<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.skulpt.org/">http://www.skulpt.org/</a>  - Python. Client side. 這個好屌. 可以在 browser 跑的 python. 另外也有 source 可以抓回來玩.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/2464">Humanthesizer - 用一堆正妹當樂器 (無誤)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-08-12T10:40:13+08:00" pubdate  data-updated="true" >Aug 12<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><object width="560" height="340"><param name="movie" value="http://www.youtube.com/v/IObPkUFq0hg&hl=zh_TW&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/IObPkUFq0hg&hl=zh_TW&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="560" height="340"></embed></object>
-
-
-<p>用 midi 玩出無限花樣阿~ 不想看說明可以直接跳到 1:42 開始精采的部分, 超好聽!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2461">Pip + Virtualenv + Mod_wsgi</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-08-09T22:02:36+08:00" pubdate  data-updated="true" >Aug 9<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>之前有寫過 <a href="http://tzangms.com/programming/2439">pip &amp; requirements file</a>, 可以在開發 project 時可以寫好 requirements file, 在每當要 deploy 到新的機器的時候, 就可以直接透過一個 pip 指令, 把 deploy project 所需要的 dependencies 都給裝好。</p>
-
-<p>而 <a href="http://pypi.python.org/pypi/virtualenv">virtualenv</a> 這個工具, 可以讓你在同一台機器開發不同 project 時, 使用不同的 dependencies, 例如: 原本有舊的 project 使用的 django 版本是 0.96, 另外又有新的 project 需要用上 django 1.1。 然而舊的 project 用 django 1.1 一定掛的一踏糊塗, 所以這時候就可以透過 virtualenv 把這兩個 project 所需要的環境給區隔開來。 ( 通常使用 easy_install 或 pip 安裝套件的時候, 都會直接裝在 site wide 的 site-packages 裡。)</p>
-
-<p>先來簡單介紹 virtualenv 的使用方法, 首先就是建立一個 virtual enviroment:</p>
-
-<pre><code>virtualenv PROJECT_ENV</code></pre>
-
-
-<p>會有下列訊息</p>
-
-<pre><code>New python executable in PROJECT_ENV/bin/python
-Installing setuptools............done.</code></pre>
-
-
-<p>完成之後會多一個叫做 PROJECT_ENV 的資料夾, 裡面會有基本的開發環境, 這個資料夾裡面會有三個目錄</p>
-
-<pre><code>bin/
-include/
-lib/
-</code></pre>
-
-
-<p>接下來在 PROJECT_ENV 裡執行下列指令就可以進入這個虛擬的開發環境</p>
-
-<pre><code>source bin/activate</code></pre>
-
-
-<p>不過我偏好加上 <code>--no-site-package</code> 這個參數</p>
-
-<pre><code>virtualenv PROJECT_ENV --no-site-package</code></pre>
-
-
-<p>這個參數用來告訴 virtualenv 不使用 site wide 的 site-package, 也就是說, 如果原本系統就有裝了 django, mysql-python, 那麼在進入用 <code>--no-site-package</code> 這個參數所建立的 virtualenv 的時候, 就讀不到 django, mysql-python, 得在這個 virtualenv 在裝一遍, 但是我個人覺得這樣比較乾淨 (潔癖? XD)</p>
-
-<p>基本上 virtualenv 就是提供虛擬開發環境, 可以避免套件版本不同的衝突。</p>
-
-<p>而 pip 跟 virtualenv 就是好兄弟啦, 在透過 pip 安裝套件時, 就可以直接指定要安裝的 virtualenv, 像是:</p>
-
-<pre><code>pip install -E PROJECT_ENV -r requirements.txt</code></pre>
-
-
-<p>如果沒有已經存在的 virtual env 的話, 這個指令就會直接建立一個新的 virtual env ( 預設是 <code>--no-site-package</code> ), 然後把 requirements 都給裝進去。</p>
-
-<p>或是已經在 PROJECT_ENV 裡的話, 就直接打 <code>pip install -E . package-x.x</code></p>
-
-<p>最後, 如果 www server 可以直接用 virtualenv 的話, 不是就很完美了嗎? :D</p>
-
-<p>其實 <a href="http://code.google.com/p/modwsgi/">mod_wsgi</a> 2.0 之後的版本, 可以很方便的來使用 virtualenv, 如果你是 apache + mod_wsgi 的話 XD</p>
-
-<p>只要在你的 wsgi file 加上這一段即可</p>
-
-<pre><code>import site
-site.addsitedir('/var/django/PROJECT_ENV/lib/python2.5/site-packages')</code></pre>
-
-
-<p>pip + virtualenv + mod_wsgi 真是個完美的組合壓 :D</p>
-
-<p>PS. 補充一下 <a href="http://blog.xdite.net">xdite</a> 大大在 twitter 上提到 rails 在這塊的做法:</p>
-
-<blockquote>pip 的作用在 rails 裡面寫 config.gems 然後 rake gems:install 就有了。至於 virtrualenv 在 config/enviroments.rb 上面指定 RAILS_GEM_VERSION 就可以 XD</blockquote>
+<p style="text-align: center;">not really XD</p>
 
 </div>
   
@@ -325,7 +150,7 @@ site.addsitedir('/var/django/PROJECT_ENV/lib/python2.5/site-packages')</code></p
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/2460">Stickeraction 主機搬到 Prgmr</a></h1>
+      <h1 class="entry-title"><a href="/programming/2408">Lighttpd Php Backend Overload</a></h1>
     
     
       <p class="meta">
@@ -339,44 +164,14 @@ site.addsitedir('/var/django/PROJECT_ENV/lib/python2.5/site-packages')</code></p
 
 
 
-<time datetime="2009-08-09T19:57:05+08:00" pubdate  data-updated="true" >Aug 9<span>th</span>, 2009</time>
+<time datetime="2009-05-31T23:32:04+08:00" pubdate  data-updated="true" >May 31<span>st</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>其實 <a href="http://prgmr.com/xen/">prgmr</a> 已經買了一個多月了, 可是最近超懶, 提不起勁幫 <a href="http://stickeraction.com">stickeraction</a> 搬家, 剛好由於這幾天 stickeraction 一直當機, 所以乾脆提起勁來把 stickeraction 從 <a href="http://linode.com">linode</a> 搬到 prgmr。</p>
-
-<p>其實最主要是想省點錢, 因為 linode 每個月就要花掉我大約一千塊的台幣, 可能也是因為這大半年來幾乎都沒在改 stickeraction 的東西, 就一直擺在那邊, 所以感覺有點浪費錢的感覺 XD</p>
-
-<p>而目前在 prgmr 買的主機是一台 512MB RAM, 不過只有一顆 CPU, 跑起來感覺滿&#8221;ㄍㄧㄥ&#8221;的 XD</p>
-
-<p>Linode ($29, 540MB, 4CPU)</p>
-
-<pre><code>vendor_id    : GenuineIntel
-cpu family  : 6
-model       : 23
-model name  : Intel(R) Xeon(R) CPU           L5420  @ 2.50GHz
-stepping    : 6
-cpu MHz     : 2500.086
-cache size  : 64 KB</code></pre>
-
-
-<p>Prgmr ($12, 512MB, 1CPU)</p>
-
-<pre><code>vendor_id    : AuthenticAMD
-cpu family  : 16
-model       : 4
-model name  : Quad-Core AMD Opteron(tm) Processor 2374 HE
-stepping    : 2
-cpu MHz     : 2200.000
-cache size  : 512 KB</code></pre>
-
-
-<p>4 顆 xeon 比起 1 顆 Quad-Core 不知道哪個比較夠力? anyway, 省點錢用 ~&#8221;~</p>
-
-<p>這幾天的不穩定大家請多包含了 Orz</p>
+  <div class="entry-content"><p>For the past few weeks, my lighttpd has crashed with error message &#8220;backend overload&#8221; almost once a day. I could not figure out where the problem was. After all, I switched APC to xCache, and this problem solved! :D Obviously, php crash is caused by APC.</p>
 </div>
   
   
@@ -389,7 +184,7 @@ cache size  : 512 KB</code></pre>
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/2453">Aeron Chair</a></h1>
+      <h1 class="entry-title"><a href="/life/2406">我決定每天都要吃早餐</a></h1>
     
     
       <p class="meta">
@@ -403,15 +198,19 @@ cache size  : 512 KB</code></pre>
 
 
 
-<time datetime="2009-07-31T23:18:31+08:00" pubdate  data-updated="true" >Jul 31<span>st</span>, 2009</time>
+<time datetime="2009-05-22T21:30:12+08:00" pubdate  data-updated="true" >May 22<span>nd</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://tzangms.com/wp-content/uploads/2009/07/aeron.JPG"><img src="http://tzangms.com/wp-content/uploads/2009/07/aeron.JPG" alt="aeron" title="aeron" width="500" height="374" class="aligncenter size-full wp-image-2455" /></a>
-這張椅子真的太 high 了, 今天送到公司, 一坐上去就整個人飛起來了!!!</p>
+  <div class="entry-content"><p style="text-align: center;"><object width="480" height="385" data="http://www.youtube.com/v/E6BHU_dDB_o&amp;hl=zh_TW&amp;fs=1" type="application/x-shockwave-flash"><param name="allowFullScreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="src" value="http://www.youtube.com/v/E6BHU_dDB_o&amp;hl=zh_TW&amp;fs=1" /><param name="allowfullscreen" value="true" /></object>
+
+就快兩個月沒寫 blog 了, 這幾天一直想到沒寫 blog 這件事, 甚至好幾次打開 blog 準備寫點東西的時候, 還會覺得, &#8220;嗯~ 好像應該繼續保持記錄&#8221;, 然後就又把 blog 關了。 hmm~ 雖然不知道怎麼一回事, 我居然對保持 blog 沒寫的記錄有種虛榮感。
+
+總之, 大家還是要記得吃早餐喔 &#8230;..
+
 </div>
   
   
@@ -424,7 +223,7 @@ cache size  : 512 KB</code></pre>
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/2447">Django Grappelli</a></h1>
+      <h1 class="entry-title"><a href="/music/2399">少女時代 Girls&#8217; Generation</a></h1>
     
     
       <p class="meta">
@@ -438,20 +237,60 @@ cache size  : 512 KB</code></pre>
 
 
 
-<time datetime="2009-07-23T22:27:55+08:00" pubdate  data-updated="true" >Jul 23<span>rd</span>, 2009</time>
+<time datetime="2009-04-05T12:53:47+08:00" pubdate  data-updated="true" >Apr 5<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://tzangms.com/wp-content/uploads/2009/07/grappelli.jpg"><img src="http://tzangms.com/wp-content/uploads/2009/07/grappelli-300x173.jpg" alt="grappelli" title="grappelli" width="300" height="173" class="alignleft size-medium wp-image-2448" /></a> <a href="http://code.google.com/p/django-grappelli/">django grappelli</a> 真的是滿酷的, 裝好之後, <a href="http://www.djangoproject.com/">django</a> admin 馬上就變成這樣, 而且還加上了 bookmarks 的功能, 還可以自定 navigation, 而整個界面整個質感提升了 :D</p>
+  <div class="entry-content"><p style="text-align: center;"><object width="560" height="340"><param name="movie" value="http://www.youtube.com/v/3ac9b_UIwM8&hl=zh_TW&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/3ac9b_UIwM8&hl=zh_TW&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="560" height="340"></embed></object>
 
-<p>另外, 最主要的一點就是, grappelli 稍微讓 django admin 在 Content Type 的 UI 處理, 改善了一些, 不過應該可以更好就是了, 有空再來改。</p>
+超青春洋溢的阿!! 最近一直在聽少女時代的歌! 真的得看一看上面這個影片 @@ 記得打開 HQ, 畫質超清晰的, 畫質高到我的 macbook 都播不太動&#8230; Orz 可是~ 我個人超推薦的!! 一定要看的阿!
 
-<p>另外, 如果只想改善 django admin 的 content type, 可以試試看這個 <a href="http://code.google.com/p/django-genericadmin/">django-genericadmin</a>, 不過我還沒試過就是了 XD</p>
+而會注意到這個團體是因為白馬達大師在 twitter 上推了一則<a href="http://twitter.com/WhiteMotor/status/1313945761">史上最強正妹組合</a>的推訊(其實是從 plurk 同步過來的), 連過去一看驚為天人阿, 太厲害了!! 超強正妹團體!! 另外下面是同一首歌的 MV 版, 也很可愛呦!
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/music/2399">Read on &rarr;</a>
+    </footer>
+  
 
-<p>話說, 剛剛查了一下 grappelli 這個字, 指的是 <a href="http://en.wikipedia.org/wiki/Stéphane_Grappelli">Stéphane_Grappelli</a>, 似乎他的稱號是&#8221;一代爵士小提琴宗師格拉佩里&#8221;, 而 django 指的是  <a href="http://en.wikipedia.org/wiki/Django_Reinhardt">Django Reinhardt</a>, 一位爵士吉他手。 而看了 Stéphane_Grappelli 才知道, 他們有一起玩音樂阿!!!! 名字取的太妙了 XD</p>
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/computer/2398">體驗 IE8 最新功能</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-04-01T17:25:35+08:00" pubdate  data-updated="true" >Apr 1<span>st</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://stickeraction.com/ie8infx/go" title="體驗 IE8 最新功能"><img src="http://stickeraction.com/ie8infx/sticker/3" alt="體驗 IE8 最新功能" /></a></p>
+
+<p>你還在用舊版的 ie 嗎? 趕快來體驗 IE8 吧!!! (笑)
+<a href="http://stickeraction.com/ie8infx">
+一起來幫忙串連宣傳, 推廣 IE8 的使用吧!! XD</a></p>
 </div>
   
   
@@ -464,7 +303,7 @@ cache size  : 512 KB</code></pre>
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/2444">Django-pagination</a></h1>
+      <h1 class="entry-title"><a href="/music/2395">一首很可愛的推特歌</a></h1>
     
     
       <p class="meta">
@@ -478,64 +317,21 @@ cache size  : 512 KB</code></pre>
 
 
 
-<time datetime="2009-07-21T21:30:28+08:00" pubdate  data-updated="true" >Jul 21<span>st</span>, 2009</time>
+<time datetime="2009-03-30T22:33:36+08:00" pubdate  data-updated="true" >Mar 30<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>我只能說, <a href="http://github.com/ericflo/django-pagination/tree/master">django-pagination</a> 真是一個好物。</p>
+  <div class="entry-content"><p>這是我在看 <a href="http://planet.python.org/">python planet</a> 的 rss 看到的。某篇文章提到 <a href="http://www.ingridmichaelson.com">Ingrid Michaelson</a> 做了一首 twitter song, 還滿可愛的, twitter fans 的各位可以聽聽看 XD</p>
 
-<p>雖然說 <a href="http://www.djangoproject.com/">django</a> 本身提供的 <a href="http://docs.djangoproject.com/en/dev/topics/pagination/#topics-pagination">pagination</a> 就已經很不錯用了, 可是在使用上還是稍嫌多餘了些, 得在 view 重複的打上那一段 code, 而 template 那邊也是, 除非就是自己寫 template tag 來處理。</p>
+<div style="width:300px;"><object width="300" height="110"><param name="movie" value="http://media.imeem.com/m/lfwSv65e1V/aus=false/"></param><param name="wmode" value="transparent"></param><embed src="http://media.imeem.com/m/lfwSv65e1V/aus=false/" type="application/x-shockwave-flash" width="300" height="110" wmode="transparent"></embed></object></div>
 
-<p>django 原本提供的 pagination, 在寫 view 的時候大概像是這樣: (直接拿 django 的 example)</p>
 
-<pre><code>from django.core.paginator import Paginator, InvalidPage, EmptyPage
+<p>後來他甚至還開放下載勒! 到她的<a href="http://www.ingridmichaelson.com">個人官網</a>看看, 或者直接<a href="http://www.ingridmichaelson.com/stream.php?vid=619aa4a6af9ff602">下載</a> :p</p>
 
-def listing(request):
-    contact_list = Contacts.objects.all()
-    paginator = Paginator(contact_list, 25)
-
-    try:
-        page = int(request.GET.get('page', '1'))
-    except ValueError:
-        page = 1
-
-    try:
-        contacts = paginator.page(page)
-    except (EmptyPage, InvalidPage):
-        contacts = paginator.page(paginator.num_pages)
-
-    return render_to_response('list.html', {"contacts": contacts})
-</code></pre>
-
-<p>而如果使用 django-pagination 的話, 看到 view 就真的是會笑出來了 XD</p>
-
-<pre><code>def listing(request):
-    contacts = Contacts.objects.all()
-    return render_to_response('list.html', {"contacts": contacts})
-</code></pre>
-
-<p>就這樣! 而且還不用 import Paginator。</p>
-
-<p>基本上 django-pagination 的處理動作都在 template 那邊, 看起來大概像是這樣</p>
-
-<pre><code>{% load pagination_tags %} # 載入 template tag
-
-{% autopaginate contacts 10 %} # 加上這一行處理分頁
-{% for contact in contacts %}
-    {{ contact.name }}
-{% endfor %}
-
-{% paginate %} # 秀出分頁
-</code></pre>
-
-<p>That&#8217;s all! :D</p>
-
-<p>比照一下 django 內建的 pagination, 就可以明顯比較出 template 之間差別了, django-pagination 真是超令人開心的一個套件阿, 而且作者還提供了一個 <a href="http://eflorenzano.com/blog/post/first-two-django-screencasts/#using-django-pagination">screencast</a>。</p>
-
-<p>真的是太貼心了阿~</p>
+<p>我還滿喜歡她其他的音樂作品, 滿好聽的, 這裡有她的 <a href="http://www.last.fm/music/Ingrid+Michaelson?setlang=en">last.fm</a>, 當然也有 <a href="http://www.myspace.com/ingridmichaelson">myspace</a></p>
 </div>
   
   
@@ -548,7 +344,7 @@ def listing(request):
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/2443">Django 1.0.2 ModelForm 的地雷</a></h1>
+      <h1 class="entry-title"><a href="/uncategorized/2394">屁啦</a></h1>
     
     
       <p class="meta">
@@ -562,21 +358,139 @@ def listing(request):
 
 
 
-<time datetime="2009-07-21T18:14:17+08:00" pubdate  data-updated="true" >Jul 21<span>st</span>, 2009</time>
+<time datetime="2009-03-30T16:48:54+08:00" pubdate  data-updated="true" >Mar 30<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><pre><code>'RelatedObject' object has no attribute 'unique' thrown by ModelForm validation</code></pre>
+  <div class="entry-content"><object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/14-gkwKEY-Y&hl=zh_TW&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/14-gkwKEY-Y&hl=zh_TW&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed></object>
 
 
-<p>今天在使用 Django ModelForm 的時候採到一個地雷, 秀出了上面這一串訊息, 然後是發生在 form.is_valid() 的時候, google 了一下, 原來是因為我在 form 裡面放了一個不屬於 model 的欄位。 <a href="http://code.djangoproject.com/ticket/10069">可以看看 django trac 的這個 ticket</a></p>
+<p>希望每個人都在部落格貼一下這段影片 &#8230; 戴主委能說出這種話真是不簡單, 這思維是哪來的。</p>
+</div>
+  
+  
 
-<p>簡單舉例一下, 我有 Song model 跟 SongStyle model 這兩個 model, 而 SongStyle 當然要 form 秀出來給使用者填選, 所以我在 Song 的 ModelForm 加上了一個 song_styles  的 ChoiceField, 結果就出現了錯誤。( SongStyle 有個 ForeignKey 指向 Song )</p>
 
-<p>不過這個問題 django 1.1 已經解決了, 1.0.2 還是有這個問題, 如果不想用 django 1.1 的話 &#8230; 看看<a href="http://code.djangoproject.com/changeset/9777">這裡</a>自己 patch 吧。</p>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/2392">最近在學 Python 跟 Django</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-03-27T00:33:53+08:00" pubdate  data-updated="true" >Mar 27<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>最近在開始學 <a href="http://www.python.org/">python</a> 跟 <a href="http://www.djangoproject.com/">django</a>, 也將用在新工作上, 所以由於不是很熟, 所以也伴隨著壓力, 畢竟不像以往用 php 用的很得心應手。 但是&#8221;用久了就是你的了&#8221;, 沒錯吧! 而我所以最近看完了 <a href="http://www.djangobook.com/">django book</a>, 在 k <a href="http://docs.djangoproject.com/en/dev/">django 的文件</a>, 還有好多文件要 k, 得要先把文件都 k 完才不會浪費時間去重造輪子。 等 django 讀完, 再來去好好研究 python。</p>
+
+<p>而在研究 django 這一些時間, 都會覺得自己以前在用 php + codeigniter 寫程式的時候真的是浪費很多時間, 然而應該是把點子實現出來, 才是重點吧。 程式再怎麼會寫, 沒有點子也不知要寫啥, 不過這件事情的看法當然是因人而異。</p>
+
+<p>我覺得 django 可以讓我的生活更簡單一些。</p>
+
+<p>而過去一年, 除了工作, 還有加強自己的程式設計的能力之外, 就是花了很多時間在專輯的錄音、後製上, 雖然有些地方沒有弄的很好, 不過後來收到一些關於音樂錄製的 feedback, 感謝各位。 不過在去年一整年的時間, 我卻連一首歌都沒有寫出來。 記得從大三開始, 每年都至少會寫出 3 ~ 4 首歌, 即使當兵的時候因為週休, 所以仍然一直在進行樂團表演, 當兵一年半也有寫出幾首歌曲。 而第一份工作那兩三年, 也寫了 10 幾首歌。 但是去年卻一整年沒有寫出一首歌, 似乎我把很多時間都花在寫程式, 研究技術上面了。</p>
+
+<p>我想最近新工作安定下來後, django 跟 python 也熟悉之後, 是該來開始寫歌了。</p>
+
+<p>最後, 我越來越喜歡寫漸進式離題的文了</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2391">Django-pyodbc 紀錄</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-03-20T18:46:58+08:00" pubdate  data-updated="true" >Mar 20<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>來紀錄一下, 為了要讓 <a href="http://www.djangoproject.com/">django</a> 可以連 MS SQL Server 2000, 所以要裝 <a href="http://code.google.com/p/django-pyodbc/">django-pyodbc</a>, 來讓 django 有 MS SQL Server 的 driver, 不過真的是很麻煩 Orz</p>
+
+<p>首先, 要使用 <a href="http://code.google.com/p/django-pyodbc/">django-pyodbc</a>, 得先裝上 <a href="http://code.google.com/p/pyodbc/">pyodbc</a>, 而 <a href="http://code.google.com/p/pyodbc/">pyodbc</a> 得透過 ODBC 進行連線, 所以裝了 <a href="http://www.unixodbc.org/">unixODBC</a>, 而 <a href="http://www.unixodbc.org/">unixODBC</a> 連 MS SQL Server 就得要裝 SQL Server 的 driver, 所以裝了 <a href="http://www.freetds.org/">freeTDS</a>, 包含最後 <a href="http://www.djangoproject.com/">django</a> 的設定檔, 真的是悶爆了 Orz 而且這次還是在不熟悉的 distro, debian 5 上面裝。</p>
+
+<p>另外, 在安裝 django-pyodbc 的時候, 碰到一個問題, 就是目前 svn trunk 是有問題的阿, 所以後來跑去看 svn tags 有沒有可以用的版本, 結果最後是checkout django-1.0.x 這個 branches 出來就可以用了。</p>
+
+<p>接著就是紀錄一下設定檔, 怕以後會再用到 XD 不過, 基本上是希望以後都不要幹這種旁門左道的事情了。</p>
+
+<p>/etc/freetds/freetds.conf</p>
+
+<pre><code>[foo]
+host = 192.168.1.1
+port = 1433
+tds version = 8.0
+client charset = UTF-8</code></pre>
+
+
+<p>/etc/odbc.ini</p>
+
+<pre><code>[foo]
+Description = SQL Server 2000
+Driver = FreeTDS
+Servername = foo</code></pre>
+
+
+<p>/etc/odbcinst.ini</p>
+
+<pre><code>[FreeTDS]
+Description = MSSQL driver
+Driver = /usr/lib/odbc/libtdsodbc.so
+Setup = /usr/lib/odbc/libtdsS.so
+UsageCount = 1</code></pre>
+
+
+<p>settings.py</p>
+
+<pre><code>DATABASE_ENGINE = 'sql_server.pyodbc'
+DATABASE_NAME = 'databasename'
+DATABASE_USER = 'myusername'
+DATABASE_PASSWORD = 'mypassword'
+DATABASE_HOST = 'foo'
+DATABASE_PORT = ''</code></pre>
+
+
+<p>最後我終於可以在 django 上面直接用 Model 來存取 SQL Server 2000 了阿!!! Orz</p>
 </div>
   
   

@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="twitter 上看到的東西, 不過其實我沒太注意其他 js shell editor。jsFiddle 可以選擇不同的 js library, 像是 jQuery, mootools, YUI &#8230; 等, 來跑 javascript, 如果選 jQuery 也可以順便把 jQuer...">
+  <meta name="description" content="從 django 1.1 開始, django admin 開始多了一個 actions 的功能, 預設就提供了刪除的動作, 方便許多, 不過其實要新增自定的功能也很容易。例如這張圖上面的&#8221;不再列表顯示&#8221;就是我另外加上的功能選單, 可以一次勾選多個要處理項目進行處理。 ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/2526">jsFiddle - Js Shell Editor</a></h1>
+      <h1 class="entry-title"><a href="/programming/2506">Django Admin Actions</a></h1>
     
     
       <p class="meta">
@@ -80,20 +80,30 @@
 
 
 
-<time datetime="2010-01-06T12:48:53+08:00" pubdate  data-updated="true" >Jan 6<span>th</span>, 2010</time>
+<time datetime="2009-11-07T02:24:01+08:00" pubdate  data-updated="true" >Nov 7<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://tzangms.com/wp-content/uploads/2010/01/螢幕快照-2010-01-06-12.44.00-PM.png"><img src="http://tzangms.com/wp-content/uploads/2010/01/螢幕快照-2010-01-06-12.44.00-PM-300x201.png" alt="" title="螢幕快照 2010-01-06 12.44.00 PM" width="300" height="201" class="size-medium wp-image-2527" /></a></p>
+  <div class="entry-content"><p>從 <a href="http://www.djangoproject.com/">django</a> 1.1 開始, django admin 開始多了一個 actions 的功能, 預設就提供了刪除的動作, 方便許多, 不過其實要新增自定的功能也很容易。</p>
 
-<p>twitter 上看到的東西, 不過其實我沒太注意其他 js shell editor。</p>
+<p>例如這張圖上面的&#8221;不再列表顯示&#8221;就是我另外加上的功能選單, 可以一次勾選多個要處理項目進行處理。 如果對 customize django admin 有經驗的話, 那麼自定功能對你來說就更簡單了, 基本上新增 action 的方法, 就是自定一個 ModelAdmin 的 method, 像是下面這樣, 就可以了 :D</p>
 
-<p><a href="http://www.jsfiddle.net/">jsFiddle</a> 可以選擇不同的 js library, 像是 jQuery, mootools, YUI &#8230; 等, 來跑 javascript, 如果選 jQuery 也可以順便把 jQuery UI 勾起來, 馬上可以使用 jQuery UI, 滿方便, 然後還有提供假的 backend 讓你測試 ajax request。</p>
+<pre><code>class SongAdmin(admin.ModelAdmin):
+    actions = ('not_list_in_public',)
 
-<p>而且還可以把寫好的東西存起來分享出去耶 ~</p>
+    def not_list_in_public(self, request, queryset):
+        quertset.update(list_public=False)
+    not_list_in_public.short_description = '不再列表顯示'
+</code></pre>
+
+<p>這裡唯一得注意的一點就是, 這裡處理的對象是 queryset 喔~ 所以是複數滴, 記得考慮所有處理的東西都會是一個以上。 另外, 要存取 many to many 的東西, 像是 Site 的話, 直接像下面這樣處理就可以了。</p>
+
+<pre><code>for item in queryset:
+    item.add(mysite)
+</code></pre>
 </div>
   
   
@@ -106,7 +116,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/2525">UKI – Simple UI Kit for Complex Web Apps</a></h1>
+      <h1 class="entry-title"><a href="/programming/2484">用 Django South 做 Database Migration</a></h1>
     
     
       <p class="meta">
@@ -120,18 +130,69 @@
 
 
 
-<time datetime="2010-01-05T23:46:22+08:00" pubdate  data-updated="true" >Jan 5<span>th</span>, 2010</time>
+<time datetime="2009-11-02T23:10:45+08:00" pubdate  data-updated="true" >Nov 2<span>nd</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://ukijs.org/">UKI – Simple UI Kit for complex web apps</a></p>
+  <div class="entry-content"><p><a href="http://south.aeracode.org/">south</a>, 一個幫 <a href="http://www.djangoproject.com/">django</a> 做 database migration 的 app, 真的是超方便的。 以前在 <a href="http://itszero.org/">itszero</a> 傳授我 <a href="http://rubyonrails.org/">RoR</a> 的時候, 曾經見識過 RoR 的 database migration, 不過當時完全不知道是要用來幹嘛的 XD ( php 的世界裡面沒有這個東西 XD 不過現在應該有 framework 提供?) 只能說 RoR 真是先進阿!</p>
 
-<p>最近幾個禮拜都在寫 javascript, 一支 js 已經快破一千行了, 現在要加個功能或是改個功能, 一打開 js 檔就迷路了, 本來還打算用 <a href="http://code.google.com/intl/en/webtoolkit/">GWT</a> 或是 <a href="http://pyjs.org/">Pyjamas</a>, 後來還看了 <a href="http://sproutcore.com/">sporutcore</a> 跟 <a href="http://javascriptmvc.com/">javascriptmvc</a>, <a href="http://www.claypooljs.com/">claypool</a>, 不知道還有沒有其他 javascript mvc framework 可以用? anyway, 以上跟此連結無關。</p>
+<p>不過幸好 django 也有 south 這個 app 可以用來作 database migration。 以往 django 寫好 model 之後, 執行 syncdb 就可以自動幫我們把 database schema 給建好, 不過僅限第一次, 之後在修改 models 的時候, 就得手動去改 database, syncdb 是無用的。 因為執行 syncdb 時, 如果 table 已經存在, django 就會略過他了, 幸好有 south 可以來自動處理這一個煩人的工作。</p>
 
-<p>這個用來作 UI js library 有一個 google wave UI 的 <a href="http://ukijs.org/functional/wave.html">demo</a> 看起來還挺不賴的。</p>
+<p>而 south 的使用方式也很簡單, 基本上看一下 south 提供的 <a href="http://south.aeracode.org/wiki/QuickStartGuide">quick start guide</a> 就可以了, 以下簡單說明一下。 ( 我不能一直用超短文來騙 pageview XD )</p>
+
+<h2>將 app 轉換使用 south</h2>
+
+
+
+
+<pre><code>python manage.py convert_to_south &lt;app_name&gt;</code></pre>
+
+
+<p>在這個動作 south 會檢視現有的 models, 然後會在 app 裡開一個叫 migrations 的目錄, 並新增一個 0001_initial.py。 不過不用怕, 雖然這裡執行的指令叫 convert_to_south, 不過他其實就只是多一個 migrations 的目錄, 用這個目錄是否存在來判斷是否已經轉換為 south。 所以不想用 south 的話, 把 migrations 這個目錄刪掉即可。</p>
+
+<h2>用 south 找出 model 的更動</h2>
+
+
+<p>當 app 轉換為使用 south 之後, 之後如果有對 model 做更動, 只需執行下面指令,  south 會自動幫你找出 model 的改變, 像是新增或刪除了某個欄位, 或是加了 index 之類的的動作, south 都會幫你找出來。</p>
+
+<pre><code>python manage.py startmigration &lt;app_name&gt; &lt;migration_name&gt; --auto</code></pre>
+
+
+
+
+<h2>用 south 自動改變 database schema</h2>
+
+
+<p>上面的指令只是找出更動的地方, 下面這個指令才會真的執行更動 database 的動作</p>
+
+<pre><code>python manage.py migrate</code></pre>
+
+
+<p>目前我將 south 搭配 fabric 來做 deploy, 在 deploy 過程中自動執行 databsae migrate 真的是超方便的! 以往在開發時, 可能會因為新增功能, 所以 database 需要新增一些欄位, 然後程式做對應修改, 可是如果要放上 production 時, 就得先到 production 依照之前在開發時所新增的欄位, 來對 database 做相對的動作, 然後再把程式放上去。 老實說這個動作真的超煩的, 搞不好還欄位名稱打錯 XD</p>
+
+<p>順便提一下, 目前用這種方式在 deploy production 上還沒碰到爆炸過, 本來是有點怕怕的 XD</p>
+
+<h2>回復 schema</h2>
+
+
+<p>不過有時候還是有要復原 migration 情況, 這點 south 也很輕鬆做到。 在每次修改時 migrations 裡面會從 0001, 0002 慢慢增加, 如果現在 migration file 已經到 0017 了, 想要回復到到之前 0016 的狀況, 只要執行下面指令即可。</p>
+
+<pre><code>python manage.py migrate music 0016</code></pre>
+
+
+
+
+<h2>搭配 fabric 來 deploy</h2>
+
+
+<p>其實先前寫了一篇 用 <a href="http://tzangms.com/programming/2486">fabric 來 deploy</a>, 裡面的 fabric script 就有用上 south migrate, 有興趣的可以參考一下。</p>
+
+<p>目前整個 deploy 流程大概是這樣, 我會先做 hg push, 然後用打 fab prod deploy, 來 deploy 剛 commit 的程式到 production server, 然後固定執行 python manage.py migrate, 最後才是 service apache2 reload。 所以在 deploy 的時候, south 就會去檢查是否需要 migrate, 有的話就會把 database 更動的地方補上去, 最後 reload apache, 然後程式生效 :D</p>
+
+<p>多舒暢 XD</p>
 </div>
   
   
@@ -144,7 +205,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/2524">Django Multidb Support</a></h1>
+      <h1 class="entry-title"><a href="/life/2505">河濱公園大進擊!</a></h1>
     
     
       <p class="meta">
@@ -158,18 +219,20 @@
 
 
 
-<time datetime="2009-12-23T23:55:15+08:00" pubdate  data-updated="true" >Dec 23<span>rd</span>, 2009</time>
+<time datetime="2009-11-01T19:04:47+08:00" pubdate  data-updated="true" >Nov 1<span>st</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>昨天 <a href="http://djangoproject.com">django</a> multidb 出現在 trunk 了, 一出來就很多人衝去看 changeset, 可是因為這個 changeset 太大, 然後 trac 吃太多 CPU, 整個 <a href="http://djangoproject.com">djangoproject.com</a> 就爆了 XD 所以後來這個 changeset 的 request 就直接被導到這個<a href="http://www.djangoproject.com/multidb-changeset/">說明頁</a>。</p>
+  <div class="entry-content"><iframe width="600" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/?t=p&amp;q=http:%2F%2Fapi.motionxlive.com%2Fmotionx-remote%2Fapi%2Fgps%2Fhost%2F1c0cb04d-9c37-4636-9c63-59abf3901594&amp;ie=UTF8&amp;ll=25.058466,121.579599&amp;spn=0.023326,0.051498&amp;z=14&amp;output=embed"></iframe>
 
-<p>不過其實 django 在 <a href="http://github.com/django/django/commit/836d297e68d6a63103780295adebf6eaf6779611">github</a> 跟 <a href="http://bitbucket.org/mirror/django-trunk/changeset/13e78b76531c/">bitbucket</a> 上 mirror 的同一個 changeset 也都因為太大, 改而顯示: This changeset can not be displayed, as it is too large (bitbucket) 跟 Sorry, this commit is taking too long to generate. (github)</p>
 
-<p>咦, 重點好像偏了, 總之先看看 <a href="http://docs.djangoproject.com/en/dev/topics/db/multi-db/">multidb 的文件</a>吧, 有需要在衝 trunk XD 真是令人興奮的消息 :)</p>
+<br /><small><a href="http://maps.google.com/?t=p&amp;q=http:%2F%2Fapi.motionxlive.com%2Fmotionx-remote%2Fapi%2Fgps%2Fhost%2F1c0cb04d-9c37-4636-9c63-59abf3901594&amp;ie=UTF8&amp;ll=25.058466,121.579599&amp;spn=0.023326,0.051498&amp;z=14&amp;source=embed" style="color:#0000FF;text-align:left">檢視較大的地圖</a></small>
+
+
+<p>這次騎了八公里, 感想只有一個, 就是&#8230; 屁股好痛!!</p>
 </div>
   
   
@@ -182,7 +245,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/2521">Setting Up a Python CI Server With Hudson</a></h1>
+      <h1 class="entry-title"><a href="/life/2504">我買了小折了!</a></h1>
     
     
       <p class="meta">
@@ -196,16 +259,26 @@
 
 
 
-<time datetime="2009-12-05T16:29:29+08:00" pubdate  data-updated="true" >Dec 5<span>th</span>, 2009</time>
+<time datetime="2009-11-01T14:11:44+08:00" pubdate  data-updated="true" >Nov 1<span>st</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.rhonabwy.com/wp/2009/11/04/setting-up-a-python-ci-server-with-hudson/">Setting up a python CI server with Hudson</a> 這篇文章還滿值得一看的。 當中的 CI 指的是 <a href="http://martinfowler.com/articles/continuousIntegration.html">Continuous Integration</a>, 也可以看看這篇<a href="http://josephj.com/entry.php?id=251">中文的介紹</a>。</p>
+  <div class="entry-content"><iframe width="600" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/?t=p&amp;q=http:%2F%2Fapi.motionxlive.com%2Fmotionx-remote%2Fapi%2Fgps%2Fhost%2F98c39514-3d11-4716-b8e3-f50f11d8cc02&amp;ie=UTF8&amp;ll=25.050147,121.58196&amp;spn=0.013608,0.025749&amp;z=15&amp;output=embed"></iframe>
 
-<p>上禮拜把 hudson 弄起來, 自動 poll mercurial repo 來跑 pylint, 感覺真不賴, 結果找出了超多的 unused import, unused variables, 其實還真的滿有助益的, 不過 &#8230; 為了讓跑出來的數字好看一些, 這一個禮拜一直在努力的修 code, 讓 violations 的數字減少, 超辛苦的, 說真的, 沒事不要 import * 或是用 locals() &#8230;</p>
+
+<br /><small><a href="http://maps.google.com/?t=p&amp;q=http:%2F%2Fapi.motionxlive.com%2Fmotionx-remote%2Fapi%2Fgps%2Fhost%2F98c39514-3d11-4716-b8e3-f50f11d8cc02&amp;ie=UTF8&amp;ll=25.050147,121.58196&amp;spn=0.013608,0.025749&amp;z=15&amp;source=embed" style="color:#0000FF;text-align:left">檢視較大的地圖</a></small>
+
+
+<p>禮拜六去買了台小折, 就直接從車行騎回家, 然後用新 iPhone 3Gs 的 MotionX GPS Sport 來記錄, 其實上面的地圖終點是派克雞排 XD 沒錯, 我跑去買雞排, 所以其實沒 track 到我住的地方 :p</p>
+
+<p>以前在網路上推特上都會看見人家在分享他及腳踏車的軌跡記錄, 現在終於知道有趣的地方在哪裡了 :D</p>
+
+<p>我買的小折是國產的 StepDragon SS24, 本來是想去松山的方程式單車工房買 oyama, 不過可能他們生意太好, 都沒人理我, 然後隨便找個店員問了一下說有沒有 oyama, 店員說要用訂的, 我就直接閃人了, 因為看來也沒人會來服務我這個什麼都不懂的人, 所以我就在附近找了一間沒有人的店, 然後因為服務態度不錯, 我試騎了好一陣子直接買了 :D</p>
+
+<p>不過&#8230; 今天天氣就不好了 ~&#8221;~</p>
 </div>
   
   
@@ -218,7 +291,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/2519">Django Documentation iPhone App</a></h1>
+      <h1 class="entry-title"><a href="/life/2503">多麼希望自己是一個多愁善感的人</a></h1>
     
     
       <p class="meta">
@@ -232,18 +305,18 @@
 
 
 
-<time datetime="2009-11-27T01:16:53+08:00" pubdate  data-updated="true" >Nov 27<span>th</span>, 2009</time>
+<time datetime="2009-10-31T22:25:58+08:00" pubdate  data-updated="true" >Oct 31<span>st</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.djangoproject.com/">Django</a> 文件的 iPhone App 昨天出現在 <a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/browserRedirect?url=itms%253A%252F%252Fitunes.apple.com%252FWebObjects%252FMZStore.woa%252Fwa%252FviewSoftware%253Fid%253D336551222%2526cc%253Dtw%2526mt%253D8">app store</a> 了, 就跟 Django 網站上的 <a href="http://docs.djangoproject.com/en/dev/">Documentation</a> 看到的一樣, 不過有針對 iPhone 編排過, 實際上看了一下, 雖然程式碼的部份還是會超出 iPhone 的寬度, anyway, 基本上還算好閱讀。</p>
+  <div class="entry-content"><p>原本以為自己是音樂人, 但是誰知道現在都在寫程式, 對於寫歌完全沒有靈感, 吉他也彈不出個屁。 一直想再開始寫歌, 卻也沒寫下個什麼東西。</p>
 
-<p>這個 app 要價 0.99, 不過好像每賣出一套會捐出 30 cents 給 Django Software Fundation.</p>
+<p>時光飛逝, 身在音樂相關的公司, 卻完全沒時間寫歌, 每天下班就只剩幾個小時給自己, 然後等著睡覺, 而大多所謂留給自己的時間, 不是消化 google reader 裡的東西, 就是研究新的東西。</p>
 
-<p>[ <a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/browserRedirect?url=itms%253A%252F%252Fitunes.apple.com%252FWebObjects%252FMZStore.woa%252Fwa%252FviewSoftware%253Fid%253D336551222%2526cc%253Dtw%2526mt%253D8">app store 連結</a> ]</p>
+<p>而每天時間就這麼飛快的從身旁飛過, 快到來不及讓我流露出一絲多愁善感的情緒, 我的人生, 其實就跟 &#8230; 一樣平, 一樣平淡無奇。</p>
 </div>
   
   
@@ -256,7 +329,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/2515">Sequel Pro</a></h1>
+      <h1 class="entry-title"><a href="/programming/2499">最近用 Django 開發的網站上線了</a></h1>
     
     
       <p class="meta">
@@ -270,18 +343,24 @@
 
 
 
-<time datetime="2009-11-25T13:29:32+08:00" pubdate  data-updated="true" >Nov 25<span>th</span>, 2009</time>
+<time datetime="2009-10-26T00:08:54+08:00" pubdate  data-updated="true" >Oct 26<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.sequelpro.com/"><img src="http://tzangms.com/wp-content/uploads/2009/11/appicon1.jpg" alt="appicon" title="appicon" width="128" height="128" class="alignleft size-full wp-image-2517" /></a> <a href="http://www.sequelpro.com/">Sequal Pro</a> 這個給 Mac OS X 的 Mysql 管理工具真漂亮呀~</p>
+  <div class="entry-content"><p>原來這份工作也已經超過半年了, 原本是被 @<a href="http://twitter.com/Randylien">Randylien</a> 找去目前的公司, 把原本 asp 寫的網站用 php 砍掉重練, 不過其實公司也沒一定要用 php, 而 COO 有點偏好 python ( 他是 google 掛的 ), 反正剛好我也不想寫 php 了, 所以我就直接決定用 python 來改寫公司的網站了。</p>
 
-<p>雖然慢慢熟悉了 Mysql 的 command line 操作, 不過有些東西還是不熟, 不然就是怕打錯 XD 所以有些東西還是得借助 phpmyadmin 或是 sqlbuddy 來操作。 不過其實想能夠不跑 php 就不跑 XD</p>
+<p>不過其實我對 python 一點也不熟, 然後因為覺得 <a href="http://www.djangoproject.com/">django</a> 比較紅, 就直接選了 django 開始做了。 其實這是一個非常累人的決定, 因為完全不熟的東西, 真的是快累死我了! 一邊寫一邊看文件, 沒時間搞懂的東西就下班回家研究, 隔天在繼續, 累死我了 Orz</p>
 
-<p>沒想到我居然到用了 Sequel Pro 才知道可以透過 ssh 來連線 mysql XD</p>
+<p>而初期在開發時, 最麻煩的就是寫 script 轉換原有的資料, 而且是從 MS SQL Server 轉資料, 然後加上只有切一層資料夾存放的各式檔案, table name 就不提了, my god 這真是地獄 Orz 另外一個麻煩的地方, 就是要寫一堆 api 給 asp 的網站用, 因為其實目前只有把會員跟音樂頻道 port 過來, 其他的東西都還要先維持在舊網站。</p>
+
+<p>網站已經在上個禮拜上線了, 原本是有點擔心效能的問題, 畢竟效能這個問題是我來這家公司最首要的任務之一, 因為原本的網站幾乎是已經到了沒辦法用的狀態, 所以有點怕是不是 scale 真的那麼大, 不過看來並不是這樣, 畢竟目前平均才 8 reqs/sec 而已阿~~~, 相對於 <a href="http://stickeraction.com/">stickeraction</a> 的平均 45 reqs/sec 來說簡直就是輕而易舉 XD anyway 只是公司的人都超怕網站很慢之類的 XD</p>
+
+<p>anyway, 網站上線之後, 心情好很多了, 雖然目前還是一直在修東西, 不過心境差很多就是了, 而且跑的也還滿順的 :D 之後慢慢就有一些東西可以玩了! 不過~ 這份工作未免也太累人, 因為接下來還會繼續改版其他頻道, 囧rz</p>
+
+<p>當初薪水真的是開的太少了 XD</p>
 </div>
   
   
@@ -294,7 +373,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/2514">Django Admin Histograms</a></h1>
+      <h1 class="entry-title"><a href="/music/2498">[Music] 我自己</a></h1>
     
     
       <p class="meta">
@@ -308,18 +387,16 @@
 
 
 
-<time datetime="2009-11-21T14:25:10+08:00" pubdate  data-updated="true" >Nov 21<span>st</span>, 2009</time>
+<time datetime="2009-10-22T12:47:57+08:00" pubdate  data-updated="true" >Oct 22<span>nd</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://tzangms.com/wp-content/uploads/2009/11/django-admin-histograms.png"><img src="http://tzangms.com/wp-content/uploads/2009/11/django-admin-histograms.png" alt="django-admin-histograms" title="django-admin-histograms" width="500" height="244" class="alignleft size-full wp-image-2513" /></a></p>
+  <div class="entry-content"><p><embed src="http://tw.beta.streetvoice.com/static/player/MusicPlayer.swf?srv=tw.beta.streetvoice.com&ph=music&getv=config&skinID=6&au=70735&listtype=1&listsd=1800&autoStart=false&autoPlay=false&isEmbed=true&jsPlayer=false" allowFullScreen="false" allowScriptAccess="always" scale="noscale" type="application/x-shockwave-flash" width="330" height="100"></embed></p>
 
-<p><a href="http://github.com/alex/django-admin-histograms">django admin histograms</a>, 裝上之後改個兩三行, 在後台就可以自動幫你畫出上面的柱狀圖, 超方便的! 我已經放上 production site 跑了 :D</p>
-
-<p>不過因為一點點小問題, 所以我有 <a href="http://github.com/tzangms/django-admin-histograms">fork 出來改</a>。</p>
+<p>其實這是測試剛上線網站的 embed flash player  XD</p>
 </div>
   
   
@@ -332,7 +409,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/2511">我的腳踏車</a></h1>
+      <h1 class="entry-title"><a href="/programming/2496">Thickbox 停止維護</a></h1>
     
     
       <p class="meta">
@@ -346,19 +423,27 @@
 
 
 
-<time datetime="2009-11-14T19:59:37+08:00" pubdate  data-updated="true" >Nov 14<span>th</span>, 2009</time>
+<time datetime="2009-10-15T00:19:53+08:00" pubdate  data-updated="true" >Oct 15<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/4102658900/" title="my bike by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2632/4102658900_f8ac941a08.jpg" width="500" height="100" alt="my bike" /></a>
-今天下午又騎了 20 幾公里, 似乎屁股不像以往那麼痛了, 看來我已經快從鐵屁股特訓班畢業了 (笑)</p>
+  <div class="entry-content"><p>最近因為 <a href="http://jquery.com/demo/thickbox/">thickbox</a> 在 <a href="http://drupal.org/node/399254">ie7 下的 position 問題</a>, 到處 google solution, 心中想說這個問題不是早該處理掉? 而且 thickbox 也超久沒 release 新版, 感覺怪怪的。 不過今天下午為了查某個功能才發現 thickbox 的網頁上寫著不在繼續維護了。 ( 雖然我發現的有點晚, 網頁上註記著 9.30 )</p>
 
-<p>其實一直都沒有幫我的腳踏車拍張照片, 今天在大直橋附近用 iPhone 跟 auto stitch 拍了這一張, (雖然腳踏車有點糊, 不過整張) 看起來真不錯, 對吧? :D 最後再來一張</p>
+<p>其實我個人還滿喜歡 <a href="http://famspam.com/facebox">facebox</a> 的, 雖然說  facebox 在  <a href="http://github.com/github/facebox">github</a> 上也一直沒有啥動靜 XD 不過 facebox 沒有 iframe 的功能, 所以有 iframe 的需求都還是用 thickbox。 本來除了 thickbox 只知道 <a href="http://fancybox.net/">fancybox</a>, 不過 thickbox 的網頁上除了寫上停止維護之外, 還列出了以下這些可替代的方案。</p>
 
-<p><a href="http://www.flickr.com/photos/tzangms/4102936294/" title="my bike by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2760/4102936294_df440cb9f7.jpg" width="375" height="500" alt="my bike" /></a></p>
+<ul style="padding: 0px; margin: 20px;">
+    <li style="padding: 0px; margin: 0px;"><a style="color: #316080; text-decoration: underline; padding: 0px; margin: 0px;" href="http://colorpowered.com/colorbox/">colorbox</a></li>
+    <li style="padding: 0px; margin: 0px;"><a style="color: #4a8ebc; text-decoration: underline; padding: 0px; margin: 0px;" href="http://jqueryui.com/demos/dialog/">jQueryUI Dialog</a></li>
+    <li style="padding: 0px; margin: 0px;"><a style="color: #4a8ebc; text-decoration: underline; padding: 0px; margin: 0px;" href="http://fancybox.net/">fancybox</a></li>
+    <li style="padding: 0px; margin: 0px;"><a style="color: #4a8ebc; text-decoration: underline; padding: 0px; margin: 0px;" href="http://swip.codylindley.com/DOMWindowDemo.html">DOM window</a></li>
+    <li style="padding: 0px; margin: 0px;"><a style="color: #4a8ebc; text-decoration: underline; padding: 0px; margin: 0px;" href="http://www.shadowbox-js.com/index.html">shadowbox.js</a></li>
+</ul>
+
+
+<p>其實我個人 fancybox 比較適合用來秀圖片, 所以不考慮, 就看了 shadowbox 跟 colorbox, 後來覺得 colorbox 滿不賴的說, 試了一下, 可以做到我想到的某個功能, 使用上感覺很不錯 (笑) 看來, 再測過 ie 之後如果沒有啥大問題, 是該把手上的 thickbox 都換掉了 :p</p>
 </div>
   
   
@@ -371,7 +456,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/music/2502">The Girl and the Robots</a></h1>
+      <h1 class="entry-title"><a href="/programming/2490">Twitthat 用 Tornado 改寫</a></h1>
     
     
       <p class="meta">
@@ -385,34 +470,26 @@
 
 
 
-<time datetime="2009-11-08T23:05:09+08:00" pubdate  data-updated="true" >Nov 8<span>th</span>, 2009</time>
+<time datetime="2009-10-04T23:09:46+08:00" pubdate  data-updated="true" >Oct 4<span>th</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://thegirlandtherobots.blogspot.com/"><img src="http://tzangms.com/wp-content/uploads/2009/11/ap_F23_20091001124327101.jpg" alt="ap_F23_20091001124327101" title="ap_F23_20091001124327101" width="498" height="500" class="size-full wp-image-2509" /></a></p>
+  <div class="entry-content"><p>好一陣子了, 完全沒去碰手上的兩個 php project, <a href="http://twitthat.com">twitthat</a> 跟 <a href="http://stickeraction.com">stickeraction</a>,  因為看到 code 就完全不想去動他, 基本上有一部份是因為 php 的關係吧? XD 在開始寫 python 之後, 就太不想去面對 php 了 XD</p>
 
-<p>其實早在 2007 年就認識 <a href="http://thegirlandtherobots.blogspot.com/">the girl and the robots</a> 中的成員, jungle, 不過說是認識, 其實我只是有看 jungle 的部落格而已 XD 記得當初是透過 mybloglog 到處亂逛, 然後看到 jungle 的部落格, <a href="http://blog.roodo.com/iamjungle/">OH YEH I QUIT CLUB</a> , 後來甚至就透過 rss 訂閱了下來, 我也不知道為什麼。</p>
+<p>改版的起因是因為在上禮拜, 放在 <a href="http://www.webfaction.com/">webfaction</a> 的 twitthat, 突然 crash 了, 然後接連幾天 twitthat 都一直有問題, 就真的打算狠下心來用 python 砍掉重練。 其實這幾個月一直以來都有試著用 django 試著來重寫, 不過寫一下就放棄了 XD 老實說, django 真是囉哩八嗦的 XD</p>
 
-<p>從 2007 年初開始, 就這麼看著 jungle 的部落格, 慢慢的知道了 jungle 是個從事音樂工作的人, 似乎是錄音師(?) 不過後來甚至看到他在周杰倫的&#8221;陽光宅男&#8221; MV 裡出現, 而且還擔綱 MV 男主角, 哈, 超厲害的 XD 也許, 可能是因為在 <a href="http://blog.roodo.com/iamjungle/">OH YEH I QUIT CLUB</a> 裡面寫的東西超真誠, 所以我很喜歡看(?) 其真誠的程度由其部落格的 sub title 可以看得出來 &#8220;至少我是個誠實的王八蛋。&#8221; 哈, 其實我們都喜歡毫不避諱就罵&#8221;幹&#8221;這種事情吧 XD</p>
+<p>所以放棄 <a href="http://www.djangoproject.com/">django</a>, 想找一個簡單一點的 framework, 然後就想到前幾天有在 <a href="http://planet.python.org/">planet python</a> 的 RSS 看到關於 <a href="http://twistedmatrix.com/trac/">twisted</a> 的一連串文章, 不過他的網站有點難看, 後來不知道為啥就看到 <a href="http://www.tornadoweb.org/">tornado</a> 去。 看一看 tornado 的 document 之後, 幹, 超適合用來改寫 twitthat 的阿!! 所以, 從前天就開始用 tornado 重寫 twitthat, 登入的部份也直接改用了 Twitter OAuth。</p>
 
-<div class="aligncenter"><embed src="http://tw.beta.streetvoice.com/static/player/MusicPlayer.swf?srv=tw.beta.streetvoice.com&ph=music&getv=config&skinID=6&au=80673&listtype=1&listsd=670578&autoStart=false&autoPlay=false&isEmbed=true&jsPlayer=false" allowFullScreen="false" allowScriptAccess="always" scale="noscale" type="application/x-shockwave-flash" width="330" height="100"></embed></div>
+<p>雖然今天就把很快的就把新的 twitthat 給放出來了, 不過有些功能還沒有很完整, 之後會慢慢再加上。</p>
 
+<p>hmm~ 這麼快換上新版的 twitthat 是有原因的, 因為舊的 twitthat 我 sql query 寫的超爛的, 所以這幾天在看資料庫, 一直會有 lock, 而資料庫也越來越大, 導致 twitthat 越來越慢, 不過這次改版就完全沒用到 join query, 所以有在用的朋友應該可以感覺到速度快上很多吧? :p 另外也把版面超做更新一下, 感覺好多了 :D</p>
 
-<p>不過回到本篇的主題, 這次要跟大家介紹的是 <a href="http://thegirlandtherobots.blogspot.com/">the girl and the robots</a>, 這個由兩男一女所組成的 Electro-pop 樂團, 其實他們早在今年 10 月初就已經發行首張單曲了, 我也早該寫這篇文章了, 但是這一陣子負責公司網站的音樂頻道改版, 所以一直到最近才有時間靜下來打這一篇。</p>
+<p>老實說現在有 hellotxt, bit.ly, 其實 twitthat 的存在也沒有太大的必要了 ( 因為很懶的維護 ), 不過這個週末改完之後應該又可以放好一陣子不用去裡他了吧? XDDD</p>
 
-<p>其實我第一次聽到 Lost in Yesterday 這首歌時真是驚為天人 ( 這樣說會太誇張嗎? 笑 ), 不過真的是很 refreshing, 這首歌有好幾個點都有打中我, 像是前奏一開始木吉他彈的分解和弦, 或是歌曲後面約 3:10 在左聲道出來的音效, 一整個打中甜蜜點阿~</p>
-
-<p>雖然說我不太喜歡聽電子類的東西, 可是對於 the girl and the robots 這個團體還真是充滿著期待, 因為除了 Lost in Yesterday 目前這張 EP 之外, jungle 也偷偷先給我聽了一些其他的歌曲, OMG 我只能說, 你喜歡這首主打歌的話, 你一定得注意 the girl and the robots 接下來的音樂, 我個人覺得超讚的! (Y) 絕對值得令你期待。 話說他們現在發完了首張單曲, 已經在準備首張專輯了喔!!!</p>
-
-<p>最後, 喜歡 the girl and the robots 的朋友們可以透過 <a href="http://thegirlandtherobots.blogspot.com/">the girl and robots 的部落格</a> 持續關注他們的動態, 或是 <a href="http://tw.streetvoice.com/profile/home.asp?sd=670578">the girl and the robots 在 StreetVoice 的頁面</a>, 然後還有現在一定要有的 <a href="http://www.facebook.com/pages/The-Girl-and-The-Robots/93767862596?ref=nf">the girl and the robots 的 Facebook 粉絲頁</a> 呼~ 還有 lost in yesterday 的 MV</p>
-
-<object width="560" height="340"><param name="movie" value="http://www.youtube.com/v/SmCKsSQP2ic&hl=zh_TW&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/SmCKsSQP2ic&hl=zh_TW&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="560" height="340"></embed></object>
-
-
-<p>等等~ 喜歡他們的網友可以到<a href="http://www.books.com.tw/exep/cdfile.php?item=0020135232">這裡</a>購買他們的首張單曲優! ( 因為我覺得 the girl and the robots 的 blog 跟 facebook 的購買方式似乎不太清楚, 所以補放上來, 剛才找好一會 XD )</p>
+<p>原本 twitthat 是用 <a href="http://codeigniter.com/">CodeIgniter</a> 寫的, 現在覺得 CodeIgniter 不足的地方真的是超多的 ~&#8221;~ 最後, 這次用 tornado 感覺超棒的, 之後可以寫一些 tornado 在使用上的心得 :)</p>
 </div>
   
   
@@ -425,7 +502,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/2508">我最近真的是超健康的!</a></h1>
+      <h1 class="entry-title"><a href="/programming/2486">用 Fabric 來 Deploy</a></h1>
     
     
       <p class="meta">
@@ -439,20 +516,48 @@
 
 
 
-<time datetime="2009-11-07T20:23:26+08:00" pubdate  data-updated="true" >Nov 7<span>th</span>, 2009</time>
+<time datetime="2009-10-02T00:02:59+08:00" pubdate  data-updated="true" >Oct 2<span>nd</span>, 2009</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><iframe width="600" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/?t=p&amp;q=http:%2F%2Fapi.motionxlive.com%2Fmotionx-remote%2Fapi%2Fgps%2Fhost%2F00580232-292d-4ab9-a8ec-8ee7f3d62690&amp;ie=UTF8&amp;ll=25.065075,121.569901&amp;spn=0.054423,0.102997&amp;z=13&amp;output=embed"></iframe>
+  <div class="entry-content"><p>以前在寫 php 的時候是用 ruby 的 <a href="http://www.capify.org/index.php/Capistrano">capistrano</a> 來 deploy 程式, 雖然後來 php 好像有 <a href="http://phing.info/trac/">phing</a>, 雖然沒去深入研究, 可是光看文件就覺得沒有 capistrano 方便。 現在跑到 python, 當然就用 <a href="http://fabfile.org/">fabric</a> 來 deploy, 雖然不像 capistrano 有 transaction, 不過也很夠用了。 ( 以下用的是 fabric 1.0.0a 的版本, 目前透過 easy_install 的版本好像還滿舊的 )</p>
 
+<p>基本上 fabric 跟 capistrano 差不多 ( 應該就是學 capistrano 的 XD ), 寫個 fabfile.py 如下:</p>
 
-<br /><small><a href="http://maps.google.com/?t=p&amp;q=http:%2F%2Fapi.motionxlive.com%2Fmotionx-remote%2Fapi%2Fgps%2Fhost%2F00580232-292d-4ab9-a8ec-8ee7f3d62690&amp;ie=UTF8&amp;ll=25.065075,121.569901&amp;spn=0.054423,0.102997&amp;z=13&amp;source=embed" style="color:#0000FF;text-align:left">檢視較大的地圖</a></small>
+<pre><code>from __future__ import with_statement
+from fabric.api import run, sudo
+from fabric.context_managers import cd
 
+PROJECT_PATH = '/var/www/myproject'
 
-<p>這次騎了 18 公里!!! 可是我的屁股真痛 ~&#8221;~ 不知道買椅墊有沒有用阿~ 有誰可以推薦一下嗎? XD</p>
+def dev():
+    env.hosts = ['tzangms@localhost']
+
+def prod():
+    env.hosts = ['tzangms@tzangms.com', 'tzangms@tzangms2.com']
+
+def deploy():
+    with cd(PROJECT_PATH):
+        run('hg revert . --no-backup; hg pull -u ')
+        run("sed -i -e 's/DEBUG = .*/DEBUG = False/' settings.py")
+        run('python manage.py migrate')
+        sudo('service apache2 reload')
+</code></pre>
+
+<p>fabfile.py 大概像上面這樣, 接著就可以用下面指令來 deploy 到 dev 的環境:</p>
+
+<pre><code>fab dev deploy
+</code></pre>
+
+<p>或者 deploy 到 production:</p>
+
+<pre><code>fab prod deploy
+</code></pre>
+
+<p>真是超方便的 :p 不過當然這個 fabfile 簡化了許多實際上在 deploy 的手續, 不過應該可以描劃出基本 deploy 的方式, 以往用 capistrano 可以搭配 transaction 寫 rollback, 還有加上 deploy 版本的處理, 可以直接 rollback 版本, 不過後來超懶, 直接用 mercurial revert, 然後 pull -u, anyway, 有興趣的人在玩看看吧 :p</p>
 </div>
   
   

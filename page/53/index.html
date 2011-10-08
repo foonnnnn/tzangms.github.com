@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="先來介紹一下 CodeIgniter 的基本架構好了, 所以先來說明一下 CI 的頁面是怎麼做的。由於使用 MVC 架構, 所以最主要的就是 Controller, 程式透過 Controller 來呼叫 Model 存取資料庫, 然後在指定 View 輸出, 這樣一來, Controller...">
+  <meta name="description" content="昨天碰到uuencode的東西，找了一下相關的東西。 uuencode 是古老時代的東西，現在都被MIME所取代了。windows上一定也有相關的uuencode編解碼的工具，當我在高中的時候還有看到uuencode的工具，不過昨天隨便找了一下，沒找著，就重開機到Linux去，想說直接打uue...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/871">CodeIgniter 的基本架構</a></h1>
+      <h1 class="entry-title"><a href="/programming/741">Uuencode 的格式</a></h1>
     
     
       <p class="meta">
@@ -80,72 +80,46 @@
 
 
 
-<time datetime="2007-06-01T21:30:04+08:00" pubdate  data-updated="true" >Jun 1<span>st</span>, 2007</time>
+<time datetime="2006-12-09T14:39:03+08:00" pubdate  data-updated="true" >Dec 9<span>th</span>, 2006</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>先來介紹一下 <a href="http://codeigniter.com/">CodeIgniter</a> 的基本架構好了, 所以先來說明一下 CI 的頁面是怎麼做的。由於使用 MVC 架構, 所以最主要的就是 Controller, 程式透過 Controller 來呼叫 Model 存取資料庫, 然後在指定 View 輸出, 這樣一來, Controller 就可以變得很簡單。 以製作 Blog 為例, Blog 的首頁通常都會顯示最新的 10 篇文章, 就以這個簡單的範例來說明。不過在這裡先只討論 Controller 部份。</p>
+  <div class="entry-content"><p>昨天碰到uuencode的東西，找了一下相關的東西。 uuencode 是古老時代的東西，現在都被MIME所取代了。windows上一定也有相關的uuencode編解碼的工具，當我在高中的時候還有看到uuencode的工具，不過昨天隨便找了一下，沒找著，就重開機到Linux去，想說直接打uuencode指令，來試看看，誰知道Ubuntu Linux預設並沒有安裝這個套件。</p>
 
-<p>基本上, 每個 Controller 都是一個 Class, 在每個 Class 裡面的 function 都是一個頁面, 嗯, 這個概念很重要! 先來看看下面這一段, 應該就會比較清楚。</p>
+<p>使用apt-get install uuencode也沒辦法找到套件，原來是包含在sharutils這個套件裡頭，所以說要在Ubuntu Linux安裝、使用 uuencode的話，請打以下指令:</p>
 
-<pre>
-<code><?
-class Blog extends Controller{
-    function index(){
-        $this->load->model('blog_model');
-        $data = $this->blog_model->get_lastest_entries();
-
-        $this->load->view('blog', $data);
-    }
-
-    function post($id){
-        echo "這裡是第 $id 篇文章";
-    }
-}
-?></code>
-</pre>
+<blockquote>sudo apt-get install sharutils</blockquote>
 
 
-<p>在上面這段程式碼, 可以看到是一個叫做 Blog 的 Class, 裡面包含了 index 以及 post 兩個 function。先來說明比較簡單的 post 好了, 在先前有提到, 在 Class 中的 function 其實就是一個頁面, 不像以往, 一個 php 檔案就是一個頁面。</p>
+<p>在安裝完畢之後，當然就針對binary檔案來作encode</p>
 
-<p>接著來看看要如何存取 post 這個頁面, 首先看到下面這個網址</p>
-
-<blockquote>http://tzangms.com/post/26</blockquote>
+<blockquote>uuencode foo.jpg bar.jpg</blockquote>
 
 
-<p>這個網址在 domain 後面的部份, 一開始接的是 &#8220;blog&#8221;, 沒錯, 指的就是剛才上面寫的 Blog Class, 接著是 &#8220;post&#8221; 就是在 Class 中看到的 post function, 再後面的 &#8220;26&#8221; 就是要傳給 post function 的 $id 變數, 也就是第 26 篇文章, 所以只要輸入上面的網址, 就可以執行 Blog class 中的 post function, 而輸出的結果就跟程式中看到的一樣, 會直接輸出一行文字, 如下:</p>
+<p>然後出現的格式大致如下:</p>
 
-<blockquote>這裡是第 26 篇文章</blockquote>
+<blockquote>begin 644 bar.jpg
+M_]C_X&#8220;02D9)1@`!`@&#8220;9`!D&#8220;#_[&#8220;11&#8217;5C:WD&#8220;0`$&#8220;&#8220;/&#8220;`_^X`#D%D
+M;V)E`&3&#8220;&#8220;&#8220;?_;`(0`!@0$!`4$!@4%!@D&!08)&#8221;P@&!@@+#`H*&#8221;PH*#!`,
+M#`P,#`P0#`X/$`&#46;#!,3%!03$QP;&QL<'Q\?'Q\?'Q\?'P$'!P<-#`T8$!`8
+M...略
+M)D;5J]EWOTFE,TUF<2CD*2(45551R[^.O*+*J@:WY=LI!>N6_J<%+]:8R:\E
+M&8Q1=->7^$!,&#8221;.;Q;U.]BPYDFD/,[MXDZF6,#0&M%`%&#8217;.<7&IVKSUD
+ML4T1-$31$T1-$3AM]NB)HB:(FB)HB:(FB)HB:(FB)HB:(FB)HB:(FB)HB:(F
+2B)HB:(FB)HB:(FB)HB:(O__9
+`
+end</blockquote>
 
 
-<p>看到這邊大概就知道 CI 的 Controller 是怎麼運作的吧? 好, 接著再來看看 index 這個 function, 存取 index 頁面的網址如下</p>
+<p>uuencode編碼過後看起來就像上面這樣，主要就是begin開頭，中間就是編碼過的檔案，以M作為每一行的開頭，然後以end作為檔案的結尾。如果我把這個檔案直接貼上然後mail給你，如果你的mail client有支援uuencode的話，那麼你將會看到一個bar.jpg的附檔，當然，沒有內文。</p>
 
-<blockquote>http://tzangms.com/index</blockquote>
-
-
-<p>或更簡短</p>
-
-<blockquote>http://tzangms.com/blog</blockquote>
-
-
-<p>只要輸入上面這個網址就會顯示出 index 這個 function 所產生的頁面, 也就是顯示最新的 10 篇 blog 文章。另外, 由於 index 是 CI 預設的首頁, 所以存取這個頁面的網址可以比 post 更簡短, 不過這個 index function 未免也太簡潔了吧!? 沒錯, 使用 CI 就是那麼簡潔 :D</p>
-
-<p>接下來來說明一下 index 裡的程式碼, 可以看到 index function 裡總共只有 3 行, 先來看看第一行:</p>
-
-<p><code>$this->load->model('blog_model');</code></p>
-
-<p>在這裡大家先知道, 這裡是在載入一個叫做 blog_model 的 Model, 而 Model 主要的工作就是在存取資料庫。接下來第二行如下:</p>
-
-<p><code>$data = $this->blog_model->get_lastest_entries();</code></p>
-
-<p>在這裡就先想像一下 blog_model 中, 已經寫好一個叫做 get_latest_entries 的 function, 會取出最新的 10 篇文章然後 return。而在上面可以看到, 最後會將取出的資料傳給 $data 這個變數, 接著在最後一行, 將 $data 一起輸出給 View, 這樣一來就完成了 Blog 首頁啦!! 當然 View 的部份也就不先說明了。不過還是列一下如和載入要顯示的 View, 並先前透過 get_latest_entries 所取出的資料一起透過 View 輸出。</p>
-
-<p><code>$this->load->view('blog', $data);</code></p>
-
-<p>基本上 Controller 就是長得這樣, 在一個 Controller (Class) 中包含許多頁面(function), 這麼一來, 把相關的頁面寫在同一支 Controller 中, 是不是比較好維護呢? 另外使用 MVC 架構, Controller 看起來也會簡潔許多。</p>
+<p>來看一下Squirrelmail的一個叫get_uuencode的plugin裡面判斷是否為uuencode Message的一段regular expression
+<code>$uu_file = '/((begin|begin-base64)' . '\s+' . '[0-7]{3}' . '\s+' .
+'([<sup>\n]+))'</sup> . '\n' . '(.+?)' . '\n' . '(end|====)' . '/s';</code>
+大家看了這一段應該就比較知道如何去判別uuencode的檔案格式是否正確，不過基本上，uuencode應該用不太到了 XD</p>
 </div>
   
   
@@ -158,7 +132,7 @@ class Blog extends Controller{
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/868">關於部落格觀察 與 Google AdWords</a></h1>
+      <h1 class="entry-title"><a href="/life/740">值班結束~ 果然有拜拜有差 XD 客服日</a></h1>
     
     
       <p class="meta">
@@ -172,384 +146,374 @@ class Blog extends Controller{
 
 
 
-<time datetime="2007-05-29T22:36:44+08:00" pubdate  data-updated="true" >May 29<span>th</span>, 2007</time>
+<time datetime="2006-12-09T01:48:57+08:00" pubdate  data-updated="true" >Dec 9<span>th</span>, 2006</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>好吧! 其實我有偷偷在注意我的部落格觀察排名啦! XD 剛才從<a href="http://www.liverx.net/">高藥師</a>在<a href="http://tzangms.com/?p=861">這篇</a>的留言才知道原來部落格觀察有<a href="http://look.urs.tw/progress_rank.html">上周進步榜</a>這種東西, 我還找了好一陣子, 最後用 Google 才找到 XD</p>
+  <div class="entry-content"><p>終於值班結束了 :D 這次值班給我的印象還不錯~ 不像前兩次，讓我有種值班還真累的感覺，不過相較於當資訊兵的時候，其實還滿輕鬆的。</p>
 
-<p>不過這個排名在我周遭的部落格大咖中, 我算是絕對的無名氏, 進步的原因, 其實大多數來自於<a href="http://www.christabelle.idv.tw/">迴紋針老師的部落格</a>, 都是由於迴紋針老師把我 mark 成&#8221;帥哥&#8221;, 請看<a href="http://www.christabelle.idv.tw/rewrite.php/read-458.html">這篇</a> XD, 還有先前的 moo miniCards 事件, 使得敝小站流量大增 XD 再來就是 <a href="http://jeph.bluecircus.net/">jeph 的音謀筆記</a>, jeph 在小海 Podcast 開播之後, 幫我大推! 就在此感謝 <a href="http://www.christabelle.idv.tw">迴紋針老師</a> 以及 <a href="http://jeph.bluecircus.net/">jeph</a> ! :D</p>
+<p>除了第一天接值班半夜的時候機器掛點，勞煩Tommy大大出馬去機房之外，24 emergency call這次就少了很多。一整個禮拜，晚上幾乎都沒有emergency call，除了有一天的凌晨2點(其實3點多才聽到XD)的emergency call之外，每天都睡得很安穩。而每天晚上也都讓我有種沒有在值班的感覺，所以~很輕鬆的就又過了一次值班，果然～有拜拜真的有差阿!! XD</p>
+
+<p>今天回家就讓自己休息一下吧! 不過我又把iTzangms remote拿出來寫，好久沒寫了，這次加入了Smarty來作樣板，還有改名叫iTunes web remote好了！明天繼續寫吧！對了！明天還要上班！充當客服 :D 基本上只是當個電話小弟~ 希望大家都去選舉吧!!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/738">用Reason來作現場~</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-12-06T22:59:47+08:00" pubdate  data-updated="true" >Dec 6<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>最近轉職當KB手~雖然沒有合成器之類的鍵盤，但其實一直都有傢伙可以用。我的配備呢~ iBook G4 800 with Reason 3+ M-Audio Radium 49 + M-Audio Firewire 410，這樣呢就可以做現場了啦! 但是碰到一個重點了，歌曲的音色都調好了，那要怎麼去切換呢？難道要用滑鼠去點嗎？這幾天一直被這個困擾著，一直到剛剛突然領悟到了。</p>
+
+<p>Reason > Options > Additional Remote Overrides 可以在這裡面設定，在裡面可以看到Target Next Track、Target Previous Track，這裡說得就是，切換上一軌跟下一軌啦！真的太high啦!!</p>
+
+<p>先前買一本keyboard magazine出的laptop live!特集，裡面有提到reason不只是個強大的錄音室工具，也非常適合現場表演。我現在終於知道了 XD</p>
+
+<p>不過由於我的M-Audio Radium 49並沒有專門用來切換音色的按鈕，所以即使我知道怎麼設定也沒有用阿，剛才把fader拿來當切換鈕，但是太不直覺了，要推fader推到midi訊號滿格(也就是127)，reason才會做切換的動作，太麻煩了，所以結論就是，我可以用reason來作現場了，但是我卻沒有一個適合作現場 master keyboard XD</p>
+
+<p>所以最近想要換master keyboard，M-Audio 新出來的Axiom看起來很棒! 不過Novation更精緻 XD 來一台 Novation X-Station吧!!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/737">我明明有拜拜的 Orz</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-12-02T04:02:09+08:00" pubdate  data-updated="true" >Dec 2<span>nd</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天一點快半，本來想說要睡了，沒想到才是地獄的開始&#8230;.</p>
+
+<p>一開始，手機響了，從值班交接之後，一直都很平靜，沒想到一開始就來個大攤的~ Orz 將機器重開機，無效 XD 第二次重開機，仍然掛點，後來只好求救於Tommy大大！大大只好耐著冷風披上外套衝到機房去了&#8230;辛苦了！Tommy大大。當然不愧是大大，處理了一下，然後在等在disk check的時間，就打電話來跟我小chat一下，不然他會睡著 XD 所以為了答謝大大，我當然就奉上我在flickr上的CUTE OL正妹，供大大振奮一下精神，以聊表小弟的心意，沒想到disk check在最令人滿意的時間內完成了！非常好！但是此刻我還沒洗澡，而且好餓，但是好餓我也不能吃東西，因為要減肥阿！所以只好去洗個澡，準備睡覺，但是現在都已經4點了 Orz</p>
+
+<p>果然沒錯，值班就是報肝的開始阿! 在此徵求許榮助保肝丸~幹，不行了，來睏。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/736">Squirrelmail Classes</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-12-01T00:00:50+08:00" pubdate  data-updated="true" >Dec 1<span>st</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天上班，一直在處理別的事情之外，下班前都在弄Squirrelmail，這次運用裡面的Classes的組合寫出了可以寄信的程式XD 可能有人會想說PHP就有內建mail啦! 但是，那個太簡單了，不夠帥 XD 所以為了耍帥，我就用了以下的Classes跟functions來作</p>
+
+<p>Deliver_SMTP.class.php
+Message.class.php
+Rfc822Header.class.php
+ContentType.class.php
+mime.php
+global.php
+&#8230;</p>
+
+<p>Deliver_SMTP是用來寄信的，但是要傳給他什麼呢？要傳Message Object，可是Message Object 要包含，Rfc822Header跟ContentType，看起來就很煩。Rfc822Header就是用來存from跟to等等的東西，ContentType就是用來包含encoding跟charset，那最主要的部份就是Message啦！除了需要存這兩個Object之外，最重要的就是，subject跟信件內文啦!</p>
+
+<p>在下班前終於把Message Object的必要資訊填好，不過寄出的信因為charset跟encoding的關係卻變成亂碼XD 看著大家都一個一個下班走了，我也只好打消繼續寫的念頭，不過又不甘心的寫了一下下，突然，哇!! 成功了！可以正常顯示啦!! 那麼就又可以繼續寫下去，不過~~在寫下去可能不知道幾點了，有時候寫到正high的時候真的是停不下來 XD 所以就把這個告一段落，完美的結束，明天在繼續 XD</p>
+
+<p>不過在這支程式之前，就用mail()，一行就可以達到相同功能 XD 可是一點也不帥氣 XD 好啦～！重點是mail較不那麼portable，跟Server的環境比較有關係，anyway明天繼續high :D</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/734">iPod Shuffle 2、Hyde Faith Live DVD</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-11-27T23:58:37+08:00" pubdate  data-updated="true" >Nov 27<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>最近每每看到人，每個人都說: &#8220;小海~你變胖了!&#8221;，恩！對我來說真的是天大的打擊！我知道我變胖了阿!!!</p>
+
+<p>所以最近開始運動了，上個月的週末就去跑步，然後上上上禮拜就練團，比跑步還累，差一點死掉了我，累死，上上禮拜則是練團兼表演，都有運動到，所以上禮拜量ㄧ下體重，呵！少了兩公斤內!! 超high的！不過因為回家，所以就又被餵胖了，又回升了一公斤，媽的！</p>
+
+<p><a href="http://www.flickr.com/photos/tzangms/307751340/" title="Photo Sharing"><img src="http://static.flickr.com/113/307751340_4b1694b7ea_m.jpg" width="240" height="192" alt="my iPod shuffle 2" border='0' class='alignleft' /></a></p>
+
+<p>先前在跑步的時候，就覺得好無聊，今天就想到應該要帶著隨身聽跑步。不過由於原本的iPod mini太操了，不過才兩年，他的電池就已經差不多了，現在只能上班的時候接著電聽。其實以他的重量，應該也不是很適合帶著跑步，所以說，今天一下班就衝去Apple store買了一台iPod shuffle 2($2900、1G)，然後逛了一下，本想說買張CD來聽聽，不過卻看到了&#8221;Hyde Faith Live DVD&#8221; ($689、2 DVD)，超High的!! 所以二話不說就買了阿!!所以今天就又敗了好多錢，不過為了減肥iPod是必需的，Hyde DVD也是精神糧食，所以當然也是必需的阿!!</p>
+
+<p><a href="http://www.flickr.com/photos/tzangms/307756932/" title="Photo Sharing"><img src="http://static.flickr.com/102/307756932_f5279d7053.jpg" width="378" height="500" alt="Hyde Faith Live DVD" border='0' class='aligncenter' /></a></p>
+
+<p>Hyde 超帥的阿!! 明天就來跑步吧!!!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/733">小凱的Fender真帥!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-11-26T19:28:49+08:00" pubdate  data-updated="true" >Nov 26<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/307131716/" title="Photo Sharing"><img src="http://static.flickr.com/106/307131716_8f7de4db1a.jpg" width="334" height="500" alt="DSC04757.JPG" class='alignleft' border='0' /></a></p>
+
+<p>目前使用的吉他是小凱(GGG)借我的Fender Stratocaster Vintage &#8216;57 裝著GGG慣用的Earnie Ball 010的弦，這張拍起來就還滿漂亮的，當然是用DSLR拍的才會那麼清楚阿 XD 這張照片是在上禮拜表演的時候拍的，帥氣! 這一切都要感謝GGG阿!!!</p>
+
+<p>不過就很懷念之前H2O的編制，kyo跟GGG當吉他手的時候，我可以好好的彈我的BASS。很懷念kyo彈得吉他，邊的東西整個就跟H2O的味道很對，至於GGG就是整個藍調，就整個藍調龐克，然後整個搭起來就是所謂的前衛龐克阿!! (我自己說的 XD )</p>
+
+<p>現在加入了新BASS手，我跑去彈吉他，新BASS手志豪就很認真，雖然會歌彈一彈就彈到別首歌去了，不過在我的調教之下，他可是進步神速 XD 要在變強阿！志豪。</p>
+
+<p>這次表演就真正了解到，鼓手小廖一個最嚴重的問題，就是練團的時候速度都正常，但是一到表演就整個飆快~恩~ 很快！ Orz 原本歌都已經夠快的了，200、8 beat 結果正式表演就不知道飆到哪裡去了。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/731">最近工作上的東西</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-11-24T00:24:14+08:00" pubdate  data-updated="true" >Nov 24<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>作為一個網路程式設計師，好像一定必免不了要一直學習新的東西，相較於一般的Programer，學習新東西的速率是在是很可怕，可能我會這麼覺得是因為我太弱了XD</p>
+
+<p>上個禮拜在coding一個活動的網頁，用上了PHP+PHP Pear+PHP Smarty，雖然都是PHP啦!但是Smarty跟Pear也是要另外搞懂，今天就跟不在的<a href='http://www.kej.tw'>Kej</a>大大借了PHP Smarty的書回來讀，雖然剛進公司就用PHP加Smarty寫了一個管理後台，當初只知道有Smarty這個東西，在寫的時候就ㄧ邊看<a href='http://smarty.php.net'>http://smarty.php.net</a>的document來寫。剛才在看跟Kej大大借回來的書的時候，大概看了不到2個小時就把看完這本書的一半了，剩下就是Smarty專案規劃，所以重點差不多就看完了。只是，哪有每天都有這種心情看書阿~</p>
+
+<p>這幾天其實在公司沒事幹 XD 上禮拜有個活動的網頁co完就把裡面寫的一個圖片縮圖跟裁切的功能寫成一個class，然後就在修，方便以後使用，不過用GD縮的圖，品質不是很好，該來試試看imagemagick的Magic Wand for PHP，不過論portable當然是GD阿~真麻煩。後來修到一個段落，居然一點事都沒有，所以昨天就一直在看當初買的PHP實務[O&#8217;Reilly]，畢竟自己的PHP懂得不夠多，就讀了一些認證、安全的東西，然後為了要在Linux的console讀取MSSQL 就又去找了<a hre='http://www.sqsh.org/'>sqsh</a>，還滿好玩的，不然Linux怎麼用Enterprise Manager &#8230;</p>
+
+<p>今天也還是沒事情，所以幾乎一整天都在K <a href='http://www.ruby-lang.org'>Ruby</a>，然後k完了一份<a href='http://pine.fm/LearnToProgram/?Chapter=00'>tutorial</a>，回家繼續k ruby，一直到剛才想到有跟Kej大大借了Smarty來看，就先把這一本Smarty看完了。</p>
+
+<p>本來是想拿AJAX HACKS[O&#8217;Reilly]回來看的，不過後來想說，先把工作上用的到的東西k一k好了，所以Smarty看完之後，接下來該繼續看上個禮拜沒看完的SQL學習手冊[O&#8217;Reilly]，話說，這些書全部都是<a href='http://www.kej.tw'>Kej</a>大大的，感謝大大。</p>
+
+<p>話說SQL還滿難的，Create view，Sub Query之類的，還有兩層的sub query，害我上次看了之後有點頭痛 XD 像我現在只會基本的query而已，很糟糕，query的performance不好或是co的很笨的話，到時候經理看到程式碼我會很糗，所以SQL是一定要學的很好的。</p>
+
+<p>今天又聽到 mod_rewrite 這個東西，之前就有聽過，不過根本不知道幹嘛，不求甚解 XD 網路上找了一下才知道用來幹嘛，要用到我已經學了70%有的Regular expression，幸好已經有k了XD 結果更接近下班前，在處理mail的東西，才發現Linux檔案太多會沒辦法處理 XD 當要搬移有近一萬封mail的時候，居然出現 mv: Argument list too long :O 太屌了！Linux玩那麼久我真的第一次看到這個訊息，後來找了一下，可以用xarg來解決，不過當時不知道只好用regular expression來將檔案分次搬移了 XD 不然mv到死 XD</p>
+
+<p>另外要懂得東西還有Mail Server的架構: Mailhost、relay、mx..之類的，那還有LDAP、IMAP、SMTP跟qmail、dovecot的設定之類的，還有Maildir、mbox格式啦～blah, blah, blah &#8230;..</p>
+
+<p>javascript也是阿~要玩AJAX當然要熟Javascript，要熟Javascript也就要熟DOM，然後還要懂XML，那要非常懂XML的話也要懂DTD，然後繼XML之後又來了一個JSON，話說自己有一個XML in a nutshell[O&#8217;Reilly]當初花99塊賣的，媽的，上次在火車上看一看，看到DTD就頭痛了，沒事幹嘛買原文阿~</p>
+
+<p>沒辦法，買原文比較帥 XD</p>
+
+<p>然後昨天也把Perl[O&#8217;Reilly]帶去辦公室，有時間該來回顧一下，當兵後全忘了，跟我的Java、Bash一樣XD 忘光光啦！哈哈哈哈哈！突然又想到先前用applescript+PHP+AJAX寫的iTunes remote，過好久都還沒有進展，applescript該不會也忘了 XD 真糟糕，網路程式設計真的要學很多東西阿！</p>
+
+<p>PHP Pear Smarty Ruby RubyOnRail Perl Javascript AJAX JSON XML DTD LDAP IMAP SMTP POP3 DNS Bash Applescript CSS MailHeader JAVA JSP SQL UML ERM</p>
+
+<p>不過，說那麼多，其實心裡一直有個疑問，上班沒事都在k書，雖然是在增加自己的實力沒錯，但是心裡總是覺得沒在做事的感覺，就有人說，增進自己的實力，也就是增進公司的實力，公司應該會樂見，只不過是否該利用上班時間，雖然是空閒時間沒錯，但是總覺得沒有很踏實 XD 還是覺得忙一點，coding一整天這樣比較踏實 XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/computer/728">Whee E~e~e~ 超爆笑Firefox AD</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-11-13T00:23:17+08:00" pubdate  data-updated="true" >Nov 13<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><object width="425" height="350"><param name="movie" value="http://www.youtube.com/v/4kNsjdoeyro"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/4kNsjdoeyro" type="application/x-shockwave-flash" wmode="transparent" width="425" height="350"></embed></object>
+
+
+<p>剛才<a href='http://frank0624.wordpress.com/'>FrAnK</a>傳來的，因為今天早上跟Kej、clotho、FrAnK去參加Firefox 2 Party，然後剛才FrAnK就去找Firefox相關的東西，應該是想說會不會找到今天會場兩位cosplay妹妹的相簿還是影片吧? XD 然後就找到這個，真是超爆笑的！wee~e~e~ 其中最令我發笑的是ie，看了就知道，如果沒有笑的來找我領獎品，要摸著良心阿~</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/726">[Demo] 現在的我 從前的你</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-11-10T02:15:19+08:00" pubdate  data-updated="true" >Nov 10<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>[介紹]
+這首歌真的是歷經多變，一開始在寫這首歌的時候是低三個key在寫的，慢慢的升key一直升到比現在的key高兩個key，但是編曲就都不一樣了，因為吉他沒辦法彈出來相同的東西，所以上禮拜六、日就把這首歌整個用鋼琴跟弦樂編曲，花了整整兩天，好不容易把鋼琴編好，跟這首歌的作詞者非非討論之後，最後在禮拜一我就重新來過，用現在這個key來編曲，改用吉他為主，重現最原本的編曲。</p>
+
+<p>原本打算是弄個簡單吉他彈唱的版本，不過在禮拜一錄音錄完準備睡覺前，居然，我又錄了10軌，不過還是以木吉他為主，只是木吉他一共有4軌就是了，哈哈哈哈。</p>
+
+<p>現在這首歌總共用了13軌，吉他x5、弦樂x3、鋼琴x1、Vocalx1、和聲x1、鼓x1 還有前面的雨聲。
+這次使用的是7000塊的麥克風來錄Vocal跟收吉他，音質應該不錯，只是可能我在收音的技巧不是很好，我會去買EQ或Recording雜誌來讀的 XD 總之，這一首也還是個適合睡覺的歌曲，最後，這首並沒有電吉他跟bass出現，solo也是木吉他，還滿難得的，請大家多多指教，如果彈得不好，請見諒，唱的不好，也請見諒，畢竟小弟是bass手 XD (超好推責任的~~啦啦啦啦)</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/blog/868">Read on &rarr;</a>
+      <a rel="full-article" href="/music/726">Read on &rarr;</a>
     </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/867">最近使用 CodeIgniter 的雜亂心得</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-05-28T23:19:59+08:00" pubdate  data-updated="true" >May 28<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>由於最近一直在 porting , 不只是為了好玩, 也是未來的趨勢, 所以採用了 framework 來作 porting 的動作, 其實一開始對於 framework 可以做到的事情, 有點感到驚訝! 一開始 porting 還滿好玩的, 但是相較於單純只是要將 view 跟 code 分離來說, 原本應該會採用 Smarty, 那麼我就可以很輕鬆的把這個程式 port 完, 不過在先前就一直有在 survey 一些 PHP framework, 所以這次才就直接衝了, 選用 <a href="http://codeigniter.com/">CodeIgniter</a> 這個 framework 來做 porting!</p>
-
-<p>其實用 Smarty 可以減少許多 porting 的時間, 因為只需要單純的將 logic 跟 view 分離, 原本程式中就有的 library 還是可以繼續保留、使用, 但是, 就先前使用 Smarty 在開發的過程中, 還是感覺 Smarty 對以後的維護還是很麻煩 XD 不過這次採用了 CodeIgniter 來 porting 真是嘗到苦頭了 XD 由於對 framework 的不熟悉, 需要一邊 study 一邊 porting, 還要研究要如何將 MVC 切的漂亮, 接著原本程式的數量還滿龐大的, 然後又使用 framework 來作, 幾乎是重新改寫的情況下, 我原本跟經理說得大約 1 個月, 變成我的壓力來源 XD 就叫自作自受阿! 哈哈哈! 不過其實公司是沒有人在催我進度, 頂多問一下做的如何了~ 嗯, 我自己耍帥, 要用不熟悉的東西來做 porting, 當然不能將時間延誤推給這個原因阿! 所以應該將近有 3 個禮拜的時間, 就整個人悶了, 整天想的都是 porting, anyway, 但是說真的, 用 framework,  MVC 來作, 的確會讓程式簡潔很多, 方便往後程式的維護開發。</p>
-
-<p>我選用的 CodeIgniter, 沒看到有繁體中文的站台在介紹, PHP framework 在台灣比較紅的就屬 CakePHP 啦! 但是我看不懂他的 Document XD 而 CodeIgniter 的 Document 則是清楚明瞭, 而且就 framework 來說, 自由度很高! 門檻也不高, 所以我就選用 CodeIgniter 啦! 用 framework 就是要快阿~ 花太多時間在跨越門檻, 那就反了 XD</p>
-
-<p>framework 的其中一個特點就是, 他提供許多讓你快速開發程式的 function, 例如 Database class, 可以用 ActiveRecord 來存取資料庫, 而提供許多的 Database driver, 如: mysql, mssql &#8230;等, 即使你換資料庫, 你也只需要更改 Database driver 即可。以下是 ActiveRecord 小範例:</p>
-
-<p>原本 PHP 的做法:
-<code>mysql_query('SELECT * FROM mytable');</code></p>
-
-<p>使用 CodeIgniter ActiveRecord:
-<code>$this->db->get('mytable');</code></p>
-
-<p>使用 ActiveRecord 來作, 簡潔許多, 另外 framework 也幫你做了預防 SQL Injection 的動作。</p>
-
-<p>framework 中還有像是 Image_lib 的 library 讓你方便的就可以對圖片做 crop, resize 的動作, 還有一個很貼心的東西就是 input class, 每當在存取 $<em>POST 的時候, 總是要用 if 加上 isset 來檢查, 不存在就要另外將變數指定為 empty, 當 $</em>POST 變數很多的時候, 判斷式也相對的增多, 這時候程式就會變得很雜亂, 很難看, 然而 CodeIgniter 提供的 input class 很貼心, 當讀不到某 $_POST 變數的時候, 他會幫你自動將這個變數設為 empty, 舉例如下:</p>
-
-<p>原本的 PHP 做法:
-<code>if (isset($_POST['foo'])){</p>
-
-<pre><code>$foo = $_POST['foo'];
-</code></pre>
-
-<p>} else {</p>
-
-<pre><code>$foo = '';
-</code></pre>
-
-<p>}</code></p>
-
-<p>CodeIgniter 的做法:
-<code>$foo = $this->input->post('foo');</code></p>
-
-<p>這樣一來, 程式就簡潔了許多, 需要打的字也少了許多, 也方便以後維護, 當然還有其他許多貼心的 function,  不過後來發現其實裡面有些 function, 反倒要花上更多的行數, 來解決相同的事情, 但是後來才發現 framework 這個東西, 做主要的其中一項功能, 其實是要讓你方便維護你的程式碼阿!! 只能說 PHP 寫起來真的是很亂 XD</p>
-
-<p>其實寫到最後, 感覺像有種在做設定的感覺, 所以整個程式碼變得很簡潔, 井然有序, 以後再來寫一些介紹文好了!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/podcast/866">小海 Podcast 第 5 集</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-05-25T23:37:35+08:00" pubdate  data-updated="true" >May 25<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>哈! 這集隔了好久 :p 雖然這集只介紹了4首歌. 不過也快半小時了:p 這集講了一下蘭卡威之旅的心得, 大家都該去體驗一下蘭卡威大自然的威力才對 XD</p>
-
-<ol>
-<li>沙漏(木吉他板) by <a href="http://tzangms.com">小海</a></li>
-<li>癮 by <a href="http://www.wretch.cc/blog/cowboy731216">姆貓</a></li>
-<li>multiply by <a href="http://profile.myspace.com/index.cfm?fuseaction=user.viewprofile&amp;friendID=28818054">a women of no importance</a></li>
-<li>in for a ride by <a href="http://www.anekdoten.se/">Anekdoten</a></li>
-</ol>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/864">[串連] 我的惡臭經驗</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-05-25T00:32:11+08:00" pubdate  data-updated="true" >May 25<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.bio.url.tw/smell.html" target="_blank"><img src="http://www.bio.url.tw/bio.gif" width=150 height=60 border="0" align='left' /></a>被<a href="http://www.christabelle.idv.tw/">迴紋針老師</a>點名了! XD 今天中午聽到迴紋針老師跟 <a href="http://www.dearjohn.idv.tw">DearJohn</a> 提到&#8221;臭&#8221;這個字眼, 沒想到是這個串連, 下午看到迴老師的網誌才知道是這個題目, 噗~ 我突然覺得我錯了 XD 還真的要想好一陣子才能說我的惡臭經驗。</p>
-
-<p>說到惡臭經驗, 我想機車族的朋友們, 騎機車在路上應該都會有碰到垃圾車擋在前方的經驗, 有時候可真的是跑都跑不掉, 生長在空氣清新的宜蘭鄉下的我, 又沒有帶口罩的習慣, 所以碰到躲不掉的狀況, 真的是生不如死! 各位有相同經驗的朋友們應該有同感吧! XD 覺得垃圾車應該有除臭兼芳香的功能才是!</p>
-
-<p>來說重點吧! 從小生長在漁村的我, 其實對於魚腥味已經是習以為常了, 但是每當經過魚貨上岸的魚市, 又正當豔陽高照, 那個味道可不是一般人可以忍受的, 更何況是對外地來的遊客。我在想, 其實當遊客一進到南方澳漁港的時候, 應該就覺得空氣中已經瀰漫著一股&#8221;漁村的味道&#8221;吧!? 不過對我這個當地人則是已經很習慣了。</p>
-
-<p>其實最讓我不能忍受的是, 因為是住在鄉下的漁村, 而隔壁的阿嬤總是三不五時的在醃魚, 就放在他家門口, 噗, 問題是, 我家大門就常只關著紗門, 所以就也需要三不五時的遭受到醃魚味道的攻擊, 也許有些人覺得醃魚很好吃, 但是我真的是沒辦法接受醃魚過程中所產生的味道!! 不知道 bio 有沒有相關產品, 可以讓醃魚的時候在旁邊擺罐醃魚專用芳香劑 XD</p>
-
-<p>話說&#8230;這個串連要點名三位朋友~ 不知道有沒有人自願的? XD 不過故意點的好像比較好玩, 噗~ 被點到不要怪我 XD 那就&#8230;. <a href="http://blog.roodo.com/Rinslet">Rins</a>, <a href="http://blog.pixnet.net/jel0627">jel</a>, <a href="http://annpo.pixnet.net/blog">阿潑</a> ? 噗~</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/862">最近像一攤死水</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-05-24T01:31:20+08:00" pubdate  data-updated="true" >May 24<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>最近卡好多事, 光是公司的是就忙翻了~ 回家還要寫歌~ 越寫不出來就越卡, 快變成一攤死水了~ 然後下班後就整個人懶掉, 原本昨天就該寫蘭卡威之旅下集, 但是怎麼也提不起勁, 也沒那個心情讀書、讀文件, 這禮拜應該會把公司的一個專案做一個階段性的收尾 不過公司的程式設計師怎麼都請不到?</p>
-
-<p>一直在搞目前的專案, 原本預估一個月, 用 CodeIgniter 來 porting,  不過 porting 時程超過我當初的預計, 當然這多少也跟我經驗不足有關, 但最主要的是這個專案原本就寫的很爛 XD 這我不知道說幾遍了, 不只要 porting, 還要修原本的 bug, 而程式碼的數量也是當初所沒估計到的, 還有它的程式比我原本想像的還爛, 靠~ 害我浪費時間 port 了好幾次原本應該可以作成同一支 function 的 code。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/life/862">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/861">蘭卡威之旅上集!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-05-22T01:24:55+08:00" pubdate  data-updated="true" >May 22<span>nd</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/505957082/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/220/505957082_29e64aec8b.jpg" width="500" height="375" alt="100_0852.JPG" /></a>
-<a href="http://www.flickr.com/photos/tzangms/505985093/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/220/505985093_4acf084b5a_s.jpg" width="75" height="75" alt="100_0854.JPG" /></a> <a href="http://www.flickr.com/photos/tzangms/505955380/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/232/505955380_9924697188_s.jpg" width="75" height="75" alt="100_0862.JPG" /></a> <a href="http://www.flickr.com/photos/tzangms/505954516/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/227/505954516_8c368746af_s.jpg" width="75" height="75" alt="100_0864.JPG" /></a>
-在出國之前, 每次跟朋友說我要去蘭卡威, 朋友都會回問說, 蘭卡威在哪? 就在馬來西亞阿! 就叫你們讀地理不讀 XD 呵, 馬來西亞還真是夠熱的, 但是總比這幾天台灣一直下雨來的好! 空氣清新、風景優美阿!! 最棒的就是, 跟一堆魚一起在海裡游泳, 這次浮潛, 超漂亮! 即使我從小就生長在漁村, 住在海邊, 對於每天都可以看到一堆魚的我來說, 這次真的是一次前所未有的體驗!</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/life/861">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/860">出國囉!!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-05-17T00:55:44+08:00" pubdate  data-updated="true" >May 17<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>要跟親愛的各位, 說聲掰掰囉! 這一去就要 4 天了! 這可是我人生中第一次出國, 第一次坐飛機內!!</p>
-
-<p>回來在跟大家分享出國旅遊的心得吧!! 呵! 希望這次出國能找些靈感! 回來可以寫新歌! 本來這幾天要做 小海 Podcast 第五集的, 不過最近真的忙到翻了! 也在準備出國的一些事情跟東西~ 所以等我回來吧! 我終於可以跟電腦說掰掰了! 不過我怕我沒有電腦會很難過! XD 呵!</p>
-
-<p>anyway, 蘭卡威我來啦!!!! see ya, guys!!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/858">我買 Jaguar 了!!!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-05-14T23:54:50+08:00" pubdate  data-updated="true" >May 14<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/497956438/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/189/497956438_3bc39d7067.jpg" width="500" height="375" alt="Fender Jaguar" /></a></p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/life/858">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/mac/854">想玩 Joost 嗎?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-05-10T22:53:39+08:00" pubdate  data-updated="true" >May 10<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.joost.com">joost</a> 是一個利用 P2P 技術的網路電視軟體, 今天小玩了一下, 速度還滿不錯的, 畫質也 ok, 當然不像 DVD 那樣 XD 不過可以看到許多外國的電視節目, MV, 樂團現場表演! 挺不賴的! 不過只有 Mac user 才能玩呦~! 是吧? XD</p>
-
-<p>screenshot 可以看<a href="https://www.joost.com/screenshots/">這裡</a>。joost 的界面整個很華麗阿! 加上全螢幕的電視播放畫面, 感覺超氣派! 而且即使在換節目的過程中, 也不會讓你等太久, 不過這基本上應該還是要取決於你的網路頻寬啦! 不過就我用 8M 的 Hinet ADSL 來說, 速度滿不賴的! 這就是所謂 P2P 的魔力嗎? XD</p>
-
-<p>呵, 今天早上剛拿到了邀請函, 超 high 的! 由於目前 joost 還沒有開放註冊, 不過已經讓有帳號的人可以邀請朋友一起來玩! 就跟先前的 gmail 一樣, 更增加了 joost 的吸引力阿!! 有種看得到卻吃不到的討厭感覺 XD</p>
-
-<p>昨天在網路上晃, 看到 <a href="http://www.i-marco.nl/weblog/">The Net is Dead</a> 的這篇文章 <a href="http://www.i-marco.nl/weblog/archive/2007/05/09/want_a_joost_invite">Want a Joost invite?</a> Sure!!! 呵, 還被我搶到第一篇阿! 今天一起床就收到的邀請函, cool!!</p>
-
-<p>所以我現在也來送邀請函!! 我的朋友們~ 有用 Mac 也想玩 joost 的, 留下你的 comments 吧! XD</p>
-
-<p>限量是殘酷的! XD</p>
-
-<blockquote><strong>更新!!</strong>
-噗~ 剛才看到 <a href="http://klandor.twbbs.org/">klandor</a> 的comments &#8220;竟然mac也可以用&#8221;, 才去 Google 一下, 看到了<a href="http://www.sharecool.org">酷玩意部落格</a>的<a href="http://www.sharecool.org/archives/227">這一篇文章</a>, 其實 Windows 也可以 Joost 阿!! 我忘記從哪來的錯誤資訊了 Orz</blockquote>
-
-</div>
-  
   
 
 

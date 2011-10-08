@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="由於在 PHP5 已經有 SOAP extension 了, 如果把 SOAP extension 也編進 PHP5 的話, NuSOAP 就會跟 SOAP extension 的  class name 衝到, 所以有了 nusoap-for-php5, 放在 Google code。不過把...">
+  <meta name="description" content="今天在將 tzangms.com CI 化的時候碰到了個問題, 就是一直出現下面這一行訊息No input file specified.第一次碰到這個, 完全沒頭緒! 原本以為是因為 mod_rewrite 沒設定好的關係, 所以才出現這個訊息。之後我找了好多 mod_rewrite 相關的...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/1083">NuSOAP for PHP5</a></h1>
+      <h1 class="entry-title"><a href="/programming/977">[CodeIgniter] No Input File Specified.</a></h1>
     
     
       <p class="meta">
@@ -80,202 +80,35 @@
 
 
 
-<time datetime="2008-02-19T10:09:52+08:00" pubdate  data-updated="true" >Feb 19<span>th</span>, 2008</time>
+<time datetime="2007-09-28T23:00:23+08:00" pubdate  data-updated="true" >Sep 28<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>由於在 PHP5 已經有 SOAP extension 了, 如果把 SOAP extension 也編進 PHP5 的話, <a href="http://sourceforge.net/projects/nusoap/">NuSOAP </a>就會跟 SOAP extension 的  class name 衝到, 所以有了 <a href="http://code.google.com/p/nusoap-for-php5/downloads/list">nusoap-for-php5</a>, 放在 Google code。</p>
+  <div class="entry-content"><p>今天在將 tzangms.com CI 化的時候碰到了個問題, 就是一直出現下面這一行訊息</p>
 
-<p>不過把 class 名稱改成 soapclientnusoap 會不會有點太長? 我覺得改成 nu_soapclient 會比較好吧? 還是拿 原本的 NuSOAP 自己來改好了 XD</p>
+<blockquote>No input file specified.</blockquote>
 
-<p><strong>== UPDATE ==</strong>
-剛看了一下 nusoap 的 changelog, 原來因為 NuSOAP 會跟 PHP5 的 SOAP extension 衝到, 所以 class 名稱已經改了勒 o_O, 下面這一段可以看到, 已經從 soapclient 改成 nusoapclient 。</p>
 
-<blockquote>2007-03-19, version 0.7.2
-- soapclient: declare as nusoapclient, then also subclass soapclient if SOAP extension not loaded
-- soapclientmime: declare as nusoapclientmime, then also subclass soapclientmime if SOAP extension not loaded</blockquote>
+<p>第一次碰到這個, 完全沒頭緒! 原本以為是因為 mod_rewrite 沒設定好的關係, 所以才出現這個訊息。之後我找了好多 mod_rewrite 相關的資料, 還是沒辦法解決問題, 一邊修改設定, 一邊測試下面這個網址, 仍然還是一樣顯示 No input file specified.</p>
 
+<blockquote>http://tzangms.com/main</blockquote>
 
-<p>再來看到這一段,</p>
 
-<blockquote>2007-04-09, version 0.7.2
-&#8230;
-- nusoapclient: rename class to nusoap_client
-&#8230;</blockquote>
+<p>後來才發現我取消 mod_rewrite, 直接打下面這段網址也是出現相同的錯誤訊息。</p>
 
+<blockquote>http://tzangms.com/index.php/main</blockquote>
 
-<p>現在 class name 是改成 nusoap_client 勒, 所以&#8230; 記得以後網路上找文章要注意日期阿 XD 像 NuSOAP 只有 code 的話&#8230;就只能靠自己多挖依下程式碼了&#8230;不然也要看過 readme, changelog 先。</p>
-</div>
-  
-  
 
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/1081">Web Developer Resources</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-02-18T20:10:58+08:00" pubdate  data-updated="true" >Feb 18<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.forwebdesigners.com/">http://www.forwebdesigners.com/</a>
-<a href="http://www.tlbox.com/">http://www.tlbox.com/</a>
-<a href="http://webdevelopersfieldguide.com/">http://webdevelopersfieldguide.com/</a>
-<a href="http://www.alvit.de/handbook/">http://www.alvit.de/handbook/</a>
-<a href="http://webstandardsgroup.org/resources/">http://webstandardsgroup.org/resources/</a>
-<a href="http://webdeveloper.econsultant.com/">http://webdeveloper.econsultant.com/</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/uncategorized/1080">灌西比想像中的還紅</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-02-15T14:09:24+08:00" pubdate  data-updated="true" >Feb 15<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2265786795/" title="Eddie chen is famous in torrent search XD by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2219/2265786795_fc71607544.jpg" width="500" height="382" alt="Eddie chen is famous in torrent search XD" /></a>
-<a href="http://www.youtorrent.com/">youtorrent.com</a> 是用來搜尋國外各大 BT 種子的搜尋引擎, 想找某個軟體來(試)用, 沒想到搜尋框下方的標籤雲, 最大 tag 的竟然是 <strong>edison chen</strong>  XD 第二大的 tag 就是目前廣告打的頗兇, 我還滿想看的電影: jumper (移動世界)</p>
-
-<p>嗯~ 灌西比我想像中的還紅 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/1078">readlatr.com 暫時書籤?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-02-09T23:59:30+08:00" pubdate  data-updated="true" >Feb 9<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://readlatr.com"><img src="http://farm3.static.flickr.com/2060/2252067295_cbe9a3fbc8_o.jpg" alt="readlatr" class='left' /></a><a href="http://readlatr.com">readlatr.com</a> 這是一個書籤網站? 嗯~ 其實就像網站名稱說的「Read later」, 較不像是書籤網站, 而是個工具網站吧!</p>
-
-<p>readlatr 主要的用途是用來存<strong>想讀, 但又不適合存到書籤的文章</strong>, 又或者是<strong>想讀, 但是現在沒時間讀</strong>, 可以先存下來, 等有時間的時候在讀。 其實現在書籤網站太多功能太麻煩, 要存個待會在看的文章, 還要打 tags, 分類不是很麻煩?</p>
-
-<p>我覺得 readlatr 這個功能很讚阿! 尤其是現在資訊爆炸, 太多東西要讀, 但時間又沒那麼多, 把有興趣的文章先存起來, 晚點在看, 這個功能真的是太貼心了 XD 老實說, 我的 del.icio.us 跟 myshare 真的是太多無用書籤, 而且~ 存下來之後的書籤, 大多數都沒在回頭去看過吧?! readlatr 就是以上這些想法出來的, 多貼心 :D</p>
-
-<p>話說 readlatr 這個名字是因為 readlater 被註冊走了, 才叫 readlatr 的, 剛好學 flickr o_O</p>
-
-<p>readlatr 要怎麼用? 要新增的話就只能用 Read later 的 bookmarklet 來新增, 沒有其他新增管道。 在註冊完登入之後, 可以看到網頁右邊有個 how to use, 上面有個 Read later 的連結, 把他拉到 firefox 的書籤工具列上面就可以了, 往後看到想從下來的網頁, 直接按個鈕, 就存好了! 真的是很方便的一個工具阿!! 另外可以先用滑鼠圈選文章裡的文字, 之後再按 Read later, 所圈選的文字就會被存成連結敘述。</p>
-
-<p>有興趣的可以看看<a href="http://readlatr.com/user/tzangms">我的 readlatr </a>, 而且有提供 unread 的 rss, 我也在我的 blog 的 sidebar 放上了 rss widget。 多方便的一個工具阿!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/1079">生日快樂!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-02-09T22:58:08+08:00" pubdate  data-updated="true" >Feb 9<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>其實對生日這事沒啥太大感覺, 也習慣低調的過, 然而每次生日幾乎都是接在農曆年這時候, 所以同學也都在放寒假每個都回到自己溫暖的家裡, 享受過年的氣氛。 二專跟二技的同學們也沒有人在宜蘭, 也自然沒有人幫我慶生, 不過這樣也好, 我喜歡低調 XD</p>
-
-<p>基本上, 放寒假的時候, 我也沒辦法跟誰說我生日, 沒幾個人知道也是正常的, 不過每年一到生日的時候, 我還是會收到電話、簡訊, 或 MSN 來的生日祝賀, 感謝這幾位朋友記得我的生日 :D</p>
-
-<p>今年最早收到的是<a href="http://www.christabelle.idv.tw">迴老師</a>給的生日祝賀, 然後是<a href="http://annpo.pixnet.net/blog">阿潑</a>, 呵! 身為我這叛逆兒子的媽咪, 還特地寫了這一篇文章 <a href="http://www.annpo.idv.tw/index.php?load=read&id=146">[生日快樂] 音樂小王子小海也讓人期待</a> 來祝我生日快樂, 至於阿潑為何是我媽咪, 可以看這篇文章一探究竟。( 只是, 怎麼感覺阿潑的這篇文章裡都是怨念阿! XD )</p>
-
-<p>話說, 多了 facebook 跟 twitter 這兩個朋友圈 (雖然幾乎是同一掛 XD), 今年收到了更多生日祝賀阿! 在 facebook 上會提醒哪位朋友快生日了, 所以一看到時間差不多就會趕快丟蛋糕阿什麼的 XD 接著又會在 twitter 上祝壽星生日快樂。 前些日子有好幾位 twitter 上的朋友生日, 都會把收到的生日祝賀&#8221;打星星&#8221;, 然後寫在 blog 上面, 好羨慕 XD 呵, 現在! 我終於有這個機會啦! 哈哈哈哈! XD</p>
-
-<p>以下感謝各位「推友」的祝賀, 再次祝大家新年快樂阿!! :D</p>
+<p>這時候才知道, 原來 mod_rewrite 沒設錯阿!! mod_rewrite 一直正確的運作著, 所以上面這兩個網址是一直指到同一個地方, 所以我才一直看到相同的訊息, 這才恍然大悟! main 一直有正確的 rewrite 成 index.php/main 阿!</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/life/1079">Read on &rarr;</a>
+      <a rel="full-article" href="/programming/977">Read on &rarr;</a>
     </footer>
   
 
@@ -287,7 +120,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/1077">從京都來的明信片!</a></h1>
+      <h1 class="entry-title"><a href="/life/976">最近要來做的事</a></h1>
     
     
       <p class="meta">
@@ -301,17 +134,28 @@
 
 
 
-<time datetime="2008-02-07T14:28:46+08:00" pubdate  data-updated="true" >Feb 7<span>th</span>, 2008</time>
+<time datetime="2007-09-28T01:49:58+08:00" pubdate  data-updated="true" >Sep 28<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2243795130/" title="postcard from kyoto by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2303/2243795130_2d9e748c58.jpg" width="500" height="375" alt="postcard from kyoto" /></a>
-哈, 拖了好久! 這張是我人生中第三張從外國來的明信片喔! 是<a href="http://www.wretch.cc/blog/bay1220">貝貝</a>去京都玩之前, 特地來問我說要不要寄一張明信片給我, 呵, 感謝貝貝! (大心):D</p>
+  <div class="entry-content"><p>最近開始在把以前的錄好的歌重新 mix, 有些部份也許要重錄, 也一邊在研究所謂的 mastering。找了一些關於 mastering 的資訊, 最後裝了 <a href="http://www.izotope.com/products/audio/ozone/">iZotope Ozone 3</a> 來作 mastering 的動作, 只是還有很多關於 mix down 跟 mastering 東西不了解, 所以一邊在研讀相關的資料。希望可以把錄好的歌曲調的好聽一些。</p>
 
-<p>話說回來~ 真羨慕當老師的人, 一到寒暑假就可以到處玩阿!!! 其實我也想當老師教書&#8230; (咳)</p>
+<p>然後要開始準備進錄音室的前置工作, 先把工作帶(卡拉帶?)做出來, 先去錄看看 Vocal 的部份。接著要做 flash mp3 player (widget), 讓人家可以放在他們的 blog 上 XD</p>
+
+<p>之後還要再拍一些宣傳照 XD 然後拿來做封面、內頁, 這就要跟我們家西瓜哥借他的新相機了, 一台 8 萬塊, 加鏡頭跟一些有的沒的, 好像 12 萬勒&#8230;.</p>
+
+<p>做 wallpaper 宣傳用 XD (已經做好了)</p>
+
+<p> &#8212;&#8212;&#8212; 天馬行空分隔線 &#8212;&#8212;&#8212;&#8211;</p>
+
+<p>再來就是拍 MV, 要先想劇情, 畫分鏡&#8230;. 然後在學一下 FinalCut Studio 這種東西</p>
+
+<p>最後談通路, 把唱片放到玫瑰、大眾、誠品、佳佳, 還要有博客來網路書店 XD</p>
+
+<p>然後希望一個人可以把上面說的這些事情可以在三個月內弄完 XD</p>
 </div>
   
   
@@ -324,7 +168,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/1076">新年快樂!</a></h1>
+      <h1 class="entry-title"><a href="/life/973">宣傳照?</a></h1>
     
     
       <p class="meta">
@@ -338,14 +182,20 @@
 
 
 
-<time datetime="2008-02-06T00:38:47+08:00" pubdate  data-updated="true" >Feb 6<span>th</span>, 2008</time>
+<time datetime="2007-09-24T17:29:48+08:00" pubdate  data-updated="true" >Sep 24<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>今天是除夕夜! 祝大家新年快樂啦! 至於 blog 的版面又換回來了~ 我還是覺得這個好看 Orz 對不起, 我又浪費時間了 XD</p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/1431289337/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1180/1431289337_a85dcc6d0a.jpg" width="334" height="500" alt="宣傳照 XD" class='left' /></a>星期六跑去跟以前學校熱音社的學弟妹們中秋烤肉, 雖然雨一陣一陣的, 不過絕大部份的時間都沒有雨, 一陣陣的秋風, 涼涼的~ 吹起來很舒服, 大家也烤的很開心, 一邊烤肉一邊彈吉他唱歌, 多 high。 隔天禮拜日, H2O 就又跑去練團, 把舊歌都跑一跑, 不過禮拜天跟禮拜六的天氣差異真的是很大, 禮拜日熱的要命, 不過也由於天氣很好, 陽光也很大, 就硬拉宜豐幫我拍照 :p 雖然才隨性的亂拍幾下, 但是拍完整個快熱死~ 馬上就跑去吃冰 (奔~)</p>
+
+<p>感謝攝影師宜豐還有修圖師小紅, 雖然有些圖修的有點過頭 XD</p>
+
+<p>果然我買這把 jaguar 是對的!! 拍起來多好看! 哈哈哈! (囧~ 吉他不是拿來拍照的阿!)</p>
+
+<p>拍起來很有宣傳照的感覺吧? 下次再找時間跟地點來拍照吧, 還滿好玩的, 只是不要那麼熱就好 XD</p>
 </div>
   
   
@@ -358,7 +208,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/codeigniter/1075">CodeIgniter 1.6 Released!</a></h1>
+      <h1 class="entry-title"><a href="/web/972">Slideflickr.com : Flickr Slide 產生器</a></h1>
     
     
       <p class="meta">
@@ -372,57 +222,19 @@
 
 
 
-<time datetime="2008-02-05T00:59:26+08:00" pubdate  data-updated="true" >Feb 5<span>th</span>, 2008</time>
+<time datetime="2007-09-21T20:39:08+08:00" pubdate  data-updated="true" >Sep 21<span>st</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>前幾天就看到<a href="http://codeigniter.com/news/codeigniter_1_6_hits_the_streets/">這一篇</a>。 CodeIgniter 1.6 出來了!  關於 detail 可以看看 <a href="http://codeigniter.com/user_guide/changelog.html">Change Log</a>，大致更新如下:</p>
+  <div class="entry-content"><p><a href="http://www.slideflickr.com/">SlideFlickr.com</a> 還不錯用的一個 flickr 投影片產生器, 輸入你相片、set、tag 的網址 (collection 好像沒辦法), 就可以產生出來一個 flash 投影片跟語法給你貼到 blog 上, 還可以設定換頁速度、自定 logo 還有背景音樂 (只是個人非常不建議自動播放音樂), 產生出來的東西就像下面這個, 這是我上次去宜蘭玩拍的, 南方澳海邊 XD</p>
 
-<p>新增了 <a href="http://codeigniter.com/user_guide/database/forge.html">DB Forge class</a> (這個對我來說好像用不太到) 還有! 就是 Database 的 collation 設定!</p>
-
-<p>而 <a href="http://codeigniter.com/user_guide/database/active_record.html">Active Record</a> 把一些 method 名子改掉了, 像是 orderby 改成 order_by 之類的, 不過舊的 method 名稱目前還是可以繼續用, 不過應該有空就要來把程式改一改, user guide 也都已經提到舊的 method 名稱是 deprecated 了。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/codeigniter/1075">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/1073">Firefox Tips: 重開剛剛不小心關掉的 Tab</a></h1>
-    
-    
-      <p class="meta">
-        
+<blockquote>靠! slideflickr 這個爛東西, 這篇才寫沒幾天勒&#8230;就爛掉了&#8230; 所以我就把 flash 也拿掉了! 果然不安全 XD</blockquote>
 
 
 
-
-
-  
-
-
-
-<time datetime="2008-02-01T14:39:34+08:00" pubdate  data-updated="true" >Feb 1<span>st</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Firefox 有個快速鍵可以重新打開剛剛不小心關掉的 tab, 我覺得這個超有用的 XD ( Ctrl + shift + t )</p>
 </div>
   
   
@@ -435,7 +247,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/music/1071">Is Sugizo Out There? (Mp3下載)</a></h1>
+      <h1 class="entry-title"><a href="/computer/970">找 iTunes 唱片封面</a></h1>
     
     
       <p class="meta">
@@ -449,25 +261,306 @@
 
 
 
-<time datetime="2008-01-31T11:33:02+08:00" pubdate  data-updated="true" >Jan 31<span>st</span>, 2008</time>
+<time datetime="2007-09-20T00:13:30+08:00" pubdate  data-updated="true" >Sep 20<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><img src='http://tzangms.com/wp-content/uploads/2008/01/sugizo01.jpg' alt='sugizo with guitar eclipse' class='left' />這首歌先就有給大家聽過了, 不過這次更厲害, 要直接給大家下載 XD 下載 mp3 回去聽, 比起在網路上用 flash 播放音質應該會好很多. 就當作祝大家新年快樂吧!!</p>
+  <div class="entry-content"><p><a href="http://www.thejosher.net/iTunes/">Josh&#8217;s iTunes Album Art Grabber</a> 這裡可以直接輸入歌手跟專輯名稱就可以直接下載到畫質不錯的唱片封面勒, 多方便! 直接抓 iTunes Store 的唱片封面勒!! 對我這個沒有 iTunes Store 帳號的就不錯用!! XD 不過前提是你找的唱片封面要在 iTunes 上面有賣才行 &#8230;</p>
 
-<p>還是再來介紹一下這首歌好了, 作這首歌的起因是&#8230;因為某次的「我猜」播的居然是型男而不是正妹(囧), 所以&#8230;我就只好打開 <a href="http://www.apple.com/ilife/garageband/">Garageband</a> 開始弄歌。 原本只是一時興起, 沒想到靈感這麼多, 也都很剛好的有找到我喜歡的 loops 跟音色 , 所以很快的, 大概凌晨兩點多, 花了三個小時左右就把這首歌弄完了。</p>
-
-<p>這首歌除了電吉他的部分之外, 完全都是用 <a href="http://www.apple.com/ilife/garageband/">Garageband</a> 加上 <a href="http://www.apple.com/ilife/garageband/jampacks/">Jam pack</a> 用當中的 loop 跟音色完成的, 所以其實用 Mac 的朋友們其實是很幸福的, 內建了一個很不錯的錄音軟體阿! 而電吉他的部份則是用 Fender 直接 line in 然後用上 <a href="http://www.native-instruments.com/index.php?id=guitarrig3">NI Guitar rig 2</a> 來當效果器。一直到前幾個禮拜, 我才又用 iZotope 的 <a href="http://www.izotope.com/products/audio/ozone/">Ozone 3</a> 重新把這首歌混過一次, 雖然混音的技術還有待加強, 不過光自己聽就夠我滿足的了!</p>
-
+<p>其實都是因為 iTunes 跟 CoverFlow, 會讓人有種&#8230; 有了歌沒有封面, 就覺得有缺憾的感覺 XD</p>
 </div>
   
   
-    <footer>
-      <a rel="full-article" href="/music/1071">Read on &rarr;</a>
-    </footer>
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/mac/969">Mac OS X 瘦身 : Monolingual</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-09-19T00:50:56+08:00" pubdate  data-updated="true" >Sep 19<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>最近我的 Macbook 硬碟真的是快用光光了&#8230;只剩下不到 5G &#8230; 所以我又抓了 <a href="http://monolingual.sourceforge.net/">Monolingual</a> 來用, 可以拿來移除掉用不到的語系檔。</p>
+
+<p>其實之前在 iBook 也用過 Monolingual, 不過現在的版本又多了可以移除不同平台架構的 Binary, 像現在我 Mac 上都只用到 Intel Binary, 而 PowerPC Binary 都嘛用不到, 所以&#8230;把 PowerPC Binary 都移掉吧!!! XD</p>
+
+<p>語系檔的部份, 我只留了 Chinese (Traditional Han)、English 跟 English (United States), 其實應該 United States 應該也不用留, 可是我怕怕的 XD 因為&#8230;不管如何&#8230;絕對不能移除 English 阿!!! ok.. 在跑好一陣子之後, 清出了 2.7G 的空間!! :D</p>
+
+<p>至於 Binary 的部份, 我只留 Intel, 其實&#8230;我是不是應該保留 Intel 64-bit ? 因為我的 Macbook 是 Core 2 Duo 阿! anyway, 在移除 Binary 的時候, 如果有用像是 MS Office 這種東西的話&#8230;還是不要亂移 XD 因為好像有些大程式還是會用到 Rosetta 這種東西&#8230; 反正怕就不要亂移就是了&#8230; 電腦掛掉也不要怪我 XD 怕的人可以看看<a href="http://www.downloadsquad.com/2007/09/07/do-more-with-monolingual-but-be-careful/">這篇</a> Anyway 我只留了 Intel Binary, 又清出了 2.4 G 啦!!</p>
+
+<p>哈哈哈! 空間整個多出 5G, 其實我最近覺得我的 Mac OS X 開機變很慢&#8230;所以專挑一些無聊事作 &#8230;</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/mac/968">關掉 Mac OS X 的 Spotlight</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-09-18T13:19:05+08:00" pubdate  data-updated="true" >Sep 18<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>spotlight! 完全沒在用 XD 根據<a href="http://aplawrence.com/foo-mac/remove-spotlight.html">這個網頁</a>的說明, spotlight 會在你複製、搬移檔案的時候做 index 的動作, 所以說, 沒在用 spotlight 的話, 不就浪費那些效能在做 index, 所以&#8230; 來移除 spotlight 吧! 應該說關掉 spotlight :p</p>
+
+<p><strong>1. 首先取得 root 權限啦!</strong></p>
+
+<pre><code>sudo su -</code></pre>
+
+
+<p><strong>2. 接著是修改 /etc/hostconfig</strong></p>
+
+<pre><code>vi /etc/hostconfig</code></pre>
+
+
+<p>找到 SPOTLIGHT 這行, 把 -YES- 改成 -NO-, 如下</p>
+
+<pre><code>SPOTLIGHT=-NO-</code></pre>
+
+
+<p><strong>3. 關掉 indexing</strong></p>
+
+<pre><code>mdutil -i off /   </code></pre>
+
+
+<p>會顯示</p>
+
+<pre><code>Indexing disabled for volume.</code></pre>
+
+
+<p><strong>4. 移除 indexing</strong></p>
+
+<pre><code>mdutil -E /</code></pre>
+
+
+<p>會顯示</p>
+
+<pre><code>Volume index removed.</code></pre>
+
+
+<p><strong>5. 再來打開活動監視器結束掉 mdimport 這個程序</strong></p>
+
+<p><strong>6. 最後是回到 / 移除掉 Spotlight 檔案</strong></p>
+
+<pre><code>cd /
+
+rm -rf .Spotlight*</code></pre>
+
+
+<p><strong>7. 好! 重開機!!</strong></p>
+
+<p>不過後來我發現&#8230; 連用 Finder 右上角的搜尋框也找不到東西了 XD 所以說~ 這個東西, 無聊的人可以試一試 XD 還有電腦搞壞不要怪我 XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/966">[Demo] 多與少</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-09-16T20:11:45+08:00" pubdate  data-updated="true" >Sep 16<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>這首 Demo 跟上一板的錄音沒差多少, 原因是我想不出來怎麼編曲了, 怎麼彈都覺得不好。後來突然覺得這首歌的曲, 似乎也不需要太多的樂器、合音來配合就不錯聽了, 所以我連鼓也拿掉了, 單純 Vocal、木吉他跟一軌合音。</p>
+
+<p>也許有人可能會覺得我偷懶 怎麼都沒有編其他樂器, 但&#8230; 你錯了! 這就是最好的編曲 XD</p>
+
+<p>[歌詞] by 非非
+怎樣算是多 怎樣算是少
+我想給的更多 但不願是你負擔</p>
+
+<p>你不肯說很多 說是因為害羞
+不想你說很少 總覺得你驕傲</p>
+
+<p>希望你開心 每天揣測著你的心
+但你惜字如金 讓我捉摸不定</p>
+
+<p>希望你開心 每天揣測著你的心</p>
+
+<p>啊~ 多少算是多 多少算是少
+你想要的是多 還是想要少</p>
+
+<p>說什麼是錯 不說算不算對
+說什麼是對 不說會不會誤會</p>
+
+<p>你倒是說一說
+你倒是說一說</p>
+
+<p>要如何打破這沈默~</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/965">安裝 Capistrano</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-09-15T02:09:15+08:00" pubdate  data-updated="true" >Sep 15<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>最近在研究 <a href="http://www.capify.org/">Capistrano</a> 這個東西, 他最主要就是搭配 SVN 來做程式碼自動部署(auto deployment)的工作, 如果程式碼都用 SVN 來作版本控制的話, 那麼會方便很多。基本上, Capistrano 是 RoR 用來做自動部署的程式, 不過在看過許多文章之後, 其實也可以拿來用在其他程式的部署上。</p>
+
+<p>簡單的來説, Capistrano 就是可以讓你很方便的透過 ssh 在遠端執行指令。所以說沒辦法遙控 Windows XD</p>
+
+<p>先來說說安裝吧! 首先就是要安裝 <a href="http://www.ruby-lang.org/en/">Ruby</a> 啦! 把原始碼抓回來安裝啦! (以下當然不會是 Windows 的做法 XD)</p>
+
+<blockquote>./configure ; make ; make install </blockquote>
+
+
+<p>接著是裝上 <a href="http://www.rubygems.org/">RubyGem</a>, 抓回來用下面的指令安裝</p>
+
+<blockquote>ruby setup.rb</blockquote>
+
+
+<p>然後就可以用 RubyGem 來安裝 <a href="http://www.capify.org">Capistrano</a> 啦! 加上 -y 的參數, 是說, 會裝上其他相依的 ruby gem。</p>
+
+<blockquote>gem install -y capistrano</blockquote>
+
+
+<p>然後因為某種原因, 會出現某個訊息, 不過玩 Ruby 的才需要知道, 就不說為什麼了 (因為我也不知道阿, 反正裝玩就不會在出現那一段訊息就是了 XD)</p>
+
+<blockquote>gem install fastthread</blockquote>
+
+
+<p>到這裡就大功告成啦!! Capistrano 安裝完畢!! 之後再來寫篇發佈 PHP 程式的心得 :p</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/964">Logic Express 8!!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-09-13T21:56:16+08:00" pubdate  data-updated="true" >Sep 13<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.apple.com/logicexpress/"><img src="http://farm2.static.flickr.com/1036/1371411901_0a8a87c995.jpg" width="500" height="186" alt="Logic express 8" /></a>
+我的天阿!! <a href="http://www.apple.com/logicexpress/">Logic express 8</a> 超想買的阿!! 還真便宜內! 只要 $6900!</p>
+
+<p>話說這次的 Logic express 8 多了先前 Logic Pro 7 才有的 Guitar Amp Pro!! 還有 Ultra Beat!! 真的是太帥氣了!! 然後整個界面都改了, 其實先前 Pro application 的界面感覺有點不是很符合現在 Mac 的感覺 :p</p>
+
+<p>不知道 Guitar Amp Pro 跟 Ultra Beat 有沒有辦法分別取代我現在用的 <a href="http://www.native-instruments.com/index.php?id=guitarline">Guitar Rig 2</a> (媽的! 又嚇到! Guitar Rig 3 也出來了!!! )跟 <a href="http://www.xlnaudio.com/products">Addictive Drum</a>, 倒是看網頁所介紹的畫面, 似乎 Guitar Amp Pro 還是沒有像 Guitar Rig 2 有那麼細的設定。</p>
+
+<p>另外!! 可以用 Apple remote 來控制 Logic !! 太屌了阿!!!</p>
+
+<p>我想要!! 但&#8230;其實 <a href="http://www.apple.com/logicstudio/">Logic Studio</a> 也才 $16900, 不會太貴, 但是&#8230; 我只是業餘, 所以 Logic express 就很猛了阿!</p>
+
+<p>不過&#8230;..仔細看看, Logic Studio 裡面多了個 <a href="http://www.apple.com/logicstudio/mainstage/">Main Stage</a>, 是用來作現場表演的!! 阿阿阿! 好想要阿!! 不過買 Logic Studio 的話, 我一定又會想買一台新的 Master Keyboard, 像是.. <a href="http://www.m-audio.com/products/en_us/Axiom49-main.html">M-Audio Axiom</a></p>
+
+<p>等一下&#8230;. 先存錢在說!</p>
+</div>
+  
   
 
 

@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="老實說, 我也不太清楚是怎麼一回事, 幸好資料庫有備份, 也有另外一台主機可以馬上接手資料庫的部份, 只是 stickeraction 的 cache 被清掉之後, 沒辦法一下子馬上處理那麼多的 request, 其實這也就表示當初程式的設計是有問題的, 沒辦法處理那麼大量的 request。...">
+  <meta name="description" content="禮拜五晚上下班跑去 midimall 買了這一台 mbox 2 mini, 因為我原本的錄音介面(M-Audio Firewire 410)差不多掛點了, 在這個節骨眼也沒有時間去送修, 所以我就買了這一台 mbox 2 mini, 讓他陪伴我完成剩下的錄音過程。這台花了 $9000, 滿小一...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/1548">主機資料庫大爆炸</a></h1>
+      <h1 class="entry-title"><a href="/music/1179">Mbox 2 Mini</a></h1>
     
     
       <p class="meta">
@@ -80,18 +80,19 @@
 
 
 
-<time datetime="2008-09-01T00:17:41+08:00" pubdate  data-updated="true" >Sep 1<span>st</span>, 2008</time>
+<time datetime="2008-05-31T00:20:53+08:00" pubdate  data-updated="true" >May 31<span>st</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>老實說, 我也不太清楚是怎麼一回事, 幸好資料庫有備份, 也有另外一台主機可以馬上接手資料庫的部份, 只是 <a href="http://stickeraction.com">stickeraction</a> 的 cache 被清掉之後, 沒辦法一下子馬上處理那麼多的 request, 其實這也就表示當初程式的設計是有問題的, 沒辦法處理那麼大量的 request。 其實也是因為當初根本沒想說會有那麼多人用 XD</p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2534416651/" title="Mbox 2 mini!! by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2127/2534416651_ee0e8c9206.jpg" width="500" height="375" alt="Mbox 2 mini!!" /></a>
+禮拜五晚上下班跑去 midimall 買了這一台 mbox 2 mini, 因為我原本的錄音介面(M-Audio Firewire 410)差不多掛點了, 在這個節骨眼也沒有時間去送修, 所以我就買了這一台 mbox 2 mini, 讓他陪伴我完成剩下的錄音過程。</p>
 
-<p>除了 <a href="http://stickeraction.com">stickeraction</a> 之外, 我放在同一台主機的服務 <a href="http://twitthat.com">twitthat</a> 跟我的 blog 也都掛點, 幸好每天都有用 <a href="http://sourceforge.net/projects/automysqlbackup/">automysqlbackup</a> 在備份, 所以沒有釀成太大的悲劇 Orz</p>
+<p>這台花了 $9000, 滿小一台的, 大小差不多是原本錄音介面的一半, 方便攜帶吧! 而且外型真的不錯 XD 不過由於 digidesign 除了 HD 的產品之外, 他的 driver 不支援 Mac OS X Leopard, 所以我又花了兩天的下班時間, 把系統重灌為 Tiger, 然後在把所有需要的外掛在一一裝回去。</p>
 
-<p>總之, 目前 stickeraction 的狀況就是, 除了無法將已經貼了貼紙的新部落格加進來之外, 其他一切都正常 XD 接下來這幾天要來把 stickeraction 的架構重新寫一遍吧! 還沒有看到被加進串連的朋友請稍後幾天嘿!!</p>
+<p>就快了, 加油吧!!</p>
 </div>
   
   
@@ -104,7 +105,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/codeigniter/1201">CodeIgniter Layout 的做法</a></h1>
+      <h1 class="entry-title"><a href="/old demo/1176">[Demo] 與你重逢 (新版)</a></h1>
     
     
       <p class="meta">
@@ -118,476 +119,379 @@
 
 
 
-<time datetime="2008-08-30T12:48:09+08:00" pubdate  data-updated="true" >Aug 30<span>th</span>, 2008</time>
+<time datetime="2008-05-25T22:57:34+08:00" pubdate  data-updated="true" >May 25<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>由於在開發網站過程中, 通常都有個 template 或稱作 layout, layout 包含了整個網站的外觀, 而網站的 layout 通常會切分為 header, content, footer 甚至還有 menu。 而這當中的 content view 則是會隨著不同頁面、功能而變動, 而 layout 則為固定, 這樣可以維持同一個網站界面的一致性, 然而 <a href="http://codeigniter.com">CodeIgniter</a> 並沒有對這種所謂 partial view 有較好的處理方式。</p>
+  <div class="entry-content"><p>這首歌跟<a href="http://tzangms.com/demo/1136">我想忘記你</a>一樣, 是最早錄好的歌, <a href="http://tzangms.com/music/681">原本的版本</a>用的是 iBook G4 800 跟 iMic 還有 $199 麥克風錄製的, 所以音質不好, 這次把整首歌都再錄過, 音質提升很多吧!</p>
 
-<p>所以通常都會是像下面這樣的寫法。 載入 foo 這個 content view 到變數之後, 丟到 template view, 最後在 render 出來。</p>
+<p>hmm~ 這一首呢~ 我最愛貫穿主歌的電吉他跟中間的吉他 solo 了~ :p</p>
+</div>
+  
+  
 
-<p><code>$data['foo'] = $foo;
-$view['heading'] = 'heading text';
-$view['content'] = $this->load->view('foo', $data, true);
-$this->load->view('template', $view);</code></p>
 
-<p>所以每個頁面就都得寫上兩行 load view 的動作, 寫久了便覺得繁瑣, 其實這個動作透過下面這個 Layout library 是可以簡化的。 這個 library 是在 <a href="http://codeigniter.com/wiki/layout_library/">CodeIgniter wiki</a> 上看來的, 只修改了幾個變數。</p>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1170">[網摘] May 23th 2008</a></h1>
+    
+    
+      <p class="meta">
+        
 
-<pre>
-<code>&lt;?php
-class Layout
-{
-    var $obj;
-    var $layout;
 
-    function Layout($layout = "template")
-    {
-        $this->obj =& get_instance();
-        $this->layout = $layout;
+
+
+
+  
+
+
+
+<time datetime="2008-05-25T15:07:22+08:00" pubdate  data-updated="true" >May 25<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://ajaxpatterns.org/">AjaxPatterns</a>
+老實說&#8230;我都沒時間, 也看不太下這些 patterns, 就連上次提到的 <a href="http://www.patternsforphp.com">Patterns for PHP</a> 我也都還沒看 >&lt;</p>
+
+<p><a href="http://www.codinghorror.com/blog/archives/001119.html">PHP Sucks, But It Doesn&#8217;t Matter</a>
+說 PHP 爛一點都不打緊 XD (&#8230;我這個註解好像下的很爛)</p>
+
+<p><a href="http://ignition.lifewithryan.com/index.php5?title=Main_Page">Ignition &#8211; Code Igniter Code Generation Script</a>
+給 <a href="http://codeigniter.com">CodeIgniter </a>用來自動產生 Controller, Model, View 的 script, 像是 rails generate xxx。</p>
+
+<p><a href="http://verens.com/archives/2008/05/20/efficient-js-minification-using-php/">efficient JS minification using PHP</a>
+本來有想過這個做法, 可是這個做法好像太費力氣了。目前我採用的方法是用 capistrano, 在 deploy 的過程中, 再用 jsmin 對 js 檔作處理。</p>
+
+<p><a href="http://www.jonasjohn.de/lab/htmlsql.htm">htmlSQL - a PHP class to query the web by an SQL like language</a>
+用 SQL 語法來查詢 HTML 網頁勒! 好屌, 話說 <a href="http://codeplex.com/PHPLinq">LINQ</a> 也很屌! , 然後還有 <a href="http://trentrichardson.com/jsonsql/">jsonSQL</a>, 媽的! 哪學的完阿! (看!)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/1175">Shareaholic 使用 Twitthat !?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-05-23T21:58:56+08:00" pubdate  data-updated="true" >May 23<span>rd</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2516281860/" title="shareaholic_on_twitthat.jpg by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2246/2516281860_2c6b445f50.jpg" width="500" height="189" alt="shareaholic_on_twitthat.jpg" /></a>
+有時候比較空閒或是無聊的時候, 我都會到 <a href="http://twitthat.com">twitthat</a> 的 <a href="http://twitthat.com/most_read">most read</a> 頁面, 看看有沒有哪些文章被比較多推友閱讀過, 如果有看到感興趣的標題, 就會點來看看。 (另外也順便看看 twitthat 有沒有當掉 XD) 不過最近這幾天使用 twitthat 的外國推友好像突然暴增, 我看 referral 也看不出來是哪邊連過來的。</p>
+
+<p>後來又一直在 most read 看到  <a href="http://shareaholic.com/">shareaholic</a> 這個網站一直被推上來, 有點稍微覺得有點好奇, 難得有非中文的文章獲得那麼多的推(因為中文使用者居多嘛 XD), 只是我都沒有去看看 XD 後來今天下班前, 推友 <a href="http://twitter.com/quanmengli">quanmengli</a> 跟我說 :</p>
+
+<blockquote>quanmengli @tzangms 难道偶眼花了吗？twitthat替代twitthis成为shareaholic首选？</blockquote>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/web/1175">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/old demo/1173">[Demo] 浮沈 (新版)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-05-22T00:01:48+08:00" pubdate  data-updated="true" >May 22<span>nd</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>這次把浮沈這首的 Vocal 重新錄製了一遍, 除了 Vocal 跟鼓之外其他樂器都是先前錄製好的, 另外也加了一軌和聲。而鼓的音源則是由先前 Logic 內建的 Drum kits 改用 Addictive Drum。 當然整首歌重新混過, 我覺得好聽很多啦! :p</p>
+
+<p>重新錄製的 Vocal 比起舊板 Vocal 好很多, pitch 也準了很多 XD 聲音也更為清亮, 不過這首缺少的應該就是少了 bass? 但加了 bass 又感覺怪怪的, 好難編這首歌的 bass, 不過目前這首我覺得頗好聽的了 :p</p>
+
+<p>我最喜歡這首歌的吉他 solo 阿!! XD 尤其是結尾的吉他 solo, 真的是靈感來了, 然後彈到手破皮阿 Orz 還有, 這首歌有 inoran 式的分散和絃&#8230;.我愛 inoran XD</p>
+
+<p>有興趣可以聽看看<a href="http://tzangms.com/music/747" target="_blank">舊版本</a>跟這個版本, 雖然是用 flash mp3 player 聽, 音質沒那麼好, 但是應該聽的出來, 差異應該很明顯才是。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1172">不用 Twhirl 也可以 Retweet ! (GM Script)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-05-19T20:54:37+08:00" pubdate  data-updated="true" >May 19<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>因為羨慕 <a href="http://www.twhirl.org/">twhirl</a> 的 Retweet 功能, 所以寫了一個 <a href="https://addons.mozilla.org/en-US/firefox/addon/748">GreaseMonkey</a> 的 retweet script。 掛上這個 retweet script 之後,  twitter 頁面就會顯示如下(多了一個 R 的按鈕):</p>
+
+<p><a href="http://www.flickr.com/photos/tzangms/2504645219/" title="grease monkey twitter retweet script by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3136/2504645219_79c9b50848.jpg" width="500" height="61" alt="grease monkey twitter retweet script" /></a></p>
+
+<p>感謝<a href="http://blog.andytn.tw/">無敵小恩恩</a>給截 twitter 截圖, 他正在&#8221;拉正&#8221;學弟 XD</p>
+
+<p>之後只要看到想要 Retweet 的訊息, 只要按下上圖所標示起來的 <strong>R</strong> 就可以 Retweet 了。</p>
+
+<p>不過由於今天我第一次裝 GreaseMonkey, 裝完之後就矇著頭開始寫, code 很亂~ 我想 XD anyway, 之後有空再改吧! 目前先可以用就好了 XD</p>
+
+<p>如果不想裝 twhril 但又想用 retweet 的話, 就試試看這個吧! 但是前提是你瀏覽器要用 <a href="http://www.mozilla.com/">Firefox</a>, 如果你是用 Firefox 的話, 就先到<a href="https://addons.mozilla.org/en-US/firefox/addon/748">這裡</a>裝個 GreaseMonkey 吧! 等 GreaseMonkey 裝完再點下面這個連結, 裝完就可以開始用囉!</p>
+
+<p><strong>UPDATE:</strong>
+<strong><a href="http://userscripts.org/scripts/show/27381">新版請至這裡進行安裝</a></strong></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/mac/1171">The Bird and the Bee - Again and Again (Mac 創意 MV)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-05-18T00:22:57+08:00" pubdate  data-updated="true" >May 18<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><object width="425" height="355"><param name="movie" value="http://www.youtube.com/v/6kxDxLAjkO8&hl=en"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/6kxDxLAjkO8&hl=en" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed></object>
+
+
+<p>一開始是從 <a href="http://www.oikos.com.tw">OIKOS</a> 看到這個 MV 的新聞, 看了之後真的覺得好屌! 不過&#8230; 這首歌真好聽阿!!! 如果歌不好聽, 看過一遍覺得很屌之後&#8230;應該就算了, 可是就是因為歌太好聽~ 所以腦海裡一直浮現這首歌的旋律阿!! 所以剛剛就找了一下, 還發現居然有人做了 Windows 版本, 雖然這支影片很短 :x 不過最後一個畫面是這個版本的重點!! XD</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/mac/1171">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1165">[網摘] May 16th 2008</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-05-16T19:30:25+08:00" pubdate  data-updated="true" >May 16<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.seomoz.org/blog/the-web-developers-seo-cheat-sheet">The Web Developer&#8217;s SEO Cheat Sheet</a>
+這個 Cheat Sheet 還有 HTML 的語義說明, 我覺得這個 Cheat Sheet 真的是做的很棒! 下載 <a href="http://www.seomoz.org/user_files/SEO_Web_Developer_Cheat_Sheet.pdf">pdf</a> 印出來放在桌上吧! XD</p>
+
+<p><a href="http://gojko.net/2008/04/21/what-makes-a-good-application-framework/">What makes a good application framework</a>
+看看這篇的標題, 這就是為何我選 <a href="http://codeigniter.com">CodeIgniter</a> 這個 php framework 阿!! framework 就是要好上手, 文件好懂, 不會綁手綁腳阿!! 如果說要用一個 framework 還要花上好幾個月來學, 那麼就不快速了。</p>
+
+<p><a href="http://www.patternsforphp.com/wiki/Main_Page">Patterns for PHP</a>
+這真的是好站阿!! 先前就想找 Design Patterns 的書來看, 像是 <a href="http://www.amazon.com/Head-First-Design-Patterns/dp/0596007124">Head First Design Patterns</a>, 只是市面上的書大多都是以 Java 來做範例。 如果不知道 Design Patterns 是用來幹麻的, 可以看看 <a href="http://plog.longwin.com.tw">Tsung</a> 寫的這一篇 <a href="http://plog.longwin.com.tw/my-favorite-site/2008/04/28/favorite_design_pattern_php_example_2008">好站: Design Pattern for PHP 的 範例實作與解說</a></p>
+
+<p><a href="http://ui-patterns.com/">UI-patterns.com</a>
+除了程式的 Design Patterns 之外,  UI 也有 patterns :p</p>
+
+<p><a href="http://regex.larsolavtorvik.com/">Regular expression tool</a>
+這真的是一個很讚的線上 RE 工具阿!! 可以選用 PHP PCRE, PHP POSIX, Javascript , Perl 跟 Python 等 RE 模式, 還可以選用 Modifier, 真是不錯!</p>
+
+<p><a href="http://codeigniter.com/forums/viewthread/60181/">Automatic config[base_url] - CodeIgniter Forum</a>
+通常在開發時, 都會有三個環境, development, stage 跟 production, 但是當使用 CodeIgniter 在開發時, config 中 base_url 就寫一個, 因為我使用 <a href="http://capify.org">capistrano</a> 來 deploy php 程式到 stage 跟 production, 所以這不造成困擾, 因為 stage 跟 production 有另外的設定檔, 但是有多個 development 的環境的話, 就可以看看這篇的作法, 其實應該不用看就很多人都自己改成這樣了吧?</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1140">[網摘] May 09th 2008</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-05-09T20:42:03+08:00" pubdate  data-updated="true" >May 9<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://jonathanhedley.com/articles/2008/04/guide-to-website-speed-optimization">How-to: Optimize your site for speed</a>
+這篇文章好長一篇, 不過做網站的都該看看。</p>
+
+<p><a href="http://www.blogdesignblog.com/blog-design/30-comment-designs-for-webdesigners/">30 Must See Comment Designs for Web Designers</a>
+comments 的設計, 似乎凸顯板主的 comments 是一個首要的重點。</p>
+
+<p><a href="http://www.yellowmug.com/yemuzip/">yemuzip</a>
+之前要傳東西給用 Windows 的朋友, 常常用 Mac 內建的壓縮功能(封存)壓好傳過去, 可是對方卻解不開, 也許可以試看看這個 yemuzip。</p>
+
+<p><a href="http://css.dzone.com/news/different-techniques-applying-">The Different Techniques for Applying the PNG Hack</a>
+png 在 ie 上一直讓人很頭痛阿~ 這篇介紹了一些解法</p>
+
+<p><a href="http://blog.jeremymartin.name/2008/04/introducing-kwicks-for-jquery.html">Introducing: Kwicks for jQuery</a>
+這個特效真的是超棒的, 當時 Mootools 出來的時候, 這個叫 Kwicks 的效果真的是很吸引人, 當時一度讓我想換用 Mootools 阿!!</p>
+
+<p><a href="http://luddep.se/notebook/2008/04/charts_with_php_and_google_charts_api">Charts with PHP and Google Charts API</a>
+這個真的超方便的阿!!!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1164">PHP: 去除 UTF-8 BOM</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-05-08T19:57:38+08:00" pubdate  data-updated="true" >May 8<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天在作處理、轉換 csv 的東西, 碰到一個 UTF-8 的 csv 檔, 結果轉換出來的檔案因為 BOM 掛點。下面這一段可以用來將 BOM 去掉。</p>
+
+<pre><code>function remove_bom($str){
+    if(substr($str, 0,3) == pack("CCC",0xef,0xbb,0xbf)) {
+        $str = substr($str, 3);
     }
-
-    function setLayout($layout)
-    {
-      $this->layout = $layout;
-    }
-
-    function view($view, $data=null, $return = false)
-    {
-        $data['content'] = $this->obj->load->view($view, $data, true);
-
-        if($return)
-        {
-            $output = $this->obj->load->view($this->layout, $data, true);
-            return $output;
-        }
-        else
-        {
-            $this->obj->load->view($this->layout, $data, false);
-        }
-    }
+    return $str;
 }
-?&gt;</code></pre>
-
-
-<p>有了這個 Layout library 之後變可以將載入 view 的程式簡化如下:</p>
-
-<p><code>$data['foo'] = $foo;
-$data['heading'] = 'heading text';
-$this->layout->view('foo', $data);</code></p>
-
-<p>基本上以這個 library 為範例的話, 預設的 template 檔案就要命名為 template.php, 你也可以修改這個 library 的程式碼來符合你現在 template 的檔案名稱, 不過我是覺得就叫 template 還滿直覺的。
-而 template.php 裡面則是需要放入 $content 這個變數來存放 foo.php 這個 view。 簡單的 template.php 的範例如下:</p>
-
-<p><code>&lt;html&gt;
-&lt;body&gt;
-&lt;?=$content?&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></p>
-
-<p>當然這個 template 可以像文章一開始講到的, 另外做更細的切分, 我們可以另外開一個 template 的目錄, 裡面存放 header.php, footer.php, 然後在 template.php 裡面載入, template.php 如下:</p>
-
-<pre>
-<code>$this->load->view('template/header');
-&lt;?=$content?&gt;
-$this->load->view('template/footer');</code>
-</pre>
-
-
-<p>hmm&#8230; 這篇應該要有寫過 view in view 的人才看得懂吧? 超懶畫圖 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/linux/1530">[Lighttpd] Get Real IP From Proxy</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-08-29T21:58:17+08:00" pubdate  data-updated="true" >Aug 29<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>由於先前在測試用 <a href="http://nginx.net">nginx</a> 放在原本的 <a href="http://www.lighttpd.net/">lighttpd</a> 前面作 load balance 還是 reverse proxy 什麼的, 不過因為完全沒碰過, 只能亂搞, 沒想到成功了 XD (雖然有設錯, 整個站有掛掉一下下)</p>
-
-<p>本來是想說到時候 <a href="http://stickeraction.com">StickerAction</a> 撐不住, 可以把 request 分到別台去, 不過看目前的情形都還撐得住, 最高也還沒到 20 req/s, 是我小看了 256slice 阿 ~&#8221;~ 不過應該也是因為加了之前做的, <a href="http://tzangms.com/php/1244">讓圖片快取住的功能</a>, 才能減少一些 request 的。</p>
-
-<p>不過當時唯一有問題的就是, 當我再看 log 跟 session 的時候, 發現, ip 全部都是 127.0.0.1 阿!! :o 幸好之前程式中 session 沒有要 match ip XD 原來 lighttpd 那邊要開 <a href="http://trac.lighttpd.net/trac/wiki/Docs/ModExtForward">mod_extforward</a> 來取得 client 經過 nginx proxy 後, 原本的 IP 位址。</p>
-
-<p>lighttpd 再 1.4.14 之後就都有 mod_extforward, 只是好像預設的 lighttpd.conf 都不會列出來。 所以只要再 server.modules 裡面載入 mod_extforward 就可以了, 只是記得要放在 mod_accesslog 後面載入, 如下:</p>
-
-<pre>
-<code>server.modules = (
-    "mod_rewrite",
-    ...
-    "mod_accesslog",
-    "mod_extforward"
-)</code>
-</pre>
-
-
-<p>然後加上個相信的 IP 來源就可以啦 :D</p>
-
-<pre>
-<code>extforward.forwarder = (
-   "127.0.0.1" => "trust"
-)</code>
-</pre>
-
-
-<p>雖然也不知道放個 nginx 在前面有沒有發揮什麼作用就是了 XD anyway 至少之後可以直接把 request 分到另外一台</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1503">關於 Simplepie Cache (Db Cache)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-08-28T08:29:57+08:00" pubdate  data-updated="true" >Aug 28<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這篇還是記錄在 <a href="http://stickeraction.com">StickerAction</a> 的效能上做的處理。 <a href="http://stickeraction.com">StickerAction</a> 用 <a href="http://simplepie.org">Simplepie</a> 來讀取 RSS, 然後用上了 cache, 來避免一直對外部做 request, 也減少流量的支出。研究了一下 Simplepie 的 cache 儲存方式, Simplepie 就是把他所抓取的 url 做 md5 當成檔名存成 cache 檔案, 檔案裡面則是存放 serialize 後的資料。</p>
-
-<p>所以為了搭配<a href="http://tzangms.com/stickeraction/1488">上一篇所提到的存取控制</a>, 計算這次是否有對外部做了 request, 所以寫了下面這一段, 來判斷是否有對外存取, 進而做存取控制。</p>
-
-<pre>
-<code>function is_cached($url)
-        $cache_file = 'sp_cache/' . md5($url) . '.spc';
-        if (file_exists($cache_file)) {
-            return true;
-        }
-
-        return false;
-}</code>
-</pre>
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/1503">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web design/1487">簡單化的網頁設計</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-08-27T23:44:38+08:00" pubdate  data-updated="true" >Aug 27<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天看了一篇文章 <a href="http://www.smashingmagazine.com/2008/08/26/how-simple-web-design-helps-your-business/">How Simple Web Design Helps Your Business</a> 說明為何網頁設計要朝向簡單化的設計方向, 不要在網頁上放入太多東西, 特別你是在賣東西阿!</p>
-
-<p><a href="http://www.apple.com/tw/">Apple</a> 的網頁總是很精簡, 但很漂亮, 我也總能一目了然的就看出, 現在在主打哪個產品, 我想找的東西在哪, 都可以很快的找到我要的資訊, 或我想購買的產品頁面。像我用的 <a href="http://slicehost.com">Slicehost</a> 的網頁也非常簡單, 雖然說, 他們的產品線本來就很精簡 XD</p>
-
-<p>而且<a href="http://news.bbc.co.uk/1/hi/technology/7417496.stm">現在的網路使用者越來越沒有耐心</a>了阿, 所以當一個頁面放入太多東西, 會讓使用者找不到想要的東西, 或是被太多不相干的東西干擾視線。</p>
-
-<p>基本上, 我個人覺得 8 秒差不多吧, 8 秒過了還沒看到我想要的東西, 就會讓我覺得這個頁面設計的很爛, 因為我就會開始沒耐心了 &#8230;</p>
-
-<p>太多重點, 等於沒有重點阿!!!!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1488">StickerAction 對外 Request 被擋的處理</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-08-27T22:07:30+08:00" pubdate  data-updated="true" >Aug 27<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2761698350/" title="yahoo error 999 by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3169/2761698350_f458a4ea9b.jpg" width="500" height="313" alt="yahoo error 999" /></a>
-最近在為了減少 <a href="http://stickeraction.com">StickerAction</a> 對外部的 request 數量作處理, 花了好一些工夫 XD 因為 wretch 那邊大概只要有 50 個 request(一小時或半小時, 阿災), 就會被先前 <a href="http://blog.xdite.net">xdite大大</a> 說的 Yahoo 金鐘罩檔掉了。 請見上圖 Yahoo 999 XD</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/1488">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1471">紀錄一下 OTRS 連 SQL Server 的東西</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-08-27T00:24:14+08:00" pubdate  data-updated="true" >Aug 27<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>在 Perl 要連到 MS SQL Server 真的是很麻煩, 如果是透過 ODBC 的話, 則要設定好 <a href="http://www.freetds.org/">FreeTDS</a> 還有 <a href="http://www.unixodbc.org/">unixODBC</a>, 設定檔大概像下面這樣吧:</p>
-
-<p>FreeTDS (freetds.conf)</p>
-
-<pre><code>[OTRS]
-host = 192.168.1.1
-port = 1433
-tds version = 7.0
-client charset = UTF-8</code></pre>
-
-
-<p>unixODBC (odbc.ini)</p>
-
-<pre><code>[OTRS]
-Driver = FreeTDS
-Description = Microsoft SQL Server(OTRS)
-Trace = No
-Servername = OTRS
-Database = otrs_db</code></pre>
-
-
-<p>如果都運作正常的話, 執行下面的 Perl code 應該不會有錯誤訊息。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/1471">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/1464">Base Ball Bear - Change</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-08-23T18:11:52+08:00" pubdate  data-updated="true" >Aug 23<span>rd</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><object width="500" height="341">   <param name="allowfullscreen" value="true" />   <param name="allowscriptaccess" value="always" />   <param name="movie" value="http://www.vimeo.com/moogaloop.swf?clip_id=1205815&amp;server=www.vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1" /> <embed src="http://www.vimeo.com/moogaloop.swf?clip_id=1205815&amp;server=www.vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="500" height="341"></embed></object>
-
-
-<p>我覺得這支 MV 拍的很屌, 同一個人, 同時出現兩個, 而且是不同方向, 可是動作一樣, 應該是一次出動兩支攝影機, 之後在合起來, 阿災, 我亂猜的, 但是就覺得很屌, 喜歡這支 MV, bass 手一開始的動作也很帥。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/music/1464">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1445">[網摘] Aug 23th 2008</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-08-23T17:42:21+08:00" pubdate  data-updated="true" >Aug 23<span>rd</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://phpimpact.wordpress.com/2008/08/17/no-need-for-setget-methods-in-python/">No need for set/get methods in Python</a></p>
-
-<p><a href="http://www.prodevtips.com/2008/08/15/jquery-json-with-php-json_encode-and-json_decode/">jQuery JSON with PHP json_encode and json_decode</a></p>
-
-<p><a href="http://roshanbh.com.np/2008/08/how-to-filter-user-submitted-data-easily-in-php.html">How to filter user submitted data easily in PHP?</a></p>
-
-<p><a href="http://blog.stuartherbert.com/php/2008/08/20/twittexcom-launches/">twittex.com Launches!</a>
-當中提到 <a href="http://twittex.com">twittex.com</a> 只花了 6 天就搞定了, 用的是 <a href="http://www.symfony-project.org/">symfony</a>, PHP, mysql 跟 <a href="http://q4m.31tools.com/">q4m</a></p>
-
-<p><a href="http://www.ibuildings.com/blog/archives/1241-Implementing-Iterators.html">Implementing Iterators</a></p>
-
-<p><a href="http://devzone.zend.com/article/3774-Dynamically-Creating-Graphs-and-Charts-with-PHP-and-GDChart">Dynamically Creating Graphs and Charts with PHP and GDChart</a></p>
-
-<p><a href="http://davidvancouvering.blogspot.com/2008/08/real-world-experience-with-new-netbeans.html">Real-world experience with the new NetBeans PHP and JavaScript editors</a>
-NetBeans 現在好像拿來寫 PHP 還不錯, 只記得以前用 NetBeans 寫 Java 交作業&#8230;</p>
-
-<p><a href="http://nettuts.com/javascript-ajax/building-a-better-blogroll-dynamic-fun-with-simplepie-and-jquery/">NETTUTS.com: Building a Better BlogRoll: Dynamic Fun with SimplePie and jQuery</a></p>
-
-<p><a href="http://www.zorba-xquery.com/index.php/24/">Running Zorba with PHP</a>
-Zorba, the XQuery processor</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/linux/1437">Gentoo 裝 Logrotate 真的是很簡單</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-08-22T08:38:23+08:00" pubdate  data-updated="true" >Aug 22<span>nd</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>由於 <a href="http://stickeraction.com">StickerAction</a> 的 request 數還算滿多的, 所以 access_log 一下子就累積到幾百 MB 了, 想說之前有聽過 logrotate 這種東西, 就用 portage 找了一下。</p>
-
-<p><a href="http://gentoo.org">Gentoo</a> 的 Portage 真的是很貼心阿, 在裝好 logrotate 之後, 自動把一些需要 logrotate 的服務設定也都作上去了, 似乎在裝的時候, 系統會看你目前的服務有那些, 然後把相關的服務都給設定好! 像是 lighttpd 跟 mysql 的 log 現在自動 rotate 了, 但是我只打了下面這一行進行安裝。</p>
-
-<p><code>emerge logrotate</code></p>
-
-<p>所以搞到最後我根本不知道怎麼設定 囧</p>
+</code></pre>
 </div>
   
   

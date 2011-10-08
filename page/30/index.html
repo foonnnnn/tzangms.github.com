@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="10 Principles of the PHP Masters, 這篇真是好文! 只是標題這樣翻會不會很奇怪 XD">
+  <meta name="description" content="identi.ca, 一個新的微網誌服務, 其實現在微網誌服務真的是很多了, 不過這個比較特別一點的是, identi.ca 用 PHP 開發, 可以用 jabber/GTalk, 也可以用 openid 來登入, 而且是 open source!!?不過目前為止連到這個網址 http://i...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/1628">PHP 大師們的 10 個原則</a></h1>
+      <h1 class="entry-title"><a href="/web/1203">identi.ca - PHP Open Source Twitter?</a></h1>
     
     
       <p class="meta">
@@ -80,14 +80,21 @@
 
 
 
-<time datetime="2008-09-11T09:59:37+08:00" pubdate  data-updated="true" >Sep 11<span>th</span>, 2008</time>
+<time datetime="2008-07-03T19:35:44+08:00" pubdate  data-updated="true" >Jul 3<span>rd</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://nettuts.com/articles/10-principles-of-the-php-masters/">10 Principles of the PHP Masters</a>, 這篇真是好文! 只是標題這樣翻會不會很奇怪 XD</p>
+  <div class="entry-content"><p><a href="http://identi.ca/">identi.ca</a>, 一個新的微網誌服務, 其實現在微網誌服務真的是很多了, 不過這個比較特別一點的是, <a href="http://identi.ca/">identi.ca</a> 用 PHP 開發, 可以用 jabber/GTalk, 也可以用 openid 來登入, 而且是 open source!!?</p>
+
+<p>不過目前為止連到這個網址 <a href="http://identi.ca/doc/source">http://identi.ca/doc/source</a>, 上面是這樣寫的:</p>
+
+<blockquote>You can get a copy of the software from the <a href="http://laconi.ca/">Laconica</a> main site. The version of the software that runs on <em>this</em> site is unmodified from that version. The site also depends on certain libraries and other software; you can get those at the Laconica site, too.</blockquote>
+
+
+<p>不過找了一下, 還沒看到任何 source code 的蹤影 :p 不過那不重要, 因為&#8230;可以離開 twitter 就很厲害了 XD</p>
 </div>
   
   
@@ -100,7 +107,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/web/1632">Imified 五分鐘建立自己的機器人</a></h1>
+      <h1 class="entry-title"><a href="/programming/1202">PHP Framework 的效能比較</a></h1>
     
     
       <p class="meta">
@@ -114,37 +121,135 @@
 
 
 
-<time datetime="2008-09-10T21:16:19+08:00" pubdate  data-updated="true" >Sep 10<span>th</span>, 2008</time>
+<time datetime="2008-07-02T22:18:52+08:00" pubdate  data-updated="true" >Jul 2<span>nd</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>今天看到 <a href="http://www.imified.com">imified</a> 就玩了一下, 真的是很神奇又方便阿!! <a href="http://www.imified.com">imified</a> 可以讓你建立一支機器人, 接著你只需要指定一個程式的網址, 就可以讓機器人開始運作了! 而且整個流程超簡單的 :p</p>
+  <div class="entry-content"><p>今天看到前幾天才出爐的測試, <a href="http://www.avnetlabs.com/php/php-framework-comparison-benchmarks">PHP framework comparison benchmarks</a>, 其實應該就是在比 framework 的結構跟設計對於效能的影響?</p>
 
-<p>在建立好機器人之後, 會讓你指定一個程式的網址, 接下來就是透過這支程式, 接收 imified 機器人的輸入, 而程式只要輸出(印出)訊息, 就會直接透過機器人發訊回覆。 不過目前申請的機器人好像就只有 Jabber/Gtalk(?)</p>
+<table class="frameworks" border="0" width="100%">
+<tbody>
+<tr>
+<td> </td>
+<td class="highlight-cell">
+<p align="right">Run 1</p>
+</td>
+<td class="highlight-cell">
+<p align="right">Run 2</p>
+</td>
+<td class="highlight-cell">
+<p align="right">Run 3</p>
+</td>
+<td class="highlight-cell">
+<p align="right">Run 4</p>
+</td>
+<td class="highlight-cell">
+<p align="right">Average</p>
+</td>
+</tr>
+<tr>
+<td class="highlight-cell">Baseline HTML</td>
+<td>
+<p align="right">1327.5</p>
+</td>
+<td>
+<p align="right">1326.5</p>
+</td>
+<td>
+<p align="right">1328.6</p>
+</td>
+<td>
+<p align="right">1329.1</p>
+</td>
+<td>
+<p align="right"><strong>1327.9</strong></p>
+</td>
+</tr>
+<tr>
+<td class="highlight-cell">Baseline PHP</td>
+<td>
+<p align="right">331.6</p>
+</td>
+<td>
+<p align="right">332.1</p>
+</td>
+<td>
+<p align="right">331.4</p>
+</td>
+<td>
+<p align="right">332.0</p>
+</td>
+<td>
+<p align="right"><strong>331.8</strong></p>
+</td>
+</tr>
+<tr>
+<td class="highlight-cell">CakePHP</td>
+<td>
+<p align="right">3.6</p>
+</td>
+<td>
+<p align="right">3.7</p>
+</td>
+<td>
+<p align="right">3.8</p>
+</td>
+<td>
+<p align="right">3.5</p>
+</td>
+<td>
+<p align="right"><strong>3.7</strong></p>
+</td>
+</tr>
+<tr>
+<td class="highlight-cell">CodeIgniter</td>
+<td>
+<p align="right">21.5</p>
+</td>
+<td>
+<p align="right">21.2</p>
+</td>
+<td>
+<p align="right">21.7</p>
+</td>
+<td>
+<p align="right">21.7</p>
+</td>
+<td>
+<p align="right"><strong>21.5</strong></p>
+</td>
+</tr>
+<tr>
+<td class="highlight-cell">Zend Framework</td>
+<td>
+<p align="right">9.3</p>
+</td>
+<td>
+<p align="right">9.1</p>
+</td>
+<td>
+<p align="right">9.2</p>
+</td>
+<td>
+<p align="right">9.3</p>
+</td>
+<td>
+<p align="right"><strong>9.2</strong></p>
+</td>
+</tr>
+</tbody></table>
 
-<p>用 PHP 做個簡單範例:
-[source:php]
-&lt;?php
-// 接收 im 訊息
-$msg = $_REQUEST[&#8216;msg&#8217;];</p>
 
-<p>// 輸出訊息到 im
-echo $msg;
-?>
-[/source]</p>
-
-<p>就是這樣, 非常簡單阿 XD</p>
-
-<p>所以一開始想到的, 就是寫一個可以送訊息到 twitter 的機器人, 不過由於帳號是寫死的, 就不公佈出來了 XD 然後在查 Yahoo! 奇摩字典的時候, 又突然想到, 乾脆寫個查單字的機器人好了, 由於抓 Yahoo! 奇摩字典的程式也是我之前就寫好的一個 library, 所以真的包含註冊帳號、設定跟寫程式的部份, 真的只花了差不多五分鐘就弄好了 :p</p>
+<p><a href="http://www.avnetlabs.com/php/php-framework-comparison-benchmarks">這篇文章</a>中比較了 <a href="http://cakephp.org/">CakePHP</a>, <a href="http://framework.zend.com/">Zend Framework</a> 跟 <a href="http://codeigniter.com">CodeIgniter</a>, 然後還有一般的 html 及 plain php, 另外還有使用/不使用 <a href="http://pecl.php.net/package/APC">APC</a> 跟 <a href="http://eaccelerator.net/">eAccelerator</a> 來比較這三個 framework 的效能。當然, 基本上一定是 html 最快, 然後是 plain php, 再來才會是 framework。而 Framework 中當然最快的是 CodeIgniter 啦! 接著是 Zend Framework, 最後是效能很糟的 CakePHP ( XD )</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/web/1632">Read on &rarr;</a>
+      <a rel="full-article" href="/programming/1202">Read on &rarr;</a>
     </footer>
   
 
@@ -156,7 +261,7 @@ echo $msg;
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/1593">用 jQuery 選取 Opener 中的物件</a></h1>
+      <h1 class="entry-title"><a href="/old demo/1199">[Demo] 沙漏 (重新混音)</a></h1>
     
     
       <p class="meta">
@@ -170,17 +275,14 @@ echo $msg;
 
 
 
-<time datetime="2008-09-08T22:28:46+08:00" pubdate  data-updated="true" >Sep 8<span>th</span>, 2008</time>
+<time datetime="2008-06-29T23:25:15+08:00" pubdate  data-updated="true" >Jun 29<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><code>$('#selector', opener.document)</code>
-沒錯! 就是醬!!</p>
-
-<p>阿! (大叫) 還沒有時間把 jQuery 學好 ~&#8221;~</p>
+  <div class="entry-content"><p>其實一直覺得這首歌太單調, 為了這一首頭痛好久, 花了快兩個禮拜, 在想怎麼加東西進去, 可能最近也真的是一點靈感都沒有吧 ~&#8221;~ anyway, 總算弄出了一把彈分散的吉他, 讓原來的編曲不那麼單調, 聽起來好多了 :D</p>
 </div>
   
   
@@ -193,7 +295,7 @@ echo $msg;
       
   <header>
     
-      <h1 class="entry-title"><a href="/stickeraction/1616">[Stickeraction] 新增貼紙點擊數統計</a></h1>
+      <h1 class="entry-title"><a href="/programming/1198">Vim 也可以有 Textmate 的 Snippet 功能!!</a></h1>
     
     
       <p class="meta">
@@ -207,28 +309,35 @@ echo $msg;
 
 
 
-<time datetime="2008-09-08T21:47:16+08:00" pubdate  data-updated="true" >Sep 8<span>th</span>, 2008</time>
+<time datetime="2008-06-28T12:52:03+08:00" pubdate  data-updated="true" >Jun 28<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>其實這個功能很簡單, 一開始就應該做了, 不過先前都一直在為了 <a href="http://stickeraction.com">stickeraction</a> 的效能, 在重寫整個架構, 今天才把這個功能加上。點擊數統計的當然不是指貼紙&#8221;顯示&#8221;的次數, 而是貼紙的&#8221;點擊&#8221;次數, 畢竟顯示並不代表網友有看到, 如果網友有點擊貼紙, 多少都代表網友想知道這個貼紙是在幹嘛, 這樣的統計才多少比較有意義。</p>
+  <div class="entry-content"><p><a href="http://www.vim.org/scripts/script.php?script_id=1318">snippetsemu</a> 真是好物阿!!</p>
 
-<p>不過這個功能對於早期就響應的網友(大部分是我在 twitter 上的推友 XD), 可能有影響, 可能需要去檢查一下貼紙的語法, 看看連結(&lt;a  href&gt;)是否有連到這個網址, 如下:</p>
+<p>話說 <a href="http://macromates.com/">textmate</a> 真的是很屌, 可是我還是離不開 vim, vim 的 dd, yy 真的是很贊阿! XD 其實最主要的是, 上班不會帶 mac 去公司, 在公司又是用 windows, 所以通常都直接 ssh 上測試環境的 server 用 vi 在寫程式。</p>
 
-<blockquote>http://stickeraction.com/貼紙名稱/go</blockquote>
+<p>今天突然想到 vim 搞不好有 textmate snippet 外掛, 所以就找了一下, 就找到了 snippetsemu 啦!! 真的是很 high!</p>
+
+<p>記一下安裝方式:</p>
+
+<ol>
+    <li>首先要有 vim 7</li>
+    <li>到 <a href="http://www.vim.org/scripts/script.php?script_id=1318">snippetsemu</a> 在 vim.org 的頁面下載 snippy_plugin.vba 跟 snippy_bundles.vba</li>
+    <li>然後用 vi 打開 snippy_plugin.vba, 應該會在最下面一行看到 ***vimball***  Source this file to extract it! (:so %)</li>
+    <li>接著就照做啦, 打 :so% 就會裝上 snippy plugin</li>
+    <li>最後對著 snippy_bundles.vba 依同樣步驟做即可</li>
+</ol>
 
 
-<p>以<a href="http://stickeraction.com/made_in_taiwan">台灣貨‧暢其流</a>為例, 貼紙語法應該如下</p>
+<p>再來就是測試一下, 編輯個 foo.php, 先輸入 for 然後打 &lt;tab&gt; 看看, 哈! 超 high 的勒!</p>
 
-<blockquote>&lt;a href=&#8217;http://stickeraction.com/made_in_taiwan/go&#8217;&gt;&lt;img src=&#8217;http://stickeraction.com/made_in_taiwan/sticker/1&#8217; alt=&#8217;台灣貨‧暢其流&#8217;&gt;&lt;/a&gt;</blockquote>
-
-
-<p>基本上就是要有個 go 就是了 XD 如果把貼紙連結的網址改掉, 也許改連到你的部落格, 那麼就沒辦法統計到貼紙的點擊數了。</p>
-
-<p>其實貼紙的連結功能是有預留導向功能的, 就是說一樣取用 stickeraction 提供的貼紙語法, 網友點了貼紙之後, 可以依照管理者的設定, 將連結連回發起人所設定的網址, 而不一定要連回到 stickeraction 的貼紙頁面。這個轉址功能之後還會在放回來的 :p</p>
+<p>[ links ]
+<a href="http://code.google.com/p/snippetsemu/">snippetsemu on Google Code</a>
+<a href="http://slipperysnippets.blogspot.com/">snippets blog</a></p>
 </div>
   
   
@@ -241,7 +350,7 @@ echo $msg;
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/1603">[PHP] 將 Array 強制轉型為 Object</a></h1>
+      <h1 class="entry-title"><a href="/web/1194">Twitter 越爛大家越愛?</a></h1>
     
     
       <p class="meta">
@@ -255,38 +364,186 @@ echo $msg;
 
 
 
-<time datetime="2008-09-06T11:50:11+08:00" pubdate  data-updated="true" >Sep 6<span>th</span>, 2008</time>
+<time datetime="2008-06-25T19:29:23+08:00" pubdate  data-updated="true" >Jun 25<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.otton.org/2008/08/14/neat-php-tricks-casting-arrays-to-objects/">Neat PHP Tricks: Casting Arrays to Objects</a>, 我覺得這篇可以稍微看一下。</p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2610383878/" title="google trend shows twitter is still more and more popular by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3190/2610383878_9ca828c049.jpg" width="500" height="197" alt="google trend shows twitter is still more and more popular" /></a>
+看看上面這張圖, 真的是很妙, 似乎是說著 twitter 越爛越多人用阿! XD 可是這有什麼辦法呢? (攤手) 這一切都是因為愛阿!</p>
+</div>
+  
+  
 
-<p>近來其實滿不喜歡用 array 的, 另外也不喜歡用 for, 基本上就是覺得 array 會讓程式碼看起來很亂 ~&#8221;~ 尤其是在 view 裡面。 所以可以 foreach 的, 就不用 for, 可以用 object 就不用 array, 雖然有時候還是免不了 :p</p>
 
-<p>基本上我是覺得 object 的 code, 看起來比較不那麼亂 XD 由於之前在公司看到某段 code, 所以另外提一下 for 跟 foreach, 像是下面這一段, foreach 乾淨多了</p>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/1190">Firefox 3 Download Day 2008</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-06-19T00:18:26+08:00" pubdate  data-updated="true" >Jun 19<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2588455563/" title="Firefox 3 Download Day Cert. by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3163/2588455563_8b6111c5ac.jpg" width="500" height="380" alt="Firefox 3 Download Day Cert." /></a>
+真的是很 high 的一天阿! 今天一到公司就裝起了 Firefox 3, 只能說&#8230;好快!! 來個安全帶吧!!! 哈哈哈!! (對不起, 我失態了 XD)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1189">Google AppEngine 試玩</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-06-18T00:57:13+08:00" pubdate  data-updated="true" >Jun 18<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2587661644/" title="twitter easy unfollow on AppEngine by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3275/2587661644_dd12f877e6.jpg" width="500" height="299" alt="twitter easy unfollow on AppEngine" /></a></p>
+
+<p>這兩天下班後, 都在玩 <a href="http://code.google.com/appengine/">AppEngine</a>, 不過我不太會 <a href="http://www.python.org/">python</a>, 也不懂 <a href="http://www.djangoproject.com/">django</a>, 只有上禮拜花了一天晚上看完 <a href="http://docs.python.org/tut/tut.html">python tutorial</a>, 就開始亂玩 ~&#8221;~ 所以寫了一個 twitter easy unfollow 的 twitter 應用 XD (因為實在太不穩就不放連結上來了 :p )</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/1189">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/1188">Google Developer Day 2008</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-06-15T20:23:15+08:00" pubdate  data-updated="true" >Jun 15<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2577778730/" title="100_3701 by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3183/2577778730_6b0744ef71.jpg" width="500" height="375" alt="100_3701" /></a>
+這一次參加 Google Developer Day 2008, 還滿有收穫的, 主要是&#8221;AppEngine 進階&#8221;這門課, 講到了關於 AppEngine 的 DataStore, 由於 Datastore 本身就是 scalable 的架構, 在運用上跟平常用的關聯式資料庫觀念不同, 聽了這門課真的是很值得。 在進階這門課上講了一個 Counter 的範例, 這個範例就用上了 Entity Groups, transaction 跟 memcache。</p>
+
+<p>下午由於沒能排到 AppEngine 實作課程, 所以去聽了 OpenSocial, 但是可能是沒先玩過, 或是興趣不是很大, 所以聽到想睡覺 XD 不過最主要也是因為 OpenSocial 沒介紹什麼, 入門跟進階都講差不多的東西阿!!</p>
+
+<p>在每門課的結尾都有發問的時間, 其實我比較好奇的是&#8230; 有些發問可能是因為口音的關係, 我都快聽不懂了, 可是外國人都聽的懂ㄝ! o_O</p>
+
+<p>當天的遺憾就是&#8230; 我沒能參加到 AppEngine 的實作, 因為只有 50 人的限制 ~&#8221;~ 而且實作這門課還有送另外一件 AppEngine 的 t-shirt 阿!!!! (那件真的很好看阿!! Randylien 還故意秀給我看!! ~&#8221;~ )</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1187">The PHP Benchmark</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-06-09T01:12:14+08:00" pubdate  data-updated="true" >Jun 9<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2562298047/" title="phpbenchmark by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3139/2562298047_bae14157c1.jpg" width="500" height="263" alt="phpbenchmark" /></a>
+<a href="http://www.phpbench.com/">The PHP Benchmark</a> 。 有寫 PHP 的話, 這個站一定要看一下的阿! 其中有些 benchmark 好像推翻了先前所讀過的東西。</p>
+
+<p>像是以前讀過說, while 比 for 快, for 又比 foreach 快 (雖然我還是一直用 foreach, 因為 code 比較乾淨 XD), 不過這個 PHP Benchmark 在測試 loop 的結論提到, 其實 foreach 是比較快。</p>
+
+<p>另外就是, 在用 for 的時候到底要不要先算過要 loop 的次數? 以往看到的文章都是說, 在掃某個陣列之前, 要先算出這個陣列的長度, 再開始跑 for loop, 例如像下面這一段。 因為在跑 loop 的時候, 都會再執行過一次陣列長度的計算。</p>
 
 <pre>
-<code>// for
-$n = count($blogs);
-for ($i = 0; $i < $n; $i++) {
-    echo $blogs[$i]->title;
-}
-
-// foreach
-foreach($blogs as $blog) {
-    echo $blog->title;
+<code>for ($i = 0; $i < count($foo); $i++) {
+    // blah
 }</code>
 </pre>
 
 
+<p>所以後來我就變成這樣寫 &#8230;</p>
+
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/programming/1603">Read on &rarr;</a>
+      <a rel="full-article" href="/programming/1187">Read on &rarr;</a>
     </footer>
   
 
@@ -298,7 +555,7 @@ foreach($blogs as $blog) {
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/1555">phpQuery - PHP 處理 HTML DOM 的好幫手阿!</a></h1>
+      <h1 class="entry-title"><a href="/music/1180">小雨傘</a></h1>
     
     
       <p class="meta">
@@ -312,200 +569,25 @@ foreach($blogs as $blog) {
 
 
 
-<time datetime="2008-09-05T22:02:53+08:00" pubdate  data-updated="true" >Sep 5<span>th</span>, 2008</time>
+<time datetime="2008-06-01T21:08:24+08:00" pubdate  data-updated="true" >Jun 1<span>st</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://code.google.com/p/phpquery/">phpQuery</a>, 在 PHP 處理 HTML DOM 的好幫手阿!! 哈! 這個 project 真不錯, 尤其是對於有使用 <a href="http://jquery.com">jQuery</a> 的人, 更容易上手阿 :p 顧名思義, 就是 PHP 的 jQuery 阿! DOM select 的語法跟 jQuery 完全一樣阿! 而且, 當然是 chainable :p 也就是說, 只有 PHP 5 能用囉 :p</p>
+  <div class="entry-content"><p>Rihanna 的 umbrella 這首歌真的好紅, 可是我完全聽的都是 cover 版本, 這首歌的 cover 版本在 youtube 上真的是超多的!! 小雨傘這首歌真的很適合拿來唱 Rock, 尤其~ 我超愛看龐克團作 cover !! 來看看一個來自義大利羅馬的龐克團, 叫 Vanilla sky, 我覺得翻的超好聽的! 但是&#8230; 好噁 :x 看看以下影片就知道了 XD</p>
 
-<p>目前在 <a href="http://stickeraction.com">stickeraction</a> 有用到 phpQuery, 真的是很方便 :p</p>
-
-<p>可以看看以下範例, 這一段是我用來抓取網頁中, rss feed url 跟 title 的。</p>
-
-<pre>
-<code>require 'phpQuery.php';
-
-$url = 'http://tzangms.com/blog';
-$html = file_get_contents($url);
-
-phpQuery::newDocument($html)->find('head');
-
-$title = pq('head > title')->text();
-$feed_url = pq('head > link[rel=alternate]:first')->attr('href');
-
-echo $title;
-echo $feed_url;</code>
-</pre>
+<object width="425" height="355"><param name="movie" value="http://www.youtube.com/v/TvC6VS4Np4U&hl=en"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/TvC6VS4Np4U&hl=en" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed></object>
 
 
-<p>本來這個工作是直接用 <a href="http://simplepie.org">simplepie</a> 來作, 直接就可以抓到 RSS feed url 跟 RSS , 可是在抓 xuite blog 的時候卻有問題, 都抓不到 feed_url。</p>
+<p>幹! 我真的超愛龐克團作 cover 啊!!!</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/programming/1555">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1476">CodeIgniter Based Open Source Software</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-09-05T00:34:34+08:00" pubdate  data-updated="true" >Sep 5<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>下面是兩個用 <a href="http://codeigniter.com">CodeIgniter</a> 開發的 open source 軟體, 有興趣可以看看, 大家應該已經知道 <a href="http://en.wikipedia.org/wiki/Model-view-controller">MVC</a> 是什麼。 但是 CI 自由度很高, 所以可能會有人不清楚 Model、Controller 怎樣寫才好, 或是怎樣寫會&#8221;比較好&#8221;? Anyway, 或許可以看看下面兩個用 CI 寫的軟體, 有個依據, 也許可以找出一些方向。 或是更確定自己的方法是比較好的 :p</p>
-
-<p>Bamboo Invoice
-<a href="http://bambooinvoice.org/">http://bambooinvoice.org/</a></p>
-
-<p>Blaze
-<a href="http://blaze.haughin.com/">http://blaze.haughin.com/</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/1571">Google Chrome App</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-09-04T21:21:48+08:00" pubdate  data-updated="true" >Sep 4<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2826723327/" title="google-chrome-app by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3029/2826723327_e7f1728b0e.jpg" width="500" height="349" alt="google-chrome-app" /></a>
-<a href="http://www.google.com/chrome">Google Chrome</a> 在大家用的過程中, 似乎都說, Chrome 在瀏覽 Google 的自家服務, 像是 Gmail, Google Reader 的時候, 跑起來的速度很不賴! 不過對於習慣使用有眾多 extension 的 <a href="http://mozilla.com">Firefox</a> 使用者來說, 總是覺得少了平常所習慣的功能。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/web/1571">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/uncategorized/1553">QuarkBase</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-09-04T00:53:30+08:00" pubdate  data-updated="true" >Sep 4<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>QuarkBase (<a href="http://www.quarkbase.com/">http://www.quarkbase.com/</a>) 可以拿來查網站的一些資訊, 還不錯, 只要輸入網址就可以知道, 網站被收了幾次 delicious, digg 幾次, alexa, technorati 等, 甚至被 tweet 幾次都知道阿 XD 不過&#8230; subdomain 沒用。</p>
-
-<p>原來&#8230; <a href="http://twitthat.com">twitthat</a> alexa 的圖還不錯看 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1558">StickerAction 恢復正常!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-09-02T21:12:04+08:00" pubdate  data-updated="true" >Sep 2<span>nd</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://tzangms.com/wp-content/uploads/2008/09/stickeraction.jpg"><img src="http://tzangms.com/wp-content/uploads/2008/09/stickeraction.jpg" alt="" title="stickeraction" width="500" height="290" class="alignnone size-full wp-image-1561" /></a>
-因為前幾天的<a href="http://tzangms.com/programming/1548">資料庫大爆炸</a>, 導致 <a href="http://stickeraction.com">StickerAction</a> 的快取都不見了, 所以主機因為沒辦法接受那麼大量的 request, 所以就先把偵測的功能關掉, 這兩天就一直在重寫程式的架構, 終於在今天把 <a href="http://stickeraction.com">StickerAction</a> 給恢復正常了。</p>
-
-<p>由於 <a href="http://stickeraction.com">StickerAction</a> 最吃重的地方是在貼出去的貼紙, 貼紙的程式跑的時間越長,  request 累積越多, 效能則是直線往下掉。 一開始在寫 <a href="http://stickeraction.com">StickerAction</a> 的時候沒有考慮到太多效能的問題, 一方面也是因為很懶, 就想把工作一次做完, 所以其實一開始的架構根本就沒辦法負荷太多人貼貼紙。 一開始就只有對<a href="http://tzangms.com/php/1244">貼紙圖片加上一些讓瀏覽器快取的處理</a>, 減少 request。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/1558">Read on &rarr;</a>
+      <a rel="full-article" href="/music/1180">Read on &rarr;</a>
     </footer>
   
 

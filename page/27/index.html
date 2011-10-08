@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="昨天看到了 CodeIgniter 釋出了新版的 1.7.0, 所以就打算來升級一下, 不過想起以往在升級 CodeIgniter 的時候, 由於有使用 SVN 來當作 VCS, 所以每個目錄裡面都會有 .svn, 所以沒辦法直接覆蓋目錄, 所以當時就一個一個目錄的打開, 把該升級的檔案覆蓋掉...">
+  <meta name="description" content="phpQuery, 在 PHP 處理 HTML DOM 的好幫手阿!! 哈! 這個 project 真不錯, 尤其是對於有使用 jQuery 的人, 更容易上手阿 :p 顧名思義, 就是 PHP 的 jQuery 阿! DOM select 的語法跟 jQuery 完全一樣阿! 而且, 當然是...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/1972">CodeIgniter 搭配 Svn:externals 做無痛升級</a></h1>
+      <h1 class="entry-title"><a href="/programming/1555">phpQuery - PHP 處理 HTML DOM 的好幫手阿!</a></h1>
     
     
       <p class="meta">
@@ -80,24 +80,42 @@
 
 
 
-<time datetime="2008-10-26T08:40:50+08:00" pubdate  data-updated="true" >Oct 26<span>th</span>, 2008</time>
+<time datetime="2008-09-05T22:02:53+08:00" pubdate  data-updated="true" >Sep 5<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>昨天看到了 <a href="http://codeigniter.com">CodeIgniter</a> 釋出了新版的 1.7.0, 所以就打算來升級一下, 不過想起以往在升級 CodeIgniter 的時候, 由於有使用 <a href="http://subversion.tigris.org/">SVN</a> 來當作 <a href="http://en.wikipedia.org/wiki/Version_control_system">VCS</a>, 所以每個目錄裡面都會有 .svn, 所以沒辦法直接覆蓋目錄, 所以當時就一個一個目錄的打開, 把該升級的檔案覆蓋掉, 沒辦法直接換目錄, 否則 svn 的資訊就都會不見了。</p>
+  <div class="entry-content"><p><a href="http://code.google.com/p/phpquery/">phpQuery</a>, 在 PHP 處理 HTML DOM 的好幫手阿!! 哈! 這個 project 真不錯, 尤其是對於有使用 <a href="http://jquery.com">jQuery</a> 的人, 更容易上手阿 :p 顧名思義, 就是 PHP 的 jQuery 阿! DOM select 的語法跟 jQuery 完全一樣阿! 而且, 當然是 chainable :p 也就是說, 只有 PHP 5 能用囉 :p</p>
 
-<p>所以昨天找了一下 <a href="http://svnbook.red-bean.com/en/1.0/ch07s03.html">svn:externals</a> 的用法, 透過 svn:externals 就可以很快的昇級 CodeIgniter system。</p>
+<p>目前在 <a href="http://stickeraction.com">stickeraction</a> 有用到 phpQuery, 真的是很方便 :p</p>
 
-<p>一開始新的 CI project 我都會把 /system/application 這個目錄給搬出來。 可以直接搬出來成為 /application 而不用改任何程式。 平常也根本動不到 /system 目錄裡面的東西。 如此一來只要把 /system 設為 svn:externals 指到 CodeIgniter SVN 就可以自動更新了。 但前提是沒有修改 /system 裡面的檔案。</p>
+<p>可以看看以下範例, 這一段是我用來抓取網頁中, rss feed url 跟 title 的。</p>
+
+<pre>
+<code>require 'phpQuery.php';
+
+$url = 'http://tzangms.com/blog';
+$html = file_get_contents($url);
+
+phpQuery::newDocument($html)->find('head');
+
+$title = pq('head > title')->text();
+$feed_url = pq('head > link[rel=alternate]:first')->attr('href');
+
+echo $title;
+echo $feed_url;</code>
+</pre>
+
+
+<p>本來這個工作是直接用 <a href="http://simplepie.org">simplepie</a> 來作, 直接就可以抓到 RSS feed url 跟 RSS , 可是在抓 xuite blog 的時候卻有問題, 都抓不到 feed_url。</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/programming/1972">Read on &rarr;</a>
+      <a rel="full-article" href="/programming/1555">Read on &rarr;</a>
     </footer>
   
 
@@ -109,7 +127,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/1985">唱片交貨囉!!!</a></h1>
+      <h1 class="entry-title"><a href="/web/1571">Google Chrome App</a></h1>
     
     
       <p class="meta">
@@ -123,72 +141,21 @@
 
 
 
-<time datetime="2008-10-25T13:39:03+08:00" pubdate  data-updated="true" >Oct 25<span>th</span>, 2008</time>
+<time datetime="2008-09-04T21:21:48+08:00" pubdate  data-updated="true" >Sep 4<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2971037838/" title="唱片交貨囉! by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3253/2971037838_f30ff3dfb0.jpg" width="500" height="333" alt="唱片交貨囉!" /></a></p>
-
-<p>非常的令人興奮!! 雖然說收到貨了, 可是我待會就要回宜蘭看我阿公了, 可能今晚還是要住醫院吧。</p>
-
-<p>不過&#8230; 終於! 唱片壓好了!!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1921">UCS-2 字碼轉 UTF-8</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-10-25T13:22:08+08:00" pubdate  data-updated="true" >Oct 25<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>最近碰到要處理經過 UCS-2 編碼過的字串, 幸好不會太困難 <em>汗</em>。 不過我對 unicode 相關的東西, 只是一知半解, 下面純為紀錄, 有問題煩請糾正 :p</p>
-
-<p>這個 UCS-2 編碼字串看起來像是這個樣子
-<code>4F60597D002C901988E1662F6E2C8A66</code></p>
-
-<p>其實是指</p>
-
-<blockquote>你好,這裡是測試</blockquote>
-
-
-<p>而在 UCS-2 中, 一個字固定是由 4 個 Bytes 所組成, 所以我們可以將這個 UCS-2 字串拆成像下面這樣, 看起來會比較清楚。</p>
-
-<p><code>4F60 597D 002C 9019 88E1 662F 6E2C 8A66</code></p>
-
-<p>可以到 <a href="http://www.unicode.org/charts/unihan.html">Unihan Database</a> 輸入4F60 看看, 就會得到「你」這個字, 跟其他相關資料。</p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2826723327/" title="google-chrome-app by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3029/2826723327_e7f1728b0e.jpg" width="500" height="349" alt="google-chrome-app" /></a>
+<a href="http://www.google.com/chrome">Google Chrome</a> 在大家用的過程中, 似乎都說, Chrome 在瀏覽 Google 的自家服務, 像是 Gmail, Google Reader 的時候, 跑起來的速度很不賴! 不過對於習慣使用有眾多 extension 的 <a href="http://mozilla.com">Firefox</a> 使用者來說, 總是覺得少了平常所習慣的功能。</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/programming/1921">Read on &rarr;</a>
+      <a rel="full-article" href="/web/1571">Read on &rarr;</a>
     </footer>
   
 
@@ -200,7 +167,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/1918">[轉載] 程式設計師的格言</a></h1>
+      <h1 class="entry-title"><a href="/uncategorized/1553">QuarkBase</a></h1>
     
     
       <p class="meta">
@@ -214,30 +181,274 @@
 
 
 
-<time datetime="2008-10-24T20:25:04+08:00" pubdate  data-updated="true" >Oct 24<span>th</span>, 2008</time>
+<time datetime="2008-09-04T00:53:30+08:00" pubdate  data-updated="true" >Sep 4<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>這一篇應該是我第一次轉載別人家過來的文章吧, 應該很多人都看過了, 我相信身為 Programmer 的朋友, 看到這一篇應該都心有戚戚焉吧? XDDDD</p>
+  <div class="entry-content"><p>QuarkBase (<a href="http://www.quarkbase.com/">http://www.quarkbase.com/</a>) 可以拿來查網站的一些資訊, 還不錯, 只要輸入網址就可以知道, 網站被收了幾次 delicious, digg 幾次, alexa, technorati 等, 甚至被 tweet 幾次都知道阿 XD 不過&#8230; subdomain 沒用。</p>
 
-<p>anyway, 心情不好時, 就可以看看這一篇, 應該就可以<del>認命</del>釋懷了吧!!?</p>
-
-<p>本篇文章出處來源為:</p>
-
-<blockquote>程式設計師的格言 &laquo; but, or bug
-<a href="http://buttaiwan.wordpress.com/2008/10/12/programmers_rule/">http://buttaiwan.wordpress.com/2008/10/12/programmers_rule/</a></blockquote>
+<p>原來&#8230; <a href="http://twitthat.com">twitthat</a> alexa 的圖還不錯看 XD</p>
+</div>
+  
+  
 
 
-<p><strong>直接連過去出處來源看比較好!!  出處排版好看很多阿!!! (茶)</strong></p>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1548">主機資料庫大爆炸</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-01T00:17:41+08:00" pubdate  data-updated="true" >Sep 1<span>st</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>老實說, 我也不太清楚是怎麼一回事, 幸好資料庫有備份, 也有另外一台主機可以馬上接手資料庫的部份, 只是 <a href="http://stickeraction.com">stickeraction</a> 的 cache 被清掉之後, 沒辦法一下子馬上處理那麼多的 request, 其實這也就表示當初程式的設計是有問題的, 沒辦法處理那麼大量的 request。 其實也是因為當初根本沒想說會有那麼多人用 XD</p>
+
+<p>除了 <a href="http://stickeraction.com">stickeraction</a> 之外, 我放在同一台主機的服務 <a href="http://twitthat.com">twitthat</a> 跟我的 blog 也都掛點, 幸好每天都有用 <a href="http://sourceforge.net/projects/automysqlbackup/">automysqlbackup</a> 在備份, 所以沒有釀成太大的悲劇 Orz</p>
+
+<p>總之, 目前 stickeraction 的狀況就是, 除了無法將已經貼了貼紙的新部落格加進來之外, 其他一切都正常 XD 接下來這幾天要來把 stickeraction 的架構重新寫一遍吧! 還沒有看到被加進串連的朋友請稍後幾天嘿!!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/codeigniter/1201">CodeIgniter Layout 的做法</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-08-30T12:48:09+08:00" pubdate  data-updated="true" >Aug 30<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>由於在開發網站過程中, 通常都有個 template 或稱作 layout, layout 包含了整個網站的外觀, 而網站的 layout 通常會切分為 header, content, footer 甚至還有 menu。 而這當中的 content view 則是會隨著不同頁面、功能而變動, 而 layout 則為固定, 這樣可以維持同一個網站界面的一致性, 然而 <a href="http://codeigniter.com">CodeIgniter</a> 並沒有對這種所謂 partial view 有較好的處理方式。</p>
+
+<p>所以通常都會是像下面這樣的寫法。 載入 foo 這個 content view 到變數之後, 丟到 template view, 最後在 render 出來。</p>
+
+<p><code>$data['foo'] = $foo;
+$view['heading'] = 'heading text';
+$view['content'] = $this->load->view('foo', $data, true);
+$this->load->view('template', $view);</code></p>
+
+<p>所以每個頁面就都得寫上兩行 load view 的動作, 寫久了便覺得繁瑣, 其實這個動作透過下面這個 Layout library 是可以簡化的。 這個 library 是在 <a href="http://codeigniter.com/wiki/layout_library/">CodeIgniter wiki</a> 上看來的, 只修改了幾個變數。</p>
+
+<pre>
+<code>&lt;?php
+class Layout
+{
+    var $obj;
+    var $layout;
+
+    function Layout($layout = "template")
+    {
+        $this->obj =& get_instance();
+        $this->layout = $layout;
+    }
+
+    function setLayout($layout)
+    {
+      $this->layout = $layout;
+    }
+
+    function view($view, $data=null, $return = false)
+    {
+        $data['content'] = $this->obj->load->view($view, $data, true);
+
+        if($return)
+        {
+            $output = $this->obj->load->view($this->layout, $data, true);
+            return $output;
+        }
+        else
+        {
+            $this->obj->load->view($this->layout, $data, false);
+        }
+    }
+}
+?&gt;</code></pre>
+
+
+<p>有了這個 Layout library 之後變可以將載入 view 的程式簡化如下:</p>
+
+<p><code>$data['foo'] = $foo;
+$data['heading'] = 'heading text';
+$this->layout->view('foo', $data);</code></p>
+
+<p>基本上以這個 library 為範例的話, 預設的 template 檔案就要命名為 template.php, 你也可以修改這個 library 的程式碼來符合你現在 template 的檔案名稱, 不過我是覺得就叫 template 還滿直覺的。
+而 template.php 裡面則是需要放入 $content 這個變數來存放 foo.php 這個 view。 簡單的 template.php 的範例如下:</p>
+
+<p><code>&lt;html&gt;
+&lt;body&gt;
+&lt;?=$content?&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></p>
+
+<p>當然這個 template 可以像文章一開始講到的, 另外做更細的切分, 我們可以另外開一個 template 的目錄, 裡面存放 header.php, footer.php, 然後在 template.php 裡面載入, template.php 如下:</p>
+
+<pre>
+<code>$this->load->view('template/header');
+&lt;?=$content?&gt;
+$this->load->view('template/footer');</code>
+</pre>
+
+
+<p>hmm&#8230; 這篇應該要有寫過 view in view 的人才看得懂吧? 超懶畫圖 XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/linux/1530">[Lighttpd] Get Real IP From Proxy</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-08-29T21:58:17+08:00" pubdate  data-updated="true" >Aug 29<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>由於先前在測試用 <a href="http://nginx.net">nginx</a> 放在原本的 <a href="http://www.lighttpd.net/">lighttpd</a> 前面作 load balance 還是 reverse proxy 什麼的, 不過因為完全沒碰過, 只能亂搞, 沒想到成功了 XD (雖然有設錯, 整個站有掛掉一下下)</p>
+
+<p>本來是想說到時候 <a href="http://stickeraction.com">StickerAction</a> 撐不住, 可以把 request 分到別台去, 不過看目前的情形都還撐得住, 最高也還沒到 20 req/s, 是我小看了 256slice 阿 ~&#8221;~ 不過應該也是因為加了之前做的, <a href="http://tzangms.com/php/1244">讓圖片快取住的功能</a>, 才能減少一些 request 的。</p>
+
+<p>不過當時唯一有問題的就是, 當我再看 log 跟 session 的時候, 發現, ip 全部都是 127.0.0.1 阿!! :o 幸好之前程式中 session 沒有要 match ip XD 原來 lighttpd 那邊要開 <a href="http://trac.lighttpd.net/trac/wiki/Docs/ModExtForward">mod_extforward</a> 來取得 client 經過 nginx proxy 後, 原本的 IP 位址。</p>
+
+<p>lighttpd 再 1.4.14 之後就都有 mod_extforward, 只是好像預設的 lighttpd.conf 都不會列出來。 所以只要再 server.modules 裡面載入 mod_extforward 就可以了, 只是記得要放在 mod_accesslog 後面載入, 如下:</p>
+
+<pre>
+<code>server.modules = (
+    "mod_rewrite",
+    ...
+    "mod_accesslog",
+    "mod_extforward"
+)</code>
+</pre>
+
+
+<p>然後加上個相信的 IP 來源就可以啦 :D</p>
+
+<pre>
+<code>extforward.forwarder = (
+   "127.0.0.1" => "trust"
+)</code>
+</pre>
+
+
+<p>雖然也不知道放個 nginx 在前面有沒有發揮什麼作用就是了 XD anyway 至少之後可以直接把 request 分到另外一台</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1503">關於 Simplepie Cache (Db Cache)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-08-28T08:29:57+08:00" pubdate  data-updated="true" >Aug 28<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>這篇還是記錄在 <a href="http://stickeraction.com">StickerAction</a> 的效能上做的處理。 <a href="http://stickeraction.com">StickerAction</a> 用 <a href="http://simplepie.org">Simplepie</a> 來讀取 RSS, 然後用上了 cache, 來避免一直對外部做 request, 也減少流量的支出。研究了一下 Simplepie 的 cache 儲存方式, Simplepie 就是把他所抓取的 url 做 md5 當成檔名存成 cache 檔案, 檔案裡面則是存放 serialize 後的資料。</p>
+
+<p>所以為了搭配<a href="http://tzangms.com/stickeraction/1488">上一篇所提到的存取控制</a>, 計算這次是否有對外部做了 request, 所以寫了下面這一段, 來判斷是否有對外存取, 進而做存取控制。</p>
+
+<pre>
+<code>function is_cached($url)
+        $cache_file = 'sp_cache/' . md5($url) . '.spc';
+        if (file_exists($cache_file)) {
+            return true;
+        }
+
+        return false;
+}</code>
+</pre>
+
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/programming/1918">Read on &rarr;</a>
+      <a rel="full-article" href="/programming/1503">Read on &rarr;</a>
     </footer>
   
 
@@ -249,7 +460,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/linux/1923">Gamin Circular Dependency With &#8216;Fam&#8217; USE Flag</a></h1>
+      <h1 class="entry-title"><a href="/web design/1487">簡單化的網頁設計</a></h1>
     
     
       <p class="meta">
@@ -263,29 +474,63 @@
 
 
 
-<time datetime="2008-10-24T17:23:16+08:00" pubdate  data-updated="true" >Oct 24<span>th</span>, 2008</time>
+<time datetime="2008-08-27T23:44:38+08:00" pubdate  data-updated="true" >Aug 27<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>在 <a href="http://www.gentoo.org/">gentoo linux</a> 上應該是很少有機會會碰到 circular dependency, 如果真的碰到了, 就是過一陣子 <code>emerge --sync</code> 看看, 或是去作 bug report。 這次是為了要將 <a href="http://www.lighttpd.net/">lighttpd</a> 的 stat-cache-engine 設定為 fam, 而第一次碰到 portage 的 circular dependency。</p>
+  <div class="entry-content"><p>今天看了一篇文章 <a href="http://www.smashingmagazine.com/2008/08/26/how-simple-web-design-helps-your-business/">How Simple Web Design Helps Your Business</a> 說明為何網頁設計要朝向簡單化的設計方向, 不要在網頁上放入太多東西, 特別你是在賣東西阿!</p>
 
-<p>嗯, 這個問題是發生在 gamin 跟 glib 這兩個套件, 其實之前一直放著不管, 就把時間拿去弄唱片了, 可是過了好久, 這個問題還沒解決, 一直到今天才又換了方法試一下, 沒想到就成功了!! :D</p>
+<p><a href="http://www.apple.com/tw/">Apple</a> 的網頁總是很精簡, 但很漂亮, 我也總能一目了然的就看出, 現在在主打哪個產品, 我想找的東西在哪, 都可以很快的找到我要的資訊, 或我想購買的產品頁面。像我用的 <a href="http://slicehost.com">Slicehost</a> 的網頁也非常簡單, 雖然說, 他們的產品線本來就很精簡 XD</p>
 
-<ol>
-<li>首先 use flag 先不加 fam, 先把 glib 跟 gamin 裝上去</li>
-</ol>
+<p>而且<a href="http://news.bbc.co.uk/1/hi/technology/7417496.stm">現在的網路使用者越來越沒有耐心</a>了阿, 所以當一個頁面放入太多東西, 會讓使用者找不到想要的東西, 或是被太多不相干的東西干擾視線。</p>
+
+<p>基本上, 我個人覺得 8 秒差不多吧, 8 秒過了還沒看到我想要的東西, 就會讓我覺得這個頁面設計的很爛, 因為我就會開始沒耐心了 &#8230;</p>
+
+<p>太多重點, 等於沒有重點阿!!!!</p>
+</div>
+  
+  
 
 
-<p><code>USE='-fam' emerge gamin</code></p>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1488">StickerAction 對外 Request 被擋的處理</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-08-27T22:07:30+08:00" pubdate  data-updated="true" >Aug 27<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2761698350/" title="yahoo error 999 by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3169/2761698350_f458a4ea9b.jpg" width="500" height="313" alt="yahoo error 999" /></a>
+最近在為了減少 <a href="http://stickeraction.com">StickerAction</a> 對外部的 request 數量作處理, 花了好一些工夫 XD 因為 wretch 那邊大概只要有 50 個 request(一小時或半小時, 阿災), 就會被先前 <a href="http://blog.xdite.net">xdite大大</a> 說的 Yahoo 金鐘罩檔掉了。 請見上圖 Yahoo 999 XD</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/linux/1923">Read on &rarr;</a>
+      <a rel="full-article" href="/programming/1488">Read on &rarr;</a>
     </footer>
   
 
@@ -297,7 +542,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/music/1913">唱片樣本</a></h1>
+      <h1 class="entry-title"><a href="/programming/1471">紀錄一下 OTRS 連 SQL Server 的東西</a></h1>
     
     
       <p class="meta">
@@ -311,183 +556,42 @@
 
 
 
-<time datetime="2008-10-22T11:02:10+08:00" pubdate  data-updated="true" >Oct 22<span>nd</span>, 2008</time>
+<time datetime="2008-08-27T00:24:14+08:00" pubdate  data-updated="true" >Aug 27<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2963477902/" title="唱片樣本 by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3150/2963477902_43ff9d8fa4.jpg" width="500" height="375" alt="唱片樣本" /></a></p>
+  <div class="entry-content"><p>在 Perl 要連到 MS SQL Server 真的是很麻煩, 如果是透過 ODBC 的話, 則要設定好 <a href="http://www.freetds.org/">FreeTDS</a> 還有 <a href="http://www.unixodbc.org/">unixODBC</a>, 設定檔大概像下面這樣吧:</p>
 
-<p>超興奮的! 明後天就可以收到完成品囉!</p>
-</div>
-  
-  
+<p>FreeTDS (freetds.conf)</p>
 
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/1896">專輯印刷校稿</a></h1>
-    
-    
-      <p class="meta">
-        
+<pre><code>[OTRS]
+host = 192.168.1.1
+port = 1433
+tds version = 7.0
+client charset = UTF-8</code></pre>
 
 
+<p>unixODBC (odbc.ini)</p>
+
+<pre><code>[OTRS]
+Driver = FreeTDS
+Description = Microsoft SQL Server(OTRS)
+Trace = No
+Servername = OTRS
+Database = otrs_db</code></pre>
 
 
-
-  
-
-
-
-<time datetime="2008-10-17T00:11:34+08:00" pubdate  data-updated="true" >Oct 17<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p style="text-align: center;"><a title="專輯印刷校稿 - 封面 by tzangms, on Flickr" href="http://www.flickr.com/photos/tzangms/2946646242/"><img class="aligncenter" src="http://farm4.static.flickr.com/3207/2946646242_5dc345be98.jpg" alt="專輯印刷校稿 - 封面" width="375" height="500" /></a></p>
-
-
-<p>昨天壓片廠業務連絡我說盤面的設計稍微有些問題,  然後一整個窒息感湧上, 所以下班回家就把盤面印刷的部份修了一下, 等待隔天的到來。 而今天一早就傳給壓片廠, 經過壓片廠的美工確認過無誤後, 並修正一些小問題之後, 回傳給我確認, 無誤之後才又鬆了一口氣, 否則壓片的進度就可能會 delay 到 ~&#8221;~</p>
+<p>如果都運作正常的話, 執行下面的 Perl code 應該不會有錯誤訊息。</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/music/1896">Read on &rarr;</a>
+      <a rel="full-article" href="/programming/1471">Read on &rarr;</a>
     </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1890">[GM] Twitter Retweet 0.5</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-10-16T11:18:07+08:00" pubdate  data-updated="true" >Oct 16<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>由於 twitter html 有稍作更動, 所以更新一下 retweet script。</p>
-
-<p>差點忘記說, 這個版本是 based on <a href="http://blog.kej.tw/">kej 大大</a>所<a href="http://blog.kej.tw/2008-10/03/twitter-retweet-gm-script-04/">修改的 0.4 版</a>而來的 :p</p>
-
-<p><a href="http://tzangms.com/code/retweet-0.5.user.js">安裝 twitter retweet 0.5</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/1886">唱片送壓了 &#8230;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-10-14T23:27:05+08:00" pubdate  data-updated="true" >Oct 14<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天下午請假, 把CD跟要印刷的東西送到壓片廠, 然後簽約了, 如果順利的話, 應該下禮拜二就可以看到成品, 不順利的話, 應該會是印刷品質上的問題, 可能要在跟壓片廠的業務確認, 不過這次找的壓片廠的業務人很好, 很熱心, 今天確認過一些東西, 所以應該不會有太大的問題, 總之希望品質能夠不錯。</p>
-
-<p>在這邊也要感謝許多推友的幫忙, 也要跟朱百說聲抱歉, 原本<a href="http://graniphoc.blogspot.com/">朱百</a>要幫忙我做封面設計, 然而我整個沒辦法承受唱片繼續拖下去的壓力, 所以就趁上禮拜的連假躲在家裡, 把東西都弄完, 真是對不起朱百 Orz</p>
-
-<p>另外還有<a href="http://biasonica.blogspot.com/">小掰</a>, 感謝小掰幫我寫文案, 雖然&#8230; (咳) 文案可能變成只在網站上出現 Orz</p>
-
-<p>以上種種, 我只能歸咎於我覺得自己壓力太大&#8230; 白天上完班後就已經頭昏腦脹的了, 下班後有時還要寫程式弄網站, 然後還有弄唱片的東西, 而最近又弄著一堆自己不懂、沒接觸過的東西 &#8230; 然而時間拖越久, 失眠機率就越高。 然後又對自己辜負到朱百跟小掰的好意感到懊惱 Orz</p>
-
-<p>anyway, 接下來就是等唱片交貨吧! 感謝大家的支持! (淚、累)</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/1876">愛怕摸摸 [粗獷 Version]</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-10-13T21:08:20+08:00" pubdate  data-updated="true" >Oct 13<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="500" height="400" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="flashvars" value="&amp;offsite=true&amp;intl_lang=en-us&amp;page_show_url=%2Fphotos%2Ftzangms%2Fsets%2F72157607984101628%2Fshow%2F&amp;page_show_back_url=%2Fphotos%2Ftzangms%2Fsets%2F72157607984101628%2F&amp;set_id=72157607984101628&amp;jump_to=" /><param name="bgcolor" value="#000000" /><param name="allowFullScreen" value="true" /><param name="src" value="http://www.flickr.com/apps/slideshow/show.swf?v=59913" /><embed type="application/x-shockwave-flash" width="500" height="400" src="http://www.flickr.com/apps/slideshow/show.swf?v=59913" allowfullscreen="true" bgcolor="#000000" flashvars="&amp;offsite=true&amp;intl_lang=en-us&amp;page_show_url=%2Fphotos%2Ftzangms%2Fsets%2F72157607984101628%2Fshow%2F&amp;page_show_back_url=%2Fphotos%2Ftzangms%2Fsets%2F72157607984101628%2F&amp;set_id=72157607984101628&amp;jump_to="></embed></object>
-
-
-<p>我一直覺得手機阿什麼的, 通常都是喜歡他的外型才會買。 只是&#8230;. 常常看到有人會在自己漂亮的手機外面加上一個手機套, 我是完全不做這種事的, 我覺得這樣手機會哭。</p>
-
-<p>為螢幕加上個看不出來的保護膜當然ok, 不過加個手機套還是護套什麼的, 那不是我的作風, 因為那&#8230; 根本就不是原來的外型了阿!!!</p>
-
-<p>所以!! (拍桌) &#8230;&#8230; <strong>愛怕摸摸 [粗礦 version]</strong> 就這麼出現了!!</p>
-
-<p>可能有人會好奇&#8230; 為什麼要用 <strong>version</strong> 而不用 <strong>版</strong> 這個字。 &#8230;&#8230;..  因為這樣好像比較有 fu。</p>
-</div>
-  
   
 
 

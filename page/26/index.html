@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="身體不適的狀況越來越嚴重, 我的肩膀跟脖子都有嚴重石化的傾向, 甚至在公司午休時無法趴睡, 而我的左手也幾乎無法出力。 每天起床的時候, 肩膀跟脖子痛的要死, 我也不清楚為何是在起床的時候特別痛。 而在睡覺時, 也會因為肩膀跟脖子的疼痛而睡不著。至於醒著的時候, 則是維持著基本的疼痛感, 可能...">
+  <meta name="description" content="今天一早因為 twitter 改板, 所以原本的 retweet 就失效了, 所以就馬上因應新版的 twitter 改寫了 retweet script, 不過後來一直有推友反應說不能 retweet 第二次, 所以下班回家就一直在找問題在哪。結果問題出在 $(&#8216;#status&#...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/2109">身體不適</a></h1>
+      <h1 class="entry-title"><a href="/programming/1696">Twitter Retweet GM Script 0.3</a></h1>
     
     
       <p class="meta">
@@ -80,115 +80,26 @@
 
 
 
-<time datetime="2008-11-19T23:34:45+08:00" pubdate  data-updated="true" >Nov 19<span>th</span>, 2008</time>
+<time datetime="2008-09-19T23:16:39+08:00" pubdate  data-updated="true" >Sep 19<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>身體不適的狀況越來越嚴重, 我的肩膀跟脖子都有嚴重石化的傾向, 甚至在公司午休時無法趴睡, 而我的左手也幾乎無法出力。 每天起床的時候, 肩膀跟脖子痛的要死, 我也不清楚為何是在起床的時候特別痛。 而在睡覺時, 也會因為肩膀跟脖子的疼痛而睡不著。</p>
+  <div class="entry-content"><p>今天一早因為 <a href="http://twitter.com">twitter</a> 改板, 所以原本的 retweet 就失效了, 所以就馬上因應新版的 twitter 改寫了 retweet script, 不過後來一直有推友反應說不能 retweet 第二次, 所以下班回家就一直在找問題在哪。</p>
 
-<p>至於醒著的時候, 則是維持著基本的疼痛感, 可能由於這個疼痛的情形已經持續了快兩年, 我似乎是因為已經習慣了這個疼痛的感覺, 而視為理所當然。</p>
+<p>結果問題出在 $(&#8216;#status&#8217;).text(msg) 這個地方, 是還滿奇怪的, 後來改用 DOM 來做, 就很正常, 後來 <a href="http://twitter.com/kej">kej</a> 大大說用 $(&#8216;#status&#8217;).val(msg) 也可以, 最後就改用 $(&#8216;#status&#8217;).val(msg) 來做了, 感謝 kej 大大幫測 :D</p>
 
-<p>今年年初也去看過復健科, 去看過整骨&#8230; 等等, 不過好像也沒什麼用。甚至在做過復健的電療後, 脖子突出了一塊, 到現在都沒有消去。 也許就是電腦打太久, 工作環境不良, 沒有運動 &#8230; 等, 所以後來也開始斷斷續續的跑步, 只是狀況也沒有太大的好轉, 有時甚至更劇烈疼痛。</p>
+<p>不過奇怪的是, , 在執行 $(&#8216;#status&#8217;).text(msg) 的時候, 用 firebug 看 html code 確實有改變, 但是畫面上看到的 textarea 則是完全沒有動作, 難道這就是人生嗎? XD</p>
 
-<p>不過一直到這半年來, 肩膀跟脖子疼痛越來越劇烈, 而且異常僵硬, 已經到了我需要以石化來稱呼。 其實一直在想, 到底是什麼原因造成的? 什麼時候開始的? 似乎就是在開始工作後的幾個月, 脖子開始覺得僵硬、疼痛。 一直持續到現在, 快兩年了, 其實我真的是滿會忍痛的。</p>
-
-<p>以前有過某個經驗, 因為牙齒有問題, 連帶影響到脖子的某條神經之類的, 牙齒治療好之後, 脖子的疼痛也不藥而癒。 所以在肩膀脖子剛開始疼痛的時候, 我想說可能會是類似原因, 就跑去看了牙醫, 只是這個疼痛依舊。 (攤手)</p>
-
-<p>一直在想著自己的身體怎麼會這樣, 一直到今年年初, 我開始覺得是因為工作環境問題, 可能桌椅不合人體工學? 當時在請假準備去看醫生的時候說出這個可能性猜測, 經理笑著說: 「那其他人怎麼不會?」 我也說不出個所以然來, 只笑著回答說:「我也不知道 :p」</p>
-
-<p>慢慢的, 我開始觀察, 疼痛的加重情況就有如一個循環。 從禮拜一上班開始就慢慢加重, 一直到禮拜六開始減緩, 但隨著上班的開始, 又開始加重。 所以我只能猜測是工作的桌椅問題。 不過公司每個人都用同樣的桌椅, 為何只有我會這樣? 看來是我坐姿非常的不良? 又或者是我的風水特別不好? 或者是也許剛好我跟這個桌椅不合吧!?</p>
-
-<p>我也不知道為何在家裡就不會有這種不舒服情況。 (攤手)</p>
-
-<p>幾個禮拜前, 在做推拿的姑姑, 看了一下我的狀況, 他說我的左邊肩膀已經移位了, 一整個往上移, 連帶的影響到了我的左手, 導致左手無法施力。 姑姑說還滿嚴重的, 所以就幫我把身體橋了一下(其實是橋很久, 讓我痛的幾乎無法呼吸), 這才稍微減輕這惱人的疼痛感。</p>
-
-<p>目前最近的狀況是, 上班時, 手靠在桌上想要打電腦, 肩膀、脖子就會痛, 只是可能習慣了, 就繼續打字、工作著, 然後到了下午, 疼痛感慢慢的增加。 然而最近疼痛越來越嚴重, 痛到我快要無法忍受, 也無法專心寫程式, 心情極度煩躁。</p>
-
-<p>我只能說, 我的手快廢了, 脖子肩膀快不能動了, 我深覺得我不能再這樣繼續下去了。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/2105">Twitter 成癮症</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-11-19T00:50:19+08:00" pubdate  data-updated="true" >Nov 19<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="http://tzangms.com/wp-content/uploads/2008/11/twitterholic1.png" alt="twitterholic1" title="twitterholic1" width="580" height="427" class="aligncenter size-full wp-image-2301" />
-這一兩天 twitter 非常不穩, 應該很多人發現自己已經 twitter 成癮了吧!? XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/2068">1106 野莓之聲</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-11-11T08:53:19+08:00" pubdate  data-updated="true" >Nov 11<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><object width="400" height="225"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=2205674&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=2205674&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="400" height="225"></embed></object>
-
-
-<br /><a href="http://vimeo.com/2205674">野草莓運動ㄧ野莓之歌</a> from <a href="http://vimeo.com/freshfoliage">freshfoliage</a> on <a href="http://vimeo.com">Vimeo</a>.
-
-
-<p>這首歌是由網友<a href="http://Nelleven.pixnet.net/blog/post/22303995">小海</a>(不是我 XD) 所寫的一首歌, 應該是叫做&#8221;野莓之歌&#8221; 昨天回家抓了一下和絃, 希望有興趣的人可以一起來彈唱。</p>
+<p>anyway, 以上看不懂可直接略過, 下面來說說, 新增的功能。</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/life/2068">Read on &rarr;</a>
+      <a rel="full-article" href="/programming/1696">Read on &rarr;</a>
     </footer>
   
 
@@ -200,7 +111,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/stickeraction/2071">[Stickeraction] 新介面、新功能</a></h1>
+      <h1 class="entry-title"><a href="/programming/1691">Twitter 改版, Retweet Gm Script 改版</a></h1>
     
     
       <p class="meta">
@@ -214,71 +125,16 @@
 
 
 
-<time datetime="2008-11-11T00:04:26+08:00" pubdate  data-updated="true" >Nov 11<span>th</span>, 2008</time>
+<time datetime="2008-09-19T11:04:52+08:00" pubdate  data-updated="true" >Sep 19<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a title="stickeraction 改版 by tzangms, on Flickr" href="http://stickeraction.com"><img class="alignleft" src="http://farm4.static.flickr.com/3167/3019663572_ee454a3c33.jpg" alt="stickeraction 改版" width="500" height="315" /></a></p>
+  <div class="entry-content"><p>沒啥好多說的! <a href="http://tzangms.com/code/retweet.user.js">點這裡安裝新版</a></p>
 
-<p>之前一直在忙唱片的事情, 沒有時間把介面弄好一點, 這次唱片壓完了, 就把一些功能弄出來, 改了個介面。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/stickeraction/2071">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/2060">小海專輯購買頁面 @ Registrano</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-11-09T23:14:55+08:00" pubdate  data-updated="true" >Nov 9<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p style="text-align: center;"><a title="小海首張個人專輯 - 人生海海 | Registrano by tzangms, on Flickr" href="https://registrano.com/events/tzangms-album"><img class="aligncenter" src="http://farm4.static.flickr.com/3174/3015991220_e27e8dfd7a.jpg" alt="小海首張個人專輯 - 人生海海 | Registrano" width="500" height="482" /></a></p>
-
-
-<p>小海專輯購買頁面開放囉! 感謝<a href="http://zh.handlino.com/">和多</a>贊助, 讓我可以使用 <a href="http://registrano.com/">Registrano</a> 來進行唱片購買的事宜 :D</p>
-
-<p>其實 Registrano 主要是用來進行活動報名的網站, 不過有一天突然想說應該也可以拿來賣唱片吧? XD 所以就開始了這個計畫, 雖然用在唱片購買, 有些用詞看起來怪怪的, 不過感覺還滿好玩的阿, Registrano 也真是滿好用的! :D</p>
-
-<p>不過, 基本上這個<a href="https://registrano.com/events/tzangms-album">專輯購買頁面</a>, 最主要就是給碰不到面, 離台北太遠的人用低, 因為要用寄的, 所以定價 300 塊, 含運費 XD</p>
-
-<p>如果碰的到面的, 就直接找我面交就可以啦!!</p>
-
-<p>專輯試聽:</p>
-
-<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="400" height="100" ><param name="movie" value="http://bandcamp.mu/EmbeddedPlayer.swf/album=3079962188/"><param name="quality" value="high"><param name="bgcolor" value="#FFFFFF"><param name="allowScriptAccess" value="never"><embed src="http://bandcamp.mu/EmbeddedPlayer.swf/album=3079962188/"  width="400" height="100" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" quality=high bgcolor=#FFFFFF allowScriptAccess=never ></embed><noembed><a href="http://tzangms.bandcamp.mu/album/-">我想忘記你 by tzangms</a></noembed></object>
-
-
-
+<p>UPDATE: 已經解決無法 retweet 兩次的問題了<a href="http://tzangms.com/greasemonkey/1696">請看這裡</a></p>
 </div>
   
   
@@ -291,7 +147,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/2040">小海專輯面交預約@生態綠</a></h1>
+      <h1 class="entry-title"><a href="/codeigniter/1664">CodeIgniter Database 跟 Model 怎麼用?</a></h1>
     
     
       <p class="meta">
@@ -305,191 +161,49 @@
 
 
 
-<time datetime="2008-11-03T23:55:48+08:00" pubdate  data-updated="true" >Nov 3<span>rd</span>, 2008</time>
+<time datetime="2008-09-18T08:05:24+08:00" pubdate  data-updated="true" >Sep 18<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><img src="http://farm4.static.flickr.com/3190/2999454492_1821d075fe_m.jpg" alt="封面" width="240" height="237" />
-這個星期三我將背著專輯到<a href="http://www.okogreen.com.tw/">生態綠</a>跟大家進行面交喔!!! 有興趣的朋友, 可以到 <a href="http://registrano.com/events/tzangms-preorder-okgreen">Registrano 報名頁面</a> 進行報名, 以便統計唱片數量</p>
-
-<p>另外, 小海也會當場簽名喔!! XDDDDD</p>
-
-<p><a href="http://registrano.com/events/tzangms-preorder-okgreen/registrations/new">馬上報名</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/codeigniter/2033">ORM Library for CodeIgniter</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-11-03T10:42:08+08:00" pubdate  data-updated="true" >Nov 3<span>rd</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>DataMapper</strong>
-<a href="http://stensi.com/datamapper/">http://stensi.com/datamapper/</a></p>
-
-<p><strong>IgnitedRecord</strong>
-<a href="http://www.assembla.com/wiki/show/bnqonahgCr3zI3ab7jnrAJ">http://www.assembla.com/wiki/show/bnqonahgCr3zI3ab7jnrAJ</a></p>
-
-<p>這兩個 ORM library 可以試試看, 不過目前我好像偏好直接寫 SQL, 長長一串好像看起來比較爽 &#8230;</p>
-
-<p>不過我是覺得, <a href="http://codeigniter.com">CodeIgniter</a> namespace 的問題&#8230; 會在使用這些 ORM 的時候造成一些困擾 囧rz</p>
-
-<p>像是 CodeIgniter 的 Controller, Library 跟 Model 的 class name 本來就不能一樣了, 但至少 Model 的名稱叫做 foo_model 之類的, 還可以避開, 但是 ORM 多個 postfix &#8230;不是很奇怪?</p>
-
-<p>倒是希望 CodeIgniter 可以解決 name space 這個問題先 ~&#8221;~</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/2028">寫程式適合聽的音樂 - Slipknot</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-10-30T21:32:12+08:00" pubdate  data-updated="true" >Oct 30<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>我寫程式時特別愛聽比較重的音樂, slipknot 是其中一個, 來介紹幾首我喜歡的 slipknot 的歌曲, 一邊聽, 一邊寫程式, 思路跟打字都會飛快阿!!</p>
-
-<p><strong>spit it out</strong></p>
-
-<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/0XgHBWuwNp0&hl=zh_TW&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/0XgHBWuwNp0&hl=zh_TW&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/music/2028">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2006">CodeIgniter 1.7.0 更新</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-10-30T20:10:18+08:00" pubdate  data-updated="true" >Oct 30<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://codeigniter.com">CodeIgniter</a> 在 10/23 釋出了 1.7.0 版本, 來列出一些我覺得比較重要的改變好了, 詳細的改變還是請看 <a href="http://codeigniter.com/user_guide/changelog.html">Changelog</a>。</p>
-
-<p><strong>1. 新增 form_validation library</strong>
-這個版本最主要的就是新增了一個 <a href="http://codeigniter.com/user_guide/libraries/form_validation.html">form_validation</a> 的 library 用來取代舊有的 validation library, 而 validation library 也在 1.7.0 開始被列為 deprecated。 ( 應該翻做不建議使用? ) anyway, validation library 的文件也已經從 user guide 移除了, 不過 validation 依然可用, 只是得找時間換成 form_validation 就是了。</p>
-
-<p>看了一下 form_validation 的文件, 這次的更新, 大幅降低了以往 validation 囉唆使用的方式, 改成了跟 <a href="http://kohanaphp.org">kohana</a> 2.1 時的 validation 類似的方式, 簡單許多, 很不賴。</p>
-
-<p>以往的 validation 真的是是很囉唆, 像是這樣</p>
+  <div class="entry-content"><p>其實最早在剛接觸 <a href="http://codeigniter.com">CodeIgniter</a> 的時候記得是版本 1.5.2, 那時候 Model 都這麼寫, 例如下面的 User_Model。</p>
 
 <pre>
-<code>$rules['name'] = 'required|alpha_numeric|max_length[20]';
-$rules['email'] = 'required|valid_email';
-$rules['web'] = 'required|prep_url';
-$this->validation->set_rules($rules);
+<code>class User_model extends Model {
+    function __construct() {
+        parent::__construct();
+    }
 
-$fields['name'] = '名稱';
-$fields['email'] = 'email';
-$fields['web'] = '網站';
-$this->validation->set_fields($fields);</code>
+    function get_by_name($name) {
+        $this->db->where('name', $name);
+        $query = $this->db->get('users');
+        if ($query->num_rows()) {
+            return $query->row();
+        }
+    
+        return false;
+    }
+
+    function get_all() {
+        $query = $this->db->get('users');
+        if ($query->num_rows()) {
+            return $query->result();
+        }
+    
+        return array();
+    }
+}</code>
 </pre>
 
 
-<p>現在簡化許多, 變成是</p>
-
-<pre>
-<code>$this->form_validation->set_rules('name', '名稱', 'required|alpha_numeric|max_length[20]');
-$this->form_validation->set_rules('email', 'email', 'required|valid_email');
-$this->form_validation->set_rules('web', '網站', 'required|prep_url');</code>
-</pre>
-
-
-<p>不像以往是把 set_rules 跟 set_fields 分開作, 現在在 set_rules 直接一起把 set_fields 的部份做掉了, 寫起來輕鬆許多。</p>
-
-<p><strong>2. 可另外指定 library 載入後的物件名稱</strong>
-以往, 原本 library 的 class name 叫什麼, 在使用的時候就得用 class name 來使用, 沒有辦法另外指定比較短的名稱來方便使用, 以 simplepie 來說:</p>
-
-<pre><code>$this->load->library('simplepie');
-$this->simeplepie->function_name();</code></pre>
-
-
-<p>從 1.7.0 之後就可以這樣:</p>
-
-<pre><code>$this->load->library('simplepie', '', 'sp');
-$this->sp->function_name();</code></pre>
-
-
-<p>這樣感覺還不錯 :D 不過以上只是舉例, 我還是依舊用 simplepie 這個名稱 XD</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/codeigniter/1664">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -500,7 +214,7 @@ $this->sp->function_name();</code></pre>
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/1995">阿公走了</a></h1>
+      <h1 class="entry-title"><a href="/programming/1665">用 Javascript 限制圖片大小</a></h1>
     
     
       <p class="meta">
@@ -514,18 +228,328 @@ $this->sp->function_name();</code></pre>
 
 
 
-<time datetime="2008-10-27T22:57:08+08:00" pubdate  data-updated="true" >Oct 27<span>th</span>, 2008</time>
+<time datetime="2008-09-18T07:01:29+08:00" pubdate  data-updated="true" >Sep 18<span>th</span>, 2008</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>昨晚 11 點 50 , 阿公走了。 由於我是長孫, 許多事情都需要我, 目前已經向公司請了三天假。 另外唱片的事情可能要暫緩一陣子。 也謝謝各位推友, 雖然在電腦前的時間非常少, 不過我應該沒漏掉訊息才是。</p>
+  <div class="entry-content"><p>ie 都不支援 max-width 這種東西, 真的是很頭大, 所以只好想說用 javascript 來做 max-width 跟 max-height 這個工作, 所以就寫了下面這一段。 只是好像有些圖片還是縮不到, 所以&#8230; 最後我還是用 php 來作這個動作了, 以下只是個記錄 Orz</p>
 
-<p>阿公很好走, 今天也灑了好多杯酒, 如果阿公聽的懂國語&#8230; 阿公, 安心上路。</p>
+<pre>
+<code>$(function(){
+    var limit = 120;
+    s = $('#stickers img');
+    $.each(s, function(i, n){
+        var w = $(n).width();
+        var h = $(n).height();
+
+        // 
+        if (w > h) {
+            if (w > limit) {
+                var d = w - limit;
+                var r = h / w;
+                var nw = w - d;
+                var nh = h - d * r;
+                $(n).width(nw);
+                $(n).height(nh);
+            }
+        } else {
+            if (h > limit) {
+                var d = h - limit;
+                var r = w / h;
+                var nh = h - d;
+                var nw = w - d * r;
+                $(n).width(nw);
+                $(n).height(nh);
+            }
+        }
+    });
+});</code>
+</pre>
+
 </div>
   
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/stickeraction/1667">[Stickeraction] 貼紙列表</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-17T23:06:03+08:00" pubdate  data-updated="true" >Sep 17<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>由於 <a href="http://stickeraction.com">stickeraction</a> 的貼紙越來越多了, 首頁也總不可能一直就這樣放著讓他圖越來越多, 所以先前就先把首頁換成了顯示熱門、新進跟隨機貼紙。 (雖然沒啥差 囧)</p>
+
+<p>今天就又加上了一個可以<a href="http://stickeraction.com/show">列出所有貼紙的頁面</a>, 當然是分頁過的阿,  目前就還是以新進的貼紙優先列出, 不過之後應該會有所改變, hmm&#8230; 至少會有個站長推薦這種東西吧 XD</p>
+
+<p>然後也修正了貼紙頁面在 ie 看是一片亂的狀況, 為啥不支援 max-width 這種東西勒!!! (拍桌), anyway, 貼紙部落格聯播也回來了, 例如: <a href="http://stickeraction.com/EmBA/broadcast">http://stickeraction.com/EmBA/broadcast</a> , 也加上了 rss, 等聯播關鍵字弄好在提聯播這塊吧!</p>
+
+<p>越多功能, 就越多問題等待解決阿 ~&#8221;~ 只是至少要把當初想要的功能都做完! (握拳)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/1654">Moo & Threadless</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-13T19:19:27+08:00" pubdate  data-updated="true" >Sep 13<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2852294901/" title="moo &amp; threadless by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3268/2852294901_d66bcb43f1.jpg" width="500" height="375" alt="moo &amp; threadless" /></a></p>
+
+<p>其實上個禮拜 moo business card 就已經到了 :p 而 threadless 在昨天終於到啦!!! :D</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/life/1654">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/1632">Imified 五分鐘建立自己的機器人</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-10T21:16:19+08:00" pubdate  data-updated="true" >Sep 10<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天看到 <a href="http://www.imified.com">imified</a> 就玩了一下, 真的是很神奇又方便阿!! <a href="http://www.imified.com">imified</a> 可以讓你建立一支機器人, 接著你只需要指定一個程式的網址, 就可以讓機器人開始運作了! 而且整個流程超簡單的 :p</p>
+
+<p>在建立好機器人之後, 會讓你指定一個程式的網址, 接下來就是透過這支程式, 接收 imified 機器人的輸入, 而程式只要輸出(印出)訊息, 就會直接透過機器人發訊回覆。 不過目前申請的機器人好像就只有 Jabber/Gtalk(?)</p>
+
+<p>用 PHP 做個簡單範例:
+[source:php]
+&lt;?php
+// 接收 im 訊息
+$msg = $_REQUEST[&#8216;msg&#8217;];</p>
+
+<p>// 輸出訊息到 im
+echo $msg;
+?>
+[/source]</p>
+
+<p>就是這樣, 非常簡單阿 XD</p>
+
+<p>所以一開始想到的, 就是寫一個可以送訊息到 twitter 的機器人, 不過由於帳號是寫死的, 就不公佈出來了 XD 然後在查 Yahoo! 奇摩字典的時候, 又突然想到, 乾脆寫個查單字的機器人好了, 由於抓 Yahoo! 奇摩字典的程式也是我之前就寫好的一個 library, 所以真的包含註冊帳號、設定跟寫程式的部份, 真的只花了差不多五分鐘就弄好了 :p</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/web/1632">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1593">用 jQuery 選取 Opener 中的物件</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-08T22:28:46+08:00" pubdate  data-updated="true" >Sep 8<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><code>$('#selector', opener.document)</code>
+沒錯! 就是醬!!</p>
+
+<p>阿! (大叫) 還沒有時間把 jQuery 學好 ~&#8221;~</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/stickeraction/1616">[Stickeraction] 新增貼紙點擊數統計</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-08T21:47:16+08:00" pubdate  data-updated="true" >Sep 8<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>其實這個功能很簡單, 一開始就應該做了, 不過先前都一直在為了 <a href="http://stickeraction.com">stickeraction</a> 的效能, 在重寫整個架構, 今天才把這個功能加上。點擊數統計的當然不是指貼紙&#8221;顯示&#8221;的次數, 而是貼紙的&#8221;點擊&#8221;次數, 畢竟顯示並不代表網友有看到, 如果網友有點擊貼紙, 多少都代表網友想知道這個貼紙是在幹嘛, 這樣的統計才多少比較有意義。</p>
+
+<p>不過這個功能對於早期就響應的網友(大部分是我在 twitter 上的推友 XD), 可能有影響, 可能需要去檢查一下貼紙的語法, 看看連結(&lt;a  href&gt;)是否有連到這個網址, 如下:</p>
+
+<blockquote>http://stickeraction.com/貼紙名稱/go</blockquote>
+
+
+<p>以<a href="http://stickeraction.com/made_in_taiwan">台灣貨‧暢其流</a>為例, 貼紙語法應該如下</p>
+
+<blockquote>&lt;a href=&#8217;http://stickeraction.com/made_in_taiwan/go&#8217;&gt;&lt;img src=&#8217;http://stickeraction.com/made_in_taiwan/sticker/1&#8217; alt=&#8217;台灣貨‧暢其流&#8217;&gt;&lt;/a&gt;</blockquote>
+
+
+<p>基本上就是要有個 go 就是了 XD 如果把貼紙連結的網址改掉, 也許改連到你的部落格, 那麼就沒辦法統計到貼紙的點擊數了。</p>
+
+<p>其實貼紙的連結功能是有預留導向功能的, 就是說一樣取用 stickeraction 提供的貼紙語法, 網友點了貼紙之後, 可以依照管理者的設定, 將連結連回發起人所設定的網址, 而不一定要連回到 stickeraction 的貼紙頁面。這個轉址功能之後還會在放回來的 :p</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1603">[PHP] 將 Array 強制轉型為 Object</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-06T11:50:11+08:00" pubdate  data-updated="true" >Sep 6<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.otton.org/2008/08/14/neat-php-tricks-casting-arrays-to-objects/">Neat PHP Tricks: Casting Arrays to Objects</a>, 我覺得這篇可以稍微看一下。</p>
+
+<p>近來其實滿不喜歡用 array 的, 另外也不喜歡用 for, 基本上就是覺得 array 會讓程式碼看起來很亂 ~&#8221;~ 尤其是在 view 裡面。 所以可以 foreach 的, 就不用 for, 可以用 object 就不用 array, 雖然有時候還是免不了 :p</p>
+
+<p>基本上我是覺得 object 的 code, 看起來比較不那麼亂 XD 由於之前在公司看到某段 code, 所以另外提一下 for 跟 foreach, 像是下面這一段, foreach 乾淨多了</p>
+
+<pre>
+<code>// for
+$n = count($blogs);
+for ($i = 0; $i < $n; $i++) {
+    echo $blogs[$i]->title;
+}
+
+// foreach
+foreach($blogs as $blog) {
+    echo $blog->title;
+}</code>
+</pre>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/1603">Read on &rarr;</a>
+    </footer>
   
 
 
