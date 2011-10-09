@@ -4,7 +4,7 @@
   <title><![CDATA[Oceanic / 人生海海]]></title>
   <link href="http://tzangms.com/atom.xml" rel="self"/>
   <link href="http://tzangms.com/"/>
-  <updated>2011-10-09T11:37:26+08:00</updated>
+  <updated>2011-10-09T11:43:49+08:00</updated>
   <id>http://tzangms.com/</id>
   <author>
     <name><![CDATA[tzangms]]></name>
@@ -18,11 +18,11 @@
     <link href="http://tzangms.com/2011/10/09/from-blogofile-to-octopress/"/>
     <updated>2011-10-09T10:12:00+08:00</updated>
     <id>http://tzangms.com/2011/10/09/from-blogofile-to-octopress</id>
-    <content type="html"><![CDATA[<p>上個禮拜就開始在玩 <a href="http://octopress.org">octopress</a>, 雖然一樣用 markdown 寫文, meta 也一樣是用 yaml, 不過比起 <a href="http://www.blogofile.com/">blogofile</a> 貼心太多了。</p>
+    <content type="html"><![CDATA[<p>上個禮拜就開始在玩 <a href="http://octopress.org">octopress</a>, 雖然一樣用 markdown 寫文, meta 也一樣是用 yaml, 不過比 <a href="http://www.blogofile.com/">blogofile</a> 貼心太多了。</p>
 
-<p>所以昨天就花了一些時間, 用程式把 blogofile 的檔案轉成 octopress 的格式, 主要就 octopress 檔案名稱格式有固定, 至於文章內的 yaml 其實差不多, 多加上個 layout: post, comments: true 參數, 以及轉換 categories 就完成了。</p>
+<p>所以昨天就花了一些時間, 寫程式把 blogofile 的檔案轉成 octopress 的格式, 主要就 octopress 檔案名稱格式有固定, 至於文章內的 yaml 其實差不多, 多加上個 layout: post, comments: true 參數, 以及轉換 categories 就完成了。</p>
 
-<p>對我來說 octopress 主要方便的地方是 deploy 這件事, 先前 blogofile 是 deploy 到 s3, 還是自己寫程式丟上去, 而 octopress 直接就提供了一個 rake command 就直接輸入設定, 之後直接打 rake deploy 就可以丟上 github 了。</p>
+<p>相對於 blogofile, octopress 主要方便的地方是 deploy 這件事, 先前 blogofile 是 deploy 到 s3, 還是自己寫程式丟上去, 而 octopress 直接就提供了一個 rake command 就直接輸入設定, 之後直接打 rake deploy 就可以丟上 github 了。</p>
 
 <p>不過, 我覺得一定有一些人一定換了這類的 blog 系統之後, 就減少了發文的動力, 像我就是 XD</p>
 ]]></content>
