@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="這張是推友 @kikathetomato 前幾天幫我畫的一張, 看到整個超感動的 (淚) 除了衣服跟吉他就跟第一張專輯的宣傳照一樣之外, 背後還有 python 的兩隻蛇, 你說這酷不酷!? 超酷阿!!!!">
+  <meta name="description" content="其實最近下班時間都在忙著寫 Facebook 的東西, 所以不得不不關注一下 Facebook 的東西。自從 Facebook 推出 Graph API 之後, 就開始把目標往 Facebook 之外的網站拓展, 透過 OAuth 2.0、Graph API 跟 Javascript SDK ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -60,6 +60,60 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2702">Facebook 接下來的動作</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-08-21T22:02:26+08:00" pubdate  data-updated="true" >Aug 21<span>st</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>其實最近下班時間都在忙著寫 Facebook 的東西, 所以不得不不關注一下 Facebook 的東西。</p>
+
+<p>自從 Facebook 推出 <a href="http://developers.facebook.com/docs/api">Graph API</a> 之後, 就開始把目標往 Facebook 之外的網站拓展, 透過 <a href="http://developers.facebook.com/docs/authentication/">OAuth 2.0</a>、<a href="http://developers.facebook.com/docs/api">Graph API</a> 跟 <a href="http://developers.facebook.com/docs/reference/javascript/">Javascript SDK</a> 就可以很容易自己的網站上整合 Facebook 的功能進來。 而 Facebook 上的 Application 也開始建議使用 iframe 取代 FBML, 因為透過新的 SDK 便可以達到原本 FBML 才能達到的功能。</p>
+
+<p>而接下來 Facebook 打算把 App 的開發更 simplify, 他們把 Facebook 站內的開發跟站外的開發變成是同一件事! 因為除了 canvas 要改用 OAuth 2.0 之外, profile tab 也要改用 iframe 了!!!</p>
+
+<p>我想都改用 iframe 之後, Facebook 的 server 也會輕鬆很多吧? 原本的 FBML 的作法會一直 fetch html 回來 parse, 以後似乎只剩下 &lt;fb:serverFbml&gt; 這件事了。</p>
+
+<p>在 <a href="http://developers.facebook.com/blog/post/402">Facebook Platform Roadmap Update</a> 這篇文章中提到以下幾點:</p>
+
+<ol>
+<li>canvas 也將採用 OAuth 2.0 的新方式</li>
+<li>profile tab 也將從 FBML 改用 iframe</li>
+<li>移除 user page 的 profile tab ( 粉絲頁當然還是保留 )</li>
+<li>拿掉 REST API, Data Store API 還有一些 social plugin 可以取代的 FBML tag</li>
+</ol>
+
+
+<p>其實現在去看 <a href="http://www.facebook.com/developers/apps.php">application settings</a> 就可以看到介面也整個簡化了, 左邊的 tabs 縮減成了 5 個, 也已經出現了 OAuth 2.0 for Canvas (beta) 這個選項。</p>
+
+<p>我想今年年底一定又有一堆 Facebook 相關的開發者要哀號了, 沒事還是多看看 <a href="http://developers.facebook.com/roadmap">Developer Roadmap</a> 先做好心理準備吧 XD 不過最快的是下禮拜的 profile tab 要變成 520px 的寬度了阿 &#8230;</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -416,95 +470,6 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'myaudiocast.settings'</code></pre>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2664">App Engine Datastore 效能心得</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-06-10T01:29:20+08:00" pubdate  data-updated="true" >Jun 10<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>由於這一陣子用 <a href="http://code.google.com/intl/zh-TW/appengine/">app engine</a> 寫了一些玩具跟 <a href="http://www.myaudiocast.com">myaudiocast</a>, 所以來記錄一下心得。雖然 app engine 不用錢, 似乎不用怕資料庫 scale 的問題, 可是比起一般使用關聯式資料庫來說, 開始 run 之前得更仔細規劃, 因為有些資料在寫入後就無法更動了。</p>
-
-<p><a href="http://tzangms.com/wp-content/uploads/2010/06/myaudiocast-model.jpg"><img class="aligncenter size-full wp-image-2669" title="myaudiocast-model" src="http://tzangms.com/wp-content/uploads/2010/06/myaudiocast-model.jpg" alt="" width="481" height="404" /></a></p>
-
-<p>上面這張圖是 <a href="http://www.myaudiocast.com">myaudiocast</a> 簡單的示意圖, 接下來就用這張圖來說一下關於  datastore 使用上的心得</p>
-
-<h2>單筆資料 ( one-to-one )</h2>
-
-
-<p>像是 User 對 Podcast 在我的規劃上是 one-to-one, 所以如果是 one-to-one 這類的資料就給定 key_name, 直接用 key_name 來抓單筆資料, 而不是先用 filter 之後在用  get 來取得單筆資料。 因為用 appstats 就發現後面這個方法常常是花最多時間的, 然而因為之前的資料都沒給 key_name 現在也來不及了 &#8230;</p>
-
-<h2>多筆資料 ( one-to-many, many-to-many )</h2>
-
-
-<p>像是 Episode 這類 one-to-many, 會有多筆的資料, 沒事就不用給 key_name 了, 因為通常都是透過 filter 來取出多筆資料, 所以只需要寫入時指定 parent, 讓 user 的 episodes 可以成為一個 entity group, 這樣抓取資料比較快。</p>
-
-<h2>盡量使用 memcache</h2>
-
-
-<p>datastore 其實並沒有很快, 甚至 model api 沒有 query cache, 而 memcache 的 quota 其實滿大的, 所以要盡量用 memcache。</p>
-
-<h2>避免在 template 透過關連取資料</h2>
-
-
-<p>像是 podcast 跟 episodes 都可以透過關連, 像是 user.podcast 跟 user.episodes 來取得資料, 所以因為寫 django 的經驗, 我可能就直接丟 user 變數進 template, 然後都用 user.podcast, 跟 user.episodes 來取得資料, 可是這在 app engine 則是要避免的, 因為 app engine 的 model 並沒有 query cache, 所以可能會像下面這樣的作法, 就會對 podcast 做兩次 query。</p>
-
-<pre><code>
-</code></pre>
-
-
-<p>所以得一開始就把 user 跟 podcast 丟進 template, 直接取得資料而不是透過物件關連。</p>
-
-<p>不過有時候就是一定得透過關連來做, 那麼就請使用  django 1.0 以上的 template, 透過 <a href="http://docs.djangoproject.com/en/dev/ref/templates/builtins/#with">with</a> 這個 template tag 來避免多次 query, 或者是在 model 新增一個 property 然後用 memcache 來解決, 像是我的作法</p>
-
-<pre><code>class User(db.Model):
-    ...
-
-    @property
-    def podcast(self):
-        cache_key = 'user-podcast-%s' % self.key()
-        p = memcache.get(cache_key)
-        if not p:
-            p = self.podcasts.ancestor(self).get()
-            memcache.add(cache_key, p)
-
-        return p</code></pre>
-
-
-<p>先前說過, 以前不懂忘記給 key_name, 現在只能這樣 query 了, 頂多加上個 ancestor (默)</p>
-
-<h2>結論</h2>
-
-
-<p>datastore 雖然不太需要擔心 scale 的問題, 可是在 run 之前卻得更仔細規劃, 否則效能低落, 花的只是更多錢阿 XD 而 memcache 則是一定得用, 否則跑起來的確是不夠快。</p>
-
-<p>大概是這樣, 希望沒有哪裡有寫錯的, 如果有的話, 也請多多留言指指教, 謝謝 :p</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -524,6 +489,10 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'myaudiocast.settings'</code></pre>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
       </li>
     
@@ -537,10 +506,6 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'myaudiocast.settings'</code></pre>
     
       <li class="post">
         <a href="/webdesign/css-pivot">CSS Pivot</a>
-      </li>
-    
-      <li class="post">
-        <a href="/life/new-streetvoice-is-done">終於把 StreetVoice 改完了</a>
       </li>
     
   </ul>

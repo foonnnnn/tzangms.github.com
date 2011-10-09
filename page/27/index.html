@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="今天看了一篇文章 How Simple Web Design Helps Your Business 說明為何網頁設計要朝向簡單化的設計方向, 不要在網頁上放入太多東西, 特別你是在賣東西阿!Apple 的網頁總是很精簡, 但很漂亮, 我也總能一目了然的就看出, 現在在主打哪個產品, 我想找的...">
+  <meta name="description" content="這篇還是記錄在 StickerAction 的效能上做的處理。 StickerAction 用 Simplepie 來讀取 RSS, 然後用上了 cache, 來避免一直對外部做 request, 也減少流量的支出。研究了一下 Simplepie 的 cache 儲存方式, Simplepie...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -60,6 +60,59 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1503">關於 Simplepie Cache (Db Cache)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-08-28T08:29:57+08:00" pubdate  data-updated="true" >Aug 28<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>這篇還是記錄在 <a href="http://stickeraction.com">StickerAction</a> 的效能上做的處理。 <a href="http://stickeraction.com">StickerAction</a> 用 <a href="http://simplepie.org">Simplepie</a> 來讀取 RSS, 然後用上了 cache, 來避免一直對外部做 request, 也減少流量的支出。研究了一下 Simplepie 的 cache 儲存方式, Simplepie 就是把他所抓取的 url 做 md5 當成檔名存成 cache 檔案, 檔案裡面則是存放 serialize 後的資料。</p>
+
+<p>所以為了搭配<a href="http://tzangms.com/stickeraction/1488">上一篇所提到的存取控制</a>, 計算這次是否有對外部做了 request, 所以寫了下面這一段, 來判斷是否有對外存取, 進而做存取控制。</p>
+
+<pre>
+<code>function is_cached($url)
+        $cache_file = 'sp_cache/' . md5($url) . '.spc';
+        if (file_exists($cache_file)) {
+            return true;
+        }
+
+        return false;
+}</code>
+</pre>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/1503">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -482,52 +535,6 @@ $user-&gt;where('username', 'tzangms')-&gt;find();
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/1372">黑特那! Hatethat!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-08-06T01:12:08+08:00" pubdate  data-updated="true" >Aug 6<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2735305931/" title="logo by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3011/2735305931_8976521392_o.gif" width="256" height="91" alt="logo" /></a>
-由於<a href="http://bank.e04.us">黑特銀行</a>的出現, 覺得未來所謂 twitter like 的微網誌, 在台灣將會有所謂分眾性的可能發生 (誤) 所以, 深深覺得不只有幹可以在黑特銀行說, 對網站或文章不爽, 也該有個 bookmarklet 可以直接送到黑特銀行阿!!!</p>
-
-<p>所以<a href="http://hatethat.tzangms.com">黑特那!</a>就這麼誕生了 (囧) 基本上是直接拿 <a href="http://twitthat.com">twitthat</a> 來改, 所以今天晚上一下子就寫好了 XD 不過要登入<a href="http://hatethat.tzangms.com">黑特那!</a> 則是要先取得 api key, 所以請先登入黑特銀行之後, 點選帳戶資訊, 看到最下方就可以看到 api key 啦!</p>
-
-<p>另外&#8230; 下面開放建議<a href="http://hatethat.tzangms.com">黑特那!</a>的動作,  把他加進黑特那的選項, 目前有&#8230;
-1. 幹! 這什麼爛東西
-2. 幹! 這什麼爛文章
-3. 幹! 這什麼爛圖片
-4. 幹! 我快笑死了
-5. 幹! 我太失望了</p>
-
-<p>請大家踴躍發言 XD ( 噗, 突然覺得沒人會理我 ~&#8221;~ )</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -547,6 +554,10 @@ $user-&gt;where('username', 'tzangms')-&gt;find();
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
       </li>
     
@@ -560,10 +571,6 @@ $user-&gt;where('username', 'tzangms')-&gt;find();
     
       <li class="post">
         <a href="/webdesign/css-pivot">CSS Pivot</a>
-      </li>
-    
-      <li class="post">
-        <a href="/life/new-streetvoice-is-done">終於把 StreetVoice 改完了</a>
       </li>
     
   </ul>

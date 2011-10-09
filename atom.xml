@@ -4,7 +4,7 @@
   <title><![CDATA[Oceanic / 人生海海]]></title>
   <link href="http://tzangms.com/atom.xml" rel="self"/>
   <link href="http://tzangms.com/"/>
-  <updated>2011-10-08T17:14:09+08:00</updated>
+  <updated>2011-10-09T11:37:26+08:00</updated>
   <id>http://tzangms.com/</id>
   <author>
     <name><![CDATA[tzangms]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[From blogofile to octopress]]></title>
+    <link href="http://tzangms.com/2011/10/09/from-blogofile-to-octopress/"/>
+    <updated>2011-10-09T10:12:00+08:00</updated>
+    <id>http://tzangms.com/2011/10/09/from-blogofile-to-octopress</id>
+    <content type="html"><![CDATA[<p>上個禮拜就開始在玩 <a href="http://octopress.org">octopress</a>, 雖然一樣用 markdown 寫文, meta 也一樣是用 yaml, 不過比起 <a href="http://www.blogofile.com/">blogofile</a> 貼心太多了。</p>
+
+<p>所以昨天就花了一些時間, 用程式把 blogofile 的檔案轉成 octopress 的格式, 主要就 octopress 檔案名稱格式有固定, 至於文章內的 yaml 其實差不多, 多加上個 layout: post, comments: true 參數, 以及轉換 categories 就完成了。</p>
+
+<p>對我來說 octopress 主要方便的地方是 deploy 這件事, 先前 blogofile 是 deploy 到 s3, 還是自己寫程式丟上去, 而 octopress 直接就提供了一個 rake command 就直接輸入設定, 之後直接打 rake deploy 就可以丟上 github 了。</p>
+
+<p>不過, 我覺得一定有一些人一定換了這類的 blog 系統之後, 就減少了發文的動力, 像我就是 XD</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[tumblr 開張 (tzang.ms)]]></title>
@@ -524,18 +539,6 @@ cloud.result(jid)
 <p>在去北京前特地跟<a href="http://www.christabelle.idv.tw/">迴老師</a>借了底片機「喵兔」才有辦法拍出上面這些照片, 不過技術不好, 可以看的就幾張而已 (笑)</p>
 
 <p>如果順利的話, 今年應該還有機會去北京待一陣子, 到時候見啦, 北京的推友們 ~ XD</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Livereload 網頁開發好物]]></title>
-    <link href="http://tzangms.com/programming/2797"/>
-    <updated>2011-01-02T21:59:37+08:00</updated>
-    <id>http://tzangms.com/programming/livereload_網頁開發好物</id>
-    <content type="html"><![CDATA[<iframe title="YouTube video player" class="youtube-player" type="text/html" width="500" height="405" src="http://www.youtube.com/embed/EZ8vy_cNMVQ" frameborder="0"></iframe>
-
-
-<p>好久之前就看過 <a href="http://blog.xdite.net/?p=1791">xdite 大大介紹</a>過 <a href="https://github.com/mockko/livereload">livereload</a>, 不過我當時似乎是因為很忙, 所以匆匆的就瀏覽過, 接著就忘記了。 一直到前幾天看到 @sillyleo 又提到 <a href="https://github.com/mockko/livereload">livereload</a> 跟 <a href="http://compass-style.org/">compass</a>, 才想起來, 今天剛好有空試一下, 哈, 真的是超棒的! 看看影片就知道了 ~</p>
 ]]></content>
   </entry>
   

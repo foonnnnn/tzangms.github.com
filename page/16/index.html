@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="6/18 一早醒來就把手上的 iPhone 2G 更新到 OS 3.0, 其實還滿怕升級後就沒辦法打電話的, 不過幸好一點事都沒有 (笑) 其實 OS 3.0 感覺沒啥太大差別的, 尤其是注音輸入真是他媽的爛!  所以強迫了自己學拼音輸入法, 不過好多推都打到一半就放棄了, 嗯, 還是 iAc...">
+  <meta name="description" content="一個網站監測的服務, 有提供免費的帳號可以用, 可以監測一個網站, 然後提供了 20 則簡訊, 不過不知道免費帳號是不是每個月 20 則, 還是 20 則用完就沒了。 另外, 也有 email 通知的服務, 由於 mobileme 有提供 push, 所以其實沒簡訊也 ok。 在台灣也可以收到...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -60,6 +60,46 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/2436">Pingdom</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-07-18T11:50:12+08:00" pubdate  data-updated="true" >Jul 18<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>一個網站監測的服務, 有提供免費的帳號可以用, 可以監測一個網站, 然後提供了 20 則簡訊, 不過不知道免費帳號是不是每個月 20 則, 還是 20 則用完就沒了。 另外, 也有 email 通知的服務, 由於 mobileme 有提供 push, 所以其實沒簡訊也 ok。 在台灣也可以收到簡訊呦 XD</p>
+
+<p>之前在上一家公司, 是用 <a href="http://www.nagios.org/">nagios</a> 然後透過第三類(?)電信業者來發送簡訊通知網站管理者或值班人員, 不過其實現在似乎用 pingdom 就可以取代。</p>
+
+<p>不像之前看過的一些服務, 只有基本的監測功能, pingdom 還可以設定要丟什麼 POST data 跟 header 預期會有什麼 response 的動作, 有自己架服務的朋友可以玩看看。 除了 web 之外, 也有 TCP Port, Ping, DNS, UDP, SMTP, POP3, IMAP 等類型可以測, 我覺得功能上還滿完整的。</p>
+
+<p>目前先拿來 <a href="http://stickeraction.com">stickeraction</a> 來測看看, 只是自從把 apc 換成 xcache, lighttpd 也換成 nginx 之後, 就沒在當過了, 不知道測不測的出什麼東西。 anyway, 如果真的都沒發生事情至少還有圖表可以看檢測的狀況 XD</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -414,47 +454,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/2395">一首很可愛的推特歌</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-03-30T22:33:36+08:00" pubdate  data-updated="true" >Mar 30<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這是我在看 <a href="http://planet.python.org/">python planet</a> 的 rss 看到的。某篇文章提到 <a href="http://www.ingridmichaelson.com">Ingrid Michaelson</a> 做了一首 twitter song, 還滿可愛的, twitter fans 的各位可以聽聽看 XD</p>
-
-<div style="width:300px;"><object width="300" height="110"><param name="movie" value="http://media.imeem.com/m/lfwSv65e1V/aus=false/"></param><param name="wmode" value="transparent"></param><embed src="http://media.imeem.com/m/lfwSv65e1V/aus=false/" type="application/x-shockwave-flash" width="300" height="110" wmode="transparent"></embed></object></div>
-
-
-<p>後來他甚至還開放下載勒! 到她的<a href="http://www.ingridmichaelson.com">個人官網</a>看看, 或者直接<a href="http://www.ingridmichaelson.com/stream.php?vid=619aa4a6af9ff602">下載</a> :p</p>
-
-<p>我還滿喜歡她其他的音樂作品, 滿好聽的, 這裡有她的 <a href="http://www.last.fm/music/Ingrid+Michaelson?setlang=en">last.fm</a>, 當然也有 <a href="http://www.myspace.com/ingridmichaelson">myspace</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -474,6 +473,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
       </li>
     
@@ -487,10 +490,6 @@
     
       <li class="post">
         <a href="/webdesign/css-pivot">CSS Pivot</a>
-      </li>
-    
-      <li class="post">
-        <a href="/life/new-streetvoice-is-done">終於把 StreetVoice 改完了</a>
       </li>
     
   </ul>

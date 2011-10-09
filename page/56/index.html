@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="1. compress Directory to TGZtar czvf foo.tgz bar/2. decompress TGZtar zxvf foo.tgz3. compress Directory to TBZ2(tar.bz2)tar cjvf foo.tar.bz2 bar/4....">
+  <meta name="description" content="目前寫了一個簡單的script來update寫好的php檔案透過ssh更新到遠端的Serverupdate:#!/bin/bashscp $1 tzangms@tzangms.com:/var/www/$2$1$1 代表的是要上傳的檔案名稱$2 代表的是要上傳到的目錄因為就是要減少打字，所以就...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -60,6 +60,66 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/linux/673">&#8220;Update&#8221; Script</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-07-28T15:42:54+08:00" pubdate  data-updated="true" >Jul 28<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>目前寫了一個簡單的script來update寫好的php檔案透過ssh更新到遠端的Server</p>
+
+<p>update:</p>
+
+<blockquote><em>#!/bin/bash
+scp $1 tzangms@tzangms.com:/var/www/$2$1</em></blockquote>
+
+
+<p>$1 代表的是要上傳的檔案名稱</p>
+
+<p>$2 代表的是要上傳到的目錄</p>
+
+<p>因為就是要減少打字，所以就只有這些參數啦!</p>
+
+<p>目前這個我是放在某個專案的目錄下，針對每個專案作修改其server位址跟路徑，要更新檔案就打</p>
+
+<blockquote><em>./update foo.php</em></blockquote>
+
+
+<p>如果要放到 <em>/var/www/admin </em>下的話，就加上第二個參數就可以把foo.php放到 <em>/var/www/admin</em> 下啦! 但請記得在目錄後加上斜線</p>
+
+<blockquote><em>./update foo.php admin/</em></blockquote>
+
+
+<p>在輸入ssh密碼就可以啦! 當然你可以建立公鑰私鑰，以後都不用打密碼囉!下一篇來說明吧!不然請大家去請教 <a title="虛邪迴路" target="_blank" href="http://blog.cschang.info/">clotho</a> 大大!! XD</p>
+
+<p>慢慢再來改進這個script吧!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -444,42 +504,6 @@ double-qoute 可是要按shift內&#8230;.Orz</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/657">Garageband 3</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2006-06-23T00:55:06+08:00" pubdate  data-updated="true" >Jun 23<span>rd</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/172741419/" title="Photo Sharing"><img src="http://static.flickr.com/74/172741419_aece087a14_t.jpg" width="100" height="88" alt="Garageband" class="alignleft" /></a>原本試用著Logic Express 7來嘗試著錄音，但是這一陣子的試用結果，其實是真的不賴，雖然比Garageband複雜了點，但是也不會複雜到哪裡去，然後有許多高級的Plugin可以用，整個比Garageband高級許多，然後嘗試著去掛上IK Amplitube、NI Guitar combo、Camel CA5000跟Minimonsta這幾個外掛，不管是吉他效果器或者是Synth，對於我的iBook G4 800來說都太沈重了，後來只好回去用內建的Audio Instrument，但是聲音的差別並不是那麼的大，可能我用的喇叭以及耳機不夠好吧！另外在使用Reverb跟Delay的Plugin上，似乎Garageband的基本Plugin就可以滿足我的需求了，然而Logic內建的高級效果器反而讓我覺得有點過於複雜，參數太多了。不知道為什麼，我喜歡Garageband出來的效果呢!!</p>
-
-<p>總之，目前我的設備只有G4 800加上1G的RAM，我想Garageband 3加上幾套Jam pack就符合我的需求了吧！如果要更進一步的修飾歌曲細部，那麼用Logic去打開Garageband的檔案來修，我想這樣也是一個好辦法！</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -499,6 +523,10 @@ double-qoute 可是要按shift內&#8230;.Orz</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
       </li>
     
@@ -512,10 +540,6 @@ double-qoute 可是要按shift內&#8230;.Orz</p>
     
       <li class="post">
         <a href="/webdesign/css-pivot">CSS Pivot</a>
-      </li>
-    
-      <li class="post">
-        <a href="/life/new-streetvoice-is-done">終於把 StreetVoice 改完了</a>
       </li>
     
   </ul>

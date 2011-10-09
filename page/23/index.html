@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="昨晚 11 點 50 , 阿公走了。 由於我是長孫, 許多事情都需要我, 目前已經向公司請了三天假。 另外唱片的事情可能要暫緩一陣子。 也謝謝各位推友, 雖然在電腦前的時間非常少, 不過我應該沒漏掉訊息才是。阿公很好走, 今天也灑了好多杯酒, 如果阿公聽的懂國語&#8230; 阿公, 安心上路。">
+  <meta name="description" content="CodeIgniter 在 10/23 釋出了 1.7.0 版本, 來列出一些我覺得比較重要的改變好了, 詳細的改變還是請看 Changelog。1. 新增 form_validation library這個版本最主要的就是新增了一個 form_validation 的 library 用來取...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -60,6 +60,86 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2006">CodeIgniter 1.7.0 更新</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-10-30T20:10:18+08:00" pubdate  data-updated="true" >Oct 30<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://codeigniter.com">CodeIgniter</a> 在 10/23 釋出了 1.7.0 版本, 來列出一些我覺得比較重要的改變好了, 詳細的改變還是請看 <a href="http://codeigniter.com/user_guide/changelog.html">Changelog</a>。</p>
+
+<p><strong>1. 新增 form_validation library</strong>
+這個版本最主要的就是新增了一個 <a href="http://codeigniter.com/user_guide/libraries/form_validation.html">form_validation</a> 的 library 用來取代舊有的 validation library, 而 validation library 也在 1.7.0 開始被列為 deprecated。 ( 應該翻做不建議使用? ) anyway, validation library 的文件也已經從 user guide 移除了, 不過 validation 依然可用, 只是得找時間換成 form_validation 就是了。</p>
+
+<p>看了一下 form_validation 的文件, 這次的更新, 大幅降低了以往 validation 囉唆使用的方式, 改成了跟 <a href="http://kohanaphp.org">kohana</a> 2.1 時的 validation 類似的方式, 簡單許多, 很不賴。</p>
+
+<p>以往的 validation 真的是是很囉唆, 像是這樣</p>
+
+<pre>
+<code>$rules['name'] = 'required|alpha_numeric|max_length[20]';
+$rules['email'] = 'required|valid_email';
+$rules['web'] = 'required|prep_url';
+$this->validation->set_rules($rules);
+
+$fields['name'] = '名稱';
+$fields['email'] = 'email';
+$fields['web'] = '網站';
+$this->validation->set_fields($fields);</code>
+</pre>
+
+
+<p>現在簡化許多, 變成是</p>
+
+<pre>
+<code>$this->form_validation->set_rules('name', '名稱', 'required|alpha_numeric|max_length[20]');
+$this->form_validation->set_rules('email', 'email', 'required|valid_email');
+$this->form_validation->set_rules('web', '網站', 'required|prep_url');</code>
+</pre>
+
+
+<p>不像以往是把 set_rules 跟 set_fields 分開作, 現在在 set_rules 直接一起把 set_fields 的部份做掉了, 寫起來輕鬆許多。</p>
+
+<p><strong>2. 可另外指定 library 載入後的物件名稱</strong>
+以往, 原本 library 的 class name 叫什麼, 在使用的時候就得用 class name 來使用, 沒有辦法另外指定比較短的名稱來方便使用, 以 simplepie 來說:</p>
+
+<pre><code>$this->load->library('simplepie');
+$this->simeplepie->function_name();</code></pre>
+
+
+<p>從 1.7.0 之後就可以這樣:</p>
+
+<pre><code>$this->load->library('simplepie', '', 'sp');
+$this->sp->function_name();</code></pre>
+
+
+<p>這樣感覺還不錯 :D 不過以上只是舉例, 我還是依舊用 simplepie 這個名稱 XD</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -444,48 +524,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/1886">唱片送壓了 &#8230;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-10-14T23:27:05+08:00" pubdate  data-updated="true" >Oct 14<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天下午請假, 把CD跟要印刷的東西送到壓片廠, 然後簽約了, 如果順利的話, 應該下禮拜二就可以看到成品, 不順利的話, 應該會是印刷品質上的問題, 可能要在跟壓片廠的業務確認, 不過這次找的壓片廠的業務人很好, 很熱心, 今天確認過一些東西, 所以應該不會有太大的問題, 總之希望品質能夠不錯。</p>
-
-<p>在這邊也要感謝許多推友的幫忙, 也要跟朱百說聲抱歉, 原本<a href="http://graniphoc.blogspot.com/">朱百</a>要幫忙我做封面設計, 然而我整個沒辦法承受唱片繼續拖下去的壓力, 所以就趁上禮拜的連假躲在家裡, 把東西都弄完, 真是對不起朱百 Orz</p>
-
-<p>另外還有<a href="http://biasonica.blogspot.com/">小掰</a>, 感謝小掰幫我寫文案, 雖然&#8230; (咳) 文案可能變成只在網站上出現 Orz</p>
-
-<p>以上種種, 我只能歸咎於我覺得自己壓力太大&#8230; 白天上完班後就已經頭昏腦脹的了, 下班後有時還要寫程式弄網站, 然後還有弄唱片的東西, 而最近又弄著一堆自己不懂、沒接觸過的東西 &#8230; 然而時間拖越久, 失眠機率就越高。 然後又對自己辜負到朱百跟小掰的好意感到懊惱 Orz</p>
-
-<p>anyway, 接下來就是等唱片交貨吧! 感謝大家的支持! (淚、累)</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -505,6 +543,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
       </li>
     
@@ -518,10 +560,6 @@
     
       <li class="post">
         <a href="/webdesign/css-pivot">CSS Pivot</a>
-      </li>
-    
-      <li class="post">
-        <a href="/life/new-streetvoice-is-done">終於把 StreetVoice 改完了</a>
       </li>
     
   </ul>

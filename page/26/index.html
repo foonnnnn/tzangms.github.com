@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="$('#selector', opener.document)沒錯! 就是醬!!阿! (大叫) 還沒有時間把 jQuery 學好 ~&#8221;~">
+  <meta name="description" content="今天看到 imified 就玩了一下, 真的是很神奇又方便阿!! imified 可以讓你建立一支機器人, 接著你只需要指定一個程式的網址, 就可以讓機器人開始運作了! 而且整個流程超簡單的 :p在建立好機器人之後, 會讓你指定一個程式的網址, 接下來就是透過這支程式, 接收 imified ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -60,6 +60,62 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/1632">Imified 五分鐘建立自己的機器人</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-10T21:16:19+08:00" pubdate  data-updated="true" >Sep 10<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天看到 <a href="http://www.imified.com">imified</a> 就玩了一下, 真的是很神奇又方便阿!! <a href="http://www.imified.com">imified</a> 可以讓你建立一支機器人, 接著你只需要指定一個程式的網址, 就可以讓機器人開始運作了! 而且整個流程超簡單的 :p</p>
+
+<p>在建立好機器人之後, 會讓你指定一個程式的網址, 接下來就是透過這支程式, 接收 imified 機器人的輸入, 而程式只要輸出(印出)訊息, 就會直接透過機器人發訊回覆。 不過目前申請的機器人好像就只有 Jabber/Gtalk(?)</p>
+
+<p>用 PHP 做個簡單範例:
+[source:php]
+&lt;?php
+// 接收 im 訊息
+$msg = $_REQUEST[&#8216;msg&#8217;];</p>
+
+<p>// 輸出訊息到 im
+echo $msg;
+?>
+[/source]</p>
+
+<p>就是這樣, 非常簡單阿 XD</p>
+
+<p>所以一開始想到的, 就是寫一個可以送訊息到 twitter 的機器人, 不過由於帳號是寫死的, 就不公佈出來了 XD 然後在查 Yahoo! 奇摩字典的時候, 又突然想到, 乾脆寫個查單字的機器人好了, 由於抓 Yahoo! 奇摩字典的程式也是我之前就寫好的一個 library, 所以真的包含註冊帳號、設定跟寫程式的部份, 真的只花了差不多五分鐘就弄好了 :p</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/web/1632">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -544,59 +600,6 @@ $this->load->view('template/footer');</code>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1503">關於 Simplepie Cache (Db Cache)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-08-28T08:29:57+08:00" pubdate  data-updated="true" >Aug 28<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這篇還是記錄在 <a href="http://stickeraction.com">StickerAction</a> 的效能上做的處理。 <a href="http://stickeraction.com">StickerAction</a> 用 <a href="http://simplepie.org">Simplepie</a> 來讀取 RSS, 然後用上了 cache, 來避免一直對外部做 request, 也減少流量的支出。研究了一下 Simplepie 的 cache 儲存方式, Simplepie 就是把他所抓取的 url 做 md5 當成檔名存成 cache 檔案, 檔案裡面則是存放 serialize 後的資料。</p>
-
-<p>所以為了搭配<a href="http://tzangms.com/stickeraction/1488">上一篇所提到的存取控制</a>, 計算這次是否有對外部做了 request, 所以寫了下面這一段, 來判斷是否有對外存取, 進而做存取控制。</p>
-
-<pre>
-<code>function is_cached($url)
-        $cache_file = 'sp_cache/' . md5($url) . '.spc';
-        if (file_exists($cache_file)) {
-            return true;
-        }
-
-        return false;
-}</code>
-</pre>
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/1503">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -616,6 +619,10 @@ $this->load->view('template/footer');</code>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
       </li>
     
@@ -629,10 +636,6 @@ $this->load->view('template/footer');</code>
     
       <li class="post">
         <a href="/webdesign/css-pivot">CSS Pivot</a>
-      </li>
-    
-      <li class="post">
-        <a href="/life/new-streetvoice-is-done">終於把 StreetVoice 改完了</a>
       </li>
     
   </ul>
