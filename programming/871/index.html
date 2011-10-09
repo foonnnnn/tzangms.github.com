@@ -88,59 +88,60 @@
 
 <p>基本上, 每個 Controller 都是一個 Class, 在每個 Class 裡面的 function 都是一個頁面, 嗯, 這個概念很重要! 先來看看下面這一段, 應該就會比較清楚。</p>
 
-<pre>
-<code><?
+<pre><code>&lt;?
 class Blog extends Controller{
     function index(){
-        $this->load->model('blog_model');
-        $data = $this->blog_model->get_lastest_entries();
+        $this-&gt;load-&gt;model('blog_model');
+        $data = $this-&gt;blog_model-&gt;get_lastest_entries();
 
-        $this->load->view('blog', $data);
+        $this-&gt;load-&gt;view('blog', $data);
     }
 
     function post($id){
         echo "這裡是第 $id 篇文章";
     }
 }
-?></code>
-</pre>
-
+?&gt;
+</code></pre>
 
 <p>在上面這段程式碼, 可以看到是一個叫做 Blog 的 Class, 裡面包含了 index 以及 post 兩個 function。先來說明比較簡單的 post 好了, 在先前有提到, 在 Class 中的 function 其實就是一個頁面, 不像以往, 一個 php 檔案就是一個頁面。</p>
 
 <p>接著來看看要如何存取 post 這個頁面, 首先看到下面這個網址</p>
 
-<blockquote>http://tzangms.com/post/26</blockquote>
-
+<pre><code>http://tzangms.com/post/26
+</code></pre>
 
 <p>這個網址在 domain 後面的部份, 一開始接的是 &#8220;blog&#8221;, 沒錯, 指的就是剛才上面寫的 Blog Class, 接著是 &#8220;post&#8221; 就是在 Class 中看到的 post function, 再後面的 &#8220;26&#8221; 就是要傳給 post function 的 $id 變數, 也就是第 26 篇文章, 所以只要輸入上面的網址, 就可以執行 Blog class 中的 post function, 而輸出的結果就跟程式中看到的一樣, 會直接輸出一行文字, 如下:</p>
 
-<blockquote>這裡是第 26 篇文章</blockquote>
-
+<pre><code>這裡是第 26 篇文章
+</code></pre>
 
 <p>看到這邊大概就知道 CI 的 Controller 是怎麼運作的吧? 好, 接著再來看看 index 這個 function, 存取 index 頁面的網址如下</p>
 
-<blockquote>http://tzangms.com/index</blockquote>
-
+<pre><code>http://tzangms.com/index
+</code></pre>
 
 <p>或更簡短</p>
 
-<blockquote>http://tzangms.com/blog</blockquote>
-
+<pre><code>http://tzangms.com/blog
+</code></pre>
 
 <p>只要輸入上面這個網址就會顯示出 index 這個 function 所產生的頁面, 也就是顯示最新的 10 篇 blog 文章。另外, 由於 index 是 CI 預設的首頁, 所以存取這個頁面的網址可以比 post 更簡短, 不過這個 index function 未免也太簡潔了吧!? 沒錯, 使用 CI 就是那麼簡潔 :D</p>
 
 <p>接下來來說明一下 index 裡的程式碼, 可以看到 index function 裡總共只有 3 行, 先來看看第一行:</p>
 
-<p><code>$this->load->model('blog_model');</code></p>
+<pre><code>$this-&gt;load-&gt;model('blog_model');
+</code></pre>
 
 <p>在這裡大家先知道, 這裡是在載入一個叫做 blog_model 的 Model, 而 Model 主要的工作就是在存取資料庫。接下來第二行如下:</p>
 
-<p><code>$data = $this->blog_model->get_lastest_entries();</code></p>
+<pre><code>$data = $this-&gt;blog_model-&gt;get_lastest_entries();
+</code></pre>
 
 <p>在這裡就先想像一下 blog_model 中, 已經寫好一個叫做 get_latest_entries 的 function, 會取出最新的 10 篇文章然後 return。而在上面可以看到, 最後會將取出的資料傳給 $data 這個變數, 接著在最後一行, 將 $data 一起輸出給 View, 這樣一來就完成了 Blog 首頁啦!! 當然 View 的部份也就不先說明了。不過還是列一下如和載入要顯示的 View, 並先前透過 get_latest_entries 所取出的資料一起透過 View 輸出。</p>
 
-<p><code>$this->load->view('blog', $data);</code></p>
+<pre><code>$this-&gt;load-&gt;view('blog', $data);
+</code></pre>
 
 <p>基本上 Controller 就是長得這樣, 在一個 Controller (Class) 中包含許多頁面(function), 這麼一來, 把相關的頁面寫在同一支 Controller 中, 是不是比較好維護呢? 另外使用 MVC 架構, Controller 看起來也會簡潔許多。</p>
 </div>

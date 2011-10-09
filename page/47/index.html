@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="小海首張個人專輯!? :o">
+  <meta name="description" content="[source:javascript]function slimAnchor(limitChar){var alink = document.getElementsByTagName('a');for (var i=0; i&lt; alink.length; i++){    pre = a...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/music/848">小海首張個人專輯!?</a></h1>
+      <h1 class="entry-title"><a href="/programming/796">Javascript: slimAnchor()</a></h1>
     
     
       <p class="meta">
@@ -80,21 +80,116 @@
 
 
 
-<time datetime="2007-05-08T00:35:01+08:00" pubdate  data-updated="true" >May 8<span>th</span>, 2007</time>
+<time datetime="2007-03-14T17:36:27+08:00" pubdate  data-updated="true" >Mar 14<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/488464509/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/218/488464509_d9e243690a.jpg" width="500" height="364" alt="my own CD Album" /></a>
-小海首張個人專輯!? :o</p>
+  <div class="entry-content"><p>[source:javascript]
+function slimAnchor(limitChar){</p>
+
+<pre><code>var alink = document.getElementsByTagName('a');
+for (var i=0; i&lt; alink.length; i++){
+    pre = alink[i].innerHTML.substr(0,4);
+    if (pre =='http' &amp;&amp; alink[i].innerHTML.length &gt; limitChar){
+        alink[i].innerHTML = alink[i].innerHTML.substr(0,limitChar) + '...';
+    }
+}
+</code></pre>
+
+<p>}
+[/source]</p>
+
+<p>如果在 table 裡面有一個超長的連結, 那麼在 firefox, 這個 table 將會被撐的很開, 所以寫了這個函式, 會將頁面所有的 A tag 都縮短, 避免 table 被撐開的問題, 當然, 縮的是 a.innerHTML 不是 a.href。</p>
+
+<p>其中有個判斷是判斷 a.innerHTML 是否為 &#8216;http&#8217;, 不然 IMG tag 或是一些 EMBED tag 包在 A tag 裡面, 那麼就出問題了。</p>
+
+<p><em>PS. 今天把 flash 的 width 跟 height  截掉過 XD</em></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/video/795">大衛白爛魔術 SHOW</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-03-13T11:20:22+08:00" pubdate  data-updated="true" >Mar 13<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><object width="425" height="350"><param name="movie" value="http://www.youtube.com/v/C3kCpxXYX_8"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/C3kCpxXYX_8" type="application/x-shockwave-flash" wmode="transparent" width="425" height="350"></embed></object>
+
+
+<p>昨天 clothocs 傳了這個影片給我, 看了之後, 即使是在上班時間, 我還是忍不著笑了出來, 雖然可能中間覺得有點白爛, 但是, 整體來說, 讓我久久不能忘懷, 想到都還會笑 XD</p>
+
+<p>不過今天跟 clothocs 說, 昨天的影片真的是太爆笑了, 他卻說道, 他有傳給另一個人看, 可是好像笑不出來, 就覺得白爛而已, 恩, 有看過大衛布萊恩的話, 請注意大衛白爛的表情, 真的是很好笑, 而且找來的大衛白爛還真的長的滿像的內 XD</p>
+
+<p>所以有看過 AXN 台的大衛布萊恩的話, 這部包你笑出來, 但首先, 你得抱著一顆白爛的心 XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/mac/794">My Own Dashboard Widget: Email Notifier</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-03-12T00:01:33+08:00" pubdate  data-updated="true" >Mar 12<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/417556029/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/172/417556029_13c8dd191e_o.jpg" width="124" height="121" alt="notifier_front.jpg" align='left' /></a>這兩天因為值班, 所以都待在家裡, 也不知道為什麼就開始寫 Dashboard widget &#8230;..明明還有好多東西要讀。只記得是想寫一個可以用來看有多少 unread mail 的東西, 雖然這網路上, 似乎已經有其他類似的東西了, 不過我一開始好像是想說來寫個看自己智邦免費信箱有多少 unread mail 用的，雖然從 Gmail 開始後就都沒在用了。 先前我都用他自動轉信到 Gmail XD 不過我的智邦免費信箱可是 ms1 的帳號阿! 好像很 cool, 所以還是要多少用一下好了。</p>
+
+<p>其實我覺得, 現在除了 web service 之外, 有個 Desktop application 來結合你的 web service , 這樣對使用者來說會比較 high, 例如: Myshare widget! 這個應該不錯 XD</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/music/848">Read on &rarr;</a>
+      <a rel="full-article" href="/mac/794">Read on &rarr;</a>
     </footer>
   
 
@@ -106,7 +201,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/847">給媽咪的禮物~</a></h1>
+      <h1 class="entry-title"><a href="/programming/793">Javascript Validate Function</a></h1>
     
     
       <p class="meta">
@@ -120,21 +215,207 @@
 
 
 
-<time datetime="2007-05-07T00:35:17+08:00" pubdate  data-updated="true" >May 7<span>th</span>, 2007</time>
+<time datetime="2007-03-09T12:18:51+08:00" pubdate  data-updated="true" >Mar 9<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/486598804/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/218/486598804_d15009b688.jpg" width="500" height="375" alt="100_0812.JPG" /></a>
-終於出社會有了第一份工作, 用自己賺來的錢買禮物送媽咪</p>
+  <div class="entry-content"><pre><code>String.prototype.validate = function(type){
+    var pattern = new Array();
+
+    pattern['email'] = /^\w[\w-\.]+@\w+(\.\w+)+$/;
+    pattern['url'] = /^http:\/\/\w+\.\w+\/?.*$/;
+    pattern['password'] = /^[\w\.]+$/;
+    pattern['id'] = /^[a-zA-Z][0-9]{9}$/;
+
+    return this.match(pattern[type]);
+}
+</code></pre>
+
+<p>昨天寫的一個用來檢查輸入的函式, 直接掛在 String Object 下面, 這樣就可以直接這樣使用:
+如, 檢查 email 是否正確</p>
+
+<pre><code>"foo@bar.com".validate('email');
+</code></pre>
+
+<p>或是網址是否正確</p>
+
+<pre><code>"http://tzangms.com".validate('url');
+</code></pre>
+
+<p>如果回傳值為 null 那就是錯誤啦! 不過 regular expression 的 pattern 還需要改進就是了~</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/792">其實我是很 Metal 的! Toontrack EZDrummer Try Out</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-03-08T00:28:02+08:00" pubdate  data-updated="true" >Mar 8<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>本來在讀一些程式設計的東西的, 網路程式設計要懂得東西好多, 所以想說上禮拜寫完&#8221;眉頭&#8221;, 這禮拜就來休息一下讀一些書, 誰知道剛才就突然又玩了起來 XD</p>
+
+<p>先前用過幾個 Drum machines, BFD 是沒辦法在我的 Macbook 跑, 不過之前聽人家用過感覺不錯, 只是界面醜了點 XD anyway 反正不能用, 就換用 Battery 3, 聲音聽起來就滿不賴的, 也可以調的很細, 可以聽聽看我先前錄的<a href='http://tzangms.com/?p=770'>自然而然</a>, 用 Battery 3 的 pop kits。</p>
+
+<p>今天突然就玩起來 <a href='http://www.toontrack.com/'>toontrack EZDrummer</a>, 呵, 原來他有那麼方便的 groove 可以用, 他的 groove 就跟 Garageband、Logic 用的 loops 一樣意思, 不過我覺得好用、直覺上許多, 這首的鼓都用拖的, 超方便! 而且他有超 Metal 的鼓組 - Drumkits From Hell (DFH), 話說 BFD 也有 DFH, 不過我只是業餘的, 用 EZDrummer 就很夠了! 由於整個鼓組太 Metal, 電吉他就又拿起來了, 其實我是很 Metal 的阿! 聽 Metallica 長大的阿! ㄜ&#8230;我從二專開始聽的。</p>
+
+<p>吉他彈得不好大家請見諒, 這篇是介紹鼓的, 更何況我又是 Bass 手, 別太苛求 :p 另外該買 Pick 了, 鈍掉超難泛音的 Orz</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/789">銀河系律法? XD</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-03-03T23:54:08+08:00" pubdate  data-updated="true" >Mar 3<span>rd</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/408776934/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/162/408776934_f11aab00fc_o.gif" width="455" height="368" alt="google_doc" /></a>
+剛才在 Gmail 上沒事無聊就去點一下 Docs &amp; Spreadsheets, 想說看看最近變得怎樣了, 不過, 居然出現這個頁面, 不過銀河系律法是怎麼一回事, 整個 XD</p>
+
+<p>另外, 是翻譯有問題還是&#8230;</p>
+
+<blockquote>支援「Google 文件」的 Safari 即將問世！</blockquote>
+
+
+<p>到底是支援 Safari 的「Google 文件」要出來, 還是 Safari 真的要出新版? XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/788">Javascript Trim Function</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-03-02T15:43:07+08:00" pubdate  data-updated="true" >Mar 2<span>nd</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><pre><code>String.prototype.trim = function(){
+    return this.replace(/(^\s*)|(\s*$)/g, "");
+}
+</code></pre>
+
+<p>這個是用來增加 trim 這個 function 到 javascript 的 String object, jQuery 居然沒有 trim function。</p>
+
+<p>Update:
+找到了 XD jQuery 有 trim 啦~ 只是當初沒在 Visual jQuery 的 Events 看到 Orz, 原來是在 Javascript Section。
+下面這一頁的最下方:
+<a href='http://docs.jquery.com/JavaScript'>http://docs.jquery.com/JavaScript</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/787">228 正義無敵!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-03-02T02:19:37+08:00" pubdate  data-updated="true" >Mar 2<span>nd</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/405884692/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/141/405884692_1e121c48aa.jpg" width="500" height="375" alt="Spirit of taiwan" /></a></p>
+
+<p>228 去看正義無敵, 感覺大多數人都是衝著 muse 去的，本人則是衝著 Tizzy Bac 阿! 不過 muse 真的是猛阿!!</p>
+
+<p>本來禮拜三(2/28)是放假的阿! 不過我們公司禮拜六不上班, 突然改成禮拜三, 可是過年前正義無敵的票就都買好了($1200), 所以禮拜三也只好請假了, 嗚, 我的假期! XD</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/life/847">Read on &rarr;</a>
+      <a rel="full-article" href="/music/787">Read on &rarr;</a>
     </footer>
   
 
@@ -146,7 +427,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/music/846">新玩具入手! BOSS RC-20XL</a></h1>
+      <h1 class="entry-title"><a href="/life/785">攻城行動: 最後的香雞城</a></h1>
     
     
       <p class="meta">
@@ -160,21 +441,20 @@
 
 
 
-<time datetime="2007-05-04T23:52:53+08:00" pubdate  data-updated="true" >May 4<span>th</span>, 2007</time>
+<time datetime="2007-02-24T22:14:32+08:00" pubdate  data-updated="true" >Feb 24<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/483905204/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/227/483905204_128528b04f.jpg" width="500" height="375" alt="100_0738.JPG" /></a>
-話說, 前幾天看到了在<a href="http://guitar-city.blogspot.com">吉他城邦</a>看到了 <a href="http://guitar-city.blogspot.com/search/label/KT%20Tunstall">KT Tunstall 的介紹</a>, 沒想到原來一個人拿著木吉他也可以這樣表演, 讓我很驚訝! 沒想到原本覺得對自己沒啥作用的 Loop Station 居然可以這麼用, 這不正好解決了我煩惱很久的一件事嗎?! (一直在想怎麼一個人表演, 音樂又不會太單薄)。</p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/397563531/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/188/397563531_aa1a4fa9ec.jpg" width="500" height="375" alt="香雞城也很在地化" /></a></p>
 
-</div>
+<p><a href="http://www.flickr.com/photos/tzangms/397565378/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/128/397565378_888c865657_t.jpg" width="100" height="75" class='left' alt="我點的雞塊餐" /></a>kyo、小強跟我，終於進行了我們的攻城行動，就是進攻台灣最後一間香雞城，一開始我們先去吃臭豆腐，但是，居然要拿號碼牌! 太扯，我想都是因為雪山隧道開通了的關係，宜蘭大熱鬧。一開始先來張香雞城的店招牌，有煲仔飯!!果然有在地化!!居然有義大利麵!!有! 夠多元化! </div>
   
   
     <footer>
-      <a rel="full-article" href="/music/846">Read on &rarr;</a>
+      <a rel="full-article" href="/life/785">Read on &rarr;</a>
     </footer>
   
 
@@ -186,7 +466,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/podcast/844">小海 Podcast 第 4 集</a></h1>
+      <h1 class="entry-title"><a href="/life/779">沒有人能完全了解另一個人想法與感受</a></h1>
     
     
       <p class="meta">
@@ -200,256 +480,26 @@
 
 
 
-<time datetime="2007-05-02T23:16:47+08:00" pubdate  data-updated="true" >May 2<span>nd</span>, 2007</time>
+<time datetime="2007-02-11T03:45:48+08:00" pubdate  data-updated="true" >Feb 11<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>這次先詢問了 echo 的主唱<a href="http://www.pochang.com/">柏蒼</a>, 所以我放上了整首歌 XD 其實&#8230;我沒跟柏蒼說我要放整首, 噗~ 不過在問柏蒼說可不可以播 echo 的歌的時候, 他二話不說的就答應了, 很帥氣的說 &#8220;OK! &#8220;, 呵..真的是太酷了!!! 不愧是台灣最 indie 的樂團啊!! 所以我這集放上了我很喜歡的一首&#8221;紅與藍&#8221;, 當兵時候每天睡覺必聽的一首歌曲! 另外現在 Podcast 越來越長了, 這集 32 分鐘內! 講話變多了喔! XD 最後, 大家期待下一集吧! 第五集應該會有比較好玩的東西出現! 如果沒有的話怎麼辦呢?! &#8230;. 就等第六集了阿! XD</p>
+  <div class="entry-content"><p>你不是我 我不是你
+沒有人能完全了解另一個人想法與感受</p>
 
-<div style="clear: left">1. 眉頭 by <a href="http://tzangms.com">小海</a>
-2. think by <a href="http://www.wretch.cc/album/imgoodness">志豪</a>
-3. Breakdown by <a href="http://www.club-8.org/">Club 8</a>
-4. 紅與藍 by <a href="http://www.echoband.com/">echo</a></div>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/stuff/841">我的 Moo MiniCards 來啦!!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-04-27T22:38:03+08:00" pubdate  data-updated="true" >Apr 27<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/474490018/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/167/474490018_afd3174008.jpg" width="500" height="375" alt="moon minicard box received!!" /></a></p>
-
-<blockquote>&#8220;你好! 這是我的名片!&#8221; </blockquote>
-
+<p>我完全了解你的感受?
+這句話根本就是個屁
+但是你還是可以說
+我知道你的用意</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/stuff/841">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/839">[影片] 飛躍夢想的天空</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-04-24T01:41:35+08:00" pubdate  data-updated="true" >Apr 24<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><embed style="width:400px; height:326px;" id="VideoPlayback" type="application/x-shockwave-flash" src="http://video.google.com/googleplayer.swf?docId=3929669936869637348&hl=en" flashvars=""> </embed>
-呵, 最近都沒有po些文章, 所以貼個影片, 這個影片是去年聖誕節時候表演拍的, 這首歌是&#8221;桔子樂團&#8221;的歌, 很好聽, 不過我們 H2O樂團只有3個人, 所以音樂可能沒有那麼豐富, 之前跟&#8221;桔子樂團&#8221;的主唱&#8221;伯燁&#8221;有在一起玩過團, 他的嗓音很棒! (XD 我又在拉關係了) , 而這首歌是當初他們的吉他手&#8221;陳翰&#8221;所寫的一首歌, 很好聽! 所以就拿來唱了, 雖然後來陳翰離團了,  也許有人在唱片行有看到過&#8221;極光樂團&#8221;的唱片, 先前也有極光樂團的MV, 當中的一位吉他手就是&#8221;陳翰&#8221;, 但是, 這個團&#8230;.. anyway, 桔子樂團很棒! 雖然 H2O 樂團音樂小廖去當兵解散了, 就當作是回憶一下 (其實是要彌補沒有新文章 XD) 因為影片可能會看不清楚, 所以我跟大家說一下, 中間主唱兼吉他是我喲! (噗~)</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/podcast/837">小海 Podcast 第 3 集</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-04-18T00:16:16+08:00" pubdate  data-updated="true" >Apr 18<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這一集介紹一些我有在聽的台灣創作樂團, 雖然沒幾首歌, 這一集就高達 24 分鐘了, 真是越來越進步了 XD</p>
-
-<p>另外, 希望能慢慢改掉&#8221;嗯&#8221;、&#8221;ㄜ&#8221;、&#8221;那&#8221; 這些語助詞 XD</p>
-
-<p>以下是本集所介紹的歌曲:</p>
-
-<ol>
-<li>重新分配 - 白修女</li>
-<li>夢境 - 白修女</li>
-<li>不是不想念 - 這位太太</li>
-<li>Claire - Claire</li>
-<li>我自己 - 小海</li>
-</ol>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/835">事情總要個開頭!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-04-16T01:33:51+08:00" pubdate  data-updated="true" >Apr 16<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>最近在想件事情, 其實主要是從這次 Podcast 開始之後, 我體認到一個事情, 事情總要個開頭, 正所謂萬事起頭難。 起了頭之後, 你將會發現, 這件事情原來不是這麼的難, 怎麼我先前一直都沒發現呢! 將這件事情一直延宕, 但是&#8230; 其實我一直都知道阿!</p>
-
-<p>每當朋友問起我, 要怎麼開始寫歌呢? 我總是告訴他們, 就拿著吉他, 隨便彈些和絃, 然後照著你所聽到的感覺亂哼! 那麼, 你的第一首歌就出來了, 當然! 一開始很難, 而且這首歌你也許會覺得很難聽~ 或者是太簡單, 甚至覺得很白目, 但是, 不要緊, 當你把這首歌記錄下來之後, 你就進入了一個新的境界, 沒錯, 你只要繼續寫, 第二首、第三首&#8230;慢慢的, 你會覺得, 寫歌不再是那麼困難, 搞不好還變成一個多產的創作者。 沒錯, 我總是這麼告訴別人的, 萬事起頭難阿! 但只要起了頭, 那麼你先前的疑慮將會一掃而空, 駕輕就熟, 嗯~ 但是對於這件事卻被我一直延宕, 我想&#8230; 該是時候要幫這件事情起個頭了, 不管好不好, 不然&#8230; 我想我還是會一直把它擱置下去&#8230; 所以最近要來開始籌劃一下, 嘿 ~ 祕密 :p</p>
-
-<p>總之, 來起個頭吧!!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/834">tzangms.com 新增留言板!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-04-15T03:24:15+08:00" pubdate  data-updated="true" >Apr 15<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>直接修改 wordpress 的 page 跟 comments page 來當留言板! 找不到地方說話就去<a href='http://tzangms.com/?page_id=833'>留言板</a>吧! 雖然三個禮拜前就新增了論壇, 不過應該也不會人用 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/830">最近在研究的東西: CodeIgniter, Subversion</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-04-15T01:33:00+08:00" pubdate  data-updated="true" >Apr 15<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>前一陣子在找尋哪套 PHP framework 比較好用, 或者說是比較適合我用, 後來就基本上選定了 Code Igniter 開始玩, 基本上 Code Igniter 很快就可以上手, 要用framework 的其中一個重點, 就是可以縮短開發時程, 所以對於一些 Documents 很難懂, 或是要學很久的 framework, 我就不考慮了, 因為花太多時間去學習某套 framework, 這就有點違背了開始使用 framework 的原因了, 至少對我來說是如此。 當然選用 code igniter 也還有其他原因, 每套 framework 都有其 promise, 在選擇 framework 時, 看看你是否喜歡它的 promise、它的目標訴求, 喜歡就用, 沒有一定誰好誰壞。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/830">Read on &rarr;</a>
+      <a rel="full-article" href="/life/779">Read on &rarr;</a>
     </footer>
   
 

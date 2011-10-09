@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="最近在公司覺得電腦的記憶體太小(1G 其實夠用啦! 只是當然越大越好 XD), 所以就移除了一堆程式, 也開工作管理員看看哪些程式吃掉比較多的記憶體。一直覺得很奇怪, 除了 Skype.exe 佔掉了 40MB 左右之外, 還有一個不知名的 skypePM.exe 佔掉了 20幾MB。查一下才...">
+  <meta name="description" content="今天是除夕夜! 祝大家新年快樂啦! 至於 blog 的版面又換回來了~ 我還是覺得這個好看 Orz 對不起, 我又浪費時間了 XD">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -60,266 +60,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/computer/1084">減少 Skype 佔用的記憶體</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-02-20T09:54:17+08:00" pubdate  data-updated="true" >Feb 20<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>最近在公司覺得電腦的記憶體太小(1G 其實夠用啦! 只是當然越大越好 XD), 所以就移除了一堆程式, 也開工作管理員看看哪些程式吃掉比較多的記憶體。</p>
-
-<p>一直覺得很奇怪, 除了 Skype.exe 佔掉了 40MB 左右之外, 還有一個不知名的 skypePM.exe 佔掉了 20幾MB。查一下才知道, 原來 skypePM.exe 是 Skype Plugin Manager (放在 C:\Program Files\Skype\Plugin Manager 底下), 不過其實用都沒用過阿! 不會只有我沒用過吧? 囧</p>
-
-<p>Anyway, 為了空出這 20~30MB 的寶貴記憶體, 就來把它關掉吧!</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/computer/1084">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1085">PHP Question</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-02-19T20:47:55+08:00" pubdate  data-updated="true" >Feb 19<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>在一本書上看到的問題如下:</p>
-
-<p><code>$a = 1;
-$a = $a-- +1;
-echo $a;</code></p>
-
-<p>這時候 $a 會等於多少? XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1083">NuSOAP for PHP5</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-02-19T10:09:52+08:00" pubdate  data-updated="true" >Feb 19<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>由於在 PHP5 已經有 SOAP extension 了, 如果把 SOAP extension 也編進 PHP5 的話, <a href="http://sourceforge.net/projects/nusoap/">NuSOAP </a>就會跟 SOAP extension 的  class name 衝到, 所以有了 <a href="http://code.google.com/p/nusoap-for-php5/downloads/list">nusoap-for-php5</a>, 放在 Google code。</p>
-
-<p>不過把 class 名稱改成 soapclientnusoap 會不會有點太長? 我覺得改成 nu_soapclient 會比較好吧? 還是拿 原本的 NuSOAP 自己來改好了 XD</p>
-
-<p><strong>== UPDATE ==</strong>
-剛看了一下 nusoap 的 changelog, 原來因為 NuSOAP 會跟 PHP5 的 SOAP extension 衝到, 所以 class 名稱已經改了勒 o_O, 下面這一段可以看到, 已經從 soapclient 改成 nusoapclient 。</p>
-
-<blockquote>2007-03-19, version 0.7.2
-- soapclient: declare as nusoapclient, then also subclass soapclient if SOAP extension not loaded
-- soapclientmime: declare as nusoapclientmime, then also subclass soapclientmime if SOAP extension not loaded</blockquote>
-
-
-<p>再來看到這一段,</p>
-
-<blockquote>2007-04-09, version 0.7.2
-&#8230;
-- nusoapclient: rename class to nusoap_client
-&#8230;</blockquote>
-
-
-<p>現在 class name 是改成 nusoap_client 勒, 所以&#8230; 記得以後網路上找文章要注意日期阿 XD 像 NuSOAP 只有 code 的話&#8230;就只能靠自己多挖依下程式碼了&#8230;不然也要看過 readme, changelog 先。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/1081">Web Developer Resources</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-02-18T20:10:58+08:00" pubdate  data-updated="true" >Feb 18<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.forwebdesigners.com/">http://www.forwebdesigners.com/</a>
-<a href="http://www.tlbox.com/">http://www.tlbox.com/</a>
-<a href="http://webdevelopersfieldguide.com/">http://webdevelopersfieldguide.com/</a>
-<a href="http://www.alvit.de/handbook/">http://www.alvit.de/handbook/</a>
-<a href="http://webstandardsgroup.org/resources/">http://webstandardsgroup.org/resources/</a>
-<a href="http://webdeveloper.econsultant.com/">http://webdeveloper.econsultant.com/</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/1079">生日快樂!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-02-09T22:58:08+08:00" pubdate  data-updated="true" >Feb 9<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>其實對生日這事沒啥太大感覺, 也習慣低調的過, 然而每次生日幾乎都是接在農曆年這時候, 所以同學也都在放寒假每個都回到自己溫暖的家裡, 享受過年的氣氛。 二專跟二技的同學們也沒有人在宜蘭, 也自然沒有人幫我慶生, 不過這樣也好, 我喜歡低調 XD</p>
-
-<p>基本上, 放寒假的時候, 我也沒辦法跟誰說我生日, 沒幾個人知道也是正常的, 不過每年一到生日的時候, 我還是會收到電話、簡訊, 或 MSN 來的生日祝賀, 感謝這幾位朋友記得我的生日 :D</p>
-
-<p>今年最早收到的是<a href="http://www.christabelle.idv.tw">迴老師</a>給的生日祝賀, 然後是<a href="http://annpo.pixnet.net/blog">阿潑</a>, 呵! 身為我這叛逆兒子的媽咪, 還特地寫了這一篇文章 <a href="http://www.annpo.idv.tw/index.php?load=read&id=146">[生日快樂] 音樂小王子小海也讓人期待</a> 來祝我生日快樂, 至於阿潑為何是我媽咪, 可以看這篇文章一探究竟。( 只是, 怎麼感覺阿潑的這篇文章裡都是怨念阿! XD )</p>
-
-<p>話說, 多了 facebook 跟 twitter 這兩個朋友圈 (雖然幾乎是同一掛 XD), 今年收到了更多生日祝賀阿! 在 facebook 上會提醒哪位朋友快生日了, 所以一看到時間差不多就會趕快丟蛋糕阿什麼的 XD 接著又會在 twitter 上祝壽星生日快樂。 前些日子有好幾位 twitter 上的朋友生日, 都會把收到的生日祝賀&#8221;打星星&#8221;, 然後寫在 blog 上面, 好羨慕 XD 呵, 現在! 我終於有這個機會啦! 哈哈哈哈! XD</p>
-
-<p>以下感謝各位「推友」的祝賀, 再次祝大家新年快樂阿!! :D</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/life/1079">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/1077">從京都來的明信片!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-02-07T14:28:46+08:00" pubdate  data-updated="true" >Feb 7<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2243795130/" title="postcard from kyoto by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2303/2243795130_2d9e748c58.jpg" width="500" height="375" alt="postcard from kyoto" /></a>
-哈, 拖了好久! 這張是我人生中第三張從外國來的明信片喔! 是<a href="http://www.wretch.cc/blog/bay1220">貝貝</a>去京都玩之前, 特地來問我說要不要寄一張明信片給我, 呵, 感謝貝貝! (大心):D</p>
-
-<p>話說回來~ 真羨慕當老師的人, 一到寒暑假就可以到處玩阿!!! 其實我也想當老師教書&#8230; (咳)</p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -483,6 +223,278 @@ server.modules = (</p>
     <footer>
       <a rel="full-article" href="/linux/1054">Read on &rarr;</a>
     </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/1057">Workspace Planner 找出正確坐姿</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-01-21T08:50:42+08:00" pubdate  data-updated="true" >Jan 21<span>st</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2205546576/" title="Wworkspace Planner by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2365/2205546576_d4786b77b9.jpg" width="500" height="297" alt="Wworkspace Planner" /></a>
+今天在 <a href="http://lifehacker.com/">lifehacker</a> 的文章中找到的一個計算你工作環境的工具 <a href="http://www.ergotron.com/tabid/305/language/en-US/default.aspx">Workspace Planner</a> 用來衡量你現在工作的坐姿是否正確。</p>
+
+<p>其實每天上班其實不用多久, 我就會覺得肩膀很難過, 我一直是覺得公司的桌子、椅子&#8230; anyway, 反正就是不人體工學嘛!</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/life/1057">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/linux/1055">Lighttpd Rewrite Rules for Wordpress Permalink</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-01-20T09:24:52+08:00" pubdate  data-updated="true" >Jan 20<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>先前由於把 Apache 換成 Lighttpd, 忘記還有 permalink 這東西, 所以 Wordpress 的 permalink 就掛點了。lighttpd 的 rewrite 好像沒有可以判斷檔案不在才做 rewrite 的條件, 又由於對 lighttpd 不熟, 只好在網路上找, 不過找到有些 rewrite rules 都嘛有問題, 所以參考一些找到的 rewrite rules, 然後修改成下面這樣 :p</p>
+
+<pre>
+<code>url.rewrite = (
+    "^/blog/?$" => "/blog/index.php",
+    "^/blog/(?.*)$" => "/blog/index.php$1",
+    "^/blog/(wp-.+)$" => "$0",
+    "^/blog/([^.]+)/?$" => "/blog/index.php?$1",
+)</code>
+</pre>
+
+
+<p>目前跑的都還正常, 有問題麻煩請通知 XD</p>
+
+<p><strong>update:</strong>
+用了好多天才知道, 這個 rewrite 有問題, 例如像下面這個網址重複兩個 blog 就掛點了</p>
+
+<blockquote>http://tzangms.com/blog/975</blockquote>
+
+
+<p>後來才重新看一下最後一個 rule, 把原本的 index.php/$1 改成 index.php?$1 就好了&#8230; hmm 我直覺上是這樣啦 XD anyway 總之這樣就正常了 XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/1053">My Open ID</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-01-18T14:31:12+08:00" pubdate  data-updated="true" >Jan 18<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>紀錄一下, 我的 Open ID 是 tzangms.myopenid.com 這麼一長串, 真的是頗難記的, 如果自己有 blog, 或 domain 可以參考這一篇「<a href="http://www.dedestruct.com/2008/01/13/how-to-use-blog-as-openid-url/"> How-To: Use your Blog/Website as your OpenID URL</a>」來用自己的 domain 或網址來當作自己的 Open ID</p>
+
+<p>在 header 裡面加上這幾行就可以了
+[source:html]
+<link rel="openid.server" href="http://myopenid.com/server" />
+<link rel="openid.delegate" href="http://tzangms.myopenid.com/" />
+<meta http-equiv="X-XRDS-Location" content="http://tzangms.myopenid.com/xrds" />
+[/source]</p>
+
+<p>如果我放在 tzangms.com 的首頁, 那就可以用 tzangms.com 來當成我的 Open ID 了, 雖然 tzangms.myopenid.com 已經夠好記的了 囧</p>
+
+<p>[參考連結]
+<a href="http://blog.bcse.info/openid/">Lvx ex Cælis | openid</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/1052">熱舞正妹? 其實我想說的是音樂</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-01-07T15:20:37+08:00" pubdate  data-updated="true" >Jan 7<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/0TNBJd3Hk4k&hl=zh_TW&fs=1"></param><param name="allowFullScreen" value="true"></param><embed src="http://www.youtube.com/v/0TNBJd3Hk4k&hl=zh_TW&fs=1" type="application/x-shockwave-flash" allowfullscreen="true" width="425" height="344"></embed></object>
+
+
+<p>其實一直很想寫這一篇, 只是標題一直不知道該怎麼下, 只因為這支影片, 令人讚嘆的點太多。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/music/1052">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/linux/1051">Gentoo Su (Gpasswd)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-01-07T02:46:57+08:00" pubdate  data-updated="true" >Jan 7<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在 Gentoo 上在新增 user 的時候將 user 加入 wheel 群組, user 就可以 su, 如果是事後才要將 user 加入 wheel 群組, 可以這樣做, ex:</p>
+
+<p><code>gpasswd -a tzangms wheel</code></p>
+
+<p>不過~ 覺得這個指令字面上的意義跟動作不大合</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/linux/1048">Install Webalizer on Gentoo</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-01-04T13:03:36+08:00" pubdate  data-updated="true" >Jan 4<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天在 <a href="http://gentoo.org">Gentoo</a> 上面裝 <a href="http://www.mrunix.net/webalizer/">Webalizer</a>, 記錄一下。</p>
+
+<p>首先當然是先 emerge webalizer ( USE Flag 加上 -nls 是因為我喜歡英文的界面 :x )</p>
+
+<p><code>USE='-nls vhosts geoip' emerge webalizer</code></p>
+
+<p>然後裝好用 webapp-config 把 webalizer 裝到我現在在用的 vhost, 叫 locahost</p>
+
+<p><code>webapp-config -I -h localhost -d webalizer webalizer 2.01.10-r15</code></p>
+
+<p>PS. 說真的, webapp-config 的參數有點難記</p>
+
+<p>然後修改 /etc/webalizer.conf, 找到 DNSCache 這一行, 我想把  cache.db 放在 /var/cache 下, 所以把這一行改成下面這樣</p>
+
+<p><code>DNSCache    /var/cache/dns_cache.db</code></p>
+
+<p>最後執行 webalizer(webazolver?) 就會產生頁面啦! 最後就是把他寫到 crontab 去跑吧!</p>
+</div>
+  
   
 
 

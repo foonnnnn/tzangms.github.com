@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="這首 Demo 跟上一板的錄音沒差多少, 原因是我想不出來怎麼編曲了, 怎麼彈都覺得不好。後來突然覺得這首歌的曲, 似乎也不需要太多的樂器、合音來配合就不錯聽了, 所以我連鼓也拿掉了, 單純 Vocal、木吉他跟一軌合音。也許有人可能會覺得我偷懶 怎麼都沒有編其他樂器, 但&#8230; 你錯...">
+  <meta name="description" content="因為上週末我掰咖了, 所以都在房間裡看書, 看電影。我把 iWoz 這本書看完了, 也看了門徒, 看了 Linda Linda Linda, 然後一整天都在吃泡麵 XD 也玩了一下 Zend Framework(以下簡稱 ZF), 試用一下可不可以單獨拿 ZF 其中的元件來用, 因為 ZF 的...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/music/966">[Demo] 多與少</a></h1>
+      <h1 class="entry-title"><a href="/programming/939">Zend Framework 初探</a></h1>
     
     
       <p class="meta">
@@ -80,39 +80,327 @@
 
 
 
-<time datetime="2007-09-16T20:11:45+08:00" pubdate  data-updated="true" >Sep 16<span>th</span>, 2007</time>
+<time datetime="2007-08-21T15:50:39+08:00" pubdate  data-updated="true" >Aug 21<span>st</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>這首 Demo 跟上一板的錄音沒差多少, 原因是我想不出來怎麼編曲了, 怎麼彈都覺得不好。後來突然覺得這首歌的曲, 似乎也不需要太多的樂器、合音來配合就不錯聽了, 所以我連鼓也拿掉了, 單純 Vocal、木吉他跟一軌合音。</p>
+  <div class="entry-content"><p>因為上週末我掰咖了, 所以都在房間裡看書, 看電影。我把 iWoz 這本書看完了, 也看了門徒, 看了 Linda Linda Linda, 然後一整天都在吃泡麵 XD 也玩了一下 <a href="http://framework.zend.com/">Zend Framework</a>(以下簡稱 ZF), 試用一下可不可以單獨拿 ZF 其中的元件來用, 因為 ZF 的文件看起來好像可以這麼做。</p>
 
-<p>也許有人可能會覺得我偷懶 怎麼都沒有編其他樂器, 但&#8230; 你錯了! 這就是最好的編曲 XD</p>
+<p>在開始之前, 由於 ZF 只能在 PHP5 上面跑, 而我的 Mac OS X 預設的環境是 Apache 1.3 + PHP4, 所以我找到了<a href="http://www.entropy.ch/software/macosx/php/">這裡</a>, 可以下載包好給 Mac 用的 PHP5 binary 套件, 很方便! 裝完只要 restart apache 就好了!</p>
 
-<p>[歌詞] by 非非
-怎樣算是多 怎樣算是少
-我想給的更多 但不願是你負擔</p>
+<p>OK! 首先先<a href="http://framework.zend.com/download">下載 Zend framework</a>, 然後我是解開放到</p>
 
-<p>你不肯說很多 說是因為害羞
-不想你說很少 總覺得你驕傲</p>
+<p><code> /usr/local/php5/lib/php/Zend</code></p>
 
-<p>希望你開心 每天揣測著你的心
-但你惜字如金 讓我捉摸不定</p>
+<p>接著設定 php.ini 的 include_path, 加入 /usr/local/php5/lib/php/Zend/library, 變成</p>
 
-<p>希望你開心 每天揣測著你的心</p>
+<p><code>include_path = ".:/usr/local/php5/lib/php/Zend/library" </code></p>
 
-<p>啊~ 多少算是多 多少算是少
-你想要的是多 還是想要少</p>
+<p>接著參照 ZF 的文件, 試一下 Zend_Service_Delicious 這個元件, 寫一小段程式如下, 哈! 馬上就可以列出我在 del.icio.us 裡的書簽 title, 真方便!</p>
 
-<p>說什麼是錯 不說算不算對
-說什麼是對 不說會不會誤會</p>
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/939">Read on &rarr;</a>
+    </footer>
+  
 
-<p>你倒是說一說
-你倒是說一說</p>
 
-<p>要如何打破這沈默~</p>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/941">搬家成功!!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-08-21T01:12:29+08:00" pubdate  data-updated="true" >Aug 21<span>st</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>由於這個週末整個掰咖, 我只能在家裡打電腦、上網, 不是打開 bloglines 看看, 就是 twitter, 當然自己的 blog 也要看看, 但是自己的 blog 越看就越生氣, 整個慢到不行, 想想剛開始用 bluehost 的時候還滿快的, 當初也很滿意 bluehost 的速度, 怎麼感覺越來越慢了, 我的天阿!!</p>
+
+<p>查一下自己的 bluehost 還剩兩百多天可以用, 但是 blog 載入到一半就掛了的這種速度, 我實在是沒辦法繼續用下去, 所以心裡就想說:「媽的! 一定要搬家!」</p>
+
+<p>所以一開始我就先把 h2oband.net 這個 domain 先 transfer 到 <a href="http://godaddy.com">GoDaddy.com</a>, 先來試看看, 反正之後要搬到那裡, 直接指過去就好了, 另一個原因是因為&#8230; bluehost 的 domain 管理真的很陽春, 只能指 name server, 沒辦法設 CNAME, MX 之類的東西 (也許是我沒發現 XD), 所以我就先把 h2oband.net 這個目前沒在用的 domain 先 transfer 到 GoDaddy 試看看, 沒想到~ 居然發現 GoDaddy 有在賣 hosting!!</p>
+
+<p>在處理 h2oband.net 的 domain transfer 的時候, 感覺 GoDaddy 的速度感覺還滿快的, 相對的, bluehost 就一整個慢到爆! 就想說先在 GoDaddy 買個一個月玩玩看好了, 結果~ 馬上就花了 $6.99 美金, 噗~</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/941">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/938">聖帕摔車記錄</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-08-17T23:45:19+08:00" pubdate  data-updated="true" >Aug 17<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/1149766914/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1321/1149766914_45863504d6.jpg" width="375" height="500" alt="100_2631.JPG" /></a><br />
+今天摔車了!!&#8230;</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/life/938">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/937">藍眼關注!! 得獎!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-08-14T01:16:53+08:00" pubdate  data-updated="true" >Aug 14<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/975405574/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1324/975405574_58f0e83fcb.jpg" width="500" height="400" alt="超燦爛 at pepper lunch" /></a>
+呵, 上次入圍藍眼關注只向公司幾位同事拉票, 只有 4 位吧! 沒有太積極, 想說這樣應該就夠了, 噗~ 其實公司這幾位同事大多都是綠眼關注 XD 所以一票就值好多分, 將近一百分吧? 不過上次的藍眼關注我還是落選了, 所以這次就有積極的拉票了, 這次可以得獎, 真的是感謝大家的幫忙阿!! 看看! 我這張照片笑的多開心阿!! (應該很有得獎開心的 fu 吧? XD)</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/937">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/stuff/936">Moo Stickerbook</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-08-13T02:06:43+08:00" pubdate  data-updated="true" >Aug 13<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/1051632713/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1107/1051632713_c1e9a4a741.jpg" width="500" height="375" alt="moo StickeBook cover" /></a>
+在上個月底, 在 twitter 看到<a href="http://www.christabelle.idv.tw/rewrite.php/read-533.html">迴老師又訂了 Moo 的新東西</a>, 而且七月底前免運費!!! 所以馬上我就跑到 <a href="http://www.moo.com">Moo 的網站</a>去看迴老師說的 Stickerbook。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/stuff/936">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/935">主持@電腦應用展</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-08-12T02:00:07+08:00" pubdate  data-updated="true" >Aug 12<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/1030911337/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1196/1030911337_a9ed155a69.jpg" width="500" height="375" alt="1029519896_a7270a3973_o.jpg" /></a></p>
+
+<p>嗯, 上禮拜日公司在電腦應用展參展, 輪到我支援, 幫忙參展的活動, 但沒想到我真的下海當主持人 XD 至於旁邊這兩位, 則是公司請來的工讀生(show girl?)</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/life/935">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/933">Sonia@FIN</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-08-11T16:07:36+08:00" pubdate  data-updated="true" >Aug 11<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/998107724/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1405/998107724_12b67bfbda.jpg" width="500" height="375" alt="100_2349.JPG" /></a>
+我又跑去剪頭髮了, 話說找 Sonia 剪了三次頭髮, 三次都在不同的店, 上次<a href="http://tzangms.com/?p=887">這篇</a>寫到 Sonia 是在斐瑟的對應髮廊 I, 結果這次又換到了捷運中山站附近的 FIN。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/life/933">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/934">Blog 串連罷免宜蘭縣長呂國華</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-08-08T23:50:00+08:00" pubdate  data-updated="true" >Aug 8<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>真的是每天都有新鮮事, 最近累積了好多文章想寫, 誰知道又來這個東西。 就是說, 今天一早打開 Bloglines 就看到 Mark 的 blog 的一篇文章: 「<a href="http://blog.markplace.net/marks_place/8/2007/08/07/274">Blog 串連罷免宜蘭縣長呂國華</a>」 這個標題馬上吸引了我, 嗯, 沒錯, 我是宜蘭人阿! 在看到 Mark 的這篇文章之後, 我就馬上把他收到 Myshare, 希望有更多的宜蘭人可以看到&#8230;</p>
+
+<p>我想大家應該都有在我 Blog 的右邊有看到兩張貼紙, 這兩張是在今天中午 Jas 做出來的, 超有行動力!! 其實在早上看到 Mark 的文章之後, 我就馬上去找了一堆相關新聞來看, 然後就想說今天一定要發文來串連這篇活動, 才想到&#8230;沒有貼紙阿! 沒有貼紙怎麼可以算得上是串連活動呢!? 所幸 Jas 馬上就在他 Blog 發文, 貼出這兩枚精美的貼紙, 該稱這兩枚貼紙為精美嗎? 對我來說, 這兩枚貼紙充滿著宜蘭人的憤怒阿!! 宜蘭童玩節舉辦了十二個年頭了, 現在突然說要停辦, 真的是很氣人!</p>
+
+<p>「我不知道宜蘭有什麼好玩的。」當朋友問起我宜蘭有哪裡好玩的地方, 我總是這麼回答他們。 但是我還是會擠出幾個東西, 其中一個就是童玩節。如果童玩節沒了, 你要我還能說出宜蘭有哪裡好玩? 好吧! 這是我個人膚淺的玩笑話。童玩節, 我想台灣北部大多數的人一到暑假, 都會想到宜蘭的童玩節, 不是嗎? 好吧! 至少我是, 我身邊的朋友也是, 如今卻為了這麼爛的理由, 這個爛縣長要停辦。</p>
+
+<p>就像 Mark 跟 Jas 所說的, 碰到問題不去解決, 而是決定放棄、停辦, 那麼請你下台!</p>
+
+<p>身為宜蘭人的你, 如果你有 Blog, 也同樣對這件事情感到氣憤, 煩請加入這個串連活動! 在你的 Blog 貼上這兩枚貼紙。如果你不是宜蘭人, 但也關心宜蘭童玩節的話, 你也可以只貼上「搶救童玩節」的貼紙, 「罷免呂國華」的貼紙就交給我們宜蘭人吧!!</p>
+
+<p>貼紙請至這裡取用<a href="http://jas9.blogspot.com/2007/08/blog-post_3920.html">「搶救童玩節」「罷免呂國華」串聯語法</a></p>
+
+<p>[ 延伸閱讀 ]</p>
+
+<p><a href="http://blog.markplace.net/marks_place/8/2007/08/07/274">Blog 串連罷免宜蘭縣長呂國華 | Mark&#8217;s Place</a></p>
+
+<p><a href="http://jas9.blogspot.com/2007/08/blog-post_08.html">不辦童玩節就請下台 | Jas9 Taipei</a></p>
 </div>
   
   
@@ -125,7 +413,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/965">安裝 Capistrano</a></h1>
+      <h1 class="entry-title"><a href="/linux/930">Fedora 台灣愛用者社群 (FTUG) 贊助活動開跑!</a></h1>
     
     
       <p class="meta">
@@ -139,40 +427,25 @@
 
 
 
-<time datetime="2007-09-15T02:09:15+08:00" pubdate  data-updated="true" >Sep 15<span>th</span>, 2007</time>
+<time datetime="2007-08-07T22:26:06+08:00" pubdate  data-updated="true" >Aug 7<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>最近在研究 <a href="http://www.capify.org/">Capistrano</a> 這個東西, 他最主要就是搭配 SVN 來做程式碼自動部署(auto deployment)的工作, 如果程式碼都用 SVN 來作版本控制的話, 那麼會方便很多。基本上, Capistrano 是 RoR 用來做自動部署的程式, 不過在看過許多文章之後, 其實也可以拿來用在其他程式的部署上。</p>
+  <div class="entry-content"><p>好久沒有在我的 Blog 寫到跟 Linux 相關的東西了, 這次是為了 <a href="http://fedora.tw/">FTUG</a> 的贊助活動而特地寫這一篇的。雖然小弟只在這個社群當過一段短暫時間的怠職板主, 也沒真的參與過這個社群所辦的活動, 原因是我已經轉換跑到到 Mac 好長一段日子了, 所以也沒辦法繼續兼顧 Linux 這一塊了。</p>
 
-<p>簡單的來説, Capistrano 就是可以讓你很方便的透過 ssh 在遠端執行指令。所以說沒辦法遙控 Windows XD</p>
+<p>說到我玩 Linux 也有好長一段時間, 記得當初還在讀高中的時候, 接觸到一本名叫光碟月刊的雜誌, 當中介紹了許多 Linux 的東西, 還有每一期都會附上一片光碟, 裡面滿滿都是 Linux 的應用軟體, 我就在當中看到某個叫做 XFCE 的 Window manager, 那個畫面到現在還記憶猶新阿!! 當時我就深深的被這個與 Windows 極其不同的畫面所吸引, 對 Linux 產生了極大的興趣。</p>
 
-<p>先來說說安裝吧! 首先就是要安裝 <a href="http://www.ruby-lang.org/en/">Ruby</a> 啦! 把原始碼抓回來安裝啦! (以下當然不會是 Windows 的做法 XD)</p>
+<p>然而高中那時後, Linux 的資訊極其的少, 上網也是透過 33.6k 的數據機撥接上線, 然而 Linux 又是透過網路來散怖, 所以當時為了要取得 Linux 的套件來安裝真的是很麻煩, 幸好在高職的時候, 讀的是資訊科, 常在電腦中心混, 所以就利用了學術網路來下載當時最新的 Slackware 3.2, 不過當時並不是下載所謂的 iso 檔, 燒成光碟開機就可以開始安裝了, 當初我的電腦還不能用光碟開機勒!! Orz</p>
 
-<blockquote>./configure ; make ; make install </blockquote>
-
-
-<p>接著是裝上 <a href="http://www.rubygems.org/">RubyGem</a>, 抓回來用下面的指令安裝</p>
-
-<blockquote>ruby setup.rb</blockquote>
-
-
-<p>然後就可以用 RubyGem 來安裝 <a href="http://www.capify.org">Capistrano</a> 啦! 加上 -y 的參數, 是說, 會裝上其他相依的 ruby gem。</p>
-
-<blockquote>gem install -y capistrano</blockquote>
-
-
-<p>然後因為某種原因, 會出現某個訊息, 不過玩 Ruby 的才需要知道, 就不說為什麼了 (因為我也不知道阿, 反正裝玩就不會在出現那一段訊息就是了 XD)</p>
-
-<blockquote>gem install fastthread</blockquote>
-
-
-<p>到這裡就大功告成啦!! Capistrano 安裝完畢!! 之後再來寫篇發佈 PHP 程式的心得 :p</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/linux/930">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -183,7 +456,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/music/964">Logic Express 8!!</a></h1>
+      <h1 class="entry-title"><a href="/blog/928">藍眼關注, 小海創作大放送 XD</a></h1>
     
     
       <p class="meta">
@@ -197,307 +470,20 @@
 
 
 
-<time datetime="2007-09-13T21:56:16+08:00" pubdate  data-updated="true" >Sep 13<span>th</span>, 2007</time>
+<time datetime="2007-08-02T01:14:13+08:00" pubdate  data-updated="true" >Aug 2<span>nd</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.apple.com/logicexpress/"><img src="http://farm2.static.flickr.com/1036/1371411901_0a8a87c995.jpg" width="500" height="186" alt="Logic express 8" /></a>
-我的天阿!! <a href="http://www.apple.com/logicexpress/">Logic express 8</a> 超想買的阿!! 還真便宜內! 只要 $6900!</p>
+  <div class="entry-content"><p>這次是第二次入圍藍眼關注, 上次只有跟公司的同事們拉票, 最後票數雖然很少, 不過還滿高分的, 本來想說有同事們的幫忙就可以拿下藍眼關注了, 可惜還是差一些些。  本來想說那這樣吧! 這一次入圍讓他零分好了, 不過由於<a href="http://www.christabelle.idv.tw/">迴老師</a>的關愛, <a href="http://www.christabelle.idv.tw/">迴老師</a>還是跑去幫我投了一票, 所以我就想說, 既然不能維持零分, 那麼還是來拉一下票好了! XD 噗~ 把責任都推到老師身上了, 其實&#8230;是因為我自己很虛榮阿! XD 迴老師人最好了! (大心)</p>
 
-<p>話說這次的 Logic express 8 多了先前 Logic Pro 7 才有的 Guitar Amp Pro!! 還有 Ultra Beat!! 真的是太帥氣了!! 然後整個界面都改了, 其實先前 Pro application 的界面感覺有點不是很符合現在 Mac 的感覺 :p</p>
+<p>所以有看到這一篇的朋友們, 到<a href="http://look.urs.tw/award_vote_blue.php">這裡</a>幫小海投一票吧! 應該是 24 號沒錯! 麻煩大家滿足一下我的虛榮心吧! XD</p>
 
-<p>不知道 Guitar Amp Pro 跟 Ultra Beat 有沒有辦法分別取代我現在用的 <a href="http://www.native-instruments.com/index.php?id=guitarline">Guitar Rig 2</a> (媽的! 又嚇到! Guitar Rig 3 也出來了!!! )跟 <a href="http://www.xlnaudio.com/products">Addictive Drum</a>, 倒是看網頁所介紹的畫面, 似乎 Guitar Amp Pro 還是沒有像 Guitar Rig 2 有那麼細的設定。</p>
+<p>所以在這裡送大家一首小海的電子樂 is sugizo out there?, 大家可以下載回去聽, 當作小海對投票的人的謝禮&#8230;.如果有人要聽的話 Orz 對了! 自由心證阿~ 有投票才可以下載阿! XD</p>
 
-<p>另外!! 可以用 Apple remote 來控制 Logic !! 太屌了阿!!!</p>
-
-<p>我想要!! 但&#8230;其實 <a href="http://www.apple.com/logicstudio/">Logic Studio</a> 也才 $16900, 不會太貴, 但是&#8230; 我只是業餘, 所以 Logic express 就很猛了阿!</p>
-
-<p>不過&#8230;..仔細看看, Logic Studio 裡面多了個 <a href="http://www.apple.com/logicstudio/mainstage/">Main Stage</a>, 是用來作現場表演的!! 阿阿阿! 好想要阿!! 不過買 Logic Studio 的話, 我一定又會想買一台新的 Master Keyboard, 像是.. <a href="http://www.m-audio.com/products/en_us/Axiom49-main.html">M-Audio Axiom</a></p>
-
-<p>等一下&#8230;. 先存錢在說!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/963">樂生‧夜襲</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-09-13T18:47:16+08:00" pubdate  data-updated="true" >Sep 13<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div><object width="425" height="335"><param name="movie" value="http://www.dailymotion.com/swf/foea6u1hGnrgtkRjH"></param><param name="allowfullscreen" value="true"></param><embed src="http://www.dailymotion.com/swf/foea6u1hGnrgtkRjH" type="application/x-shockwave-flash" width="425" height="335" allowfullscreen="true"></embed></object><br /><b><a href="http://www.dailymotion.com/video/x2yk1l_losheng911-high-quality_news">Losheng911 (High Quality)</a></b><i> Uploaded by <a href="http://www.dailymotion.com/swpave">swpave</a></i></div>
-
-
-<p>[延伸閱讀]
-<a href="http://swalk.blogspot.com/2007/09/24.html">樂生危機（23）：重新面對</a>
-<a href="http://swalk.blogspot.com/2007/09/25.html">樂生危機（24）：樂生九一一</a>
-<a href="http://blog.pixnet.net/annpo/post/8720097">【是夜】夜襲‧樂生‧寶島曼波</a>
-<a href="http://www.howsdesign.com/blog/2007/09/12/363">[樂生] 夜襲 / 急如星火的動員</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/962">[Recording] 多與少 3</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-09-11T22:45:50+08:00" pubdate  data-updated="true" >Sep 11<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這次認真錄了, 只有一把吉他跟 Vocal, 而第二段的主歌則是有加上合音, 不過還是老話一句, 很難編, 到目前我都還想不出來第二把吉他要怎麼編, 或者是 solo 要怎麼彈, 然而除了主歌之外的合音, 我也不知道怎麼合, 但是目前的版本聽起來還滿乾淨的就是了。</p>
-
-<p>果然多錄音真的是有差, 記得以前, 我當開始自己錄歌的時候, 聽著自己錄完的歌聲, 總是覺得很難聽, 很不習慣, 我想大部分的人都會這樣覺得, 雖然後來我慢慢習慣了自己的聲音, 但我總還是把 Vocal 那一軌調得很小聲。 反倒是現在我錄歌的時候敢把 Vocal 大聲放出來, 甚至就像這首歌一把木吉他搭配。</p>
-
-<p>murmur, 有些人一直以為我從小就很愛唱歌, 可是其實我是從二專之後才開始稍微敢開口唱歌, 現在想起在二專之前根本不敢唱歌, 真的是很囧, 跟朋友去 KTV , 結果一首歌都沒點, 在幹嘛? 睡覺阿&#8230; = =</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/959">[Recording] 多與少 2</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-09-10T00:38:14+08:00" pubdate  data-updated="true" >Sep 10<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這首歌真的是很難編曲, 完全想不出來, 試過用鋼琴、或是加入小提琴、Bass 跟電吉他, 整個就是沒感覺, 不過其實小提琴是還滿 ok 的, 這幾天再來試看看。</p>
-
-<p>這次是先加入了合音, 感覺還不賴, 不過還是亂唱, 反正就 demo 嘛, 後來又加入一整個亂彈的吉他, 完全是以自 high 為取向, 先記錄下來靈感, 這幾天再來試看看。 如果聽到背景有像鬼叫的聲音&#8230;沒錯! 那是我在亂叫 XD</p>
-
-<p>這首編曲整個很難 Orz</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/958">[Recording] 多與少</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-09-09T10:42:23+08:00" pubdate  data-updated="true" >Sep 9<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這首歌是跟上一首&#8221;<a href="http://tzangms.com/?p=945">熟悉與陌生</a>&#8220;一起寫好的, 嗯&#8230; 應該不算是寫好, 而是有雛形, 因為在某些地方還不知道要怎麼唱, 所以有時只能亂哼, 這一兩個禮拜一直想把這兩首歌寫好, 可是就一直無法找出好的感覺。</p>
-
-<p>剛才終於大概算把曲寫好, 錄了一個片段, 由這個片段可以聽的出來, 我的假音有點弱 XD Anyway, 其實我比較煩惱的是這首歌要怎麼編曲 XD</p>
-
-<p>另外, 以前有人說我的聲音想伍思凱&#8230; 當然&#8230;我並不想像伍思凱, 我可是假龐克阿!!! 不過自己這個片段某些高音的地方, 還真的是有像伍思凱勒 Orz</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/957">超熱血洛克人!!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-09-09T08:47:37+08:00" pubdate  data-updated="true" >Sep 9<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><object width="425" height="350"><param name="movie" value="http://www.youtube.com/v/CX-i-Tvb4zI"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/CX-i-Tvb4zI" type="application/x-shockwave-flash" wmode="transparent" width="425" height="350"></embed></object>
-
-
-<p>昨天在「<a href="http://blog.roodo.com/baga128">太陽底下無新鮮事</a>」那裡看到這個影片就整個熱血起來阿!!</p>
-
-<p>原因就是在, 那首歌寫的太屌了!! 原本以為那中文字幕只是亂套上去搞笑的, 沒想到一邊看著影片, 聽著歌曲跟歌詞, 沒想到是真的照翻的阿!! 頓時就覺得, 好屌阿!! 真的是為洛克人寫了一首歌曲。而且!! Vocal 就整個日本熱血動畫 tone 阿!!! 而且他的編曲還真的是很熱血阿!! 多用心阿!! KB solo, Guitar solo 都不缺!</p>
-
-<p>其實我好想寫這種類似的歌曲, 雖然搞笑但卻很正經!! 我的天阿! 我不知道已經看了幾遍了&#8230; 如果有玩過洛客人, 你一定也會很熱血阿! 歌詞對遊戲的描述真的是很到點 XD 然後動畫也真的是很帥! 到最後洛客人跟空氣人對打的動作, 簡直就只有帥可以形容, 還可以瞬間移動 :o</p>
-
-<p>然後歌曲中聽到的這段「不管試了幾次 不管試了幾次」&#8230;. 我的天阿!! 真的是太熱血了阿!! (握拳)</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/953">StarFlower - Moment in the Sun</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-09-09T01:32:43+08:00" pubdate  data-updated="true" >Sep 9<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/1337015720/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1177/1337015720_7fb1e5a578_m.jpg" width="240" height="216" alt="StarFlower" class='left' /></a>上個月買了 StarFlower 這張專輯 Moment in the sun, StarFlower 算是 indie 掛的, 就是整個清新風, 不過看來我還是喜歡 Alternative Rock 多一些。</p>
-
-<p>不過我滿喜歡他們這張專輯的第二首歌的, Dance Till Morning Light, 整個舒服的 fu, 吉他也編的很不錯, 據說他們對於他們吉他手的功力頗自豪 :p</p>
-
-<p>當初是在 <a href="http://beethobear.blogspot.com/2006/08/another-great-afternoon-another-great.html">Smash Hits Productions</a> 看到 StarFlower 的, 而 StarFlower 的廠牌 <a href="http://musicismygirlfriend.com/">Music Is My Girlfriend</a> 也提供了這張我覺得(唯一?)不錯聽的 <a href="http://musicismygirlfriend.com/audio/Starflower%20-%20Dance%20Til%20Morning%20Light.mp3">Dance Till Morning Light 的 mp3 下載</a>, 當初就是因為這首歌才會買這張唱片的, 也許還有封面? XD 我真的還滿喜歡他們這張的封面的 (笑)</p>
-
-<p>聽完 Dance Till Morning Light 這首歌之後, 想多聽聽 StarFlower 可以到 <a href="http://www.myspace.com/starflowerband">StarFlower 的 myspace</a> 聽聽其他歌曲, 另外這是 <a href="http://www.starflower-fields.com/">StarFlower 的官方網站</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/computer/956">語音聊天小撇步</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-09-08T00:46:06+08:00" pubdate  data-updated="true" >Sep 8<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>如何用筆記型電腦透過 skype 聊天不戴耳機, 又不怕有回授? 看到 <a href="http://www.lifeclever.com/get-clearer-audio-chats-on-your-laptop/">這篇文章</a> 寫了個小技巧, 應該滿有用的。</p>
-
-<p>其實他最主要說得就是, 如果你的麥克風在右邊, 那就把喇叭的聲道調到左邊, 相反的, 如果麥克風在左邊, 就把喇叭的聲道調到右邊, 這樣一來喇叭跟麥克風就有些距離, 可以減少喇叭出來的聲音直接回授 (feedback) 到麥克風的情形!</p>
-
-<p>不知道怎麼調喇叭聲道的話, 可以看看原文, 有圖解說明, Windows 跟 Mac 都有喔!</p>
-
-<p>哈, 之前都沒想過這個, 所以每當聊天的時候, 如果對方說我這邊都有回音, 聽起來很難過, 我就會接上耳機, 可是就感覺有那麼點受限制, 不是很舒服, 不過看來下次語音聊天, 可以試試看這個撇步 XD</p>
-
-<p>只是我的 Macbook 的麥克風在中間 &#8230; 好吧, 有點偏左 XD</p>
+<p>[download#1] 按右鍵下載喔!</p>
 </div>
   
   

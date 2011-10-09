@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="當初剛進公司的模樣, 這張是進公司第二天參加 Ubuntu installfest 拍的照片 with 新手機 XD7/3 工作終於滿一年了!! 記得去年的今天, 第一天進公司, 我還遲到 XD 因為我迷路了, 繞錯路 Orz 然後當時覺得台北的紅綠燈真的是要等很久&#8230; anyway...">
+  <meta name="description" content="呵, 其實下集要講什麼? 我根本就已經在 小海 Podcast 第 5 集 都說完了阿!!! 生氣! XD 搞得我下集已經不知道要寫什麼好了 Orz 這篇我只能硬擠一些出來, 不然&#8230;看看照片也好, 哈哈哈 XD">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/903">工作滿一年囉!!</a></h1>
+      <h1 class="entry-title"><a href="/life/873">蘭卡威之旅下集</a></h1>
     
     
       <p class="meta">
@@ -80,23 +80,21 @@
 
 
 
-<time datetime="2007-07-04T01:31:10+08:00" pubdate  data-updated="true" >Jul 4<span>th</span>, 2007</time>
+<time datetime="2007-06-02T02:06:25+08:00" pubdate  data-updated="true" >Jun 2<span>nd</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/706418055/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1288/706418055_3e376830f1.jpg" width="500" height="375" alt="7/4 當初剛進公司的模樣" /></a>
-當初剛進公司的模樣, 這張是進公司第二天參加 Ubuntu installfest 拍的照片 with 新手機 XD</p>
-
-<p>7/3 工作終於滿一年了!! 記得去年的今天, 第一天進公司, 我還遲到 XD 因為我迷路了, 繞錯路 Orz 然後當時覺得台北的紅綠燈真的是要等很久&#8230; anyway 記得當初剛進公司, 其實怎麼寫程式都忘得差不多了, 其實本來就對 PHP 不太熟 XD 所以上班幾乎都是開著 php.net 來查詢著各種 php 的函式。當時其實連 javascript 也是完全不會, 哈哈哈!! 厲害吧! XD 沒辦法, 我音樂玩太久了, 噗~ XD 好吧! 那接下來我用照片來作這一年的回顧 XD</p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/525073028/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1024/525073028_0915fbf3af.jpg" width="500" height="375" alt="DSC00125.JPG" /></a>
+呵, 其實下集要講什麼? 我根本就已經在 <a href="http://tzangms.com/?p=866">小海 Podcast 第 5 集</a> 都說完了阿!!! 生氣! XD 搞得我下集已經不知道要寫什麼好了 Orz 這篇我只能硬擠一些出來, 不然&#8230;看看照片也好, 哈哈哈 XD</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/life/903">Read on &rarr;</a>
+      <a rel="full-article" href="/life/873">Read on &rarr;</a>
     </footer>
   
 
@@ -108,7 +106,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/902">設定 CodeIgniter 資料庫語系</a></h1>
+      <h1 class="entry-title"><a href="/programming/871">CodeIgniter 的基本架構</a></h1>
     
     
       <p class="meta">
@@ -122,54 +120,73 @@
 
 
 
-<time datetime="2007-07-03T21:51:32+08:00" pubdate  data-updated="true" >Jul 3<span>rd</span>, 2007</time>
+<time datetime="2007-06-01T21:30:04+08:00" pubdate  data-updated="true" >Jun 1<span>st</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>寫 web app 當然一定都會存取資料庫啦! 在用過 CodeIgniter 一陣子, 中文的使用者應該就會發現到, CI 似乎沒有地方可以直接設定資料庫語系的地方, 所以如果當資料庫的語系不是我們要的, 那麼出來的東西就會都是亂碼, 所以就需要在每次的 query 之前都要先送出個 SET NAMES 的 query, 但是在 CodeIgniter 這個 framework 應該會有好一點的方法吧? 應該可以直接在 config/database.php 裡直接設定我們所要的語系這樣才對, 嗯, 沒有目前辦法 XD</p>
+  <div class="entry-content"><p>先來介紹一下 <a href="http://codeigniter.com/">CodeIgniter</a> 的基本架構好了, 所以先來說明一下 CI 的頁面是怎麼做的。由於使用 MVC 架構, 所以最主要的就是 Controller, 程式透過 Controller 來呼叫 Model 存取資料庫, 然後在指定 View 輸出, 這樣一來, Controller 就可以變得很簡單。 以製作 Blog 為例, Blog 的首頁通常都會顯示最新的 10 篇文章, 就以這個簡單的範例來說明。不過在這裡先只討論 Controller 部份。</p>
 
-<p>好吧! 其實要修改一下 system/database/DB_driver.php 如下即可:</p>
+<p>基本上, 每個 Controller 都是一個 Class, 在每個 Class 裡面的 function 都是一個頁面, 嗯, 這個概念很重要! 先來看看下面這一段, 應該就會比較清楚。</p>
 
-<pre>
-<code>// Select the database
-        if ($this->database != '')
-        {
-            if ( ! $this->db_select())
-            {
-                log_message('error', 'Unable to select database: '.$this->database);
-            
-                if ($this->db_debug)
-                {
-                    $this->display_error('db_unable_to_select', $this->database);
-                }
-                return FALSE;
-            }
-            elseif( ! empty($this->init_sql) )
-            {
-                $this->_execute($this->init_sql);
-            }
-        }</code>
-</pre>
+<pre><code>&lt;?
+class Blog extends Controller{
+    function index(){
+        $this-&gt;load-&gt;model('blog_model');
+        $data = $this-&gt;blog_model-&gt;get_lastest_entries();
 
+        $this-&gt;load-&gt;view('blog', $data);
+    }
 
-<p>看到上面的 code , 其實增加的只有下面這個部份</p>
+    function post($id){
+        echo "這裡是第 $id 篇文章";
+    }
+}
+?&gt;
+</code></pre>
 
-<pre>
-<code>            elseif( ! empty($this->init_sql) )
-            {
-                $this->_execute($this->init_sql);
-            }</code>
-</pre>
+<p>在上面這段程式碼, 可以看到是一個叫做 Blog 的 Class, 裡面包含了 index 以及 post 兩個 function。先來說明比較簡單的 post 好了, 在先前有提到, 在 Class 中的 function 其實就是一個頁面, 不像以往, 一個 php 檔案就是一個頁面。</p>
 
+<p>接著來看看要如何存取 post 這個頁面, 首先看到下面這個網址</p>
 
-<p>嗯, 接下來, 我們就可以在 config/database.php 裡面, 增加一行設定, 在資料庫動作的時候, 都會執行這個設定的動作, 這麼一來我們就可以用類似於設定的方式來設定資料庫的語系, 而不用在每次 query 之前都送出 SET NAMES 這個動作, 那麼增加的設定如下</p>
+<pre><code>http://tzangms.com/post/26
+</code></pre>
 
-<p><code>$db['default']['init_sql'] = "SET NAMES 'utf8' "</code></p>
+<p>這個網址在 domain 後面的部份, 一開始接的是 &#8220;blog&#8221;, 沒錯, 指的就是剛才上面寫的 Blog Class, 接著是 &#8220;post&#8221; 就是在 Class 中看到的 post function, 再後面的 &#8220;26&#8221; 就是要傳給 post function 的 $id 變數, 也就是第 26 篇文章, 所以只要輸入上面的網址, 就可以執行 Blog class 中的 post function, 而輸出的結果就跟程式中看到的一樣, 會直接輸出一行文字, 如下:</p>
 
-<p>畢竟 CI 是外國人寫的, 不過我想資料庫語系設定這一點, 在新版的 CI 應該會獲得解決吧!</p>
+<pre><code>這裡是第 26 篇文章
+</code></pre>
+
+<p>看到這邊大概就知道 CI 的 Controller 是怎麼運作的吧? 好, 接著再來看看 index 這個 function, 存取 index 頁面的網址如下</p>
+
+<pre><code>http://tzangms.com/index
+</code></pre>
+
+<p>或更簡短</p>
+
+<pre><code>http://tzangms.com/blog
+</code></pre>
+
+<p>只要輸入上面這個網址就會顯示出 index 這個 function 所產生的頁面, 也就是顯示最新的 10 篇 blog 文章。另外, 由於 index 是 CI 預設的首頁, 所以存取這個頁面的網址可以比 post 更簡短, 不過這個 index function 未免也太簡潔了吧!? 沒錯, 使用 CI 就是那麼簡潔 :D</p>
+
+<p>接下來來說明一下 index 裡的程式碼, 可以看到 index function 裡總共只有 3 行, 先來看看第一行:</p>
+
+<pre><code>$this-&gt;load-&gt;model('blog_model');
+</code></pre>
+
+<p>在這裡大家先知道, 這裡是在載入一個叫做 blog_model 的 Model, 而 Model 主要的工作就是在存取資料庫。接下來第二行如下:</p>
+
+<pre><code>$data = $this-&gt;blog_model-&gt;get_lastest_entries();
+</code></pre>
+
+<p>在這裡就先想像一下 blog_model 中, 已經寫好一個叫做 get_latest_entries 的 function, 會取出最新的 10 篇文章然後 return。而在上面可以看到, 最後會將取出的資料傳給 $data 這個變數, 接著在最後一行, 將 $data 一起輸出給 View, 這樣一來就完成了 Blog 首頁啦!! 當然 View 的部份也就不先說明了。不過還是列一下如和載入要顯示的 View, 並先前透過 get_latest_entries 所取出的資料一起透過 View 輸出。</p>
+
+<pre><code>$this-&gt;load-&gt;view('blog', $data);
+</code></pre>
+
+<p>基本上 Controller 就是長得這樣, 在一個 Controller (Class) 中包含許多頁面(function), 這麼一來, 把相關的頁面寫在同一支 Controller 中, 是不是比較好維護呢? 另外使用 MVC 架構, Controller 看起來也會簡潔許多。</p>
 </div>
   
   
@@ -182,7 +199,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/901">智邦部落客美食聚!</a></h1>
+      <h1 class="entry-title"><a href="/blog/868">關於部落格觀察 與 Google AdWords</a></h1>
     
     
       <p class="meta">
@@ -196,23 +213,22 @@
 
 
 
-<time datetime="2007-07-01T11:59:01+08:00" pubdate  data-updated="true" >Jul 1<span>st</span>, 2007</time>
+<time datetime="2007-05-29T22:36:44+08:00" pubdate  data-updated="true" >May 29<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/683300841/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1093/683300841_707ad7c43f.jpg" width="500" height="375" alt="100_1821.JPG" /></a>
-你好, 我是接待小弟! XD</p>
+  <div class="entry-content"><p>好吧! 其實我有偷偷在注意我的部落格觀察排名啦! XD 剛才從<a href="http://www.liverx.net/">高藥師</a>在<a href="http://tzangms.com/?p=861">這篇</a>的留言才知道原來部落格觀察有<a href="http://look.urs.tw/progress_rank.html">上周進步榜</a>這種東西, 我還找了好一陣子, 最後用 Google 才找到 XD</p>
 
-<p>雖然昨天是禮拜六, 不過我要上班! 昨天是補端午節的假, 比起一般公司的補上班時間晚了一個禮拜。基本上美食聚當天我是負責打雜的, 還有當接待小弟, 就是在會場門口發名牌給到達的部落客, 雖然早上一到公司我的心還是在程式上, 因為要把 MySQL 換成 MS SQL Server 果然是有點麻煩, 不過幸好我把問題給解決掉了 XD 哈! 所以寫完之後就可以專心弄會場的佈置等等, 不然程式寫不出來, 我的心情會不好 XD</p>
+<p>不過這個排名在我周遭的部落格大咖中, 我算是絕對的無名氏, 進步的原因, 其實大多數來自於<a href="http://www.christabelle.idv.tw/">迴紋針老師的部落格</a>, 都是由於迴紋針老師把我 mark 成&#8221;帥哥&#8221;, 請看<a href="http://www.christabelle.idv.tw/rewrite.php/read-458.html">這篇</a> XD, 還有先前的 moo miniCards 事件, 使得敝小站流量大增 XD 再來就是 <a href="http://jeph.bluecircus.net/">jeph 的音謀筆記</a>, jeph 在小海 Podcast 開播之後, 幫我大推! 就在此感謝 <a href="http://www.christabelle.idv.tw">迴紋針老師</a> 以及 <a href="http://jeph.bluecircus.net/">jeph</a> ! :D</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/life/901">Read on &rarr;</a>
+      <a rel="full-article" href="/blog/868">Read on &rarr;</a>
     </footer>
   
 
@@ -224,7 +240,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/899">淡水一日遊</a></h1>
+      <h1 class="entry-title"><a href="/programming/867">最近使用 CodeIgniter 的雜亂心得</a></h1>
     
     
       <p class="meta">
@@ -238,21 +254,176 @@
 
 
 
-<time datetime="2007-06-27T22:18:53+08:00" pubdate  data-updated="true" >Jun 27<span>th</span>, 2007</time>
+<time datetime="2007-05-28T23:19:59+08:00" pubdate  data-updated="true" >May 28<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/638301137/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1173/638301137_7003dac28b.jpg" width="500" height="375" alt="100_1616.JPG" /></a>
-上禮拜六, 公司住在淡水的同事 sanni 帶我去淡水一日遊, 陽光開心的一天!</p>
+  <div class="entry-content"><p>由於最近一直在 porting , 不只是為了好玩, 也是未來的趨勢, 所以採用了 framework 來作 porting 的動作, 其實一開始對於 framework 可以做到的事情, 有點感到驚訝! 一開始 porting 還滿好玩的, 但是相較於單純只是要將 view 跟 code 分離來說, 原本應該會採用 Smarty, 那麼我就可以很輕鬆的把這個程式 port 完, 不過在先前就一直有在 survey 一些 PHP framework, 所以這次才就直接衝了, 選用 <a href="http://codeigniter.com/">CodeIgniter</a> 這個 framework 來做 porting!</p>
+
+<p>其實用 Smarty 可以減少許多 porting 的時間, 因為只需要單純的將 logic 跟 view 分離, 原本程式中就有的 library 還是可以繼續保留、使用, 但是, 就先前使用 Smarty 在開發的過程中, 還是感覺 Smarty 對以後的維護還是很麻煩 XD 不過這次採用了 CodeIgniter 來 porting 真是嘗到苦頭了 XD 由於對 framework 的不熟悉, 需要一邊 study 一邊 porting, 還要研究要如何將 MVC 切的漂亮, 接著原本程式的數量還滿龐大的, 然後又使用 framework 來作, 幾乎是重新改寫的情況下, 我原本跟經理說得大約 1 個月, 變成我的壓力來源 XD 就叫自作自受阿! 哈哈哈! 不過其實公司是沒有人在催我進度, 頂多問一下做的如何了~ 嗯, 我自己耍帥, 要用不熟悉的東西來做 porting, 當然不能將時間延誤推給這個原因阿! 所以應該將近有 3 個禮拜的時間, 就整個人悶了, 整天想的都是 porting, anyway, 但是說真的, 用 framework,  MVC 來作, 的確會讓程式簡潔很多, 方便往後程式的維護開發。</p>
+
+<p>我選用的 CodeIgniter, 沒看到有繁體中文的站台在介紹, PHP framework 在台灣比較紅的就屬 CakePHP 啦! 但是我看不懂他的 Document XD 而 CodeIgniter 的 Document 則是清楚明瞭, 而且就 framework 來說, 自由度很高! 門檻也不高, 所以我就選用 CodeIgniter 啦! 用 framework 就是要快阿~ 花太多時間在跨越門檻, 那就反了 XD</p>
+
+<p>framework 的其中一個特點就是, 他提供許多讓你快速開發程式的 function, 例如 Database class, 可以用 ActiveRecord 來存取資料庫, 而提供許多的 Database driver, 如: mysql, mssql &#8230;等, 即使你換資料庫, 你也只需要更改 Database driver 即可。以下是 ActiveRecord 小範例:</p>
+
+<p>原本 PHP 的做法:
+<code>mysql_query('SELECT * FROM mytable');</code></p>
+
+<p>使用 CodeIgniter ActiveRecord:
+<code>$this->db->get('mytable');</code></p>
+
+<p>使用 ActiveRecord 來作, 簡潔許多, 另外 framework 也幫你做了預防 SQL Injection 的動作。</p>
+
+<p>framework 中還有像是 Image_lib 的 library 讓你方便的就可以對圖片做 crop, resize 的動作, 還有一個很貼心的東西就是 input class, 每當在存取 $<em>POST 的時候, 總是要用 if 加上 isset 來檢查, 不存在就要另外將變數指定為 empty, 當 $</em>POST 變數很多的時候, 判斷式也相對的增多, 這時候程式就會變得很雜亂, 很難看, 然而 CodeIgniter 提供的 input class 很貼心, 當讀不到某 $_POST 變數的時候, 他會幫你自動將這個變數設為 empty, 舉例如下:</p>
+
+<p>原本的 PHP 做法:
+<code>if (isset($_POST['foo'])){</p>
+
+<pre><code>$foo = $_POST['foo'];
+</code></pre>
+
+<p>} else {</p>
+
+<pre><code>$foo = '';
+</code></pre>
+
+<p>}</code></p>
+
+<p>CodeIgniter 的做法:
+<code>$foo = $this->input->post('foo');</code></p>
+
+<p>這樣一來, 程式就簡潔了許多, 需要打的字也少了許多, 也方便以後維護, 當然還有其他許多貼心的 function,  不過後來發現其實裡面有些 function, 反倒要花上更多的行數, 來解決相同的事情, 但是後來才發現 framework 這個東西, 做主要的其中一項功能, 其實是要讓你方便維護你的程式碼阿!! 只能說 PHP 寫起來真的是很亂 XD</p>
+
+<p>其實寫到最後, 感覺像有種在做設定的感覺, 所以整個程式碼變得很簡潔, 井然有序, 以後再來寫一些介紹文好了!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/podcast/866">小海 Podcast 第 5 集</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-05-25T23:37:35+08:00" pubdate  data-updated="true" >May 25<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>哈! 這集隔了好久 :p 雖然這集只介紹了4首歌. 不過也快半小時了:p 這集講了一下蘭卡威之旅的心得, 大家都該去體驗一下蘭卡威大自然的威力才對 XD</p>
+
+<ol>
+<li>沙漏(木吉他板) by <a href="http://tzangms.com">小海</a></li>
+<li>癮 by <a href="http://www.wretch.cc/blog/cowboy731216">姆貓</a></li>
+<li>multiply by <a href="http://profile.myspace.com/index.cfm?fuseaction=user.viewprofile&amp;friendID=28818054">a women of no importance</a></li>
+<li>in for a ride by <a href="http://www.anekdoten.se/">Anekdoten</a></li>
+</ol>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/864">[串連] 我的惡臭經驗</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-05-25T00:32:11+08:00" pubdate  data-updated="true" >May 25<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.bio.url.tw/smell.html" target="_blank"><img src="http://www.bio.url.tw/bio.gif" width=150 height=60 border="0" align='left' /></a>被<a href="http://www.christabelle.idv.tw/">迴紋針老師</a>點名了! XD 今天中午聽到迴紋針老師跟 <a href="http://www.dearjohn.idv.tw">DearJohn</a> 提到&#8221;臭&#8221;這個字眼, 沒想到是這個串連, 下午看到迴老師的網誌才知道是這個題目, 噗~ 我突然覺得我錯了 XD 還真的要想好一陣子才能說我的惡臭經驗。</p>
+
+<p>說到惡臭經驗, 我想機車族的朋友們, 騎機車在路上應該都會有碰到垃圾車擋在前方的經驗, 有時候可真的是跑都跑不掉, 生長在空氣清新的宜蘭鄉下的我, 又沒有帶口罩的習慣, 所以碰到躲不掉的狀況, 真的是生不如死! 各位有相同經驗的朋友們應該有同感吧! XD 覺得垃圾車應該有除臭兼芳香的功能才是!</p>
+
+<p>來說重點吧! 從小生長在漁村的我, 其實對於魚腥味已經是習以為常了, 但是每當經過魚貨上岸的魚市, 又正當豔陽高照, 那個味道可不是一般人可以忍受的, 更何況是對外地來的遊客。我在想, 其實當遊客一進到南方澳漁港的時候, 應該就覺得空氣中已經瀰漫著一股&#8221;漁村的味道&#8221;吧!? 不過對我這個當地人則是已經很習慣了。</p>
+
+<p>其實最讓我不能忍受的是, 因為是住在鄉下的漁村, 而隔壁的阿嬤總是三不五時的在醃魚, 就放在他家門口, 噗, 問題是, 我家大門就常只關著紗門, 所以就也需要三不五時的遭受到醃魚味道的攻擊, 也許有些人覺得醃魚很好吃, 但是我真的是沒辦法接受醃魚過程中所產生的味道!! 不知道 bio 有沒有相關產品, 可以讓醃魚的時候在旁邊擺罐醃魚專用芳香劑 XD</p>
+
+<p>話說&#8230;這個串連要點名三位朋友~ 不知道有沒有人自願的? XD 不過故意點的好像比較好玩, 噗~ 被點到不要怪我 XD 那就&#8230;. <a href="http://blog.roodo.com/Rinslet">Rins</a>, <a href="http://blog.pixnet.net/jel0627">jel</a>, <a href="http://annpo.pixnet.net/blog">阿潑</a> ? 噗~</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/862">最近像一攤死水</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-05-24T01:31:20+08:00" pubdate  data-updated="true" >May 24<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>最近卡好多事, 光是公司的是就忙翻了~ 回家還要寫歌~ 越寫不出來就越卡, 快變成一攤死水了~ 然後下班後就整個人懶掉, 原本昨天就該寫蘭卡威之旅下集, 但是怎麼也提不起勁, 也沒那個心情讀書、讀文件, 這禮拜應該會把公司的一個專案做一個階段性的收尾 不過公司的程式設計師怎麼都請不到?</p>
+
+<p>一直在搞目前的專案, 原本預估一個月, 用 CodeIgniter 來 porting,  不過 porting 時程超過我當初的預計, 當然這多少也跟我經驗不足有關, 但最主要的是這個專案原本就寫的很爛 XD 這我不知道說幾遍了, 不只要 porting, 還要修原本的 bug, 而程式碼的數量也是當初所沒估計到的, 還有它的程式比我原本想像的還爛, 靠~ 害我浪費時間 port 了好幾次原本應該可以作成同一支 function 的 code。</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/life/899">Read on &rarr;</a>
+      <a rel="full-article" href="/life/862">Read on &rarr;</a>
     </footer>
   
 
@@ -264,7 +435,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/897">多好笑小海來電.mp3</a></h1>
+      <h1 class="entry-title"><a href="/life/861">蘭卡威之旅上集!</a></h1>
     
     
       <p class="meta">
@@ -278,77 +449,22 @@
 
 
 
-<time datetime="2007-06-26T22:35:43+08:00" pubdate  data-updated="true" >Jun 26<span>th</span>, 2007</time>
+<time datetime="2007-05-22T01:24:55+08:00" pubdate  data-updated="true" >May 22<span>nd</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>話說, 事情就發生在昨天&#8230;
-就在昨天, 我把 Happy! GO! 錄好之後, 想要馬上傳給志豪聽, 不過志豪居然沒在線上, 我就只好撥電話過去給志豪, 看他在幹嘛, 因為我心裡想說, 待會志豪聽了一定會哭 XD</p>
-
-<p>打電話了過去, 志豪說他跟信宏在彈 bass 跟吉他, 另外還有大貓, anyway, 我就叫志豪快點上線, 想快點給他聽 Happy! GO! 這首歌, 後來志豪就叫我聽信宏的新空心電吉他, 我話都還沒說&#8230; 他們就這樣自顧自的彈起來了&#8230;&#8230;..我想一想不對&#8230;. 是我打電話過去ㄝ&#8230;..我趕緊就說:「 X! 電話是不用錢是不是」&#8230;.. 最後叫志豪快點上線, 我就掛了電話。</p>
-
-<p>沒想到, 當時志豪居然開著麥克風在錄音, 在我掛完電話沒多久後, 志豪就傳來一個 mp3, 名稱叫做&#8221;<strong>多好笑小海來電.mp3</strong>&#8221; 媽的! 我剛才的對話都被錄下來了阿!!!!</p>
-
-<p>我講話很粗魯嗎? 最後我跟志豪討論的結果是, 這才是真性情阿!! XD  Anyway 可以聽聽信宏彈的一小段 blues ~</p>
-
-<p>不過不知道誰在最後補一句 &#8220;好好笑&#8221; = =</p>
-
-<p>(PS. 內有真性情談話 XD 不喜勿聽)</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/896">[Demo] Happy! GO!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-06-26T00:29:00+08:00" pubdate  data-updated="true" >Jun 26<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這首歌是我們家 Bass 手 - 志豪寫的, 不過由我重新錄製, 跟修曲, 把這首歌完整弄出來, 不過由於沒有歌詞, 所以這一首歌整首都在啦~啦~啦~ XD</p>
-
-<p>先前志豪就寫了一首 happy go, 我也不知道為啥要叫這個歌名, 因為~ 聽當時志豪的錄音檔, 他亂哼的歌詞明明是悲的, 當時我就覺得 happy go 還不錯聽, 不過志豪就沒有繼續把這首歌做出來。</p>
-
-<p>一直到昨天晚上, 志豪又傳來了一首新歌, 檔案名稱叫 happy gone , 心想:</p>
-
-<p>「跟 happy go 是同一首嗎?」</p>
-
-<p>不過聽了之後, 好像只有編曲類似, 沒有曲, 也就是沒有唱歌的部份, 不過這首 happy gone 多了開頭的吉他 solo, 一開始聽的時候, 我就跟志豪說 :</p>
-
-<p>「靠北, 你吉他是在彈啥小!」XD</p>
-
-<p>不過志豪說他是 bass 手, 吉他彈得出來感覺就好了, 好吧! 就原諒他, 不過就在我又聽了幾遍之後&#8230;&#8230;. 我哭了!</p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/505957082/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/220/505957082_29e64aec8b.jpg" width="500" height="375" alt="100_0852.JPG" /></a>
+<a href="http://www.flickr.com/photos/tzangms/505985093/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/220/505985093_4acf084b5a_s.jpg" width="75" height="75" alt="100_0854.JPG" /></a> <a href="http://www.flickr.com/photos/tzangms/505955380/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/232/505955380_9924697188_s.jpg" width="75" height="75" alt="100_0862.JPG" /></a> <a href="http://www.flickr.com/photos/tzangms/505954516/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/227/505954516_8c368746af_s.jpg" width="75" height="75" alt="100_0864.JPG" /></a>
+在出國之前, 每次跟朋友說我要去蘭卡威, 朋友都會回問說, 蘭卡威在哪? 就在馬來西亞阿! 就叫你們讀地理不讀 XD 呵, 馬來西亞還真是夠熱的, 但是總比這幾天台灣一直下雨來的好! 空氣清新、風景優美阿!! 最棒的就是, 跟一堆魚一起在海裡游泳, 這次浮潛, 超漂亮! 即使我從小就生長在漁村, 住在海邊, 對於每天都可以看到一堆魚的我來說, 這次真的是一次前所未有的體驗!</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/music/896">Read on &rarr;</a>
+      <a rel="full-article" href="/life/861">Read on &rarr;</a>
     </footer>
   
 
@@ -360,7 +476,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/music/895">[Demo] 打爆你的大頭</a></h1>
+      <h1 class="entry-title"><a href="/life/860">出國囉!!</a></h1>
     
     
       <p class="meta">
@@ -374,36 +490,18 @@
 
 
 
-<time datetime="2007-06-24T18:52:40+08:00" pubdate  data-updated="true" >Jun 24<span>th</span>, 2007</time>
+<time datetime="2007-05-17T00:55:44+08:00" pubdate  data-updated="true" >May 17<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>這首是先前錄好的版本拿來改的, 由於先前用 iBook G4 800, Guitar Rig 跑不動, Drum machine 也跑不動, 所以吉他跟鼓都直接用 Logic express 內建的效果器跟 Drum kits, 聲音不是很好聽, 今天把吉他都掛上 Guitar rig 2, 另外鼓用 Addictive drum 來作音源, 聲音就好多了, 最後用新麥克風重新錄製了 Vocal 的部份。</p>
+  <div class="entry-content"><p>要跟親愛的各位, 說聲掰掰囉! 這一去就要 4 天了! 這可是我人生中第一次出國, 第一次坐飛機內!!</p>
 
-<p>媽的! Guitar rig 2 的 tone 都調不好, Balance 也很爛 Orz</p>
+<p>回來在跟大家分享出國旅遊的心得吧!! 呵! 希望這次出國能找些靈感! 回來可以寫新歌! 本來這幾天要做 小海 Podcast 第五集的, 不過最近真的忙到翻了! 也在準備出國的一些事情跟東西~ 所以等我回來吧! 我終於可以跟電腦說掰掰了! 不過我怕我沒有電腦會很難過! XD 呵!</p>
 
-<p>anyway, 有興趣可以聽聽<a href="http://tzangms.com/?p=676">先前的版本</a>, 比較看看, 不過說真的, 這首錄的很隨便 XD</p>
-
-<p>[歌詞]
-為何你總是要跟著我 跟在我身後
-還以為我不知道你在左右
-只是我只想一個人走 不要跟著我
-我沒有力氣在去聽你囉唆</p>
-
-<p>我說我快要無法呼吸 (給我一點距離)
-你卻說你會很安靜 (要我一直陪著你)</p>
-
-<p>不要再跟著我
-小心我打爆你的大頭
-不要在囉唆</p>
-
-<p>不要再跟著我
-小心我打爆你的大頭
-不要在囉唆
-喔~喔~喔~喔~</p>
+<p>anyway, 蘭卡威我來啦!!!! see ya, guys!!</p>
 </div>
   
   
@@ -416,7 +514,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/music/894">[Demo] 你不解釋</a></h1>
+      <h1 class="entry-title"><a href="/life/858">我買 Jaguar 了!!!</a></h1>
     
     
       <p class="meta">
@@ -430,113 +528,21 @@
 
 
 
-<time datetime="2007-06-24T17:30:38+08:00" pubdate  data-updated="true" >Jun 24<span>th</span>, 2007</time>
+<time datetime="2007-05-14T23:54:50+08:00" pubdate  data-updated="true" >May 14<span>th</span>, 2007</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>[歌詞] by 非非
-你不解釋 永不解釋
-總是扳著臉 結束我的疑問</p>
-
-<p>你不認錯 永不認錯
-總是無辜地說 你沒有做錯</p>
-
-<p>你不道歉 永不道歉
-總是在我抱怨之前 先對我翻臉</p>
-
-<p>你不挽回 永不挽回
-木然的表情 總是起身準備離去</p>
-
-<p>你沈默的嘴角
-冷漠的眼神
-像是冬天吹起的一陣 冷風</p>
-
-<p>你挺直的背影
-訴說著你
-寧願 孤獨一生</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/893">我的木吉他</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-06-23T02:17:06+08:00" pubdate  data-updated="true" >Jun 23<span>rd</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/590433079/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1145/590433079_4da1bf6f7c.jpg" width="500" height="375" alt="100_1565.JPG" /></a>
-既然有人問到我的木吉他, 我也想幫我的木吉他寫篇文章感謝他一下, 那麼就來讓我的木吉他拍幾張照片, 亮相一下吧!</p>
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/497956438/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/189/497956438_3bc39d7067.jpg" width="500" height="375" alt="Fender Jaguar" /></a></p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/music/893">Read on &rarr;</a>
+      <a rel="full-article" href="/life/858">Read on &rarr;</a>
     </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/892">噗~主機 CPU 用量過高</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-06-22T14:41:28+08:00" pubdate  data-updated="true" >Jun 22<span>nd</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/581780379/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1322/581780379_8033c58aab_m.jpg" width="240" height="177" alt="my blog exceed the CPU limit" align='left' /></a>噗~ 真的是不知道該高興還是&#8230;., 這張圖是在說, 我的主機 CPU 用量過高, 所以我的網站暫時被鎖住了, 其實&#8230; 最近這幾天還滿常看到的， 尤其以昨天最為嚴重 XD</p>
-
-<p>我是向 bluehost 租用虛擬主機的, 雖然不像以往看到一些租用 dreamhost 的朋友們的悲慘狀況, 而是暫時的被 block 住, 所以昨天就把主機上一些沒用的服務給關掉, 哈, 其實只有我的 blog 跟 tzangms.com 旗下的零星 blog 有在用之外, 先前架設的論壇也沒人用, 相簿我也是用 Flickr Pro XD 另外, 昨天也把目前 blog 的一些外掛關掉, 把佈景主題中一些不必要的 code 給拿掉, 看來狀況是有好一些。</p>
-
-<p>問題是, 我的 blog 也沒有很多人看阿! 平均一天也才 200 左右的點閱次數, 倒是頻寬流量比較大一點點就是了, 因為放 Podcast, 放自己的音樂, 一個月大概會用掉 10 到 12G 的流量, 所以說, 在 page view 沒那麼多的情況下, 應該是 Wordpress 或是外掛的問題, 看來也許該換個簡單一些的佈景主題吧!?</p>
-</div>
-  
   
 
 

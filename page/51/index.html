@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="今天用 PHP 要從 SQL Server SELECT datetime 欄位的時候, 居然都 SELECT 不出秒數, 不像 MySQL 直接 SELECT 時間即可, 原來還需要 CONVERT 這個動作, 原本還試了 CAST 來把 datetime 轉成 char, 但還試失敗, 不...">
+  <meta name="description" content="4:31 命運的呼喚又來了!! Orz4:50 處理完畢我快3點才睡阿!!!賣鬧阿!!一連兩天都睡一個多小時就被call起來，看來真的是被詛咒了&#8230;..不過這一次是伺服器的問題&#8230;&#8230;Orz anyway，好餓喔~ 這樣會更睡不著吧!各位早安阿!! 5點了啦!! ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/767">MS SQL Server Datetime 用 PHP 取不出秒數?</a></h1>
+      <h1 class="entry-title"><a href="/life/719">真的被詛咒了！</a></h1>
     
     
       <p class="meta">
@@ -80,30 +80,23 @@
 
 
 
-<time datetime="2007-01-23T19:13:14+08:00" pubdate  data-updated="true" >Jan 23<span>rd</span>, 2007</time>
+<time datetime="2006-10-23T05:02:33+08:00" pubdate  data-updated="true" >Oct 23<span>rd</span>, 2006</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>今天用 PHP 要從 SQL Server SELECT datetime 欄位的時候, 居然都 SELECT 不出秒數, 不像 MySQL 直接 SELECT 時間即可, 原來還需要 CONVERT 這個動作, 原本還試了 CAST 來把 datetime 轉成 char, 但還試失敗, 不管直接取出來還是 CAST 成 char , 取出來的時間就都是下列的格式, 即使轉成 unix timestamp 也還是漏了秒數(都是 00 )，直接SELECT出來的時間格式如下。</p>
+  <div class="entry-content"><p>4:31 命運的呼喚又來了!! Orz
+4:50 處理完畢
+我快3點才睡阿!!!賣鬧阿!!一連兩天都睡一個多小時就被call起來，看來真的是被詛咒了&#8230;..
+不過這一次是伺服器的問題&#8230;&#8230;Orz anyway，好餓喔~ 這樣會更睡不著吧!</p>
 
-<blockquote> 09 Feb 2007 02:09AM</blockquote>
+<p>各位早安阿!! 5點了啦!! 我不想再看到陽光出現的時候睡著阿!! 就這樣了，有誰最近要去廟裡拜拜的？幫我拜一下阿! 風調雨順、國泰民安阿~</p>
 
+<p>&#8230;&#8230;&#8230;&#8230;.</p>
 
-<p>最後終於知道了, CONVERT 阿! 如下列:</p>
-
-<p><code>SELECT myid, CONVERT(char, mydate, 113) AS mytime FROM table</code></p>
-
-<p>其中的 113 是所謂的 style , 可以代換成別的數字,  來表示不同時間格式, 也沒多做研究格式, 我就用 113 然後轉成 timestamp 就可以用了, 果然秒數出來啦!! 有興趣的可以看看下列的 MSDN: ( PS. 我身邊應該很多人看到MSDN不想點進去吧!? XD)</p>
-
-<blockquote><a href="http://msdn2.microsoft.com/zh-tw/library/ms187928.aspx">http://msdn2.microsoft.com/zh-tw/library/ms187928.aspx</a></blockquote>
-
-
-<p>Anyway, just a memo.</p>
-
-<p><strong>2007/2/1 附註. 120 好像比較好? 剛才用113轉出來有問題, try 了 120 就正常了。</strong></p>
+<p>先檢查伺服器一下，緊來睏!&#8230;.O&lt;= zzzZZZ</p>
 </div>
   
   
@@ -116,7 +109,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/766">addLoadEvent</a></h1>
+      <h1 class="entry-title"><a href="/life/718">又一個白目~ Orz</a></h1>
     
     
       <p class="meta">
@@ -130,34 +123,16 @@
 
 
 
-<time datetime="2007-01-23T10:28:04+08:00" pubdate  data-updated="true" >Jan 23<span>rd</span>, 2007</time>
+<time datetime="2006-10-23T03:09:16+08:00" pubdate  data-updated="true" >Oct 23<span>rd</span>, 2006</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><pre>
-<code>function addLoadEvent(func) {
-    var oldonload = window.onload;
+  <div class="entry-content"><p>就不要在多說什麼了! 昨天沒睡覺，又加上一個自稱是工程師的留言板白目&#8230;.就用下面這一首歌來說出我的心聲吧!!這是首很龐克、真性情的一首歌曲,簡短有力，雖然不知道是哪個團做的，但是在此刻完全表達了我的心聲阿! 尤其是最後幾句，感情表露無遺～ 真性情阿！！</p>
 
-    if (typeof window.onload != 'function') {
-        window.onload = func;
-    } else {
-        window.onload = function() {
-            oldonload();
-            func();
-        }
-    }
-}</code>
-</pre>
-
-
-<p>usage:
-<code>addLoadEvent(firstFunction);
-addLoadEvent(secondFunction);</code></p>
-
-<p>Take a memo, I saw this script in DOM scripting,the book I was reading, and it&#8217;s written by Simon Willison (http://simon.incutio.com/)</p>
+<p>[audio:fuck_song.mp3]</p>
 </div>
   
   
@@ -170,7 +145,7 @@ addLoadEvent(secondFunction);</code></p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/music/765">[Demo] 沙漏</a></h1>
+      <h1 class="entry-title"><a href="/life/717">值班真的是很 High 阿!! Orz</a></h1>
     
     
       <p class="meta">
@@ -184,29 +159,18 @@ addLoadEvent(secondFunction);</code></p>
 
 
 
-<time datetime="2007-01-23T00:45:04+08:00" pubdate  data-updated="true" >Jan 23<span>rd</span>, 2007</time>
+<time datetime="2006-10-22T06:30:18+08:00" pubdate  data-updated="true" >Oct 22<span>nd</span>, 2006</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>[歌詞] by 非非
-沙子不急不徐地滴落
-時間不慢不快地消失
-倒過來 是她的容顏
-倒過去 是她的身影</p>
+  <div class="entry-content"><p>今天早上裝了ADSL 8M(先前都用3G，384k的速度)，在裝的時候有就call了，那時就先請Tommy大大幫忙，這個結束了之後，星期六就一片寧靜，本來想說可以安穩的睡個好覺，但其實這整個就是個詛咒，晚上在跟朋友在聊天的時候，跟他說 &#8220;要來去睡了，不然4~5點被call是很恐怖的事&#8221;，好吧! 就不要嘴賤！就真的3點被call起來，才剛睡著一個多小時左右，醒來真的是很痛苦。</p>
 
-<p>沙子不急不徐地流動
-生命不急不緩地消逝
-倒過來 是她的笑容
-倒過去 是她的依偎</p>
+<p>anyway，醒來處理完之後&#8230;..誰知道就睡不著了 Orz 而且心中一直還覺得剛才的客戶有可能還會在call(不過當然是希望不要阿XD)。事情處理完已經凌晨4點了~而且我整個人都清醒了阿! 所以就在網路上摸一摸，摸到5點多~ &#8220;好吧!該來去睡了，我不想見到早上的陽光阿!!&#8221;</p>
 
-<p>閉上眼
-是我的呼喚和她的憔悴！</p>
-
-<p>閉上眼
-是她的聲音和我的眼淚！</p>
+<p>躺下去沒多久，音樂才剛開始播，哈哈哈哈~ 結果又被call了!! 整個high翻天!!(來! 跟著我repeat一次 &#8220;天天樂翻天~ 翻天!&#8221;)  所以，我就馬上又爬起來看！果然，又是剛剛那位客戶，他說他弄了很久還是不行，可不可以打電話給他，好吧! 我本來就是要服務客戶的阿! 所以撥電話給他了解他的問題之後，問題就馬上解決了。但是，這就是現在我還在這裡打文章的來由了，都已經6點半，陽光已經跑出來啦!!XD 這就真的令我很難入睡了 Orz</p>
 </div>
   
   
@@ -219,7 +183,7 @@ addLoadEvent(secondFunction);</code></p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/music/764">[Demo] Is Sugizo Out There?</a></h1>
+      <h1 class="entry-title"><a href="/programming/716">PHP 初學者~</a></h1>
     
     
       <p class="meta">
@@ -233,20 +197,24 @@ addLoadEvent(secondFunction);</code></p>
 
 
 
-<time datetime="2007-01-21T03:23:55+08:00" pubdate  data-updated="true" >Jan 21<span>st</span>, 2007</time>
+<time datetime="2006-10-20T00:24:52+08:00" pubdate  data-updated="true" >Oct 20<span>th</span>, 2006</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>在看我猜的時候開始做的一首電子樂, 由於這次播的是&#8217;花美男&#8217;, 所以也沒必要專心看 XD 所以就一邊看電視, 一邊開起 Garageband 來玩玩。</p>
+  <div class="entry-content"><p>AJAX過一陣子之後再說吧! XD 昨天上班突然覺得自己的PHP都不會了。雖然我書都是買來放心安的，但是今天下班之後就把O&#8217;Reilly那本PHP+MYSQL拿來從第一頁開始翻，從基本開始學，還真的買來都沒翻過XD</p>
 
-<p>平常錄音都是用 Logic Express 7, 不過 Garageband 有他好玩的地方, 尤其是在拼貼的部份 XD 突然又玩起 Garageband 的原因最主要是日前亂逛逛到了這個 blog <a href='http://blog.roodo.com/judysmile/'>Judysmile Experimental Blog</a>, 還滿有趣的, 所以今天又因為我猜的節目沒啥看頭, 就來玩一下 Garageband。</p>
+<p>記得修bug不要只看表面! 還有要懂得try&#8230;catch&#8230;資料型別不一定都是你想的那樣&#8230;</p>
 
-<p>做這首歌大概花了 3 個小時吧, 很好玩, 不過因為凌晨了, 所以只能帶著監聽耳機大聲聽, 換來的是耳朵痛 XD 近日來錄音的結果我可以體會到待錄音室的人的辛苦 XD 雖然這首歌才花了 3 個小時, 不過這首歌一共有 23 軌喔!! 太 high 了! 這首是我目前做過的歌中, 最多軌的一首歌了~ :D</p>
+<p>另外，寫程式腦筋要清楚，在動手之前，都不用碰電腦沒關係，而是要把整個事情都釐清了，在下去做，不然原本以為一下子就解決的事情，反而花更多時間去找出問題，然後陷入在程式碼的流沙裡，一直找一直找，然後只是找著程式碼，然後忘記到底要幹嘛。</p>
 
-<p>至於歌名, 一時想不到歌名, 可是有想放上來給大家聽聽 XD, 沒辦法通常電子樂的歌名都很難想 XD 歌裡面有用到 sugizo 的經典樂句, 雖然沒練過 Luna sea 的歌, 但是 suzigo 的樂句就是那麼深刻的留在我腦海裡, 目前只想到這個名字, 以後想到在換好了, 或者&#8230;這個也不錯 XD is suzigo out there?</p>
+<p>所以說，在去學UML還有ER Model吧!</p>
+
+<p>總之，打好底子是很重要的，別在叫我大大了，我只是一個PHP初學者 Orz</p>
+
+<p>PS. 今天突然覺得能力太差，還來當程式設計師，有種可能被fire的感覺 XD</p>
 </div>
   
   
@@ -259,7 +227,7 @@ addLoadEvent(secondFunction);</code></p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/music/763">沙漏 小Demo</a></h1>
+      <h1 class="entry-title"><a href="/life/714">痛!</a></h1>
     
     
       <p class="meta">
@@ -273,18 +241,20 @@ addLoadEvent(secondFunction);</code></p>
 
 
 
-<time datetime="2007-01-20T21:15:14+08:00" pubdate  data-updated="true" >Jan 20<span>th</span>, 2007</time>
+<time datetime="2006-10-16T02:13:02+08:00" pubdate  data-updated="true" >Oct 16<span>th</span>, 2006</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>今天下午錄了一段新歌的小Demo, 一軌是木吉他加Vocal，第二軌是合音, 不過, 怎麼錄完最後還是沒有啥空洞的感覺&#8230;&#8230;我要雜音阿~! 不然聽起來太不像 Demo 了, 不過&#8230;.錄一錄&#8230;中間有飛機飛過去~~~ :D 沒有在家裡聽過飛機飛過的人, 可以聽一下 XD 至少, 還是用 5000 塊的麥克風錄了 XD</p>
+  <div class="entry-content"><p>其實也沒啥，上星期六敗了一萬多塊~最後沒有買麥克風線，所以星期日就又跑去買了麥克風線($340)，另外還有一個Apple wireless keyboard($2000)，哈哈哈!整個週末大失血!</p>
 
-<p>不過說真的, 光唱歌我 Vocal 控制的不是很好, 反而分心去彈吉他, Vocal 反倒比較穩&#8230; 可能註定我不適合專職當主唱吧!</p>
+<p>記得剛工作大概一個月左右，我的左邊肩膀，痛到不行! 一開始還好，但是一天一天越來越痛，痛到後來我的脖子幾乎不能動了! 甚至晚上睡不著覺，在猜想應該是上班因為寫程式的關係，桌面又滿高的，又沒有像電腦桌一樣有個擺鍵盤的地方可以拖出來，所以手就是擺在桌面上，照理來說，即使手平行靠在桌面上，也應該還好吧? 阿災~ 加上一直盯著電腦螢幕頭幾乎沒有在動 XD 然後下班又彈吉他錄音，(背帶是在左肩)也許是因為這樣，所以左邊肩膀才會那麼痛吧!? 痛了一個多月，終於好多了！但是&#8230;..</p>
 
-<p>有興趣聽一下吧~ 一口氣錄到底, 沒有修, 沒有效果器, 其實也不錯~</p>
+<p>星期天早上居然爬不起來!!!:O 因為肩膀脖子太痛啦!!幹!!就連翻身都會痛，要用手撐起身體都覺得很痛跟吃力，慢慢的翻身，翻來翻去才找到一個合適的姿勢慢慢的用手撐起身體，幹! 三小! 這次居然一覺起來就是當初最難過的疼痛! 是因為昨天前吉他手阿翔來找我一起彈吉他所造成的嗎? 不會吧!? 還是我那天太晚睡，然後整個睡死，接著來個他媽的無敵大落枕!!? 真是夠了!! 我今天應該會睡不著吧!? 痛到翻!</p>
+
+<p>該不會是受到詛咒吧!?</p>
 </div>
   
   
@@ -297,7 +267,7 @@ addLoadEvent(secondFunction);</code></p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/761">關於阿西摩寫的 JavaScript ≠ Java</a></h1>
+      <h1 class="entry-title"><a href="/life/713">這個週末大失血~Joemeek JM37、AKG K240 Studio</a></h1>
     
     
       <p class="meta">
@@ -311,84 +281,25 @@ addLoadEvent(secondFunction);</code></p>
 
 
 
-<time datetime="2007-01-16T00:12:45+08:00" pubdate  data-updated="true" >Jan 16<span>th</span>, 2007</time>
+<time datetime="2006-10-16T01:28:07+08:00" pubdate  data-updated="true" >Oct 16<span>th</span>, 2006</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>看了阿西摩部落格的這一篇文章 <a href='http://www.one18.com/?p=109'>JavaScript ≠ Java</a> 後, 我還是忍不住有話要說 XD</p>
+  <div class="entry-content"><p>這個週末跑去midimall，本想只買一支Shure SM58跟隨便一個監聽耳機，預算大概5000左右吧! 不過一去就被認出來，被認出來在今年年初有上過電視 XD (不知道嗎?請看今年年初的post)</p>
 
-<p>下面這六點是作者阿西摩自己對 JavaScript ≠ Java 的解釋: (在每一點後面附上我的看法)</p>
+<p><a href="http://www.flickr.com/photos/tzangms/269462499/" title="Photo Sharing"><img src="http://static.flickr.com/102/269462499_08601850c1_m.jpg" width="163" height="240" alt="AKG K240s" class='alignleft' /></a> Anyway, 我一去就跟他說我用M-Audio Firewire 410, 叫他建議一下有沒有哪支不用加 mic pre 就可以直接推, 還有監聽耳機也不用耳擴(應該是指耳機擴大機) XD 就是偏向個人錄音用的配置。 當然一開始監聽耳機就是推薦我 Sony MDR-7506, 這款還滿多人推的, 不過主要是偏向在錄vocal。 雖然這支就可以了, 不過我想要比較通用一點的, 他後來就拿AKG K240 Studio給我, Anyway, 他說好就好, 我也不懂, 不過後來回加上網查了一下, 這支還滿剛好符合我的需求, 不需要耳擴, 然後低頻很夠, 聽了一下自己以前錄的歌, 的確聽到了很多細節, 尤其是早期直接用iBook的小孔 mic 收音的錄音, 可以很清楚的聽到&#8221;雜音&#8221; Orz</p>
 
-<ol>
-<li>JavaScript 只要有一個網頁跟有支援 JavaScript 的瀏覽器才可以執行。而 Java 語言呢，只要程式內沒有使用什麼特殊平台的 library，經過轉譯後的 class 檔，幾乎可以放到任何已經安裝有 Java Runtime 環境的系統上。比方說，我在我的 Windows 上開發轉譯後的 Java 程式，可以放到 UNIX, Linux, OSX 上執行，都不會有太大的問題。</li>
-</ol>
+<p><a href="http://www.flickr.com/photos/tzangms/269459906/" title="Photo Sharing"><img src="http://static.flickr.com/114/269459906_6fdbb55b28_m.jpg" width="108" height="240" alt="Joemeek JM37" class='alignright' /></a>至於麥克風一開始我是說來支Shure SM58，他就說&#8221;你要動圈式的喔?為什麼不用電容式的呢?多個幾千塊聲音也比較細阿!&#8221;，後來他拿了一支不知是比SM58好還是同等級的動圈式麥克風跟joemeek JM37，接上mixer戴上監聽耳機一試! 幹! 果然~電容式的聲音就是細很多，很多阿!!!當時內心就心動了!問了一下價錢，他說:&#8221;7000!&#8221; 幹! 整個超出了當初麥克風加監聽耳機的預算，但是~因為聲音聽起來太棒了!所以我就說&#8221;好!就這一支!&#8221; 幸好，後來他查價格的時候說，他記錯了，這個型號是5000塊才對! XD 呼~ 還算是個好消息!所以就又買了一支不差麥克風架(當然，麥克風那麼貴，摔到可不得了)。</p>
 
+<p>所以星期六的戰績如下:
+Joemeek JM37: $5000
+AKG K240 Studio: $4000
+Mic Stand : $1200</p>
 
-<blockquote>
-換句話說 Javascript 只需要一個瀏覽器, 不管是 Netscape, Mozilla, Firefox, IE, Opera, Camino, Safari 甚至 Links 2 也都有支援 Javascript, 那麼不管是 Windows, UNIX, Linux, Mac OS X 都有瀏覽器, 所以這一點比的是支援度? 那麼 Javascript 比起 Java 的&#8221;不會有太大的問題&#8221;來說, Javascript 好上很多。
-</blockquote>
-
-
-<ol>
-<li>最原始的 JavaScript 能操作跟執行的範圍相當有限，比方說，你如果要讀取本機端的檔案，比就必須搭配 JavaScript extension 還有 ActiveX 之類的附註程式才有可能達稱。而 Java 可以輕鬆的使用 Java 原本的 package 去讀取檔案，更改檔案。</li>
-</ol>
-
-
-<blockquote>
-這個比喻?? 這例子根本不能這樣舉吧! 那我也來舉個例子: 例如用 C/C++ 要來做指標的操作,  Java呢? Java 根本沒有指標阿! 連擴充的方式都沒有(這可能是我才疏學淺, 有的話請指正我一下), 那這要怎麼比? 
-</blockquote>
-
-
-<ol>
-<li>JavaScript 當年是 Netscpae 開發出來用在 Netscape 上，讓原本死板板的 HTML 網頁可以又動態的變化，互動，還有驗證輸入等等的功能。而 Microsoft 呢，運用他們最厲害的 Reverse Engineering 把 JavaScript 學了起來，然後自創了 JScript. 而比起 JavaScript，Java語言，有自己的標準，架構，平台，而且複雜度高上太多太多了，所能應用的範圍更是會把 JavaScript 巴到連渣都不剩!</li>
-</ol>
-
-
-<blockquote>
-就是因為 Java 這類的語言太複雜, 所以才會有 Scripting Language, 如果說我只是為了要在網頁上swap 圖片, 我想..用 Javascript 來寫不用一分鐘吧, 那麼 Java applet 呢? 最少也要花上2~3倍的時間吧? import ? addEvent ? addListener? 加上 compile? 我只是要 swap 個圖片而已。
-</blockquote>
-
-
-<ol>
-<li>JavaScript 是一種非常不嚴謹的腳本語言。在 JavaScript 裡面，變數全部都用 var 宣告，如果你這樣在 Java 裡面寫程式，我跟你保證，Java compiler 會不斷的，一直的給你［舉紅牌］!</li>
-</ol>
-
-
-<blockquote>
-這點我也可以保證, Javascript 是一個不嚴謹的語言, 但是不管是用 B, C, C++, Objective C, PHP, ASP, ASP.NET, C#, Python, Ruby &#8230;. Java compiler 仍會不斷的一直給你舉紅牌。呵, 不過我想作者的原意是在指出 Javascript 的不嚴謹, 但是舉的例子很糟糕。
-</blockquote>
-
-
-<ol>
-<li>我可以用 Java 語言，在 Java Server Page (JSP)上動態產生 JavaScript 語言，並且執行，而你想要用 JavaScript 去寫 Java語言!? 嗯，還是不要沒事找自己麻煩的好!</li>
-</ol>
-
-
-<blockquote>
-這個比喻?? &#8230;還是很糟糕, 就沿用我第3點所舉的例子, 用 Java 來寫? 還是不要沒事找自己麻煩的好。
-</blockquote>
-
-
-<ol>
-<li>總之，JavaScript ≠ Java 你是要我說多少次才會聽懂啦!</li>
-</ol>
-
-
-<blockquote>
-這我百分百贊同作者!
-</blockquote>
-
-
-<p>這篇文章的用意, 只是想說一下, 每個程式語言都有他的應用的地方, 並不是說 Javascript 不嚴謹、應用範圍不廣, 就是 Java 被巴到連渣都不剩! 當初的 Java applet 紅透半邊天, 但是現在卻是 AJAX 當道。現在的 Java 應用是真的很廣, 如: 手機遊戲、電冰箱&#8230;等等，還有很多，但是現在人家真的要製作網頁上的動畫, 人家當然用 Flash + Actionscript, 而不是用 awt 在那邊苦的要命, 在 Linux 下作 routine task 用 shell 或 perl, 在 Mac 下也可以用 Apple script, 寫 kernel 用 C/C++，大部分的情況當然都可以用 Java 來取代，但是，還是不要沒事找自己麻煩的好。</p>
-
-<p>並不是 Scripting language 簡單、不嚴謹就一無是處的阿！</p>
-
-<p>另外可以看一下底下兩篇文章:
-<a href='http://ghostsinthelab.org/3/archive/575.html'>YHH 大大的說得真是太好了</a>
-<a href='http://lightyror.thegiive.net/2007/01/scripting-lanuage.html'>thegiive 的 Scripting Lanuage 就比較不專業？</a></p>
+<p>總共是 $10200 不過回到家興奮的要裝來試的時候，才發現!! 他媽的!! 忘記買麥克風線!!! Orz</p>
 </div>
   
   
@@ -401,7 +312,7 @@ addLoadEvent(secondFunction);</code></p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/760">Reading: DOM Scripting</a></h1>
+      <h1 class="entry-title"><a href="/programming/712">AJAX Learning Start!</a></h1>
     
     
       <p class="meta">
@@ -415,91 +326,51 @@ addLoadEvent(secondFunction);</code></p>
 
 
 
-<time datetime="2007-01-11T01:55:55+08:00" pubdate  data-updated="true" >Jan 11<span>th</span>, 2007</time>
+<time datetime="2006-09-29T00:40:46+08:00" pubdate  data-updated="true" >Sep 29<span>th</span>, 2006</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>DOM Scripting - Web Design with Javascript and Document Object  Model</p>
+  <div class="entry-content"><p>這幾天開始在研究AJAX，研究了一下GWT(Google Web Toolkits)，感覺還滿方便的，用Java來開發，然後轉成Javascript+HTML，只是我Java忘得差不多了，在當兵前還會用Swing，現在&#8230;.都忘光了，其實忘光的程度就跟我工作前的PHP一樣，不過現在PHP有學回來了 XD 不過依現在JAVA的程度，多少還可以運用GWT的元件，用GWT來開發其實滿方便的，很快！還滿好玩的，不過Interface, inherent都忘光了，倒是innerClass跟Listener還算熟係，然後GWT應該不用去管Thread吧! 不然我也忘光了 XD</p>
 
-<p>因為自己太弱了所以來讀關於DOM的書, 這本書寫的很淺顯, 連基本的javascript都有先做描述, 這本書的網站(<a href='http://domscripting.com/'>http://domscripting.com/</a>), 先前讀的Smarty document算是讀完了, 剩下的就只是有需要的時候在看了, 有空再來寫一些Smarty的Memo。</p>
+<p>然後今天也開始在研究javascript，我會javascript阿！僅限於alert這個指令 :x 要熟javascript才有可能玩AJAX阿! 昨天也才知道DOM(Document Object Model)這是啥，其實我啥都不會阿!!! Orz</p>
 
-<p>在這裡記錄一下進度, 不然每次都忘了看到哪裡, 總共352頁, 目前看到78頁。</p>
+<p>PHP Smarty跟PHP Pear也是上班後才會的，還有最近才會Regular Expression，真的是很糟糕 Orz 來列個表好了!</p>
 
-<p>接下來還有許多東西要讀的:</p>
+<p>上班之後會的東西:</p>
 
 <ul>
-<li>SQL</li>
-<li>CSS</li>
-<li>&#8230;</li>
+   <li>PHP Pear</li>
+   <li>PHP Smarty</li>
+   <li>Screen</li>
+   <li>Regular Expression</li>
 </ul>
 
 
-<p>最後就來 ruby 吧!!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/755">用 Vi 在 Big5 與 Utf-8 之間穿梭</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-01-09T16:59:17+08:00" pubdate  data-updated="true" >Jan 9<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>基本上, vi 要編輯 utf-8 文件, 做下面兩件事就可以了</p>
+<p>要學的東西</p>
 
 <ul>
-    <li>設定 vi : set encoding=utf-8</li>
-    <li>將你的 terminal 設為 utf-8(or unicode)</li>
+   <li>Javascript</li>
+   <li>DOM</li>
+   <li>LDAP</li>
+   <li>XML</li>
+   <li>Ruby</li>
+   <li>Perl</li>
 </ul>
 
 
-<p>不過最近需要在 big5 跟 utf-8 之間跑來跑去, 本來在 vimrc 裡設定的是:
-<code>set ts=4</code></p>
+<p>要複習的東西</p>
 
-<p>不過每次編輯不同編碼的檔案時, 都要再設定一次 encoding, 所以另外做一份 vimrc 放在 home, 叫做.vimrc_utf-8, 內容如下:</p>
+<ul>
+   <li>Java</li>
+   <li>C++</li>
+   <li>Bash</li>
+</ul>
 
-<p><code>syntax on
-set ts=4
-set encoding=utf-8
-set backspace=indent,eol,start</code></p>
 
-<p>然後在寫一個 bash, 命名為 joe 內容如下:
-<code>#!/bin/bash
-vim -u ~/.vimrc_utf-8 $1</code></p>
-
-<p>這麼一來要編輯 big5 編碼的檔案還是用 vi 這個指令, 要編輯 utf-8 編碼的檔案就用 joe 啦!當然這個 bash 的名字你可以自己取你喜歡的名字, 例如: vi-utf8, vi8 ?</p>
-
-<p>不過這些都太難打了, 剛好想到在學 vi 之前都用 joe 這個文字編輯器, server上又剛好沒裝joe所以就把這個 bash 命名做 joe, 還滿喜歡這個名字的, 因為滿好打的, 之前很喜歡的一個編輯器, 雖然後來 joe 也加入了color syntax, 不過 joe 好像還是越來越式微了。</p>
-
-<p>另外, 給 utf-8 用的 vimrc 比起原有的 vimrc 多出了好幾行的設定, 似乎是指定特定的 vimrc 後, vi 就不會讀取預設的設定, 所以又再多加了一些設定。 不知道 vi 可不可以自動偵測編碼? XD</p>
-
-<p>PS. screen 搭配 vi 來編輯 utf-8 文件還是有問題, 請愛用 :e # 吧! XD</p>
+<p>恩，好多東西要學阿! 不過還好啦! 很好玩阿!! 而且搞電腦、搞網路的都這樣阿! 尤其是網路程式設計，常有新技術出來，乾脆Python也來一下好了 XD 還有加上前幾天搞懂的Applescript! anyway，先把Java跟Javascript弄熟吧!! AJAX 我來啦!!</p>
 </div>
   
   
@@ -512,7 +383,7 @@ vim -u ~/.vimrc_utf-8 $1</code></p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/life/750">新年快樂! 2006年回憶錄</a></h1>
+      <h1 class="entry-title"><a href="/linux/704">IEs4Linux</a></h1>
     
     
       <p class="meta">
@@ -526,21 +397,20 @@ vim -u ~/.vimrc_utf-8 $1</code></p>
 
 
 
-<time datetime="2006-12-31T20:31:40+08:00" pubdate  data-updated="true" >Dec 31<span>st</span>, 2006</time>
+<time datetime="2006-09-27T20:34:46+08:00" pubdate  data-updated="true" >Sep 27<span>th</span>, 2006</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>天氣好冷，我家這邊又一直下雨，不過放假三天在家休息感覺很悠閒。很快的一年就過去了，去年的這個時候剛退伍，現在退伍滿一年囉!今年前半年，過著很頹廢的生活，每天幾乎都快天亮才睡，然後隔天下午才醒來，然後到處表演，每天幾乎都是練團，不然就是表演，身分呢?應該就算是職業樂手吧!? 不過一首歌也沒有寫，畢竟也沒有真正屬於自己的生活，就我的觀點，沒有創作，只copy歌曲，一點也不好玩。其實根本就沒有自己的感覺，所以說我還是不適合當職業樂手。過著沒有收入、被當作棋子的生活，本來就沒有存款，加上根本沒賺到錢，一直到後來負債大概差不多五、六萬塊，根本沒法在繼續做下去，其實本來就想離開了，但是又爆發一些很不愉快的事情，讓我不得不離開，從沒想過自己會作出這樣的事情，當然我只能說自己很該死!</p>
+  <div class="entry-content"><p><a title="Photo Sharing" href="http://www.flickr.com/photos/tzangms/253992911/"><img width="456" height="342" border="0" alt="IE4Linux Screenshot" src="http://static.flickr.com/95/253992911_b007931914.jpg" /></a></p>
 
+<p>今天<a href="http://www.kej.tw">Kej</a>大大跟我說了<a href="http://www.tatanka.com.br/ies4linux/index-en.html">IEs4Linux</a> 這個東西，馬上就裝上來玩一下! 雖然以前就有在用wine，也用wine跑過IE(話說在以前刻苦的時代寫了一篇用wine跑starcraft的文章到linuxfab，只是現在linuxfab沒了，文章被對岸的網站拿去用 XD)，不過這個ies4linux把整個IE套件跟安裝整合的很好，只要執行他的script，然後回答一下yes、no在選個語系，他就會自動幫你抓ie下來裝，可以裝上ie6、ie5.5、ie5還包括了flashplayer9，更屌的是，我切到GNOME看了一下，桌面上還會幫你建好圖示，可以直接執行，整合度超高! 不過如果有人像我一樣使用Windowmaker的話，就直接執行~/bin/ie6就可以啦!</p>
+
+<p>在ubuntu linux 6.06 上安裝的話，只需要先裝上wine跟cabextract就可以直接執行ie4linux的script來進行安裝了，至於速度，一開始開啟ie的時候是有點久，不過一但loading完畢速度還滿不賴的!!那為啥都在linux還要用ie? 沒辦法阿~ 總還是有ie only的網站，為了不重開機，或者根本沒有windows，只好在linux上跑ie囉!</p>
 </div>
   
-  
-    <footer>
-      <a rel="full-article" href="/life/750">Read on &rarr;</a>
-    </footer>
   
 
 
@@ -551,7 +421,7 @@ vim -u ~/.vimrc_utf-8 $1</code></p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/music/749">跳! 打爆你的大頭!H2O表演影片</a></h1>
+      <h1 class="entry-title"><a href="/programming/703">iTzangms Remote 0.1 Release</a></h1>
     
     
       <p class="meta">
@@ -565,15 +435,60 @@ vim -u ~/.vimrc_utf-8 $1</code></p>
 
 
 
-<time datetime="2006-12-28T08:38:19+08:00" pubdate  data-updated="true" >Dec 28<span>th</span>, 2006</time>
+<time datetime="2006-09-27T00:39:21+08:00" pubdate  data-updated="true" >Sep 27<span>th</span>, 2006</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><embed style="width:400px; height:326px;" id="VideoPlayback" type="application/x-shockwave-flash" src="http://video.google.com/googleplayer.swf?docId=4699550264074134656&hl=en" flashvars=""> </embed>
-這是上禮拜六, 算是聖誕節的表演, 大家都很High, 感覺真不錯! 雖然有唱錯一句, 不過是我寫的歌, 也沒差 XD 放上&#8221;打爆你的大頭&#8221;的影片給大家看看! 大家一起跳吧! XD</p>
+  <div class="entry-content"><p>這幾天晚上利用Applescript + PHP寫出來的一支程式，讓Mac使用者可以透過網頁來控制iTunes來播放歌曲。</p>
+
+<p>先前有兩台電腦的時候，一台是PC，一台是iBook，不過平常mp3都放在iBook上，用iTunes來整理、播放，喇叭也都接在iBook 上，又因為出門在外也只能帶iBook出去，所以mp3多放一份到PC上面就覺得多餘，也難整理，所以就都只放在iBook上面。</p>
+
+<p>只是當我在用PC的時候，不可能跑到iBook上面撥歌、換歌，所以當時找了一個iTunes remote，可以直接在PC上面連到iBook用網頁來控制iTunes歌曲播放，這樣一來我就不用在跑來跑去了(雖然在同一個房間裡XD)，只是當初找到的這個軟體要花錢買，但是我又沒錢，所以試用期過就&#8230;</p>
+
+<p>一直到上禮拜五，我無聊開始去玩applescript，就上ADC(Apple Developer Connection)抓了一份Applescript Language Guide 的PDF，長達405頁，一開始還很認真一頁一頁看，看不到100頁就跳著看 XD 太累了，呵呵。anyway，後來就想起了先前用網頁來控制iTunes播放歌曲的念頭，乾脆自己寫一個好了!!所以，前三天晚上都在搞懂 Applescript，終於昨天晚上把東西弄出來了，利用applescript讀取的播放列表跟歌曲清單，來輸出到php上，在透過php上的清單透過applescript來控制iTunes，雖然目前很簡單，不過算是夠我用了，其他功能在慢慢寫 XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/696">Google的字型怪怪的</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-09-26T17:56:35+08:00" pubdate  data-updated="true" >Sep 26<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天 <a href="http://blog.cschang.info/">clotho</a> 大大傳了一個<a href="http://groups.google.com/group/google.public.support.general/browse_thread/thread/967e4f194746aba2/dacea5ef4f5d006d?lnk=raot&hl=zh-TW&">網址</a>給我，是關於在Google搜尋結果的頁面下的字型被指定成了simsun這個字型。</p>
+
+<p>在上個禮拜<a href="http://blog.kej.tw/">kej</a>大大就發現了這個<a href="http://blog.kej.tw/2006-09/15/google-taiwan-set-font-as-simsun/">問題</a>，稍微跟kej大大討論了一下這個問題，kej大大很猛的就直接把simsun字型把他從電腦給移除了，而我則是渾然不知，一直到kej大大跟我說之後，才去看了搜尋結果頁面的HTML code才發現css中被指定了simsun字型，可是&#8230;..對我來說一點作用也沒有 XD 因為上班用Linux，下班用Mac，這兩個作也系統都沒有內建simsun字型阿! 只有windows哇哈哈哈!</p>
+
+<p>只是就這篇post所說的，simsun是簡繁體混合的unicode字型，不只是看起來怪怪的，而且對於繁體字來說， 這個字型還有些字筆畫格式有問題而且還看起來很醜，就好像kej大大說的，感覺好像是對岸在維護google中文版的網頁。</p>
+
+<p>大家一定要到<a href="http://groups.google.com/group/google.public.support.general/browse_thread/thread/967e4f194746aba2/dacea5ef4f5d006d?lnk=raot&hl=zh-TW&">這個post</a>去回應你的不滿 XD</p>
 </div>
   
   
