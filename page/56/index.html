@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="今天把PHP session給搞清楚了，然後把目前Project的使用者註冊、登入跟登出功能都搞定了。PHP session可以透過cookie或是session_id來儲存跟取得session變數，當然為了可攜性，所以我選用session_id，然後透過類似GET的方式在URL後面加上SID...">
+  <meta name="description" content="mail -s &#8220;hi&#8221; 這一行指令就可以寄出一封信到指定的信箱。一般的mail用法就是打mail，然後mail會提示輸入subject然後是信件內容，輸入完信件內容按Ctrl+D之後，就會把信件寄出了。但是今天想用Shell Script自動寄出信件，例如在使用者登入...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,43 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/linux/627">Mail Usage</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-03-21T10:05:57+08:00" pubdate  data-updated="true" >Mar 21<span>st</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><blockquote>mail -s &#8220;hi&#8221; < content.txt tzangms@gmail.com</blockquote>
+
+
+<p>這一行指令就可以寄出一封信到指定的信箱。一般的mail用法就是打mail，然後mail會提示輸入subject然後是信件內容，輸入完信件內容按Ctrl+D之後，就會把信件寄出了。但是今天想用Shell Script自動寄出信件，例如在使用者登入後，寄信給剛註冊的使用者，如此一來透過PHP去呼叫外部的shell script就可以自動寄出信件啦!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -438,40 +475,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/614">[轉]Trip-Hop</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2006-02-26T02:57:26+08:00" pubdate  data-updated="true" >Feb 26<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>可以簡單的視為『慵懶迷幻的Hip-Hop』，BPM大概在80~95間不等，是Bristol一地的重要音樂潮流，94年全盛時期時還有所謂的『Trip-Hop鐵三角』&#8211;Portishead,Tricky,和 Massive Attack，而96年時，幾個走Trip-Hop路線的新進女主唱組合如 Morcheeba,Sneaker Pimps,Olive則被英國傳媒喻為&#8221;Post-Portishead&#8221;。</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -491,6 +494,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/13/ios5-release/">iOS5 release</a>
       </li>
     
@@ -504,10 +511,6 @@
     
       <li class="post">
         <a href="/stuff/blue-snowball">買了 Blue snowball</a>
-      </li>
-    
-      <li class="post">
-        <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
       </li>
     
   </ul>

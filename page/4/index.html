@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="">
+  <meta name="description" content="django 1.1 的時候, django admin 並沒有納入 jQuery, 不過 django 1.2 之後, Django admin 就有內建 jQuery 了, 只是今天在弄某 project ( django 1.2.3 ) 的後台時, 不管是用 $ 或是 jQuery 都說...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,48 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2769">Django Admin 的 jQuery</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-12-01T21:02:00+08:00" pubdate  data-updated="true" >Dec 1<span>st</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.djangoproject.com/">django</a> 1.1 的時候, django admin 並沒有納入 jQuery, 不過 django 1.2 之後, Django admin 就有內建 jQuery 了, 只是今天在弄某 project ( django 1.2.3 ) 的後台時, 不管是用 $ 或是 jQuery 都說 undefined.</p>
+
+<p>一找<a href="http://docs.djangoproject.com/en/dev/ref/contrib/admin/">文件</a>才知道, django admin 為了避免跟 user 自定的 javascript 衝突, 所以將 django admin 用的 jQuery namespace 叫做 django.jQuery, 所以用法就變成下面這樣即可, 在裡面可以繼續用 $ 。</p>
+
+<pre><code>django.jQuery(function($){
+   alert("It's the jquery in django admin!");
+});
+</code></pre>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -521,42 +563,6 @@ else:
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/2734">Padfoot for Ipad</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-10-13T22:12:02+08:00" pubdate  data-updated="true" >Oct 13<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/5077846625/" title="IMG_0010 by tzangms, on Flickr"><img src="http://farm5.static.flickr.com/4019/5077846625_2da83d4af8.jpg" width="500" height="500" alt="IMG_0010" /></a></p>
-
-<p>居然大概只花了 7 天就送來了! 今天第一次在 UPS 的機器上簽名 XD 有興趣要買的可以看看<a href="http://www.michielcornelissen.com/padfoot_stand_for_ipad.html">這裡</a>, 倒是我有點後悔買黑色的了 ~&#8221;~</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -576,6 +582,10 @@ else:
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/13/ios5-release/">iOS5 release</a>
       </li>
     
@@ -589,10 +599,6 @@ else:
     
       <li class="post">
         <a href="/stuff/blue-snowball">買了 Blue snowball</a>
-      </li>
-    
-      <li class="post">
-        <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
       </li>
     
   </ul>

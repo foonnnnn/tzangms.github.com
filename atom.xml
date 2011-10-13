@@ -4,7 +4,7 @@
   <title><![CDATA[Oceanic / 人生海海]]></title>
   <link href="http://tzangms.com/atom.xml" rel="self"/>
   <link href="http://tzangms.com/"/>
-  <updated>2011-10-14T00:30:37+08:00</updated>
+  <updated>2011-10-14T01:03:40+08:00</updated>
   <id>http://tzangms.com/</id>
   <author>
     <name><![CDATA[tzangms]]></name>
@@ -12,6 +12,25 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[拯救 MyAudioCast]]></title>
+    <link href="http://tzangms.com/2011/10/14/save-myaudiocast/"/>
+    <updated>2011-10-14T00:37:00+08:00</updated>
+    <id>http://tzangms.com/2011/10/14/save-myaudiocast</id>
+    <content type="html"><![CDATA[<p>今天準備出門上班時突然下起了傾盆大雨, 索性就不去上班, 在家趕工作的 deadline 好了, 這樣一來也不會被打擾 (最近上班時 context switch 真的是非常嚴重), 畢竟目前手上的某個專案的規劃一直到昨天都還改, 昨天甚至整個邏輯都翻轉了。</p>
+
+<p>然而後來又收到 Pixnet 來的訊息 ( <a href="http://pixnet.net">Pixnet</a> 提供 MyAudioCast CDN 贊助), 因為目前 <a href="http://www.myaudiocast.com">MyAudioCast</a> 的流量真的太高, 這禮拜每天都超過了 1TB, 所以希望我可以處理一下 XD</p>
+
+<p>而流量會這麼高的原因主要是因為有幾個中國的 Podcast 算是滿熱門的(?), 三個小時就可以有近兩萬次的下載。 另外就是有 Podcast 上了 iTunes Store 的 Podcast 的 Top Chart (我是有點懷疑是因為這個原因啦), 所以一天也是幾萬次的下載。</p>
+
+<p>其實先前就被警告過了 XD 所以已經有研究了一些解決辦法, 只是因為最近工作太忙, 沒有時間處理。 而今天剛好沒去上班, 就先投入 MyAudioCast 的救援工作, 至於工作 deadline 的處理就只好留待週末兩天加班趕工了。</p>
+
+<p><img src="http://farm7.static.flickr.com/6157/6241181440_9acf5a321e_z.jpg" title="" alt="myaudiocast bandwith" /></p>
+
+<p>上面這個流量圖, 算是拯救的成果, 不過目前 queue 還在繼續跑, 所以流量還會持續降, 接下來就持續觀察吧！ 其實還真該想個 business model, 可是沒什麼 page view, 連放廣告都嫌浪費力氣 XD</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[iOS5 release]]></title>
@@ -491,33 +510,6 @@ cloud.result(jid)
 <p> 而 <a href="http://ep.io">ep.io</a> 的 deploy 方式稍微不一樣, 不過可以跑 <a href="http://www.djangoproject.com/">django</a>, <a href="http://flask.pocoo.org/">flask</a>, 或是 wsgi 的 app 都行, 細節就得等邀請信寄來才能玩看看了。</p>
 
 <p>最後不得不說 Rails 真的是 web 開發的先驅, 學了 Rails 就覺得有些東西的作法、想法, 真是太先進了。 所以 PHP 就有一些 framework 都寫著 inspired by Rails, 或是 PHP 的 Heroku, Python 的 Heroku 等 &#8230; to name a few XD</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[初學 ASP.NET 心得]]></title>
-    <link href="http://tzangms.com/programming/2805"/>
-    <updated>2011-01-13T00:56:01+08:00</updated>
-    <id>http://tzangms.com/programming/初學_asp_net_心得</id>
-    <content type="html"><![CDATA[<p>最近因為一個莫名其妙的案子, 搞的我滿肚子火, 最後我花了兩三天的時間學了一下 ASP.NET。 以前會寫一點 VB, 不過幾乎忘光了, 所以想說就學一下 C#。 哈, 其實還滿有趣的 XD</p>
-
-<p>一開始我就上 <a href="http://www.asp.net/">http://www.asp.net/</a>, 花一兩個小時挑教學影片看, 不過其實很不習慣這樣的學習方式, 因為以往都直接 k 文件。 不過後來想想, 因為是用 Visual Studio, 所以看影片其實才是最快的學習方式。 不過我後來還是 k 了 <a href="http://apress.com/book/view/9781430226086">Beginning ASP.NET 4 in C# 2010</a> 這本書, 我覺得寫得還不錯。</p>
-
-<p>現在 ASP.NET 的開發方式分為 Web Forms 跟 MVC, 然後又可以用不同語言 &#8230;不過因為只是個小案子, 而且時間緊迫, 以後也不太可能寫 ASP.NET, 所以就只學了 Web Forms。</p>
-
-<p>其實影片看完就差不多了 XD 只是我覺得 ASP.NET 跟以往寫 PHP, Python 落差最大的就是 form post 這件事, 而影片也沒有太多著墨。 後來才了解, 其實 ASP.NET 根本不用管 form post 這件事, 即便是開發網頁, 可是你就把它當成是桌面開發就好了!!!</p>
-
-<p>例如, 拉了一個 Button ( ID: Button1 ) 跟 TextBox ( ID: TextBox1 ) 進 Form, 你只需要寫 Button1 的 Click event, 然後在裡面直接抓 TextBox1.Text 就行了 &#8230; 不像以往得給 input text 一個 name, 然後透過 POST 的變數取 POST[&#8216;name&#8217;] &#8230; 觀念完全不一樣阿!!!</p>
-
-<p>而當中令我驚艷的功能是, ListView/GridView + DataSource 以及 Validation 這兩組功能。</p>
-
-<p>ListView/GridView 可以搭配 SqlDataSource / XmlDataSource 等不同 DataSource 快速的在頁面上呈現資料。 簡單來說, 你只需要把 DataSource 用滑鼠拉進頁面, 稍微設定一下, 然後再把 ListView/GridView 拉進頁面, 用滑鼠點幾下,指定剛才設定的 DataSource 後, 就可以在頁面呈現你要的資料了, 然後再點幾下, 分頁就出來了, 在點幾下, 就可以 update / delete 了, 真是太神奇了阿!!!</p>
-
-<p>Validation 也是, 把 validation 元件拉進頁面, 設定要連結的 Control 元件, 複雜一點的, 寫個 regex pattern, 馬上 Validation 功能就完成了 &#8230;. 而且是前後端的 validation 一起完成 &#8230; 然後搭配 ASP.NET 所謂的 ViewState, 真是太厲害了阿 ~~~</p>
-
-<p>Anyway, 其實我學的都很淺, 不過這次的 ASP.NET 學習, 還算是個不錯的觀念更新, 才發現原來 ASP.NET 這邊的觀念還差真多, 而 ASP.NET 也挺進步的, 該有的功能都有, MasterPage, Code seperation &#8230; 等等。</p>
-
-<p>在這次 ASP.NET 的學習過程中一直發現一些有趣的觀念, 在這過程當中的確是有點開心的感覺, 不過 &#8230; 以後其實也沒機會用到就是了 XD</p>
 ]]></content>
   </entry>
   

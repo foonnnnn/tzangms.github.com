@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="一開始注意到這個團是 frank 從 msn 上傳來的 Knights 這一首歌, frank 說我應該會喜歡, 沒想到聽起來還真不賴, 完全被吉他的部份所吸引, 後來就陸續聽了一些 Minus the bear 的歌, 才發現他們吉他手的風格還真的是很特殊, 甚至在 Highly Refin...">
+  <meta name="description" content="昨天開始碰 Amazon S3, 因為一直覺得 stickeraction 的貼紙圖檔放在 VPS 上還是不太安全, 所以前天就開始用 Amazon S3, 把貼紙圖檔都丟上去, 順便當 cdn 用。一開始是先看 Tsung 大大的文章, 然後就開始用 s3cmd  開始玩看看 S3 怎麼用。...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,54 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2335">Amazon S3 使用記錄</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-23T21:41:21+08:00" pubdate  data-updated="true" >Jan 23<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>昨天開始碰 <a href="http://aws.amazon.com/s3/">Amazon S3</a>, 因為一直覺得 <a href="http://stickeraction.com">stickeraction</a> 的貼紙圖檔放在 VPS 上還是不太安全, 所以前天就開始用 Amazon S3, 把貼紙圖檔都丟上去, 順便當 cdn 用。</p>
+
+<p>一開始是先看 <a href="http://plog.longwin.com.tw/news-technology/2008/02/21/amazon_s3_s3cmd_php_2008">Tsung 大大的文章</a>, 然後就開始用 <a href="http://s3tools.logix.cz/s3cmd">s3cmd</a>  開始玩看看 S3 怎麼用。</p>
+
+<p>首先就是在 <a href="http://www.gentoo.org">gentoo</a> 上裝 s3cmd 啦, 不過試了 x86 跟 amd64 的平台好像都是 masked, 所以就用 ACCEPT_KEYWORDS 裝起來</p>
+
+<pre><code>ACCEPT_KEYWORDS='~x86' emerge s3cmd</code></pre>
+
+
+<p>然後就是用 <code>s3cmd --configure</code> 這個指令來設定, 填入 Amazon S3 提供的 access key 跟 secret key, 接著就可以開始用 s3cmd 來丟檔案到 s3 上做測試了。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/2335">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -504,54 +552,6 @@ System Call Overhead                        114433.5  1939609.2      169.5
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/linux/2294">新買了一台 Linode</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-01-02T00:37:53+08:00" pubdate  data-updated="true" >Jan 2<span>nd</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>目前我手上總共有 4 台 VPS, 為 2 台 256MB 的 <a href="http://slicehost.com/" target="_blank">slicehost</a>, 一台 512MB 的 <a href="http://thenynoc.com/" target="_blank">NY NOC</a> 然後還有昨天新買的 540MB 的 <a href="http://linode.com/" target="_blank">Linode</a>, 新買的 Linode 想拿來取代 slicehost 那兩台, 因為現在沒工作, 所以要省一點。</p>
-
-<p>540MB 的 Linode 要價 $29.95, 而兩台 256MB 的 slicehost, 要價 $40, 本來是想買 720MB 的 Linode, 不過想說這樣就沒省到錢了, 只好買 540MB 的 Linode, 反正之後可以直接加 RAM。</p>
-
-<p>而 NY NOC 那一台目前只有跑我的 blog, 跟一些實驗性的東西。 不過 NY NOC 真的是很便宜, 只是 ping time 不好, performance 也不太好, 不敢把 <a href="http://stickeraction.com/" target="_blank">stickeraction</a> 或是 <a href="http://twitthat.com/" target="_blank">twitthat</a> 搬過去, 不過那麼便宜的 VPS 就不要強求了 :p</p>
-
-<p>剛才 ping 了一下, 這三家的 ping time 如下, Linode 選 Fremont, CA 還滿快的:</p>
-
-<p>Linode: 16x ms
-Slicehost: 19x ms
-NY NOC: 37x ms</p>
-
-<p>而在 <a href="http://gentoo.org/" target="_blank">Gentoo</a> 的支援上, Slicehost 倒是比 Linode 好多了, Linode 到現在還是只有 Gentoo 2007.0 的 image, 害我今天在升級 packages 的時候碰到好幾個 package block, 跟 collision.</p>
-
-<p>update: 阿駕說他那邊 ping NY NOC 都 15x, 我這邊是 hinet …. Orz</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -571,6 +571,10 @@ NY NOC: 37x ms</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/13/ios5-release/">iOS5 release</a>
       </li>
     
@@ -584,10 +588,6 @@ NY NOC: 37x ms</p>
     
       <li class="post">
         <a href="/stuff/blue-snowball">買了 Blue snowball</a>
-      </li>
-    
-      <li class="post">
-        <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
       </li>
     
   </ul>

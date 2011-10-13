@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="這個禮拜日除了吃飯之外的時間都在弄這個, 因為想把自己的&#8221;推&#8221;都備份下來, 想說還可以弄成像日曆之類的, 不過 UI 還沒完成就是了, 目前看起來大概上面這樣。這次在 App Engine 加上 Google App Engine Helper for Django 來...">
+  <meta name="description" content="今天才意識到 timezone 的處理是有那麼一點麻煩, 存放、顯示要怎麼做之類的, 之前都沒處理過這類的問題, 不過也只能先解決問題, 之後有空在來深入研究 timezone。這兩三天在用 appengine 寫 twitter/plurk 備份的東西, 而 twitter 跟 plurk ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,86 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2636">在 App Engine 使用 Pytz</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-05-05T01:11:10+08:00" pubdate  data-updated="true" >May 5<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天才意識到 <a href="http://en.wikipedia.org/wiki/Time_zone">timezone</a> 的處理是有那麼一點麻煩, 存放、顯示要怎麼做之類的, 之前都沒處理過這類的問題, 不過也只能先解決問題, 之後有空在來深入研究 timezone。</p>
+
+<p>這兩三天在用 <a href="http://code.google.com/intl/zh-TW/appengine/">appengine</a> 寫 <a href="http://twitter.com">twitter</a>/<a href="http://plurk.com">plurk</a> 備份的東西, 而 twitter 跟 plurk api 吐的訊息時間分別是 UTC +0000 跟 GMT, 不過剛剛網路上查了一下, 基本上、簡單來說 UTC = GMT, hmm 細節之後再來研究。所以說 twitter 或 plurk 的推訊時間都是用 UTF +0000, 不過這兩個的處理方式比較起來, twitter 簡單多了。</p>
+
+<p>twitter api 的每則推訊都會有 user 的資料, 而 user 的資料當中 utc_offset 直接帶秒數, 例如我在台灣就是 28800 秒, 也就是 8 個小時, 所以就可以用以下的程式碼來把推訊的時間修正為準確, 符合 user 當地的時間</p>
+
+<pre><code>from datetime import datetime, timedelta
+
+fmt = '%a %b %d %H:%M:%S +0000 %Y'
+created_at = datetime.strptime(message['created_at'], fmt) 
+utc_offset = int(message['user']['utc_offset'])
+local_time = created_at + timedelta(seconds=utc_offset)</code></pre>
+
+
+<p>twitter 時間處理滿簡單的, 直接用回傳資料的 utc_offset 然後用 timedelta 處理即可, 即使 utc_offset 是負值也沒問題。 相對之下 Plurk 那邊可以讀到是 timezone, 如: &#8220;Asia/Taipei&#8221; 這組字串, 顯然麻煩了些。</p>
+
+<p>網路上找了一下, 似乎用 <a href="http://pytz.sourceforge.net/">pytz</a> 就可以很方便處理。 以下為 透過 pytz 用來為 plurk 處理本地時間的方式。</p>
+
+<pre><code>from datetime import datetime
+from pytz import timezone
+
+fmt = '%a, %d %b %Y %H:%M:%S GMT'
+created_at = datetime.strptime(message['posted'], fmt)
+user_timezone = timezone("Asia/Taipei")
+local_time = created_at + user_timezone.utcoffset(created_at)</code></pre>
+
+
+<p>使用 pytz 真的滿方便就可以處理掉 timezone 的 time offset 問題, 不過問題來了, pytz 的 zoneinfo 就有 600 個檔案了, 然而 app engine 好像上限是 1000 個檔案, 整個吃掉一半以上。 不過似乎有 <a href="http://code.google.com/intl/zh-TW/appengine/articles/django10_zipimport.html">zipimport</a> 的方式可以把檔案先壓縮在丟上去, 所以 google 幾個方式之後, 最後找到<a href="http://appengine-cookbook.appspot.com/recipe/caching-pytz-helper/">這個方式</a>最簡單, 不過文件沒寫太清楚, 所以在這邊記錄一下。</p>
+
+<p>ok, 結果討人厭的事情又來了, pytz 現在放在 <a href="https://launchpad.net/pytz">launchpad</a> 阿 &#8230; 誰裝 <a href="http://cvlab.epfl.ch/software/bazar/">bazar</a> 阿 XD 不過幸好在 <a href="http://pypi.python.org/pypi/pytz">pypi</a> 可以直接抓檔案。</p>
+
+<p>首先就是抓 tz_helper 跟 pytz 回來, 然後把 pytz 解開後, 找到 zoneinfo 然後把它 zip 起來, 接著就可以把 zoneinfo 目錄刪了, 最後把這三個檔案放在 app 的根目錄就好了, 像是</p>
+
+<pre>
+/app.yaml
+/index.yaml
+/main.py
+...
+/tz_helper.py
+/pytz
+/zoneinfo.zip
+</pre>
+
+
+<p>之後使用的時候直接 import tz_helper 的 timezone 來用即可。</p>
+
+<p>其實現在 SNS 的時間大多都直接採用 3 hours ago 之類的方式來顯示時間, 我想最主要的原因就是, 這樣可以很容易因應世界各地使用者不同時區的問題, 而不是直接顯示這個日期。 誰知道我今天兩個方式都要有, 分別像是下面兩張圖的方式呈現, 所以就得處理 time offset 的問題。 總不能我在 5 月 5 號早上七點的推訊仍舊被記到 5 月 4 號。 而存放成台灣時間, 結果用 UTC +0000 去做 minutes ago, 顯示出來都是 0 minutes ago。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -421,46 +501,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/2607">總理好帥紀念日</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-04-01T01:51:42+08:00" pubdate  data-updated="true" >Apr 1<span>st</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/lydia618/4478937677/"><img src="http://tzangms.com/wp-content/uploads/2010/04/4478937677_a689c2504c_o-500x334.jpg" alt="" title="4478937677_a689c2504c_o" width="500" height="334" class="aligncenter size-large wp-image-2608" /></a></p>
-
-<p>感謝<a href="http://blog.roodo.com/lydia618">陸君</a>用她的 Natura Classic 幫我拍這張, 不過陸君忘記把相機壓日期的功能關掉, 感到很懊悔 ~</p>
-
-<p>我故意問說: &#8220;為啥照片會壓日期? XD&#8221;</p>
-
-<p>陸君說: &#8220;為了以後每年12/9都是總理好帥紀念日啊! &#8221;</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -480,6 +520,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/13/ios5-release/">iOS5 release</a>
       </li>
     
@@ -493,10 +537,6 @@
     
       <li class="post">
         <a href="/stuff/blue-snowball">買了 Blue snowball</a>
-      </li>
-    
-      <li class="post">
-        <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
       </li>
     
   </ul>

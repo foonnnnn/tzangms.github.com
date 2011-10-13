@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="由於先前在測試用 nginx 放在原本的 lighttpd 前面作 load balance 還是 reverse proxy 什麼的, 不過因為完全沒碰過, 只能亂搞, 沒想到成功了 XD (雖然有設錯, 整個站有掛掉一下下)本來是想說到時候 StickerAction 撐不住, 可以把 r...">
+  <meta name="description" content="由於在開發網站過程中, 通常都有個 template 或稱作 layout, layout 包含了整個網站的外觀, 而網站的 layout 通常會切分為 header, content, footer 甚至還有 menu。 而這當中的 content view 則是會隨著不同頁面、功能而變動,...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,111 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/codeigniter/1201">CodeIgniter Layout 的做法</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-08-30T12:48:09+08:00" pubdate  data-updated="true" >Aug 30<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>由於在開發網站過程中, 通常都有個 template 或稱作 layout, layout 包含了整個網站的外觀, 而網站的 layout 通常會切分為 header, content, footer 甚至還有 menu。 而這當中的 content view 則是會隨著不同頁面、功能而變動, 而 layout 則為固定, 這樣可以維持同一個網站界面的一致性, 然而 <a href="http://codeigniter.com">CodeIgniter</a> 並沒有對這種所謂 partial view 有較好的處理方式。</p>
+
+<p>所以通常都會是像下面這樣的寫法。 載入 foo 這個 content view 到變數之後, 丟到 template view, 最後在 render 出來。</p>
+
+<p><code>$data['foo'] = $foo;
+$view['heading'] = 'heading text';
+$view['content'] = $this->load->view('foo', $data, true);
+$this->load->view('template', $view);</code></p>
+
+<p>所以每個頁面就都得寫上兩行 load view 的動作, 寫久了便覺得繁瑣, 其實這個動作透過下面這個 Layout library 是可以簡化的。 這個 library 是在 <a href="http://codeigniter.com/wiki/layout_library/">CodeIgniter wiki</a> 上看來的, 只修改了幾個變數。</p>
+
+<pre>
+<code>&lt;?php
+class Layout
+{
+    var $obj;
+    var $layout;
+
+    function Layout($layout = "template")
+    {
+        $this->obj =& get_instance();
+        $this->layout = $layout;
+    }
+
+    function setLayout($layout)
+    {
+      $this->layout = $layout;
+    }
+
+    function view($view, $data=null, $return = false)
+    {
+        $data['content'] = $this->obj->load->view($view, $data, true);
+
+        if($return)
+        {
+            $output = $this->obj->load->view($this->layout, $data, true);
+            return $output;
+        }
+        else
+        {
+            $this->obj->load->view($this->layout, $data, false);
+        }
+    }
+}
+?&gt;</code></pre>
+
+
+<p>有了這個 Layout library 之後變可以將載入 view 的程式簡化如下:</p>
+
+<p><code>$data['foo'] = $foo;
+$data['heading'] = 'heading text';
+$this->layout->view('foo', $data);</code></p>
+
+<p>基本上以這個 library 為範例的話, 預設的 template 檔案就要命名為 template.php, 你也可以修改這個 library 的程式碼來符合你現在 template 的檔案名稱, 不過我是覺得就叫 template 還滿直覺的。
+而 template.php 裡面則是需要放入 $content 這個變數來存放 foo.php 這個 view。 簡單的 template.php 的範例如下:</p>
+
+<p><code>&lt;html&gt;
+&lt;body&gt;
+&lt;?=$content?&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></p>
+
+<p>當然這個 template 可以像文章一開始講到的, 另外做更細的切分, 我們可以另外開一個 template 的目錄, 裡面存放 header.php, footer.php, 然後在 template.php 裡面載入, template.php 如下:</p>
+
+<pre>
+<code>$this->load->view('template/header');
+&lt;?=$content?&gt;
+$this->load->view('template/footer');</code>
+</pre>
+
+
+<p>hmm&#8230; 這篇應該要有寫過 view in view 的人才看得懂吧? 超懶畫圖 XD</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -525,47 +630,6 @@ $user-&gt;where('username', 'tzangms')-&gt;find();
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/1395">拾參 - 馬臉水手的夏天</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-08-17T23:51:04+08:00" pubdate  data-updated="true" >Aug 17<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2771025924/" title="100_3806 by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3069/2771025924_667ab1d9d4.jpg" width="500" height="375" alt="100_3806" /></a></p>
-
-<p>好久沒聽到拾參這個團的名字了, 一直在前一陣子, 聽到拾參在某些 Rock pub 開始又有活動了, 想想, 距離第一次聽到拾參的時候, 真的是隔了很久。 這次被找去參加拾參在海邊的卡夫卡舉辦的試聽會, 本來在猶豫要不要去, 不過想想似乎好久沒看樂團表演了, 也許是該時候接受點衝擊了吧!</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/music/1395">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -585,6 +649,10 @@ $user-&gt;where('username', 'tzangms')-&gt;find();
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/13/ios5-release/">iOS5 release</a>
       </li>
     
@@ -598,10 +666,6 @@ $user-&gt;where('username', 'tzangms')-&gt;find();
     
       <li class="post">
         <a href="/stuff/blue-snowball">買了 Blue snowball</a>
-      </li>
-    
-      <li class="post">
-        <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
       </li>
     
   </ul>

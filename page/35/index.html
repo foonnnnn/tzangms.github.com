@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="今天在 Gentoo 上面裝 Webalizer, 記錄一下。首先當然是先 emerge webalizer ( USE Flag 加上 -nls 是因為我喜歡英文的界面 :x )USE='-nls vhosts geoip' emerge webalizer然後裝好用 webapp-conf...">
+  <meta name="description" content="在 Gentoo 上在新增 user 的時候將 user 加入 wheel 群組, user 就可以 su, 如果是事後才要將 user 加入 wheel 群組, 可以這樣做, ex:gpasswd -a tzangms wheel不過~ 覺得這個指令字面上的意義跟動作不大合">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,44 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/linux/1051">Gentoo Su (Gpasswd)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-01-07T02:46:57+08:00" pubdate  data-updated="true" >Jan 7<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在 Gentoo 上在新增 user 的時候將 user 加入 wheel 群組, user 就可以 su, 如果是事後才要將 user 加入 wheel 群組, 可以這樣做, ex:</p>
+
+<p><code>gpasswd -a tzangms wheel</code></p>
+
+<p>不過~ 覺得這個指令字面上的意義跟動作不大合</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -448,70 +486,6 @@ Bonjour! 這是我收到的第二張從外國來的明信片! <a href="http://tz
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/mac/1028">[Mac] 備份光碟為 Iso 檔</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-12-15T14:07:11+08:00" pubdate  data-updated="true" >Dec 15<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天在裝 Garageband Jam pack 4 的時候, 安裝到一半, 安裝程式就跟我說光碟有損壞, 所以沒辦法直接從光碟裝, 拿出光碟一看, 原來是有刮傷之類的痕跡, 當時想到一個方法搞不好可以, 就是把光碟轉成 iso 再 mount 起來裝, 搞不好可以克服讀取不到的問題, 所以 google 一下, 找到了這一篇 「<a href="http://www.slashdotdash.net/articles/2006/08/14/create-iso-cd-dvd-image-with-mac-os-x-tiger-10-4">Create ISO CD/DVD image (.iso) with Mac OS X Tiger (10.4)</a>」</p>
-
-<p>ㄝ~ 我好像只看過 dd 這個指令 XD anyway, 反正都是用 command line 跑內建的指令, 真方便, 本來我還上 google 去找軟體, 好吧! 步驟如下:</p>
-
-<ol>
-<li>首先把光碟放進 Mac 然後在 terminal 打入下列指令 (看光碟機是哪一個 device, 我的 macbook 是 dev/disk1 )</li>
-</ol>
-
-
-<blockquote>drutil status</blockquote>
-
-
-<ol>
-<li>再來 unmount 光碟</li>
-</ol>
-
-
-<blockquote>diskutil unmountDisk /dev/disk1</blockquote>
-
-
-<ol>
-<li>開始讀光碟轉到 iso</li>
-</ol>
-
-
-<blockquote>dd if=/dev/disk1 of=file.iso bs=2048</blockquote>
-
-
-<p>基本上到這裡就可以離開 terminal 的操作了, 用 Finder 去開轉出來的 iso 檔, 可以 mount 起來, 就 ok 啦! &#8230;. 可是, 我還是打不開 Orz</p>
-
-<p>嗚~ 我的 Garageband Jam pack 4&#8230;.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -531,6 +505,10 @@ Bonjour! 這是我收到的第二張從外國來的明信片! <a href="http://tz
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/13/ios5-release/">iOS5 release</a>
       </li>
     
@@ -544,10 +522,6 @@ Bonjour! 這是我收到的第二張從外國來的明信片! <a href="http://tz
     
       <li class="post">
         <a href="/stuff/blue-snowball">買了 Blue snowball</a>
-      </li>
-    
-      <li class="post">
-        <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
       </li>
     
   </ul>
