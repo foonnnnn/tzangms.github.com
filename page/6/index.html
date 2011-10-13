@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="其實最近下班時間都在忙著寫 Facebook 的東西, 所以不得不不關注一下 Facebook 的東西。自從 Facebook 推出 Graph API 之後, 就開始把目標往 Facebook 之外的網站拓展, 透過 OAuth 2.0、Graph API 跟 Javascript SDK ...">
+  <meta name="description" content="又要來寫偏離題的文了, 上禮拜花了一點時間把 Learning Ruby 這本書 K 完, 想說 Rails3 快出來了, 到時候可以來玩一下, 不過主要的目的就是想說, 認識寫 python 的人實在是超少, 做 web 的又更少, 認識寫 Rails 的人倒還比較多, 所以想說公司有東西外...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,63 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2709">關於 Python Sorting</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-09-02T00:11:12+08:00" pubdate  data-updated="true" >Sep 2<span>nd</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>又要來寫偏離題的文了, 上禮拜花了一點時間把 Learning Ruby 這本書 K 完, 想說 Rails3 快出來了, 到時候可以來玩一下, 不過主要的目的就是想說, 認識寫 python 的人實在是超少, 做 web 的又更少, 認識寫 Rails 的人倒還比較多, 所以想說公司有東西外包的話, 用 Rails 寫的話, 到還可以處理, 所以就想說研究一下。 總之不太想碰 PHP &#8230; XD</p>
+
+<p>Anyway, 我真的是超弱的, python 都還不熟就想學 ruby, mysql 也不熟, 應該是先把自己手邊在用的東西先學好才是。</p>
+
+<p>夠離題了吧!? (咦)</p>
+
+<p>其實是今天被 sorting 這件事困擾了一下, 因為做 web 所以排序的工作都是交給 SQL 去做, 偏偏碰到了一個不適合放進 SQL 的東西, 然後又得排序, 幸好找到了下面這一篇 <a href="http://wiki.python.org/moin/HowTo/Sorting/">Sorting Mini-HOW TO</a>, 不然真是完全沒經驗。</p>
+
+<p>要排序的資料是一個放 dict 的 list, 而得用 dict 裡的一個時間欄位做排序, 資料像是這樣</p>
+
+<pre><code>unsorted_list = [
+    {'name': foo, 'created': datetime.datetime(2011, 1, 1, ... )},
+    {'name': foo, 'created': datetime.datetime(2010, 12, 1, ... )}, 
+    ....
+]</code></pre>
+
+
+<p>沒想到這樣就可以排出來了</p>
+
+<pre><code>sorted_list = sorted(unsorted_list, key=lambda item: item['created'])
+sorted_list.reverse() # 如果要新的時間在前的話, reverse 一下</code></pre>
+
+
+<p>神阿! 在給我多一點時間吧!!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -418,62 +475,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2672">在 App Engine 使用 Django</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-06-10T12:02:23+08:00" pubdate  data-updated="true" >Jun 10<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>因為平常就是寫 <a href="http://www.djangoproject.com/">django</a>, 然後又對 <a href="http://code.google.com/intl/zh-TW/appengine/">app engine</a> <a href="http://code.google.com/intl/zh-TW/appengine/docs/python/gettingstarted/usingwebapp.html">webapp</a> 的 request handler get/post 分離有點感冒, 不過我想這是習慣問題吧, 所以後來都把 webapp 寫的東西都換成 django。</p>
-
-<p>以前有看過一些文章說是把 django zip 起來, 然後<a href="http://code.google.com/intl/zh-TW/appengine/articles/django10_zipimport.html">用 zipimport 來跑 django</a>, 不過其實除非你要用的是 django trunk, 否則 app engine 其實本身就內建了 0.96, 1.0 跟 1.1, 當然這邊指的是雲的那一端, 本地端還是得裝上要使用的 django 版本, 不過不用把 django 放進你的 app engine project 就是了。</p>
-
-<p>像是下面這段, 即使你使用的是 webapp, 你仍然可以透過下面這段 code, 寫在 request handler 的最前方, 來使用 django 1.1 的功能, 而非老舊的 django 0.96</p>
-
-<pre><code>from google.appengine.dist import use_library
-use_library('django', '1.1')
-os.environ['DJANGO_SETTINGS_MODULE'] = 'myaudiocast.settings'</code></pre>
-
-
-<p>至少 django 從 1.0 開始, template 的功能就大幅改進, 光 with 跟 escape_js 這兩個 template tag 就夠棒的了!</p>
-
-<p>其實 google 「app engine django」就可以找到一堆教你如何在 app engine 使用 django 的文章, 不過我還是覺得 <a href="http://code.google.com/p/google-app-engine-django/">Google App Engine Helper for Django</a> 最方便。只需要下載下來解開, 幾乎不用修改就可以開始使用。</p>
-
-<p>而 Google App Engine Helper for Django 預設是使用 django 1.0, 不過只要修改 main.py 裡, 下面這一段就可以使用 django 1.1 了</p>
-
-<pre><code>InstallAppengineHelperForDjango('1.1')</code></pre>
-
-
-<p>當然改用 django 1.0 以上的版本, 除了 template 之外就是 form 也改進了很多, 雖然原本 app engine 就已經有提供 djangoforms 可以直接透過 datastore 的 model 來產生 form, 但是在 webapp get/post request 分開處理的狀況下, django form 在使用上顯得非常憋腳, 而且 djangoforms 用的是 django 0.96 的 form, 所以功能上的確差了許多。</p>
-
-<p>以上是我對在 app engine 上使用 django 的感想。</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -493,6 +494,10 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'myaudiocast.settings'</code></pre>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/13/ios5-release/">iOS5 release</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
       </li>
     
@@ -506,10 +511,6 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'myaudiocast.settings'</code></pre>
     
       <li class="post">
         <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
-      </li>
-    
-      <li class="post">
-        <a href="/webdesign/css-pivot">CSS Pivot</a>
       </li>
     
   </ul>

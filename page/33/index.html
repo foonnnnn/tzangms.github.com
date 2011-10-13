@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="其實在過年前就買了這一台 iPod touch 16G 了, 一直忘記寫, 現在寫只是想記得說, 哪時候過保 XD">
+  <meta name="description" content="在使用 CodeIgniter 在開發的時候, 其實一直覺得 CI 的架構好像有點不足, 少了什麼東西。 例如說我想要有個使用者聯播的功能區塊, 有很多地方都想掛上這個功能區塊, 但是我該怎麼做? 在 CodeIgniter 現有的架構中, 看來就是寫成 Library 然後掛個 View, ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,46 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/codeigniter/1093">CodeIgniter Modular Extension: HMVC</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-03-08T00:50:05+08:00" pubdate  data-updated="true" >Mar 8<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在使用 <a href="http://codeigniter.com">CodeIgniter</a> 在開發的時候, 其實一直覺得 CI 的架構好像有點不足, 少了什麼東西。 例如說我想要有個使用者聯播的功能區塊, 有很多地方都想掛上這個功能區塊, 但是我該怎麼做? 在 CodeIgniter 現有的架構中, 看來就是寫成 Library 然後掛個 View, 然後把輸出 return 到呼叫的 Controller, 但是我總覺得這樣很亂, 而且東西一多, 會很難維護, Library 會不像 Library 而 View 到底是給 Controller 用還是 Library 用, 甚至 Model 也會一起捲進來, 這樣程式的架構會很雜亂。</p>
+
+<p>所以後來我就自己動手 extends CI 開始寫起了 module 功能, 寫沒多久就發現! 原來早就有類似的東西, 而且在 CodeIgniter wiki 就有提到了, 就是 <a href="http://codeigniter.com/wiki/Modular_Extensions_-_HMVC/">Modular Extensions - HMVC</a>。</p>
+
+<p>HMVC 可以用來幫 CI 加上 module 的功能, 我一直想要的就是這個功能阿!! 可以擺脫先前雜亂的方式, 可以很方便寫個模組化的功能。</p>
+
+<p>簡單說明一下 HMVC, 在掛上 HMVC 之後就可以呼叫 module, 而 module 有自己的 Controller、View 跟 Model, 這樣一來寫好 module 之後, 直接在 Controller 呼叫 module 就可以了, 這個整個程式架構就非常的明朗阿!! 整個 module 的 code 都在同一個資料夾裡面, 非常清爽!  所以說 Framework 早該有 module 這功能的 XD</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -450,43 +490,6 @@ echo $a;</code></p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/1077">從京都來的明信片!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-02-07T14:28:46+08:00" pubdate  data-updated="true" >Feb 7<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2243795130/" title="postcard from kyoto by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2303/2243795130_2d9e748c58.jpg" width="500" height="375" alt="postcard from kyoto" /></a>
-哈, 拖了好久! 這張是我人生中第三張從外國來的明信片喔! 是<a href="http://www.wretch.cc/blog/bay1220">貝貝</a>去京都玩之前, 特地來問我說要不要寄一張明信片給我, 呵, 感謝貝貝! (大心):D</p>
-
-<p>話說回來~ 真羨慕當老師的人, 一到寒暑假就可以到處玩阿!!! 其實我也想當老師教書&#8230; (咳)</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -506,6 +509,10 @@ echo $a;</code></p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/13/ios5-release/">iOS5 release</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
       </li>
     
@@ -519,10 +526,6 @@ echo $a;</code></p>
     
       <li class="post">
         <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
-      </li>
-    
-      <li class="post">
-        <a href="/webdesign/css-pivot">CSS Pivot</a>
       </li>
     
   </ul>

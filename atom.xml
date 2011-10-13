@@ -4,7 +4,7 @@
   <title><![CDATA[Oceanic / 人生海海]]></title>
   <link href="http://tzangms.com/atom.xml" rel="self"/>
   <link href="http://tzangms.com/"/>
-  <updated>2011-10-11T00:50:39+08:00</updated>
+  <updated>2011-10-14T00:30:37+08:00</updated>
   <id>http://tzangms.com/</id>
   <author>
     <name><![CDATA[tzangms]]></name>
@@ -12,6 +12,19 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[iOS5 release]]></title>
+    <link href="http://tzangms.com/2011/10/13/ios5-release/"/>
+    <updated>2011-10-13T10:10:00+08:00</updated>
+    <id>http://tzangms.com/2011/10/13/ios5-release</id>
+    <content type="html"><![CDATA[<p>今天 iOS5 釋出了, 我這支用了兩年的 iPhone 3Gs 也還可以升級, 真是不錯。 升級後速度沒什麼差, 跟原本一樣慢, 哈!</p>
+
+<p>不過我想除了 iCloud 之外, 其他沒什麼太大差異, 終於又可以像之前用 MobileMe 一樣同步資料了, 只是不用花錢就是了, 得趕快來把行事曆改用 iCloud 同步, 不然同步 Google Calendar 其實挺困擾的。</p>
+
+<p>iPhone 4s 趕快來吧!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[From blogofile to octopress]]></title>
@@ -505,40 +518,6 @@ cloud.result(jid)
 <p>Anyway, 其實我學的都很淺, 不過這次的 ASP.NET 學習, 還算是個不錯的觀念更新, 才發現原來 ASP.NET 這邊的觀念還差真多, 而 ASP.NET 也挺進步的, 該有的功能都有, MasterPage, Code seperation &#8230; 等等。</p>
 
 <p>在這次 ASP.NET 的學習過程中一直發現一些有趣的觀念, 在這過程當中的確是有點開心的感覺, 不過 &#8230; 以後其實也沒機會用到就是了 XD</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[2010 年底的北京行]]></title>
-    <link href="http://tzangms.com/life/2802"/>
-    <updated>2011-01-11T00:32:46+08:00</updated>
-    <id>http://tzangms.com/life/2010_年底的北京行</id>
-    <content type="html"><![CDATA[<p><a href="http://www.flickr.com/photos/tzangms/5309547528/" title="000008 by tzangms, on Flickr"><img src="http://farm6.static.flickr.com/5122/5309547528_14c46f0710.jpg" width="500" height="338" alt="000008" /></a>
-(圖中兩位女孩是敝公司北京同事, 我們準備去吃飯)</p>
-
-<p>在 12 月公司辦完<a href="http://simplelife.streetvoice.com/">簡單生活節</a>之後沒多久, 就跑到 SV 北京辦公室去出差, 了解一下北京的狀況, 談一些事情, 也面試幾個技術人員。 那幾天北京天氣真的是爆冷, 最後兩天都到零下 13 度了, 不過回來台灣後, 現在完全不怕冷了 (笑)</p>
-
-<p>有一天下午, 北京同事張釗帶我去搭地鐵到天安門跟故宮晃, 到處都在安檢, 真是害我緊張的要命, 當中聊天我還不小心說出了敏感詞, 張釗跟我說, 說話要小心點, 這邊到處是便衣阿 &#8230; 嚇死我了 呼~</p>
-
-<p>進到故宮後則是走到累死, 真是超大, 然後因為天氣冷, 我走到一半就找地方坐下休息, 差一點睡著 &#8230;</p>
-
-<p><a href="http://www.flickr.com/photos/tzangms/5309548700/" title="000017 by tzangms, on Flickr"><img src="http://farm6.static.flickr.com/5162/5309548700_89629c5787.jpg" width="500" height="338" alt="000017" /></a></p>
-
-<p>第三天晚上去逛三里屯, 逛了超大的 uniqlo, 主管帶我去了一家奇怪的麵店吃麵, 沒想到這家麵店我居然以前在台灣的電視上看過!!! 這家店很小, 然後得從後門進去, 一進去就是廚房, 一直進去才能到的了座位, 完全跟電視上做的一模一樣, 所以感覺特別奇妙阿! XDD</p>
-
-<p>而且在這家店看到一位超超超正妹, 這正妹根本就是 photoshop 修過的阿!! Amazing!</p>
-
-<p><a href="http://www.flickr.com/photos/tzangms/5308960853/" title="000028 by tzangms, on Flickr"><img src="http://farm6.static.flickr.com/5162/5308960853_dae4513170.jpg" width="500" height="338" alt="000028" /></a></p>
-
-<p>不過這次比較殘念的是, 因為在北京時間很短, 所以上班時間都還滿忙的, 下班則是主管都幫我安排好了, 所以沒能去找北京的推友們。</p>
-
-<p>不過因為在北京也人生地不熟, 我想就下次吧, 而且這次碰到幾個計程車司機都兇的跟什麼一樣, 啃~</p>
-
-<p><a href="http://www.flickr.com/photos/tzangms/5308960397/" title="000024 by tzangms, on Flickr"><img src="http://farm6.static.flickr.com/5168/5308960397_31ae33abc8.jpg" width="500" height="338" alt="000024" /></a></p>
-
-<p>在去北京前特地跟<a href="http://www.christabelle.idv.tw/">迴老師</a>借了底片機「喵兔」才有辦法拍出上面這些照片, 不過技術不好, 可以看的就幾張而已 (笑)</p>
-
-<p>如果順利的話, 今年應該還有機會去北京待一陣子, 到時候見啦, 北京的推友們 ~ XD</p>
 ]]></content>
   </entry>
   

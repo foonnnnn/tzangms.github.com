@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="由於這一陣子用 app engine 寫了一些玩具跟 myaudiocast, 所以來記錄一下心得。雖然 app engine 不用錢, 似乎不用怕資料庫 scale 的問題, 可是比起一般使用關聯式資料庫來說, 開始 run 之前得更仔細規劃, 因為有些資料在寫入後就無法更動了。上面這張圖是...">
+  <meta name="description" content="因為平常就是寫 django, 然後又對 app engine webapp 的 request handler get/post 分離有點感冒, 不過我想這是習慣問題吧, 所以後來都把 webapp 寫的東西都換成 django。以前有看過一些文章說是把 django zip 起來, 然後用...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,62 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2672">在 App Engine 使用 Django</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-06-10T12:02:23+08:00" pubdate  data-updated="true" >Jun 10<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>因為平常就是寫 <a href="http://www.djangoproject.com/">django</a>, 然後又對 <a href="http://code.google.com/intl/zh-TW/appengine/">app engine</a> <a href="http://code.google.com/intl/zh-TW/appengine/docs/python/gettingstarted/usingwebapp.html">webapp</a> 的 request handler get/post 分離有點感冒, 不過我想這是習慣問題吧, 所以後來都把 webapp 寫的東西都換成 django。</p>
+
+<p>以前有看過一些文章說是把 django zip 起來, 然後<a href="http://code.google.com/intl/zh-TW/appengine/articles/django10_zipimport.html">用 zipimport 來跑 django</a>, 不過其實除非你要用的是 django trunk, 否則 app engine 其實本身就內建了 0.96, 1.0 跟 1.1, 當然這邊指的是雲的那一端, 本地端還是得裝上要使用的 django 版本, 不過不用把 django 放進你的 app engine project 就是了。</p>
+
+<p>像是下面這段, 即使你使用的是 webapp, 你仍然可以透過下面這段 code, 寫在 request handler 的最前方, 來使用 django 1.1 的功能, 而非老舊的 django 0.96</p>
+
+<pre><code>from google.appengine.dist import use_library
+use_library('django', '1.1')
+os.environ['DJANGO_SETTINGS_MODULE'] = 'myaudiocast.settings'</code></pre>
+
+
+<p>至少 django 從 1.0 開始, template 的功能就大幅改進, 光 with 跟 escape_js 這兩個 template tag 就夠棒的了!</p>
+
+<p>其實 google 「app engine django」就可以找到一堆教你如何在 app engine 使用 django 的文章, 不過我還是覺得 <a href="http://code.google.com/p/google-app-engine-django/">Google App Engine Helper for Django</a> 最方便。只需要下載下來解開, 幾乎不用修改就可以開始使用。</p>
+
+<p>而 Google App Engine Helper for Django 預設是使用 django 1.0, 不過只要修改 main.py 裡, 下面這一段就可以使用 django 1.1 了</p>
+
+<pre><code>InstallAppengineHelperForDjango('1.1')</code></pre>
+
+
+<p>當然改用 django 1.0 以上的版本, 除了 template 之外就是 form 也改進了很多, 雖然原本 app engine 就已經有提供 djangoforms 可以直接透過 datastore 的 model 來產生 form, 但是在 webapp get/post request 分開處理的狀況下, django form 在使用上顯得非常憋腳, 而且 djangoforms 用的是 django 0.96 的 form, 所以功能上的確差了許多。</p>
+
+<p>以上是我對在 app engine 上使用 django 的感想。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -604,46 +660,6 @@ local_time = created_at + user_timezone.utcoffset(created_at)</code></pre>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2632">寫新玩具: 推特 / 噗浪備份</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-05-03T00:31:55+08:00" pubdate  data-updated="true" >May 3<span>rd</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://tzangms.com/wp-content/uploads/2010/05/螢幕快照-2010-05-03-上午12.19.18.png"><img src="http://tzangms.com/wp-content/uploads/2010/05/螢幕快照-2010-05-03-上午12.19.18-500x379.png" alt="" title="螢幕快照 2010-05-03 上午12.19.18" width="500" height="379" class="aligncenter size-large wp-image-2635" /></a></p>
-
-<p>這個禮拜日除了吃飯之外的時間都在弄這個, 因為想把自己的&#8221;推&#8221;都備份下來, 想說還可以弄成像日曆之類的, 不過 UI 還沒完成就是了, 目前看起來大概上面這樣。</p>
-
-<p>這次在 <a href="http://code.google.com/intl/zh-TW/appengine/">App Engine</a> 加上 <a href="http://code.google.com/p/google-app-engine-django/">Google App Engine Helper for Django</a> 來寫, 找了個 <a href="http://github.com/mikeknapp/AppEngine-OAuth-Library">app engine oauth library</a>, 稍微改一下, twitter 的部份一下子就弄好了。 時間稍微多花了一點在 plurk 上, 因為沒找到 plurk 在 app engine 的 library 可以用, 只好自己刻一個, 不過主要是在搞清楚回傳的資料, 跟建 model 時多花了一些時間。</p>
-
-<p>hmm~ 還是要有玩具, 可以用來忘記公司的一些煩人事情。</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -663,6 +679,10 @@ local_time = created_at + user_timezone.utcoffset(created_at)</code></pre>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/13/ios5-release/">iOS5 release</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
       </li>
     
@@ -676,10 +696,6 @@ local_time = created_at + user_timezone.utcoffset(created_at)</code></pre>
     
       <li class="post">
         <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
-      </li>
-    
-      <li class="post">
-        <a href="/webdesign/css-pivot">CSS Pivot</a>
       </li>
     
   </ul>

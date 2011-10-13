@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="應柏強的要求, 昨天晚上把 stickeraction.com 加上了 OpenID, 不過目前只能用在註冊新帳號, 不能 attach 舊有的帳號 :p 其實本來會員帳號想直接都用 OpenID 來作, 不過想說 OpenID 並不是那麼多人知道, 怕會沒人用 XD 所以還是寫了一個會員帳號...">
+  <meta name="description" content="由於自己租的 slicehost 只有 256MB 的記憶體, 架 mail server 又很麻煩 (因為我也不懂 XD), 又似乎 mail 有啥反解的問題, 而直接透過 sendmail 這樣寄信會被當成垃圾信, 所以就申請了 Google app, 然後用申請到的帳號透過 SMTP 來...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,61 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/codeigniter/1233">設定 CodeIgniter 透過 Gmail 發信</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-07-17T19:54:28+08:00" pubdate  data-updated="true" >Jul 17<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>由於自己租的 <a href="http://www.slicehost.com/">slicehost</a> 只有 256MB 的記憶體, 架 mail server 又很麻煩 (因為我也不懂 XD), 又似乎 mail 有啥反解的問題, 而直接透過 sendmail 這樣寄信會被當成垃圾信, 所以就申請了 Google app, 然後用申請到的帳號透過 SMTP 來發送信件。 由於 Gmail 的 SMTP 又跟一般的設定稍微不一樣(有 SSL), 所以記錄一下。</p>
+
+<p>在 <a href="http://codeigniter.com">CodeIgniter</a> 上面其實就只是設定個 config 檔就可以了, 設定檔如下:</p>
+
+<p>application/config/email.php</p>
+
+<pre><code>
+$config['protocol'] = 'smtp';
+$config['smtp_host'] = 'ssl://smtp.gmail.com';
+$config['smtp_user'] = 'your_email';
+$config['smtp_pass'] = 'your_password';
+$config['smtp_port'] = '465';
+$config['smtp_timeout'] = '5';
+$config['newline'] = "\r\n";
+$config['crlf'] = "\r\n";
+</code></pre>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/codeigniter/1233">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -555,47 +610,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/1188">Google Developer Day 2008</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-06-15T20:23:15+08:00" pubdate  data-updated="true" >Jun 15<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2577778730/" title="100_3701 by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3183/2577778730_6b0744ef71.jpg" width="500" height="375" alt="100_3701" /></a>
-這一次參加 Google Developer Day 2008, 還滿有收穫的, 主要是&#8221;AppEngine 進階&#8221;這門課, 講到了關於 AppEngine 的 DataStore, 由於 Datastore 本身就是 scalable 的架構, 在運用上跟平常用的關聯式資料庫觀念不同, 聽了這門課真的是很值得。 在進階這門課上講了一個 Counter 的範例, 這個範例就用上了 Entity Groups, transaction 跟 memcache。</p>
-
-<p>下午由於沒能排到 AppEngine 實作課程, 所以去聽了 OpenSocial, 但是可能是沒先玩過, 或是興趣不是很大, 所以聽到想睡覺 XD 不過最主要也是因為 OpenSocial 沒介紹什麼, 入門跟進階都講差不多的東西阿!!</p>
-
-<p>在每門課的結尾都有發問的時間, 其實我比較好奇的是&#8230; 有些發問可能是因為口音的關係, 我都快聽不懂了, 可是外國人都聽的懂ㄝ! o_O</p>
-
-<p>當天的遺憾就是&#8230; 我沒能參加到 AppEngine 的實作, 因為只有 50 人的限制 ~&#8221;~ 而且實作這門課還有送另外一件 AppEngine 的 t-shirt 阿!!!! (那件真的很好看阿!! Randylien 還故意秀給我看!! ~&#8221;~ )</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -615,6 +629,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/13/ios5-release/">iOS5 release</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
       </li>
     
@@ -628,10 +646,6 @@
     
       <li class="post">
         <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
-      </li>
-    
-      <li class="post">
-        <a href="/webdesign/css-pivot">CSS Pivot</a>
       </li>
     
   </ul>

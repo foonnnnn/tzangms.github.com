@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="今天我離職了, 告別這大約兩年半的第一份工作。要來好好休息一陣子了。不過我馬上就要趕回宜蘭, 明天是阿公做百日, 今天一定得趕回家的 Orz">
+  <meta name="description" content="記錄一下由 MovableType 轉換至 Wordpress 的東西。 其實要從 MT 轉換到 Wordpress 還滿簡單的, 只要從 MT 匯出, 在從 Wordpress 匯入即可, 不過要顧及 SEO 的部份, 不讓原有的網址失效, 就得花點工夫來處理。在 MT 的匯出檔案中, 並沒...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,163 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2245">MovableType 4 轉 Wordpress 2.6</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-12-03T20:17:07+08:00" pubdate  data-updated="true" >Dec 3<span>rd</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>記錄一下由 <a href="http://www.movabletype.org/">MovableType</a> 轉換至 <a href="http://wordpress.org/">Wordpress</a> 的東西。 其實要從 MT 轉換到 Wordpress 還滿簡單的, 只要從 MT 匯出, 在從 Wordpress 匯入即可, 不過要顧及 SEO 的部份, 不讓原有的網址失效, 就得花點工夫來處理。</p>
+
+<p>在 MT 的匯出檔案中, 並沒有帶著每篇文章的 post id。 而匯入到 Wordpress 之後的 post id, 則是累加上去的, 所以在轉換、匯入到 Wordpress 之後, 無法根據文章的 post id 來做 url rewire, 把舊的網址給轉到新的網址。 這麼一來, 舊的網址就會失效, 原本的 page rank 也可以能隨之下降。</p>
+
+<p>所以這裡要來記錄, 如何在轉換之後, 能夠讓原本的網址連至新的網頁。 所以大多都是在針對 post id 的處理, 我們可以根據 post id, 來對應新舊文章。本篇文章以 MT 4.1 轉換至 Wordpress 2.6.5 為範例。</p>
+
+<p>在開始之前, 請先試著把 MT 匯出的檔案匯入到 Wordpress, 看看是否能夠順利匯入, 因為在匯入的時候, 發現到, 如果有重覆的文章標題 (title), 則無法正常進行匯入。 碰到重覆的文章標題時, php 會 time out。 如果有重覆標題時, 請把重覆的標題改掉。 當匯入正常時, 再進行以下步驟。</p>
+
+<ol>
+<li>首先, 因為 MT 在匯出檔案時, 是不會有 post id 的, 所以必須修改匯出的程式, 讓他可以匯出 post id。可以修改下面這個檔案:</li>
+</ol>
+
+
+<blockquote>cgi-bin/lib/MT/ImportExport.pm</blockquote>
+
+
+<p>找到約 480 行, 應該可以看到如下的程式碼:</p>
+
+<pre>
+<code>## Create template for exporting a single entry
+require MT::Template;
+require MT::Template::Context;
+my $tmpl = MT::Template->new;
+$tmpl->name('Export Template');
+$tmpl->text(<<'TEXT');
+AUTHOR: <$MTEntryAuthor strip_linefeeds="1"$>
+TITLE: <$MTEntryTitle strip_linefeeds="1"$>
+BASENAME: <$MTEntryBasename$>
+STATUS: <$MTEntryStatus strip_linefeeds="1"$>
+ALLOW COMMENTS: <$MTEntryFlag flag="allow_comments"$>
+CONVERT BREAKS: <$MTEntryFlag flag="convert_breaks"$>
+ALLOW PINGS: <$MTEntryFlag flag="allow_pings"$><MTIfNonEmpty tag="MTEntryCategory">
+PRIMARY CATEGORY: <$MTEntryCategory$></MTIfNonEmpty><MTEntryCategories>
+CATEGORY: <$MTCategoryLabel$></MTEntryCategories>
+DATE: <$MTEntryDate format="%m/%d/%Y %I:%M:%S %p"$><MTEntryIfTagged>
+<span style='color:red'>POSTID: <$MTEntryID$></span>
+TAGS: <MTEntryTags include_private="1" glue=","><$MTTagName quote="1"$></MTEntryTags></MTEntryIfTagged>
+-----
+BODY:
+<$MTEntryBody convert_breaks="0"$>
+-----</code>
+</pre>
+
+
+<p>在這裡, 只要加上紅色那一行, 即可讓 MT 在匯出時帶有 post id。</p>
+
+<ol>
+<li>在可以匯出有 post id 的檔案之後, 接下來就是要修改 Wordpress 匯入的部份, 讓 Wordpress 可以讀取檔案中的 post id。 首先修改下面這個檔案:</li>
+</ol>
+
+
+<blockquote>wp-admin/import/mt.php</blockquote>
+
+
+<p>找到約 330 行左右, 可以看到如下的程式碼:</p>
+
+<pre>
+<code>            } else if ( 0 === strpos($line, "TITLE:") ) {
+                $title = trim( substr($line, strlen("TITLE:")) );
+                if ( '' == $context )
+                    $post->post_title = $title;
+                else if ( 'ping' == $context )
+                    $ping->title = $title;
+            <span style='color:red'>} else if ( 0 === strpos($line, "POSTID:") ) {
+                $post_id = trim( substr($line, strlen("POSTID:")) );
+                $post->post_id = $post_id;</span>
+            } else if ( 0 === strpos($line, "STATUS:") ) {</code>
+</pre>
+
+
+<p>只需要加上紅色那三行, 即可讀取到 post id。</p>
+
+<ol>
+<li>接下來則是修改寫入資料庫的部份, 修改下面這個檔案:</li>
+</ol>
+
+
+<blockquote>wp-include/post.php </blockquote>
+
+
+<p>約在 1296 行左右, 可以看到程式碼如下:</p>
+
+<pre>
+<code>    if ( 'draft' != $post_status ) {
+    ...略...
+    }
+
+    <span style='color:red'>$post_ID = (int) $post_id;
+    $ID = (int) $post_id;</span>
+
+    // expected_slashed (everything!)
+    ...</code>
+</pre>
+
+
+<p>只需要加上紅色那兩行即可。 將我們所讀取到的 post id, 覆寫到要寫入資料庫的變數, 這麼一來, 之後匯入到 Wordpress 的 post id , 就會跟 MT 的 post id 相同, 我們就可以根據這個 post id 來對應新舊文章了!</p>
+
+<ol>
+<li><p>接著就開始匯入啦! 當然得先把資料庫清空囉。</p></li>
+<li><p>最後, 在匯入 Wordpress 完畢後, 可以在 .htaccess 加上 url rewrite 如下:
+PS. Wordpress 的 permalink 是選用 Numeric 的形式。</p></li>
+</ol>
+
+
+<pre>
+<code>&lt;IfModule mod_rewrite.c&gt;
+RewriteEngine On
+RewriteBase /
+RewriteRule ^archives/([0-9]{6})\.php$ archives/$1 [R=301,L]
+RewriteRule ^archives/(200[0-9])_([0-9]{1,2})\.php$ archives/date/$1/$2 [R=301,L]
+RewriteRule ^cgi-bin/mt-search\.cgi?tag=([^&]+).*$ archives/tag/$1 [R=301,L]
+RewriteRule ^atom\.xml$ feed/atom [R=301,L]
+RewriteRule ^rss\.xml$ feed [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+&lt;/IfModule&gt;</code>
+</pre>
+
+
+<p>差不多就是這樣吧!</p>
+
+<p>喔! 對了, 匯入成功之後, 記得把 wp-include/post.php 改回來嘿。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -555,50 +712,6 @@ limit_maxbytes            Number of bytes this server is allowed to use for stor
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/2028">寫程式適合聽的音樂 - Slipknot</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-10-30T21:32:12+08:00" pubdate  data-updated="true" >Oct 30<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>我寫程式時特別愛聽比較重的音樂, slipknot 是其中一個, 來介紹幾首我喜歡的 slipknot 的歌曲, 一邊聽, 一邊寫程式, 思路跟打字都會飛快阿!!</p>
-
-<p><strong>spit it out</strong></p>
-
-<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/0XgHBWuwNp0&hl=zh_TW&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/0XgHBWuwNp0&hl=zh_TW&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/music/2028">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -618,6 +731,10 @@ limit_maxbytes            Number of bytes this server is allowed to use for stor
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/13/ios5-release/">iOS5 release</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
       </li>
     
@@ -631,10 +748,6 @@ limit_maxbytes            Number of bytes this server is allowed to use for stor
     
       <li class="post">
         <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
-      </li>
-    
-      <li class="post">
-        <a href="/webdesign/css-pivot">CSS Pivot</a>
       </li>
     
   </ul>

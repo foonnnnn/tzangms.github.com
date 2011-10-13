@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="這篇還是記錄在 StickerAction 的效能上做的處理。 StickerAction 用 Simplepie 來讀取 RSS, 然後用上了 cache, 來避免一直對外部做 request, 也減少流量的支出。研究了一下 Simplepie 的 cache 儲存方式, Simplepie...">
+  <meta name="description" content="由於先前在測試用 nginx 放在原本的 lighttpd 前面作 load balance 還是 reverse proxy 什麼的, 不過因為完全沒碰過, 只能亂搞, 沒想到成功了 XD (雖然有設錯, 整個站有掛掉一下下)本來是想說到時候 StickerAction 撐不住, 可以把 r...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,67 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/linux/1530">[Lighttpd] Get Real IP From Proxy</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-08-29T21:58:17+08:00" pubdate  data-updated="true" >Aug 29<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>由於先前在測試用 <a href="http://nginx.net">nginx</a> 放在原本的 <a href="http://www.lighttpd.net/">lighttpd</a> 前面作 load balance 還是 reverse proxy 什麼的, 不過因為完全沒碰過, 只能亂搞, 沒想到成功了 XD (雖然有設錯, 整個站有掛掉一下下)</p>
+
+<p>本來是想說到時候 <a href="http://stickeraction.com">StickerAction</a> 撐不住, 可以把 request 分到別台去, 不過看目前的情形都還撐得住, 最高也還沒到 20 req/s, 是我小看了 256slice 阿 ~&#8221;~ 不過應該也是因為加了之前做的, <a href="http://tzangms.com/php/1244">讓圖片快取住的功能</a>, 才能減少一些 request 的。</p>
+
+<p>不過當時唯一有問題的就是, 當我再看 log 跟 session 的時候, 發現, ip 全部都是 127.0.0.1 阿!! :o 幸好之前程式中 session 沒有要 match ip XD 原來 lighttpd 那邊要開 <a href="http://trac.lighttpd.net/trac/wiki/Docs/ModExtForward">mod_extforward</a> 來取得 client 經過 nginx proxy 後, 原本的 IP 位址。</p>
+
+<p>lighttpd 再 1.4.14 之後就都有 mod_extforward, 只是好像預設的 lighttpd.conf 都不會列出來。 所以只要再 server.modules 裡面載入 mod_extforward 就可以了, 只是記得要放在 mod_accesslog 後面載入, 如下:</p>
+
+<pre>
+<code>server.modules = (
+    "mod_rewrite",
+    ...
+    "mod_accesslog",
+    "mod_extforward"
+)</code>
+</pre>
+
+
+<p>然後加上個相信的 IP 來源就可以啦 :D</p>
+
+<pre>
+<code>extforward.forwarder = (
+   "127.0.0.1" => "trust"
+)</code>
+</pre>
+
+
+<p>雖然也不知道放個 nginx 在前面有沒有發揮什麼作用就是了 XD anyway 至少之後可以直接把 request 分到另外一台</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -505,40 +566,6 @@ $user-&gt;where('username', 'tzangms')-&gt;find();
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/1383">台灣對古巴</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-08-16T14:15:54+08:00" pubdate  data-updated="true" >Aug 16<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>打的不錯!! 其實昨天下午我就一直想著, 也許接下來都會打贏阿!! 因為~ 本來就沒有什麼是一定的.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -558,6 +585,10 @@ $user-&gt;where('username', 'tzangms')-&gt;find();
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/13/ios5-release/">iOS5 release</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
       </li>
     
@@ -571,10 +602,6 @@ $user-&gt;where('username', 'tzangms')-&gt;find();
     
       <li class="post">
         <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
-      </li>
-    
-      <li class="post">
-        <a href="/webdesign/css-pivot">CSS Pivot</a>
       </li>
     
   </ul>

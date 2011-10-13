@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="一個網站監測的服務, 有提供免費的帳號可以用, 可以監測一個網站, 然後提供了 20 則簡訊, 不過不知道免費帳號是不是每個月 20 則, 還是 20 則用完就沒了。 另外, 也有 email 通知的服務, 由於 mobileme 有提供 push, 所以其實沒簡訊也 ok。 在台灣也可以收到...">
+  <meta name="description" content="現在在公司用 django 在開發, 在開發過程當中, 用了許多套件, 不過都是直接裝在系統上 ( 就是裝在 site-packages 裡 ), 而 project 本身是用 mercurial 來作版本控制, 所以其他開發人員在不同機器上要開發時, 在 clone 了 source cod...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,98 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2439">Pip & Requirements File</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-07-19T01:40:47+08:00" pubdate  data-updated="true" >Jul 19<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>現在在公司用 <a href="http://www.djangoproject.com/">django</a> 在開發, 在開發過程當中, 用了許多套件, 不過都是直接裝在系統上 ( 就是裝在 site-packages 裡 ), 而 project 本身是用 mercurial 來作版本控制, 所以其他開發人員在不同機器上要開發時, 在 clone 了 source code 之後, 以為可以跑了, 但是在 runserver 時就會碰到缺了很多套件的狀況, 而套件的來源很多, 甚至有不同版本, 這一點就造成了很大的困擾。</p>
+
+<p>而上禮拜研究了一下 pip, 可以解決上面提到的問題, 來記錄一下。</p>
+
+<p>研究了 pip 之後, 覺得 pip 真的是超方便。 基本上寫個 Requirements Files, 在裡面列出需要的套件以及版本, 接著執行 一個指令, pip 就會把需要的套件通通裝好。 而套件來源包含原本就可透過 easy_install 來安裝的套件, 或者是網路上的檔案, 甚至 svn, hg 或 git 都行, 對於現在許多 django 套件都放在 github 跟 bitbucket 來說, 真的是很方便的一個功能。</p>
+
+<p>簡單來說明一下 pip 的 requirement file 怎麼寫, 詳細說明就看看 <a href="http://pip.openplans.org/">pip 的文件</a>囉。</p>
+
+<p>如果是透過 easy_install 就可以裝的套件, 只要寫套件名稱即可, 如:</p>
+
+<pre><code>BeautifulSoup</code></pre>
+
+
+<p>或是加上指定某個版本, 如:</p>
+
+<pre><code>BeautifulSoup==3.1.0.1</code></pre>
+
+
+<p>也可以直接裝 github 上的某個套件, 如:</p>
+
+<pre><code>-e git://github.com/jtauber/django-mailer.git#egg=django-mailer</code></pre>
+
+
+<p>甚至某個 changeset, 如:</p>
+
+<pre><code>-e git://github.com/svetlyak40wt/django-tagging-ng.git@0289ad4d34[...]#egg=django-tagging-ng</code></pre>
+
+
+<p>當然也可以直接裝某個 tag</p>
+
+<pre><code>-e git://github.com/danielfm/django-flash.git@1.2#egg=django-flash</code></pre>
+
+
+<p>指定版本這個功能真的是滿重要的, 尤其是 github 或是 bitbucket 上的套件, 因為我在裝 django-flash 時, 發現最新的版本是有問題的 XD 或者可能新版本可能有某個功能被 deprecated。 所以指定套件版本可以避免因為套件更新, 或者不同版本間的差異, 而導致 project 無法執行的狀況。</p>
+
+<p>而 requirements file 大致上如下:</p>
+
+<pre><code>BeautifulSoup==3.1.0.1
+django-flashpolicies
+http://effbot.org/downloads/Imaging-1.1.6.tar.gz
+mysql-python
+python-memcached
+-e svn+http://svn.navi.cx/misc/trunk/pycaptcha/#egg=pycaptcha
+-e svn+http://code.djangoproject.com/svn/django/tags/releases/1.0.2#egg=django
+-e git://github.com/danielfm/django-flash.git@1.2#egg=django-flash
+...
+</code></pre>
+
+
+<p>所以當有人要一起 cowork, 要 deploy 他們自己的開發環境, 他們只要執行</p>
+
+<pre><code>pip install -r requirements.txt</code></pre>
+
+
+<p>一個指令就可以把需要的套件給裝好了, 或者是要 deploy 新的 server 的時候, 也可以直接透過相同的方式來 deploy, 方便多了。 其實在 github 上看到某些套件, 也都提供了 requirements.txt 提供安裝所需要的 dependencies。</p>
+
+<p>當然, 千萬別忘記了, 要裝 github 上的東西, 你得先把 git 裝好, 要裝 svn 來源的套件, 也別忘了裝 svn 了 XD</p>
+
+<p>不過 pip 如果搭配 <a href="http://pypi.python.org/pypi/virtualenv">virtualenv</a> 才夠 high, 下一篇再來記錄 virtualenv。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -420,44 +512,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/computer/2398">體驗 IE8 最新功能</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-04-01T17:25:35+08:00" pubdate  data-updated="true" >Apr 1<span>st</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://stickeraction.com/ie8infx/go" title="體驗 IE8 最新功能"><img src="http://stickeraction.com/ie8infx/sticker/3" alt="體驗 IE8 最新功能" /></a></p>
-
-<p>你還在用舊版的 ie 嗎? 趕快來體驗 IE8 吧!!! (笑)
-<a href="http://stickeraction.com/ie8infx">
-一起來幫忙串連宣傳, 推廣 IE8 的使用吧!! XD</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -477,6 +531,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/13/ios5-release/">iOS5 release</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
       </li>
     
@@ -490,10 +548,6 @@
     
       <li class="post">
         <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
-      </li>
-    
-      <li class="post">
-        <a href="/webdesign/css-pivot">CSS Pivot</a>
       </li>
     
   </ul>

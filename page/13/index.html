@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="Django 文件的 iPhone App 昨天出現在 app store 了, 就跟 Django 網站上的 Documentation 看到的一樣, 不過有針對 iPhone 編排過, 實際上看了一下, 雖然程式碼的部份還是會超出 iPhone 的寬度, anyway, 基本上還算好閱讀。...">
+  <meta name="description" content="Setting up a python CI server with Hudson 這篇文章還滿值得一看的。 當中的 CI 指的是 Continuous Integration, 也可以看看這篇中文的介紹。上禮拜把 hudson 弄起來, 自動 poll mercurial repo 來跑 p...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,42 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2521">Setting Up a Python CI Server With Hudson</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-12-05T16:29:29+08:00" pubdate  data-updated="true" >Dec 5<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.rhonabwy.com/wp/2009/11/04/setting-up-a-python-ci-server-with-hudson/">Setting up a python CI server with Hudson</a> 這篇文章還滿值得一看的。 當中的 CI 指的是 <a href="http://martinfowler.com/articles/continuousIntegration.html">Continuous Integration</a>, 也可以看看這篇<a href="http://josephj.com/entry.php?id=251">中文的介紹</a>。</p>
+
+<p>上禮拜把 hudson 弄起來, 自動 poll mercurial repo 來跑 pylint, 感覺真不賴, 結果找出了超多的 unused import, unused variables, 其實還真的滿有助益的, 不過 &#8230; 為了讓跑出來的數字好看一些, 這一個禮拜一直在努力的修 code, 讓 violations 的數字減少, 超辛苦的, 說真的, 沒事不要 import * 或是用 locals() &#8230;</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -498,50 +534,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2499">最近用 Django 開發的網站上線了</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-10-26T00:08:54+08:00" pubdate  data-updated="true" >Oct 26<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>原來這份工作也已經超過半年了, 原本是被 @<a href="http://twitter.com/Randylien">Randylien</a> 找去目前的公司, 把原本 asp 寫的網站用 php 砍掉重練, 不過其實公司也沒一定要用 php, 而 COO 有點偏好 python ( 他是 google 掛的 ), 反正剛好我也不想寫 php 了, 所以我就直接決定用 python 來改寫公司的網站了。</p>
-
-<p>不過其實我對 python 一點也不熟, 然後因為覺得 <a href="http://www.djangoproject.com/">django</a> 比較紅, 就直接選了 django 開始做了。 其實這是一個非常累人的決定, 因為完全不熟的東西, 真的是快累死我了! 一邊寫一邊看文件, 沒時間搞懂的東西就下班回家研究, 隔天在繼續, 累死我了 Orz</p>
-
-<p>而初期在開發時, 最麻煩的就是寫 script 轉換原有的資料, 而且是從 MS SQL Server 轉資料, 然後加上只有切一層資料夾存放的各式檔案, table name 就不提了, my god 這真是地獄 Orz 另外一個麻煩的地方, 就是要寫一堆 api 給 asp 的網站用, 因為其實目前只有把會員跟音樂頻道 port 過來, 其他的東西都還要先維持在舊網站。</p>
-
-<p>網站已經在上個禮拜上線了, 原本是有點擔心效能的問題, 畢竟效能這個問題是我來這家公司最首要的任務之一, 因為原本的網站幾乎是已經到了沒辦法用的狀態, 所以有點怕是不是 scale 真的那麼大, 不過看來並不是這樣, 畢竟目前平均才 8 reqs/sec 而已阿~~~, 相對於 <a href="http://stickeraction.com/">stickeraction</a> 的平均 45 reqs/sec 來說簡直就是輕而易舉 XD anyway 只是公司的人都超怕網站很慢之類的 XD</p>
-
-<p>anyway, 網站上線之後, 心情好很多了, 雖然目前還是一直在修東西, 不過心境差很多就是了, 而且跑的也還滿順的 :D 之後慢慢就有一些東西可以玩了! 不過~ 這份工作未免也太累人, 因為接下來還會繼續改版其他頻道, 囧rz</p>
-
-<p>當初薪水真的是開的太少了 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -561,6 +553,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/13/ios5-release/">iOS5 release</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
       </li>
     
@@ -574,10 +570,6 @@
     
       <li class="post">
         <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
-      </li>
-    
-      <li class="post">
-        <a href="/webdesign/css-pivot">CSS Pivot</a>
       </li>
     
   </ul>

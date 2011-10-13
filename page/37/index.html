@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="只在學校讀了兩年(二技), 不過卻連續在學校校慶連續表演了六年, 不過我想這應該是最後一次回學校表演了吧!">
+  <meta name="description" content="從上次翻出我第一台相機的素描(速寫?)之後, 整個就又燃起我的畫家夢。這是我小學六年級所畫的素描。">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,46 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/1011">畫家夢</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-11-05T00:51:48+08:00" pubdate  data-updated="true" >Nov 5<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/1856985293/" title="Photo Sharing"><img src="http://farm3.static.flickr.com/2407/1856985293_9cd1499e9a.jpg" width="375" height="500" alt="畫家夢, 小六畫的素描" /></a>
+從上次翻出<a href="http://tzangms.com/life/1005/">我第一台相機的素描</a>(速寫?)之後, 整個就又燃起我的畫家夢。這是我小學六年級所畫的素描。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/life/1011">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -428,86 +468,6 @@ done
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/979">Apache Rewrite Rules for CodeIgniter</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-09-29T10:17:38+08:00" pubdate  data-updated="true" >Sep 29<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>CodeIgniter 本來的網址看起來像是這樣</p>
-
-<blockquote>http://tzangms.com/index.php/profile/edit</blockquote>
-
-
-<p>不過可以用 mod_rewrite 改寫成這樣</p>
-
-<blockquote>http://tzangms.com/profile/edit</blockquote>
-
-
-<p>一開始在用 CodeIgniter 的時候為了要把網址弄漂亮一點, 在 mod_rewrite 上搞了很久, 雖然 CodeIgniter 的 document 寫的很棒! 但是 <a href="http://codeigniter.com/user_guide/general/urls.html">CodeIgniter URLs</a> 這一篇裡面寫到關於 mod_rewrite 的部份就只有一點點。</p>
-
-<p>為了要將 tzangms.com CI 化, 就免不了要再處理一次 mod_rewrite, 只是這次是在 godaddy 租的主機, 所以只能寫 .htaccess 了, 在處理上一篇的 <a href="http://tzangms.com/?p=977">No input file specified. 的問題</a> 時, 看到了 CodeIgniter wiki 上的 <a href="http://codeigniter.com/wiki/mod_rewrite/">mod_rewrite</a> 章節, 這篇寫的很完整阿!!!</p>
-
-<p>所以直接! 第一個步驟, htaccess 內容如下, done!</p>
-
-<pre>
-<code>&lt;IfModule mod_rewrite.c&gt;
-    RewriteEngine On
-    RewriteBase /
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ index.php/$1 [L]
-&lt;/IfModule&gt;
-
-&lt;IfModule !mod_rewrite.c&gt;
-    ErrorDocument 404 /index.php
-&lt;/IfModule&gt;</code>
-</pre>
-
-
-<p>第二個步驟, 接著修改</p>
-
-<blockquote>system/application/config/config.php </blockquote>
-
-
-<p>找到下面這一行</p>
-
-<pre><code>$config['index_page'] = "index.php"; </code></pre>
-
-
-<p>改成</p>
-
-<pre><code>$config['index_page'] = ""; </code></pre>
-
-
-<p>沒錯, 這樣就樣就解決了阿!</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -527,6 +487,10 @@ done
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/13/ios5-release/">iOS5 release</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
       </li>
     
@@ -540,10 +504,6 @@ done
     
       <li class="post">
         <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
-      </li>
-    
-      <li class="post">
-        <a href="/webdesign/css-pivot">CSS Pivot</a>
       </li>
     
   </ul>

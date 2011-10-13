@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="最近裝了 Miro 然後找了幾個節目來看, 其中 geekbrief.tv 這個節目我還滿喜歡的, 除了是 HD 的畫質之外, 主持人 cali lewis 也算頗正 XD 而最近還有一集在介紹 tweetdeck, 功能介紹的還真的是很仔細。另外就是可以練練聽力, 主持人 cali lewi...">
+  <meta name="description" content="看了這一篇文章 What&#8217;s new in PHP V5.3, Part 5: Upgrading from PHP V5.2, 大概列出來下面這幾項:    function name 不能用 namespace (保留字)    class name 不能用 Closure (...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,57 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2378">從 PHP 5.2 到 PHP 5.3 須注意的一些事項</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-02-27T12:16:29+08:00" pubdate  data-updated="true" >Feb 27<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>看了這一篇文章 <a href="http://www.ibm.com/developerworks/opensource/library/os-php-5.3new5/index.html?ca=dgr-lnxw64Migrate2PHP5.3&S_TACT=105AGY46&S_CMP=grsitejw64">What&#8217;s new in PHP V5.3, Part 5: Upgrading from PHP V5.2</a>, 大概列出來下面這幾項:</p>
+
+<ul>
+    <li>function name 不能用 namespace (保留字)</li>
+    <li>class name 不能用 Closure (保留字)</li>
+    <li>加了 goto</li>
+    <li>處理 array 相關的函式不能直接丟 object 進去了, 得先轉型成 array</li>
+    <li>magic method ( __get, __set 等函式 ) 的 visibility 得為 public</li>
+    <li>FileInfo, intl, Phar, mysqlnd, SQLite3 extensions 納入 PHP Core</li>
+    <li>ncurse, fpdf, dbase, fbsql, ming extensions 從 PHP Core 移出</li>
+    <li>PCRE, Reflection, SPL 無法 disable</li>
+    <li>可以在 ini 檔案裡使用變數</li>
+    <li>增加了可以針對網站或目錄的 ini 設定</li>
+    <li>然後有一些東西 disabled 了, 像是 ereg, Ticks .. 等</li>
+</ul>
+
+
+<p>原文有提供範例, 詳細多了。 話說終於要支援 SQLite3 了阿~</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -476,58 +527,6 @@ kohana::config('foo.bar'); // kohana 2.2 變成這樣</code></pre>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/mac/2351">Garageband Workshop 小記</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-02-08T13:15:44+08:00" pubdate  data-updated="true" >Feb 8<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/3259777727/" title="garageband workshop by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3297/3259777727_c0c3512b61.jpg" width="375" height="500" alt="garageband workshop" class="alignleft" /></a></p>
-
-<p>2/7 辦的 GarageBand Workshop 應該還 ok 吧!? 也許來參加的朋友們, 有些人覺得只是 loops 拼拼貼貼, 做出來的東西也沒什麼, 但是我倒是覺得滿多人做出來的音樂都還不錯。 其實該這麼想, 你已經做出音樂了阿!!! 不是嗎?</p>
-
-<p>這次首先要感謝 randylien 大大, 帶了 Macbook 的視訊轉接線, 否則整場就挫賽了! 我什麼都有帶, 就忘記了要輸出到投影機的轉接線 Orz 自己帶了一條音源線, 還帶了錄音界面, 也帶了 remote 來控制 keynote 播放, 就是忘了轉接線&#8230; 出門還一再檢查有沒有東西忘了帶 Orz</p>
-
-<p>而這次投影片跟 live demo 講了 1 個多小時, 把大部分的功能都有講到, 只是還稍微遺漏了一點東西, 在大家在實作的時候有人發問才又講一下, 不過基本上, 關於 garageband 的界面, 軟體樂器的概念, 以及 loops 操作, 以及一些快速鍵都有提到。 應該是 GarageBand 真的很好懂, 所以大家在實作時也沒有太多問題。</p>
-
-<p>不過關於場地的部份, 在音樂播放的時候, 效果並不太好, 這點以後得找一些比較好的場地, 或者就是要包整個場地, 直接用店裡的音響會比較好。 另外每個人都要帶電腦來的話, 昨天定的場地是稍微小了那麼一些些 :p</p>
-
-<p>而昨天比較多的意見則是, garageband 內建的 loops 元素太少, 不過我想在這次的 workshop 之後, 大家就可以學到如何操作 GarageBand 跟一些觀念, 以後在去取得 Jam Packs 或是其他廠商做的 loops 來擴充。</p>
-
-<p>最後感謝大家的參與, 如果以後有機會在舉辦類似的活動的話, 也希望大家多來參與, 有什麼意見的話, 也歡迎跟我說嘿。 另外也希望大家能夠有更多的 response XD</p>
-
-<p>希望大家都有學到東西! (老師貌), 另外這次是第一次自己辦活動, 其實還滿好玩的 XD</p>
-
-<p>當天的照片 ( 其實沒拍幾張 ) 可以到<a href="http://flickr.com/photos/tzangms/sets/72157613470822282/">我的 flickr 看看</a>。</p>
-
-<p>另外這裡是<a href="http://tzangms.com/files/garageband_workshop.zip">當天的投影片</a> ( keynote &#8216;09 )</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -547,6 +546,10 @@ kohana::config('foo.bar'); // kohana 2.2 變成這樣</code></pre>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/13/ios5-release/">iOS5 release</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
       </li>
     
@@ -560,10 +563,6 @@ kohana::config('foo.bar'); // kohana 2.2 變成這樣</code></pre>
     
       <li class="post">
         <a href="/programming/django-1.3-staticfiles">關於 Django 1.3 的 staticfiles</a>
-      </li>
-    
-      <li class="post">
-        <a href="/webdesign/css-pivot">CSS Pivot</a>
       </li>
     
   </ul>
