@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="今天才意識到 timezone 的處理是有那麼一點麻煩, 存放、顯示要怎麼做之類的, 之前都沒處理過這類的問題, 不過也只能先解決問題, 之後有空在來深入研究 timezone。這兩三天在用 appengine 寫 twitter/plurk 備份的東西, 而 twitter 跟 plurk ...">
+  <meta name="description" content="之前在這一篇 寫到我在寫備份推特跟噗浪的工具, 其實說是備份有人可能會誤會, 其實不會備份你以前的訊息, 而是從現在開始幫你記錄你的推噗而已。基本上是依我自己的需求來開發的, 記錄下來的推噗可以用每日以及日曆呈現, 然後可以搜尋, 以及用 hash tag 分類, 日曆的方式大概看起來像下面這...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,62 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2643">新玩具封測</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-05-08T00:20:59+08:00" pubdate  data-updated="true" >May 8<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>之前在<a href="http://tzangms.com/programming/2632">這一篇</a> 寫到我在寫備份推特跟噗浪的工具, 其實說是備份有人可能會誤會, 其實不會備份你以前的訊息, 而是從現在開始幫你記錄你的推噗而已。</p>
+
+<p>基本上是依我自己的需求來開發的, 記錄下來的推噗可以用每日以及日曆呈現, 然後可以搜尋, 以及用 hash tag 分類, 日曆的方式大概看起來像下面這樣
+<a href="http://tzangms.com/wp-content/uploads/2010/05/螢幕快照-2010-05-07-下午11.49.01.png"><img src="http://tzangms.com/wp-content/uploads/2010/05/螢幕快照-2010-05-07-下午11.49.01-499x386.png" alt="" title="螢幕快照 2010-05-07 下午11.49.01" width="499" height="386" class="aligncenter size-large wp-image-2645" /></a></p>
+
+<p>其實用來記錄推噗後, 可以回顧先前每天的訊息記錄, 可以很快就知道哪一天在幹嘛之類的, 就當成日記, 不過其實這也要看個人推噗的使用習慣啦。 另外透過 hash tag 來當書籤其實也滿好用的, 至少我自己覺得很不錯 XD</p>
+
+<p>不過目前沒打算開放給太多人用, 畢竟有些人覺得沒這個需要, 所以有需要的人。 麻煩你在推特 follow 我, 並發送訊息下面這段訊息</p>
+
+<blockquote>小海 @tzangms 你好帥! 我要試用新玩具!</blockquote>
+
+
+<p>或者是</p>
+
+<blockquote>小海 @tzangms 我愛你! 我要試用新玩具!</blockquote>
+
+
+<p>甚至是你不想試用, 你也可以在你的推特發送下列訊息</p>
+
+<blockquote>小海 @tzangms 你超帥的! </blockquote>
+
+
+<p>我看到就會 DM 網址給你, 謝謝! XD</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -462,45 +518,6 @@ local_time = created_at + user_timezone.utcoffset(created_at)</code></pre>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2609">Simpledb 寫入失敗率真高</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-04-01T22:04:31+08:00" pubdate  data-updated="true" >Apr 1<span>st</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這兩天在把 twitthat 的資料都丟上 simpledb, 持續寫入大概 300 多萬筆資料, 可是光今天寫入失敗就超過 20 次了 ( simpledb service unavailable ), 可能是因為持續寫入關係嗎? 可是我以為會更 reliable 一些。</p>
-
-<blockquote>Service AmazonSimpleDB is currently unavailable. Please try again later</blockquote>
-
-
-
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -520,6 +537,10 @@ local_time = created_at + user_timezone.utcoffset(created_at)</code></pre>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
       </li>
     
@@ -533,10 +554,6 @@ local_time = created_at + user_timezone.utcoffset(created_at)</code></pre>
     
       <li class="post">
         <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
-      </li>
-    
-      <li class="post">
-        <a href="/stuff/blue-snowball">買了 Blue snowball</a>
       </li>
     
   </ul>

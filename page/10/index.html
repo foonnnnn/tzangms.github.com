@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="Django 1.2 release schedule - Update 2, Django 1.2 就快出來了, 真是滿令人興奮的。 Django 1.2 主要的更新有 multidb、針對 extends 跟 include 的 template caching, 還有 smarter i...">
+  <meta name="description" content="FindIcons, 還滿方便的一個 icon 搜尋引擎, 搜尋出來還可以直接轉乘你要的格式下載, ico, psd, svg 之類的, 甚至是透明背景的條件過濾。">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,40 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web design/2594">FindIcons - Free Icon Search Engine</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-03-24T23:44:26+08:00" pubdate  data-updated="true" >Mar 24<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://findicons.com/">FindIcons</a>, 還滿方便的一個 icon 搜尋引擎, 搜尋出來還可以直接轉乘你要的格式下載, ico, psd, svg 之類的, 甚至是透明背景的條件過濾。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -421,48 +455,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2573">[Django] Johnny Cache</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-03-02T11:32:37+08:00" pubdate  data-updated="true" >Mar 2<span>nd</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>現在有自己的 <a href="http://www.djangoproject.com/">django</a> project 在 running 的好處就是可以隨便試一些東西, 昨天晚上看到了 <a href="http://django.jmoiron.net/blog/johnny-cache/">Johnny Cache</a> 這篇文章, 馬上就用 pip 裝了起來, 裝上 <a href="http://stickeraction.com">stickeraction</a>, 儘管原本對 loading 最重的部份都已經用了 memcache 做處理, 沒想到 mysql queries 馬上就往下掉。</p>
-
-<p><a href="http://tzangms.com/wp-content/uploads/2010/03/localhost.localdomain-mysql_queries-day.png"><img src="http://tzangms.com/wp-content/uploads/2010/03/localhost.localdomain-mysql_queries-day.png" alt="" title="localhost.localdomain-mysql_queries-day" width="495" height="343" class="aligncenter size-full wp-image-2574" /></a></p>
-
-<p>不過其實我還沒去看他的作法 XD 反正他都說有在 production 跑了 (笑)</p>
-
-<p>Anyway, 基本上他的作法主要還是對 queryset 做 cache, 其實先前 pownce 的 mmalone 就有<a href="http://github.com/mmalone/django-caching">寫了 queryset caching 的 example app</a>, 只是裝上之後得換掉 ModelManager, 有點麻煩, 而 johnny cache 的作法僅是在 settings.py 裡面加進幾行而已, transparent 得多了, <a href="http://django.jmoiron.net/blog/johnny-cache/">Johnny Cache</a> 這篇文章的 comments 裡面也有提到另一個 <a href="http://github.com/jbalogh/django-cache-machine">django-cache-machine</a>。</p>
-
-<p>不過雖然 mysql 的 loading 往下掉, 可是 context switches 跟 interrupts 還有 cpu 都往上飆勒, 在多跑幾天看看。</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -482,6 +474,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
       </li>
     
@@ -495,10 +491,6 @@
     
       <li class="post">
         <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
-      </li>
-    
-      <li class="post">
-        <a href="/stuff/blue-snowball">買了 Blue snowball</a>
       </li>
     
   </ul>

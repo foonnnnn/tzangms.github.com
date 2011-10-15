@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="我的天阿!! Logic express 8 超想買的阿!! 還真便宜內! 只要 $6900!話說這次的 Logic express 8 多了先前 Logic Pro 7 才有的 Guitar Amp Pro!! 還有 Ultra Beat!! 真的是太帥氣了!! 然後整個界面都改了, 其實先...">
+  <meta name="description" content="最近在研究 Capistrano 這個東西, 他最主要就是搭配 SVN 來做程式碼自動部署(auto deployment)的工作, 如果程式碼都用 SVN 來作版本控制的話, 那麼會方便很多。基本上, Capistrano 是 RoR 用來做自動部署的程式, 不過在看過許多文章之後, 其實也...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,64 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/965">安裝 Capistrano</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-09-15T02:09:15+08:00" pubdate  data-updated="true" >Sep 15<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>最近在研究 <a href="http://www.capify.org/">Capistrano</a> 這個東西, 他最主要就是搭配 SVN 來做程式碼自動部署(auto deployment)的工作, 如果程式碼都用 SVN 來作版本控制的話, 那麼會方便很多。基本上, Capistrano 是 RoR 用來做自動部署的程式, 不過在看過許多文章之後, 其實也可以拿來用在其他程式的部署上。</p>
+
+<p>簡單的來説, Capistrano 就是可以讓你很方便的透過 ssh 在遠端執行指令。所以說沒辦法遙控 Windows XD</p>
+
+<p>先來說說安裝吧! 首先就是要安裝 <a href="http://www.ruby-lang.org/en/">Ruby</a> 啦! 把原始碼抓回來安裝啦! (以下當然不會是 Windows 的做法 XD)</p>
+
+<blockquote>./configure ; make ; make install </blockquote>
+
+
+<p>接著是裝上 <a href="http://www.rubygems.org/">RubyGem</a>, 抓回來用下面的指令安裝</p>
+
+<blockquote>ruby setup.rb</blockquote>
+
+
+<p>然後就可以用 RubyGem 來安裝 <a href="http://www.capify.org">Capistrano</a> 啦! 加上 -y 的參數, 是說, 會裝上其他相依的 ruby gem。</p>
+
+<blockquote>gem install -y capistrano</blockquote>
+
+
+<p>然後因為某種原因, 會出現某個訊息, 不過玩 Ruby 的才需要知道, 就不說為什麼了 (因為我也不知道阿, 反正裝玩就不會在出現那一段訊息就是了 XD)</p>
+
+<blockquote>gem install fastthread</blockquote>
+
+
+<p>到這裡就大功告成啦!! Capistrano 安裝完畢!! 之後再來寫篇發佈 PHP 程式的心得 :p</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -430,46 +488,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/950">台北?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-09-04T01:23:38+08:00" pubdate  data-updated="true" >Sep 4<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這幾天突然覺得自己不適合住在台北, 上個週末回宜蘭, 悠閒的騎著機車在路上晃著, 呼吸到的空氣是多麼的清新阿! 想騎到對面車道就騎, 晃過來晃過去, 不必擔心, 也無須每個動作都要先看過後照鏡。 在宜蘭生活~ 多悠閒~</p>
-
-<p>昨天早上, 準備騎機車上班, 一看掛再機車上的安全帽, 居然裡面都是麵!! 真的是有病&#8230; you sick! man! 今天我突然對這不熟悉的環境, 感到害怕。</p>
-
-<p>又想起前幾天在宜蘭那悠閒的感覺, 頓時覺得我還是在適合鄉下。 縱使現在我的家鄉已被一堆外人入侵, 以往屬於我的海灘, 現在到處都充滿了一對對的眼睛, 不時的在看著, 我無法繼續的自在如我。</p>
-
-<p>我之後還是先考張船長執照, 開我家的船出海捕魚好了, 就都說人生海海了 &#8230;</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -489,6 +507,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
       </li>
     
@@ -502,10 +524,6 @@
     
       <li class="post">
         <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
-      </li>
-    
-      <li class="post">
-        <a href="/stuff/blue-snowball">買了 Blue snowball</a>
       </li>
     
   </ul>

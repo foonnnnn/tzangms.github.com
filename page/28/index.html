@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="好久沒聽到拾參這個團的名字了, 一直在前一陣子, 聽到拾參在某些 Rock pub 開始又有活動了, 想想, 距離第一次聽到拾參的時候, 真的是隔了很久。 這次被找去參加拾參在海邊的卡夫卡舉辦的試聽會, 本來在猶豫要不要去, 不過想想似乎好久沒看樂團表演了, 也許是該時候接受點衝擊了吧!">
+  <meta name="description" content="According to this post in the kohana forum, the find_by_* method of ORM is not avaliable since Kohana 2.2 because the performance issue.In the prev...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,56 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1414">The ORM Find_by_* Method Is Gone. (Kohana 2.2)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-08-20T00:05:43+08:00" pubdate  data-updated="true" >Aug 20<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>According to <a href="http://forum.kohanaphp.com/comments.php?DiscussionID=876">this post</a> in the kohana forum, the find_by_* method of ORM is not avaliable since <a href="http://kohanaphp.com">Kohana</a> 2.2 because the performance issue.</p>
+
+<p>In the previous version, Kohana 2.1.2, I used before. I can use <strong>find_by_*()</strong> method like this:</p>
+
+<pre><code>$user = new User_Model();
+$user-&gt;find_by_username('tzangms');
+</code></pre>
+
+
+<p>But for now, in Kohana 2.2, we should use <strong>where()</strong> instead, if we want to find by username, not by id.</p>
+
+<pre><code>$user = new User_Model()
+$user-&gt;where('username', 'tzangms')-&gt;find();
+</code></pre>
+
+
+<p>damn, find_by_* is so intuitive.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -437,43 +487,6 @@ Mastering, 以我業餘的知識, 應該就是要輸出母片前, 也就是壓�
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/stickeraction/1265">StickerAction 可以上傳多個樣式的貼紙囉!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-07-20T23:28:37+08:00" pubdate  data-updated="true" >Jul 20<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2684913343/" title="[StickerAction] Multiple Stickers by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3236/2684913343_bd099c1d2b.jpg" width="500" height="297" alt="[StickerAction] Multiple Stickers" /></a>
-今天幫 <a href="http://stickeraction.com">StickerAction</a> 加上了多張貼紙樣式的功能, 貼紙的管理者可以到貼紙管理看看, 就可以看到了, 另外在貼紙首頁可以看到像是上圖一樣, 使用者可以選擇想要的貼紙, 或是輪播貼紙。 甚至使用者可以選擇他們自己想要的貼紙來作輪播, 畢竟不是每個樣式的貼紙大小都一樣, 這樣使用者就可以依據他們部落格版面樣式的考量, 來選擇適合的貼紙樣式組合, 來貼到他們的部落格。</p>
-
-<p>只是目前的版面樣式還不是很好看, usability 也還要加強 XD 尤其是後台 &#8230; 不過由於我還要一邊弄音樂, 所以, 進度是會慢一些 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -493,6 +506,10 @@ Mastering, 以我業餘的知識, 應該就是要輸出母片前, 也就是壓�
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
       </li>
     
@@ -506,10 +523,6 @@ Mastering, 以我業餘的知識, 應該就是要輸出母片前, 也就是壓�
     
       <li class="post">
         <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
-      </li>
-    
-      <li class="post">
-        <a href="/stuff/blue-snowball">買了 Blue snowball</a>
       </li>
     
   </ul>

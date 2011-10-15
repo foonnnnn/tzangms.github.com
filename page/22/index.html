@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="filter:alpha(opacity=70);-moz-opacity:0.7;-khtml-opacity: 0.7;opacity: 0.7;">
+  <meta name="description" content="昨天在弄我網站的首頁, 想說做個單純的 HTML, 不過想要在上面放個部落格最新文章的列表, 所以就想說用 Simplepie Live 來玩玩看, 就寫了下面那一段。首先要使用 Simplepie Live, 只要先放進他所提供的 javascript。&lt;script type="te...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,81 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2251">用 Simplepie Live 讀取 RSS</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-12-07T00:53:21+08:00" pubdate  data-updated="true" >Dec 7<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>昨天在弄我網站的首頁, 想說做個單純的 HTML, 不過想要在上面放個部落格最新文章的列表, 所以就想說用 <a href="http://live.simplepie.org/">Simplepie Live</a> 來玩玩看, 就寫了下面那一段。</p>
+
+<p>首先要使用 Simplepie Live, 只要先放進他所提供的 javascript。</p>
+
+<pre>
+<code>&lt;script type="text/javascript" src="http://live.simplepie.org/app/0.5/base.js"&gt;&lt;/script&gt;</code>
+</pre>
+
+
+<p>然後就有 Simplepie Live 的物件可以用來讀取 RSS 囉, 範例如下方。</p>
+
+<p>先說明一下下面這一段&#8230; 基本上, 就是網頁裡先有一個空的 ul tag, id 為 rss, 然後就用 Simplepie Live 把 RSS 文章的標題跟連結都包進一個 li tag, 然後放進 ul, 這樣。</p>
+
+<pre>
+<code>window.onload = function() {
+    var url = 'http://feeds.feedburner.com/tzangms';
+
+    var feed = new SimplePie(url, {
+        onSuccess: function(feed) {
+            var rss = document.getElementById('rss');
+            for (var i in feed.items) {
+                var title = feed.items[i].title;
+                var permalink = feed.items[i].permalink
+
+                var text = document.createTextNode(title);
+
+                var a = document.createElement('a');
+                a.setAttribute('href', permalink);
+                a.appendChild(text);
+
+                var li = document.createElement('li');
+                li.appendChild(a);
+
+                rss.appendChild(li);
+            }
+        }
+    });
+}</code>
+</pre>
+
+
+<p>不過, 其實用 <a href="http://code.google.com/apis/ajaxfeeds/">Google AJAX Feed API</a> 好像還比較快 XD</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -667,45 +742,6 @@ limit_maxbytes            Number of bytes this server is allowed to use for stor
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/2040">小海專輯面交預約@生態綠</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-11-03T23:55:48+08:00" pubdate  data-updated="true" >Nov 3<span>rd</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="http://farm4.static.flickr.com/3190/2999454492_1821d075fe_m.jpg" alt="封面" width="240" height="237" />
-這個星期三我將背著專輯到<a href="http://www.okogreen.com.tw/">生態綠</a>跟大家進行面交喔!!! 有興趣的朋友, 可以到 <a href="http://registrano.com/events/tzangms-preorder-okgreen">Registrano 報名頁面</a> 進行報名, 以便統計唱片數量</p>
-
-<p>另外, 小海也會當場簽名喔!! XDDDDD</p>
-
-<p><a href="http://registrano.com/events/tzangms-preorder-okgreen/registrations/new">馬上報名</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -725,6 +761,10 @@ limit_maxbytes            Number of bytes this server is allowed to use for stor
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
       </li>
     
@@ -738,10 +778,6 @@ limit_maxbytes            Number of bytes this server is allowed to use for stor
     
       <li class="post">
         <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
-      </li>
-    
-      <li class="post">
-        <a href="/stuff/blue-snowball">買了 Blue snowball</a>
       </li>
     
   </ul>

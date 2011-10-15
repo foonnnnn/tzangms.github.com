@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="昨天開始碰 Amazon S3, 因為一直覺得 stickeraction 的貼紙圖檔放在 VPS 上還是不太安全, 所以前天就開始用 Amazon S3, 把貼紙圖檔都丟上去, 順便當 cdn 用。一開始是先看 Tsung 大大的文章, 然後就開始用 s3cmd  開始玩看看 S3 怎麼用。...">
+  <meta name="description" content="Master one, then learn another這句話忘記從哪裡看來的, 基本上是說, 精通一個程式語言以後, 在去看看其他的。其實這一篇完全無重點, 碎念類。我主要使用的語言就是 PHP, 但是完全稱不上精通, 畢竟也才兩年半的時間, 從我的第一份工作, 才開始學 PHP。 記得...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,58 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2336">Master One, Then Learn Another</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-24T13:49:58+08:00" pubdate  data-updated="true" >Jan 24<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><blockquote>Master one, then learn another</blockquote>
+
+
+<p>這句話忘記從哪裡看來的, 基本上是說, 精通一個程式語言以後, 在去看看其他的。</p>
+
+<p>其實這一篇完全無重點, 碎念類。</p>
+
+<p>我主要使用的語言就是 PHP, 但是完全稱不上精通, 畢竟也才兩年半的時間, 從我的第一份工作, 才開始學 PHP。 記得剛進公司每天都是開著 php.net 查 manual, 當時連 substr 都不清楚, 而 HTML 的 FORM POST 也不太清楚怎麼運作。 而 SQL 語法也是一直上網查, 除了 SELECT 之外都不會。</p>
+
+<p>然後工作了一段時間, 大約半年才開始學 javascript, 然後對 javascript 不清不楚的狀況下就開始用 jQuery, 一直到了大概半年多前開始讀了 DOM scripting 這本書後, 才對 javascript 稍微了解一些, 才懂得 document.getElementById 這類的東西。</p>
+
+<p>而我的 PHP 也是很弱, 一直到了大約一年前開始用 CodeIgniter 之後, 才慢慢的解決我心裡對 PHP 的焦慮, 因為 SQL Injection, XSS 等, 都交給了 CodeIgniter, 然而之前學了 ruby, 最近學了 python 跟 django, 只是似乎對 PHP 的部份還是很弱, 似乎還不到去學其他語言的地步。 也許該來好好學一下 PHP 吧。</p>
+
+<p>又忘記哪裡看到的一句話說:</p>
+
+<blockquote>你可以用 library 跟 framework 來減輕你對程式語言能力不足及焦慮, 但當你使用這些工具之後, 慢慢不在感到焦慮時, 你該去研究你用的 library、 framework 來補足你還不清楚的地方。</blockquote>
+
+
+<p>Anyway, 先前在學 ruby 跟 python 時, 還滿有啟發的, 看到了很多不同的東西, 使用的程式語言不同, 想法、思維也跟著不同。 只是 PHP 才是我目前唯一能謀生的東西, 所以該回頭來好好研究一下 PHP 吧。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -474,84 +526,6 @@ System Call Overhead                        114433.5  1939609.2      169.5
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/linux/2295">Gentoo on VPS</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-01-02T00:39:12+08:00" pubdate  data-updated="true" >Jan 2<span>nd</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這篇文章是我在 VPS 上裝 Gentoo 的記錄, 方便以後要裝 VPS 的時候可以參考</p>
-
-<h3>1. 安裝 vim</h3>
-
-
-<p>首先在 gentoo 剛裝好之後, 第一件事情就是裝 vim, 不然會很痛苦</p>
-
-<pre><code>emerge vim</code></pre>
-
-
-<p> </p>
-
-<h3>2. 設定 CFLAGS</h3>
-
-
-<p><code>cat /proc/cpuinfo</code> 看看主機用的 CPU 是哪顆, 然後根據 CPU 的 model name 來設定 CFLAGS, 可以看看 <a href="http://en.gentoo-wiki.com/wiki/CFLAGS" target="_blank">CFLAGS - Gentoo Linux Wiki</a> 及 <a href="http://en.gentoo-wiki.com/Safe_Cflags" target="_blank">Safe CFLAGS - Gentoo Linux Wiki</a>。</p>
-
-<p>例如我在 slicehost 買的 256slice 的 cpu model name 是 Dual-Core AMD Opteron(tm) Processor 2212 HE, 所以我設定的 CFLAGS 如下。</p>
-
-<pre><code>CFLAGS="-march=opteron -O2 -pipe"</code></pre>
-
-
-<p>而 Linode 的 CFLAGS 如下:</p>
-
-<pre><code>CFLAGS="-march=prescott -O2 -pipe"</code></pre>
-
-
-<p>話說根據這篇 <a href="http://bugs.gentoo.org/103806" target="_blank">gentoo bug report</a> 提到, 在 GCC 3.4 以後的 XEN VPS 似乎可以加上下面這個 CFLAG, 只是我在 <a href="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Optimize-Options.html#Optimize-Options" target="_blank">GCC 4.1.2 的 Options That Control Optimization</a> 這份文件當中, 沒有找到這個 CFLAG 還有其相關說明。</p>
-
-<pre><code>-mno-tls-direct-seg-ref</code></pre>
-
-
-<h3>3. 設定 MAKEOPTS</h3>
-
-
-<p>從 cpuinfo 也可以得知有 4 顆 CPU, 所以依據 gentoo 文件上所寫的 MAKEOPTS 等於 n + 1, 可以將 MAKEOPTS 設為 5, 讓編譯的動作可以同時進行多個來加快速度。</p>
-
-<pre><code>MAKEOPTS="-j5</code>&#8221;</pre>
-
-
-<p>不過, 當線上有服務在跑, 而且記憶體太小時, 得衡量一下這個數字。
-  </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/linux/2295">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -571,6 +545,10 @@ System Call Overhead                        114433.5  1939609.2      169.5
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
       </li>
     
@@ -584,10 +562,6 @@ System Call Overhead                        114433.5  1939609.2      169.5
     
       <li class="post">
         <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
-      </li>
-    
-      <li class="post">
-        <a href="/stuff/blue-snowball">買了 Blue snowball</a>
       </li>
     
   </ul>

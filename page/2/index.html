@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="時間過好快, 第二份工作好快就滿兩年了, 想想寫程式也 4 年多了, 但是這份工作跟上一份工作差別最大的就是, 從網路產業跑到文化產業, 從原本有主管罩到沒有人罩。 而後來也不小心當了主管, 從原本沒有任何制度開始慢慢建立, 然後多了許多向外溝通的工作, 而後來都是在處理大量跟人相關的問題, ...">
+  <meta name="description" content="由於收到了 webfaction 來的繳費通知, 剛好最近一直覺得花好多錢在主機費上面, 所以打算不續約了, 除了 twitthat 跟 stickeraction 之外, 儘管 myaudiocast 的流量費用有 pixnet 提供 cdn 支援, 可是現在 myaudiocast 的流量...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,48 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/blogofile">部落格轉換為 Blogofile</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2011-04-13T23:29:00+08:00" pubdate  data-updated="true" >Apr 13<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>由於收到了 <a href="http://www.webfaction.com">webfaction</a> 來的繳費通知, 剛好最近一直覺得花好多錢在主機費上面, 所以打算不續約了, 除了 twitthat 跟 stickeraction 之外, 儘管 myaudiocast 的流量費用有 pixnet 提供 cdn 支援, 可是現在 myaudiocast 的流量幾乎每天都超過 200G, 而 s3 費用也幾乎都每個月都燒掉我 30 ~ 40 塊美金 &#8230;</p>
+
+<p>所以想說應該要來減少這方面的金錢的支出, 可以減少就盡量減少, 至少拿掉 webfaction, 一年可以省下 3000 多塊台幣, 反正 blog 也不是那麼常動來動去的, 所以就乾脆換成 <a href="http://www.blogofile.com">blogofile</a>, 全部產生靜態檔然後丟上 s3, 這樣就省很多了 XD 不過昨天 @othree 說放在 github 更省錢 XD</p>
+
+<p>所以上週日花了一些時間在轉換, 先把 comments 從 wordpress 匯到 disqus, 然後修改一下 <a href="http://www.blogofile.com/documentation/migrating_blogs.html#wordpress">blogofile 提供的轉換 script</a> 讓 disqus 可以正常運作, 也避免 SEO 整個下降, 至少文章的網址都維持原樣。 現在終於順利轉換丟上了 s3, 原本的 comments 也都在, 部落格的 theme 也保留了下來, 不過還有很多東西要補的就是了。</p>
+
+<p>另外, 想直接換為 blogofile 還有一個原因就是因為他支援 markdown, 最近因為 @othree 在推 markdown, 想說順便練習一下, 不過一直太忙, 還沒太多時間深入研究, 不過 @othree 的 <a href="http://markdown.tw">markdown.tw</a> 也都已經推出了 XD 有興趣的可以去看一下 :p</p>
+
+<p>距離上一篇發文已經超過一個月了, 最近真的是好忙阿&#8230;.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -502,46 +544,6 @@ cloud.result(jid)
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2807">Python 的 Heroku</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2011-01-15T01:26:54+08:00" pubdate  data-updated="true" >Jan 15<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>看了 gslin 大大寫的 <a href="http://blog.gslin.org/archives/2011/01/14/2424/php-的-heroku">PHP 的 Heroku</a>, 也來記一下 python 這邊的。第一個是我前一陣子拿到邀請信有開始玩的 <a href="https://www.djangy.com/">djangy</a>, 再來是還沒拿到邀請信的 <a href="http://ep.io">ep.io</a>。</p>
-
-<p><a href="https://www.djangy.com/">djangy</a> 名符其實的就是跑 <a href="http://www.djangoproject.com/">django</a> 啦~ 透過 git 來 deploy, 跟 <a href="http://heroku.com/">heroku</a> 的 deploy 方式一樣, database migration 則是使用 <a href="http://south.aeracode.org/">south</a>, dependencies 的安裝則是透過 pip, 挺方便的, 而 background job 則是透過 <a href="http://celeryproject.org/">celery</a>。</p>
-
-<p> 而 <a href="http://ep.io">ep.io</a> 的 deploy 方式稍微不一樣, 不過可以跑 <a href="http://www.djangoproject.com/">django</a>, <a href="http://flask.pocoo.org/">flask</a>, 或是 wsgi 的 app 都行, 細節就得等邀請信寄來才能玩看看了。</p>
-
-<p>最後不得不說 Rails 真的是 web 開發的先驅, 學了 Rails 就覺得有些東西的作法、想法, 真是太先進了。 所以 PHP 就有一些 framework 都寫著 inspired by Rails, 或是 PHP 的 Heroku, Python 的 Heroku 等 &#8230; to name a few XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -561,6 +563,10 @@ cloud.result(jid)
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
       </li>
     
@@ -574,10 +580,6 @@ cloud.result(jid)
     
       <li class="post">
         <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
-      </li>
-    
-      <li class="post">
-        <a href="/stuff/blue-snowball">買了 Blue snowball</a>
       </li>
     
   </ul>

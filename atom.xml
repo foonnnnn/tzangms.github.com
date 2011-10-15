@@ -4,7 +4,7 @@
   <title><![CDATA[Oceanic / 人生海海]]></title>
   <link href="http://tzangms.com/atom.xml" rel="self"/>
   <link href="http://tzangms.com/"/>
-  <updated>2011-10-14T01:03:40+08:00</updated>
+  <updated>2011-10-15T14:49:01+08:00</updated>
   <id>http://tzangms.com/</id>
   <author>
     <name><![CDATA[tzangms]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[App Engine 好貴]]></title>
+    <link href="http://tzangms.com/2011/10/15/appengine-so-expensive/"/>
+    <updated>2011-10-15T13:29:00+08:00</updated>
+    <id>http://tzangms.com/2011/10/15/appengine-so-expensive</id>
+    <content type="html"><![CDATA[<p>使用 <a href="http://code.google.com/intl/zh-TW/appengine/">App Engine</a> 的 <a href="http://www.myaudiocast.com">MyAudioCast</a> 已經一年多了, 雖然說前一陣子 App Engine 已經<a href="http://googleappengine.blogspot.com/2011/08/50-credit-for-new-billing-signups-and.html">離開 preview beta 成為正式的服務</a>了, 所以價格跟著提高, 雖然說有贈送 $50 可以用, 不過老實說我還真的沒有去研究價格到底是變成怎樣。</p>
+
+<p>不過這一陣子 <a href="http://tzangms.com/2011/10/14/save-myaudiocast/">MyAudioCast 爆量</a>, 開始被收錢, 而且還不算少, 突然間才覺得真的是爆貴的!</p>
+
+<p>就從 MyAudioCast 的例子來說好了, 由於大部分的 requests 都是 iTunes 來下載檔案, 以 MyAudioCast 的作法, 是透過程式記錄存取次數, 然後再轉址到真正的檔案, 所以做的事情基本上就只是計數器而已。 (當然這個 counter 有做 sharding 並且有用 memcache 處理)</p>
+
+<p>可是從下面這個 App Engine 提供的 Resource Usage 圖表看來, 一天跑下來 CPU Time 都已經快吃光了, 而 CPU Time 的 Budget 還是給了 $4/每天! (是美金阿!)</p>
+
+<p><a href="http://www.flickr.com/photos/tzangms/6245212699/" title="quota by tzangms, on Flickr"><img src="http://farm7.static.flickr.com/6048/6245212699_94c4c8eb88_b.jpg" width="775" height="254" alt="quota"></a></p>
+
+<p>實際看一下 reqs/sec 的圖表, 最高也還不到 50 reqs/sec, 可是這樣下來, 每天給 5 塊的 bugdget 才不會 over quota, 所以每週會花上 35 塊美金, 這樣一個月下來需要花上 140 塊美金, 可是同樣 StickerAction 用的是 Linode 768, 做的事情 loading 比 MyAudioCast 重得多, 可是一個月也才 29.95 塊美金而已。</p>
+
+<p><a href="http://www.flickr.com/photos/tzangms/6245212645/" title="reqs by tzangms, on Flickr"><img src="http://farm7.static.flickr.com/6219/6245212645_2ffcdeb90c_b.jpg" width="778" height="268" alt="reqs"></a></p>
+
+<p>這樣的價格真的沒辦法接受, 難道這就是 scalable 的代價? 或是說新的價格根本不適合跑小網站? 總之, 得準備一下來搬離 App Engine 了。</p>
+
+<p>我真懷疑是不是我搞錯的 App Engine 的計價方式阿?</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[拯救 MyAudioCast]]></title>
@@ -495,21 +520,6 @@ cloud.result(jid)
 </code></pre>
 
 <p>透過上面這段 code 應該就可以清楚知道 PiCloud 的用途了吧, 除了非同步也有同步的方式, 收費方式主要是計算 cpu time, 其他就是 storage, data transfer in/out, crawler 之類東西, 似乎也挺適合用 PiCloud 來做的, 不過可能得實際計算一下價錢就是了。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[python 的 heroku]]></title>
-    <link href="http://tzangms.com/programming/2807"/>
-    <updated>2011-01-15T01:26:54+08:00</updated>
-    <id>http://tzangms.com/programming/python_的_heroku</id>
-    <content type="html"><![CDATA[<p>看了 gslin 大大寫的 <a href="http://blog.gslin.org/archives/2011/01/14/2424/php-的-heroku">PHP 的 Heroku</a>, 也來記一下 python 這邊的。第一個是我前一陣子拿到邀請信有開始玩的 <a href="https://www.djangy.com/">djangy</a>, 再來是還沒拿到邀請信的 <a href="http://ep.io">ep.io</a>。</p>
-
-<p><a href="https://www.djangy.com/">djangy</a> 名符其實的就是跑 <a href="http://www.djangoproject.com/">django</a> 啦~ 透過 git 來 deploy, 跟 <a href="http://heroku.com/">heroku</a> 的 deploy 方式一樣, database migration 則是使用 <a href="http://south.aeracode.org/">south</a>, dependencies 的安裝則是透過 pip, 挺方便的, 而 background job 則是透過 <a href="http://celeryproject.org/">celery</a>。</p>
-
-<p> 而 <a href="http://ep.io">ep.io</a> 的 deploy 方式稍微不一樣, 不過可以跑 <a href="http://www.djangoproject.com/">django</a>, <a href="http://flask.pocoo.org/">flask</a>, 或是 wsgi 的 app 都行, 細節就得等邀請信寄來才能玩看看了。</p>
-
-<p>最後不得不說 Rails 真的是 web 開發的先驅, 學了 Rails 就覺得有些東西的作法、想法, 真是太先進了。 所以 PHP 就有一些 framework 都寫著 inspired by Rails, 或是 PHP 的 Heroku, Python 的 Heroku 等 &#8230; to name a few XD</p>
 ]]></content>
   </entry>
   

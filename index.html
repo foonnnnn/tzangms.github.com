@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="今天準備出門上班時突然下起了傾盆大雨, 索性就不去上班, 在家趕工作的 deadline 好了, 這樣一來也不會被打擾 (最近上班時 context switch 真的是非常嚴重), 畢竟目前手上的某個專案的規劃一直到昨天都還改, 昨天甚至整個邏輯都翻轉了。然而後來又收到 Pixnet 來的訊...">
+  <meta name="description" content="使用 App Engine 的 MyAudioCast 已經一年多了, 雖然說前一陣子 App Engine 已經離開 preview beta 成為正式的服務了, 所以價格跟著提高, 雖然說有贈送 $50 可以用, 不過老實說我還真的沒有去研究價格到底是變成怎樣。不過這一陣子 MyAudio...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,56 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2011-10-15T13:29:00+08:00" pubdate  data-updated="true" >Oct 15<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>使用 <a href="http://code.google.com/intl/zh-TW/appengine/">App Engine</a> 的 <a href="http://www.myaudiocast.com">MyAudioCast</a> 已經一年多了, 雖然說前一陣子 App Engine 已經<a href="http://googleappengine.blogspot.com/2011/08/50-credit-for-new-billing-signups-and.html">離開 preview beta 成為正式的服務</a>了, 所以價格跟著提高, 雖然說有贈送 $50 可以用, 不過老實說我還真的沒有去研究價格到底是變成怎樣。</p>
+
+<p>不過這一陣子 <a href="http://tzangms.com/2011/10/14/save-myaudiocast/">MyAudioCast 爆量</a>, 開始被收錢, 而且還不算少, 突然間才覺得真的是爆貴的!</p>
+
+<p>就從 MyAudioCast 的例子來說好了, 由於大部分的 requests 都是 iTunes 來下載檔案, 以 MyAudioCast 的作法, 是透過程式記錄存取次數, 然後再轉址到真正的檔案, 所以做的事情基本上就只是計數器而已。 (當然這個 counter 有做 sharding 並且有用 memcache 處理)</p>
+
+<p>可是從下面這個 App Engine 提供的 Resource Usage 圖表看來, 一天跑下來 CPU Time 都已經快吃光了, 而 CPU Time 的 Budget 還是給了 $4/每天! (是美金阿!)</p>
+
+<p><a href="http://www.flickr.com/photos/tzangms/6245212699/" title="quota by tzangms, on Flickr"><img src="http://farm7.static.flickr.com/6048/6245212699_94c4c8eb88_b.jpg" width="775" height="254" alt="quota"></a></p>
+
+<p>實際看一下 reqs/sec 的圖表, 最高也還不到 50 reqs/sec, 可是這樣下來, 每天給 5 塊的 bugdget 才不會 over quota, 所以每週會花上 35 塊美金, 這樣一個月下來需要花上 140 塊美金, 可是同樣 StickerAction 用的是 Linode 768, 做的事情 loading 比 MyAudioCast 重得多, 可是一個月也才 29.95 塊美金而已。</p>
+
+<p><a href="http://www.flickr.com/photos/tzangms/6245212645/" title="reqs by tzangms, on Flickr"><img src="http://farm7.static.flickr.com/6219/6245212645_2ffcdeb90c_b.jpg" width="778" height="268" alt="reqs"></a></p>
+
+<p>這樣的價格真的沒辦法接受, 難道這就是 scalable 的代價? 或是說新的價格根本不適合跑小網站? 總之, 得準備一下來搬離 App Engine 了。</p>
+
+<p>我真懷疑是不是我搞錯的 App Engine 的計價方式阿?</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -546,48 +596,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/blogofile">部落格轉換為 Blogofile</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2011-04-13T23:29:00+08:00" pubdate  data-updated="true" >Apr 13<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>由於收到了 <a href="http://www.webfaction.com">webfaction</a> 來的繳費通知, 剛好最近一直覺得花好多錢在主機費上面, 所以打算不續約了, 除了 twitthat 跟 stickeraction 之外, 儘管 myaudiocast 的流量費用有 pixnet 提供 cdn 支援, 可是現在 myaudiocast 的流量幾乎每天都超過 200G, 而 s3 費用也幾乎都每個月都燒掉我 30 ~ 40 塊美金 &#8230;</p>
-
-<p>所以想說應該要來減少這方面的金錢的支出, 可以減少就盡量減少, 至少拿掉 webfaction, 一年可以省下 3000 多塊台幣, 反正 blog 也不是那麼常動來動去的, 所以就乾脆換成 <a href="http://www.blogofile.com">blogofile</a>, 全部產生靜態檔然後丟上 s3, 這樣就省很多了 XD 不過昨天 @othree 說放在 github 更省錢 XD</p>
-
-<p>所以上週日花了一些時間在轉換, 先把 comments 從 wordpress 匯到 disqus, 然後修改一下 <a href="http://www.blogofile.com/documentation/migrating_blogs.html#wordpress">blogofile 提供的轉換 script</a> 讓 disqus 可以正常運作, 也避免 SEO 整個下降, 至少文章的網址都維持原樣。 現在終於順利轉換丟上了 s3, 原本的 comments 也都在, 部落格的 theme 也保留了下來, 不過還有很多東西要補的就是了。</p>
-
-<p>另外, 想直接換為 blogofile 還有一個原因就是因為他支援 markdown, 最近因為 @othree 在推 markdown, 想說順便練習一下, 不過一直太忙, 還沒太多時間深入研究, 不過 @othree 的 <a href="http://markdown.tw">markdown.tw</a> 也都已經推出了 XD 有興趣的可以去看一下 :p</p>
-
-<p>距離上一篇發文已經超過一個月了, 最近真的是好忙阿&#8230;.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -605,6 +613,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
       </li>
     
@@ -618,10 +630,6 @@
     
       <li class="post">
         <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
-      </li>
-    
-      <li class="post">
-        <a href="/stuff/blue-snowball">買了 Blue snowball</a>
       </li>
     
   </ul>

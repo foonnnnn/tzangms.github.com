@@ -1,0 +1,310 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>App Engine 好貴 - Oceanic / 人生海海</title>
+  <meta name="author" content="tzangms">
+
+  
+  <meta name="description" content="使用 App Engine 的 MyAudioCast 已經一年多了, 雖然說前一陣子 App Engine 已經離開 preview beta 成為正式的服務了, 所以價格跟著提高, 雖然說有贈送 $50 可以用, 不過老實說我還真的沒有去研究價格到底是變成怎樣。不過這一陣子 MyAudio...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tzangms.com/2011/10/15/appengine-so-expensive/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/tzangms" rel="alternate" title="Oceanic / 人生海海" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <img src="/images/logo.png"/>
+  <!--
+  <h1><a href="/">Oceanic / 人生海海</a></h1>
+  
+    <h2>這就是人生阿</h2>
+  
+  -->
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/tzangms" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tzangms.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">App Engine 好貴</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2011-10-15T13:29:00+08:00" pubdate  data-updated="true" >Oct 15<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>使用 <a href="http://code.google.com/intl/zh-TW/appengine/">App Engine</a> 的 <a href="http://www.myaudiocast.com">MyAudioCast</a> 已經一年多了, 雖然說前一陣子 App Engine 已經<a href="http://googleappengine.blogspot.com/2011/08/50-credit-for-new-billing-signups-and.html">離開 preview beta 成為正式的服務</a>了, 所以價格跟著提高, 雖然說有贈送 $50 可以用, 不過老實說我還真的沒有去研究價格到底是變成怎樣。</p>
+
+<p>不過這一陣子 <a href="http://tzangms.com/2011/10/14/save-myaudiocast/">MyAudioCast 爆量</a>, 開始被收錢, 而且還不算少, 突然間才覺得真的是爆貴的!</p>
+
+<p>就從 MyAudioCast 的例子來說好了, 由於大部分的 requests 都是 iTunes 來下載檔案, 以 MyAudioCast 的作法, 是透過程式記錄存取次數, 然後再轉址到真正的檔案, 所以做的事情基本上就只是計數器而已。 (當然這個 counter 有做 sharding 並且有用 memcache 處理)</p>
+
+<p>可是從下面這個 App Engine 提供的 Resource Usage 圖表看來, 一天跑下來 CPU Time 都已經快吃光了, 而 CPU Time 的 Budget 還是給了 $4/每天! (是美金阿!)</p>
+
+<p><a href="http://www.flickr.com/photos/tzangms/6245212699/" title="quota by tzangms, on Flickr"><img src="http://farm7.static.flickr.com/6048/6245212699_94c4c8eb88_b.jpg" width="775" height="254" alt="quota"></a></p>
+
+<p>實際看一下 reqs/sec 的圖表, 最高也還不到 50 reqs/sec, 可是這樣下來, 每天給 5 塊的 bugdget 才不會 over quota, 所以每週會花上 35 塊美金, 這樣一個月下來需要花上 140 塊美金, 可是同樣 StickerAction 用的是 Linode 768, 做的事情 loading 比 MyAudioCast 重得多, 可是一個月也才 29.95 塊美金而已。</p>
+
+<p><a href="http://www.flickr.com/photos/tzangms/6245212645/" title="reqs by tzangms, on Flickr"><img src="http://farm7.static.flickr.com/6219/6245212645_2ffcdeb90c_b.jpg" width="778" height="268" alt="reqs"></a></p>
+
+<p>這樣的價格真的沒辦法接受, 難道這就是 scalable 的代價? 或是說新的價格根本不適合跑小網站? 總之, 得準備一下來搬離 App Engine 了。</p>
+
+<p>我真懷疑是不是我搞錯的 App Engine 的計價方式阿?</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">tzangms</span></span>
+
+      
+
+
+
+
+
+  
+
+
+
+<time datetime="2011-10-15T13:29:00+08:00" pubdate  data-updated="true" >Oct 15<span>th</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/category/appengine/'>appengine</a>, <a class='category' href='/category/programming/'>programming</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tzangms.com/2011/10/15/appengine-so-expensive/" data-via="tzangms" data-counturl="http://tzangms.com/2011/10/15/appengine-so-expensive/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+</div>
+
+    
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2011/10/13/ios5-release/">iOS5 release</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/tzangms">@tzangms</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'tzangms',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("tzangms", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/tzangms" class="twitter-follow-button" data-width="208px" data-show-count="true">Follow @tzangms</a>
+  
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2011 - tzangms -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+    (function () {
+      var disqus_shortname = 'tzangms';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tzangms.com/2011/10/15/appengine-so-expensive/';
+        var disqus_url = 'http://tzangms.com/2011/10/15/appengine-so-expensive/';
+        var disqus_script = 'embed.js'
+      
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-418467-7']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

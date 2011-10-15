@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="目前我手上總共有 4 台 VPS, 為 2 台 256MB 的 slicehost, 一台 512MB 的 NY NOC 然後還有昨天新買的 540MB 的 Linode, 新買的 Linode 想拿來取代 slicehost 那兩台, 因為現在沒工作, 所以要省一點。540MB 的 Lino...">
+  <meta name="description" content="這篇文章是我在 VPS 上裝 Gentoo 的記錄, 方便以後要裝 VPS 的時候可以參考1. 安裝 vim首先在 gentoo 剛裝好之後, 第一件事情就是裝 vim, 不然會很痛苦emerge vim 2. 設定 CFLAGScat /proc/cpuinfo 看看主機用的 CPU 是哪顆...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,84 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/linux/2295">Gentoo on VPS</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-02T00:39:12+08:00" pubdate  data-updated="true" >Jan 2<span>nd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>這篇文章是我在 VPS 上裝 Gentoo 的記錄, 方便以後要裝 VPS 的時候可以參考</p>
+
+<h3>1. 安裝 vim</h3>
+
+
+<p>首先在 gentoo 剛裝好之後, 第一件事情就是裝 vim, 不然會很痛苦</p>
+
+<pre><code>emerge vim</code></pre>
+
+
+<p> </p>
+
+<h3>2. 設定 CFLAGS</h3>
+
+
+<p><code>cat /proc/cpuinfo</code> 看看主機用的 CPU 是哪顆, 然後根據 CPU 的 model name 來設定 CFLAGS, 可以看看 <a href="http://en.gentoo-wiki.com/wiki/CFLAGS" target="_blank">CFLAGS - Gentoo Linux Wiki</a> 及 <a href="http://en.gentoo-wiki.com/Safe_Cflags" target="_blank">Safe CFLAGS - Gentoo Linux Wiki</a>。</p>
+
+<p>例如我在 slicehost 買的 256slice 的 cpu model name 是 Dual-Core AMD Opteron(tm) Processor 2212 HE, 所以我設定的 CFLAGS 如下。</p>
+
+<pre><code>CFLAGS="-march=opteron -O2 -pipe"</code></pre>
+
+
+<p>而 Linode 的 CFLAGS 如下:</p>
+
+<pre><code>CFLAGS="-march=prescott -O2 -pipe"</code></pre>
+
+
+<p>話說根據這篇 <a href="http://bugs.gentoo.org/103806" target="_blank">gentoo bug report</a> 提到, 在 GCC 3.4 以後的 XEN VPS 似乎可以加上下面這個 CFLAG, 只是我在 <a href="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Optimize-Options.html#Optimize-Options" target="_blank">GCC 4.1.2 的 Options That Control Optimization</a> 這份文件當中, 沒有找到這個 CFLAG 還有其相關說明。</p>
+
+<pre><code>-mno-tls-direct-seg-ref</code></pre>
+
+
+<h3>3. 設定 MAKEOPTS</h3>
+
+
+<p>從 cpuinfo 也可以得知有 4 顆 CPU, 所以依據 gentoo 文件上所寫的 MAKEOPTS 等於 n + 1, 可以將 MAKEOPTS 設為 5, 讓編譯的動作可以同時進行多個來加快速度。</p>
+
+<pre><code>MAKEOPTS="-j5</code>&#8221;</pre>
+
+
+<p>不過, 當線上有服務在跑, 而且記憶體太小時, 得衡量一下這個數字。
+  </div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/linux/2295">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -456,81 +534,6 @@ $(function(){
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2251">用 Simplepie Live 讀取 RSS</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-12-07T00:53:21+08:00" pubdate  data-updated="true" >Dec 7<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>昨天在弄我網站的首頁, 想說做個單純的 HTML, 不過想要在上面放個部落格最新文章的列表, 所以就想說用 <a href="http://live.simplepie.org/">Simplepie Live</a> 來玩玩看, 就寫了下面那一段。</p>
-
-<p>首先要使用 Simplepie Live, 只要先放進他所提供的 javascript。</p>
-
-<pre>
-<code>&lt;script type="text/javascript" src="http://live.simplepie.org/app/0.5/base.js"&gt;&lt;/script&gt;</code>
-</pre>
-
-
-<p>然後就有 Simplepie Live 的物件可以用來讀取 RSS 囉, 範例如下方。</p>
-
-<p>先說明一下下面這一段&#8230; 基本上, 就是網頁裡先有一個空的 ul tag, id 為 rss, 然後就用 Simplepie Live 把 RSS 文章的標題跟連結都包進一個 li tag, 然後放進 ul, 這樣。</p>
-
-<pre>
-<code>window.onload = function() {
-    var url = 'http://feeds.feedburner.com/tzangms';
-
-    var feed = new SimplePie(url, {
-        onSuccess: function(feed) {
-            var rss = document.getElementById('rss');
-            for (var i in feed.items) {
-                var title = feed.items[i].title;
-                var permalink = feed.items[i].permalink
-
-                var text = document.createTextNode(title);
-
-                var a = document.createElement('a');
-                a.setAttribute('href', permalink);
-                a.appendChild(text);
-
-                var li = document.createElement('li');
-                li.appendChild(a);
-
-                rss.appendChild(li);
-            }
-        }
-    });
-}</code>
-</pre>
-
-
-<p>不過, 其實用 <a href="http://code.google.com/apis/ajaxfeeds/">Google AJAX Feed API</a> 好像還比較快 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -550,6 +553,10 @@ $(function(){
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
       </li>
     
@@ -563,10 +570,6 @@ $(function(){
     
       <li class="post">
         <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
-      </li>
-    
-      <li class="post">
-        <a href="/stuff/blue-snowball">買了 Blue snowball</a>
       </li>
     
   </ul>

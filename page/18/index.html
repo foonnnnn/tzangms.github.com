@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="其實我會買 Fender jaguar 單純只是外型 XD 一直到了今天把我的 jaguar 拿出來想要換成 010 的弦, 也順便調一下 bridge。 可是 bridge 調來調去, buzz 聲卻完全沒有改善 Orz 在放棄的同時, 居然發現第一弦的 saddle 居然掉了一隻腳 ~&#...">
+  <meta name="description" content="明天, 3/2 是新工作的開始, 其他想說的就省略了&#8230;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,40 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/2380">第二份工作即將開始</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-03-01T23:40:48+08:00" pubdate  data-updated="true" >Mar 1<span>st</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>明天, 3/2 是新工作的開始, 其他想說的就省略了&#8230;</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -470,66 +504,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2355">Config Class 初步實作</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-02-11T00:05:36+08:00" pubdate  data-updated="true" >Feb 11<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這個 config class 參考 kohana 的 config 方式來實作, 搭配先前提到的<a href="http://tzangms.com/programming/2347">用 yaml 來作設定檔</a>, 來讀取 yaml 。</p>
-
-<p>首先說明一下, 在 CodeIgniter 讀取設定檔的部份, CI 在讀取設定檔時, 必須先用下面這個方式來載入</p>
-
-<pre><code> $this->load->config('foo'); // 讀取 foo.php 設定檔 </code></pre>
-
-
-<p>當整個設定檔載入之後, 另外在用下面這個指令來取得需要的設定值</p>
-
-<pre><code>$this->config->item('bar'); // 讀取 foo.php 裡的 $config['bar'] 設定值
-config_item('bar'); // 或是這樣</code></pre>
-
-
-<p>然而看過 kohana 2.1 的做法之後 ( kohana 2.2 把 config 移到 Core 裡, 變成一個 method ), 是覺得 kohana 的做法比較好看 XD 像是下面這樣:</p>
-
-<pre><code>config::item('foo.bar'); // 讀取 foo.php 裡的 $config['bar']
-kohana::config('foo.bar'); // kohana 2.2 變成這樣</code></pre>
-
-
-<p>另外一個原因就是, 因為 CI 的設定檔都是把所有的 config 載入到同一個 container, 會造成變數名稱衝突, 所以依照 CI Config 的 convention, 就是要在每個設定值的 key 都加上 prefix, 太累贅。 而 kohana 直接用設定檔的名稱當作 prefix, 我覺得是一個不錯的方法。</p>
-
-<p>所以就參考了 kohana 語法的部份, 加上先前寫好的  yaml wrapper 來實作一下, 用來讀取設定檔的 config class, 初步簡單寫了下面這一段。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/2355">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -549,6 +523,10 @@ kohana::config('foo.bar'); // kohana 2.2 變成這樣</code></pre>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
       </li>
     
@@ -562,10 +540,6 @@ kohana::config('foo.bar'); // kohana 2.2 變成這樣</code></pre>
     
       <li class="post">
         <a href="/blog/new-tumblr">tumblr 開張 (tzang.ms)</a>
-      </li>
-    
-      <li class="post">
-        <a href="/stuff/blue-snowball">買了 Blue snowball</a>
       </li>
     
   </ul>
