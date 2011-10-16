@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="Master one, then learn another這句話忘記從哪裡看來的, 基本上是說, 精通一個程式語言以後, 在去看看其他的。其實這一篇完全無重點, 碎念類。我主要使用的語言就是 PHP, 但是完全稱不上精通, 畢竟也才兩年半的時間, 從我的第一份工作, 才開始學 PHP。 記得...">
+  <meta name="description" content="一開始注意到這個團是 frank 從 msn 上傳來的 Knights 這一首歌, frank 說我應該會喜歡, 沒想到聽起來還真不賴, 完全被吉他的部份所吸引, 後來就陸續聽了一些 Minus the bear 的歌, 才發現他們吉他手的風格還真的是很特殊, 甚至在 Highly Refin...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,106 +70,6 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/programming/2336">Master One, Then Learn Another</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-01-24T13:49:58+08:00" pubdate  data-updated="true" >Jan 24<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><blockquote>Master one, then learn another</blockquote>
-
-
-<p>這句話忘記從哪裡看來的, 基本上是說, 精通一個程式語言以後, 在去看看其他的。</p>
-
-<p>其實這一篇完全無重點, 碎念類。</p>
-
-<p>我主要使用的語言就是 PHP, 但是完全稱不上精通, 畢竟也才兩年半的時間, 從我的第一份工作, 才開始學 PHP。 記得剛進公司每天都是開著 php.net 查 manual, 當時連 substr 都不清楚, 而 HTML 的 FORM POST 也不太清楚怎麼運作。 而 SQL 語法也是一直上網查, 除了 SELECT 之外都不會。</p>
-
-<p>然後工作了一段時間, 大約半年才開始學 javascript, 然後對 javascript 不清不楚的狀況下就開始用 jQuery, 一直到了大概半年多前開始讀了 DOM scripting 這本書後, 才對 javascript 稍微了解一些, 才懂得 document.getElementById 這類的東西。</p>
-
-<p>而我的 PHP 也是很弱, 一直到了大約一年前開始用 CodeIgniter 之後, 才慢慢的解決我心裡對 PHP 的焦慮, 因為 SQL Injection, XSS 等, 都交給了 CodeIgniter, 然而之前學了 ruby, 最近學了 python 跟 django, 只是似乎對 PHP 的部份還是很弱, 似乎還不到去學其他語言的地步。 也許該來好好學一下 PHP 吧。</p>
-
-<p>又忘記哪裡看到的一句話說:</p>
-
-<blockquote>你可以用 library 跟 framework 來減輕你對程式語言能力不足及焦慮, 但當你使用這些工具之後, 慢慢不在感到焦慮時, 你該去研究你用的 library、 framework 來補足你還不清楚的地方。</blockquote>
-
-
-<p>Anyway, 先前在學 ruby 跟 python 時, 還滿有啟發的, 看到了很多不同的東西, 使用的程式語言不同, 想法、思維也跟著不同。 只是 PHP 才是我目前唯一能謀生的東西, 所以該回頭來好好研究一下 PHP 吧。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2335">Amazon S3 使用記錄</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-01-23T21:41:21+08:00" pubdate  data-updated="true" >Jan 23<span>rd</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>昨天開始碰 <a href="http://aws.amazon.com/s3/">Amazon S3</a>, 因為一直覺得 <a href="http://stickeraction.com">stickeraction</a> 的貼紙圖檔放在 VPS 上還是不太安全, 所以前天就開始用 Amazon S3, 把貼紙圖檔都丟上去, 順便當 cdn 用。</p>
-
-<p>一開始是先看 <a href="http://plog.longwin.com.tw/news-technology/2008/02/21/amazon_s3_s3cmd_php_2008">Tsung 大大的文章</a>, 然後就開始用 <a href="http://s3tools.logix.cz/s3cmd">s3cmd</a>  開始玩看看 S3 怎麼用。</p>
-
-<p>首先就是在 <a href="http://www.gentoo.org">gentoo</a> 上裝 s3cmd 啦, 不過試了 x86 跟 amd64 的平台好像都是 masked, 所以就用 ACCEPT_KEYWORDS 裝起來</p>
-
-<pre><code>ACCEPT_KEYWORDS='~x86' emerge s3cmd</code></pre>
-
-
-<p>然後就是用 <code>s3cmd --configure</code> 這個指令來設定, 填入 Amazon S3 提供的 access key 跟 secret key, 接著就可以開始用 s3cmd 來丟檔案到 s3 上做測試了。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/2335">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
       <h1 class="entry-title"><a href="/music/2334">Minus the Bear</a></h1>
     
     
@@ -202,43 +102,6 @@
     <footer>
       <a rel="full-article" href="/music/2334">Read on &rarr;</a>
     </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web design/2333">Stickeraction New Design Mockup</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-01-20T01:00:15+08:00" pubdate  data-updated="true" >Jan 20<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a title="stickeraction new design mockup by photoshop by tzangms, on Flickr" href="http://www.flickr.com/photos/tzangms/3209369577/"><img class="aligncenter" src="http://farm4.static.flickr.com/3414/3209369577_95f50c2a22.jpg" alt="stickeraction new design mockup by photoshop" width="500" height="438" /></a>
-最近都在弄 <a href="http://stickeraction.com">stickeraction</a> 的東西, 然後首頁想要改的好看、乾淨一點, 只是今天想了一個晚上, 還是想不出來要怎麼改, 一直到剛才洗澡前, 才有點靈感, 洗玩澡後馬上用 photoshop 畫了上面這個 mockup (?) 記錄一下。</p>
-
-<p>UI 真的是很困難阿 Orz</p>
-</div>
-  
   
 
 
@@ -519,6 +382,172 @@ System Call Overhead                        114433.5  1939609.2      169.5
      FINAL SCORE                                                     322.3</code>
 </pre>
 
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/linux/2295">Gentoo on VPS</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-02T00:39:12+08:00" pubdate  data-updated="true" >Jan 2<span>nd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>這篇文章是我在 VPS 上裝 Gentoo 的記錄, 方便以後要裝 VPS 的時候可以參考</p>
+
+<h3>1. 安裝 vim</h3>
+
+
+<p>首先在 gentoo 剛裝好之後, 第一件事情就是裝 vim, 不然會很痛苦</p>
+
+<pre><code>emerge vim</code></pre>
+
+
+<p> </p>
+
+<h3>2. 設定 CFLAGS</h3>
+
+
+<p><code>cat /proc/cpuinfo</code> 看看主機用的 CPU 是哪顆, 然後根據 CPU 的 model name 來設定 CFLAGS, 可以看看 <a href="http://en.gentoo-wiki.com/wiki/CFLAGS" target="_blank">CFLAGS - Gentoo Linux Wiki</a> 及 <a href="http://en.gentoo-wiki.com/Safe_Cflags" target="_blank">Safe CFLAGS - Gentoo Linux Wiki</a>。</p>
+
+<p>例如我在 slicehost 買的 256slice 的 cpu model name 是 Dual-Core AMD Opteron(tm) Processor 2212 HE, 所以我設定的 CFLAGS 如下。</p>
+
+<pre><code>CFLAGS="-march=opteron -O2 -pipe"</code></pre>
+
+
+<p>而 Linode 的 CFLAGS 如下:</p>
+
+<pre><code>CFLAGS="-march=prescott -O2 -pipe"</code></pre>
+
+
+<p>話說根據這篇 <a href="http://bugs.gentoo.org/103806" target="_blank">gentoo bug report</a> 提到, 在 GCC 3.4 以後的 XEN VPS 似乎可以加上下面這個 CFLAG, 只是我在 <a href="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Optimize-Options.html#Optimize-Options" target="_blank">GCC 4.1.2 的 Options That Control Optimization</a> 這份文件當中, 沒有找到這個 CFLAG 還有其相關說明。</p>
+
+<pre><code>-mno-tls-direct-seg-ref</code></pre>
+
+
+<h3>3. 設定 MAKEOPTS</h3>
+
+
+<p>從 cpuinfo 也可以得知有 4 顆 CPU, 所以依據 gentoo 文件上所寫的 MAKEOPTS 等於 n + 1, 可以將 MAKEOPTS 設為 5, 讓編譯的動作可以同時進行多個來加快速度。</p>
+
+<pre><code>MAKEOPTS="-j5</code>&#8221;</pre>
+
+
+<p>不過, 當線上有服務在跑, 而且記憶體太小時, 得衡量一下這個數字。
+  </div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/linux/2295">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/linux/2294">新買了一台 Linode</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-02T00:37:53+08:00" pubdate  data-updated="true" >Jan 2<span>nd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>目前我手上總共有 4 台 VPS, 為 2 台 256MB 的 <a href="http://slicehost.com/" target="_blank">slicehost</a>, 一台 512MB 的 <a href="http://thenynoc.com/" target="_blank">NY NOC</a> 然後還有昨天新買的 540MB 的 <a href="http://linode.com/" target="_blank">Linode</a>, 新買的 Linode 想拿來取代 slicehost 那兩台, 因為現在沒工作, 所以要省一點。</p>
+
+<p>540MB 的 Linode 要價 $29.95, 而兩台 256MB 的 slicehost, 要價 $40, 本來是想買 720MB 的 Linode, 不過想說這樣就沒省到錢了, 只好買 540MB 的 Linode, 反正之後可以直接加 RAM。</p>
+
+<p>而 NY NOC 那一台目前只有跑我的 blog, 跟一些實驗性的東西。 不過 NY NOC 真的是很便宜, 只是 ping time 不好, performance 也不太好, 不敢把 <a href="http://stickeraction.com/" target="_blank">stickeraction</a> 或是 <a href="http://twitthat.com/" target="_blank">twitthat</a> 搬過去, 不過那麼便宜的 VPS 就不要強求了 :p</p>
+
+<p>剛才 ping 了一下, 這三家的 ping time 如下, Linode 選 Fremont, CA 還滿快的:</p>
+
+<p>Linode: 16x ms
+Slicehost: 19x ms
+NY NOC: 37x ms</p>
+
+<p>而在 <a href="http://gentoo.org/" target="_blank">Gentoo</a> 的支援上, Slicehost 倒是比 Linode 好多了, Linode 到現在還是只有 Gentoo 2007.0 的 image, 害我今天在升級 packages 的時候碰到好幾個 package block, 跟 collision.</p>
+
+<p>update: 阿駕說他那邊 ping NY NOC 都 15x, 我這邊是 hinet …. Orz</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/2292">河岸留言初體驗</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-12-30T00:34:56+08:00" pubdate  data-updated="true" >Dec 30<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p> 
+上週末 12/25 <a href="http://www.koumis.cc/" target="_blank">koumis</a> 在河岸留言表演, 找了我去擔任 special guest, 真的是很感謝他們給了我一個這樣的機會, 讓我有機會可以在河岸留言演出。
+可能樂團玩久了, 對一個人表演感到有點恐懼, 似乎音樂永遠是空洞的感覺, 當然隨意的場合我就不那麼擔心, 只是這次可是在河岸留言阿! 而且幾乎都是不認識的人 Orz 不過為了這幾次表演, 我在上次的 SimpleLife 結束後我就跑去買了一把 Taylor 花了近三萬, 沒工作還做的出這種事… anyway, 想說以後要拿木吉他唱的話, 還是得要一把稍微好一點的吉他, 反正舊的那把吉他也爛掉了。</p>
+
+<p>而這次主要是用上了買來卻沒用過幾次的 loop station: <a href="http://tzangms.com/music/846" target="_blank">BOSS RC-20XL</a>, 哈, 所以更加緊張了。 不過實際用 loop station 表演的結果, 其實還不錯, 出去外場的聲音比想像中的好, 而不像在家裡用音箱出來的聲音 XD 所以之後類似的表演環境, 另外再加上麥克風收鈴鼓應該也有很不錯的效果, 就待下次有機會試試看了。</p>
+
+<p>但是我得先克服的是一個人表演時, 那令人緊張的安靜。</p>
 </div>
   
   

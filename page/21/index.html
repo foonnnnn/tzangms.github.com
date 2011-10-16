@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="這篇文章是我在 VPS 上裝 Gentoo 的記錄, 方便以後要裝 VPS 的時候可以參考1. 安裝 vim首先在 gentoo 剛裝好之後, 第一件事情就是裝 vim, 不然會很痛苦emerge vim 2. 設定 CFLAGScat /proc/cpuinfo 看看主機用的 CPU 是哪顆...">
+  <meta name="description" content="這次的 Punch Party 讚不讚, 讚!這次的 Punch Party 9 真的是太 high 了, 而且還辦在 the wall! 我覺得真的是名符其實的 Party 阿! 而這也是我第一次去 the wall XD 這一次的 sessions 我覺得都還不錯。 除了女王, 還有部落客...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,172 +64,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/linux/2295">Gentoo on VPS</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-01-02T00:39:12+08:00" pubdate  data-updated="true" >Jan 2<span>nd</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這篇文章是我在 VPS 上裝 Gentoo 的記錄, 方便以後要裝 VPS 的時候可以參考</p>
-
-<h3>1. 安裝 vim</h3>
-
-
-<p>首先在 gentoo 剛裝好之後, 第一件事情就是裝 vim, 不然會很痛苦</p>
-
-<pre><code>emerge vim</code></pre>
-
-
-<p> </p>
-
-<h3>2. 設定 CFLAGS</h3>
-
-
-<p><code>cat /proc/cpuinfo</code> 看看主機用的 CPU 是哪顆, 然後根據 CPU 的 model name 來設定 CFLAGS, 可以看看 <a href="http://en.gentoo-wiki.com/wiki/CFLAGS" target="_blank">CFLAGS - Gentoo Linux Wiki</a> 及 <a href="http://en.gentoo-wiki.com/Safe_Cflags" target="_blank">Safe CFLAGS - Gentoo Linux Wiki</a>。</p>
-
-<p>例如我在 slicehost 買的 256slice 的 cpu model name 是 Dual-Core AMD Opteron(tm) Processor 2212 HE, 所以我設定的 CFLAGS 如下。</p>
-
-<pre><code>CFLAGS="-march=opteron -O2 -pipe"</code></pre>
-
-
-<p>而 Linode 的 CFLAGS 如下:</p>
-
-<pre><code>CFLAGS="-march=prescott -O2 -pipe"</code></pre>
-
-
-<p>話說根據這篇 <a href="http://bugs.gentoo.org/103806" target="_blank">gentoo bug report</a> 提到, 在 GCC 3.4 以後的 XEN VPS 似乎可以加上下面這個 CFLAG, 只是我在 <a href="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Optimize-Options.html#Optimize-Options" target="_blank">GCC 4.1.2 的 Options That Control Optimization</a> 這份文件當中, 沒有找到這個 CFLAG 還有其相關說明。</p>
-
-<pre><code>-mno-tls-direct-seg-ref</code></pre>
-
-
-<h3>3. 設定 MAKEOPTS</h3>
-
-
-<p>從 cpuinfo 也可以得知有 4 顆 CPU, 所以依據 gentoo 文件上所寫的 MAKEOPTS 等於 n + 1, 可以將 MAKEOPTS 設為 5, 讓編譯的動作可以同時進行多個來加快速度。</p>
-
-<pre><code>MAKEOPTS="-j5</code>&#8221;</pre>
-
-
-<p>不過, 當線上有服務在跑, 而且記憶體太小時, 得衡量一下這個數字。
-  </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/linux/2295">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/linux/2294">新買了一台 Linode</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-01-02T00:37:53+08:00" pubdate  data-updated="true" >Jan 2<span>nd</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>目前我手上總共有 4 台 VPS, 為 2 台 256MB 的 <a href="http://slicehost.com/" target="_blank">slicehost</a>, 一台 512MB 的 <a href="http://thenynoc.com/" target="_blank">NY NOC</a> 然後還有昨天新買的 540MB 的 <a href="http://linode.com/" target="_blank">Linode</a>, 新買的 Linode 想拿來取代 slicehost 那兩台, 因為現在沒工作, 所以要省一點。</p>
-
-<p>540MB 的 Linode 要價 $29.95, 而兩台 256MB 的 slicehost, 要價 $40, 本來是想買 720MB 的 Linode, 不過想說這樣就沒省到錢了, 只好買 540MB 的 Linode, 反正之後可以直接加 RAM。</p>
-
-<p>而 NY NOC 那一台目前只有跑我的 blog, 跟一些實驗性的東西。 不過 NY NOC 真的是很便宜, 只是 ping time 不好, performance 也不太好, 不敢把 <a href="http://stickeraction.com/" target="_blank">stickeraction</a> 或是 <a href="http://twitthat.com/" target="_blank">twitthat</a> 搬過去, 不過那麼便宜的 VPS 就不要強求了 :p</p>
-
-<p>剛才 ping 了一下, 這三家的 ping time 如下, Linode 選 Fremont, CA 還滿快的:</p>
-
-<p>Linode: 16x ms
-Slicehost: 19x ms
-NY NOC: 37x ms</p>
-
-<p>而在 <a href="http://gentoo.org/" target="_blank">Gentoo</a> 的支援上, Slicehost 倒是比 Linode 好多了, Linode 到現在還是只有 Gentoo 2007.0 的 image, 害我今天在升級 packages 的時候碰到好幾個 package block, 跟 collision.</p>
-
-<p>update: 阿駕說他那邊 ping NY NOC 都 15x, 我這邊是 hinet …. Orz</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/2292">河岸留言初體驗</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-12-30T00:34:56+08:00" pubdate  data-updated="true" >Dec 30<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p> 
-上週末 12/25 <a href="http://www.koumis.cc/" target="_blank">koumis</a> 在河岸留言表演, 找了我去擔任 special guest, 真的是很感謝他們給了我一個這樣的機會, 讓我有機會可以在河岸留言演出。
-可能樂團玩久了, 對一個人表演感到有點恐懼, 似乎音樂永遠是空洞的感覺, 當然隨意的場合我就不那麼擔心, 只是這次可是在河岸留言阿! 而且幾乎都是不認識的人 Orz 不過為了這幾次表演, 我在上次的 SimpleLife 結束後我就跑去買了一把 Taylor 花了近三萬, 沒工作還做的出這種事… anyway, 想說以後要拿木吉他唱的話, 還是得要一把稍微好一點的吉他, 反正舊的那把吉他也爛掉了。</p>
-
-<p>而這次主要是用上了買來卻沒用過幾次的 loop station: <a href="http://tzangms.com/music/846" target="_blank">BOSS RC-20XL</a>, 哈, 所以更加緊張了。 不過實際用 loop station 表演的結果, 其實還不錯, 出去外場的聲音比想像中的好, 而不像在家裡用音箱出來的聲音 XD 所以之後類似的表演環境, 另外再加上麥克風收鈴鼓應該也有很不錯的效果, 就待下次有機會試試看了。</p>
-
-<p>但是我得先克服的是一個人表演時, 那令人緊張的安靜。</p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -441,62 +275,6 @@ ticket:NT 300</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/web design/2265">解決透明 Png 在 Ie 6 下的問題: jQuery pngFix</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-12-15T21:38:11+08:00" pubdate  data-updated="true" >Dec 15<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>透明 png 在 ie 6 下面的問題真的是很糟糕, 以前挑戰過好幾次, 不過每次都不成功, 到最後, 我只好把 png 一個一個轉成 gif 。 Orz 幸好今天挑戰成功了! 應該是因為有 <a href="http://jiwostudio.com/">Leo Lin</a> 跟 <a href="http://blog.othree.net/">othree</a> 這兩位大大的指導跟關心, 所以問題全都迎刃而解了 XD</p>
-
-<p>anyway, 基本上就是用 jQuery 的外掛, <a href="http://jquery.andreaseberhard.de/pngFix/">jQuery pngFix</a>, 就可以解決了, 可能我之前一直搞錯, 沒認真看文件吧 Orz</p>
-
-<pre>
-<code>&lt;script type="text/javascript" src="/js/jquery.js"&gt;&lt;/script&gt;
-&lt;script type="text/javascript" src="/js/jquery.pngFix.pack.js"&gt;&lt;/script&gt;
-&lt;script type='text/javascript'&gt;
-$(function(){
-    $(document).pngFix();
-});
-&lt;/script&gt;</code>
-</pre>
-
-
-<p>我之前好像是寫成下面這樣才失敗的&#8230;</p>
-
-<pre>
-<code>$('img').pngFix();</code>
-</pre>
-
-
-<p>實例可以看看 <a href="http://stickeraction.com">stickeraction</a> 的 nav bar :p</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
       <h1 class="entry-title"><a href="/web/2252">BarCamp NANO Taipei!</a></h1>
     
     
@@ -527,6 +305,315 @@ $(function(){
 <p><a href="http://www.barcamp.org/BarCampTaipei">BarCamp Taipei 官方wiki</a></p>
 
 <p>Oh my god! 看了以上對 BarCamp 的簡略說明之後, 難道你不覺得很有趣嗎!!? 先<a href="http://www.barcamp.org/BarCampTaipei">看看官方 wiki</a>, 然後 12/10 晚上, 一起來去玩玩吧!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2251">用 Simplepie Live 讀取 RSS</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-12-07T00:53:21+08:00" pubdate  data-updated="true" >Dec 7<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>昨天在弄我網站的首頁, 想說做個單純的 HTML, 不過想要在上面放個部落格最新文章的列表, 所以就想說用 <a href="http://live.simplepie.org/">Simplepie Live</a> 來玩玩看, 就寫了下面那一段。</p>
+
+<p>首先要使用 Simplepie Live, 只要先放進他所提供的 javascript。</p>
+
+<pre>
+<code>&lt;script type="text/javascript" src="http://live.simplepie.org/app/0.5/base.js"&gt;&lt;/script&gt;</code>
+</pre>
+
+
+<p>然後就有 Simplepie Live 的物件可以用來讀取 RSS 囉, 範例如下方。</p>
+
+<p>先說明一下下面這一段&#8230; 基本上, 就是網頁裡先有一個空的 ul tag, id 為 rss, 然後就用 Simplepie Live 把 RSS 文章的標題跟連結都包進一個 li tag, 然後放進 ul, 這樣。</p>
+
+<pre>
+<code>window.onload = function() {
+    var url = 'http://feeds.feedburner.com/tzangms';
+
+    var feed = new SimplePie(url, {
+        onSuccess: function(feed) {
+            var rss = document.getElementById('rss');
+            for (var i in feed.items) {
+                var title = feed.items[i].title;
+                var permalink = feed.items[i].permalink
+
+                var text = document.createTextNode(title);
+
+                var a = document.createElement('a');
+                a.setAttribute('href', permalink);
+                a.appendChild(text);
+
+                var li = document.createElement('li');
+                li.appendChild(a);
+
+                rss.appendChild(li);
+            }
+        }
+    });
+}</code>
+</pre>
+
+
+<p>不過, 其實用 <a href="http://code.google.com/apis/ajaxfeeds/">Google AJAX Feed API</a> 好像還比較快 XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2245">MovableType 4 轉 Wordpress 2.6</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-12-03T20:17:07+08:00" pubdate  data-updated="true" >Dec 3<span>rd</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>記錄一下由 <a href="http://www.movabletype.org/">MovableType</a> 轉換至 <a href="http://wordpress.org/">Wordpress</a> 的東西。 其實要從 MT 轉換到 Wordpress 還滿簡單的, 只要從 MT 匯出, 在從 Wordpress 匯入即可, 不過要顧及 SEO 的部份, 不讓原有的網址失效, 就得花點工夫來處理。</p>
+
+<p>在 MT 的匯出檔案中, 並沒有帶著每篇文章的 post id。 而匯入到 Wordpress 之後的 post id, 則是累加上去的, 所以在轉換、匯入到 Wordpress 之後, 無法根據文章的 post id 來做 url rewire, 把舊的網址給轉到新的網址。 這麼一來, 舊的網址就會失效, 原本的 page rank 也可以能隨之下降。</p>
+
+<p>所以這裡要來記錄, 如何在轉換之後, 能夠讓原本的網址連至新的網頁。 所以大多都是在針對 post id 的處理, 我們可以根據 post id, 來對應新舊文章。本篇文章以 MT 4.1 轉換至 Wordpress 2.6.5 為範例。</p>
+
+<p>在開始之前, 請先試著把 MT 匯出的檔案匯入到 Wordpress, 看看是否能夠順利匯入, 因為在匯入的時候, 發現到, 如果有重覆的文章標題 (title), 則無法正常進行匯入。 碰到重覆的文章標題時, php 會 time out。 如果有重覆標題時, 請把重覆的標題改掉。 當匯入正常時, 再進行以下步驟。</p>
+
+<ol>
+<li>首先, 因為 MT 在匯出檔案時, 是不會有 post id 的, 所以必須修改匯出的程式, 讓他可以匯出 post id。可以修改下面這個檔案:</li>
+</ol>
+
+
+<blockquote>cgi-bin/lib/MT/ImportExport.pm</blockquote>
+
+
+<p>找到約 480 行, 應該可以看到如下的程式碼:</p>
+
+<pre>
+<code>## Create template for exporting a single entry
+require MT::Template;
+require MT::Template::Context;
+my $tmpl = MT::Template->new;
+$tmpl->name('Export Template');
+$tmpl->text(<<'TEXT');
+AUTHOR: <$MTEntryAuthor strip_linefeeds="1"$>
+TITLE: <$MTEntryTitle strip_linefeeds="1"$>
+BASENAME: <$MTEntryBasename$>
+STATUS: <$MTEntryStatus strip_linefeeds="1"$>
+ALLOW COMMENTS: <$MTEntryFlag flag="allow_comments"$>
+CONVERT BREAKS: <$MTEntryFlag flag="convert_breaks"$>
+ALLOW PINGS: <$MTEntryFlag flag="allow_pings"$><MTIfNonEmpty tag="MTEntryCategory">
+PRIMARY CATEGORY: <$MTEntryCategory$></MTIfNonEmpty><MTEntryCategories>
+CATEGORY: <$MTCategoryLabel$></MTEntryCategories>
+DATE: <$MTEntryDate format="%m/%d/%Y %I:%M:%S %p"$><MTEntryIfTagged>
+<span style='color:red'>POSTID: <$MTEntryID$></span>
+TAGS: <MTEntryTags include_private="1" glue=","><$MTTagName quote="1"$></MTEntryTags></MTEntryIfTagged>
+-----
+BODY:
+<$MTEntryBody convert_breaks="0"$>
+-----</code>
+</pre>
+
+
+<p>在這裡, 只要加上紅色那一行, 即可讓 MT 在匯出時帶有 post id。</p>
+
+<ol>
+<li>在可以匯出有 post id 的檔案之後, 接下來就是要修改 Wordpress 匯入的部份, 讓 Wordpress 可以讀取檔案中的 post id。 首先修改下面這個檔案:</li>
+</ol>
+
+
+<blockquote>wp-admin/import/mt.php</blockquote>
+
+
+<p>找到約 330 行左右, 可以看到如下的程式碼:</p>
+
+<pre>
+<code>            } else if ( 0 === strpos($line, "TITLE:") ) {
+                $title = trim( substr($line, strlen("TITLE:")) );
+                if ( '' == $context )
+                    $post->post_title = $title;
+                else if ( 'ping' == $context )
+                    $ping->title = $title;
+            <span style='color:red'>} else if ( 0 === strpos($line, "POSTID:") ) {
+                $post_id = trim( substr($line, strlen("POSTID:")) );
+                $post->post_id = $post_id;</span>
+            } else if ( 0 === strpos($line, "STATUS:") ) {</code>
+</pre>
+
+
+<p>只需要加上紅色那三行, 即可讀取到 post id。</p>
+
+<ol>
+<li>接下來則是修改寫入資料庫的部份, 修改下面這個檔案:</li>
+</ol>
+
+
+<blockquote>wp-include/post.php </blockquote>
+
+
+<p>約在 1296 行左右, 可以看到程式碼如下:</p>
+
+<pre>
+<code>    if ( 'draft' != $post_status ) {
+    ...略...
+    }
+
+    <span style='color:red'>$post_ID = (int) $post_id;
+    $ID = (int) $post_id;</span>
+
+    // expected_slashed (everything!)
+    ...</code>
+</pre>
+
+
+<p>只需要加上紅色那兩行即可。 將我們所讀取到的 post id, 覆寫到要寫入資料庫的變數, 這麼一來, 之後匯入到 Wordpress 的 post id , 就會跟 MT 的 post id 相同, 我們就可以根據這個 post id 來對應新舊文章了!</p>
+
+<ol>
+<li><p>接著就開始匯入啦! 當然得先把資料庫清空囉。</p></li>
+<li><p>最後, 在匯入 Wordpress 完畢後, 可以在 .htaccess 加上 url rewrite 如下:
+PS. Wordpress 的 permalink 是選用 Numeric 的形式。</p></li>
+</ol>
+
+
+<pre>
+<code>&lt;IfModule mod_rewrite.c&gt;
+RewriteEngine On
+RewriteBase /
+RewriteRule ^archives/([0-9]{6})\.php$ archives/$1 [R=301,L]
+RewriteRule ^archives/(200[0-9])_([0-9]{1,2})\.php$ archives/date/$1/$2 [R=301,L]
+RewriteRule ^cgi-bin/mt-search\.cgi?tag=([^&]+).*$ archives/tag/$1 [R=301,L]
+RewriteRule ^atom\.xml$ feed/atom [R=301,L]
+RewriteRule ^rss\.xml$ feed [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+&lt;/IfModule&gt;</code>
+</pre>
+
+
+<p>差不多就是這樣吧!</p>
+
+<p>喔! 對了, 匯入成功之後, 記得把 wp-include/post.php 改回來嘿。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/2244">離職了</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-11-28T20:56:13+08:00" pubdate  data-updated="true" >Nov 28<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天我離職了, 告別這大約兩年半的第一份工作。要來好好休息一陣子了。</p>
+
+<p>不過我馬上就要趕回宜蘭, 明天是阿公做百日, 今天一定得趕回家的 Orz</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/2238">Dixie Chicks - Not Ready to Make Nice</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-11-27T20:01:02+08:00" pubdate  data-updated="true" >Nov 27<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/IHH8bfPhusM&hl=zh_TW&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/IHH8bfPhusM&hl=zh_TW&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+
+
+<p>今天早上從<a href="http://www.wretch.cc/blog/imgoodness/12898270">志豪那邊</a>看到這個影片, 就點來看看, 原本認為我會聽一小段就馬上跳開了, 沒想到讓我聽到眼淚都飆了出來, Vocal 未免也太猛了!! pitch 準到一個不行, 這可是 Live 阿!!</p>
+
+<p>我當時應該是聽到 1:47 - 2:15 這一段, 眼淚就飆出來了。</p>
+
+<p>題外話, 我覺得鼓手好像有跑去演 MIB 2 ? XD</p>
 </div>
   
   

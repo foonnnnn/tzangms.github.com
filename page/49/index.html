@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="function addLoadEvent(func) {    var oldonload = window.onload;    if (typeof window.onload != 'function') {        window.onload = func;    } else...">
+  <meta name="description" content="第一次的坎坷，去搭火車，結果被網路火車時刻給騙了，根本沒那班車，只好搭下一班，結果坐上了，女性專用車廂，不過還是很多男的，也很想睡，所以就眼睛閉起來睡覺~第二次的坎坷，去搭火車，心裡想著這一次，不可能在坐到女性專用車廂，所以在坐火車的時候，很注意的看了一下，標示有女性專用的車廂過了，心想太好了...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,402 +64,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/766">addLoadEvent</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-01-23T10:28:04+08:00" pubdate  data-updated="true" >Jan 23<span>rd</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><pre>
-<code>function addLoadEvent(func) {
-    var oldonload = window.onload;
-
-    if (typeof window.onload != 'function') {
-        window.onload = func;
-    } else {
-        window.onload = function() {
-            oldonload();
-            func();
-        }
-    }
-}</code>
-</pre>
-
-
-<p>usage:
-<code>addLoadEvent(firstFunction);
-addLoadEvent(secondFunction);</code></p>
-
-<p>Take a memo, I saw this script in DOM scripting,the book I was reading, and it&#8217;s written by Simon Willison (http://simon.incutio.com/)</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/761">關於阿西摩寫的 JavaScript ≠ Java</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-01-16T00:12:45+08:00" pubdate  data-updated="true" >Jan 16<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>看了阿西摩部落格的這一篇文章 <a href='http://www.one18.com/?p=109'>JavaScript ≠ Java</a> 後, 我還是忍不住有話要說 XD</p>
-
-<p>下面這六點是作者阿西摩自己對 JavaScript ≠ Java 的解釋: (在每一點後面附上我的看法)</p>
-
-<ol>
-<li>JavaScript 只要有一個網頁跟有支援 JavaScript 的瀏覽器才可以執行。而 Java 語言呢，只要程式內沒有使用什麼特殊平台的 library，經過轉譯後的 class 檔，幾乎可以放到任何已經安裝有 Java Runtime 環境的系統上。比方說，我在我的 Windows 上開發轉譯後的 Java 程式，可以放到 UNIX, Linux, OSX 上執行，都不會有太大的問題。</li>
-</ol>
-
-
-<blockquote>
-換句話說 Javascript 只需要一個瀏覽器, 不管是 Netscape, Mozilla, Firefox, IE, Opera, Camino, Safari 甚至 Links 2 也都有支援 Javascript, 那麼不管是 Windows, UNIX, Linux, Mac OS X 都有瀏覽器, 所以這一點比的是支援度? 那麼 Javascript 比起 Java 的&#8221;不會有太大的問題&#8221;來說, Javascript 好上很多。
-</blockquote>
-
-
-<ol>
-<li>最原始的 JavaScript 能操作跟執行的範圍相當有限，比方說，你如果要讀取本機端的檔案，比就必須搭配 JavaScript extension 還有 ActiveX 之類的附註程式才有可能達稱。而 Java 可以輕鬆的使用 Java 原本的 package 去讀取檔案，更改檔案。</li>
-</ol>
-
-
-<blockquote>
-這個比喻?? 這例子根本不能這樣舉吧! 那我也來舉個例子: 例如用 C/C++ 要來做指標的操作,  Java呢? Java 根本沒有指標阿! 連擴充的方式都沒有(這可能是我才疏學淺, 有的話請指正我一下), 那這要怎麼比? 
-</blockquote>
-
-
-<ol>
-<li>JavaScript 當年是 Netscpae 開發出來用在 Netscape 上，讓原本死板板的 HTML 網頁可以又動態的變化，互動，還有驗證輸入等等的功能。而 Microsoft 呢，運用他們最厲害的 Reverse Engineering 把 JavaScript 學了起來，然後自創了 JScript. 而比起 JavaScript，Java語言，有自己的標準，架構，平台，而且複雜度高上太多太多了，所能應用的範圍更是會把 JavaScript 巴到連渣都不剩!</li>
-</ol>
-
-
-<blockquote>
-就是因為 Java 這類的語言太複雜, 所以才會有 Scripting Language, 如果說我只是為了要在網頁上swap 圖片, 我想..用 Javascript 來寫不用一分鐘吧, 那麼 Java applet 呢? 最少也要花上2~3倍的時間吧? import ? addEvent ? addListener? 加上 compile? 我只是要 swap 個圖片而已。
-</blockquote>
-
-
-<ol>
-<li>JavaScript 是一種非常不嚴謹的腳本語言。在 JavaScript 裡面，變數全部都用 var 宣告，如果你這樣在 Java 裡面寫程式，我跟你保證，Java compiler 會不斷的，一直的給你［舉紅牌］!</li>
-</ol>
-
-
-<blockquote>
-這點我也可以保證, Javascript 是一個不嚴謹的語言, 但是不管是用 B, C, C++, Objective C, PHP, ASP, ASP.NET, C#, Python, Ruby &#8230;. Java compiler 仍會不斷的一直給你舉紅牌。呵, 不過我想作者的原意是在指出 Javascript 的不嚴謹, 但是舉的例子很糟糕。
-</blockquote>
-
-
-<ol>
-<li>我可以用 Java 語言，在 Java Server Page (JSP)上動態產生 JavaScript 語言，並且執行，而你想要用 JavaScript 去寫 Java語言!? 嗯，還是不要沒事找自己麻煩的好!</li>
-</ol>
-
-
-<blockquote>
-這個比喻?? &#8230;還是很糟糕, 就沿用我第3點所舉的例子, 用 Java 來寫? 還是不要沒事找自己麻煩的好。
-</blockquote>
-
-
-<ol>
-<li>總之，JavaScript ≠ Java 你是要我說多少次才會聽懂啦!</li>
-</ol>
-
-
-<blockquote>
-這我百分百贊同作者!
-</blockquote>
-
-
-<p>這篇文章的用意, 只是想說一下, 每個程式語言都有他的應用的地方, 並不是說 Javascript 不嚴謹、應用範圍不廣, 就是 Java 被巴到連渣都不剩! 當初的 Java applet 紅透半邊天, 但是現在卻是 AJAX 當道。現在的 Java 應用是真的很廣, 如: 手機遊戲、電冰箱&#8230;等等，還有很多，但是現在人家真的要製作網頁上的動畫, 人家當然用 Flash + Actionscript, 而不是用 awt 在那邊苦的要命, 在 Linux 下作 routine task 用 shell 或 perl, 在 Mac 下也可以用 Apple script, 寫 kernel 用 C/C++，大部分的情況當然都可以用 Java 來取代，但是，還是不要沒事找自己麻煩的好。</p>
-
-<p>並不是 Scripting language 簡單、不嚴謹就一無是處的阿！</p>
-
-<p>另外可以看一下底下兩篇文章:
-<a href='http://ghostsinthelab.org/3/archive/575.html'>YHH 大大的說得真是太好了</a>
-<a href='http://lightyror.thegiive.net/2007/01/scripting-lanuage.html'>thegiive 的 Scripting Lanuage 就比較不專業？</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/760">Reading: DOM Scripting</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-01-11T01:55:55+08:00" pubdate  data-updated="true" >Jan 11<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>DOM Scripting - Web Design with Javascript and Document Object  Model</p>
-
-<p>因為自己太弱了所以來讀關於DOM的書, 這本書寫的很淺顯, 連基本的javascript都有先做描述, 這本書的網站(<a href='http://domscripting.com/'>http://domscripting.com/</a>), 先前讀的Smarty document算是讀完了, 剩下的就只是有需要的時候在看了, 有空再來寫一些Smarty的Memo。</p>
-
-<p>在這裡記錄一下進度, 不然每次都忘了看到哪裡, 總共352頁, 目前看到78頁。</p>
-
-<p>接下來還有許多東西要讀的:</p>
-
-<ul>
-<li>SQL</li>
-<li>CSS</li>
-<li>&#8230;</li>
-</ul>
-
-
-<p>最後就來 ruby 吧!!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/755">用 Vi 在 Big5 與 Utf-8 之間穿梭</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-01-09T16:59:17+08:00" pubdate  data-updated="true" >Jan 9<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>基本上, vi 要編輯 utf-8 文件, 做下面兩件事就可以了</p>
-
-<ul>
-    <li>設定 vi : set encoding=utf-8</li>
-    <li>將你的 terminal 設為 utf-8(or unicode)</li>
-</ul>
-
-
-<p>不過最近需要在 big5 跟 utf-8 之間跑來跑去, 本來在 vimrc 裡設定的是:
-<code>set ts=4</code></p>
-
-<p>不過每次編輯不同編碼的檔案時, 都要再設定一次 encoding, 所以另外做一份 vimrc 放在 home, 叫做.vimrc_utf-8, 內容如下:</p>
-
-<p><code>syntax on
-set ts=4
-set encoding=utf-8
-set backspace=indent,eol,start</code></p>
-
-<p>然後在寫一個 bash, 命名為 joe 內容如下:
-<code>#!/bin/bash
-vim -u ~/.vimrc_utf-8 $1</code></p>
-
-<p>這麼一來要編輯 big5 編碼的檔案還是用 vi 這個指令, 要編輯 utf-8 編碼的檔案就用 joe 啦!當然這個 bash 的名字你可以自己取你喜歡的名字, 例如: vi-utf8, vi8 ?</p>
-
-<p>不過這些都太難打了, 剛好想到在學 vi 之前都用 joe 這個文字編輯器, server上又剛好沒裝joe所以就把這個 bash 命名做 joe, 還滿喜歡這個名字的, 因為滿好打的, 之前很喜歡的一個編輯器, 雖然後來 joe 也加入了color syntax, 不過 joe 好像還是越來越式微了。</p>
-
-<p>另外, 給 utf-8 用的 vimrc 比起原有的 vimrc 多出了好幾行的設定, 似乎是指定特定的 vimrc 後, vi 就不會讀取預設的設定, 所以又再多加了一些設定。 不知道 vi 可不可以自動偵測編碼? XD</p>
-
-<p>PS. screen 搭配 vi 來編輯 utf-8 文件還是有問題, 請愛用 :e # 吧! XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/750">新年快樂! 2006年回憶錄</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2006-12-31T20:31:40+08:00" pubdate  data-updated="true" >Dec 31<span>st</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>天氣好冷，我家這邊又一直下雨，不過放假三天在家休息感覺很悠閒。很快的一年就過去了，去年的這個時候剛退伍，現在退伍滿一年囉!今年前半年，過著很頹廢的生活，每天幾乎都快天亮才睡，然後隔天下午才醒來，然後到處表演，每天幾乎都是練團，不然就是表演，身分呢?應該就算是職業樂手吧!? 不過一首歌也沒有寫，畢竟也沒有真正屬於自己的生活，就我的觀點，沒有創作，只copy歌曲，一點也不好玩。其實根本就沒有自己的感覺，所以說我還是不適合當職業樂手。過著沒有收入、被當作棋子的生活，本來就沒有存款，加上根本沒賺到錢，一直到後來負債大概差不多五、六萬塊，根本沒法在繼續做下去，其實本來就想離開了，但是又爆發一些很不愉快的事情，讓我不得不離開，從沒想過自己會作出這樣的事情，當然我只能說自己很該死!</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/life/750">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/749">跳! 打爆你的大頭!H2O表演影片</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2006-12-28T08:38:19+08:00" pubdate  data-updated="true" >Dec 28<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><embed style="width:400px; height:326px;" id="VideoPlayback" type="application/x-shockwave-flash" src="http://video.google.com/googleplayer.swf?docId=4699550264074134656&hl=en" flashvars=""> </embed>
-這是上禮拜六, 算是聖誕節的表演, 大家都很High, 感覺真不錯! 雖然有唱錯一句, 不過是我寫的歌, 也沒差 XD 放上&#8221;打爆你的大頭&#8221;的影片給大家看看! 大家一起跳吧! XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/748">聖誕節快樂阿~!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2006-12-25T20:09:41+08:00" pubdate  data-updated="true" >Dec 25<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/331957458/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/166/331957458_d519a48b17.jpg" width="450" height="337" alt="H2O" class='border' /></a></p>
-
-<p>大家聖誕節快樂阿! 今天下班還是一個人回到房間，煮水餃吃，因為聖誕節已經High過了XD 前天也就是禮拜六，已經表演過了，雖然很冷，但是超High！很好玩，超開心的。表演曲目如下:</p>
-
-
-
-
-<ul>
-   <li>我的未來不是夢(試音)</li>
-   <li>打爆你的大頭 - H2O</li>
-   <li>Masquerade - Hyde</li>
-   <li>不只是朋友 - 黃小琥</li>
-   <li>期待 - H2O</li>
-   <li>飛躍夢想的天空 - 桔子</li>
-</ul>
-
-
-<p>已經High過了，所以就&#8230;.在家裡讀書 XD 這個禮拜要來讀一些XSS(Cross Site Scripting)跟SQL Injection的議題，然後還要讀LDAP，經理的LDAP那本書還在我桌上，呵，只讀了一下下，把程式寫好就放著了，一只想說要把他讀完，不過前一陣子都在寫歌，沒時間讀書，這禮拜休息一下，可以好好來K一下。</p>
-
-<p>至於XSS跟SQL Injection的議題是一定要注意的阿~ 不然被破會很糗 XD</p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -596,6 +200,315 @@ end</blockquote>
 <p>除了第一天接值班半夜的時候機器掛點，勞煩Tommy大大出馬去機房之外，24 emergency call這次就少了很多。一整個禮拜，晚上幾乎都沒有emergency call，除了有一天的凌晨2點(其實3點多才聽到XD)的emergency call之外，每天都睡得很安穩。而每天晚上也都讓我有種沒有在值班的感覺，所以~很輕鬆的就又過了一次值班，果然～有拜拜真的有差阿!! XD</p>
 
 <p>今天回家就讓自己休息一下吧! 不過我又把iTzangms remote拿出來寫，好久沒寫了，這次加入了Smarty來作樣板，還有改名叫iTunes web remote好了！明天繼續寫吧！對了！明天還要上班！充當客服 :D 基本上只是當個電話小弟~ 希望大家都去選舉吧!!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/738">用Reason來作現場~</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-12-06T22:59:47+08:00" pubdate  data-updated="true" >Dec 6<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>最近轉職當KB手~雖然沒有合成器之類的鍵盤，但其實一直都有傢伙可以用。我的配備呢~ iBook G4 800 with Reason 3+ M-Audio Radium 49 + M-Audio Firewire 410，這樣呢就可以做現場了啦! 但是碰到一個重點了，歌曲的音色都調好了，那要怎麼去切換呢？難道要用滑鼠去點嗎？這幾天一直被這個困擾著，一直到剛剛突然領悟到了。</p>
+
+<p>Reason > Options > Additional Remote Overrides 可以在這裡面設定，在裡面可以看到Target Next Track、Target Previous Track，這裡說得就是，切換上一軌跟下一軌啦！真的太high啦!!</p>
+
+<p>先前買一本keyboard magazine出的laptop live!特集，裡面有提到reason不只是個強大的錄音室工具，也非常適合現場表演。我現在終於知道了 XD</p>
+
+<p>不過由於我的M-Audio Radium 49並沒有專門用來切換音色的按鈕，所以即使我知道怎麼設定也沒有用阿，剛才把fader拿來當切換鈕，但是太不直覺了，要推fader推到midi訊號滿格(也就是127)，reason才會做切換的動作，太麻煩了，所以結論就是，我可以用reason來作現場了，但是我卻沒有一個適合作現場 master keyboard XD</p>
+
+<p>所以最近想要換master keyboard，M-Audio 新出來的Axiom看起來很棒! 不過Novation更精緻 XD 來一台 Novation X-Station吧!!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/737">我明明有拜拜的 Orz</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-12-02T04:02:09+08:00" pubdate  data-updated="true" >Dec 2<span>nd</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天一點快半，本來想說要睡了，沒想到才是地獄的開始&#8230;.</p>
+
+<p>一開始，手機響了，從值班交接之後，一直都很平靜，沒想到一開始就來個大攤的~ Orz 將機器重開機，無效 XD 第二次重開機，仍然掛點，後來只好求救於Tommy大大！大大只好耐著冷風披上外套衝到機房去了&#8230;辛苦了！Tommy大大。當然不愧是大大，處理了一下，然後在等在disk check的時間，就打電話來跟我小chat一下，不然他會睡著 XD 所以為了答謝大大，我當然就奉上我在flickr上的CUTE OL正妹，供大大振奮一下精神，以聊表小弟的心意，沒想到disk check在最令人滿意的時間內完成了！非常好！但是此刻我還沒洗澡，而且好餓，但是好餓我也不能吃東西，因為要減肥阿！所以只好去洗個澡，準備睡覺，但是現在都已經4點了 Orz</p>
+
+<p>果然沒錯，值班就是報肝的開始阿! 在此徵求許榮助保肝丸~幹，不行了，來睏。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/736">Squirrelmail Classes</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-12-01T00:00:50+08:00" pubdate  data-updated="true" >Dec 1<span>st</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天上班，一直在處理別的事情之外，下班前都在弄Squirrelmail，這次運用裡面的Classes的組合寫出了可以寄信的程式XD 可能有人會想說PHP就有內建mail啦! 但是，那個太簡單了，不夠帥 XD 所以為了耍帥，我就用了以下的Classes跟functions來作</p>
+
+<p>Deliver_SMTP.class.php
+Message.class.php
+Rfc822Header.class.php
+ContentType.class.php
+mime.php
+global.php
+&#8230;</p>
+
+<p>Deliver_SMTP是用來寄信的，但是要傳給他什麼呢？要傳Message Object，可是Message Object 要包含，Rfc822Header跟ContentType，看起來就很煩。Rfc822Header就是用來存from跟to等等的東西，ContentType就是用來包含encoding跟charset，那最主要的部份就是Message啦！除了需要存這兩個Object之外，最重要的就是，subject跟信件內文啦!</p>
+
+<p>在下班前終於把Message Object的必要資訊填好，不過寄出的信因為charset跟encoding的關係卻變成亂碼XD 看著大家都一個一個下班走了，我也只好打消繼續寫的念頭，不過又不甘心的寫了一下下，突然，哇!! 成功了！可以正常顯示啦!! 那麼就又可以繼續寫下去，不過~~在寫下去可能不知道幾點了，有時候寫到正high的時候真的是停不下來 XD 所以就把這個告一段落，完美的結束，明天在繼續 XD</p>
+
+<p>不過在這支程式之前，就用mail()，一行就可以達到相同功能 XD 可是一點也不帥氣 XD 好啦～！重點是mail較不那麼portable，跟Server的環境比較有關係，anyway明天繼續high :D</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/734">iPod Shuffle 2、Hyde Faith Live DVD</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-11-27T23:58:37+08:00" pubdate  data-updated="true" >Nov 27<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>最近每每看到人，每個人都說: &#8220;小海~你變胖了!&#8221;，恩！對我來說真的是天大的打擊！我知道我變胖了阿!!!</p>
+
+<p>所以最近開始運動了，上個月的週末就去跑步，然後上上上禮拜就練團，比跑步還累，差一點死掉了我，累死，上上禮拜則是練團兼表演，都有運動到，所以上禮拜量ㄧ下體重，呵！少了兩公斤內!! 超high的！不過因為回家，所以就又被餵胖了，又回升了一公斤，媽的！</p>
+
+<p><a href="http://www.flickr.com/photos/tzangms/307751340/" title="Photo Sharing"><img src="http://static.flickr.com/113/307751340_4b1694b7ea_m.jpg" width="240" height="192" alt="my iPod shuffle 2" border='0' class='alignleft' /></a></p>
+
+<p>先前在跑步的時候，就覺得好無聊，今天就想到應該要帶著隨身聽跑步。不過由於原本的iPod mini太操了，不過才兩年，他的電池就已經差不多了，現在只能上班的時候接著電聽。其實以他的重量，應該也不是很適合帶著跑步，所以說，今天一下班就衝去Apple store買了一台iPod shuffle 2($2900、1G)，然後逛了一下，本想說買張CD來聽聽，不過卻看到了&#8221;Hyde Faith Live DVD&#8221; ($689、2 DVD)，超High的!! 所以二話不說就買了阿!!所以今天就又敗了好多錢，不過為了減肥iPod是必需的，Hyde DVD也是精神糧食，所以當然也是必需的阿!!</p>
+
+<p><a href="http://www.flickr.com/photos/tzangms/307756932/" title="Photo Sharing"><img src="http://static.flickr.com/102/307756932_f5279d7053.jpg" width="378" height="500" alt="Hyde Faith Live DVD" border='0' class='aligncenter' /></a></p>
+
+<p>Hyde 超帥的阿!! 明天就來跑步吧!!!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/733">小凱的Fender真帥!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-11-26T19:28:49+08:00" pubdate  data-updated="true" >Nov 26<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/307131716/" title="Photo Sharing"><img src="http://static.flickr.com/106/307131716_8f7de4db1a.jpg" width="334" height="500" alt="DSC04757.JPG" class='alignleft' border='0' /></a></p>
+
+<p>目前使用的吉他是小凱(GGG)借我的Fender Stratocaster Vintage &#8216;57 裝著GGG慣用的Earnie Ball 010的弦，這張拍起來就還滿漂亮的，當然是用DSLR拍的才會那麼清楚阿 XD 這張照片是在上禮拜表演的時候拍的，帥氣! 這一切都要感謝GGG阿!!!</p>
+
+<p>不過就很懷念之前H2O的編制，kyo跟GGG當吉他手的時候，我可以好好的彈我的BASS。很懷念kyo彈得吉他，邊的東西整個就跟H2O的味道很對，至於GGG就是整個藍調，就整個藍調龐克，然後整個搭起來就是所謂的前衛龐克阿!! (我自己說的 XD )</p>
+
+<p>現在加入了新BASS手，我跑去彈吉他，新BASS手志豪就很認真，雖然會歌彈一彈就彈到別首歌去了，不過在我的調教之下，他可是進步神速 XD 要在變強阿！志豪。</p>
+
+<p>這次表演就真正了解到，鼓手小廖一個最嚴重的問題，就是練團的時候速度都正常，但是一到表演就整個飆快~恩~ 很快！ Orz 原本歌都已經夠快的了，200、8 beat 結果正式表演就不知道飆到哪裡去了。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/731">最近工作上的東西</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-11-24T00:24:14+08:00" pubdate  data-updated="true" >Nov 24<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>作為一個網路程式設計師，好像一定必免不了要一直學習新的東西，相較於一般的Programer，學習新東西的速率是在是很可怕，可能我會這麼覺得是因為我太弱了XD</p>
+
+<p>上個禮拜在coding一個活動的網頁，用上了PHP+PHP Pear+PHP Smarty，雖然都是PHP啦!但是Smarty跟Pear也是要另外搞懂，今天就跟不在的<a href='http://www.kej.tw'>Kej</a>大大借了PHP Smarty的書回來讀，雖然剛進公司就用PHP加Smarty寫了一個管理後台，當初只知道有Smarty這個東西，在寫的時候就ㄧ邊看<a href='http://smarty.php.net'>http://smarty.php.net</a>的document來寫。剛才在看跟Kej大大借回來的書的時候，大概看了不到2個小時就把看完這本書的一半了，剩下就是Smarty專案規劃，所以重點差不多就看完了。只是，哪有每天都有這種心情看書阿~</p>
+
+<p>這幾天其實在公司沒事幹 XD 上禮拜有個活動的網頁co完就把裡面寫的一個圖片縮圖跟裁切的功能寫成一個class，然後就在修，方便以後使用，不過用GD縮的圖，品質不是很好，該來試試看imagemagick的Magic Wand for PHP，不過論portable當然是GD阿~真麻煩。後來修到一個段落，居然一點事都沒有，所以昨天就一直在看當初買的PHP實務[O&#8217;Reilly]，畢竟自己的PHP懂得不夠多，就讀了一些認證、安全的東西，然後為了要在Linux的console讀取MSSQL 就又去找了<a hre='http://www.sqsh.org/'>sqsh</a>，還滿好玩的，不然Linux怎麼用Enterprise Manager &#8230;</p>
+
+<p>今天也還是沒事情，所以幾乎一整天都在K <a href='http://www.ruby-lang.org'>Ruby</a>，然後k完了一份<a href='http://pine.fm/LearnToProgram/?Chapter=00'>tutorial</a>，回家繼續k ruby，一直到剛才想到有跟Kej大大借了Smarty來看，就先把這一本Smarty看完了。</p>
+
+<p>本來是想拿AJAX HACKS[O&#8217;Reilly]回來看的，不過後來想說，先把工作上用的到的東西k一k好了，所以Smarty看完之後，接下來該繼續看上個禮拜沒看完的SQL學習手冊[O&#8217;Reilly]，話說，這些書全部都是<a href='http://www.kej.tw'>Kej</a>大大的，感謝大大。</p>
+
+<p>話說SQL還滿難的，Create view，Sub Query之類的，還有兩層的sub query，害我上次看了之後有點頭痛 XD 像我現在只會基本的query而已，很糟糕，query的performance不好或是co的很笨的話，到時候經理看到程式碼我會很糗，所以SQL是一定要學的很好的。</p>
+
+<p>今天又聽到 mod_rewrite 這個東西，之前就有聽過，不過根本不知道幹嘛，不求甚解 XD 網路上找了一下才知道用來幹嘛，要用到我已經學了70%有的Regular expression，幸好已經有k了XD 結果更接近下班前，在處理mail的東西，才發現Linux檔案太多會沒辦法處理 XD 當要搬移有近一萬封mail的時候，居然出現 mv: Argument list too long :O 太屌了！Linux玩那麼久我真的第一次看到這個訊息，後來找了一下，可以用xarg來解決，不過當時不知道只好用regular expression來將檔案分次搬移了 XD 不然mv到死 XD</p>
+
+<p>另外要懂得東西還有Mail Server的架構: Mailhost、relay、mx..之類的，那還有LDAP、IMAP、SMTP跟qmail、dovecot的設定之類的，還有Maildir、mbox格式啦～blah, blah, blah &#8230;..</p>
+
+<p>javascript也是阿~要玩AJAX當然要熟Javascript，要熟Javascript也就要熟DOM，然後還要懂XML，那要非常懂XML的話也要懂DTD，然後繼XML之後又來了一個JSON，話說自己有一個XML in a nutshell[O&#8217;Reilly]當初花99塊賣的，媽的，上次在火車上看一看，看到DTD就頭痛了，沒事幹嘛買原文阿~</p>
+
+<p>沒辦法，買原文比較帥 XD</p>
+
+<p>然後昨天也把Perl[O&#8217;Reilly]帶去辦公室，有時間該來回顧一下，當兵後全忘了，跟我的Java、Bash一樣XD 忘光光啦！哈哈哈哈哈！突然又想到先前用applescript+PHP+AJAX寫的iTunes remote，過好久都還沒有進展，applescript該不會也忘了 XD 真糟糕，網路程式設計真的要學很多東西阿！</p>
+
+<p>PHP Pear Smarty Ruby RubyOnRail Perl Javascript AJAX JSON XML DTD LDAP IMAP SMTP POP3 DNS Bash Applescript CSS MailHeader JAVA JSP SQL UML ERM</p>
+
+<p>不過，說那麼多，其實心裡一直有個疑問，上班沒事都在k書，雖然是在增加自己的實力沒錯，但是心裡總是覺得沒在做事的感覺，就有人說，增進自己的實力，也就是增進公司的實力，公司應該會樂見，只不過是否該利用上班時間，雖然是空閒時間沒錯，但是總覺得沒有很踏實 XD 還是覺得忙一點，coding一整天這樣比較踏實 XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/computer/728">Whee E~e~e~ 超爆笑Firefox AD</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-11-13T00:23:17+08:00" pubdate  data-updated="true" >Nov 13<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><object width="425" height="350"><param name="movie" value="http://www.youtube.com/v/4kNsjdoeyro"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/4kNsjdoeyro" type="application/x-shockwave-flash" wmode="transparent" width="425" height="350"></embed></object>
+
+
+<p>剛才<a href='http://frank0624.wordpress.com/'>FrAnK</a>傳來的，因為今天早上跟Kej、clotho、FrAnK去參加Firefox 2 Party，然後剛才FrAnK就去找Firefox相關的東西，應該是想說會不會找到今天會場兩位cosplay妹妹的相簿還是影片吧? XD 然後就找到這個，真是超爆笑的！wee~e~e~ 其中最令我發笑的是ie，看了就知道，如果沒有笑的來找我領獎品，要摸著良心阿~</p>
 </div>
   
   

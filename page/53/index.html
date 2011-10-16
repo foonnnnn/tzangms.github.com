@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="目前寫了一個簡單的script來update寫好的php檔案透過ssh更新到遠端的Serverupdate:#!/bin/bashscp $1 tzangms@tzangms.com:/var/www/$2$1$1 代表的是要上傳的檔案名稱$2 代表的是要上傳到的目錄因為就是要減少打字，所以就...">
+  <meta name="description" content="開始上班啦!! 這兩天狂k Squirrel Mail的Source code，希望自己能快一點進入狀況。目前上班就是從早到晚都是在k source code，量滿大的，不過其實k起來還滿爽的，希望能快點摸清楚整個架構，還有plugin的寫法，不過這跟自己在coding算是差滿多的，現在就整個...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,315 +64,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/linux/673">&#8220;Update&#8221; Script</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2006-07-28T15:42:54+08:00" pubdate  data-updated="true" >Jul 28<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>目前寫了一個簡單的script來update寫好的php檔案透過ssh更新到遠端的Server</p>
-
-<p>update:</p>
-
-<blockquote><em>#!/bin/bash
-scp $1 tzangms@tzangms.com:/var/www/$2$1</em></blockquote>
-
-
-<p>$1 代表的是要上傳的檔案名稱</p>
-
-<p>$2 代表的是要上傳到的目錄</p>
-
-<p>因為就是要減少打字，所以就只有這些參數啦!</p>
-
-<p>目前這個我是放在某個專案的目錄下，針對每個專案作修改其server位址跟路徑，要更新檔案就打</p>
-
-<blockquote><em>./update foo.php</em></blockquote>
-
-
-<p>如果要放到 <em>/var/www/admin </em>下的話，就加上第二個參數就可以把foo.php放到 <em>/var/www/admin</em> 下啦! 但請記得在目錄後加上斜線</p>
-
-<blockquote><em>./update foo.php admin/</em></blockquote>
-
-
-<p>在輸入ssh密碼就可以啦! 當然你可以建立公鑰私鑰，以後都不用打密碼囉!下一篇來說明吧!不然請大家去請教 <a title="虛邪迴路" target="_blank" href="http://blog.cschang.info/">clotho</a> 大大!! XD</p>
-
-<p>慢慢再來改進這個script吧!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/linux/672">Tar</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2006-07-27T16:07:47+08:00" pubdate  data-updated="true" >Jul 27<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>1. compress Directory to TGZ</strong></p>
-
-<blockquote><em>tar czvf foo.tgz bar/</em></blockquote>
-
-
-<p><strong>2. decompress TGZ</strong></p>
-
-<blockquote><em>tar zxvf foo.tgz</em></blockquote>
-
-
-<p><strong>3. compress Directory to TBZ2(tar.bz2)</strong></p>
-
-<blockquote><em>tar cjvf foo.tar.bz2 bar/</em></blockquote>
-
-
-<p><strong>4. decompress TBZ2</strong></p>
-
-<blockquote><em>tar jxvf foo.tar.bz2</em></blockquote>
-
-
-<p>由以上的例子可以知道只要把參數z換成j就可以處理bzip2檔案啦!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/670">Clean MySQL Autoindex</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2006-07-21T11:22:02+08:00" pubdate  data-updated="true" >Jul 21<span>st</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>[source:sql]ALTER TABLE tbl AUTO_INCREMENT = 0;[/source]</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/669">最近的生活&#8230;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2006-07-19T22:10:54+08:00" pubdate  data-updated="true" >Jul 19<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>目前已經在上班了，第三個禮拜ing，上班就是coding，目前解決了許多bug，也許很簡單，但是很好玩。目前下班之後就是待在房間，上網、看電視、寫歌、彈吉他和彈KB，只是整天手都靠在桌上，敲打著鍵盤，其實肩膀有點吃不消，也許是還沒習慣吧！？但是以前不會這樣阿！以前為了專題整個暑假都在coding，也不會感覺肩膀不舒服，我想應該是我身體哪裡出了問題吧？XD</p>
-
-<p>目前慢慢習慣了這個生活，下班的時間也可以好好利用來做音樂吧！上禮拜在streetvoice發表的一首新歌，大家應該都聽過了吧？雖然跟自己以樂團形式玩的曲風差很多，但也還不錯聽 :P 上禮拜那首新歌的點撥次數就破千了呢! 一不小心還得了上周票選第三名，這一週則是換我的另一首舊歌&#8221;我的你&#8221;浮了上來，有空的人在去聽聽吧！</p>
-
-<p>前天一不小心吉他弦又斷了，這把小凱借我的琴不知道斷過幾次弦了，一直換一直換的，好累Orz 但是這一次，手邊沒有工具可以換弦 Orz Fender stracocaster reissie &#8216;57 加上 010 的弦果真不是蓋的阿! 我家另外一把EOB這三四年來換弦的次數都沒有這一把半年來得多，這是人生嗎?</p>
-
-<p>因為吉他弦斷了，也沒辦法換，只好接上我的M-Audio Radium 49，然後把Reason開起來，彈起鋼琴來了，不知道彈什麼，只好撥了Tizzy Bac的歌，一邊聽ㄧ邊彈著KB抓著音，這兩天的成果呢，就是我把Tizzy Bac的Wondering everywhere給抓完了，但是不會彈KB的右手卻因為無止境的八度音chord疼痛了起來，但是卻很有成就感:p</p>
-
-<p>有錢打算去買一支shure 58，畢竟都有了不錯的錄音界面了，是該買支好的麥克風的時候了，也許更有錢買個音箱直接用shure 58來收音，應該很不賴！</p>
-
-<p>shure 58、shoes、Digital camera都是現在欠缺的東西，工作快滿一個月了吧!go go go!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/linux/665">Vi、screen and More&#8230;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2006-07-13T23:44:14+08:00" pubdate  data-updated="true" >Jul 13<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>vi and screen這兩個就是上班最常用到的阿!
-只是screen的 ctrl+a 實在不是個好東西，很難按 XD 何況幾乎每個功能都要先按過ctrl+a
-new screen : ctrl+a ctrl+c
-next screen : ctrl+a ctrl+n
-preview screen : ctrl+a ctrl+p
-最好是 screen list 還要 ctrl+a &#8221;
-double-qoute 可是要按shift內&#8230;.Orz</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/linux/664">Vim 很好用阿!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2006-07-13T23:36:00+08:00" pubdate  data-updated="true" >Jul 13<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>因為工作的關係～也因為習慣，所以vi幾乎是用一整天在弄php，雖然目前用起來算快了，但是還是有很多東西不知道，所以就找了幾個網站，來多學習一些vi的用法，特別是用在coding上面的，目前想找出來到底怎麼把 function collapse起來，有人知道嗎？</p>
-
-<p>大家來學 Vim 一個歷久彌新的編輯器
-<a href="http://info.sayya.org/~edt1023/vim/">http://info.sayya.org/~edt1023/vim/</a></p>
-
-<p>不是打vi的廣告
-<a href="http://greenisland.csie.nctu.edu.tw/wp/category/comuter/vim/">http://greenisland.csie.nctu.edu.tw/wp/category/comuter/vim/</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/663">M-Audio Firewire 410</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2006-07-10T00:56:40+08:00" pubdate  data-updated="true" >Jul 10<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/185558328/" title="Photo Sharing"><img src="http://static.flickr.com/60/185558328_ec42521eda_m.jpg" width="240" height="99" alt="M-Audio Firewire 410" /></a>
-昨天晚上Y拍買了M-Audio Firewire 410，今天中午就去面交了，買來當音效卡用 XD 今天晚上實際試用的結果，哈哈哈，聽不出來有latency阿! 相較於之前拿來錄音用的iMic(基本上算是音效卡啦)好上太多，然後主要是很方便錄音。</p>
-
-<p>一開始接上效果器直接Line in，感覺整個高頻還是一樣過多，Line in的結果通常都是這樣，不過這一次試著在Logic裡開個Guitar Amp，model選American Bright Clean，wow！聲音就有比較正常了，就跟音箱出來的一樣差不多，不過可能是因為PC Speaker所以聲音多少還是有些差異，不過對於clean tone的部份 就沒有那麼棒了!</p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -480,6 +171,289 @@ double-qoute 可是要按shift內&#8230;.Orz</p>
   <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/172741419/" title="Photo Sharing"><img src="http://static.flickr.com/74/172741419_aece087a14_t.jpg" width="100" height="88" alt="Garageband" class="alignleft" /></a>原本試用著Logic Express 7來嘗試著錄音，但是這一陣子的試用結果，其實是真的不賴，雖然比Garageband複雜了點，但是也不會複雜到哪裡去，然後有許多高級的Plugin可以用，整個比Garageband高級許多，然後嘗試著去掛上IK Amplitube、NI Guitar combo、Camel CA5000跟Minimonsta這幾個外掛，不管是吉他效果器或者是Synth，對於我的iBook G4 800來說都太沈重了，後來只好回去用內建的Audio Instrument，但是聲音的差別並不是那麼的大，可能我用的喇叭以及耳機不夠好吧！另外在使用Reverb跟Delay的Plugin上，似乎Garageband的基本Plugin就可以滿足我的需求了，然而Logic內建的高級效果器反而讓我覺得有點過於複雜，參數太多了。不知道為什麼，我喜歡Garageband出來的效果呢!!</p>
 
 <p>總之，目前我的設備只有G4 800加上1G的RAM，我想Garageband 3加上幾套Jam pack就符合我的需求了吧！如果要更進一步的修飾歌曲細部，那麼用Logic去打開Garageband的檔案來修，我想這樣也是一個好辦法！</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/655">Drum Sampler 試用</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-06-20T22:28:10+08:00" pubdate  data-updated="true" >Jun 20<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>這幾天試用了兩個Drum Sampler，很明顯的一件事，就是我的iBook G4 800不夠力，無論是哪一個Sampler，只要一跑到同時有4個發聲數的時候，就掛點了 XD 這就是人生阿!! 縱使有1G的RAM也只能讓Sample載入比較快一點而已 Orz</p>
+
+<p>我試了下面兩個Drum Sampler
+1. Native Instrument Battery 2
+2. Fxpansion BFD</p>
+
+<p>基本上，因為跑不起來，所以我就沒有多做試驗了，看來還是只好用Garageband的Drum kits了！ Orz 目前個人覺得BFD感覺比較棒! 有好幾組的鼓可以選，像是DW, Pearl&#8230;等等，另外可以選mic的位置，等我買macbook再來碰吧！但是&#8230;.也要先有UB?</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/654">張懸 - My Life Will&#8230;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-06-14T08:10:49+08:00" pubdate  data-updated="true" >Jun 14<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/166984576/" title="Photo Sharing"><img src="http://static.flickr.com/53/166984576_51a89bc548_o.jpg" width="200" height="175" alt="張懸's My Life Will..." class="alignleft" /></a>今天去買了張懸的專輯，對她的印象首先是大概一年前，從我的鼓手那邊傳來幾首她的歌，才想到先前在海洋音樂祭舞台上的芒果跑，回憶就這麼串起來了。當時聽著&#8221;寶貝&#8221;這首歌，拿起吉他跟著彈唱起來，她的聲音很舒服呢!
+這一陣子，先前買的Tizzy Bac跟Hyde，也快聽膩了，嗯~我說聽膩了主要是針對Hyde的專輯，Tizzy Bac還很棒 :D 所以就很想買張CD來聽，聽些我所熟係的人的新歌曲，所以，一在批踢踢看到張懸的專輯發了，就趁今天天氣好，來給自己點新音樂，不然&#8230;很煩，縱使這張花了我$418，不過不買我一定會一直想著這張CD Orz</p>
+
+<p>話說 echo 快點發吧!!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/653">MIDI 與 Keyboard</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-06-05T18:44:02+08:00" pubdate  data-updated="true" >Jun 5<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>MIDI 簡單來說就是一個訊號而已，如果你的電子琴有支援MIDI那就可以跟電腦溝通，可以透過MIDI跟電腦互相傳遞訊息，這麼一來就可以用電腦來記錄你所彈奏的音符。</p>
+
+<p>目前一般來說，不要太爛，還是太便宜的鍵盤都會有MIDI這個標準，鍵盤背板都會有所謂的MIDI孔，可以看到有著MIDI-IN、MIDI-OUT。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/music/653">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/652">我以前樂團&#8221;路邊攤&#8221;的音樂生活紀錄</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-06-02T20:51:57+08:00" pubdate  data-updated="true" >Jun 2<span>nd</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在我二專的時候參加一個樂團，叫做路邊攤，先說明一下我們是在苗栗、新竹的樂團，可不是台北的路邊攤(現在改名叫洛克班)。這個是我們當時在吉他手阿翔房間在玩的時候，我所錄下來的。當時吉他手阿翔跟kb手小欣兩個人拿著吉他彈了起來。現在聽起無憂無慮感覺很舒服。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/music/652">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/651">H2O在舞樂祭的表演影片</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-06-01T06:07:53+08:00" pubdate  data-updated="true" >Jun 1<span>st</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><embed style="width:400px; height:326px;" id="VideoPlayback" align="middle" type="application/x-shockwave-flash" src="http://video.google.com/googleplayer.swf?videoUrl=http%3A%2F%2Fvp.video.google.com%2Fvideodownload%3Fversion%3D0%26secureurl%3DwAAAAG7ggqAHSiJjpW0D3w4aYTX6IovymWIwaoTm8bGrHjjL-phStSzvs4oGNkJAmHAHrAcrOm6CEdJgTVe4jYVwJdqKGCt1zmD4jrf5uh00WgC_MPI7_5bD3uWQxWduaRkGr9JqeUKfdYkLo3dPkfXOE9Uo_38CkcXL771sm-QeOJWPoIr4bxm79vnSUakgotX_MNMoK40B8I5zlWIqqkkEz97b42NMsI_kPh6g7ieY1d6CzMciKl1b_ww0e-iAqg5oxcPsj7YkT2_UthN0zYtdxsg%26sigh%3DXt3bf1ECblNmzk2g-oT6mIpffw8%26begin%3D0%26len%3D225899%26docid%3D2554133818986108654&thumbnailUrl=http%3A%2F%2Fvideo.google.com%2FThumbnailServer%3Fapp%3Dvss%26contentid%3D26c7f6c8fb5c8f80%26second%3D5%26itag%3Dw320%26urlcreated%3D1149141632%26sigh%3DjXlY40dAT6vExgP8eq8L8aex_o4&playerId=2554133818986108654" allowScriptAccess="sameDomain" quality="best" bgcolor="#ffffff" scale="noScale" wmode="window" salign="TL"  FlashVars="playerMode=embedded"> </embed></p>
+
+<br />
+
+
+<p>今年五月三號在中國科技大學所舉辦的舞樂祭的表演影片，由於原BASS手志豪被拉到別團，所以這一場BASS手由紅色指甲油Keyboard手奶茶代打。然而表演其中如有失誤，請大家多多原諒 XD</p>
+
+<p>然後拍攝影片還有後製，特別感謝中國視傳系 - 小貓!!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/mac/649">iBook Upgrade!!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-05-30T11:24:30+08:00" pubdate  data-updated="true" >May 30<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/122756/" title="my iBook G4 800 by tzangms, on Flickr"><img src="http://farm1.static.flickr.com/1/122756_6e5bcdce03.jpg" width="375" height="500" alt="my iBook G4 800"></a></p>
+
+<p>昨天帶著我的iBook去加裝記憶體啦!!!</p>
+
+<p>iBook第一次升級:
+記 得這台iBook G4 800是再我大四的時候買的，到現在也兩年多了，記得當兵的時候硬碟壞掉，在過保固之前就送去修，但是居然就幫我重灌又送還給我，就沒有修呢~送回來沒多 久也過保固了，所以就只好自己拆iBook，然後換上新買的硬碟。當然在拆iBook這種這麼小一台的機器，總是花了很大的一番功夫，但是最後iBook 終於復活了，這也算是iBook第一次升級吧!從原本的30G、4800 rpm變成40G、5200rpm，iBook變快啦!!</p>
+
+<p>iBook第二次升級:
+先 前在錄音的時候，光是開啟錄音程式Garageband就要等好久，所以當有靈感的時候，都會迫不及待，深怕時間拖太久而把靈感給忘掉了，而再錄音的時候 也一直感覺不是很順，所以才會想去升級記憶體。原本買iBook的時候，我就加裝了一條512MB的記憶體了，加上內建的128MB，這樣總共是 640MB，這樣系統跑起來才夠呢!!這一次更大刀闊斧的換上一條1GB的RAM，把原本的512MB拿掉，感覺真的有提升，不過最明顯的時候應該是在載 入大量的音樂檔吧! 也許在載入sample的時候會更快，總之，感覺整個很棒! 現在開Logic Express就滿順的，相信之後錄音一定會感覺很順利吧，呵!</p>
+
+<p>目前還有另一個計畫!! 想要買一台19&#8221; LCD，來接上iBook作為錄音用，要不然12&#8221;的iBook螢幕實在是太小了。
+最後朋友說&#8230;我錢花的太兇了吧! 但是，這都是為了要方便做音樂阿!!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/linux/648">Ubuntu Linux on iBook</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-05-27T07:32:03+08:00" pubdate  data-updated="true" >May 27<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img width="98" height="100" align="left" alt="Ubuntu Logo" src="http://static.flickr.com/51/154030506_7fc4221b00_t.jpg" />前天在我的iBook上裝了Ubuntu Linux 5.10，第一件事就是居然Ubuntu在安裝的時候console居然可以顯示中文，真的是太帥氣了，真想知道怎麼辦到的。很早以前要在console顯示中文要裝Chdrv，後來有jmcce、zhcon跟unicon，不過感覺都沒有跟系統作一個很棒的結合，所以當在安裝ubuntu的時候，整個興奮!!雖然在安裝完之後，中文字變成了方塊，但是我想把中文弄好應該不會有啥問題了!而且應該滿好玩的!</p>
+
+<p>目前正在學<em>apt-get</em>，雖然先前的Fedora還沒學好XD 但是Frank一直跟我推薦ubuntu，所以就裝裝看，雖然還是沒有package database，這感覺很不方便，因為怎麼知道，有哪些package可以裝? 那package在系統上面的名稱又是什麼?不像在Gentoo把幾乎所有網路上Linux的套件都分門別類作成一個套件資料庫，在網路上也有一個獨立的資料庫網頁，在系統上也有分類目錄可以去查看，這樣一來就知道在Linux上有什麼套件可以安裝，是什麼類型的，方便許多，因為當你不知道要看電影要裝什麼套件的時候，直接到media-video目錄看有哪些東西，就可以知道軟體名稱跟描述，然後直接打一行指令就可以安裝，不然連套件名稱都不知道怎麼<em>apt-cache search</em>?? 還要上論壇或者是BBS問說，看電影要裝啥軟體?</p>
+
+<p>然後在裝scim的時候，ubuntu的新手指南雖然寫的很清楚，但是單單裝一個scim就要<em>apt-get</em>好幾個套件，難道不能直接<em>apt-get install scim</em>然後直接就把scim跟其他必要性的套件裝到好嗎?雖然不是很清楚<em>apt-get</em>的整個套件系統，但是新手指南都這樣寫了，就感覺是不是還有相依性的問題? 感覺yum跟apt的套件系統，就像是一個未完成的 Gentoo portage? 但是訴求也不一樣，而且gentoo的套件系統是用編譯起來的，所以也不能拿來跟binary system一起比較，只是長久使用Gentoo下來，排除要花費長時間來編譯所要安裝的套件之外，Gentoo的套件系統是比較貼心跟方便的呢!</p>
+
+<p>Anyway，我在繼續摸Ubuntu跟他的套件系統吧!</p>
 </div>
   
   

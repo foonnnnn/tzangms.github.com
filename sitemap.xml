@@ -2037,10 +2037,6 @@
         <lastmod>2011-10-08T11:07:23+08:00</lastmod>
     </url>
     <url>
-        <loc>http://tzangms.com/web design/1297</loc>
-        <lastmod>2011-10-08T11:07:23+08:00</lastmod>
-    </url>
-    <url>
         <loc>http://tzangms.com/programming/1314</loc>
         <lastmod>2011-10-08T11:07:23+08:00</lastmod>
     </url>
@@ -2086,10 +2082,6 @@
     </url>
     <url>
         <loc>http://tzangms.com/programming/1488</loc>
-        <lastmod>2011-10-08T11:07:23+08:00</lastmod>
-    </url>
-    <url>
-        <loc>http://tzangms.com/web design/1487</loc>
         <lastmod>2011-10-08T11:07:23+08:00</lastmod>
     </url>
     <url>
@@ -2301,19 +2293,11 @@
         <lastmod>2011-10-08T11:07:23+08:00</lastmod>
     </url>
     <url>
-        <loc>http://tzangms.com/web design/2250</loc>
-        <lastmod>2011-10-08T11:07:23+08:00</lastmod>
-    </url>
-    <url>
         <loc>http://tzangms.com/programming/2251</loc>
         <lastmod>2011-10-08T11:07:23+08:00</lastmod>
     </url>
     <url>
         <loc>http://tzangms.com/web/2252</loc>
-        <lastmod>2011-10-08T11:07:23+08:00</lastmod>
-    </url>
-    <url>
-        <loc>http://tzangms.com/web design/2265</loc>
         <lastmod>2011-10-08T11:07:23+08:00</lastmod>
     </url>
     <url>
@@ -2371,10 +2355,6 @@
     <url>
         <loc>http://tzangms.com/music/2332</loc>
         <lastmod>2011-10-08T16:00:52+08:00</lastmod>
-    </url>
-    <url>
-        <loc>http://tzangms.com/web design/2333</loc>
-        <lastmod>2011-10-08T11:07:24+08:00</lastmod>
     </url>
     <url>
         <loc>http://tzangms.com/music/2334</loc>
@@ -2785,10 +2765,6 @@
         <lastmod>2011-10-08T11:07:24+08:00</lastmod>
     </url>
     <url>
-        <loc>http://tzangms.com/web design/2594</loc>
-        <lastmod>2011-10-08T11:07:24+08:00</lastmod>
-    </url>
-    <url>
         <loc>http://tzangms.com/web/2597</loc>
         <lastmod>2011-10-08T11:07:24+08:00</lastmod>
     </url>
@@ -2906,10 +2882,6 @@
     </url>
     <url>
         <loc>http://tzangms.com/video/2678</loc>
-        <lastmod>2011-10-08T11:07:24+08:00</lastmod>
-    </url>
-    <url>
-        <loc>http://tzangms.com/web design/2681</loc>
         <lastmod>2011-10-08T11:07:24+08:00</lastmod>
     </url>
     <url>
@@ -3146,7 +3118,7 @@
     </url>
     <url>
         <loc>http://tzangms.com/2011/10/15/appengine-so-expensive/</loc>
-        <lastmod>2011-10-15T14:48:49+08:00</lastmod>
+        <lastmod>2011-10-15T14:55:06+08:00</lastmod>
     </url>
     <url>
         <loc>http://tzangms.com/about/</loc>
@@ -3154,10 +3126,10 @@
     </url>
     <url>
         <loc>http://tzangms.com/blog/archives/</loc>
-        <lastmod>2011-10-15T14:48:49+08:00</lastmod>
+        <lastmod>2011-10-15T14:55:06+08:00</lastmod>
     </url>
     <url>
         <loc>http://tzangms.com/</loc>
-        <lastmod>2011-10-15T14:48:49+08:00</lastmod>
+        <lastmod>2011-10-15T14:55:06+08:00</lastmod>
     </url>
 </urlset>

@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="其實一直很想寫這一篇, 只是標題一直不知道該怎麼下, 只因為這支影片, 令人讚嘆的點太多。">
+  <meta name="description" content="在上個禮拜日買的 GarageBand Jam Pack 4 終於在前幾天到啦!! 本來 Apple 網頁上說的是 24 小時, 我想說那隔天就送到了, 所以就在禮拜日買, 想說禮拜一可以送到, 只是&#8230; 真的買下去到最後幾個步驟時, 卻又看到網頁上寫的是 2~5 天! 讓我有被騙進...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,298 +64,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/1052">熱舞正妹? 其實我想說的是音樂</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-01-07T15:20:37+08:00" pubdate  data-updated="true" >Jan 7<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/0TNBJd3Hk4k&hl=zh_TW&fs=1"></param><param name="allowFullScreen" value="true"></param><embed src="http://www.youtube.com/v/0TNBJd3Hk4k&hl=zh_TW&fs=1" type="application/x-shockwave-flash" allowfullscreen="true" width="425" height="344"></embed></object>
-
-
-<p>其實一直很想寫這一篇, 只是標題一直不知道該怎麼下, 只因為這支影片, 令人讚嘆的點太多。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/music/1052">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/linux/1051">Gentoo Su (Gpasswd)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-01-07T02:46:57+08:00" pubdate  data-updated="true" >Jan 7<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>在 Gentoo 上在新增 user 的時候將 user 加入 wheel 群組, user 就可以 su, 如果是事後才要將 user 加入 wheel 群組, 可以這樣做, ex:</p>
-
-<p><code>gpasswd -a tzangms wheel</code></p>
-
-<p>不過~ 覺得這個指令字面上的意義跟動作不大合</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/linux/1048">Install Webalizer on Gentoo</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-01-04T13:03:36+08:00" pubdate  data-updated="true" >Jan 4<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天在 <a href="http://gentoo.org">Gentoo</a> 上面裝 <a href="http://www.mrunix.net/webalizer/">Webalizer</a>, 記錄一下。</p>
-
-<p>首先當然是先 emerge webalizer ( USE Flag 加上 -nls 是因為我喜歡英文的界面 :x )</p>
-
-<p><code>USE='-nls vhosts geoip' emerge webalizer</code></p>
-
-<p>然後裝好用 webapp-config 把 webalizer 裝到我現在在用的 vhost, 叫 locahost</p>
-
-<p><code>webapp-config -I -h localhost -d webalizer webalizer 2.01.10-r15</code></p>
-
-<p>PS. 說真的, webapp-config 的參數有點難記</p>
-
-<p>然後修改 /etc/webalizer.conf, 找到 DNSCache 這一行, 我想把  cache.db 放在 /var/cache 下, 所以把這一行改成下面這樣</p>
-
-<p><code>DNSCache    /var/cache/dns_cache.db</code></p>
-
-<p>最後執行 webalizer(webazolver?) 就會產生頁面啦! 最後就是把他寫到 crontab 去跑吧!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/1044">巴黎來的明信片!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-12-28T10:41:13+08:00" pubdate  data-updated="true" >Dec 28<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2139755278/" title="Postcard from Paris by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2313/2139755278_c25fae58df.jpg" width="500" height="375" alt="Postcard from Paris" /></a>
-Bonjour! 這是我收到的第二張從外國來的明信片! <a href="http://tzangms.com/life/1012/">第一張</a>是<a href="http://blog.pixnet.net/annpo">阿潑</a>從北京寄來的!</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/1044">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1042">Is PHP a Bad Programming Language?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-12-26T22:51:31+08:00" pubdate  data-updated="true" >Dec 26<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>網路上看到這兩篇, 可以看看雙方說法 XD</p>
-
-<p>PHP - a bad programming language - Dark side of PHP
-<a href="http://php-ajax-guru.blogspot.com/2007/12/php-sucks-as-programming-language.html">http://php-ajax-guru.blogspot.com/2007/12/php-sucks-as-programming-language.html</a></p>
-
-<p>PHP is not a bad programming langauge
-<a href="http://blog.flashcolony.com/?p=396">http://blog.flashcolony.com/?p=396</a></p>
-
-<p>怎麼比較呢? C , C++ 跟 Java 我都忘光了 XD 現在只會 PHP, 所以也只能看看, 真的是該好好來學一下 ruby 了 (遠目)</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/1043">本來是不想提聖誕快樂的&#8230;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-12-25T21:54:20+08:00" pubdate  data-updated="true" >Dec 25<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>大家都在聖誕快樂&#8230; 可是因為我是台灣人又信奉媽祖, 所以我的偏好是紀念行憲紀念日, 雖然&#8230;我也不會有任何慶祝的行為&#8230;</p>
-
-<p>可是就在昨天繼續在瞇歌的同時&#8230; 出現了這個畫面&#8230;. Orz 原本 Addictive drum 上面的滑桿居然變成&#8230;</p>
-
-<p><a href="http://www.flickr.com/photos/tzangms/2134531946/" title="圖片 1 by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2225/2134531946_b3b8db8d67.jpg" width="500" height="313" alt="圖片 1" /></a></p>
-
-<p>所以&#8230; 還是說一聲&#8230; 行憲紀念日快樂!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/1040">有時候也要 Metal 一下阿! &#8230;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-12-24T20:54:20+08:00" pubdate  data-updated="true" >Dec 24<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>最近好一陣子創作樂團開始流行起草地風, Metal 團好像都銷聲匿跡了阿! 我愛 Metal 阿!!</p>
-
-<p>Simple life 這種音樂風格整個大崛起, 雖然這種音樂風格聽起來頗輕鬆, 不過還是需要 Metal 才能抒發心中那莫名的怨氣阿!! XD</p>
-
-<p>可能是大家都過的太舒適了 XD</p>
-
-<p>這是昨天晚上在瞇歌結束準備要休息的時候, 突然有 fu 就了錄一段了, 然後今天我一整天都在重複 repeat 這一首 &#8230;</p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -482,6 +190,318 @@ Bonjour! 這是我收到的第二張從外國來的明信片! <a href="http://tz
   
     <footer>
       <a rel="full-article" href="/programming/1035">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/1029">北科大赤弦獎</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-12-15T14:48:15+08:00" pubdate  data-updated="true" >Dec 15<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2108331179/" title="will &amp; 奕文 - 赤弦獎冠軍 by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2276/2108331179_8c13c146fa.jpg" width="500" height="375" alt="will &amp; 奕文 - 赤弦獎冠軍" /></a>
+前天禮拜四下班後, 就衝去北科大, 去幫 <a href="http://lliwwill.blogspot.com/">will</a> 加油!</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/music/1029">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/mac/1028">[Mac] 備份光碟為 Iso 檔</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-12-15T14:07:11+08:00" pubdate  data-updated="true" >Dec 15<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天在裝 Garageband Jam pack 4 的時候, 安裝到一半, 安裝程式就跟我說光碟有損壞, 所以沒辦法直接從光碟裝, 拿出光碟一看, 原來是有刮傷之類的痕跡, 當時想到一個方法搞不好可以, 就是把光碟轉成 iso 再 mount 起來裝, 搞不好可以克服讀取不到的問題, 所以 google 一下, 找到了這一篇 「<a href="http://www.slashdotdash.net/articles/2006/08/14/create-iso-cd-dvd-image-with-mac-os-x-tiger-10-4">Create ISO CD/DVD image (.iso) with Mac OS X Tiger (10.4)</a>」</p>
+
+<p>ㄝ~ 我好像只看過 dd 這個指令 XD anyway, 反正都是用 command line 跑內建的指令, 真方便, 本來我還上 google 去找軟體, 好吧! 步驟如下:</p>
+
+<ol>
+<li>首先把光碟放進 Mac 然後在 terminal 打入下列指令 (看光碟機是哪一個 device, 我的 macbook 是 dev/disk1 )</li>
+</ol>
+
+
+<blockquote>drutil status</blockquote>
+
+
+<ol>
+<li>再來 unmount 光碟</li>
+</ol>
+
+
+<blockquote>diskutil unmountDisk /dev/disk1</blockquote>
+
+
+<ol>
+<li>開始讀光碟轉到 iso</li>
+</ol>
+
+
+<blockquote>dd if=/dev/disk1 of=file.iso bs=2048</blockquote>
+
+
+<p>基本上到這裡就可以離開 terminal 的操作了, 用 Finder 去開轉出來的 iso 檔, 可以 mount 起來, 就 ok 啦! &#8230;. 可是, 我還是打不開 Orz</p>
+
+<p>嗚~ 我的 Garageband Jam pack 4&#8230;.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/codeigniter/1026">Simplepie in CodeIgniter</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-12-08T21:49:35+08:00" pubdate  data-updated="true" >Dec 8<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://simplepie.org">simplepie</a>, 一個頗好用的 php rss parser library, 因為習慣用 CodeIgniter, 就用 CodeIgniter 的方式來寫一下。</p>
+
+<p>第一個步驟就是到 simplepie 的網站下載套件回來、解開, 然後放到 /system/application/library 裡, 把 simplepie.inc 重新命名成 simplepie.php, 接著就可以像下面這樣子用 (當然, 這是寫在 controller 裡)</p>
+
+<pre><code>$this->load->library('simplepie');
+$this->simplepie->set_feed_url('http://tzangms.com/feed');
+$this->simplepie->enable_cache(false);
+$this->simplepie->init();
+echo $this->simplepie->get_title();</code></pre>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/codeigniter/1026">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/1002">台鐵&#8230; What the &#8230;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-12-06T22:49:30+08:00" pubdate  data-updated="true" >Dec 6<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2059076378/" title="台北東部幹線的次等台鐵列車 by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2384/2059076378_6522d287fc.jpg" width="500" height="375" alt="台北東部幹線的次等台鐵列車" /></a></p>
+
+<p>先前看了 <a href="http://ghostsinthelab.org">hiroshi yui</a> 大大的這篇文章「<a href="http://ghostsinthelab.org/?p=794">回去搭火車、搭火車回去</a>」心裡有些感想。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/life/1002">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/1022">L&#8217;Arc~en~Ciel - KISS</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-11-27T08:47:29+08:00" pubdate  data-updated="true" >Nov 27<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2066624105/" title="L'Arc~en~Ciel KISS by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2221/2066624105_4364b35012.jpg" width="500" height="445" alt="L'Arc~en~Ciel KISS" /></a>
+這是我買的彩虹第 11 張專輯吧!? 目前聽起來覺得還好, 不過通常 L&#8217;Arc~en~Ciel 的歌我都要聽過好一陣子才會覺得好聽, 但是&#8230; 好像自從 REAL 這張專輯開始, 曲風的走向我就不太喜歡, 該怎麼說? 應該是說沒了日本味? 嗯, 我喜歡早期的日本味。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/music/1022">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/1021">奉茶</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-11-26T21:52:16+08:00" pubdate  data-updated="true" >Nov 26<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2059132334/" title="奉茶 by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2015/2059132334_9ab21dee69_m.jpg" width="180" height="240" alt="奉茶" class='left' /></a> 我最近愛上奉茶的霜乳奶茶, 不愛 Starbucks 了!</p>
+
+<div style='clear:both'></div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/1012">收到從外國寄來的第一張明信片</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-11-24T12:54:21+08:00" pubdate  data-updated="true" >Nov 24<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/1919565567/" title="Photo Sharing"><img src="http://farm3.static.flickr.com/2209/1919565567_ddff273c2f.jpg" width="500" height="375" alt="postcard from annpo" /></a>
+積欠了<a href="http://blog.pixnet.net/annpo">阿潑</a>好久了的一篇文章, 這張明信片應該是 9 月底就寄到了我家裡, 但是其實我在 10 月底才回家, 才真的看到這張從北京寄來的明信片。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/life/1012">Read on &rarr;</a>
     </footer>
   
 

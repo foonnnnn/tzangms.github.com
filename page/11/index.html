@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="現在有自己的 django project 在 running 的好處就是可以隨便試一些東西, 昨天晚上看到了 Johnny Cache 這篇文章, 馬上就用 pip 裝了起來, 裝上 stickeraction, 儘管原本對 loading 最重的部份都已經用了 memcache 做處理, ...">
+  <meta name="description" content="其實新版的 stickeraction 上線了一個禮拜左右了, 除了版面整個改掉之外, 也從 php + codeigniter 換成 python + django, 換成用最大的好處就是馬上就多了後台可以用 ( 笑 ) 。另外這次也加了多國語系, 目前有繁體中文、簡體中文以及英文 ( 我想...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,86 +64,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2573">[Django] Johnny Cache</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-03-02T11:32:37+08:00" pubdate  data-updated="true" >Mar 2<span>nd</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>現在有自己的 <a href="http://www.djangoproject.com/">django</a> project 在 running 的好處就是可以隨便試一些東西, 昨天晚上看到了 <a href="http://django.jmoiron.net/blog/johnny-cache/">Johnny Cache</a> 這篇文章, 馬上就用 pip 裝了起來, 裝上 <a href="http://stickeraction.com">stickeraction</a>, 儘管原本對 loading 最重的部份都已經用了 memcache 做處理, 沒想到 mysql queries 馬上就往下掉。</p>
-
-<p><a href="http://tzangms.com/wp-content/uploads/2010/03/localhost.localdomain-mysql_queries-day.png"><img src="http://tzangms.com/wp-content/uploads/2010/03/localhost.localdomain-mysql_queries-day.png" alt="" title="localhost.localdomain-mysql_queries-day" width="495" height="343" class="aligncenter size-full wp-image-2574" /></a></p>
-
-<p>不過其實我還沒去看他的作法 XD 反正他都說有在 production 跑了 (笑)</p>
-
-<p>Anyway, 基本上他的作法主要還是對 queryset 做 cache, 其實先前 pownce 的 mmalone 就有<a href="http://github.com/mmalone/django-caching">寫了 queryset caching 的 example app</a>, 只是裝上之後得換掉 ModelManager, 有點麻煩, 而 johnny cache 的作法僅是在 settings.py 裡面加進幾行而已, transparent 得多了, <a href="http://django.jmoiron.net/blog/johnny-cache/">Johnny Cache</a> 這篇文章的 comments 裡面也有提到另一個 <a href="http://github.com/jbalogh/django-cache-machine">django-cache-machine</a>。</p>
-
-<p>不過雖然 mysql 的 loading 往下掉, 可是 context switches 跟 interrupts 還有 cpu 都往上飆勒, 在多跑幾天看看。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/2572">一起來貼&#8221;我討厭網誌音樂自動播放&#8221;的串連貼紙吧!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-03-01T22:26:17+08:00" pubdate  data-updated="true" >Mar 1<span>st</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://stickeraction.com/autoplaysucks/go" title="我很討厭網誌音樂自動播放"><img src="http://stickeraction.com/autoplaysucks/sticker/" alt="我很討厭網誌音樂自動播放" border="0" /></a></p>
-
-<p>這是我當初做 stickeraction 想要弄的議題之一, 就是希望能撲滅音樂自動播放這件事, 誰知道我後來就失憶了 (笑) 不過前幾天發現這張貼紙做的很漂亮, 而且主張很明顯! 超讚的! 大家一起來貼一下吧!!! 拜託嘛 ~&#8221;~</p>
-
-<p>難道沒有人覺得有時候在看正妹相簿的時候, 每點一張照片, 歌就會重新播放一次這件事很反感嗎? XD</p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -469,6 +389,92 @@ if result.status_code == 200:
 
 
 <p>最簡單的就是這樣 XD 不過不知道是否改為執行 get method 然後把 content 去掉只留 header 這樣會不會比較好 :p</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2556">App Engine BlobStore 試玩心得</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-02-06T14:58:41+08:00" pubdate  data-updated="true" >Feb 6<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>一開始構想 <a href="http://myaudiocast.appspot.com/">MyAudioCast</a> 的時候, 原本是想說把檔案都送到 <a href="https://s3.amazonaws.com/">S3</a>, 然後透過 <a href="http://aws.amazon.com/cloudfront/">CloudFront</a> 還可以玩 <a href="http://en.wikipedia.org/wiki/Real_Time_Messaging_Protocol">rtmp streaming</a>, 後來發現 urlfetch 只能傳 1MB 所以放棄, 就只好使用 BlobProperty, 沒想到 BlobProperty 也只有 1MB, 後來才知道 app engine 1.3.0 有了 <a href="http://code.google.com/intl/en/appengine/docs/python/blobstore/">BlobStore</a>, 可以放 50MB 的檔案, 雖然還在實驗中, 不過到還是真的可以用, 所以就把東西都放在 app engine。</p>
+
+<p>不過要使用 BlobStore 之前就得先開啟付費的資料, 準備開始扣款, 而 BlobStore 每天的 free quota 也只有 1GB, 原本以為有點小, 但其實只要給他 $0.10 / day 就可以有 40GB per day, 老實說其實滿划算的。 只是單檔 50MB 的限制 &#8230; 我是覺得 100MB 比較寬裕一點。</p>
+
+<p>後來才發現, <a href="http://code.google.com/intl/zh-TW/appengine/">App Engine</a> 真的貴的是在出去的頻寬。 outgoing bandwidth 的 free quota 也是 1GB per day, 可是當我 budget 設定 $0.66 / day, 也才提昇到 6.5GB per day。</p>
+
+<p>所以最後我還是試了一下<a href="http://developer.amazonwebservices.com/connect/entry.jspa?externalID=1434">這一篇</a>寫的方式, 來把檔案丟到 S3。 雖然剛開始用 S3 就有看過這個辦法, 可是根本不會想去試, 不過現在在 app engine 上似乎是成為唯一能傳大檔到 S3 的方式了, 只是就少了一些可以控制的東西, 也需要一些 workaround。</p>
+
+<p>不過現在用 S3 + CloudFront 感覺良好 XD  另外, 我一直把 Blob 打成 Blog Orz</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/computer/2554">MyAudioCast - 輕鬆建立你的 Podcast!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-02-04T13:09:30+08:00" pubdate  data-updated="true" >Feb 4<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>這幾天花了點時間寫了 <a href="http://myaudiocast.appspot.com">MyAudioCast</a>, 因為台灣的 <a href="http://zh.wikipedia.org/wiki/播客">Podcast</a> 真的是很不流行, 但是其實發現有一些人錄好了 podcast 之後, 卻因為不知道檔案要放哪, 還有不知道要如何產生 podcast feed 而煩惱。 雖然外國有一些 podcast hosting, 但是感覺不夠簡單, 甚至是介面很雜亂, 所以在希望能降低發佈 Podcast 門檻的想法下, 就利用 <a href="http://code.google.com/intl/zh-TW/appengine/">Google App Engine</a> 寫了 <a href="http://myaudiocast.appspot.com">MyAudioCast</a>, 來降低發佈 Podcast 的門檻。</p>
+
+<p>所以現在只需要有 Google 帳號, 就可以登入 <a href="http://myaudiocast.appspot.com">MyAudioCast</a> 上傳 podcast 檔案, 上傳完檔案之後就有個人的 Podcast 頁面, 也有 iTunes 的 Podcast feed 可以供人訂閱, 應該夠簡單了吧!? 雖然目前還缺少了 flash player 可以 embed 出去 :p</p>
+
+<p>其實想做 MyAudioCast 的想法已經好一陣了, 我喜歡一些所謂&#8221;素人&#8221;錄製的聲音產出, 像是獨立音樂或是身旁朋友錄的 Podcast, 但是在台灣的中文 Podcast 卻極度的少, 大部分應該在建立自己的 Podcast 上碰到些技術的門檻。 而台灣也沒人做 podcast hosting, 畢竟是個燒錢事, 所以我就利用 App Engine 來做一個 Podcast hosting, 降低發佈門檻, 希望能多聽到些聲音。</p>
+
+<p>雖然說目前 app engine 的 BlobStore 只能上傳 50MB, 而且 BlobStore 還是實驗性功能, 不過應該夠用吧 XD</p>
+
+<p>如果可以的話, 看到這篇文章的朋友, 也幫我多宣傳一下吧 :p 雖然很容易超過 free quota, 不過初期其實要燒也燒不了多少吧。 超過的都算我的吧, 趕快上傳 Podcast 來聽阿!!!</p>
+
+<p>話說有人要幫忙我做 logo 嗎?  XD 另外有什麼想法也提一下吧 ~</p>
 </div>
   
   

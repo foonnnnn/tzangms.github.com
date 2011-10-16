@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="前天禮拜四下班後, 就衝去北科大, 去幫 will 加油!">
+  <meta name="description" content="">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,318 +64,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/1029">北科大赤弦獎</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-12-15T14:48:15+08:00" pubdate  data-updated="true" >Dec 15<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2108331179/" title="will &amp; 奕文 - 赤弦獎冠軍 by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2276/2108331179_8c13c146fa.jpg" width="500" height="375" alt="will &amp; 奕文 - 赤弦獎冠軍" /></a>
-前天禮拜四下班後, 就衝去北科大, 去幫 <a href="http://lliwwill.blogspot.com/">will</a> 加油!</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/music/1029">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/mac/1028">[Mac] 備份光碟為 Iso 檔</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-12-15T14:07:11+08:00" pubdate  data-updated="true" >Dec 15<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天在裝 Garageband Jam pack 4 的時候, 安裝到一半, 安裝程式就跟我說光碟有損壞, 所以沒辦法直接從光碟裝, 拿出光碟一看, 原來是有刮傷之類的痕跡, 當時想到一個方法搞不好可以, 就是把光碟轉成 iso 再 mount 起來裝, 搞不好可以克服讀取不到的問題, 所以 google 一下, 找到了這一篇 「<a href="http://www.slashdotdash.net/articles/2006/08/14/create-iso-cd-dvd-image-with-mac-os-x-tiger-10-4">Create ISO CD/DVD image (.iso) with Mac OS X Tiger (10.4)</a>」</p>
-
-<p>ㄝ~ 我好像只看過 dd 這個指令 XD anyway, 反正都是用 command line 跑內建的指令, 真方便, 本來我還上 google 去找軟體, 好吧! 步驟如下:</p>
-
-<ol>
-<li>首先把光碟放進 Mac 然後在 terminal 打入下列指令 (看光碟機是哪一個 device, 我的 macbook 是 dev/disk1 )</li>
-</ol>
-
-
-<blockquote>drutil status</blockquote>
-
-
-<ol>
-<li>再來 unmount 光碟</li>
-</ol>
-
-
-<blockquote>diskutil unmountDisk /dev/disk1</blockquote>
-
-
-<ol>
-<li>開始讀光碟轉到 iso</li>
-</ol>
-
-
-<blockquote>dd if=/dev/disk1 of=file.iso bs=2048</blockquote>
-
-
-<p>基本上到這裡就可以離開 terminal 的操作了, 用 Finder 去開轉出來的 iso 檔, 可以 mount 起來, 就 ok 啦! &#8230;. 可是, 我還是打不開 Orz</p>
-
-<p>嗚~ 我的 Garageband Jam pack 4&#8230;.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/codeigniter/1026">Simplepie in CodeIgniter</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-12-08T21:49:35+08:00" pubdate  data-updated="true" >Dec 8<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://simplepie.org">simplepie</a>, 一個頗好用的 php rss parser library, 因為習慣用 CodeIgniter, 就用 CodeIgniter 的方式來寫一下。</p>
-
-<p>第一個步驟就是到 simplepie 的網站下載套件回來、解開, 然後放到 /system/application/library 裡, 把 simplepie.inc 重新命名成 simplepie.php, 接著就可以像下面這樣子用 (當然, 這是寫在 controller 裡)</p>
-
-<pre><code>$this->load->library('simplepie');
-$this->simplepie->set_feed_url('http://tzangms.com/feed');
-$this->simplepie->enable_cache(false);
-$this->simplepie->init();
-echo $this->simplepie->get_title();</code></pre>
-
-
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/codeigniter/1026">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/1002">台鐵&#8230; What the &#8230;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-12-06T22:49:30+08:00" pubdate  data-updated="true" >Dec 6<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2059076378/" title="台北東部幹線的次等台鐵列車 by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2384/2059076378_6522d287fc.jpg" width="500" height="375" alt="台北東部幹線的次等台鐵列車" /></a></p>
-
-<p>先前看了 <a href="http://ghostsinthelab.org">hiroshi yui</a> 大大的這篇文章「<a href="http://ghostsinthelab.org/?p=794">回去搭火車、搭火車回去</a>」心裡有些感想。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/life/1002">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/1022">L&#8217;Arc~en~Ciel - KISS</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-11-27T08:47:29+08:00" pubdate  data-updated="true" >Nov 27<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2066624105/" title="L'Arc~en~Ciel KISS by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2221/2066624105_4364b35012.jpg" width="500" height="445" alt="L'Arc~en~Ciel KISS" /></a>
-這是我買的彩虹第 11 張專輯吧!? 目前聽起來覺得還好, 不過通常 L&#8217;Arc~en~Ciel 的歌我都要聽過好一陣子才會覺得好聽, 但是&#8230; 好像自從 REAL 這張專輯開始, 曲風的走向我就不太喜歡, 該怎麼說? 應該是說沒了日本味? 嗯, 我喜歡早期的日本味。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/music/1022">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/1021">奉茶</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-11-26T21:52:16+08:00" pubdate  data-updated="true" >Nov 26<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2059132334/" title="奉茶 by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2015/2059132334_9ab21dee69_m.jpg" width="180" height="240" alt="奉茶" class='left' /></a> 我最近愛上奉茶的霜乳奶茶, 不愛 Starbucks 了!</p>
-
-<div style='clear:both'></div>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/1012">收到從外國寄來的第一張明信片</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-11-24T12:54:21+08:00" pubdate  data-updated="true" >Nov 24<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/1919565567/" title="Photo Sharing"><img src="http://farm3.static.flickr.com/2209/1919565567_ddff273c2f.jpg" width="500" height="375" alt="postcard from annpo" /></a>
-積欠了<a href="http://blog.pixnet.net/annpo">阿潑</a>好久了的一篇文章, 這張明信片應該是 9 月底就寄到了我家裡, 但是其實我在 10 月底才回家, 才真的看到這張從北京寄來的明信片。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/life/1012">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
   
   
     <article>
@@ -486,6 +174,282 @@ echo $this->simplepie->get_title();</code></pre>
 <p>在 <a href="http://shanecoast.wordpress.com/">shanecoast 的 blog</a> 看到他<a href="http://shanecoast.wordpress.com/2007/11/11/better-tomorrow/">這一篇文章</a>的這張照片, 「better tomorrow」。呵, 其實我一直滿理性的, 以前如果在展覽會場看到這個的話, 我應該就只是看看, 不大可能花錢買下來這個空瓶子&#8230;</p>
 
 <p>不過現在我看到搞不好會買一個回家, 擺在桌上, 然後丟糖果進去。好像打開這個瓶子, 吞下一顆糖果, 真的會有 better tomorrow 的感覺 :)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/1014">[YEAH] Loop Station 效果器可以怎麼用呢?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-11-11T02:26:11+08:00" pubdate  data-updated="true" >Nov 11<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><object width="425" height="355"><param name="movie" value="http://www.youtube.com/v/ebd7ONuE-PA&rel=1"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/ebd7ONuE-PA&rel=1" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed></object>
+
+
+<p>這是好久之前在買 <a href="http://tzangms.com/music/846/">Boss RC-20XL</a> 之前上 youtube 做  survey 的時候找到的! 然而前一陣子 bass 手志豪在練團時都會用 bass 彈 Usher 的 yeah 這首歌的 riff, 每次聽到都覺得很好笑 XD</p>
+
+<p>所以為了彌補最近太累, 根本沒有力氣寫 blog, 就分享一下這個我覺得很屌的影片, 另外可以看看。 木吉他加上 loop station 也可以用來唱 rap !!! 好聽! 又很屌!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/codeigniter/1006">將 Zend Framework 放進 CodeIgniter</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-11-10T22:43:45+08:00" pubdate  data-updated="true" >Nov 10<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>基本上這裡所謂的整合就是用 CodeIgniter 的 hooks 來做, 單純用 hooks 來設定 include_path, 不然直接設定 include_path, 把 Zend Framework 當成跟 PEAR 類似的放著也可以, 不過由於這樣整合看起來比較帥, 之後程式如果搬家也不會因為失誤而漏了 ZF :p 又, 用 SVN 來管理也方便</p>
+
+<p><strong>1. 下載 ZF, 把 library 放進 CodeIgniter</strong>
+就依我的方式, 我是把 ZF 解開後, 把 library copy 放到 CodeIgniter 的 system 下面, 命名為 zendframework</p>
+
+<p>/project/system/zendframework</p>
+
+<p><strong>2. 開啟 CodeIgniter hook</strong>
+修改 /project/system/application/config/config.php</p>
+
+<p><code>$config['enable_hooks'] = TRUE;</code></p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/codeigniter/1006">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/1011">畫家夢</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-11-05T00:51:48+08:00" pubdate  data-updated="true" >Nov 5<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/1856985293/" title="Photo Sharing"><img src="http://farm3.static.flickr.com/2407/1856985293_9cd1499e9a.jpg" width="375" height="500" alt="畫家夢, 小六畫的素描" /></a>
+從上次翻出<a href="http://tzangms.com/life/1005/">我第一台相機的素描</a>(速寫?)之後, 整個就又燃起我的畫家夢。這是我小學六年級所畫的素描。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/life/1011">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/1009">校慶 &#8216;07</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-10-29T21:52:48+08:00" pubdate  data-updated="true" >Oct 29<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="http://farm3.static.flickr.com/2056/1788846409_1f64ae2684.jpg" alt="H2O Jump!" /></p>
+
+<p>只在學校讀了兩年(二技), 不過卻連續在學校校慶連續表演了六年, 不過我想這應該是最後一次回學校表演了吧!</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/music/1009">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/1008">I&#8217;m So Fucking Tired &#8230;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-10-26T01:18:24+08:00" pubdate  data-updated="true" >Oct 26<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/1747671777/" title="Photo Sharing"><img src="http://farm3.static.flickr.com/2088/1747671777_e8f9977006.jpg" width="500" height="375" alt="I am so fucking tired" /></a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/1005">我的第一台相機 Fujifilm F402</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-10-25T09:46:36+08:00" pubdate  data-updated="true" >Oct 25<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/1735598361/" title="Photo Sharing"><img src="http://farm3.static.flickr.com/2155/1735598361_6286ebe320.jpg" width="500" height="375" alt="sketch, my first digital camera, fujifilm F402" /></a>
+我喜歡輕便的相機, 另外我好像也不管功能性, 只看外型, 所以我的第一台相機就買了 Fujifilm F402, 我真的覺得他很小台, 好可愛, 不過現在只剩下這張照片。</p>
+
+<p>這是剛才想從 iPhoto 找照片時突然看到的, 當時是大學生, 很閒~ 所以有時間畫圖 XD 記得當時好像是太無聊, 拿起黑色的原子筆就畫了起來。嗯, 我已經好久好久沒畫畫了, 不過現在也沒有那個閒時間才是。 Orz</p>
+
+<p>anyway, 這張素描是我第一台相機唯一留下的一張&#8221;身影&#8221;, 最後, 唉~ 希望我現在可以像那時候那麼悠閒的畫畫。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/podcast/997">小海 Podcast 第 7 集</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-10-13T13:30:59+08:00" pubdate  data-updated="true" >Oct 13<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>很久沒有錄 podcast 了, 這一集來介紹一下我最近常聽的歌曲</p>
 </div>
   
   

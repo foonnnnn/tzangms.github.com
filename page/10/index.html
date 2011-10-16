@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="FindIcons, 還滿方便的一個 icon 搜尋引擎, 搜尋出來還可以直接轉乘你要的格式下載, ico, psd, svg 之類的, 甚至是透明背景的條件過濾。">
+  <meta name="description" content="只需要輸入不超過 140 個字即可。因為 twitter 等微網誌服務, 所以記錄到自己部落格的文字變少了。 看看以前自己的文章, 還可以知道自己當時在幹嘛、做些什麼事情, 現在則是一片死寂, 寫一些技術類的文章, 一點用都沒有嘛 (翻桌)咦, 超過 140 個字了嗎? anyway 以後來發...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,74 +64,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web design/2594">FindIcons - Free Icon Search Engine</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-03-24T23:44:26+08:00" pubdate  data-updated="true" >Mar 24<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://findicons.com/">FindIcons</a>, 還滿方便的一個 icon 搜尋引擎, 搜尋出來還可以直接轉乘你要的格式下載, ico, psd, svg 之類的, 甚至是透明背景的條件過濾。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/django/2593">Django 1.2 就快出來了</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-03-24T00:58:03+08:00" pubdate  data-updated="true" >Mar 24<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.djangoproject.com/weblog/2010/mar/23/django-1_2-release-schedule-update-2/">Django 1.2 release schedule - Update 2</a>, Django 1.2 就快出來了, 真是滿令人興奮的。 Django 1.2 主要的更新有 multidb、針對 extends 跟 include 的 template caching, 還有 smarter if template tag。 老實說, 原本的 if 真是爛透了 ~</p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -448,6 +380,86 @@
 
 
   <div class="entry-content"><p><a href="http://www.picloud.com/">PiCloud</a> 這個真的好屌, 感覺很好玩的樣子! 來試著把 stickeraction 的 queue 丟上去跑, 應該很適合 :D</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2573">[Django] Johnny Cache</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-03-02T11:32:37+08:00" pubdate  data-updated="true" >Mar 2<span>nd</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>現在有自己的 <a href="http://www.djangoproject.com/">django</a> project 在 running 的好處就是可以隨便試一些東西, 昨天晚上看到了 <a href="http://django.jmoiron.net/blog/johnny-cache/">Johnny Cache</a> 這篇文章, 馬上就用 pip 裝了起來, 裝上 <a href="http://stickeraction.com">stickeraction</a>, 儘管原本對 loading 最重的部份都已經用了 memcache 做處理, 沒想到 mysql queries 馬上就往下掉。</p>
+
+<p><a href="http://tzangms.com/wp-content/uploads/2010/03/localhost.localdomain-mysql_queries-day.png"><img src="http://tzangms.com/wp-content/uploads/2010/03/localhost.localdomain-mysql_queries-day.png" alt="" title="localhost.localdomain-mysql_queries-day" width="495" height="343" class="aligncenter size-full wp-image-2574" /></a></p>
+
+<p>不過其實我還沒去看他的作法 XD 反正他都說有在 production 跑了 (笑)</p>
+
+<p>Anyway, 基本上他的作法主要還是對 queryset 做 cache, 其實先前 pownce 的 mmalone 就有<a href="http://github.com/mmalone/django-caching">寫了 queryset caching 的 example app</a>, 只是裝上之後得換掉 ModelManager, 有點麻煩, 而 johnny cache 的作法僅是在 settings.py 裡面加進幾行而已, transparent 得多了, <a href="http://django.jmoiron.net/blog/johnny-cache/">Johnny Cache</a> 這篇文章的 comments 裡面也有提到另一個 <a href="http://github.com/jbalogh/django-cache-machine">django-cache-machine</a>。</p>
+
+<p>不過雖然 mysql 的 loading 往下掉, 可是 context switches 跟 interrupts 還有 cpu 都往上飆勒, 在多跑幾天看看。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/2572">一起來貼&#8221;我討厭網誌音樂自動播放&#8221;的串連貼紙吧!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-03-01T22:26:17+08:00" pubdate  data-updated="true" >Mar 1<span>st</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://stickeraction.com/autoplaysucks/go" title="我很討厭網誌音樂自動播放"><img src="http://stickeraction.com/autoplaysucks/sticker/" alt="我很討厭網誌音樂自動播放" border="0" /></a></p>
+
+<p>這是我當初做 stickeraction 想要弄的議題之一, 就是希望能撲滅音樂自動播放這件事, 誰知道我後來就失憶了 (笑) 不過前幾天發現這張貼紙做的很漂亮, 而且主張很明顯! 超讚的! 大家一起來貼一下吧!!! 拜託嘛 ~&#8221;~</p>
+
+<p>難道沒有人覺得有時候在看正妹相簿的時候, 每點一張照片, 歌就會重新播放一次這件事很反感嗎? XD</p>
 </div>
   
   

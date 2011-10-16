@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="CodeIgniter Textmate Bundle, 前幾天在把 tzangms.com CI 化, 用 Textmate 來寫, 想說 ci bundle 真好用! 然後就順手又找了一下有沒有更新, 真的有勒!! 多了好多方便的東西阿!!!有用 Mac + Textmate + Code...">
+  <meta name="description" content="Josh&#8217;s iTunes Album Art Grabber 這裡可以直接輸入歌手跟專輯名稱就可以直接下載到畫質不錯的唱片封面勒, 多方便! 直接抓 iTunes Store 的唱片封面勒!! 對我這個沒有 iTunes Store 帳號的就不錯用!! XD 不過前提是你找的唱片...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,343 +64,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/codeigniter/978">CodeIgniter Textmate Bundle</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-10-02T00:10:51+08:00" pubdate  data-updated="true" >Oct 2<span>nd</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.sellersrank.com/codeigniter-textmate-bundle-download/">CodeIgniter Textmate Bundle</a>, 前幾天在把 tzangms.com CI 化, 用 Textmate 來寫, 想說 ci bundle 真好用! 然後就順手又找了一下有沒有更新, 真的有勒!! 多了好多方便的東西阿!!!</p>
-
-<p>有用 Mac + Textmate + CodeIgniter 就一定要裝這個 ci bundle 阿!~</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/975">Oceanic 桌布</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-09-30T00:49:48+08:00" pubdate  data-updated="true" >Sep 30<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="http://farm2.static.flickr.com/1326/1443822972_092853c3e1_o.jpg" width="500" height="313" alt="oceanic wallpaper logo" /></p>
-
-<p>Oceanic 桌布，按右鍵下載 <a href='[download#2#url]'>1440x900</a> | <a href='[download#3#url]'>1280x1024</a>  | <a href='[download#4#url]'>1024x768</a></p>
-
-<p>上禮拜拍了一些照片, 因為覺得這一張很適合當桌布, 就順手做了一下。 其實就是調一下色調, 寫上幾個字, 然後裁成不同大小而已。1024x768 跟 1280x1024 應該是最多人用的螢幕解析度, 1440x900 則是我自己螢幕的解析度, 適合寬螢幕, 看起來也比較有 fu。</p>
-
-<p>哈, 公司已經有幾位同事的電腦慘遭我的毒手, 他們的桌布被我換成這張了 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/979">Apache Rewrite Rules for CodeIgniter</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-09-29T10:17:38+08:00" pubdate  data-updated="true" >Sep 29<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>CodeIgniter 本來的網址看起來像是這樣</p>
-
-<blockquote>http://tzangms.com/index.php/profile/edit</blockquote>
-
-
-<p>不過可以用 mod_rewrite 改寫成這樣</p>
-
-<blockquote>http://tzangms.com/profile/edit</blockquote>
-
-
-<p>一開始在用 CodeIgniter 的時候為了要把網址弄漂亮一點, 在 mod_rewrite 上搞了很久, 雖然 CodeIgniter 的 document 寫的很棒! 但是 <a href="http://codeigniter.com/user_guide/general/urls.html">CodeIgniter URLs</a> 這一篇裡面寫到關於 mod_rewrite 的部份就只有一點點。</p>
-
-<p>為了要將 tzangms.com CI 化, 就免不了要再處理一次 mod_rewrite, 只是這次是在 godaddy 租的主機, 所以只能寫 .htaccess 了, 在處理上一篇的 <a href="http://tzangms.com/?p=977">No input file specified. 的問題</a> 時, 看到了 CodeIgniter wiki 上的 <a href="http://codeigniter.com/wiki/mod_rewrite/">mod_rewrite</a> 章節, 這篇寫的很完整阿!!!</p>
-
-<p>所以直接! 第一個步驟, htaccess 內容如下, done!</p>
-
-<pre>
-<code>&lt;IfModule mod_rewrite.c&gt;
-    RewriteEngine On
-    RewriteBase /
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ index.php/$1 [L]
-&lt;/IfModule&gt;
-
-&lt;IfModule !mod_rewrite.c&gt;
-    ErrorDocument 404 /index.php
-&lt;/IfModule&gt;</code>
-</pre>
-
-
-<p>第二個步驟, 接著修改</p>
-
-<blockquote>system/application/config/config.php </blockquote>
-
-
-<p>找到下面這一行</p>
-
-<pre><code>$config['index_page'] = "index.php"; </code></pre>
-
-
-<p>改成</p>
-
-<pre><code>$config['index_page'] = ""; </code></pre>
-
-
-<p>沒錯, 這樣就樣就解決了阿!</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/977">[CodeIgniter] No Input File Specified.</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-09-28T23:00:23+08:00" pubdate  data-updated="true" >Sep 28<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天在將 tzangms.com CI 化的時候碰到了個問題, 就是一直出現下面這一行訊息</p>
-
-<blockquote>No input file specified.</blockquote>
-
-
-<p>第一次碰到這個, 完全沒頭緒! 原本以為是因為 mod_rewrite 沒設定好的關係, 所以才出現這個訊息。之後我找了好多 mod_rewrite 相關的資料, 還是沒辦法解決問題, 一邊修改設定, 一邊測試下面這個網址, 仍然還是一樣顯示 No input file specified.</p>
-
-<blockquote>http://tzangms.com/main</blockquote>
-
-
-<p>後來才發現我取消 mod_rewrite, 直接打下面這段網址也是出現相同的錯誤訊息。</p>
-
-<blockquote>http://tzangms.com/index.php/main</blockquote>
-
-
-<p>這時候才知道, 原來 mod_rewrite 沒設錯阿!! mod_rewrite 一直正確的運作著, 所以上面這兩個網址是一直指到同一個地方, 所以我才一直看到相同的訊息, 這才恍然大悟! main 一直有正確的 rewrite 成 index.php/main 阿!</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/977">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/976">最近要來做的事</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-09-28T01:49:58+08:00" pubdate  data-updated="true" >Sep 28<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>最近開始在把以前的錄好的歌重新 mix, 有些部份也許要重錄, 也一邊在研究所謂的 mastering。找了一些關於 mastering 的資訊, 最後裝了 <a href="http://www.izotope.com/products/audio/ozone/">iZotope Ozone 3</a> 來作 mastering 的動作, 只是還有很多關於 mix down 跟 mastering 東西不了解, 所以一邊在研讀相關的資料。希望可以把錄好的歌曲調的好聽一些。</p>
-
-<p>然後要開始準備進錄音室的前置工作, 先把工作帶(卡拉帶?)做出來, 先去錄看看 Vocal 的部份。接著要做 flash mp3 player (widget), 讓人家可以放在他們的 blog 上 XD</p>
-
-<p>之後還要再拍一些宣傳照 XD 然後拿來做封面、內頁, 這就要跟我們家西瓜哥借他的新相機了, 一台 8 萬塊, 加鏡頭跟一些有的沒的, 好像 12 萬勒&#8230;.</p>
-
-<p>做 wallpaper 宣傳用 XD (已經做好了)</p>
-
-<p> &#8212;&#8212;&#8212; 天馬行空分隔線 &#8212;&#8212;&#8212;&#8211;</p>
-
-<p>再來就是拍 MV, 要先想劇情, 畫分鏡&#8230;. 然後在學一下 FinalCut Studio 這種東西</p>
-
-<p>最後談通路, 把唱片放到玫瑰、大眾、誠品、佳佳, 還要有博客來網路書店 XD</p>
-
-<p>然後希望一個人可以把上面說的這些事情可以在三個月內弄完 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/973">宣傳照?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-09-24T17:29:48+08:00" pubdate  data-updated="true" >Sep 24<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/1431289337/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1180/1431289337_a85dcc6d0a.jpg" width="334" height="500" alt="宣傳照 XD" class='left' /></a>星期六跑去跟以前學校熱音社的學弟妹們中秋烤肉, 雖然雨一陣一陣的, 不過絕大部份的時間都沒有雨, 一陣陣的秋風, 涼涼的~ 吹起來很舒服, 大家也烤的很開心, 一邊烤肉一邊彈吉他唱歌, 多 high。 隔天禮拜日, H2O 就又跑去練團, 把舊歌都跑一跑, 不過禮拜天跟禮拜六的天氣差異真的是很大, 禮拜日熱的要命, 不過也由於天氣很好, 陽光也很大, 就硬拉宜豐幫我拍照 :p 雖然才隨性的亂拍幾下, 但是拍完整個快熱死~ 馬上就跑去吃冰 (奔~)</p>
-
-<p>感謝攝影師宜豐還有修圖師小紅, 雖然有些圖修的有點過頭 XD</p>
-
-<p>果然我買這把 jaguar 是對的!! 拍起來多好看! 哈哈哈! (囧~ 吉他不是拿來拍照的阿!)</p>
-
-<p>拍起來很有宣傳照的感覺吧? 下次再找時間跟地點來拍照吧, 還滿好玩的, 只是不要那麼熱就好 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/972">Slideflickr.com : Flickr Slide 產生器</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-09-21T20:39:08+08:00" pubdate  data-updated="true" >Sep 21<span>st</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.slideflickr.com/">SlideFlickr.com</a> 還不錯用的一個 flickr 投影片產生器, 輸入你相片、set、tag 的網址 (collection 好像沒辦法), 就可以產生出來一個 flash 投影片跟語法給你貼到 blog 上, 還可以設定換頁速度、自定 logo 還有背景音樂 (只是個人非常不建議自動播放音樂), 產生出來的東西就像下面這個, 這是我上次去宜蘭玩拍的, 南方澳海邊 XD</p>
-
-<blockquote>靠! slideflickr 這個爛東西, 這篇才寫沒幾天勒&#8230;就爛掉了&#8230; 所以我就把 flash 也拿掉了! 果然不安全 XD</blockquote>
-
-
-
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -555,6 +218,309 @@ rm -rf .Spotlight*</code></pre>
 <p><strong>7. 好! 重開機!!</strong></p>
 
 <p>不過後來我發現&#8230; 連用 Finder 右上角的搜尋框也找不到東西了 XD 所以說~ 這個東西, 無聊的人可以試一試 XD 還有電腦搞壞不要怪我 XD</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/965">安裝 Capistrano</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-09-15T02:09:15+08:00" pubdate  data-updated="true" >Sep 15<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>最近在研究 <a href="http://www.capify.org/">Capistrano</a> 這個東西, 他最主要就是搭配 SVN 來做程式碼自動部署(auto deployment)的工作, 如果程式碼都用 SVN 來作版本控制的話, 那麼會方便很多。基本上, Capistrano 是 RoR 用來做自動部署的程式, 不過在看過許多文章之後, 其實也可以拿來用在其他程式的部署上。</p>
+
+<p>簡單的來説, Capistrano 就是可以讓你很方便的透過 ssh 在遠端執行指令。所以說沒辦法遙控 Windows XD</p>
+
+<p>先來說說安裝吧! 首先就是要安裝 <a href="http://www.ruby-lang.org/en/">Ruby</a> 啦! 把原始碼抓回來安裝啦! (以下當然不會是 Windows 的做法 XD)</p>
+
+<blockquote>./configure ; make ; make install </blockquote>
+
+
+<p>接著是裝上 <a href="http://www.rubygems.org/">RubyGem</a>, 抓回來用下面的指令安裝</p>
+
+<blockquote>ruby setup.rb</blockquote>
+
+
+<p>然後就可以用 RubyGem 來安裝 <a href="http://www.capify.org">Capistrano</a> 啦! 加上 -y 的參數, 是說, 會裝上其他相依的 ruby gem。</p>
+
+<blockquote>gem install -y capistrano</blockquote>
+
+
+<p>然後因為某種原因, 會出現某個訊息, 不過玩 Ruby 的才需要知道, 就不說為什麼了 (因為我也不知道阿, 反正裝玩就不會在出現那一段訊息就是了 XD)</p>
+
+<blockquote>gem install fastthread</blockquote>
+
+
+<p>到這裡就大功告成啦!! Capistrano 安裝完畢!! 之後再來寫篇發佈 PHP 程式的心得 :p</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/964">Logic Express 8!!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-09-13T21:56:16+08:00" pubdate  data-updated="true" >Sep 13<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.apple.com/logicexpress/"><img src="http://farm2.static.flickr.com/1036/1371411901_0a8a87c995.jpg" width="500" height="186" alt="Logic express 8" /></a>
+我的天阿!! <a href="http://www.apple.com/logicexpress/">Logic express 8</a> 超想買的阿!! 還真便宜內! 只要 $6900!</p>
+
+<p>話說這次的 Logic express 8 多了先前 Logic Pro 7 才有的 Guitar Amp Pro!! 還有 Ultra Beat!! 真的是太帥氣了!! 然後整個界面都改了, 其實先前 Pro application 的界面感覺有點不是很符合現在 Mac 的感覺 :p</p>
+
+<p>不知道 Guitar Amp Pro 跟 Ultra Beat 有沒有辦法分別取代我現在用的 <a href="http://www.native-instruments.com/index.php?id=guitarline">Guitar Rig 2</a> (媽的! 又嚇到! Guitar Rig 3 也出來了!!! )跟 <a href="http://www.xlnaudio.com/products">Addictive Drum</a>, 倒是看網頁所介紹的畫面, 似乎 Guitar Amp Pro 還是沒有像 Guitar Rig 2 有那麼細的設定。</p>
+
+<p>另外!! 可以用 Apple remote 來控制 Logic !! 太屌了阿!!!</p>
+
+<p>我想要!! 但&#8230;其實 <a href="http://www.apple.com/logicstudio/">Logic Studio</a> 也才 $16900, 不會太貴, 但是&#8230; 我只是業餘, 所以 Logic express 就很猛了阿!</p>
+
+<p>不過&#8230;..仔細看看, Logic Studio 裡面多了個 <a href="http://www.apple.com/logicstudio/mainstage/">Main Stage</a>, 是用來作現場表演的!! 阿阿阿! 好想要阿!! 不過買 Logic Studio 的話, 我一定又會想買一台新的 Master Keyboard, 像是.. <a href="http://www.m-audio.com/products/en_us/Axiom49-main.html">M-Audio Axiom</a></p>
+
+<p>等一下&#8230;. 先存錢在說!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/963">樂生‧夜襲</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-09-13T18:47:16+08:00" pubdate  data-updated="true" >Sep 13<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div><object width="425" height="335"><param name="movie" value="http://www.dailymotion.com/swf/foea6u1hGnrgtkRjH"></param><param name="allowfullscreen" value="true"></param><embed src="http://www.dailymotion.com/swf/foea6u1hGnrgtkRjH" type="application/x-shockwave-flash" width="425" height="335" allowfullscreen="true"></embed></object><br /><b><a href="http://www.dailymotion.com/video/x2yk1l_losheng911-high-quality_news">Losheng911 (High Quality)</a></b><i> Uploaded by <a href="http://www.dailymotion.com/swpave">swpave</a></i></div>
+
+
+<p>[延伸閱讀]
+<a href="http://swalk.blogspot.com/2007/09/24.html">樂生危機（23）：重新面對</a>
+<a href="http://swalk.blogspot.com/2007/09/25.html">樂生危機（24）：樂生九一一</a>
+<a href="http://blog.pixnet.net/annpo/post/8720097">【是夜】夜襲‧樂生‧寶島曼波</a>
+<a href="http://www.howsdesign.com/blog/2007/09/12/363">[樂生] 夜襲 / 急如星火的動員</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/962">[Recording] 多與少 3</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-09-11T22:45:50+08:00" pubdate  data-updated="true" >Sep 11<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>這次認真錄了, 只有一把吉他跟 Vocal, 而第二段的主歌則是有加上合音, 不過還是老話一句, 很難編, 到目前我都還想不出來第二把吉他要怎麼編, 或者是 solo 要怎麼彈, 然而除了主歌之外的合音, 我也不知道怎麼合, 但是目前的版本聽起來還滿乾淨的就是了。</p>
+
+<p>果然多錄音真的是有差, 記得以前, 我當開始自己錄歌的時候, 聽著自己錄完的歌聲, 總是覺得很難聽, 很不習慣, 我想大部分的人都會這樣覺得, 雖然後來我慢慢習慣了自己的聲音, 但我總還是把 Vocal 那一軌調得很小聲。 反倒是現在我錄歌的時候敢把 Vocal 大聲放出來, 甚至就像這首歌一把木吉他搭配。</p>
+
+<p>murmur, 有些人一直以為我從小就很愛唱歌, 可是其實我是從二專之後才開始稍微敢開口唱歌, 現在想起在二專之前根本不敢唱歌, 真的是很囧, 跟朋友去 KTV , 結果一首歌都沒點, 在幹嘛? 睡覺阿&#8230; = =</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/959">[Recording] 多與少 2</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-09-10T00:38:14+08:00" pubdate  data-updated="true" >Sep 10<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>這首歌真的是很難編曲, 完全想不出來, 試過用鋼琴、或是加入小提琴、Bass 跟電吉他, 整個就是沒感覺, 不過其實小提琴是還滿 ok 的, 這幾天再來試看看。</p>
+
+<p>這次是先加入了合音, 感覺還不賴, 不過還是亂唱, 反正就 demo 嘛, 後來又加入一整個亂彈的吉他, 完全是以自 high 為取向, 先記錄下來靈感, 這幾天再來試看看。 如果聽到背景有像鬼叫的聲音&#8230;沒錯! 那是我在亂叫 XD</p>
+
+<p>這首編曲整個很難 Orz</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/958">[Recording] 多與少</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-09-09T10:42:23+08:00" pubdate  data-updated="true" >Sep 9<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>這首歌是跟上一首&#8221;<a href="http://tzangms.com/?p=945">熟悉與陌生</a>&#8220;一起寫好的, 嗯&#8230; 應該不算是寫好, 而是有雛形, 因為在某些地方還不知道要怎麼唱, 所以有時只能亂哼, 這一兩個禮拜一直想把這兩首歌寫好, 可是就一直無法找出好的感覺。</p>
+
+<p>剛才終於大概算把曲寫好, 錄了一個片段, 由這個片段可以聽的出來, 我的假音有點弱 XD Anyway, 其實我比較煩惱的是這首歌要怎麼編曲 XD</p>
+
+<p>另外, 以前有人說我的聲音想伍思凱&#8230; 當然&#8230;我並不想像伍思凱, 我可是假龐克阿!!! 不過自己這個片段某些高音的地方, 還真的是有像伍思凱勒 Orz</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/957">超熱血洛克人!!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-09-09T08:47:37+08:00" pubdate  data-updated="true" >Sep 9<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><object width="425" height="350"><param name="movie" value="http://www.youtube.com/v/CX-i-Tvb4zI"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/CX-i-Tvb4zI" type="application/x-shockwave-flash" wmode="transparent" width="425" height="350"></embed></object>
+
+
+<p>昨天在「<a href="http://blog.roodo.com/baga128">太陽底下無新鮮事</a>」那裡看到這個影片就整個熱血起來阿!!</p>
+
+<p>原因就是在, 那首歌寫的太屌了!! 原本以為那中文字幕只是亂套上去搞笑的, 沒想到一邊看著影片, 聽著歌曲跟歌詞, 沒想到是真的照翻的阿!! 頓時就覺得, 好屌阿!! 真的是為洛克人寫了一首歌曲。而且!! Vocal 就整個日本熱血動畫 tone 阿!!! 而且他的編曲還真的是很熱血阿!! 多用心阿!! KB solo, Guitar solo 都不缺!</p>
+
+<p>其實我好想寫這種類似的歌曲, 雖然搞笑但卻很正經!! 我的天阿! 我不知道已經看了幾遍了&#8230; 如果有玩過洛客人, 你一定也會很熱血阿! 歌詞對遊戲的描述真的是很到點 XD 然後動畫也真的是很帥! 到最後洛客人跟空氣人對打的動作, 簡直就只有帥可以形容, 還可以瞬間移動 :o</p>
+
+<p>然後歌曲中聽到的這段「不管試了幾次 不管試了幾次」&#8230;. 我的天阿!! 真的是太熱血了阿!! (握拳)</p>
 </div>
   
   

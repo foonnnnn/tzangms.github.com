@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="之前在這一篇 寫到我在寫備份推特跟噗浪的工具, 其實說是備份有人可能會誤會, 其實不會備份你以前的訊息, 而是從現在開始幫你記錄你的推噗而已。基本上是依我自己的需求來開發的, 記錄下來的推噗可以用每日以及日曆呈現, 然後可以搜尋, 以及用 hash tag 分類, 日曆的方式大概看起來像下面這...">
+  <meta name="description" content="今天才意識到 timezone 的處理是有那麼一點麻煩, 存放、顯示要怎麼做之類的, 之前都沒處理過這類的問題, 不過也只能先解決問題, 之後有空在來深入研究 timezone。這兩三天在用 appengine 寫 twitter/plurk 備份的東西, 而 twitter 跟 plurk ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,62 +64,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2643">新玩具封測</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-05-08T00:20:59+08:00" pubdate  data-updated="true" >May 8<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>之前在<a href="http://tzangms.com/programming/2632">這一篇</a> 寫到我在寫備份推特跟噗浪的工具, 其實說是備份有人可能會誤會, 其實不會備份你以前的訊息, 而是從現在開始幫你記錄你的推噗而已。</p>
-
-<p>基本上是依我自己的需求來開發的, 記錄下來的推噗可以用每日以及日曆呈現, 然後可以搜尋, 以及用 hash tag 分類, 日曆的方式大概看起來像下面這樣
-<a href="http://tzangms.com/wp-content/uploads/2010/05/螢幕快照-2010-05-07-下午11.49.01.png"><img src="http://tzangms.com/wp-content/uploads/2010/05/螢幕快照-2010-05-07-下午11.49.01-499x386.png" alt="" title="螢幕快照 2010-05-07 下午11.49.01" width="499" height="386" class="aligncenter size-large wp-image-2645" /></a></p>
-
-<p>其實用來記錄推噗後, 可以回顧先前每天的訊息記錄, 可以很快就知道哪一天在幹嘛之類的, 就當成日記, 不過其實這也要看個人推噗的使用習慣啦。 另外透過 hash tag 來當書籤其實也滿好用的, 至少我自己覺得很不錯 XD</p>
-
-<p>不過目前沒打算開放給太多人用, 畢竟有些人覺得沒這個需要, 所以有需要的人。 麻煩你在推特 follow 我, 並發送訊息下面這段訊息</p>
-
-<blockquote>小海 @tzangms 你好帥! 我要試用新玩具!</blockquote>
-
-
-<p>或者是</p>
-
-<blockquote>小海 @tzangms 我愛你! 我要試用新玩具!</blockquote>
-
-
-<p>甚至是你不想試用, 你也可以在你的推特發送下列訊息</p>
-
-<blockquote>小海 @tzangms 你超帥的! </blockquote>
-
-
-<p>我看到就會 DM 網址給你, 謝謝! XD</p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -511,6 +455,45 @@ local_time = created_at + user_timezone.utcoffset(created_at)</code></pre>
   <div class="entry-content"><p>昨天是一直到凌晨五點多才睡著, 然後九點起床, 上班解 ticket, 晚上整個人差一點就升天, 不到 12 點就睡覺。 誰知道我今天凌晨快四點又醒來了, 然後就一直在床上掙扎, 然後五點多, 我還是爬起來了, 啃, 今天超早就到公司了, 可是現在也是快升天了 &#8230;</p>
 
 <p>發生這種悲劇你能說什麼呢, 這就是人生阿~</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2609">Simpledb 寫入失敗率真高</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-04-01T22:04:31+08:00" pubdate  data-updated="true" >Apr 1<span>st</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>這兩天在把 twitthat 的資料都丟上 simpledb, 持續寫入大概 300 多萬筆資料, 可是光今天寫入失敗就超過 20 次了 ( simpledb service unavailable ), 可能是因為持續寫入關係嗎? 可是我以為會更 reliable 一些。</p>
+
+<blockquote>Service AmazonSimpleDB is currently unavailable. Please try again later</blockquote>
+
+
+
 </div>
   
   

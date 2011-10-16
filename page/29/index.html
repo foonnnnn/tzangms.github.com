@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="今天幫 StickerAction 加上了多張貼紙樣式的功能, 貼紙的管理者可以到貼紙管理看看, 就可以看到了, 另外在貼紙首頁可以看到像是上圖一樣, 使用者可以選擇想要的貼紙, 或是輪播貼紙。 甚至使用者可以選擇他們自己想要的貼紙來作輪播, 畢竟不是每個樣式的貼紙大小都一樣, 這樣使用者就可...">
+  <meta name="description" content="今天看到前幾天才出爐的測試, PHP framework comparison benchmarks, 其實應該就是在比 framework 的結構跟設計對於效能的影響? Run 1Run 2Run 3Run 4AverageBaseline HTML1327.51326.51328.6132...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,309 +64,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/stickeraction/1265">StickerAction 可以上傳多個樣式的貼紙囉!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-07-20T23:28:37+08:00" pubdate  data-updated="true" >Jul 20<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2684913343/" title="[StickerAction] Multiple Stickers by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3236/2684913343_bd099c1d2b.jpg" width="500" height="297" alt="[StickerAction] Multiple Stickers" /></a>
-今天幫 <a href="http://stickeraction.com">StickerAction</a> 加上了多張貼紙樣式的功能, 貼紙的管理者可以到貼紙管理看看, 就可以看到了, 另外在貼紙首頁可以看到像是上圖一樣, 使用者可以選擇想要的貼紙, 或是輪播貼紙。 甚至使用者可以選擇他們自己想要的貼紙來作輪播, 畢竟不是每個樣式的貼紙大小都一樣, 這樣使用者就可以依據他們部落格版面樣式的考量, 來選擇適合的貼紙樣式組合, 來貼到他們的部落格。</p>
-
-<p>只是目前的版面樣式還不是很好看, usability 也還要加強 XD 尤其是後台 &#8230; 不過由於我還要一邊弄音樂, 所以, 進度是會慢一些 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1244">讓瀏覽器快取 PHP 產生的圖片</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-07-18T08:16:30+08:00" pubdate  data-updated="true" >Jul 18<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>由於 <a href="http://stickeraction.com">stickeraction</a> 的關係, 貼出去的貼紙讓我的主機流量暴增, 覺得這樣下去這個月的 100G 流量一定會爆, 所以對於貼出去的貼紙做了一些處理, 讓瀏覽器快取住, 多少可以減少一些流量, 其實一開始就該做了 XD 只是沒有意識到, 完全沒有經驗 XD 而且工作上也比較沒有流量的考量, 所以這次也學到了些東西。</p>
-
-<p>原本在主機上就都有設定 <a href="http://www.lighttpd.net/">lighttpd</a>, 讓圖片, js 跟 css 檔產生 etag、expire 跟 last modified &#8230; 等的 <a href="http://en.wikipedia.org/wiki/List_of_HTTP_headers">HTTP headers</a>, 利用瀏覽器的快取機制來減少主機的流量。 不過由 PHP 產生的圖片完全沒有 cache, 今天才改了一下程式, 加上一些  header, 來減少流量的支出, 不然這個月主機流量穩爆 ~&#8221;~</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/1244">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/codeigniter/1233">設定 CodeIgniter 透過 Gmail 發信</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-07-17T19:54:28+08:00" pubdate  data-updated="true" >Jul 17<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>由於自己租的 <a href="http://www.slicehost.com/">slicehost</a> 只有 256MB 的記憶體, 架 mail server 又很麻煩 (因為我也不懂 XD), 又似乎 mail 有啥反解的問題, 而直接透過 sendmail 這樣寄信會被當成垃圾信, 所以就申請了 Google app, 然後用申請到的帳號透過 SMTP 來發送信件。 由於 Gmail 的 SMTP 又跟一般的設定稍微不一樣(有 SSL), 所以記錄一下。</p>
-
-<p>在 <a href="http://codeigniter.com">CodeIgniter</a> 上面其實就只是設定個 config 檔就可以了, 設定檔如下:</p>
-
-<p>application/config/email.php</p>
-
-<pre><code>
-$config['protocol'] = 'smtp';
-$config['smtp_host'] = 'ssl://smtp.gmail.com';
-$config['smtp_user'] = 'your_email';
-$config['smtp_pass'] = 'your_password';
-$config['smtp_port'] = '465';
-$config['smtp_timeout'] = '5';
-$config['newline'] = "\r\n";
-$config['crlf'] = "\r\n";
-</code></pre>
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/codeigniter/1233">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/stickeraction/1220">stickeraction.com 可以使用 OpenID 囉!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-07-16T18:36:30+08:00" pubdate  data-updated="true" >Jul 16<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>應<a href="http://blog.bobchao.net/">柏強</a>的要求, 昨天晚上把 <a href="http://stickeraction.com">stickeraction.com</a> 加上了 <a href="http://openid.net/">OpenID</a>, 不過目前只能用在註冊新帳號, 不能 attach 舊有的帳號 :p 其實本來會員帳號想直接都用 OpenID 來作, 不過想說 OpenID 並不是那麼多人知道, 怕會沒人用 XD 所以還是寫了一個會員帳號的機制 :p</p>
-
-<p>stickeraction.com 用的是 <a href="http://janrain.com/">janrain</a> 的 <a href="http://openidenabled.com/">OpenID Library</a>, 有興趣可以看看。 另外 <a href="http://openid.yahoo.com/">Yahoo 也好像要推 OpenID</a>, 不過只能用 OpenID 2.0 版本勒, 不要選錯 library 了 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1210">Kohana PHP Framework 試玩心得</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-07-16T08:15:50+08:00" pubdate  data-updated="true" >Jul 16<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://kohanaphp.com/">Kohana</a> 前身叫做 BlueFlame, 是由 <a href="http://codeigniter.com/">CodeIgniter</a> 衍生出來的 PHP framework, 所以要從 CI 跳槽還滿快的 XD 而 Kohana 跟 CodeIgniter 最大的不同就是, Kohana 只能在 PHP 5 上跑。 不過其實&#8230; 現在都該換到 PHP5 了啦:p 重點是! Kohana 解決了 CodeIgniter 很多不足的地方。</p>
-
-<p>像是 Namespace 的問題, 在 CI 上如果有相同名稱的 library、Model 或是 Controller 就會衝到, Kohana 則解決了這個問題。 另外在 CI 上如果有自定的 helper 的話, 其他維護者並不容易找出是寫在哪支 helper 裡, 而 Kohana 的 helper 是用 class 來作, class name 的 prefix, 則可以容易辨識出是哪支 helper, 也減少 function name 衝突的問題, 對於維護上方便很多。</p>
-
-<p>另外 Kohana 也提供了 module 的機制, module 擁有自己的 controller, model 跟 view, 可以將程式劃分的更細。例如 Konaha 本身就提供了 Auth module (ACL)。 雖然 CI 也有 <a href="http://code.google.com/p/matchbox/">matchbox</a> 提供了相同的功能, 但是需要 override CI_Loader, 萬一 CI 的版本升級,  CI_Loader 有所改變呢? 當然還是比不上 Kohana 內建的好。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/1210">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/stickeraction/1209">stickeraction.com 一起來玩貼紙串連吧!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-07-13T22:07:28+08:00" pubdate  data-updated="true" >Jul 13<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href='http://stickeraction.com'><img src='http://farm4.static.flickr.com/3086/2664170152_7ccc331c54.jpg' /></a></p>
-
-<div style='float: left; margin: 0px 5px 2px 2px'>
-<script type='text/javascript' src='http://stickeraction.com/stickeraction/blogs_count.js'></script>
-</div>
-
-
-<p>一直以來都在想&#8230; 貼紙串連這種活動到底可以發揮多少功效, 現今的貼紙串連方式似乎都只是做個貼紙, 然後讓支持這個訴求的網友們把貼紙的語法貼到自己的部落格。 然而活動發起之後, 活動發起人卻也無法得知, 到底有多少個部落格響應了這個活動。</p>
-
-<p>似乎在網路上的貼紙串連活動就是這樣, 一直沒有辦法凝聚一個較為實質的力量出來, 即使行之有年的&#8221;自動播放撲滅委員會&#8221; , 但是我們仍時常會逛到會自動播放音樂的部落格&#8230;。</p>
-
-<p>如果有個東西可以統計, 可以讓響應這個活動的人知道, 這個活動到底凝聚了多少部落格的力量, 或者也許可以讓這個活動的頁面當成是一個連署書? 貼給自動播放音樂的部落格的網友們看, 到底有多少人支持這個活動!! 又或者讓舉辦海洋音樂季的台北縣政府知道, 到底有多少網友覺得他們根本在意的不是獨立音樂? 或者是貼個我愛星野亞希之類的 XD</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/stickeraction/1209">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/1203">identi.ca - PHP Open Source Twitter?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-07-03T19:35:44+08:00" pubdate  data-updated="true" >Jul 3<span>rd</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://identi.ca/">identi.ca</a>, 一個新的微網誌服務, 其實現在微網誌服務真的是很多了, 不過這個比較特別一點的是, <a href="http://identi.ca/">identi.ca</a> 用 PHP 開發, 可以用 jabber/GTalk, 也可以用 openid 來登入, 而且是 open source!!?</p>
-
-<p>不過目前為止連到這個網址 <a href="http://identi.ca/doc/source">http://identi.ca/doc/source</a>, 上面是這樣寫的:</p>
-
-<blockquote>You can get a copy of the software from the <a href="http://laconi.ca/">Laconica</a> main site. The version of the software that runs on <em>this</em> site is unmodified from that version. The site also depends on certain libraries and other software; you can get those at the Laconica site, too.</blockquote>
-
-
-<p>不過找了一下, 還沒看到任何 source code 的蹤影 :p 不過那不重要, 因為&#8230;可以離開 twitter 就很厲害了 XD</p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -605,6 +302,306 @@ $config['crlf'] = "\r\n";
 
   <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2610383878/" title="google trend shows twitter is still more and more popular by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3190/2610383878_9ca828c049.jpg" width="500" height="197" alt="google trend shows twitter is still more and more popular" /></a>
 看看上面這張圖, 真的是很妙, 似乎是說著 twitter 越爛越多人用阿! XD 可是這有什麼辦法呢? (攤手) 這一切都是因為愛阿!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/1190">Firefox 3 Download Day 2008</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-06-19T00:18:26+08:00" pubdate  data-updated="true" >Jun 19<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2588455563/" title="Firefox 3 Download Day Cert. by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3163/2588455563_8b6111c5ac.jpg" width="500" height="380" alt="Firefox 3 Download Day Cert." /></a>
+真的是很 high 的一天阿! 今天一到公司就裝起了 Firefox 3, 只能說&#8230;好快!! 來個安全帶吧!!! 哈哈哈!! (對不起, 我失態了 XD)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1189">Google AppEngine 試玩</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-06-18T00:57:13+08:00" pubdate  data-updated="true" >Jun 18<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2587661644/" title="twitter easy unfollow on AppEngine by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3275/2587661644_dd12f877e6.jpg" width="500" height="299" alt="twitter easy unfollow on AppEngine" /></a></p>
+
+<p>這兩天下班後, 都在玩 <a href="http://code.google.com/appengine/">AppEngine</a>, 不過我不太會 <a href="http://www.python.org/">python</a>, 也不懂 <a href="http://www.djangoproject.com/">django</a>, 只有上禮拜花了一天晚上看完 <a href="http://docs.python.org/tut/tut.html">python tutorial</a>, 就開始亂玩 ~&#8221;~ 所以寫了一個 twitter easy unfollow 的 twitter 應用 XD (因為實在太不穩就不放連結上來了 :p )</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/1189">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/1188">Google Developer Day 2008</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-06-15T20:23:15+08:00" pubdate  data-updated="true" >Jun 15<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2577778730/" title="100_3701 by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3183/2577778730_6b0744ef71.jpg" width="500" height="375" alt="100_3701" /></a>
+這一次參加 Google Developer Day 2008, 還滿有收穫的, 主要是&#8221;AppEngine 進階&#8221;這門課, 講到了關於 AppEngine 的 DataStore, 由於 Datastore 本身就是 scalable 的架構, 在運用上跟平常用的關聯式資料庫觀念不同, 聽了這門課真的是很值得。 在進階這門課上講了一個 Counter 的範例, 這個範例就用上了 Entity Groups, transaction 跟 memcache。</p>
+
+<p>下午由於沒能排到 AppEngine 實作課程, 所以去聽了 OpenSocial, 但是可能是沒先玩過, 或是興趣不是很大, 所以聽到想睡覺 XD 不過最主要也是因為 OpenSocial 沒介紹什麼, 入門跟進階都講差不多的東西阿!!</p>
+
+<p>在每門課的結尾都有發問的時間, 其實我比較好奇的是&#8230; 有些發問可能是因為口音的關係, 我都快聽不懂了, 可是外國人都聽的懂ㄝ! o_O</p>
+
+<p>當天的遺憾就是&#8230; 我沒能參加到 AppEngine 的實作, 因為只有 50 人的限制 ~&#8221;~ 而且實作這門課還有送另外一件 AppEngine 的 t-shirt 阿!!!! (那件真的很好看阿!! Randylien 還故意秀給我看!! ~&#8221;~ )</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1187">The PHP Benchmark</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-06-09T01:12:14+08:00" pubdate  data-updated="true" >Jun 9<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2562298047/" title="phpbenchmark by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3139/2562298047_bae14157c1.jpg" width="500" height="263" alt="phpbenchmark" /></a>
+<a href="http://www.phpbench.com/">The PHP Benchmark</a> 。 有寫 PHP 的話, 這個站一定要看一下的阿! 其中有些 benchmark 好像推翻了先前所讀過的東西。</p>
+
+<p>像是以前讀過說, while 比 for 快, for 又比 foreach 快 (雖然我還是一直用 foreach, 因為 code 比較乾淨 XD), 不過這個 PHP Benchmark 在測試 loop 的結論提到, 其實 foreach 是比較快。</p>
+
+<p>另外就是, 在用 for 的時候到底要不要先算過要 loop 的次數? 以往看到的文章都是說, 在掃某個陣列之前, 要先算出這個陣列的長度, 再開始跑 for loop, 例如像下面這一段。 因為在跑 loop 的時候, 都會再執行過一次陣列長度的計算。</p>
+
+<pre>
+<code>for ($i = 0; $i < count($foo); $i++) {
+    // blah
+}</code>
+</pre>
+
+
+<p>所以後來我就變成這樣寫 &#8230;</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/1187">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/1180">小雨傘</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-06-01T21:08:24+08:00" pubdate  data-updated="true" >Jun 1<span>st</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Rihanna 的 umbrella 這首歌真的好紅, 可是我完全聽的都是 cover 版本, 這首歌的 cover 版本在 youtube 上真的是超多的!! 小雨傘這首歌真的很適合拿來唱 Rock, 尤其~ 我超愛看龐克團作 cover !! 來看看一個來自義大利羅馬的龐克團, 叫 Vanilla sky, 我覺得翻的超好聽的! 但是&#8230; 好噁 :x 看看以下影片就知道了 XD</p>
+
+<object width="425" height="355"><param name="movie" value="http://www.youtube.com/v/TvC6VS4Np4U&hl=en"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/TvC6VS4Np4U&hl=en" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed></object>
+
+
+<p>幹! 我真的超愛龐克團作 cover 啊!!!</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/music/1180">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/1179">Mbox 2 Mini</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-05-31T00:20:53+08:00" pubdate  data-updated="true" >May 31<span>st</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2534416651/" title="Mbox 2 mini!! by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2127/2534416651_ee0e8c9206.jpg" width="500" height="375" alt="Mbox 2 mini!!" /></a>
+禮拜五晚上下班跑去 midimall 買了這一台 mbox 2 mini, 因為我原本的錄音介面(M-Audio Firewire 410)差不多掛點了, 在這個節骨眼也沒有時間去送修, 所以我就買了這一台 mbox 2 mini, 讓他陪伴我完成剩下的錄音過程。</p>
+
+<p>這台花了 $9000, 滿小一台的, 大小差不多是原本錄音介面的一半, 方便攜帶吧! 而且外型真的不錯 XD 不過由於 digidesign 除了 HD 的產品之外, 他的 driver 不支援 Mac OS X Leopard, 所以我又花了兩天的下班時間, 把系統重灌為 Tiger, 然後在把所有需要的外掛在一一裝回去。</p>
+
+<p>就快了, 加油吧!!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1170">[網摘] May 23th 2008</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-05-25T15:07:22+08:00" pubdate  data-updated="true" >May 25<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://ajaxpatterns.org/">AjaxPatterns</a>
+老實說&#8230;我都沒時間, 也看不太下這些 patterns, 就連上次提到的 <a href="http://www.patternsforphp.com">Patterns for PHP</a> 我也都還沒看 >&lt;</p>
+
+<p><a href="http://www.codinghorror.com/blog/archives/001119.html">PHP Sucks, But It Doesn&#8217;t Matter</a>
+說 PHP 爛一點都不打緊 XD (&#8230;我這個註解好像下的很爛)</p>
+
+<p><a href="http://ignition.lifewithryan.com/index.php5?title=Main_Page">Ignition &#8211; Code Igniter Code Generation Script</a>
+給 <a href="http://codeigniter.com">CodeIgniter </a>用來自動產生 Controller, Model, View 的 script, 像是 rails generate xxx。</p>
+
+<p><a href="http://verens.com/archives/2008/05/20/efficient-js-minification-using-php/">efficient JS minification using PHP</a>
+本來有想過這個做法, 可是這個做法好像太費力氣了。目前我採用的方法是用 capistrano, 在 deploy 的過程中, 再用 jsmin 對 js 檔作處理。</p>
+
+<p><a href="http://www.jonasjohn.de/lab/htmlsql.htm">htmlSQL - a PHP class to query the web by an SQL like language</a>
+用 SQL 語法來查詢 HTML 網頁勒! 好屌, 話說 <a href="http://codeplex.com/PHPLinq">LINQ</a> 也很屌! , 然後還有 <a href="http://trentrichardson.com/jsonsql/">jsonSQL</a>, 媽的! 哪學的完阿! (看!)</p>
 </div>
   
   
