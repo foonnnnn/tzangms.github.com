@@ -4,7 +4,7 @@
   <title><![CDATA[Oceanic / 人生海海]]></title>
   <link href="http://tzangms.com/atom.xml" rel="self"/>
   <link href="http://tzangms.com/"/>
-  <updated>2011-10-16T19:34:41+08:00</updated>
+  <updated>2011-10-16T23:13:18+08:00</updated>
   <id>http://tzangms.com/</id>
   <author>
     <name><![CDATA[tzangms]]></name>
@@ -87,7 +87,7 @@
   
   <entry>
     <title type="html"><![CDATA[tumblr 開張 (tzang.ms)]]></title>
-    <link href="http://tzangms.com/blog/new-tumblr"/>
+    <link href="http://tzangms.com/blog/new-tumblr/"/>
     <updated>2011-06-08T20:25:00+08:00</updated>
     <id>http://tzangms.com/blog/tumblr_開張_(tzang_ms)</id>
     <content type="html"><![CDATA[<p>其實我後悔把 blog 從 wordpress 改成 <a href="http://www.blogofile.com/">blogofile</a> 了 XD 不過很多人說用 blogofile 才是真男人! 其實我忘記他們用英文說的實際句子是什麼了, 不過反正就是這個意思 XD</p>
@@ -102,7 +102,7 @@
   
   <entry>
     <title type="html"><![CDATA[買了 Blue snowball]]></title>
-    <link href="http://tzangms.com/stuff/blue-snowball"/>
+    <link href="http://tzangms.com/stuff/blue-snowball/"/>
     <updated>2011-05-17T12:10:00+08:00</updated>
     <id>http://tzangms.com/stuff/買了_blue_snowball</id>
     <content type="html"><![CDATA[<p>禮拜日晚上突然說應該來錄一些 tutorial 才對, 所以就想起了之前一直想買的 <a href="http://www.bluemic.com/snowball/">blue snowball</a>, 順便可以方便錄 Podcast, 不然距離上一集已經一年多了 XD</p>
@@ -122,7 +122,7 @@
   
   <entry>
     <title type="html"><![CDATA[關於 Django 1.3 的 staticfiles]]></title>
-    <link href="http://tzangms.com/programming/django-1.3-staticfiles"/>
+    <link href="http://tzangms.com/programming/django-1.3-staticfiles/"/>
     <updated>2011-04-26T09:10:00+08:00</updated>
     <id>http://tzangms.com/programming/關於_Django_1_3_的_staticfiles</id>
     <content type="html"><![CDATA[<p><a href="http://docs.djangoproject.com/en/dev/releases/1.3/">Django 1.3</a> 也出來好一陣子, 都快過一個月了, 剛好這一陣子有幾個新的 project, 就直接用 Django 1.3 來開發, 對 <a href="http://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/">staticfiles</a> 跟 <a href="http://docs.djangoproject.com/en/dev/topics/class-based-views/">class-based views</a> 稍微熟了一些, 就來記一下。</p>
@@ -257,7 +257,7 @@
   
   <entry>
     <title type="html"><![CDATA[CSS Pivot]]></title>
-    <link href="http://tzangms.com/webdesign/css-pivot"/>
+    <link href="http://tzangms.com/webdesign/css-pivot/"/>
     <updated>2011-04-26T01:13:00+08:00</updated>
     <id>http://tzangms.com/webdesign/CSS_Pivot</id>
     <content type="html"><![CDATA[<p><a href="http://www.csspivot.com/">CSS Pivot</a> 還滿方便的一個服務, 輸入網址後可以自己加上 custom css, 接著儲存可以拿到一個短網址, 然後 share 出去, 或許遠端討論可以這麼玩?</p>
@@ -266,7 +266,7 @@
   
   <entry>
     <title type="html"><![CDATA[終於把 StreetVoice 改完了]]></title>
-    <link href="http://tzangms.com/life/new-streetvoice-is-done"/>
+    <link href="http://tzangms.com/life/new-streetvoice-is-done/"/>
     <updated>2011-04-18T22:13:00+08:00</updated>
     <id>http://tzangms.com/life/終於把_StreetVoice_改完了</id>
     <content type="html"><![CDATA[<p>其實 StreetVoice 改版完成也快一個月了, 兩年就這樣過去了, 本來是預估一年半就可以改完的, 不過其實這中間跑去支援金X獎、簡單生活節、文X會的案子、種花電信的案子, context switch 挺嚴重的, 所以導致 StreetVoice 改版完成時間一延就延了半年。</p>
@@ -285,7 +285,7 @@
   
   <entry>
     <title type="html"><![CDATA[最近超愛的一首歌, hush 的天文特徵]]></title>
-    <link href="http://tzangms.com/music/hush-astronomy-features"/>
+    <link href="http://tzangms.com/music/hush-astronomy-features/"/>
     <updated>2011-04-14T23:10:00+08:00</updated>
     <id>http://tzangms.com/music/最近超愛的一首歌,_hush_的天文特徵</id>
     <content type="html"><![CDATA[<p><embed src="http://tw.streetvoice.com/static/player/MusicPlayer.swf?srv=tw.streetvoice.com&ph=music&getv=config&skinID=6&au=126254&listtype=1&listsd=8487&autoStart=false&autoPlay=false&isEmbed=true&jsPlayer=false" allowFullScreen="false" allowScriptAccess="always" scale="noscale" type="application/x-shockwave-flash" width="330" height="100"></embed></p>
@@ -296,7 +296,7 @@
   
   <entry>
     <title type="html"><![CDATA[部落格轉換為 blogofile]]></title>
-    <link href="http://tzangms.com/blog/blogofile"/>
+    <link href="http://tzangms.com/blog/blogofile/"/>
     <updated>2011-04-13T23:29:00+08:00</updated>
     <id>http://tzangms.com/blog/部落格轉換為_blogofile</id>
     <content type="html"><![CDATA[<p>由於收到了 <a href="http://www.webfaction.com">webfaction</a> 來的繳費通知, 剛好最近一直覺得花好多錢在主機費上面, 所以打算不續約了, 除了 twitthat 跟 stickeraction 之外, 儘管 myaudiocast 的流量費用有 pixnet 提供 cdn 支援, 可是現在 myaudiocast 的流量幾乎每天都超過 200G, 而 s3 費用也幾乎都每個月都燒掉我 30 ~ 40 塊美金 &#8230;</p>
@@ -313,7 +313,7 @@
   
   <entry>
     <title type="html"><![CDATA[第二份工作滿兩年了]]></title>
-    <link href="http://tzangms.com/life/2847"/>
+    <link href="http://tzangms.com/life/2847/"/>
     <updated>2011-03-07T23:32:41+08:00</updated>
     <id>http://tzangms.com/life/第二份工作滿兩年了</id>
     <content type="html"><![CDATA[<p>時間過好快, 第二份工作好快就滿兩年了, 想想寫程式也 4 年多了, 但是這份工作跟上一份工作差別最大的就是, 從網路產業跑到文化產業, 從原本有主管罩到沒有人罩。 而後來也不小心當了主管, 從原本沒有任何制度開始慢慢建立, 然後多了許多向外溝通的工作, 而後來都是在處理大量跟人相關的問題, 不像是以前只要專心寫 code 就好了, 所以覺得好忙碌。</p>
@@ -332,7 +332,7 @@
   
   <entry>
     <title type="html"><![CDATA[Lettuce - Behaviour-driven development]]></title>
-    <link href="http://tzangms.com/programming/2837"/>
+    <link href="http://tzangms.com/programming/2837/"/>
     <updated>2011-03-05T00:29:08+08:00</updated>
     <id>http://tzangms.com/programming/lettuce__behaviourdriven_development</id>
     <content type="html"><![CDATA[<p>前幾天看到 <a href="http://lettuce.it/">Lettuce</a> 覺得挺有趣的, 昨天一玩就玩了兩個小時, 玩到半夜兩點 &#8230;</p>
@@ -381,7 +381,7 @@
   
   <entry>
     <title type="html"><![CDATA[Bleach - An easy, HTML5, whitelisting HTML sanitizer.]]></title>
-    <link href="http://tzangms.com/programming/2824"/>
+    <link href="http://tzangms.com/programming/2824/"/>
     <updated>2011-02-20T13:26:25+08:00</updated>
     <id>http://tzangms.com/programming/bleach__an_easy_html5_whitelisting_html_sanitizer_</id>
     <content type="html"><![CDATA[<p><a href="https://github.com/jsocol/bleach">Bleach</a>, 不是 <a href="http://zh.wikipedia.org/wiki/黑崎一護">黑崎一護</a> 那個 bleach XD</p>
@@ -400,7 +400,7 @@
   
   <entry>
     <title type="html"><![CDATA[Requests: Python HTTP Module (That Doesn’t Suck)]]></title>
-    <link href="http://tzangms.com/programming/2821"/>
+    <link href="http://tzangms.com/programming/2821/"/>
     <updated>2011-02-19T23:52:00+08:00</updated>
     <id>http://tzangms.com/programming/requests_python_http_module_(that_doesn’t_suck)</id>
     <content type="html"><![CDATA[<p><a href="http://kennethreitz.com/blog/introducing-requests/">Requests: Python HTTP Module (That Doesn’t Suck)</a></p>
@@ -411,7 +411,7 @@
   
   <entry>
     <title type="html"><![CDATA[Django 發佈安全性更新 2/8]]></title>
-    <link href="http://tzangms.com/programming/2818"/>
+    <link href="http://tzangms.com/programming/2818/"/>
     <updated>2011-02-14T00:36:06+08:00</updated>
     <id>http://tzangms.com/programming/django_發佈安全性更新_28</id>
     <content type="html"><![CDATA[<p>這篇也 delay 了好多天, 在 2/8 <a href="http://www.djangoproject.com/weblog/2011/feb/08/security/">Django 發佈了安全性更新</a>, 主要是針對 <a href="http://en.wikipedia.org/wiki/Cross-site_request_forgery">CSRF</a> 這件事。</p>
@@ -426,7 +426,7 @@
   
   <entry>
     <title type="html"><![CDATA[Django 1.3 繁體中文翻譯人員徵求]]></title>
-    <link href="http://tzangms.com/django/2817"/>
+    <link href="http://tzangms.com/django/2817/"/>
     <updated>2011-02-14T00:13:07+08:00</updated>
     <id>http://tzangms.com/django/django_1_3_繁體中文翻譯人員徵求</id>
     <content type="html"><![CDATA[<p>前一陣子 Django 把 locale 翻譯的工作丟上了 <a href="http://www.transifex.net/projects/p/django/">transifex</a>, 上禮拜剛註冊完 transifex 的帳號後, 想說要來翻譯一下的, 回到 twitter 剛好看到 @jezdez 在徵 coordinator, 當中包含了 zh-TW tream, 所以就直接跟他說我可以幫忙, 下一個 reply 他就幫我加好了 coordinator。</p>
@@ -441,7 +441,7 @@
   
   <entry>
     <title type="html"><![CDATA[myaudiocast 滿週歲]]></title>
-    <link href="http://tzangms.com/life/2813"/>
+    <link href="http://tzangms.com/life/2813/"/>
     <updated>2011-01-31T00:33:51+08:00</updated>
     <id>http://tzangms.com/life/myaudiocast_滿週歲</id>
     <content type="html"><![CDATA[<p>因為上禮拜收到了 godaddy 寄來的通知信, 才發現 <a href="http://www.myaudiocast.com/">myaudiocast</a> 即將滿一年了。 myaudiocast 算是我第一個正式 AppEngine project, 開發過程中讓我對 AppEngine 的 DataStore 不管是在規劃還是效能上有比較全盤的了解。</p>
@@ -458,7 +458,7 @@
   
   <entry>
     <title type="html"><![CDATA[新新 Macbook Air 使用心得]]></title>
-    <link href="http://tzangms.com/life/2812"/>
+    <link href="http://tzangms.com/life/2812/"/>
     <updated>2011-01-24T00:30:23+08:00</updated>
     <id>http://tzangms.com/life/新新_macbook_air_使用心得</id>
     <content type="html"><![CDATA[<p>去年年底<a href="http://tzangms.com/life/2777">入手一台攻頂的新新 MBA</a>, 由於透過朋友的企業商店購買, 所以原本應該六萬三的 Macbook Air, 只要五萬九。 當初在買的時候覺得好貴, 想說其實我到處都有 Mac 了, 台北住處一台 Mac mini server, 宜蘭住處也一台 Mac mini, 公司則是 Hackintosh, 手上則是還有一台 Macbook, 甚至還有 iPad, 所以省一點的話, 其實我根本不該買 Macbook Air 的 &#8230;</p>
@@ -500,7 +500,7 @@
   
   <entry>
     <title type="html"><![CDATA[PiCloud: 給 python 用的雲端運算]]></title>
-    <link href="http://tzangms.com/programming/2811"/>
+    <link href="http://tzangms.com/programming/2811/"/>
     <updated>2011-01-23T22:36:28+08:00</updated>
     <id>http://tzangms.com/programming/picloud_給_python_用的雲端運算</id>
     <content type="html"><![CDATA[<p>其實 <a href="https://www.picloud.com/">PiCloud</a> 已經出來好久了, 一直沒時間玩, 昨天晚上終於抓到時間試了一下。 可能看到雲端運算會有人以為是 <a href="http://aws.amazon.com/ec2/">ec2</a>, <a href="http://tzangms.com/programming/2807">heroku</a> 之類的服務, 其實 PiCloud 比較有點偏向是 message queue / worker 之類的服務, 就是真的把運算丟出去算, 連 deploy 都不用管。</p>
