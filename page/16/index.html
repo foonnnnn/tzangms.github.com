@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="現在在公司用 django 在開發, 在開發過程當中, 用了許多套件, 不過都是直接裝在系統上 ( 就是裝在 site-packages 裡 ), 而 project 本身是用 mercurial 來作版本控制, 所以其他開發人員在不同機器上要開發時, 在 clone 了 source cod...">
+  <meta name="description" content="'RelatedObject' object has no attribute 'unique' thrown by ModelForm validation今天在使用 Django ModelForm 的時候採到一個地雷, 秀出了上面這一串訊息, 然後是發生在 form.is_valid()...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,47 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2443/">Django 1.0.2 ModelForm 的地雷</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-07-21T18:14:17+08:00" pubdate  data-updated="true" >Jul 21<span>st</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><pre><code>'RelatedObject' object has no attribute 'unique' thrown by ModelForm validation</code></pre>
+
+
+<p>今天在使用 Django ModelForm 的時候採到一個地雷, 秀出了上面這一串訊息, 然後是發生在 form.is_valid() 的時候, google 了一下, 原來是因為我在 form 裡面放了一個不屬於 model 的欄位。 <a href="http://code.djangoproject.com/ticket/10069">可以看看 django trac 的這個 ticket</a></p>
+
+<p>簡單舉例一下, 我有 Song model 跟 SongStyle model 這兩個 model, 而 SongStyle 當然要 form 秀出來給使用者填選, 所以我在 Song 的 ModelForm 加上了一個 song_styles  的 ChoiceField, 結果就出現了錯誤。( SongStyle 有個 ForeignKey 指向 Song )</p>
+
+<p>不過這個問題 django 1.1 已經解決了, 1.0.2 還是有這個問題, 如果不想用 django 1.1 的話 &#8230; 看看<a href="http://code.djangoproject.com/changeset/9777">這裡</a>自己 patch 吧。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -471,48 +512,6 @@ python-memcached
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/2399/">少女時代 Girls&#8217; Generation</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-04-05T12:53:47+08:00" pubdate  data-updated="true" >Apr 5<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p style="text-align: center;"><object width="560" height="340"><param name="movie" value="http://www.youtube.com/v/3ac9b_UIwM8&hl=zh_TW&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/3ac9b_UIwM8&hl=zh_TW&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="560" height="340"></embed></object>
-
-超青春洋溢的阿!! 最近一直在聽少女時代的歌! 真的得看一看上面這個影片 @@ 記得打開 HQ, 畫質超清晰的, 畫質高到我的 macbook 都播不太動&#8230; Orz 可是~ 我個人超推薦的!! 一定要看的阿!
-
-而會注意到這個團體是因為白馬達大師在 twitter 上推了一則<a href="http://twitter.com/WhiteMotor/status/1313945761">史上最強正妹組合</a>的推訊(其實是從 plurk 同步過來的), 連過去一看驚為天人阿, 太厲害了!! 超強正妹團體!! 另外下面是同一首歌的 MV 版, 也很可愛呦!
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/music/2399/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -532,6 +531,10 @@ python-memcached
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
       </li>
     
@@ -545,10 +548,6 @@ python-memcached
     
       <li class="post">
         <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/new-tumblr/">tumblr 開張 (tzang.ms)</a>
       </li>
     
   </ul>

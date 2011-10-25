@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="本來在讀一些程式設計的東西的, 網路程式設計要懂得東西好多, 所以想說上禮拜寫完&#8221;眉頭&#8221;, 這禮拜就來休息一下讀一些書, 誰知道剛才就突然又玩了起來 XD先前用過幾個 Drum machines, BFD 是沒辦法在我的 Macbook 跑, 不過之前聽人家用過感覺不錯...">
+  <meta name="description" content="String.prototype.validate = function(type){    var pattern = new Array();    pattern['email'] = /^\w[\w-\.]+@\w+(\.\w+)+$/;    pattern['url'] = /^h...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,63 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/793/">Javascript Validate Function</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-03-09T12:18:51+08:00" pubdate  data-updated="true" >Mar 9<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><pre><code>String.prototype.validate = function(type){
+    var pattern = new Array();
+
+    pattern['email'] = /^\w[\w-\.]+@\w+(\.\w+)+$/;
+    pattern['url'] = /^http:\/\/\w+\.\w+\/?.*$/;
+    pattern['password'] = /^[\w\.]+$/;
+    pattern['id'] = /^[a-zA-Z][0-9]{9}$/;
+
+    return this.match(pattern[type]);
+}
+</code></pre>
+
+<p>昨天寫的一個用來檢查輸入的函式, 直接掛在 String Object 下面, 這樣就可以直接這樣使用:
+如, 檢查 email 是否正確</p>
+
+<pre><code>"foo@bar.com".validate('email');
+</code></pre>
+
+<p>或是網址是否正確</p>
+
+<pre><code>"http://tzangms.com".validate('url');
+</code></pre>
+
+<p>如果回傳值為 null 那就是錯誤啦! 不過 regular expression 的 pattern 還需要改進就是了~</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -461,40 +518,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/771/">H2O - Hyde Masquerade</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-02-02T08:37:13+08:00" pubdate  data-updated="true" >Feb 2<span>nd</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><embed style="width:400px; height:326px;" id="VideoPlayback" type="application/x-shockwave-flash" src="http://video.google.com/googleplayer.swf?docId=8995380981155854586&hl=en" flashvars=""> </embed></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -514,6 +537,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
       </li>
     
@@ -527,10 +554,6 @@
     
       <li class="post">
         <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/new-tumblr/">tumblr 開張 (tzang.ms)</a>
       </li>
     
   </ul>

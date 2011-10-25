@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="原本以為碰不到 big5 了說 XD hmm&#8230; 在 php 用 iconv 應該都要知道有 //translit 跟 //ignore 這兩個參數可以用, 使用 //translit 參數的話, 如果某個字無法順利轉換, 那麼根據 php manual 的說法是, iconv 會找...">
+  <meta name="description" content="今天在處理另一個 BIG5 相關的問題, 主要是關於 NCR (Numeric character reference) 的東西, 然後突然看到下面這段, 將字串轉換為 NCR 的方法, 發覺&#8230;以前的轉換 NCR 的方式根本是在轉心酸的阿! ~&#8221;~// convert ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,55 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1346/">NCR 轉換</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-07-31T22:00:37+08:00" pubdate  data-updated="true" >Jul 31<span>st</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天在處理另一個 BIG5 相關的問題, 主要是關於 <a href="http://en.wikipedia.org/wiki/Numeric_character_reference">NCR</a> (Numeric character reference) 的東西, 然後突然看到下面這段, 將字串轉換為 NCR 的方法, 發覺&#8230;以前的轉換 NCR 的方式根本是在轉心酸的阿! ~&#8221;~</p>
+
+<pre><code>// convert UTF-8 string to NCR
+mb_convert_encoding($utf8_str, 'HTML-ENTITIES', 'utf-8');
+
+// convert NCR back to UTF-8
+mb_convert_encoding($ncr_str, 'utf-8', 'HTML-ENTITIES');
+</code></pre>
+
+
+<p>不過今天處理的問題也跟上面的函式扯不上關係 XD 描述一下問題好了, 就是說, 有使用者複製了一段&#8221;簡體&#8221;的UTF-8字串, 然後在 BIG5 編碼網頁的表單中貼上。然而這些簡體的UTF-8字元, 有些字沒辦法被轉為 BIG-5, 所以就維持UTF-8, 不過因為顯示的關係, 被瀏覽器(系統?)轉為了 NCR, 所以表面上使用者看到的是, 完全無誤的字串顯示, 可是當表單送出之後, 就挫賽啦! 後端收到的包含了 NCR 阿!!!</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/1346/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -453,47 +502,6 @@ $config['crlf'] = "\r\n";
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/1203/">identi.ca - PHP Open Source Twitter?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-07-03T19:35:44+08:00" pubdate  data-updated="true" >Jul 3<span>rd</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://identi.ca/">identi.ca</a>, 一個新的微網誌服務, 其實現在微網誌服務真的是很多了, 不過這個比較特別一點的是, <a href="http://identi.ca/">identi.ca</a> 用 PHP 開發, 可以用 jabber/GTalk, 也可以用 openid 來登入, 而且是 open source!!?</p>
-
-<p>不過目前為止連到這個網址 <a href="http://identi.ca/doc/source">http://identi.ca/doc/source</a>, 上面是這樣寫的:</p>
-
-<blockquote>You can get a copy of the software from the <a href="http://laconi.ca/">Laconica</a> main site. The version of the software that runs on <em>this</em> site is unmodified from that version. The site also depends on certain libraries and other software; you can get those at the Laconica site, too.</blockquote>
-
-
-<p>不過找了一下, 還沒看到任何 source code 的蹤影 :p 不過那不重要, 因為&#8230;可以離開 twitter 就很厲害了 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -513,6 +521,10 @@ $config['crlf'] = "\r\n";
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
       </li>
     
@@ -526,10 +538,6 @@ $config['crlf'] = "\r\n";
     
       <li class="post">
         <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/new-tumblr/">tumblr 開張 (tzang.ms)</a>
       </li>
     
   </ul>

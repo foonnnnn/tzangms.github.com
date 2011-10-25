@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="這個影片我這幾天不知道看了多少遍了, 超可愛的!! 然後上班的時候我也一直重覆播放這首單曲, oh! 超好聽的!!! jessica 的聲音超甜的! :D">
+  <meta name="description" content="這幾天花了點時間寫了 MyAudioCast, 因為台灣的 Podcast 真的是很不流行, 但是其實發現有一些人錄好了 podcast 之後, 卻因為不知道檔案要放哪, 還有不知道要如何產生 podcast feed 而煩惱。 雖然外國有一些 podcast hosting, 但是感覺不夠簡...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,50 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/computer/2554/">MyAudioCast - 輕鬆建立你的 Podcast!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-02-04T13:09:30+08:00" pubdate  data-updated="true" >Feb 4<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>這幾天花了點時間寫了 <a href="http://myaudiocast.appspot.com">MyAudioCast</a>, 因為台灣的 <a href="http://zh.wikipedia.org/wiki/播客">Podcast</a> 真的是很不流行, 但是其實發現有一些人錄好了 podcast 之後, 卻因為不知道檔案要放哪, 還有不知道要如何產生 podcast feed 而煩惱。 雖然外國有一些 podcast hosting, 但是感覺不夠簡單, 甚至是介面很雜亂, 所以在希望能降低發佈 Podcast 門檻的想法下, 就利用 <a href="http://code.google.com/intl/zh-TW/appengine/">Google App Engine</a> 寫了 <a href="http://myaudiocast.appspot.com">MyAudioCast</a>, 來降低發佈 Podcast 的門檻。</p>
+
+<p>所以現在只需要有 Google 帳號, 就可以登入 <a href="http://myaudiocast.appspot.com">MyAudioCast</a> 上傳 podcast 檔案, 上傳完檔案之後就有個人的 Podcast 頁面, 也有 iTunes 的 Podcast feed 可以供人訂閱, 應該夠簡單了吧!? 雖然目前還缺少了 flash player 可以 embed 出去 :p</p>
+
+<p>其實想做 MyAudioCast 的想法已經好一陣了, 我喜歡一些所謂&#8221;素人&#8221;錄製的聲音產出, 像是獨立音樂或是身旁朋友錄的 Podcast, 但是在台灣的中文 Podcast 卻極度的少, 大部分應該在建立自己的 Podcast 上碰到些技術的門檻。 而台灣也沒人做 podcast hosting, 畢竟是個燒錢事, 所以我就利用 App Engine 來做一個 Podcast hosting, 降低發佈門檻, 希望能多聽到些聲音。</p>
+
+<p>雖然說目前 app engine 的 BlobStore 只能上傳 50MB, 而且 BlobStore 還是實驗性功能, 不過應該夠用吧 XD</p>
+
+<p>如果可以的話, 看到這篇文章的朋友, 也幫我多宣傳一下吧 :p 雖然很容易超過 free quota, 不過初期其實要燒也燒不了多少吧。 超過的都算我的吧, 趕快上傳 Podcast 來聽阿!!!</p>
+
+<p>話說有人要幫忙我做 logo 嗎?  XD 另外有什麼想法也提一下吧 ~</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -449,44 +493,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2524/">Django Multidb Support</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-12-23T23:55:15+08:00" pubdate  data-updated="true" >Dec 23<span>rd</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>昨天 <a href="http://djangoproject.com">django</a> multidb 出現在 trunk 了, 一出來就很多人衝去看 changeset, 可是因為這個 changeset 太大, 然後 trac 吃太多 CPU, 整個 <a href="http://djangoproject.com">djangoproject.com</a> 就爆了 XD 所以後來這個 changeset 的 request 就直接被導到這個<a href="http://www.djangoproject.com/multidb-changeset/">說明頁</a>。</p>
-
-<p>不過其實 django 在 <a href="http://github.com/django/django/commit/836d297e68d6a63103780295adebf6eaf6779611">github</a> 跟 <a href="http://bitbucket.org/mirror/django-trunk/changeset/13e78b76531c/">bitbucket</a> 上 mirror 的同一個 changeset 也都因為太大, 改而顯示: This changeset can not be displayed, as it is too large (bitbucket) 跟 Sorry, this commit is taking too long to generate. (github)</p>
-
-<p>咦, 重點好像偏了, 總之先看看 <a href="http://docs.djangoproject.com/en/dev/topics/db/multi-db/">multidb 的文件</a>吧, 有需要在衝 trunk XD 真是令人興奮的消息 :)</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -506,6 +512,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
       </li>
     
@@ -519,10 +529,6 @@
     
       <li class="post">
         <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/new-tumblr/">tumblr 開張 (tzang.ms)</a>
       </li>
     
   </ul>

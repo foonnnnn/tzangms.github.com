@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="各位親愛的朋友, 小海的部落格網址已經換成 http://tzangms.com 了! 麻煩將您部落格裡的好友連結, 把小海原先的網址 http://tzangms.h2o-design.net/blog 換成 http://tzangms.com, 麻煩您了! 剛才看過幾乎大家的連結都還是舊...">
+  <meta name="description" content="第一集終於開播啦! 為了搞 Podcast 花了好多時間, 現在可以點右邊的 Podcast 圖示來用 iTunes 訂閱 Podcast, 聽聽看給點意見吧!">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,40 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/podcast/814/">小海 Podcast 第 1 集</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-04-06T22:11:21+08:00" pubdate  data-updated="true" >Apr 6<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>第一集終於開播啦! 為了搞 Podcast 花了好多時間, 現在可以點右邊的 Podcast 圖示來用 iTunes 訂閱 Podcast, 聽聽看給點意見吧!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -431,63 +465,6 @@ for (var i=0; i&lt; alink.length; i++){
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/793/">Javascript Validate Function</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-03-09T12:18:51+08:00" pubdate  data-updated="true" >Mar 9<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><pre><code>String.prototype.validate = function(type){
-    var pattern = new Array();
-
-    pattern['email'] = /^\w[\w-\.]+@\w+(\.\w+)+$/;
-    pattern['url'] = /^http:\/\/\w+\.\w+\/?.*$/;
-    pattern['password'] = /^[\w\.]+$/;
-    pattern['id'] = /^[a-zA-Z][0-9]{9}$/;
-
-    return this.match(pattern[type]);
-}
-</code></pre>
-
-<p>昨天寫的一個用來檢查輸入的函式, 直接掛在 String Object 下面, 這樣就可以直接這樣使用:
-如, 檢查 email 是否正確</p>
-
-<pre><code>"foo@bar.com".validate('email');
-</code></pre>
-
-<p>或是網址是否正確</p>
-
-<pre><code>"http://tzangms.com".validate('url');
-</code></pre>
-
-<p>如果回傳值為 null 那就是錯誤啦! 不過 regular expression 的 pattern 還需要改進就是了~</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -507,6 +484,10 @@ for (var i=0; i&lt; alink.length; i++){
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
       </li>
     
@@ -520,10 +501,6 @@ for (var i=0; i&lt; alink.length; i++){
     
       <li class="post">
         <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/new-tumblr/">tumblr 開張 (tzang.ms)</a>
       </li>
     
   </ul>

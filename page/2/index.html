@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="由於收到了 webfaction 來的繳費通知, 剛好最近一直覺得花好多錢在主機費上面, 所以打算不續約了, 除了 twitthat 跟 stickeraction 之外, 儘管 myaudiocast 的流量費用有 pixnet 提供 cdn 支援, 可是現在 myaudiocast 的流量...">
+  <meta name="description" content="幾個月前, 聽到同事在談論著 Hush, 所以當時就隨便挑了一首 Hush 的歌來聽, 樂器只有簡單的木吉他, 聽沒多久就因為工作繁忙就切掉, 沒繼續聽下去, 當時就這麼略過了 Hush 的歌曲, 錯過那個在數月後令我眼眶泛淚的沙啞嗓音。">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,42 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/hush-astronomy-features/">最近超愛的一首歌, Hush 的天文特徵</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2011-04-14T23:10:00+08:00" pubdate  data-updated="true" >Apr 14<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><embed src="http://tw.streetvoice.com/static/player/MusicPlayer.swf?srv=tw.streetvoice.com&ph=music&getv=config&skinID=6&au=126254&listtype=1&listsd=8487&autoStart=false&autoPlay=false&isEmbed=true&jsPlayer=false" allowFullScreen="false" allowScriptAccess="always" scale="noscale" type="application/x-shockwave-flash" width="330" height="100"></embed></p>
+
+<p>幾個月前, 聽到同事在談論著 <a href="http://tw.streetvoice.com/vocalwei/">Hush</a>, 所以當時就隨便挑了一首 Hush 的歌來聽, 樂器只有簡單的木吉他, 聽沒多久就因為工作繁忙就切掉, 沒繼續聽下去, 當時就這麼略過了 Hush 的歌曲, 錯過那個在數月後令我眼眶泛淚的沙啞嗓音。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -495,56 +531,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2811/">PiCloud: 給 Python 用的雲端運算</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2011-01-23T22:36:28+08:00" pubdate  data-updated="true" >Jan 23<span>rd</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>其實 <a href="https://www.picloud.com/">PiCloud</a> 已經出來好久了, 一直沒時間玩, 昨天晚上終於抓到時間試了一下。 可能看到雲端運算會有人以為是 <a href="http://aws.amazon.com/ec2/">ec2</a>, <a href="http://tzangms.com/programming/2807">heroku</a> 之類的服務, 其實 PiCloud 比較有點偏向是 message queue / worker 之類的服務, 就是真的把運算丟出去算, 連 deploy 都不用管。</p>
-
-<pre><code>import cloud
-
-cloud.setkey(api_key=your_api_key, api_secretkey='your_api_secretkey')
-
-def square(x):
-    return x*x
-
-# 把 function 跟參數丟上雲端運算, 取得 job id
-jid = cloud.call(square,3)
-
-# 之後再透過 job id 取得運算後的結果
-cloud.result(jid)
-</code></pre>
-
-<p>透過上面這段 code 應該就可以清楚知道 PiCloud 的用途了吧, 除了非同步也有同步的方式, 收費方式主要是計算 cpu time, 其他就是 storage, data transfer in/out, crawler 之類東西, 似乎也挺適合用 PiCloud 來做的, 不過可能得實際計算一下價錢就是了。</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -564,6 +550,10 @@ cloud.result(jid)
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
       </li>
     
@@ -577,10 +567,6 @@ cloud.result(jid)
     
       <li class="post">
         <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/new-tumblr/">tumblr 開張 (tzang.ms)</a>
       </li>
     
   </ul>

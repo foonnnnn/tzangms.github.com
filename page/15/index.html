@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="超好聽的ㄝ~ 合音也很不錯~">
+  <meta name="description" content="由於原本用的 Macbook 也已經用了約莫 2 年半, 慢慢的東西都快爛掉了, 入手不到一年, 光碟機就有挑片的狀況, 然後最近則是 LAN 會整個無法連上必須重開機才能恢復正常, 再來就是效能整個覺得 down 下來了, 所以想說該買台新機器了, 畢竟這台 Macbook 也已經兩年半了。...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,48 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/mac/2476/">Mac Mini 入手</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-08-31T00:33:57+08:00" pubdate  data-updated="true" >Aug 31<span>st</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>由於原本用的 Macbook 也已經用了約莫 2 年半, 慢慢的東西都快爛掉了, 入手不到一年, 光碟機就有挑片的狀況, 然後最近則是 LAN 會整個無法連上必須重開機才能恢復正常, 再來就是效能整個覺得 down 下來了, 所以想說該買台新機器了, 畢竟這台 Macbook 也已經兩年半了。</p>
+
+<p>其實想買新機器很久了, 一直到這幾天真的受不了 Macbook 所以晚上就跑去優仕敗了這台 Mac mini。 我買的是便宜的那款 $21900, 1GB RAM, 120GB HD, 不過我把記憶體升級到 4G, 硬碟也換成了 500GB, 另外加上了新的 Apple Keyboard, 不過這樣還是比較貴的那一款 $28900 便宜, 不過當然還是要分期來付 XD</p>
+
+<p>由於有換硬碟, 不過要節省時間, 所以我就叫店員幫我換好硬碟就好, 不須要安裝作業系統, 我回家直接灌 Snow leopard 就行, 順便試試 Snow leopard 是否真的如傳聞中說的, 不須要透過升級 Leopard 的方式也可以直接安裝。 哈, 果真可以直接裝ㄝ, 只能說 Snow leopard 只買 $1090 未免也太便宜了 :D</p>
+
+<p>在換記憶體跟硬碟的同時, 店員給了我張優惠卷, 可以到二樓喝咖啡等機器裝好, 裝好會打電話給我, 還真是不錯, 不過最後要提一下, 那位店員在把東西換好, 把 Mac mini 的外殼裝回去之後, 居然發現有兩根螺絲沒有鎖上, 結果又拆了ㄧ次 ~&#8221;~ anyway, 是碰到新手吧 XD</p>
+
+<p>總之目前跑起來, 比起 Macbook 真是舒服多了 :D</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -550,47 +592,6 @@ def listing(request):
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2443/">Django 1.0.2 ModelForm 的地雷</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-07-21T18:14:17+08:00" pubdate  data-updated="true" >Jul 21<span>st</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><pre><code>'RelatedObject' object has no attribute 'unique' thrown by ModelForm validation</code></pre>
-
-
-<p>今天在使用 Django ModelForm 的時候採到一個地雷, 秀出了上面這一串訊息, 然後是發生在 form.is_valid() 的時候, google 了一下, 原來是因為我在 form 裡面放了一個不屬於 model 的欄位。 <a href="http://code.djangoproject.com/ticket/10069">可以看看 django trac 的這個 ticket</a></p>
-
-<p>簡單舉例一下, 我有 Song model 跟 SongStyle model 這兩個 model, 而 SongStyle 當然要 form 秀出來給使用者填選, 所以我在 Song 的 ModelForm 加上了一個 song_styles  的 ChoiceField, 結果就出現了錯誤。( SongStyle 有個 ForeignKey 指向 Song )</p>
-
-<p>不過這個問題 django 1.1 已經解決了, 1.0.2 還是有這個問題, 如果不想用 django 1.1 的話 &#8230; 看看<a href="http://code.djangoproject.com/changeset/9777">這裡</a>自己 patch 吧。</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -610,6 +611,10 @@ def listing(request):
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
       </li>
     
@@ -623,10 +628,6 @@ def listing(request):
     
       <li class="post">
         <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/new-tumblr/">tumblr 開張 (tzang.ms)</a>
       </li>
     
   </ul>

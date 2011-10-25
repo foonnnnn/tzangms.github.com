@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="Setting up a python CI server with Hudson 這篇文章還滿值得一看的。 當中的 CI 指的是 Continuous Integration, 也可以看看這篇中文的介紹。上禮拜把 hudson 弄起來, 自動 poll mercurial repo 來跑 p...">
+  <meta name="description" content="昨天 django multidb 出現在 trunk 了, 一出來就很多人衝去看 changeset, 可是因為這個 changeset 太大, 然後 trac 吃太多 CPU, 整個 djangoproject.com 就爆了 XD 所以後來這個 changeset 的 request 就...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,44 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2524/">Django Multidb Support</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-12-23T23:55:15+08:00" pubdate  data-updated="true" >Dec 23<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>昨天 <a href="http://djangoproject.com">django</a> multidb 出現在 trunk 了, 一出來就很多人衝去看 changeset, 可是因為這個 changeset 太大, 然後 trac 吃太多 CPU, 整個 <a href="http://djangoproject.com">djangoproject.com</a> 就爆了 XD 所以後來這個 changeset 的 request 就直接被導到這個<a href="http://www.djangoproject.com/multidb-changeset/">說明頁</a>。</p>
+
+<p>不過其實 django 在 <a href="http://github.com/django/django/commit/836d297e68d6a63103780295adebf6eaf6779611">github</a> 跟 <a href="http://bitbucket.org/mirror/django-trunk/changeset/13e78b76531c/">bitbucket</a> 上 mirror 的同一個 changeset 也都因為太大, 改而顯示: This changeset can not be displayed, as it is too large (bitbucket) 跟 Sorry, this commit is taking too long to generate. (github)</p>
+
+<p>咦, 重點好像偏了, 總之先看看 <a href="http://docs.djangoproject.com/en/dev/topics/db/multi-db/">multidb 的文件</a>吧, 有需要在衝 trunk XD 真是令人興奮的消息 :)</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -497,44 +535,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/2503/">多麼希望自己是一個多愁善感的人</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-10-31T22:25:58+08:00" pubdate  data-updated="true" >Oct 31<span>st</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>原本以為自己是音樂人, 但是誰知道現在都在寫程式, 對於寫歌完全沒有靈感, 吉他也彈不出個屁。 一直想再開始寫歌, 卻也沒寫下個什麼東西。</p>
-
-<p>時光飛逝, 身在音樂相關的公司, 卻完全沒時間寫歌, 每天下班就只剩幾個小時給自己, 然後等著睡覺, 而大多所謂留給自己的時間, 不是消化 google reader 裡的東西, 就是研究新的東西。</p>
-
-<p>而每天時間就這麼飛快的從身旁飛過, 快到來不及讓我流露出一絲多愁善感的情緒, 我的人生, 其實就跟 &#8230; 一樣平, 一樣平淡無奇。</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -554,6 +554,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
       </li>
     
@@ -567,10 +571,6 @@
     
       <li class="post">
         <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/new-tumblr/">tumblr 開張 (tzang.ms)</a>
       </li>
     
   </ul>

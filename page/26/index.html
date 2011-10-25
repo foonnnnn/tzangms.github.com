@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="其實這個功能很簡單, 一開始就應該做了, 不過先前都一直在為了 stickeraction 的效能, 在重寫整個架構, 今天才把這個功能加上。點擊數統計的當然不是指貼紙&#8221;顯示&#8221;的次數, 而是貼紙的&#8221;點擊&#8221;次數, 畢竟顯示並不代表網友有看到, 如果...">
+  <meta name="description" content="$('#selector', opener.document)沒錯! 就是醬!!阿! (大叫) 還沒有時間把 jQuery 學好 ~&#8221;~">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,43 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1593/">用 jQuery 選取 Opener 中的物件</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-08T22:28:46+08:00" pubdate  data-updated="true" >Sep 8<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><code>$('#selector', opener.document)</code>
+沒錯! 就是醬!!</p>
+
+<p>阿! (大叫) 還沒有時間把 jQuery 學好 ~&#8221;~</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -565,46 +602,6 @@ $this->load->view('template/footer');</code>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1488/">StickerAction 對外 Request 被擋的處理</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-08-27T22:07:30+08:00" pubdate  data-updated="true" >Aug 27<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2761698350/" title="yahoo error 999 by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3169/2761698350_f458a4ea9b.jpg" width="500" height="313" alt="yahoo error 999" /></a>
-最近在為了減少 <a href="http://stickeraction.com">StickerAction</a> 對外部的 request 數量作處理, 花了好一些工夫 XD 因為 wretch 那邊大概只要有 50 個 request(一小時或半小時, 阿災), 就會被先前 <a href="http://blog.xdite.net">xdite大大</a> 說的 Yahoo 金鐘罩檔掉了。 請見上圖 Yahoo 999 XD</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/1488/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -624,6 +621,10 @@ $this->load->view('template/footer');</code>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
       </li>
     
@@ -637,10 +638,6 @@ $this->load->view('template/footer');</code>
     
       <li class="post">
         <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/new-tumblr/">tumblr 開張 (tzang.ms)</a>
       </li>
     
   </ul>

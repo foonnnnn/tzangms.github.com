@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="哈! 這集隔了好久 :p 雖然這集只介紹了4首歌. 不過也快半小時了:p 這集講了一下蘭卡威之旅的心得, 大家都該去體驗一下蘭卡威大自然的威力才對 XD沙漏(木吉他板) by 小海癮 by 姆貓multiply by a women of no importancein for a ride ...">
+  <meta name="description" content="由於最近一直在 porting , 不只是為了好玩, 也是未來的趨勢, 所以採用了 framework 來作 porting 的動作, 其實一開始對於 framework 可以做到的事情, 有點感到驚訝! 一開始 porting 還滿好玩的, 但是相較於單純只是要將 view 跟 code 分...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,76 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/867/">最近使用 CodeIgniter 的雜亂心得</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-05-28T23:19:59+08:00" pubdate  data-updated="true" >May 28<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>由於最近一直在 porting , 不只是為了好玩, 也是未來的趨勢, 所以採用了 framework 來作 porting 的動作, 其實一開始對於 framework 可以做到的事情, 有點感到驚訝! 一開始 porting 還滿好玩的, 但是相較於單純只是要將 view 跟 code 分離來說, 原本應該會採用 Smarty, 那麼我就可以很輕鬆的把這個程式 port 完, 不過在先前就一直有在 survey 一些 PHP framework, 所以這次才就直接衝了, 選用 <a href="http://codeigniter.com/">CodeIgniter</a> 這個 framework 來做 porting!</p>
+
+<p>其實用 Smarty 可以減少許多 porting 的時間, 因為只需要單純的將 logic 跟 view 分離, 原本程式中就有的 library 還是可以繼續保留、使用, 但是, 就先前使用 Smarty 在開發的過程中, 還是感覺 Smarty 對以後的維護還是很麻煩 XD 不過這次採用了 CodeIgniter 來 porting 真是嘗到苦頭了 XD 由於對 framework 的不熟悉, 需要一邊 study 一邊 porting, 還要研究要如何將 MVC 切的漂亮, 接著原本程式的數量還滿龐大的, 然後又使用 framework 來作, 幾乎是重新改寫的情況下, 我原本跟經理說得大約 1 個月, 變成我的壓力來源 XD 就叫自作自受阿! 哈哈哈! 不過其實公司是沒有人在催我進度, 頂多問一下做的如何了~ 嗯, 我自己耍帥, 要用不熟悉的東西來做 porting, 當然不能將時間延誤推給這個原因阿! 所以應該將近有 3 個禮拜的時間, 就整個人悶了, 整天想的都是 porting, anyway, 但是說真的, 用 framework,  MVC 來作, 的確會讓程式簡潔很多, 方便往後程式的維護開發。</p>
+
+<p>我選用的 CodeIgniter, 沒看到有繁體中文的站台在介紹, PHP framework 在台灣比較紅的就屬 CakePHP 啦! 但是我看不懂他的 Document XD 而 CodeIgniter 的 Document 則是清楚明瞭, 而且就 framework 來說, 自由度很高! 門檻也不高, 所以我就選用 CodeIgniter 啦! 用 framework 就是要快阿~ 花太多時間在跨越門檻, 那就反了 XD</p>
+
+<p>framework 的其中一個特點就是, 他提供許多讓你快速開發程式的 function, 例如 Database class, 可以用 ActiveRecord 來存取資料庫, 而提供許多的 Database driver, 如: mysql, mssql &#8230;等, 即使你換資料庫, 你也只需要更改 Database driver 即可。以下是 ActiveRecord 小範例:</p>
+
+<p>原本 PHP 的做法:
+<code>mysql_query('SELECT * FROM mytable');</code></p>
+
+<p>使用 CodeIgniter ActiveRecord:
+<code>$this->db->get('mytable');</code></p>
+
+<p>使用 ActiveRecord 來作, 簡潔許多, 另外 framework 也幫你做了預防 SQL Injection 的動作。</p>
+
+<p>framework 中還有像是 Image_lib 的 library 讓你方便的就可以對圖片做 crop, resize 的動作, 還有一個很貼心的東西就是 input class, 每當在存取 $<em>POST 的時候, 總是要用 if 加上 isset 來檢查, 不存在就要另外將變數指定為 empty, 當 $</em>POST 變數很多的時候, 判斷式也相對的增多, 這時候程式就會變得很雜亂, 很難看, 然而 CodeIgniter 提供的 input class 很貼心, 當讀不到某 $_POST 變數的時候, 他會幫你自動將這個變數設為 empty, 舉例如下:</p>
+
+<p>原本的 PHP 做法:
+<code>if (isset($_POST['foo'])){</p>
+
+<pre><code>$foo = $_POST['foo'];
+</code></pre>
+
+<p>} else {</p>
+
+<pre><code>$foo = '';
+</code></pre>
+
+<p>}</code></p>
+
+<p>CodeIgniter 的做法:
+<code>$foo = $this->input->post('foo');</code></p>
+
+<p>這樣一來, 程式就簡潔了許多, 需要打的字也少了許多, 也方便以後維護, 當然還有其他許多貼心的 function,  不過後來發現其實裡面有些 function, 反倒要花上更多的行數, 來解決相同的事情, 但是後來才發現 framework 這個東西, 做主要的其中一項功能, 其實是要讓你方便維護你的程式碼阿!! 只能說 PHP 寫起來真的是很亂 XD</p>
+
+<p>其實寫到最後, 感覺像有種在做設定的感覺, 所以整個程式碼變得很簡潔, 井然有序, 以後再來寫一些介紹文好了!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -429,46 +499,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/podcast/844/">小海 Podcast 第 4 集</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-05-02T23:16:47+08:00" pubdate  data-updated="true" >May 2<span>nd</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這次先詢問了 echo 的主唱<a href="http://www.pochang.com/">柏蒼</a>, 所以我放上了整首歌 XD 其實&#8230;我沒跟柏蒼說我要放整首, 噗~ 不過在問柏蒼說可不可以播 echo 的歌的時候, 他二話不說的就答應了, 很帥氣的說 &#8220;OK! &#8220;, 呵..真的是太酷了!!! 不愧是台灣最 indie 的樂團啊!! 所以我這集放上了我很喜歡的一首&#8221;紅與藍&#8221;, 當兵時候每天睡覺必聽的一首歌曲! 另外現在 Podcast 越來越長了, 這集 32 分鐘內! 講話變多了喔! XD 最後, 大家期待下一集吧! 第五集應該會有比較好玩的東西出現! 如果沒有的話怎麼辦呢?! &#8230;. 就等第六集了阿! XD</p>
-
-<div style="clear: left">1. 眉頭 by <a href="http://tzangms.com">小海</a>
-2. think by <a href="http://www.wretch.cc/album/imgoodness">志豪</a>
-3. Breakdown by <a href="http://www.club-8.org/">Club 8</a>
-4. 紅與藍 by <a href="http://www.echoband.com/">echo</a></div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -488,6 +518,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
       </li>
     
@@ -501,10 +535,6 @@
     
       <li class="post">
         <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/new-tumblr/">tumblr 開張 (tzang.ms)</a>
       </li>
     
   </ul>

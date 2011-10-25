@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="看了 gslin 大大寫的 PHP 的 Heroku, 也來記一下 python 這邊的。第一個是我前一陣子拿到邀請信有開始玩的 djangy, 再來是還沒拿到邀請信的 ep.io。djangy 名符其實的就是跑 django 啦~ 透過 git 來 deploy, 跟 heroku 的 de...">
+  <meta name="description" content="其實 PiCloud 已經出來好久了, 一直沒時間玩, 昨天晚上終於抓到時間試了一下。 可能看到雲端運算會有人以為是 ec2, heroku 之類的服務, 其實 PiCloud 比較有點偏向是 message queue / worker 之類的服務, 就是真的把運算丟出去算, 連 deplo...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,56 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2811/">PiCloud: 給 Python 用的雲端運算</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2011-01-23T22:36:28+08:00" pubdate  data-updated="true" >Jan 23<span>rd</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>其實 <a href="https://www.picloud.com/">PiCloud</a> 已經出來好久了, 一直沒時間玩, 昨天晚上終於抓到時間試了一下。 可能看到雲端運算會有人以為是 <a href="http://aws.amazon.com/ec2/">ec2</a>, <a href="http://tzangms.com/programming/2807">heroku</a> 之類的服務, 其實 PiCloud 比較有點偏向是 message queue / worker 之類的服務, 就是真的把運算丟出去算, 連 deploy 都不用管。</p>
+
+<pre><code>import cloud
+
+cloud.setkey(api_key=your_api_key, api_secretkey='your_api_secretkey')
+
+def square(x):
+    return x*x
+
+# 把 function 跟參數丟上雲端運算, 取得 job id
+jid = cloud.call(square,3)
+
+# 之後再透過 job id 取得運算後的結果
+cloud.result(jid)
+</code></pre>
+
+<p>透過上面這段 code 應該就可以清楚知道 PiCloud 的用途了吧, 除了非同步也有同步的方式, 收費方式主要是計算 cpu time, 其他就是 storage, data transfer in/out, crawler 之類東西, 似乎也挺適合用 PiCloud 來做的, 不過可能得實際計算一下價錢就是了。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -477,44 +527,6 @@ filetype plugin on</code></pre>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/2774/">沒事&#8230; 還是不要亂推阿 &#8230;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-12-09T01:09:38+08:00" pubdate  data-updated="true" >Dec 9<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>我只不過是說了: 「沒事我也想買一台 MBA 呀 ~」</p>
-
-<p>沒想到引來了近百則勸敗推 &#8230; 而且攻勢極猛, 現在我已經在思考錢要怎麼分配了&#8230;</p>
-
-<p>沒事&#8230; 還是不要亂推阿 &#8230;</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -534,6 +546,10 @@ filetype plugin on</code></pre>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
       </li>
     
@@ -547,10 +563,6 @@ filetype plugin on</code></pre>
     
       <li class="post">
         <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/new-tumblr/">tumblr 開張 (tzang.ms)</a>
       </li>
     
   </ul>

@@ -4,7 +4,7 @@
   <title><![CDATA[Oceanic / 人生海海]]></title>
   <link href="http://tzangms.com/atom.xml" rel="self"/>
   <link href="http://tzangms.com/"/>
-  <updated>2011-10-20T01:03:43+08:00</updated>
+  <updated>2011-10-25T01:36:13+08:00</updated>
   <id>http://tzangms.com/</id>
   <author>
     <name><![CDATA[tzangms]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[One Piece]]></title>
+    <link href="http://tzangms.com/2011/10/24/one-piece-in-a-month/"/>
+    <updated>2011-10-24T10:05:00+08:00</updated>
+    <id>http://tzangms.com/2011/10/24/one-piece-in-a-month</id>
+    <content type="html"><![CDATA[<p>今天, 在一個月內看完了海賊王 1 ~ 520 集, 真是值得紀念的一刻。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[App Engine 好貴]]></title>
@@ -495,31 +504,6 @@
 <p>不過由於我大部分時間都只用 terminal 開 vim 來寫程式, 頂多開 Xcode, 所以使用時間的長短應該還是會因使用情境而異。</p>
 
 <p>不過老實說, 原本以為花那麼多錢很浪費, 買來後也應該很少用, 可是現在就覺得, 幹, 這六萬塊花的還真是值得, 不就一個爽字, 終於有一台電腦放在腿上不覺得燙, 終於有台電腦帶出門感覺不到他的存在, 終於有台電腦讓我沒得抱怨了, 實在是, 當初我幹嘛猶豫這麼久, 早該買了阿!!!~</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[PiCloud: 給 python 用的雲端運算]]></title>
-    <link href="http://tzangms.com/programming/2811/"/>
-    <updated>2011-01-23T22:36:28+08:00</updated>
-    <id>http://tzangms.com/programming/picloud_給_python_用的雲端運算</id>
-    <content type="html"><![CDATA[<p>其實 <a href="https://www.picloud.com/">PiCloud</a> 已經出來好久了, 一直沒時間玩, 昨天晚上終於抓到時間試了一下。 可能看到雲端運算會有人以為是 <a href="http://aws.amazon.com/ec2/">ec2</a>, <a href="http://tzangms.com/programming/2807">heroku</a> 之類的服務, 其實 PiCloud 比較有點偏向是 message queue / worker 之類的服務, 就是真的把運算丟出去算, 連 deploy 都不用管。</p>
-
-<pre><code>import cloud
-
-cloud.setkey(api_key=your_api_key, api_secretkey='your_api_secretkey')
-
-def square(x):
-    return x*x
-
-# 把 function 跟參數丟上雲端運算, 取得 job id
-jid = cloud.call(square,3)
-
-# 之後再透過 job id 取得運算後的結果
-cloud.result(jid)
-</code></pre>
-
-<p>透過上面這段 code 應該就可以清楚知道 PiCloud 的用途了吧, 除了非同步也有同步的方式, 收費方式主要是計算 cpu time, 其他就是 storage, data transfer in/out, crawler 之類東西, 似乎也挺適合用 PiCloud 來做的, 不過可能得實際計算一下價錢就是了。</p>
 ]]></content>
   </entry>
   

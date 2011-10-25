@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="今天在 lifehacker 的文章中找到的一個計算你工作環境的工具 Workspace Planner 用來衡量你現在工作的坐姿是否正確。其實每天上班其實不用多久, 我就會覺得肩膀很難過, 我一直是覺得公司的桌子、椅子&#8230; anyway, 反正就是不人體工學嘛!">
+  <meta name="description" content="lighttpd 的 simple-vhost 設定還真是簡單阿~ XD首先設定 server.modules 打開 mod_simple_vhost, 我的 server.modules 大概像這樣[source:php]server.modules = ("mod_rewrite","mo...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,62 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/linux/1054/">Lighttpd Simple-vhost 設定</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-01-22T21:10:30+08:00" pubdate  data-updated="true" >Jan 22<span>nd</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>lighttpd 的 simple-vhost 設定還真是簡單阿~ XD</p>
+
+<p>首先設定 server.modules 打開 mod_simple_vhost, 我的 server.modules 大概像這樣
+[source:php]
+server.modules = (</p>
+
+<pre><code>"mod_rewrite",
+"mod_access",
+"mod_auth",
+"mod_status",
+"mod_simple_vhost",
+"mod_compress",
+</code></pre>
+
+<p>)
+[/source]</p>
+
+<p>然後設定下面這幾行, 就好了 :o</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/linux/1054/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -460,46 +516,6 @@ Bonjour! 這是我收到的第二張從外國來的明信片! <a href="http://tz
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/1040/">有時候也要 Metal 一下阿! &#8230;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-12-24T20:54:20+08:00" pubdate  data-updated="true" >Dec 24<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>最近好一陣子創作樂團開始流行起草地風, Metal 團好像都銷聲匿跡了阿! 我愛 Metal 阿!!</p>
-
-<p>Simple life 這種音樂風格整個大崛起, 雖然這種音樂風格聽起來頗輕鬆, 不過還是需要 Metal 才能抒發心中那莫名的怨氣阿!! XD</p>
-
-<p>可能是大家都過的太舒適了 XD</p>
-
-<p>這是昨天晚上在瞇歌結束準備要休息的時候, 突然有 fu 就了錄一段了, 然後今天我一整天都在重複 repeat 這一首 &#8230;</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -519,6 +535,10 @@ Bonjour! 這是我收到的第二張從外國來的明信片! <a href="http://tz
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
       </li>
     
@@ -532,10 +552,6 @@ Bonjour! 這是我收到的第二張從外國來的明信片! <a href="http://tz
     
       <li class="post">
         <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/new-tumblr/">tumblr 開張 (tzang.ms)</a>
       </li>
     
   </ul>
