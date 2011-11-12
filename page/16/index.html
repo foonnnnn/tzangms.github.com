@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="'RelatedObject' object has no attribute 'unique' thrown by ModelForm validation今天在使用 Django ModelForm 的時候採到一個地雷, 秀出了上面這一串訊息, 然後是發生在 form.is_valid()...">
+  <meta name="description" content="我只能說, django-pagination 真是一個好物。雖然說 django 本身提供的 pagination 就已經很不錯用了, 可是在使用上還是稍嫌多餘了些, 得在 view 重複的打上那一段 code, 而 template 那邊也是, 除非就是自己寫 template tag 來...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,90 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2444/">Django-pagination</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-07-21T21:30:28+08:00" pubdate  data-updated="true" >Jul 21<span>st</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>我只能說, <a href="http://github.com/ericflo/django-pagination/tree/master">django-pagination</a> 真是一個好物。</p>
+
+<p>雖然說 <a href="http://www.djangoproject.com/">django</a> 本身提供的 <a href="http://docs.djangoproject.com/en/dev/topics/pagination/#topics-pagination">pagination</a> 就已經很不錯用了, 可是在使用上還是稍嫌多餘了些, 得在 view 重複的打上那一段 code, 而 template 那邊也是, 除非就是自己寫 template tag 來處理。</p>
+
+<p>django 原本提供的 pagination, 在寫 view 的時候大概像是這樣: (直接拿 django 的 example)</p>
+
+<pre><code>from django.core.paginator import Paginator, InvalidPage, EmptyPage
+
+def listing(request):
+    contact_list = Contacts.objects.all()
+    paginator = Paginator(contact_list, 25)
+
+    try:
+        page = int(request.GET.get('page', '1'))
+    except ValueError:
+        page = 1
+
+    try:
+        contacts = paginator.page(page)
+    except (EmptyPage, InvalidPage):
+        contacts = paginator.page(paginator.num_pages)
+
+    return render_to_response('list.html', {"contacts": contacts})
+</code></pre>
+
+<p>而如果使用 django-pagination 的話, 看到 view 就真的是會笑出來了 XD</p>
+
+<pre><code>def listing(request):
+    contacts = Contacts.objects.all()
+    return render_to_response('list.html', {"contacts": contacts})
+</code></pre>
+
+<p>就這樣! 而且還不用 import Paginator。</p>
+
+<p>基本上 django-pagination 的處理動作都在 template 那邊, 看起來大概像是這樣</p>
+
+<pre><code>{% load pagination_tags %} # 載入 template tag
+
+{% autopaginate contacts 10 %} # 加上這一行處理分頁
+{% for contact in contacts %}
+    {{ contact.name }}
+{% endfor %}
+
+{% paginate %} # 秀出分頁
+</code></pre>
+
+<p>That&#8217;s all! :D</p>
+
+<p>比照一下 django 內建的 pagination, 就可以明顯比較出 template 之間差別了, django-pagination 真是超令人開心的一個套件阿, 而且作者還提供了一個 <a href="http://eflorenzano.com/blog/post/first-two-django-screencasts/#using-django-pagination">screencast</a>。</p>
+
+<p>真的是太貼心了阿~</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -473,45 +557,6 @@ python-memcached
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/2406/">我決定每天都要吃早餐</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-05-22T21:30:12+08:00" pubdate  data-updated="true" >May 22<span>nd</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p style="text-align: center;"><object width="480" height="385" data="http://www.youtube.com/v/E6BHU_dDB_o&amp;hl=zh_TW&amp;fs=1" type="application/x-shockwave-flash"><param name="allowFullScreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="src" value="http://www.youtube.com/v/E6BHU_dDB_o&amp;hl=zh_TW&amp;fs=1" /><param name="allowfullscreen" value="true" /></object>
-
-就快兩個月沒寫 blog 了, 這幾天一直想到沒寫 blog 這件事, 甚至好幾次打開 blog 準備寫點東西的時候, 還會覺得, &#8220;嗯~ 好像應該繼續保持記錄&#8221;, 然後就又把 blog 關了。 hmm~ 雖然不知道怎麼一回事, 我居然對保持 blog 沒寫的記錄有種虛榮感。
-
-總之, 大家還是要記得吃早餐喔 &#8230;..
-
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -531,6 +576,10 @@ python-memcached
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
       </li>
     
@@ -544,10 +593,6 @@ python-memcached
     
       <li class="post">
         <a href="/2011/10/13/ios5-release/">iOS5 release</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
       </li>
     
   </ul>

@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="今天早上從志豪那邊看到這個影片, 就點來看看, 原本認為我會聽一小段就馬上跳開了, 沒想到讓我聽到眼淚都飆了出來, Vocal 未免也太猛了!! pitch 準到一個不行, 這可是 Live 阿!!我當時應該是聽到 1:47 - 2:15 這一段, 眼淚就飆出來了。題外話, 我覺得鼓手好像有跑...">
+  <meta name="description" content="今天我離職了, 告別這大約兩年半的第一份工作。要來好好休息一陣子了。不過我馬上就要趕回宜蘭, 明天是阿公做百日, 今天一定得趕回家的 Orz">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,42 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/2244/">離職了</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-11-28T20:56:13+08:00" pubdate  data-updated="true" >Nov 28<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天我離職了, 告別這大約兩年半的第一份工作。要來好好休息一陣子了。</p>
+
+<p>不過我馬上就要趕回宜蘭, 明天是阿公做百日, 今天一定得趕回家的 Orz</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -564,86 +600,6 @@ limit_maxbytes            Number of bytes this server is allowed to use for stor
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2006/">CodeIgniter 1.7.0 更新</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-10-30T20:10:18+08:00" pubdate  data-updated="true" >Oct 30<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://codeigniter.com">CodeIgniter</a> 在 10/23 釋出了 1.7.0 版本, 來列出一些我覺得比較重要的改變好了, 詳細的改變還是請看 <a href="http://codeigniter.com/user_guide/changelog.html">Changelog</a>。</p>
-
-<p><strong>1. 新增 form_validation library</strong>
-這個版本最主要的就是新增了一個 <a href="http://codeigniter.com/user_guide/libraries/form_validation.html">form_validation</a> 的 library 用來取代舊有的 validation library, 而 validation library 也在 1.7.0 開始被列為 deprecated。 ( 應該翻做不建議使用? ) anyway, validation library 的文件也已經從 user guide 移除了, 不過 validation 依然可用, 只是得找時間換成 form_validation 就是了。</p>
-
-<p>看了一下 form_validation 的文件, 這次的更新, 大幅降低了以往 validation 囉唆使用的方式, 改成了跟 <a href="http://kohanaphp.org">kohana</a> 2.1 時的 validation 類似的方式, 簡單許多, 很不賴。</p>
-
-<p>以往的 validation 真的是是很囉唆, 像是這樣</p>
-
-<pre>
-<code>$rules['name'] = 'required|alpha_numeric|max_length[20]';
-$rules['email'] = 'required|valid_email';
-$rules['web'] = 'required|prep_url';
-$this->validation->set_rules($rules);
-
-$fields['name'] = '名稱';
-$fields['email'] = 'email';
-$fields['web'] = '網站';
-$this->validation->set_fields($fields);</code>
-</pre>
-
-
-<p>現在簡化許多, 變成是</p>
-
-<pre>
-<code>$this->form_validation->set_rules('name', '名稱', 'required|alpha_numeric|max_length[20]');
-$this->form_validation->set_rules('email', 'email', 'required|valid_email');
-$this->form_validation->set_rules('web', '網站', 'required|prep_url');</code>
-</pre>
-
-
-<p>不像以往是把 set_rules 跟 set_fields 分開作, 現在在 set_rules 直接一起把 set_fields 的部份做掉了, 寫起來輕鬆許多。</p>
-
-<p><strong>2. 可另外指定 library 載入後的物件名稱</strong>
-以往, 原本 library 的 class name 叫什麼, 在使用的時候就得用 class name 來使用, 沒有辦法另外指定比較短的名稱來方便使用, 以 simplepie 來說:</p>
-
-<pre><code>$this->load->library('simplepie');
-$this->simeplepie->function_name();</code></pre>
-
-
-<p>從 1.7.0 之後就可以這樣:</p>
-
-<pre><code>$this->load->library('simplepie', '', 'sp');
-$this->sp->function_name();</code></pre>
-
-
-<p>這樣感覺還不錯 :D 不過以上只是舉例, 我還是依舊用 simplepie 這個名稱 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -663,6 +619,10 @@ $this->sp->function_name();</code></pre>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
       </li>
     
@@ -676,10 +636,6 @@ $this->sp->function_name();</code></pre>
     
       <li class="post">
         <a href="/2011/10/13/ios5-release/">iOS5 release</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
       </li>
     
   </ul>

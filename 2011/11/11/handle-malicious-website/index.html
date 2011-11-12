@@ -1,0 +1,312 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>處理被判別為惡意網站的經驗 - Oceanic / 人生海海</title>
+  <meta name="author" content="tzangms">
+
+  
+  <meta name="description" content="前天由於某單位的網站被判定為惡意網站, 被植入了惡意的程式碼。 這個網站其實不是放在我們自家的伺服器上, 當時的技術主管是決定放在 Lunar Pages。 禮拜三中午一到公司, 就接到電話打來說他們網站出現問題, 被當成惡意網站怎麼辦, 哈 (苦笑)由於完全沒碰過這個網站, 當初程式也是外包...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tzangms.com/2011/11/11/handle-malicious-website/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/tzangms" rel="alternate" title="Oceanic / 人生海海" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<meta name="google-site-verification" content="AR4FP21F1VmZBfi-VjsnMnDiknxIzSk4OLYBI7CqDKw" />
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <img src="/images/logo.png"/>
+  <!--
+  <h1><a href="/">Oceanic / 人生海海</a></h1>
+  
+    <h2>這就是人生阿</h2>
+  
+  -->
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/tzangms" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tzangms.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">處理被判別為惡意網站的經驗</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2011-11-11T23:57:00+08:00" pubdate  data-updated="true" >Nov 11<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>前天由於某單位的網站被判定為惡意網站, 被植入了惡意的程式碼。 這個網站其實不是放在我們自家的伺服器上, 當時的技術主管是決定放在 Lunar Pages。 禮拜三中午一到公司, 就接到電話打來說他們網站出現問題, 被當成惡意網站怎麼辦, 哈 (苦笑)</p>
+
+<p>由於完全沒碰過這個網站, 當初程式也是外包, 現在只好硬著頭皮解決, 不過當天有 4 個會要開, 就先請原本負責的同事處理, 不過完全沒找出問題就是, 同事還直接上 google 網站管理員說回報說誤判了 XD</p>
+
+<p>我只好趁開會之間的空檔開始找, 一開始先用 firebug 看, 看到多出了一個異常的 request, 馬上跟同事要了 FTP 帳號想說用 grep 去找一下, 可是從 php 裡面根本找不到任何跡象, 不過後來翻到一支 javascript 會直接被導走, 還有幾隻 javascript 看起來怪怪的, 這當初是外包出去的, 我也不知道他們會不會從國外幹奇怪的 javascript 回來用。</p>
+
+<!-- more -->
+
+
+<p>最後發現一個聰明的點, 首頁原本該是 index.php, 可是被放了一支 index.htm, 所以首頁自然就變成了 index.htm, 然後這隻 index.htm 的功能是用 javascript 去載入 index.php 的內容進來, 接著做邪惡的事。 所以連進首頁根本不會發現異常, 檢查 index.php 也完全不會發現任何東西。</p>
+
+<p>把 index.htm 移掉之後, 想說大功告成了, 可是似乎有 cache 似的, 所以我用 curl 去抓了 index.htm 的內容下來, 沒想到這才發現更驚人的事實, 這時候回來的是 302 的 Document, 可是裡面居然是有問題的連結! 後來接著看了 404 的 Document 也是一樣, 這就表示 Lunar Pages 整台都被搞了, 當下就是決定開一台 Linode 整個搬過去 (其實打從一開始就這麼想, 畢竟這網站放 LunarPages 未免也太奇怪)。後來根據 stopbadware.org 的資料, 大概有兩萬多個網站被植入東西了。</p>
+
+<p>當然搬走後, 接下來就是要處理從黑名單移除這件事, 首先拔光 malicious code 之後就是去回報, 所以趕快去 Google 網站管理員加入這個網站, 然後回報。 不過先前在沒有任何處置的狀況之下, 已經被同事回報沒問題了 囧, 所以先前的 request 根本就被取消了。</p>
+
+<p>最後直接上 <a href="http://stopbadware.org">stopbadware.org</a> 去回報, 回報說除了換主機之外, 也已經用幾個 malicious code 檢查的網站檢查過, 把檢查結果也都給過去, 最後隔天下午一點查看, 就發現從黑名單中移除了。</p>
+
+<p>看來當初應該直接上 stopbadware.org 回報就好了, 因為一直到 stopbadware review 完, 可以正常瀏覽了, google 網站管理員還沒任何動作。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">tzangms</span></span>
+
+      
+
+
+
+
+
+  
+
+
+
+<time datetime="2011-11-11T23:57:00+08:00" pubdate  data-updated="true" >Nov 11<span>th</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/category/work/'>work</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tzangms.com/2011/11/11/handle-malicious-website/" data-via="tzangms" data-counturl="http://tzangms.com/2011/11/11/handle-malicious-website/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+</div>
+
+    
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2011/10/13/ios5-release/">iOS5 release</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/tzangms">@tzangms</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'tzangms',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("tzangms", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/tzangms" class="twitter-follow-button" data-width="208px" data-show-count="true">Follow @tzangms</a>
+  
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2011 - tzangms -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+    (function () {
+      var disqus_shortname = 'tzangms';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tzangms.com/2011/11/11/handle-malicious-website/';
+        var disqus_url = 'http://tzangms.com/2011/11/11/handle-malicious-website/';
+        var disqus_script = 'embed.js'
+      
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-418467-7']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="今天, 在一個月內看完了海賊王 1 ~ 520 集, 真是值得紀念的一刻。">
+  <meta name="description" content="前天由於某單位的網站被判定為惡意網站, 被植入了惡意的程式碼。 這個網站其實不是放在我們自家的伺服器上, 當時的技術主管是決定放在 Lunar Pages。 禮拜三中午一到公司, 就接到電話打來說他們網站出現問題, 被當成惡意網站怎麼辦, 哈 (苦笑)由於完全沒碰過這個網站, 當初程式也是外包...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,49 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2011-11-11T23:57:00+08:00" pubdate  data-updated="true" >Nov 11<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>前天由於某單位的網站被判定為惡意網站, 被植入了惡意的程式碼。 這個網站其實不是放在我們自家的伺服器上, 當時的技術主管是決定放在 Lunar Pages。 禮拜三中午一到公司, 就接到電話打來說他們網站出現問題, 被當成惡意網站怎麼辦, 哈 (苦笑)</p>
+
+<p>由於完全沒碰過這個網站, 當初程式也是外包, 現在只好硬著頭皮解決, 不過當天有 4 個會要開, 就先請原本負責的同事處理, 不過完全沒找出問題就是, 同事還直接上 google 網站管理員說回報說誤判了 XD</p>
+
+<p>我只好趁開會之間的空檔開始找, 一開始先用 firebug 看, 看到多出了一個異常的 request, 馬上跟同事要了 FTP 帳號想說用 grep 去找一下, 可是從 php 裡面根本找不到任何跡象, 不過後來翻到一支 javascript 會直接被導走, 還有幾隻 javascript 看起來怪怪的, 這當初是外包出去的, 我也不知道他們會不會從國外幹奇怪的 javascript 回來用。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2011/11/11/handle-malicious-website/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -551,50 +594,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/new-streetvoice-is-done/">終於把 StreetVoice 改完了</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2011-04-18T22:13:00+08:00" pubdate  data-updated="true" >Apr 18<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>其實 StreetVoice 改版完成也快一個月了, 兩年就這樣過去了, 本來是預估一年半就可以改完的, 不過其實這中間跑去支援金X獎、簡單生活節、文X會的案子、種花電信的案子, context switch 挺嚴重的, 所以導致 StreetVoice 改版完成時間一延就延了半年。</p>
-
-<p>所以現在改版完了, 最近就是在 refactor, 還有處理很多以前留下來所謂的堪用就好的功能。</p>
-
-<p>原本我進來的角色很尷尬, 什麼東西也都要不到, 然後主要的工作就是把 ASP/MSSQL 整個砍掉重練, 本來進來是要用 PHP, 不過後來我決定用 Python/Django, 當然這是個危險的決定, 我當時幾乎還不會 Python, 不過由於對於 PHP 未來感到無望, 所以才決定跳到 Python。 當然現在很慶幸當初做了這個決定, 否則我早就累死了。</p>
-
-<p>[以下省略幾千字&#8230;]</p>
-
-<p>所以我前一陣子受不了了, 跟老闆提了辭職, 開始找新工作, 準備在 StreetVoice 改版完後就離職。 所幸有幾個工作找上門來, 推掉了幾個, 談了幾個, 有幾個工作都好想去, 感覺他們都好聰明, 而且很熱血!</p>
-
-<p>不過&#8230; 最後我還是被說服留了下來了。這中間當然也想了很多東西, 而過程&#8230; 就之後有機會再說吧 &#8230;</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -612,6 +611,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
       </li>
     
@@ -625,10 +628,6 @@
     
       <li class="post">
         <a href="/2011/10/13/ios5-release/">iOS5 release</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
       </li>
     
   </ul>

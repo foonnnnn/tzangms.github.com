@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="先前同事說：「像你就比較幸運, 上面的都比較聽你的, 我的話就都沒人聽」我今天想一想, 感覺有點嘔, 似乎這位同事完全無視我在這家公司做的努力, 我花了一年半的時間在把 asp 改成 python, 做你們辦不到的事情, 老實說這並沒有很困難, 不是我多厲害, 而是你們不去做而已。然而這過程當...">
+  <meta name="description" content="今天玩了一下 Defensio 的 API, 用來偵測 SPAM 文件跟留言, 官方提供的 python library 也挺方便易用的, 也有提供 async 跟 async_callback。from defensio import Defensioapi = Defensio(DEFEN...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,86 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2746/">Defensio SPAM 偵測</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-11-07T19:29:56+08:00" pubdate  data-updated="true" >Nov 7<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天玩了一下 <a href="http://defensio.com/">Defensio</a> 的 API, 用來偵測 SPAM 文件跟留言, 官方提供的 python library 也挺方便易用的, 也有提供 async 跟 async_callback。</p>
+
+<pre><code>from defensio import Defensio
+
+api = Defensio(DEFENSIO_API_KEY)
+doc = {
+    'type': 'article',
+    'platform': 'streetvoice',
+    'title': title,
+    'content': content,
+    'author-ip': request.META['REMOTE_ADDR'],
+    'author-name': username,
+    'author-email': email,
+    'referrer': request.META['HTTP_REFERER'],
+}
+
+status_code, response = api.post_document(doc)
+if status_code == 200:
+    classification = response['defensio-result']['classification']
+    if classification == 'spam':
+        print "You got SPAM"
+</code></pre>
+
+
+<p>目前 Defensio 免費的帳號可以每個月有 25000 次的 quota, 所以只能稍作測試一下, 目前偵測了幾個小時的部落格文章, 超準的ㄝ!</p>
+
+<p>不過在玩 Defensio 之前有先玩了 <a href="http://akismet.com/">Akismet</a>, 也挺簡單的。</p>
+
+<pre><code>from akismet import Akismet
+
+spam_data = {
+    'user_ip': request.META['REMOTE_ADDR'],
+    'user_agent': request.META['HTTP_USER_AGENT'],
+    'referrer': request.META.get('HTTP_REFERRER', 'unknown'),
+    'comment_author': username,
+    'comment_author_email': email,
+}
+
+api = Akismet(AKISMET_API_KEY)
+if api.comment_check(comment, spam_data):
+    print 'is spam'
+else:
+    print 'not spam'
+</code></pre>
+
+
+<p>不管是 Defensio 跟 Akismet 都有很簡單易用的 Python library 可以用, 只是 Defense 的價格好貴阿!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -433,58 +513,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2716/">sorl.thumbnail 可能停止開發</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-09-13T00:26:07+08:00" pubdate  data-updated="true" >Sep 13<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天因為在寫某個東西, 需要在圖片上傳之後, 再視情況自動產生不同大小的縮圖, 而不能再上傳的時候就產生縮圖, 當時直覺想到的就是 sorl.thumbnail, 沒想到一進 sorl.thumbnail 的 google code 首頁就看到這個連結: <a href="http://code.google.com/p/sorl-thumbnail/wiki/Future">Future</a>。</p>
-
-<p>其實 sorl.thumbnail 超方便的, 可是因為效能跟 scale 的問題, 所以當初再 SV 的網站上沒有大量採用, 就自己刻了一個縮圖的 library, sorl.thumbnail 只用在一小部分資料量非常少的地方。 先前 sorl.thumbnail 還是 django wiki 上列為最推薦的縮圖 library, 沒想到現在 &#8230;</p>
-
-<p>稍微介紹一下好了, sorl.thumbnail 在 template 裡的使用方式大致上如下, 縮圖不存在的話, 則會自動依照給的尺寸、參數來自動產生縮圖</p>
-
-<pre><code>{% thumbnail photo.image 640x480 crop upscale %}</code></pre>
-
-
-<p>是真的很方便, 只是先前在 glusterfs 上面用, 暴慢, 雖然說應該歸咎於 glusterfs, 但是有些事情我無力去改變, 只好在多追一點效能, 捨棄 sorl.thumbnail 自己刻。</p>
-
-<p>anyway, 另外值得一提的是, 在 python 處理圖像主要都是用 PIL, 而不像 PHP, Ruby 都用 Imagemagick 系列 ( 不要跟我提 GD 嘿 ), 可是在處理過幾百萬張圖片之後, 就會發現 PIL 其實有點廢, 不時就會來個 IOError, 後來找到其中一個原因是, 一堆有問題的照片都是 Adobe Photoshop 7 處理過的 ( EXIF 裡面有標 )</p>
-
-<p>而 sorl.thumbnail 在 Future 一文當中提到下面這兩個 project, 甚至都比 sorl.thumbnail 好用</p>
-
-<p><a href="http://github.com/SmileyChris/easy-thumbnails">easy-thumbnails</a>
-<a href="http://bitbucket.org/aino/aino-convert">aino-convert</a></p>
-
-<p>其中 <a href="http://bitbucket.org/aino/aino-convert">aino-convert</a> 則是用 imagemagick, 這個應該有趣多了, 最近得找時間來試一下。</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -504,6 +532,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
       </li>
     
@@ -517,10 +549,6 @@
     
       <li class="post">
         <a href="/2011/10/13/ios5-release/">iOS5 release</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
       </li>
     
   </ul>

@@ -4,7 +4,7 @@
   <title><![CDATA[Oceanic / 人生海海]]></title>
   <link href="http://tzangms.com/atom.xml" rel="self"/>
   <link href="http://tzangms.com/"/>
-  <updated>2011-10-25T01:36:13+08:00</updated>
+  <updated>2011-11-12T21:16:41+08:00</updated>
   <id>http://tzangms.com/</id>
   <author>
     <name><![CDATA[tzangms]]></name>
@@ -12,6 +12,32 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[處理被判別為惡意網站的經驗]]></title>
+    <link href="http://tzangms.com/2011/11/11/handle-malicious-website/"/>
+    <updated>2011-11-11T23:57:00+08:00</updated>
+    <id>http://tzangms.com/2011/11/11/handle-malicious-website</id>
+    <content type="html"><![CDATA[<p>前天由於某單位的網站被判定為惡意網站, 被植入了惡意的程式碼。 這個網站其實不是放在我們自家的伺服器上, 當時的技術主管是決定放在 Lunar Pages。 禮拜三中午一到公司, 就接到電話打來說他們網站出現問題, 被當成惡意網站怎麼辦, 哈 (苦笑)</p>
+
+<p>由於完全沒碰過這個網站, 當初程式也是外包, 現在只好硬著頭皮解決, 不過當天有 4 個會要開, 就先請原本負責的同事處理, 不過完全沒找出問題就是, 同事還直接上 google 網站管理員說回報說誤判了 XD</p>
+
+<p>我只好趁開會之間的空檔開始找, 一開始先用 firebug 看, 看到多出了一個異常的 request, 馬上跟同事要了 FTP 帳號想說用 grep 去找一下, 可是從 php 裡面根本找不到任何跡象, 不過後來翻到一支 javascript 會直接被導走, 還有幾隻 javascript 看起來怪怪的, 這當初是外包出去的, 我也不知道他們會不會從國外幹奇怪的 javascript 回來用。</p>
+
+<!-- more -->
+
+
+<p>最後發現一個聰明的點, 首頁原本該是 index.php, 可是被放了一支 index.htm, 所以首頁自然就變成了 index.htm, 然後這隻 index.htm 的功能是用 javascript 去載入 index.php 的內容進來, 接著做邪惡的事。 所以連進首頁根本不會發現異常, 檢查 index.php 也完全不會發現任何東西。</p>
+
+<p>把 index.htm 移掉之後, 想說大功告成了, 可是似乎有 cache 似的, 所以我用 curl 去抓了 index.htm 的內容下來, 沒想到這才發現更驚人的事實, 這時候回來的是 302 的 Document, 可是裡面居然是有問題的連結! 後來接著看了 404 的 Document 也是一樣, 這就表示 Lunar Pages 整台都被搞了, 當下就是決定開一台 Linode 整個搬過去 (其實打從一開始就這麼想, 畢竟這網站放 LunarPages 未免也太奇怪)。後來根據 stopbadware.org 的資料, 大概有兩萬多個網站被植入東西了。</p>
+
+<p>當然搬走後, 接下來就是要處理從黑名單移除這件事, 首先拔光 malicious code 之後就是去回報, 所以趕快去 Google 網站管理員加入這個網站, 然後回報。 不過先前在沒有任何處置的狀況之下, 已經被同事回報沒問題了 囧, 所以先前的 request 根本就被取消了。</p>
+
+<p>最後直接上 <a href="http://stopbadware.org">stopbadware.org</a> 去回報, 回報說除了換主機之外, 也已經用幾個 malicious code 檢查的網站檢查過, 把檢查結果也都給過去, 最後隔天下午一點查看, 就發現從黑名單中移除了。</p>
+
+<p>看來當初應該直接上 stopbadware.org 回報就好了, 因為一直到 stopbadware review 完, 可以正常瀏覽了, google 網站管理員還沒任何動作。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[One Piece]]></title>
@@ -462,48 +488,6 @@
 <p>從 myaudiocast 營運到現在讓我聽了好多 Podcast, 特別是 「<a href="http://www.myaudiocast.com/bbbmess/">薛倫小電台</a>」、「<a href="http://www.myaudiocast.com/joho247/">糾好電台</a>」、「<a href="http://www.myaudiocast.com/21man/">船到橋頭自然沉</a>」 &#8230; 等等, 伴我度過許多上班時間, 希望各位電台的主持人能夠繼續下去阿! ( 雖然做 Podcast 很難持之以恆, 像是我就是一個很好的範例 ) (笑)</p>
 
 <p>由於最近工作真的太忙, 其實已經好多集的 Podcast 都沒時間聽了, anyway, 就祝 myaudiocast 生日快樂吧! 等哪天成長到一天 1T 流量的話, 就可以來開慶功宴了, 喔頁!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[新新 Macbook Air 使用心得]]></title>
-    <link href="http://tzangms.com/life/2812/"/>
-    <updated>2011-01-24T00:30:23+08:00</updated>
-    <id>http://tzangms.com/life/新新_macbook_air_使用心得</id>
-    <content type="html"><![CDATA[<p>去年年底<a href="http://tzangms.com/life/2777">入手一台攻頂的新新 MBA</a>, 由於透過朋友的企業商店購買, 所以原本應該六萬三的 Macbook Air, 只要五萬九。 當初在買的時候覺得好貴, 想說其實我到處都有 Mac 了, 台北住處一台 Mac mini server, 宜蘭住處也一台 Mac mini, 公司則是 Hackintosh, 手上則是還有一台 Macbook, 甚至還有 iPad, 所以省一點的話, 其實我根本不該買 Macbook Air 的 &#8230;</p>
-
-<p>Anyway, 總之買了新新 Macbook Air 之後, 就把原本包包放 iPad 的位置換上這台新新 Macbook Air, 哈, 現在出門幾乎感受不到自己有背電腦阿 XD 帶 Macbook Air 出門完全不覺得是負擔!</p>
-
-<p>其實因為到處有 Mac 跟 iPad 所以這台 Macbook Air 就真的只是做形象, 不太常用, 不過一拿出來就是用來顯示一個專業人士該有的態度 (笑) 不過, 也是該說一下這台最令我驚艷的幾個地方:</p>
-
-<h2>開關機速度飛快</h2>
-
-
-<p>開機只需要不到 15 秒, 開完機後則是執行什麼都快 (笑)</p>
-
-<h2>非常之輕薄</h2>
-
-
-<p>跟之前 Macbook 比真是差太多了, 現在完全不會覺得帶電腦出門是一個負擔, 一點都不誇張, 包包都背身上了, 還得時常檢查自己是否有帶電腦。</p>
-
-<h2>一點都不燙</h2>
-
-
-<p>其他 Macbook 的機種, 根本不能放在腿上阿, 這台 Macbook Air 頂多稍微溫溫的, 這才是能夠讓你放在腿上的筆記型電腦阿!! 不過這台其實有一個缺點, 就是冬天使用太冰冷了 (笑)</p>
-
-<h2>使用時間長</h2>
-
-
-<p>最近的使用狀況是帶到公司, 或是在公司新開的<a href="http://tw.streetvoice.com/profile/home.asp?sd=743530">好丘</a>使用, 幾乎沒在另外充電的。</p>
-
-<h2>特殊的虛榮感</h2>
-
-
-<p>我也不知道為什麼, 把 Macbook Air 拿在手上時, 內心總是會不經意的笑一下。</p>
-
-<p>不過由於我大部分時間都只用 terminal 開 vim 來寫程式, 頂多開 Xcode, 所以使用時間的長短應該還是會因使用情境而異。</p>
-
-<p>不過老實說, 原本以為花那麼多錢很浪費, 買來後也應該很少用, 可是現在就覺得, 幹, 這六萬塊花的還真是值得, 不就一個爽字, 終於有一台電腦放在腿上不覺得燙, 終於有台電腦帶出門感覺不到他的存在, 終於有台電腦讓我沒得抱怨了, 實在是, 當初我幹嘛猶豫這麼久, 早該買了阿!!!~</p>
 ]]></content>
   </entry>
   

@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content=" ">
+  <meta name="description" content="sqsh (http://www.sqsh.org/) 在 linux 下存取 MS SQL Server? SQL Server當然沒有 Linux 版啦, 好像 Sybase 的 isql 可以用來存取 SQL Server, 但是好像很舊了? 阿災, 我一開始為了要在 Linux 下存取...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,56 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/linux/774/">在 Linux 存取 MS SQL Server: Sqsh</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-02-05T15:30:47+08:00" pubdate  data-updated="true" >Feb 5<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>sqsh (<a href="http://www.sqsh.org/">http://www.sqsh.org/</a>) 在 linux 下存取 MS SQL Server? SQL Server當然沒有 Linux 版啦, 好像 Sybase 的 isql 可以用來存取 SQL Server, 但是好像很舊了? 阿災, 我一開始為了要在 Linux 下存取 SQL Server, 就是找到 sqsh 就是 SQL Shell, 滿酷的! SQL Server 取出來的資料, 可以在透過 shell 來做一些後續的處理, 而不只是執行一些 SQL 指令而已。看你要將取出來的資料丟到 pipe, 或是處理過後 cat 到 text file, 都很簡單, 總而言之, 很酷, 不過好幾年沒有繼續 maintain 了, 這一陣子才又換人接手。</p>
+
+<p>在 MySQL 要秀出 table 或是資料庫的話, 用 show 嘛, 那 SQL Server 呢? 用滑鼠 XD
+這裡有個對照表 (<a href='http://users.pandora.be/pecop/sqlr/sqlbasics.html'>SQL Basics</a>) 看了大概就知道, 不過還是要先看看 sqsh 的 manual。</p>
+
+<p><strong>與 SQL Server 連線:</strong>
+<code>sqsh -S servername -U username -P password</code></p>
+
+<p>PS. 這邊注意一下, sqsh 的 man page 裏面還可以看到有個選項是 -H  hostname, 一開始我一直以為這是 server address, 原來 -S 才是阿!!</p>
+
+<p><strong>用 X 輸出結果: (應該是用 tk)</strong>
+<code>1> sp_databases
+2> \go -x</code></p>
+
+<p>這邊順便示範一下秀出資料庫的範例, 只是在結尾時多加了一個 -x 就是表是用 X 輸出啦! 在輸出的時候會跑出一個看起來是 tk 的 window, 通常, 由於輸出的結果都會大於 console 可顯示的寬度, 所以就在顯示大量資料的時候用 -x 透過 X 來輸出顯示結果看起來比較清楚。</p>
+
+<p>先這樣啦~</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -602,41 +652,6 @@ vim -u ~/.vimrc_utf-8 $1</code></p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/749/">跳! 打爆你的大頭!H2O表演影片</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2006-12-28T08:38:19+08:00" pubdate  data-updated="true" >Dec 28<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><embed style="width:400px; height:326px;" id="VideoPlayback" type="application/x-shockwave-flash" src="http://video.google.com/googleplayer.swf?docId=4699550264074134656&hl=en" flashvars=""> </embed>
-這是上禮拜六, 算是聖誕節的表演, 大家都很High, 感覺真不錯! 雖然有唱錯一句, 不過是我寫的歌, 也沒差 XD 放上&#8221;打爆你的大頭&#8221;的影片給大家看看! 大家一起跳吧! XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -656,6 +671,10 @@ vim -u ~/.vimrc_utf-8 $1</code></p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
       </li>
     
@@ -669,10 +688,6 @@ vim -u ~/.vimrc_utf-8 $1</code></p>
     
       <li class="post">
         <a href="/2011/10/13/ios5-release/">iOS5 release</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
       </li>
     
   </ul>

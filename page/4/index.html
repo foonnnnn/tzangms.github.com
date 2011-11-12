@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="我只不過是說了: 「沒事我也想買一台 MBA 呀 ~」沒想到引來了近百則勸敗推 &#8230; 而且攻勢極猛, 現在我已經在思考錢要怎麼分配了&#8230;沒事&#8230; 還是不要亂推阿 &#8230;">
+  <meta name="description" content="哇哈哈哈 XD 本來出貨單上是寫著 12/29 才會到, 沒想到整整提早了 13 天啊!! 我的媽呀, 今天早上去文建會開會後回公司, 看到桌上擺著一個箱子, 我一整個大驚, 嘖嘖 apple 我真是搞不懂你阿!! XD">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,42 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/2777/">新新 Macbook Air 入手!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-12-16T22:45:46+08:00" pubdate  data-updated="true" >Dec 16<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://tzangms.com/wp-content/uploads/2010/12/704cccaccb214063ab307aa242882d41_7.jpg"><img src="http://tzangms.com/wp-content/uploads/2010/12/704cccaccb214063ab307aa242882d41_7-500x500.jpg" alt="" title="704cccaccb214063ab307aa242882d41_7" width="500" height="500" class="aligncenter size-large wp-image-2778" /></a></p>
+
+<p>哇哈哈哈 XD 本來出貨單上是寫著 12/29 才會到, 沒想到整整提早了 13 天啊!! 我的媽呀, 今天早上去文建會開會後回公司, 看到桌上擺著一個箱子, 我一整個大驚, 嘖嘖 apple 我真是搞不懂你阿!! XD</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -472,86 +508,6 @@ TEMPLATE_DIRS = (
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2746/">Defensio SPAM 偵測</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-11-07T19:29:56+08:00" pubdate  data-updated="true" >Nov 7<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天玩了一下 <a href="http://defensio.com/">Defensio</a> 的 API, 用來偵測 SPAM 文件跟留言, 官方提供的 python library 也挺方便易用的, 也有提供 async 跟 async_callback。</p>
-
-<pre><code>from defensio import Defensio
-
-api = Defensio(DEFENSIO_API_KEY)
-doc = {
-    'type': 'article',
-    'platform': 'streetvoice',
-    'title': title,
-    'content': content,
-    'author-ip': request.META['REMOTE_ADDR'],
-    'author-name': username,
-    'author-email': email,
-    'referrer': request.META['HTTP_REFERER'],
-}
-
-status_code, response = api.post_document(doc)
-if status_code == 200:
-    classification = response['defensio-result']['classification']
-    if classification == 'spam':
-        print "You got SPAM"
-</code></pre>
-
-
-<p>目前 Defensio 免費的帳號可以每個月有 25000 次的 quota, 所以只能稍作測試一下, 目前偵測了幾個小時的部落格文章, 超準的ㄝ!</p>
-
-<p>不過在玩 Defensio 之前有先玩了 <a href="http://akismet.com/">Akismet</a>, 也挺簡單的。</p>
-
-<pre><code>from akismet import Akismet
-
-spam_data = {
-    'user_ip': request.META['REMOTE_ADDR'],
-    'user_agent': request.META['HTTP_USER_AGENT'],
-    'referrer': request.META.get('HTTP_REFERRER', 'unknown'),
-    'comment_author': username,
-    'comment_author_email': email,
-}
-
-api = Akismet(AKISMET_API_KEY)
-if api.comment_check(comment, spam_data):
-    print 'is spam'
-else:
-    print 'not spam'
-</code></pre>
-
-
-<p>不管是 Defensio 跟 Akismet 都有很簡單易用的 Python library 可以用, 只是 Defense 的價格好貴阿!</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -571,6 +527,10 @@ else:
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
       </li>
     
@@ -584,10 +544,6 @@ else:
     
       <li class="post">
         <a href="/2011/10/13/ios5-release/">iOS5 release</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
       </li>
     
   </ul>

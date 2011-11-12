@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content=" 上週末 12/25 koumis 在河岸留言表演, 找了我去擔任 special guest, 真的是很感謝他們給了我一個這樣的機會, 讓我有機會可以在河岸留言演出。可能樂團玩久了, 對一個人表演感到有點恐懼, 似乎音樂永遠是空洞的感覺, 當然隨意的場合我就不那麼擔心, 只是這次可是在河岸留...">
+  <meta name="description" content="目前我手上總共有 4 台 VPS, 為 2 台 256MB 的 slicehost, 一台 512MB 的 NY NOC 然後還有昨天新買的 540MB 的 Linode, 新買的 Linode 想拿來取代 slicehost 那兩台, 因為現在沒工作, 所以要省一點。540MB 的 Lino...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,54 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/linux/2294/">新買了一台 Linode</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-02T00:37:53+08:00" pubdate  data-updated="true" >Jan 2<span>nd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>目前我手上總共有 4 台 VPS, 為 2 台 256MB 的 <a href="http://slicehost.com/" target="_blank">slicehost</a>, 一台 512MB 的 <a href="http://thenynoc.com/" target="_blank">NY NOC</a> 然後還有昨天新買的 540MB 的 <a href="http://linode.com/" target="_blank">Linode</a>, 新買的 Linode 想拿來取代 slicehost 那兩台, 因為現在沒工作, 所以要省一點。</p>
+
+<p>540MB 的 Linode 要價 $29.95, 而兩台 256MB 的 slicehost, 要價 $40, 本來是想買 720MB 的 Linode, 不過想說這樣就沒省到錢了, 只好買 540MB 的 Linode, 反正之後可以直接加 RAM。</p>
+
+<p>而 NY NOC 那一台目前只有跑我的 blog, 跟一些實驗性的東西。 不過 NY NOC 真的是很便宜, 只是 ping time 不好, performance 也不太好, 不敢把 <a href="http://stickeraction.com/" target="_blank">stickeraction</a> 或是 <a href="http://twitthat.com/" target="_blank">twitthat</a> 搬過去, 不過那麼便宜的 VPS 就不要強求了 :p</p>
+
+<p>剛才 ping 了一下, 這三家的 ping time 如下, Linode 選 Fremont, CA 還滿快的:</p>
+
+<p>Linode: 16x ms
+Slicehost: 19x ms
+NY NOC: 37x ms</p>
+
+<p>而在 <a href="http://gentoo.org/" target="_blank">Gentoo</a> 的支援上, Slicehost 倒是比 Linode 好多了, Linode 到現在還是只有 Gentoo 2007.0 的 image, 害我今天在升級 packages 的時候碰到好幾個 package block, 跟 collision.</p>
+
+<p>update: 阿駕說他那邊 ping NY NOC 都 15x, 我這邊是 hinet …. Orz</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -585,42 +633,6 @@ RewriteRule . /index.php [L]
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/2244/">離職了</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-11-28T20:56:13+08:00" pubdate  data-updated="true" >Nov 28<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天我離職了, 告別這大約兩年半的第一份工作。要來好好休息一陣子了。</p>
-
-<p>不過我馬上就要趕回宜蘭, 明天是阿公做百日, 今天一定得趕回家的 Orz</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -640,6 +652,10 @@ RewriteRule . /index.php [L]
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
       </li>
     
@@ -653,10 +669,6 @@ RewriteRule . /index.php [L]
     
       <li class="post">
         <a href="/2011/10/13/ios5-release/">iOS5 release</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
       </li>
     
   </ul>

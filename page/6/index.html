@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="MRI photo of Andrew AcombMRI 照出來大概看起來像上面這樣。  不過我拿到的檔案透過軟體來瀏覽是可以動的。其實是上禮拜我爸到台北長庚醫院照 MRI 後, 拿回了一片光碟, 然後要我這禮拜帶著我的筆記型電腦回宜蘭, 要去給認識的醫生看 MRI 照出來的圖像, 看看身體狀...">
+  <meta name="description" content="今天因為在寫某個東西, 需要在圖片上傳之後, 再視情況自動產生不同大小的縮圖, 而不能再上傳的時候就產生縮圖, 當時直覺想到的就是 sorl.thumbnail, 沒想到一進 sorl.thumbnail 的 google code 首頁就看到這個連結: Future。其實 sorl.thum...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,58 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2716/">sorl.thumbnail 可能停止開發</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-09-13T00:26:07+08:00" pubdate  data-updated="true" >Sep 13<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天因為在寫某個東西, 需要在圖片上傳之後, 再視情況自動產生不同大小的縮圖, 而不能再上傳的時候就產生縮圖, 當時直覺想到的就是 sorl.thumbnail, 沒想到一進 sorl.thumbnail 的 google code 首頁就看到這個連結: <a href="http://code.google.com/p/sorl-thumbnail/wiki/Future">Future</a>。</p>
+
+<p>其實 sorl.thumbnail 超方便的, 可是因為效能跟 scale 的問題, 所以當初再 SV 的網站上沒有大量採用, 就自己刻了一個縮圖的 library, sorl.thumbnail 只用在一小部分資料量非常少的地方。 先前 sorl.thumbnail 還是 django wiki 上列為最推薦的縮圖 library, 沒想到現在 &#8230;</p>
+
+<p>稍微介紹一下好了, sorl.thumbnail 在 template 裡的使用方式大致上如下, 縮圖不存在的話, 則會自動依照給的尺寸、參數來自動產生縮圖</p>
+
+<pre><code>{% thumbnail photo.image 640x480 crop upscale %}</code></pre>
+
+
+<p>是真的很方便, 只是先前在 glusterfs 上面用, 暴慢, 雖然說應該歸咎於 glusterfs, 但是有些事情我無力去改變, 只好在多追一點效能, 捨棄 sorl.thumbnail 自己刻。</p>
+
+<p>anyway, 另外值得一提的是, 在 python 處理圖像主要都是用 PIL, 而不像 PHP, Ruby 都用 Imagemagick 系列 ( 不要跟我提 GD 嘿 ), 可是在處理過幾百萬張圖片之後, 就會發現 PIL 其實有點廢, 不時就會來個 IOError, 後來找到其中一個原因是, 一堆有問題的照片都是 Adobe Photoshop 7 處理過的 ( EXIF 裡面有標 )</p>
+
+<p>而 sorl.thumbnail 在 Future 一文當中提到下面這兩個 project, 甚至都比 sorl.thumbnail 好用</p>
+
+<p><a href="http://github.com/SmileyChris/easy-thumbnails">easy-thumbnails</a>
+<a href="http://bitbucket.org/aino/aino-convert">aino-convert</a></p>
+
+<p>其中 <a href="http://bitbucket.org/aino/aino-convert">aino-convert</a> 則是用 imagemagick, 這個應該有趣多了, 最近得找時間來試一下。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -453,45 +505,6 @@ sorted_list.reverse() # 如果要新的時間在前的話, reverse 一下</code>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/2685/">關於苗栗大埔</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-07-07T13:23:19+08:00" pubdate  data-updated="true" >Jul 7<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/bi1qkUFwuZM&amp;hl=zh_TW&amp;fs=1?hd=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/bi1qkUFwuZM&amp;hl=zh_TW&amp;fs=1?hd=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed></object>
-
-
-<p>你還不知道苗栗大埔這件事嗎? 可以的話煩請看一下這個影片。</p>
-
-<p>在看這個影片的同時我一直在想, 如果事情是發生在我身上, 我該怎麼處置, 該如何應對, 在打這篇的同時我哭了, 似乎事情真的發生在我身上時, 我又能如何? 好像也只能看著自己被毀壞、撕裂。</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -511,6 +524,10 @@ sorted_list.reverse() # 如果要新的時間在前的話, reverse 一下</code>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
       </li>
     
@@ -524,10 +541,6 @@ sorted_list.reverse() # 如果要新的時間在前的話, reverse 一下</code>
     
       <li class="post">
         <a href="/2011/10/13/ios5-release/">iOS5 release</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/09/from-blogofile-to-octopress/">From blogofile to octopress</a>
       </li>
     
   </ul>
