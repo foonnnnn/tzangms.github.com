@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>搬出 App Engine - Oceanic / 人生海海</title>
+  <meta name="author" content="tzangms">
+
+  
+  <meta name="description" content="昨天把 MyAudioCast 搬出了 App Engine, 花了一些時間改寫程式跟 migrate 資料, 最後搬到了 Linode 上。 而原本在 App Engine 上用的是 Django 1.1, 順便也把 Django 升到 1.3。在這次搬家的過程花最多時間的就是在處理資料的轉...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tzangms.com/2011/11/21/move-out-of-appengine/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/tzangms" rel="alternate" title="Oceanic / 人生海海" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<meta name="google-site-verification" content="AR4FP21F1VmZBfi-VjsnMnDiknxIzSk4OLYBI7CqDKw" />
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <img src="/images/logo.png"/>
+  <!--
+  <h1><a href="/">Oceanic / 人生海海</a></h1>
+  
+    <h2>這就是人生阿</h2>
+  
+  -->
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/tzangms" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tzangms.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">搬出 App Engine</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2011-11-21T20:49:00+08:00" pubdate  data-updated="true" >Nov 21<span>st</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>昨天把 <a href="http://www.myaudiocast.com/">MyAudioCast</a> 搬出了 <a href="http://code.google.com/appengine/">App Engine</a>, 花了一些時間改寫程式跟 migrate 資料, 最後搬到了 Linode 上。 而原本在 App Engine 上用的是 <a href="https://www.djangoproject.com/">Django</a> 1.1, 順便也把 Django 升到 1.3。</p>
+
+<p>在這次搬家的過程花最多時間的就是在處理資料的轉換了, 而最初我以為要把資料從 App Engine 倒出來非常麻煩, 不過後來找到<a href="http://code.google.com/intl/en/appengine/docs/python/tools/uploadingdata.html">倒出資料的文件</a>, 就照著文件說明把資料倒出成 csv, 然後寫了幾支 <a href="https://docs.djangoproject.com/en/dev/howto/custom-management-commands/">Django command</a> 讀取 csv 寫進資料庫。</p>
+
+<p>首先第一步就是建立 mapping 的 config 檔, 只需要下面這個指令就可以產生 datastore mapping 的 yaml。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>appcfg.py create_bulkloader_config --filename=bulkloader.yaml .</span></code></pre></td></tr></table></div></figure>
+
+
+<p>接著編輯這個文件, 找到 TODO 然後把 Foreignkey 都填上, connector 就填 csv, 然後就可以透過這份 yaml 執行下面這個指令來把資料倒成 csv 了。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>appcfg.py download_data --config_file=bulkloader.yaml --filename=users.csv --kind=User .</span></code></pre></td></tr></table></div></figure>
+
+
+<p>這樣一來需要的就只是讀取 csv 然後寫進 database 了, example script 像是下面這樣。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">csv</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">items</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s">&#39;/home/tzangms/users.csv&#39;</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">))</span>
+</span><span class='line'><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+</span><span class='line'>    <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">()</span>
+</span><span class='line'>    <span class="n">user</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s">&#39;username&#39;</span><span class="p">]</span>
+</span><span class='line'>    <span class="n">user</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s">&#39;email&#39;</span><span class="p">]</span>
+</span><span class='line'>    <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c"># other steps</span>
+</span><span class='line'>    <span class="c"># ...</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>基本上, 只要依照以上的步驟就可以把資料都倒出來了, 當初還沒想到有這麼簡單的方法。
+不過後來其實在 migrate 資料時就碰到了一些頭痛的問題。</p>
+
+<h2>資料關聯的問題</h2>
+
+<p>即便資料可以倒出成 csv, 在匯入資料時就碰到問題了, 因為如果 datastore 的 entity 指定了 parent 的話, key 就可能會重覆, 像是 myaudiocast 的 Episode 的 parent 是指為 Podcast, 所以幾乎每個 podcast 的第一集節目的 key 都是 1001, 所以當初有 800 多個 episode 的 key 都是 1001。</p>
+
+<p>本來想說應該用 podcast 這個 key 可以用來區分不同 podcast 的 episode, 不過 Podcast 先前的 parent 也是設成 User, 所以也是重覆的, 有八百多個 1 吧。</p>
+
+<p>幸好當初 Episode 同時存了 User 跟 Podcast 當 ForeignKey, 所幸還有 User 的值可以用 (內容就是 email), 不然還真的沒辦法。</p>
+
+<p>其實我後來發現, 你也可以把很多東西預先寫起來在 dump 出來, 如果當任何東西都沒辦法作關聯的話, 至少把這個 entity 的網址給存下來, 之後再 parse 吧!</p>
+
+<h2>帳號登入的問題</h2>
+
+<p>由於先前 myaudiocast 直接用 google account 登入, 所以搬出來只好實作一下 <a href="http://code.google.com/apis/accounts/docs/OAuth2Login.html">Google OAuth 2</a>, 不過當初資料超少的, 我連 <a href="https://code.google.com/apis/console/">API Console</a> 都找不到, hmm &#8230; 我想當初應該還是在實驗階段吧。</p>
+
+<p>Anyway, 因為 <a href="http://code.google.com/apis/accounts/docs/OpenID.html">Federated Login</a> 有點麻煩, 所以就選了跟 OAuth 2 來做, 實作起來簡單多了。</p>
+
+<p>因為倒出來的帳號資料跟 Google 有關連的就只有 email, 所以要用 Google OAuth 2 的話, 至少也要拿到 email 才行, 可是翻來翻去根本找不到 OAuth 2 的 scope, 不過目前文件好多了 &#8230;</p>
+
+<p>用下面這兩個 scope 應該就夠了, 當初找一整天都沒找到 &#8230;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>https://www.googleapis.com/auth/userinfo.profile
+</span><span class='line'>https://www.googleapis.com/auth/userinfo.email
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>看過 Facebook 的 scope 就覺得&#8230; Google 你未免也太囉嗦了 XD</p>
+
+<h2>原本的網址失效</h2>
+
+<p>因為 key 的問題, 導致沒辦法直接用原本的 key, 從 DataStore 轉進 SQL 的話, 原本的網址也就失效了。 不過這個解決的方法很簡單, 另外存一份原本的 key 就好了, 當找不到 episode 時, 改用 key 找看看, 沒有的話再秀 404, 目前看來狀況良好。</p>
+
+<h2>掰掰了 App Engine</h2>
+
+<p>這個月每天都在 App Engine 上花了大約 4 ~ 5 塊美金, 這樣下來一個月就要花上大約 150 塊, 真的是滿貴的。可是其實就用量來看, 搬到一台 Linode 512 都還可以撐, 一個月只需要 20 塊, 而且效能還比以往好上許多。 當然也許這可能就是 scalable 跟不用管機器的代價吧? XD</p>
+
+<p>突然想到大約半年前還在 beta 的 App Engine, 常常 deploy 都要花上 5 ~ 10 分鐘才完成, 時間的花費真的是不值得, 雖然現在狀況好上很多, 不過價錢卻不是我付得起的, 甚至根本無 CP 值可言, 我想也只能說掰掰了。</p>
+
+<p>不過還是學到挺多東西的就是, 掰掰了 App Engine。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">tzangms</span></span>
+
+      
+
+
+
+
+
+  
+
+
+
+<time datetime="2011-11-21T20:49:00+08:00" pubdate  data-updated="true" >Nov 21<span>st</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/category/programming/'>programming</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tzangms.com/2011/11/21/move-out-of-appengine/" data-via="tzangms" data-counturl="http://tzangms.com/2011/11/21/move-out-of-appengine/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+</div>
+
+    
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/tzangms">@tzangms</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'tzangms',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("tzangms", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/tzangms" class="twitter-follow-button" data-width="208px" data-show-count="true">Follow @tzangms</a>
+  
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2011 - tzangms -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+    (function () {
+      var disqus_shortname = 'tzangms';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tzangms.com/2011/11/21/move-out-of-appengine/';
+        var disqus_url = 'http://tzangms.com/2011/11/21/move-out-of-appengine/';
+        var disqus_script = 'embed.js'
+      
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-418467-7']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

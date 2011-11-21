@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="之前在當兵時, 回學校表演的時候, 志豪有帶我去吃過拉亞, 在畢業前還沒開~ 以前早餐都吃起士火腿蛋加奶茶, 突然到拉亞卻不知道吃啥。 結果現在在台北租房子的附近就新開了一間拉亞。 現在每次週末六日的早餐, 都想著要吃拉亞 XD">
+  <meta name="description" content="記得之前再翻 PHP Manual 時, 看到 DOM 裡有 schemaValidate 這個東西, 也因為工作需要, 所以來試一下, 還真方便好用。$xml = file_get_contents('http://tzangms.com/foo.xml');$dom = new DOMDo...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,56 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1126/">[PHP] XML Schema 驗證</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-04-01T13:56:07+08:00" pubdate  data-updated="true" >Apr 1<span>st</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>記得之前再翻 PHP Manual 時, 看到 <a href="http://www.php.net/manual/tw/ref.dom.php">DOM</a> 裡有 <a href="http://www.php.net/manual/tw/function.dom-domdocument-schemavalidate.php">schemaValidate</a> 這個東西, 也因為工作需要, 所以來試一下, 還真方便好用。</p>
+
+<p><code>$xml = file_get_contents('http://tzangms.com/foo.xml');
+$dom = new DOMDocument;
+$dom->loadXML($xml);</p>
+
+<p>$is_validate = $dom->schemaValidate('bar.xsd');</code></p>
+
+<p>或是用 load 讀 xml 檔名</p>
+
+<p><code>$dom = new DOMDocument;
+$dom->load('foo.xml');</p>
+
+<p>$is_validate = $dom->schemaValidate('bar.xsd');</code></p>
+
+<p>另外 xsd 的部分, 也有 <a href="http://www.php.net/manual/tw/function.dom-domdocument-schemavalidatesource.php">schemaValidateSource </a>可用
+<code>$dom->schemaValidateSource($xsd);</code></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -506,48 +556,6 @@ Programmer 可以看看這篇, 裡面提到一些 programmer 具有的特質, �
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/codeigniter/1090/">Lighttpd Rewrite Rules for CodeIgniter</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-03-01T19:49:24+08:00" pubdate  data-updated="true" >Mar 1<span>st</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>由於 CodeIgniter 使用 index.php 當作 font controller, 所以基本上把所有的東西都 rewrite 到 index.php 就可以了! 不過由於還是有 images, js 跟 css 檔案不能做 rewrite, 所以再加上類似於 public 那一行就行了! (我習慣是把 images, js 跟 css 資料夾都放在 public 資料夾裡面)</p>
-
-<pre><code>$HTTP["host"] =~ "tzangms.com" {
-    url.rewrite = (
-        "^/public/.*$" => "$0",
-        "^/(.*)$" => "index.php/$1"
-    )
-}</code></pre>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -567,6 +575,10 @@ Programmer 可以看看這篇, 裡面提到一些 programmer 具有的特質, �
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
       </li>
     
@@ -580,10 +592,6 @@ Programmer 可以看看這篇, 裡面提到一些 programmer 具有的特質, �
     
       <li class="post">
         <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/13/ios5-release/">iOS5 release</a>
       </li>
     
   </ul>

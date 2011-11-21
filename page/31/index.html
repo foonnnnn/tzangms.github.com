@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="這次教召一共4天, 簡短來說&#8230;就是超無聊 XD 不過也幸好不是在夏天去, 否則應該會更難渡過這漫長的教召生活。其實教召讓我有種去當少爺的感覺 XD 這裡說的少爺, 其實是相較於新訓的時候, 爽的非常之多, 不過還是要集合、點名、洗餐盤&#8230;等等。想當初在新訓的時候, 真的是...">
+  <meta name="description" content="在上禮拜五教召結束後, 隨即而來的就是 Punch Party 4, 其實這是我第一次參加 Punch Party, 也剛好凱洛找我去講 twitthat, 所以第一次就是以講員的身分參加 PP :p 基本上我是很害羞且不擅言語的, 有在 PP 現場看的人應該都可以看得出來 (笑)">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,49 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/1160/">Punch Party 4!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-05-05T22:30:30+08:00" pubdate  data-updated="true" >May 5<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p style="text-align: center;"><a href="http://www.flickr.com/photos/kovis/2462188052/"><img class="aligncenter" src="http://farm4.static.flickr.com/3042/2461354135_7e090dacd3.jpg" alt="" width="500" height="333" />
+</a></p>
+
+
+<p>在上禮拜五教召結束後, 隨即而來的就是 Punch Party 4, 其實這是我第一次參加 <a href="http://blog.punchparty.asia" target="_blank">Punch Party</a>, 也剛好凱洛找我去講 <a href="http://twitthat.com" target="_blank">twitthat</a>, 所以第一次就是以講員的身分參加 PP :p 基本上我是很害羞且不擅言語的, 有在 PP 現場看的人應該都可以看得出來 (笑)</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/web/1160/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -497,56 +540,6 @@ find . -name *.php ! -exec php -l {} ;
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1126/">[PHP] XML Schema 驗證</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-04-01T13:56:07+08:00" pubdate  data-updated="true" >Apr 1<span>st</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>記得之前再翻 PHP Manual 時, 看到 <a href="http://www.php.net/manual/tw/ref.dom.php">DOM</a> 裡有 <a href="http://www.php.net/manual/tw/function.dom-domdocument-schemavalidate.php">schemaValidate</a> 這個東西, 也因為工作需要, 所以來試一下, 還真方便好用。</p>
-
-<p><code>$xml = file_get_contents('http://tzangms.com/foo.xml');
-$dom = new DOMDocument;
-$dom->loadXML($xml);</p>
-
-<p>$is_validate = $dom->schemaValidate('bar.xsd');</code></p>
-
-<p>或是用 load 讀 xml 檔名</p>
-
-<p><code>$dom = new DOMDocument;
-$dom->load('foo.xml');</p>
-
-<p>$is_validate = $dom->schemaValidate('bar.xsd');</code></p>
-
-<p>另外 xsd 的部分, 也有 <a href="http://www.php.net/manual/tw/function.dom-domdocument-schemavalidatesource.php">schemaValidateSource </a>可用
-<code>$dom->schemaValidateSource($xsd);</code></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -566,6 +559,10 @@ $dom->load('foo.xml');</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
       </li>
     
@@ -579,10 +576,6 @@ $dom->load('foo.xml');</p>
     
       <li class="post">
         <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/13/ios5-release/">iOS5 release</a>
       </li>
     
   </ul>

@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content=" 話說昨天下班我就衝去上 DearJohn 的廣播節目- 格強有耳, 呼~ 真的是非常的緊張, 果然跟自己一個人在家裡錄 Podcast 的感覺差很多, John 的口調真好, 真該跟 John 多學習一下。在節目中播放了自然而然跟眉頭這兩首歌曲, 其實在節目中應該是因為太緊張又想搞 kuso...">
+  <meta name="description" content="最近用 CodeIgniter 搭配 MS SQL Server 在寫程式, 把原來是針對 MySQL 的程式拿來改成用 SQL Server 當資料庫, 不過卻碰上滿多問題的, 特別是 SQL Statement 的部份, 有幾個看起來不會有問題的 statement 全都因為資料庫換成了 ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,47 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/905/">CodeIgniter Mssql Driver 補完 XD</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-07-05T23:41:00+08:00" pubdate  data-updated="true" >Jul 5<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>最近用 CodeIgniter 搭配 MS SQL Server 在寫程式, 把原來是針對 MySQL 的程式拿來改成用 SQL Server 當資料庫, 不過卻碰上滿多問題的, 特別是 SQL Statement 的部份, 有幾個看起來不會有問題的 statement 全都因為資料庫換成了 SQL Server 而產生了錯誤。</p>
+
+<p>不過在 CodeIgniter 上面用 ActiveRecord 其實已經去除掉一些可能會發生 Statement 不相容的問題了, 不過後來才發現, 原來 CodeIgniter 雖然支援許多資料庫, 但是其實對於 MS SQL Server 的支援並不完整, 當然是碰到了才知道, 原來 insert_id 根本沒有實作, 後來到 CodeIgniter 的論壇找了一下, 有人已經提出來了這個問題, 也有人提供實作好了的 insert_id patch。可以看到<a href="http://www.codeigniter.com/forums/viewthread/46573/">這一篇</a>。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/905/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -472,53 +513,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/890/">梁朝偉 XD</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-06-20T23:58:24+08:00" pubdate  data-updated="true" >Jun 20<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>話阿潑真的是像極了梁朝偉, 怎麼樣的一個像法? 有圖有真相, <a href="http://www.annpo.idv.tw/index.php?load=read&id=21">請看這篇</a>, 這就難怪了, 每次一到公司, 就有一股&#8230;一股像是在演電影的感覺。</p>
-
-<p>其實這件事是在不久前, 阿潑在 twitter 上提到, 有人說她像梁朝偉, 這一提, 真是一語驚醒夢中人阿!! 以前的記憶就這樣往我衝了過來, 沒錯! 阿潑真的是像極了梁朝偉啦!! 超像的啦!! 我的天阿! (讚嘆) 我猶豫了好久~ 不知道要不要寫這一篇, 呵, 最後我還是要來讚嘆一下這件事情! 阿潑太帥啦!! XD</p>
-
-<p>話說先前 &#8220;無間道之 CD PRO II&#8221; 正紅的時候, 吉他手小凱給了我 &#8220;肚爛明&#8221; 這個外號 XD (我的名字裡有個&#8221;明&#8221;字&#8230; ) 我也給了小凱 &#8220;GY仁&#8221; 的稱號 (也很剛好的, 小凱的名字裡有個&#8221;仁&#8221;字), 就這樣的, 在過去那段美好的時光, 我和小凱總是演起 CD PRO II 的橋段。</p>
-
-<p>在我的大學時代的回憶中,  CD PRO II 真的是佔了很重要的一部份, 可是翻遍了電腦, 卻不見那埋藏已久的回憶, 噗, CD PRO II 的影片都不見啦!!! Orz 幸好, 現在有 youtube, 沒錯, 就請大家跟我回憶一下 CD PRO II 吧!! 我都快哭了~~</p>
-
-<p>GY 仁 !!<del>  肚爛明 !!</del></p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/life/890/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -538,6 +532,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
       </li>
     
@@ -551,10 +549,6 @@
     
       <li class="post">
         <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/13/ios5-release/">iOS5 release</a>
       </li>
     
   </ul>

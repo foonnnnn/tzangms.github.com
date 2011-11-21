@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="你還不知道苗栗大埔這件事嗎? 可以的話煩請看一下這個影片。在看這個影片的同時我一直在想, 如果事情是發生在我身上, 我該怎麼處置, 該如何應對, 在打這篇的同時我哭了, 似乎事情真的發生在我身上時, 我又能如何? 好像也只能看著自己被毀壞、撕裂。">
+  <meta name="description" content="小弟目前在 StreetVoice 工作, 要徵 web developer 一名, 對音樂或獨立音樂有興趣的人可以來談一下。這份工作主要是寫 python + django, 不過由於寫 python 的人比較難找, 所以之前是寫其他語言的人也歡迎來應徵。基本上閱讀英文文章不太有問題、不排斥...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,46 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/stuff/2680/">StreetVoice 徵正職 Web Developer</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-07-12T21:47:41+08:00" pubdate  data-updated="true" >Jul 12<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>小弟目前在 <a href="http://tw.beta.streetvoice.com/music/">StreetVoice</a> 工作, 要徵 web developer 一名, 對音樂或獨立音樂有興趣的人可以來談一下。</p>
+
+<p>這份工作主要是寫 python + django, 不過由於寫 python 的人比較難找, 所以之前是寫其他語言的人也歡迎來應徵。基本上閱讀英文文章不太有問題、不排斥持續學習新東西的話, 就是你了!!</p>
+
+<p>有問題要發問或是要應徵的話, 請來信 tzangms [at] streetvoice.com 或是留言給我吧!</p>
+
+<p>PS. 有看到的朋友們, 也煩請轉給你的朋友們看看吧!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -504,97 +544,6 @@ Message.all().filter('keywords IN', keywords)</code></pre>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2649/">透過 Swfupload 直接上傳到 S3</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-05-12T22:27:20+08:00" pubdate  data-updated="true" >May 12<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>由於 <a href="http://code.google.com/intl/zh-TW/appengine/">app engine</a> 無法上傳大檔案, 即使使用 <a href="http://tzangms.com/programming/2556">BlobStore</a> 單檔最大也只能到 50MB 而已, 對於 <a href="http://www.myaudiocast.com/">MyAudioCast</a> 來說, 豬小草的 Podcast 檔案幾乎都是超過 100MB, 所以看來就只能用 S3 來放檔案, 可是 app engine 的 urlfetch 也只能傳 1MB, 所以後來就直接採用 S3 提供的 form upload 的方式, 直接用 HTML POST Form 把檔案送到 S3, 有興趣的話可以看看 <a href="http://developer.amazonwebservices.com/connect/entry.jspa?externalID=1434">Browser Uploads to S3 using HTML POST Forms</a> 這一篇文章, 所以就可以不用透過後端程式, 直接從前端上傳檔案到 S3 然後 redirect 回來。所以在這邊記錄一下。</p>
-
-<p>然而這樣出現了一個問題, 沒辦法檢查上傳的檔案類型, 甚至知道檔案大小 ( 原本的作法是上傳完之後, 再去 s3 抓檔案大小的資料 ), 所以研究了一下用 swfupload 來做檔案進度顯示以及顯示, 並限制檔案的類型、大小, 同時也可以取得檔案的大小。</p>
-
-<p>原本的 POST FORM 看起來像是下面這樣</p>
-
-<pre><code>&lt;form id="upload_form" action="http://myaudiocast.s3.amazonaws.com/"
-    method="post" enctype="multipart/form-data"&gt;
-&lt;input type="hidden" name="key" value="" /&gt;
-&lt;input type="hidden" name="AWSAccessKeyId" value="" /&gt;
-&lt;input type="hidden" name="acl" value="" /&gt;
-&lt;input type="hidden" name="policy" value="" /&gt;
-&lt;input type="hidden" name="signature" value="" /&gt;
-&lt;input type="hidden" name="Content-Type" value="" /&gt;
-&lt;input type="hidden" name="Cache-Control" value="" /&gt;
-&lt;input type="hidden" name="Expires" value="" /&gt;
-&lt;input type="hidden" name="success_action_redirect" value="" /&gt;
-...
-&lt;/form&gt;</code></pre>
-
-
-<p>基本上的作法就是把原本 policy conditions 當中的 success_action_redirect 改成 success_action_status, 也就是把轉址改成吐 201 的 status code, 然後在 policy conditions 移除 success_action_redirect, 並加上下面兩個項目即可。</p>
-
-<pre><code>["starts-with", "$Filename", ""],
-["eq", '$success_action_status', "201"]
-</code></pre>
-
-
-<p>而 swfupload 的 PostParams 也是把原本要 POST 出去的欄位加上即可</p>
-
-<pre><code>swfu.setPostParams({
-    'key': key,
-    'AWSAccessKeyId': "",
-    'acl': "",
-    'policy': "",
-    'signature': "",
-    'Content-Type': "",
-    'Cache-Control': "",
-    'Expires': "",
-    'success_action_status': 
-});</code></pre>
-
-
-<p>然後 s3 bucket 那邊也得加上一個 /crossdomain.xml, 否則 Flash 會有 security error, 檔案內容如下。</p>
-
-<pre><code>&lt;?xml version="1.0"?&gt;
-&lt;!DOCTYPE cross-domain-policy SYSTEM 
-    "http://www.macromedia.com/xml/dtds/cross-domain-policy.dtd"&gt;
-&lt;cross-domain-policy&gt;
-    &lt;allow-access-from domain="*.myaudiocast.com" secure="false" /&gt;
-&lt;/cross-domain-policy&gt;</code></pre>
-
-
-<p><code> </code></p>
-
-<p>最後就是, 由於 Flash 接到 200 以外的 status code 都會視為失敗 ( 至少我查到的資訊都是這麼說 ), 所以 swfupload 接到 201 的 status code 也是會認為失敗, 所以就得再 uploadError 這個 handler 判斷 status_code 是否為 201, 如果 201 則是上傳成功, 所以這點得再注意一下, 我目前的作法是這樣。</p>
-
-<p>這篇主要只是記錄一下, S3 真是好服務, 而 app engine 也很好, 不過限制太多, 得自己繞路就是了 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -614,6 +563,10 @@ Message.all().filter('keywords IN', keywords)</code></pre>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
       </li>
     
@@ -627,10 +580,6 @@ Message.all().filter('keywords IN', keywords)</code></pre>
     
       <li class="post">
         <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/13/ios5-release/">iOS5 release</a>
       </li>
     
   </ul>

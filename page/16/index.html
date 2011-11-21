@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="我只能說, django-pagination 真是一個好物。雖然說 django 本身提供的 pagination 就已經很不錯用了, 可是在使用上還是稍嫌多餘了些, 得在 view 重複的打上那一段 code, 而 template 那邊也是, 除非就是自己寫 template tag 來...">
+  <meta name="description" content="其實 prgmr 已經買了一個多月了, 可是最近超懶, 提不起勁幫 stickeraction 搬家, 剛好由於這幾天 stickeraction 一直當機, 所以乾脆提起勁來把 stickeraction 從 linode 搬到 prgmr。其實最主要是想省點錢, 因為 linode 每個月...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,70 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2460/">Stickeraction 主機搬到 Prgmr</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-08-09T19:57:05+08:00" pubdate  data-updated="true" >Aug 9<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>其實 <a href="http://prgmr.com/xen/">prgmr</a> 已經買了一個多月了, 可是最近超懶, 提不起勁幫 <a href="http://stickeraction.com">stickeraction</a> 搬家, 剛好由於這幾天 stickeraction 一直當機, 所以乾脆提起勁來把 stickeraction 從 <a href="http://linode.com">linode</a> 搬到 prgmr。</p>
+
+<p>其實最主要是想省點錢, 因為 linode 每個月就要花掉我大約一千塊的台幣, 可能也是因為這大半年來幾乎都沒在改 stickeraction 的東西, 就一直擺在那邊, 所以感覺有點浪費錢的感覺 XD</p>
+
+<p>而目前在 prgmr 買的主機是一台 512MB RAM, 不過只有一顆 CPU, 跑起來感覺滿&#8221;ㄍㄧㄥ&#8221;的 XD</p>
+
+<p>Linode ($29, 540MB, 4CPU)</p>
+
+<pre><code>vendor_id    : GenuineIntel
+cpu family  : 6
+model       : 23
+model name  : Intel(R) Xeon(R) CPU           L5420  @ 2.50GHz
+stepping    : 6
+cpu MHz     : 2500.086
+cache size  : 64 KB</code></pre>
+
+
+<p>Prgmr ($12, 512MB, 1CPU)</p>
+
+<pre><code>vendor_id    : AuthenticAMD
+cpu family  : 16
+model       : 4
+model name  : Quad-Core AMD Opteron(tm) Processor 2374 HE
+stepping    : 2
+cpu MHz     : 2200.000
+cache size  : 512 KB</code></pre>
+
+
+<p>4 顆 xeon 比起 1 顆 Quad-Core 不知道哪個比較夠力? anyway, 省點錢用 ~&#8221;~</p>
+
+<p>這幾天的不穩定大家請多包含了 Orz</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -523,40 +587,6 @@ python-memcached
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2408/">Lighttpd Php Backend Overload</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-05-31T23:32:04+08:00" pubdate  data-updated="true" >May 31<span>st</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>For the past few weeks, my lighttpd has crashed with error message &#8220;backend overload&#8221; almost once a day. I could not figure out where the problem was. After all, I switched APC to xCache, and this problem solved! :D Obviously, php crash is caused by APC.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -576,6 +606,10 @@ python-memcached
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
       </li>
     
@@ -589,10 +623,6 @@ python-memcached
     
       <li class="post">
         <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/13/ios5-release/">iOS5 release</a>
       </li>
     
   </ul>

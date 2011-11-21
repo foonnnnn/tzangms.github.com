@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="就快兩個月沒寫 blog 了, 這幾天一直想到沒寫 blog 這件事, 甚至好幾次打開 blog 準備寫點東西的時候, 還會覺得, &#8220;嗯~ 好像應該繼續保持記錄&#8221;, 然後就又把 blog 關了。 hmm~ 雖然不知道怎麼一回事, 我居然對保持 blog 沒寫的記錄有種虛...">
+  <meta name="description" content="For the past few weeks, my lighttpd has crashed with error message &#8220;backend overload&#8221; almost once a day. I could not figure out where t...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,40 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2408/">Lighttpd Php Backend Overload</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-05-31T23:32:04+08:00" pubdate  data-updated="true" >May 31<span>st</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>For the past few weeks, my lighttpd has crashed with error message &#8220;backend overload&#8221; almost once a day. I could not figure out where the problem was. After all, I switched APC to xCache, and this problem solved! :D Obviously, php crash is caused by APC.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -531,45 +565,6 @@ stop() {
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/2381/">用 iPhone 樂器軟體來玩樂團</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-03-05T08:57:41+08:00" pubdate  data-updated="true" >Mar 5<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><object width="480" height="295"><param name="movie" value="http://www.youtube.com/v/rjx5_-SPhk0&hl=zh_TW&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/rjx5_-SPhk0&hl=zh_TW&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="295"></embed></object>
-
-
-<p>現在在 app store 上, iPhone 樂器越來越多, 不過能夠玩成這樣也真的是滿厲害的 XD 其實他們是一個搖滾樂團, 叫 <a href="http://www.thementalists.co.uk/">The Mentalist!</a>, 只是他們的歌我聽不太習慣 XD</p>
-
-<p>anyway, 他們使用到的樂器有 <a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=293053479&mt=8">Ocarina</a>, <a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=297498715&mt=8">Retro Synth</a>, <a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=292140261&mt=8">miniSynth</a> 跟 <a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=295500313&mt=8">DigiDrummer Lite</a> 有興趣可以看看 :p</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -589,6 +584,10 @@ stop() {
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
       </li>
     
@@ -602,10 +601,6 @@ stop() {
     
       <li class="post">
         <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/13/ios5-release/">iOS5 release</a>
       </li>
     
   </ul>

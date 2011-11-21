@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="Master one, then learn another這句話忘記從哪裡看來的, 基本上是說, 精通一個程式語言以後, 在去看看其他的。其實這一篇完全無重點, 碎念類。我主要使用的語言就是 PHP, 但是完全稱不上精通, 畢竟也才兩年半的時間, 從我的第一份工作, 才開始學 PHP。 記得...">
+  <meta name="description" content="從高中開始接觸電腦, 一開始就是上網, 然後開始接觸 HTML, 因為聊天室可以用 font, 覺得很厲害, 然後開始學怎麼做網頁, 然後學 Photo Impact 3 然後又換到 Photoshop 4, 然後接著用 Dreamweaver 來作網頁, 就這樣開始對網頁製作有興趣, 畢竟在...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,48 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2337/">原來我學過這些程式語言</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-24T14:14:12+08:00" pubdate  data-updated="true" >Jan 24<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>從高中開始接觸電腦, 一開始就是上網, 然後開始接觸 HTML, 因為聊天室可以用 font, 覺得很厲害, 然後開始學怎麼做網頁, 然後學 Photo Impact 3 然後又換到 Photoshop 4, 然後接著用 Dreamweaver 來作網頁, 就這樣開始對網頁製作有興趣, 畢竟在用電腦之前, 我都是在畫畫。</p>
+
+<p>接著高二開始碰 Linux, 然後學校的課程開始教 QB 然後 VB, 後來高三的課程甚至要用 VB 來處理圖片的明暗度平衡, 現在想起來真是厲害, 只是寫不出正確的處理方法 XD 而高中除了 VB 之外還學組合語言, 單晶片 PIC 阿什麼的。</p>
+
+<p>然後上了二專, 仍然是組合語言, 8051, 然後還有 PC AT/XT 界面設計, 所以學 C 語言, 然後還有 VHDL, 一直到了專題用了 C 語言寫了一個射擊遊戲過關 XD</p>
+
+<p>到了二技, 程式設計的課程變少了, 只有教 C 而且居然教最基本的, 但是我一點都不在意, 因為那時都在玩樂團, 然後到了最後一年, 有一門 3D 圖學的課程, 我用 java + swing 來交作業, 現在想想還真的是不可思議, 我居然會寫 java。 然後專題我負責的某個部份是用 Flash Communication Server, 所以我就開始摸 Action Script, 寫 Client / Server 端, 記得當時只有一本原文書在講 FCS, 只是後來也沒人用就是了。</p>
+
+<p>以上其實是因為在二專跟二技我幾乎所有的時間都在玩樂團&#8230; 所以&#8230; 對以上這些東西沒有太大印象, 所以想起來, 自己才覺得訝異, 寫出來紀念一下。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -490,84 +532,6 @@ System Call Overhead                        114433.5  1939609.2      169.5
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/linux/2295/">Gentoo on VPS</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-01-02T00:39:12+08:00" pubdate  data-updated="true" >Jan 2<span>nd</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這篇文章是我在 VPS 上裝 Gentoo 的記錄, 方便以後要裝 VPS 的時候可以參考</p>
-
-<h3>1. 安裝 vim</h3>
-
-
-<p>首先在 gentoo 剛裝好之後, 第一件事情就是裝 vim, 不然會很痛苦</p>
-
-<pre><code>emerge vim</code></pre>
-
-
-<p> </p>
-
-<h3>2. 設定 CFLAGS</h3>
-
-
-<p><code>cat /proc/cpuinfo</code> 看看主機用的 CPU 是哪顆, 然後根據 CPU 的 model name 來設定 CFLAGS, 可以看看 <a href="http://en.gentoo-wiki.com/wiki/CFLAGS" target="_blank">CFLAGS - Gentoo Linux Wiki</a> 及 <a href="http://en.gentoo-wiki.com/Safe_Cflags" target="_blank">Safe CFLAGS - Gentoo Linux Wiki</a>。</p>
-
-<p>例如我在 slicehost 買的 256slice 的 cpu model name 是 Dual-Core AMD Opteron(tm) Processor 2212 HE, 所以我設定的 CFLAGS 如下。</p>
-
-<pre><code>CFLAGS="-march=opteron -O2 -pipe"</code></pre>
-
-
-<p>而 Linode 的 CFLAGS 如下:</p>
-
-<pre><code>CFLAGS="-march=prescott -O2 -pipe"</code></pre>
-
-
-<p>話說根據這篇 <a href="http://bugs.gentoo.org/103806" target="_blank">gentoo bug report</a> 提到, 在 GCC 3.4 以後的 XEN VPS 似乎可以加上下面這個 CFLAG, 只是我在 <a href="http://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Optimize-Options.html#Optimize-Options" target="_blank">GCC 4.1.2 的 Options That Control Optimization</a> 這份文件當中, 沒有找到這個 CFLAG 還有其相關說明。</p>
-
-<pre><code>-mno-tls-direct-seg-ref</code></pre>
-
-
-<h3>3. 設定 MAKEOPTS</h3>
-
-
-<p>從 cpuinfo 也可以得知有 4 顆 CPU, 所以依據 gentoo 文件上所寫的 MAKEOPTS 等於 n + 1, 可以將 MAKEOPTS 設為 5, 讓編譯的動作可以同時進行多個來加快速度。</p>
-
-<pre><code>MAKEOPTS="-j5</code>&#8221;</pre>
-
-
-<p>不過, 當線上有服務在跑, 而且記憶體太小時, 得衡量一下這個數字。
-  </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/linux/2295/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -587,6 +551,10 @@ System Call Overhead                        114433.5  1939609.2      169.5
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
       </li>
     
@@ -600,10 +568,6 @@ System Call Overhead                        114433.5  1939609.2      169.5
     
       <li class="post">
         <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/13/ios5-release/">iOS5 release</a>
       </li>
     
   </ul>

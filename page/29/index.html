@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="一直以來都在想&#8230; 貼紙串連這種活動到底可以發揮多少功效, 現今的貼紙串連方式似乎都只是做個貼紙, 然後讓支持這個訴求的網友們把貼紙的語法貼到自己的部落格。 然而活動發起之後, 活動發起人卻也無法得知, 到底有多少個部落格響應了這個活動。似乎在網路上的貼紙串連活動就是這樣, 一直沒有...">
+  <meta name="description" content="Kohana 前身叫做 BlueFlame, 是由 CodeIgniter 衍生出來的 PHP framework, 所以要從 CI 跳槽還滿快的 XD 而 Kohana 跟 CodeIgniter 最大的不同就是, Kohana 只能在 PHP 5 上跑。 不過其實&#8230; 現在都該換...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,49 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1210/">Kohana PHP Framework 試玩心得</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-07-16T08:15:50+08:00" pubdate  data-updated="true" >Jul 16<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://kohanaphp.com/">Kohana</a> 前身叫做 BlueFlame, 是由 <a href="http://codeigniter.com/">CodeIgniter</a> 衍生出來的 PHP framework, 所以要從 CI 跳槽還滿快的 XD 而 Kohana 跟 CodeIgniter 最大的不同就是, Kohana 只能在 PHP 5 上跑。 不過其實&#8230; 現在都該換到 PHP5 了啦:p 重點是! Kohana 解決了 CodeIgniter 很多不足的地方。</p>
+
+<p>像是 Namespace 的問題, 在 CI 上如果有相同名稱的 library、Model 或是 Controller 就會衝到, Kohana 則解決了這個問題。 另外在 CI 上如果有自定的 helper 的話, 其他維護者並不容易找出是寫在哪支 helper 裡, 而 Kohana 的 helper 是用 class 來作, class name 的 prefix, 則可以容易辨識出是哪支 helper, 也減少 function name 衝突的問題, 對於維護上方便很多。</p>
+
+<p>另外 Kohana 也提供了 module 的機制, module 擁有自己的 controller, model 跟 view, 可以將程式劃分的更細。例如 Konaha 本身就提供了 Auth module (ACL)。 雖然 CI 也有 <a href="http://code.google.com/p/matchbox/">matchbox</a> 提供了相同的功能, 但是需要 override CI_Loader, 萬一 CI 的版本升級,  CI_Loader 有所改變呢? 當然還是比不上 Kohana 內建的好。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/1210/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -571,50 +614,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/1180/">小雨傘</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-06-01T21:08:24+08:00" pubdate  data-updated="true" >Jun 1<span>st</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Rihanna 的 umbrella 這首歌真的好紅, 可是我完全聽的都是 cover 版本, 這首歌的 cover 版本在 youtube 上真的是超多的!! 小雨傘這首歌真的很適合拿來唱 Rock, 尤其~ 我超愛看龐克團作 cover !! 來看看一個來自義大利羅馬的龐克團, 叫 Vanilla sky, 我覺得翻的超好聽的! 但是&#8230; 好噁 :x 看看以下影片就知道了 XD</p>
-
-<object width="425" height="355"><param name="movie" value="http://www.youtube.com/v/TvC6VS4Np4U&hl=en"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/TvC6VS4Np4U&hl=en" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed></object>
-
-
-<p>幹! 我真的超愛龐克團作 cover 啊!!!</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/music/1180/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -634,6 +633,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
       </li>
     
@@ -647,10 +650,6 @@
     
       <li class="post">
         <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/13/ios5-release/">iOS5 release</a>
       </li>
     
   </ul>

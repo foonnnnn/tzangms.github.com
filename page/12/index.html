@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="一開始構想 MyAudioCast 的時候, 原本是想說把檔案都送到 S3, 然後透過 CloudFront 還可以玩 rtmp streaming, 後來發現 urlfetch 只能傳 1MB 所以放棄, 就只好使用 BlobProperty, 沒想到 BlobProperty 也只有 1M...">
+  <meta name="description" content="不太清楚為何webapp 為何沒有 implement HEAD method, 所以一開始在 MyAudioCast 的 DashBoard 就常看到一些錯誤, 多是一些 web crawler, 但卻都是 405 Method Not Allowed 的錯誤訊息, 用 curl -I 來測...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,51 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2557/">App Engine 405 Method Not Allowed</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-02-07T19:54:21+08:00" pubdate  data-updated="true" >Feb 7<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>不太清楚為何<a href="http://code.google.com/intl/zh-TW/appengine/docs/python/tools/webapp/">webapp</a> 為何沒有 implement HEAD method, 所以一開始在 <a href="http://myaudiocast.appspot.com/">MyAudioCast</a> 的 DashBoard 就常看到一些錯誤, 多是一些 <a href="http://en.wikipedia.org/wiki/Web_crawler">web crawler</a>, 但卻都是 405 Method Not Allowed 的錯誤訊息, 用 curl -I 來測也是得到相同的回應, 本來不以為意, 後來為了要讓 MyAudioCast 上面的 Podcast 可以 submit 到 iTunes store, 卻也得到 405 的錯誤訊息, 無法 submit, 才覺得這事情有點大條 XD</p>
+
+<p>google 之後找到一篇寫到說, 用 app engine 開發的網站無法 digg, 就是因為 405 這個問題, 因為要新增網址到 digg 的時候 digg 會用 HEAD method 來確認網頁是存在的, 所以說先前 Dashboard 上看到的 web crawler 也會先用 HEAD 來檢查網頁是否存在, 這麼一來只要是 HEAD method 都回 405 Method Not Allowed 的話, 那機器人不就都不來了嗎?</p>
+
+<p>不過這問題其實很好解決, 幸好這次在開發的時候有先寫一個 RequestHandler 來繼承 webapp.RequestHandler 所以直接在 RequestHandler 增加一個 head method 就可以解決這個了。</p>
+
+<pre><code>def head(self, *args):
+    pass
+</code></pre>
+
+
+<p>最簡單的就是這樣 XD 不過不知道是否改為執行 get method 然後把 content 去掉只留 header 這樣會不會比較好 :p</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -461,42 +506,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2528/">Django 1.2 Alpha 1 Release</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-01-06T23:10:26+08:00" pubdate  data-updated="true" >Jan 6<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>其實滿令人興奮的, 看來三月就 django 1.2 就會 official release 了。</p>
-
-<p>這個 release 最令人興奮的就是 multiple database 了, 不過其實比較令我高興的則是 if 這個 template tag, 原本的 if template 限制真的太多了, 超惱人的 XD anyway, 其他細節看看 <a href="http://docs.djangoproject.com/en/dev/releases/1.2-alpha-1/">release notes</a> 吧~</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -516,6 +525,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
       </li>
     
@@ -529,10 +542,6 @@
     
       <li class="post">
         <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/13/ios5-release/">iOS5 release</a>
       </li>
     
   </ul>
