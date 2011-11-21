@@ -4,7 +4,7 @@
   <title><![CDATA[Oceanic / 人生海海]]></title>
   <link href="http://tzangms.com/atom.xml" rel="self"/>
   <link href="http://tzangms.com/"/>
-  <updated>2011-11-22T00:25:41+08:00</updated>
+  <updated>2011-11-22T00:29:02+08:00</updated>
   <id>http://tzangms.com/</id>
   <author>
     <name><![CDATA[tzangms]]></name>
@@ -23,6 +23,11 @@
 <p>在這次搬家的過程花最多時間的就是在處理資料的轉換了, 而最初我以為要把資料從 App Engine 倒出來非常麻煩, 不過後來找到<a href="http://code.google.com/intl/en/appengine/docs/python/tools/uploadingdata.html">倒出資料的文件</a>, 就照著文件說明把資料倒出成 csv, 然後寫了幾支 <a href="https://docs.djangoproject.com/en/dev/howto/custom-management-commands/">Django command</a> 讀取 csv 寫進資料庫。</p>
 
 <p>首先第一步就是建立 mapping 的 config 檔, 只需要下面這個指令就可以產生 datastore mapping 的 yaml。</p>
+
+<!-- more -->
+
+
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>appcfg.py create_bulkloader_config --filename=bulkloader.yaml .</span></code></pre></td></tr></table></div></figure>
