@@ -146,7 +146,7 @@
 
 <p>即便資料可以倒出成 csv, 在匯入資料時就碰到問題了, 因為如果 datastore 的 entity 指定了 parent 的話, key id 就可能會重覆, 像是 myaudiocast 的 Episode 的 parent 是指為 Podcast, 所以幾乎每個 podcast 的第一集節目的 key id 都是 1001, 所以當初有 800 多個 episode 的 key id 都是 1001。</p>
 
-<p>本來想說應該用 podcast 這個 key id 可以用來區分不同 podcast 的 episode, 不過 Podcast 先前的 parent 也是設成 User, 所以也是重覆的, 有八百多個 1 吧。</p>
+<p>本來想說應該用 podcast 的 key id 可以用來區分不同 podcast 的 episode, 不過 Podcast 先前的 parent 也是設成 User, 所以也是重覆的, 有八百多個 1 吧 XD</p>
 
 <p>幸好當初 Episode 同時存了 User 跟 Podcast 當 ForeignKey, 所幸還有 User 的值可以用 (內容就是 email), 不然還真的沒辦法。</p>
 
