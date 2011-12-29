@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="最近開始在把以前的錄好的歌重新 mix, 有些部份也許要重錄, 也一邊在研究所謂的 mastering。找了一些關於 mastering 的資訊, 最後裝了 iZotope Ozone 3 來作 mastering 的動作, 只是還有很多關於 mix down 跟 mastering 東西不了...">
+  <meta name="description" content="今天在將 tzangms.com CI 化的時候碰到了個問題, 就是一直出現下面這一行訊息No input file specified.第一次碰到這個, 完全沒頭緒! 原本以為是因為 mod_rewrite 沒設定好的關係, 所以才出現這個訊息。之後我找了好多 mod_rewrite 相關的...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,60 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/977/">[CodeIgniter] No Input File Specified.</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-09-28T23:00:23+08:00" pubdate  data-updated="true" >Sep 28<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天在將 tzangms.com CI 化的時候碰到了個問題, 就是一直出現下面這一行訊息</p>
+
+<blockquote>No input file specified.</blockquote>
+
+
+<p>第一次碰到這個, 完全沒頭緒! 原本以為是因為 mod_rewrite 沒設定好的關係, 所以才出現這個訊息。之後我找了好多 mod_rewrite 相關的資料, 還是沒辦法解決問題, 一邊修改設定, 一邊測試下面這個網址, 仍然還是一樣顯示 No input file specified.</p>
+
+<blockquote>http://tzangms.com/main</blockquote>
+
+
+<p>後來才發現我取消 mod_rewrite, 直接打下面這段網址也是出現相同的錯誤訊息。</p>
+
+<blockquote>http://tzangms.com/index.php/main</blockquote>
+
+
+<p>這時候才知道, 原來 mod_rewrite 沒設錯阿!! mod_rewrite 一直正確的運作著, 所以上面這兩個網址是一直指到同一個地方, 所以我才一直看到相同的訊息, 這才恍然大悟! main 一直有正確的 rewrite 成 index.php/main 阿!</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/977/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -499,44 +553,6 @@ rm -rf .Spotlight*</code></pre>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/962/">[Recording] 多與少 3</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-09-11T22:45:50+08:00" pubdate  data-updated="true" >Sep 11<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這次認真錄了, 只有一把吉他跟 Vocal, 而第二段的主歌則是有加上合音, 不過還是老話一句, 很難編, 到目前我都還想不出來第二把吉他要怎麼編, 或者是 solo 要怎麼彈, 然而除了主歌之外的合音, 我也不知道怎麼合, 但是目前的版本聽起來還滿乾淨的就是了。</p>
-
-<p>果然多錄音真的是有差, 記得以前, 我當開始自己錄歌的時候, 聽著自己錄完的歌聲, 總是覺得很難聽, 很不習慣, 我想大部分的人都會這樣覺得, 雖然後來我慢慢習慣了自己的聲音, 但我總還是把 Vocal 那一軌調得很小聲。 反倒是現在我錄歌的時候敢把 Vocal 大聲放出來, 甚至就像這首歌一把木吉他搭配。</p>
-
-<p>murmur, 有些人一直以為我從小就很愛唱歌, 可是其實我是從二專之後才開始稍微敢開口唱歌, 現在想起在二專之前根本不敢唱歌, 真的是很囧, 跟朋友去 KTV , 結果一首歌都沒點, 在幹嘛? 睡覺阿&#8230; = =</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -556,6 +572,10 @@ rm -rf .Spotlight*</code></pre>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
       </li>
     
@@ -569,10 +589,6 @@ rm -rf .Spotlight*</code></pre>
     
       <li class="post">
         <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
       </li>
     
   </ul>

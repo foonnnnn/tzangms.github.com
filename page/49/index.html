@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="天氣好冷，我家這邊又一直下雨，不過放假三天在家休息感覺很悠閒。很快的一年就過去了，去年的這個時候剛退伍，現在退伍滿一年囉!今年前半年，過著很頹廢的生活，每天幾乎都快天亮才睡，然後隔天下午才醒來，然後到處表演，每天幾乎都是練團，不然就是表演，身分呢?應該就算是職業樂手吧!? 不過一首歌也沒有寫，...">
+  <meta name="description" content="基本上, vi 要編輯 utf-8 文件, 做下面兩件事就可以了    設定 vi : set encoding=utf-8    將你的 terminal 設為 utf-8(or unicode)不過最近需要在 big5 跟 utf-8 之間跑來跑去, 本來在 vimrc 裡設定的是:set...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,68 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/755/">用 Vi 在 Big5 與 Utf-8 之間穿梭</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-01-09T16:59:17+08:00" pubdate  data-updated="true" >Jan 9<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>基本上, vi 要編輯 utf-8 文件, 做下面兩件事就可以了</p>
+
+<ul>
+    <li>設定 vi : set encoding=utf-8</li>
+    <li>將你的 terminal 設為 utf-8(or unicode)</li>
+</ul>
+
+
+<p>不過最近需要在 big5 跟 utf-8 之間跑來跑去, 本來在 vimrc 裡設定的是:
+<code>set ts=4</code></p>
+
+<p>不過每次編輯不同編碼的檔案時, 都要再設定一次 encoding, 所以另外做一份 vimrc 放在 home, 叫做.vimrc_utf-8, 內容如下:</p>
+
+<p><code>syntax on
+set ts=4
+set encoding=utf-8
+set backspace=indent,eol,start</code></p>
+
+<p>然後在寫一個 bash, 命名為 joe 內容如下:
+<code>#!/bin/bash
+vim -u ~/.vimrc_utf-8 $1</code></p>
+
+<p>這麼一來要編輯 big5 編碼的檔案還是用 vi 這個指令, 要編輯 utf-8 編碼的檔案就用 joe 啦!當然這個 bash 的名字你可以自己取你喜歡的名字, 例如: vi-utf8, vi8 ?</p>
+
+<p>不過這些都太難打了, 剛好想到在學 vi 之前都用 joe 這個文字編輯器, server上又剛好沒裝joe所以就把這個 bash 命名做 joe, 還滿喜歡這個名字的, 因為滿好打的, 之前很喜歡的一個編輯器, 雖然後來 joe 也加入了color syntax, 不過 joe 好像還是越來越式微了。</p>
+
+<p>另外, 給 utf-8 用的 vimrc 比起原有的 vimrc 多出了好幾行的設定, 似乎是指定特定的 vimrc 後, vi 就不會讀取預設的設定, 所以又再多加了一些設定。 不知道 vi 可不可以自動偵測編碼? XD</p>
+
+<p>PS. screen 搭配 vi 來編輯 utf-8 文件還是有問題, 請愛用 :e # 吧! XD</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -463,50 +525,6 @@ global.php
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/734/">iPod Shuffle 2、Hyde Faith Live DVD</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2006-11-27T23:58:37+08:00" pubdate  data-updated="true" >Nov 27<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>最近每每看到人，每個人都說: &#8220;小海~你變胖了!&#8221;，恩！對我來說真的是天大的打擊！我知道我變胖了阿!!!</p>
-
-<p>所以最近開始運動了，上個月的週末就去跑步，然後上上上禮拜就練團，比跑步還累，差一點死掉了我，累死，上上禮拜則是練團兼表演，都有運動到，所以上禮拜量ㄧ下體重，呵！少了兩公斤內!! 超high的！不過因為回家，所以就又被餵胖了，又回升了一公斤，媽的！</p>
-
-<p><a href="http://www.flickr.com/photos/tzangms/307751340/" title="Photo Sharing"><img src="http://static.flickr.com/113/307751340_4b1694b7ea_m.jpg" width="240" height="192" alt="my iPod shuffle 2" border='0' class='alignleft' /></a></p>
-
-<p>先前在跑步的時候，就覺得好無聊，今天就想到應該要帶著隨身聽跑步。不過由於原本的iPod mini太操了，不過才兩年，他的電池就已經差不多了，現在只能上班的時候接著電聽。其實以他的重量，應該也不是很適合帶著跑步，所以說，今天一下班就衝去Apple store買了一台iPod shuffle 2($2900、1G)，然後逛了一下，本想說買張CD來聽聽，不過卻看到了&#8221;Hyde Faith Live DVD&#8221; ($689、2 DVD)，超High的!! 所以二話不說就買了阿!!所以今天就又敗了好多錢，不過為了減肥iPod是必需的，Hyde DVD也是精神糧食，所以當然也是必需的阿!!</p>
-
-<p><a href="http://www.flickr.com/photos/tzangms/307756932/" title="Photo Sharing"><img src="http://static.flickr.com/102/307756932_f5279d7053.jpg" width="378" height="500" alt="Hyde Faith Live DVD" border='0' class='aligncenter' /></a></p>
-
-<p>Hyde 超帥的阿!! 明天就來跑步吧!!!</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -526,6 +544,10 @@ global.php
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
       </li>
     
@@ -539,10 +561,6 @@ global.php
     
       <li class="post">
         <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
       </li>
     
   </ul>

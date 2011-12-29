@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="昨天把 MyAudioCast 搬出了 App Engine, 花了一些時間改寫程式跟 migrate 資料, 最後搬到了 Linode 上。 而原本在 App Engine 上用的是 Django 1.1, 順便也把 Django 升到 1.3。在這次搬家的過程花最多時間的就是在處理資料的轉...">
+  <meta name="description" content="12 月初身體狀況不太好, 除了感冒之外, 幾處牙齦處於輪翻爆炸的狀態, 整個身體的狀況糟糕透頂, 簡直就是惡夢。當時應該是為了改變心情, 所以就在 12/14 星期一, 跑去 sogo 的 nokia 專櫃買了 lumia 800 這支手機。 因為當時覺得這隻手機的外型很不錯, 沒想到這是惡...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,51 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2011-12-29T22:05:00+08:00" pubdate  data-updated="true" >Dec 29<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="/uploads/2011/12/nokia-lumia-800.png" alt="Nokia lumia 800" /></p>
+
+<p>12 月初身體狀況不太好, 除了感冒之外, 幾處牙齦處於輪翻爆炸的狀態, 整個身體的狀況糟糕透頂, 簡直就是惡夢。</p>
+
+<p>當時應該是為了改變心情, 所以就在 12/14 星期一, 跑去 sogo 的 nokia 專櫃買了 lumia 800 這支手機。 因為當時覺得這隻手機的外型很不錯, 沒想到這是惡夢的延續。</p>
+
+<p>這是我第一次買 Nokia 的產品。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2011/12/29/bought-nokia-lumia-800/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -443,166 +488,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/django-1.3-staticfiles/">關於 Django 1.3 的 Staticfiles</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2011-04-26T09:10:00+08:00" pubdate  data-updated="true" >Apr 26<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://docs.djangoproject.com/en/dev/releases/1.3/">Django 1.3</a> 也出來好一陣子, 都快過一個月了, 剛好這一陣子有幾個新的 project, 就直接用 Django 1.3 來開發, 對 <a href="http://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/">staticfiles</a> 跟 <a href="http://docs.djangoproject.com/en/dev/topics/class-based-views/">class-based views</a> 稍微熟了一些, 就來記一下。</p>
-
-<h2>原本的問題</h2>
-
-<p>在 Django 1.3 之前, 是透過 MEDIA_ROOT / MEDIA_URL 來設定靜態檔存放的位置跟存取的網址, 不過其實在 deploy 時會有個問題, 就是程式需要的 css / js 會進版本控制, 而使用者上傳的檔案則可能是放在另外的檔案系統, 但是 Django 1.3 之前只有一個 MEDIA_ROOT 的設定, 所以變成是兩種類型的檔案需要混在一起, 而先前我就直接用 soft link 來解決這件事, 可是感覺很不舒服 XD</p>
-
-<p>另外, 就是 Django 的建構是以 app 的方式, 所以可以很容易插進一個 third party 的 app 並開始運作, 幾乎沒有 code 會進到 VCS 裡, 不過當 app 有自己提供的靜態檔案時, 就得手動複製或是 link, 或者就是直接進 VCS 了。</p>
-
-<h2>staticfiles 解決的問題</h2>
-
-<p>Django 1.3 新增的 staticfiles 解決先前提到的幾個問題, 就是另外提供了另一個 STATIC_ROOT / STATIC_URL 用來放程式用的靜態檔, 而原本的 MEDIA_ROOT / MEDIA_URL 則存放使用者上傳的檔案, 這麼一來把兩種類型的靜態檔存放的地方切開, deploy 就方便多了, 只是&#8230; 原本有非常多的 MEDIA_URL 寫在大量的 templates 以及程式裡面, 要全部改成 STATIC_URL, 真的是要哭哭了 XDDD</p>
-
-<p>當然 staticfiles 不只是提供另一組設定而已, 還有幾個 command, 最主要就是 <a href="http://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#django-admin-collectstatic">collectstatic</a> 這個指令, 用來收集各個 app 自行提供的靜態檔到指定的資料夾, 便於發佈靜態檔。</p>
-
-<p>先前通常都是直接開一個 static 資料夾存放整個網站要用的靜態檔, 而 django admin 自行提供的靜態檔則是在 web server 另外指定路徑到 django/contrib/admin/media, 如果有其他 app 像是 <a href="https://bitbucket.org/izi/django-admin-tools/wiki/Home">django-admin-tools</a> 的話, 就得用複製或是 link 的方式處理, 挺麻煩的。</p>
-
-<p>不過現在透過 collectstatic 這個 command 就可以把所有的靜態檔一起收集到 STATIC_ROOT 指定的資料夾, 所以可以很方便的 deploy 到別處去。而現在 <a href="http://docs.djangoproject.com/en/dev/howto/static-files/#serving-static-files-from-a-dedicated-server">Django 的文件</a>也直接給了一個 fabric script 示範如何 deploy, 也有透過 <a href="https://bitbucket.org/david/django-storages/wiki/Home">django-storages</a> deploy 到 S3 的 section。</p>
-
-<p>有仔細看過文件的話, 就會知道現在 static 資料夾可以直接依附各個 app 下面, 要 deploy 時透過 collectstatic 來處理, 所以可以依附在各個 app 下面也解決了另一件事, 就是 javascript 的 locale 在 makemessages 的問題, 不過在這邊就不多談了, 應該用到的人也不是那麼多 XD</p>
-
-<h2>設定範例</h2>
-
-<p>以下是我用的設定檔對照, (以開發環境舉例)</p>
-
-<p>原本是</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c"># settings.py</span>
-</span><span class='line'>
-</span><span class='line'><span class="kn">import</span> <span class="nn">os</span>
-</span><span class='line'><span class="n">ROOT_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
-</span><span class='line'><span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="s">&#39;/static/&#39;</span>
-</span><span class='line'><span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ROOT_PATH</span><span class="p">,</span> <span class="s">&#39;static&#39;</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># urls.py</span>
-</span><span class='line'>
-</span><span class='line'><span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
-</span><span class='line'><span class="k">if</span> <span class="n">settings</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span>
-</span><span class='line'>    <span class="n">urlpatterns</span> <span class="o">+=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="p">(</span><span class="s">r&#39;^static/(?P&lt;path&gt;.*)$&#39;</span><span class="p">,</span> <span class="s">&#39;django.views.static.serve&#39;</span><span class="p">,</span>
-</span><span class='line'>            <span class="p">{</span><span class="s">&#39;document_root&#39;</span><span class="p">:</span> <span class="n">settings</span><span class="o">.</span><span class="n">MEDIA_ROOT</span><span class="p">}),</span>
-</span><span class='line'>    <span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>現在在 Django 1.3 變成是</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c"># settings.py</span>
-</span><span class='line'>
-</span><span class='line'><span class="kn">import</span> <span class="nn">os</span>
-</span><span class='line'><span class="n">ROOT_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># 使用者上傳的檔案存放點</span>
-</span><span class='line'><span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ROOT_PATH</span><span class="p">,</span> <span class="s">&#39;../media&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="s">&#39;/media/&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># collectstatic 指令收集靜態檔後所存放的地方</span>
-</span><span class='line'><span class="n">STATIC_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ROOT_PATH</span><span class="p">,</span> <span class="s">&#39;../asset&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="n">STATIC_URL</span> <span class="o">=</span> <span class="s">&#39;/asset/&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># 存放原本的 css / js</span>
-</span><span class='line'><span class="n">STATICFILES_DIRS</span> <span class="o">=</span> <span class="p">(</span>
-</span><span class='line'>    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ROOT_PATH</span><span class="p">,</span> <span class="s">&#39;static&#39;</span><span class="p">),</span>
-</span><span class='line'><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># urls.py</span>
-</span><span class='line'>
-</span><span class='line'><span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
-</span><span class='line'><span class="kn">from</span> <span class="nn">django.contrib.staticfiles.urls</span> <span class="kn">import</span> <span class="n">staticfiles_urlpatterns</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="n">settings</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span>
-</span><span class='line'>    <span class="n">urlpatterns</span> <span class="o">+=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>
-</span><span class='line'>        <span class="p">(</span><span class="s">r&#39;^media/(?P&lt;path&gt;.*)$&#39;</span><span class="p">,</span> <span class="s">&#39;django.views.static.serve&#39;</span><span class="p">,</span>
-</span><span class='line'>            <span class="p">{</span><span class="s">&#39;document_root&#39;</span><span class="p">:</span> <span class="n">settings</span><span class="o">.</span><span class="n">MEDIA_ROOT</span><span class="p">}),</span>
-</span><span class='line'>    <span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># serve static files when DEBUG = True</span>
-</span><span class='line'><span class="n">urlpatterns</span> <span class="o">+=</span> <span class="n">staticfiles_urlpatterns</span><span class="p">()</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>真的是越來越複雜了&#8230; 其實我研究了好久才完全搞懂 Django 1.3 的 staticfiles 要怎麼配置, 不過&#8230; 怎麼還是沒有自動加 version number 的功能阿 &#8230;</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -620,6 +505,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
       </li>
     
@@ -633,10 +522,6 @@
     
       <li class="post">
         <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
       </li>
     
   </ul>

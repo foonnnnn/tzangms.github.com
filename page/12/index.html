@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="不太清楚為何webapp 為何沒有 implement HEAD method, 所以一開始在 MyAudioCast 的 DashBoard 就常看到一些錯誤, 多是一些 web crawler, 但卻都是 405 Method Not Allowed 的錯誤訊息, 用 curl -I 來測...">
+  <meta name="description" content="昨天在寫一個程式, 功能是在把 twitter 上帶有 mp3 連結的訊息, 轉成 podcast 好讓我可以用 iTunes 訂閱, 自動下載 XD 推特那一段就直接用了 twitter search 產生的 json, 然後 mp3 的連結都是 tinyurl 產生的短網址, 直覺我就透過...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,48 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2558/">在 App Engine 上用 Urlfetch 解短網址</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-02-08T00:53:08+08:00" pubdate  data-updated="true" >Feb 8<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>昨天在寫一個程式, 功能是在把 twitter 上帶有 mp3 連結的訊息, 轉成 podcast 好讓我可以用 iTunes 訂閱, 自動下載 XD 推特那一段就直接用了 <a href="http://search.twitter.com/">twitter search</a> 產生的 json, 然後 mp3 的連結都是 tinyurl 產生的短網址, 直覺我就透過了 <a href="http://longurl.org/">longurl</a> 的 api 來回復短網址。</p>
+
+<p>誰知道 <a href="http://longurl.org/api">longurl api</a> 常 request 失敗, 也許可能是因為連續的 request 造成的。後來就突然想到了, 反正 header 都會帶有轉址的原網址吧, 所以就用 <a href="http://code.google.com/intl/zh-TW/appengine/docs/python/urlfetch/">urlfetch</a> 單純只抓 header, 然後 parse header 抓出來正常的網址就好啦~ 誰知道看了一下 urlfetch 的文件有居然 final_url 這個 method, 噗, 結果解短網址就變得超簡單。</p>
+
+<pre><code>result = urlfetch.fetch(tinyurl, method=urlfetch.HEAD)
+if result.status_code == 200:
+    url = result.final_url
+</code></pre>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -458,54 +500,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2529/">Libcloud - Cloud Service Manage Api</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-01-07T00:49:42+08:00" pubdate  data-updated="true" >Jan 7<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>剛才在消化 RSS 的時候看到的, 沒想到有這個東西。 <a href="http://incubator.apache.org/libcloud/index.html">libcloud</a> 對一些 cloud service 管理的 api 提供了一個統一的介面 ( python library ), 支援一些較知名的廠商像是 ec2, slicehost, linode, rackspace, gogrid 等。</p>
-
-<p>可以做以下動作:</p>
-
-<ul>
-    <li>list</li>
-    <li>reboot</li>
-    <li>create</li>
-    <li>destroy</li>
-    <li>images</li>
-    <li>sizes</li>
-</ul>
-
-
-<p>過一陣子應該有時間可以來玩一下, 試試看 linode, slicehost 或 ec2 之類的, 感覺滿好玩的 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -525,6 +519,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
       </li>
     
@@ -538,10 +536,6 @@
     
       <li class="post">
         <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
       </li>
     
   </ul>

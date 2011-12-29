@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="小弟目前在 StreetVoice 工作, 要徵 web developer 一名, 對音樂或獨立音樂有興趣的人可以來談一下。這份工作主要是寫 python + django, 不過由於寫 python 的人比較難找, 所以之前是寫其他語言的人也歡迎來應徵。基本上閱讀英文文章不太有問題、不排斥...">
+  <meta name="description" content="今天下班就跑去八德路那邊買了 iPad 3G 版 32GB, 用起來感覺很不爽, 看網頁, epub 超爽的! 哈! 只是 124 個小朋友就這麼離我而去了 &#8230;.結果在回家的時候, 想都沒想就坐上反方向的捷運了 &#8230;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,42 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/2687/">iPad 入手</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-07-14T22:24:01+08:00" pubdate  data-updated="true" >Jul 14<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天下班就跑去八德路那邊買了 iPad 3G 版 32GB, 用起來感覺很不爽, 看網頁, epub 超爽的! 哈! 只是 124 個小朋友就這麼離我而去了 &#8230;.</p>
+
+<p>結果在回家的時候, 想都沒想就坐上反方向的捷運了 &#8230;</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -473,77 +509,6 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'myaudiocast.settings'</code></pre>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2646/">簡易的 App Engine 全文檢索</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-05-24T15:39:53+08:00" pubdate  data-updated="true" >May 24<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>之前在弄 app engine 的全文檢索, 在官方文件都沒找到, 不過<a href="http://weblog.xeonchen.org/">小 x 大大</a>指點小弟我說有 SearchableModel 可以用, 才去翻了一下 app engine sdk 的 svn 找到 <a href="http://code.google.com/p/googleappengine/source/browse/trunk/python/google/appengine/ext/search/__init__.py">search 的這個 module</a>, 只是實際試用一下, 這個功能沒支援中文, 它似乎只會把空格切開, 所以對於中文來說, 基本上就是無法使用, 用下面這個訊息舉例:</p>
-
-<blockquote>前幾天在弄 app engine 的全文檢索</blockquote>
-
-
-<p>這句的全文檢索資料會存成下面這樣的一個 List</p>
-
-<blockquote>[&#8216;前幾天在弄&#8217;, &#8216;app&#8217;, &#8216;engine&#8217;, &#8216;的全文檢索&#8217;]</blockquote>
-
-
-<p>除了 &#8220;app&#8221; 跟 &#8220;engine&#8221; 可以搜尋到之外, 就只能用 &#8220;前幾天在弄&#8221; 跟 &#8220;的全文檢索&#8221; 這幾個詞可以搜尋到這則訊息, 所以只好捨棄了 SearchableModel 自己來做, 不過因為不熟 app engine, 所以沒有跟 model 做一個很好的整合, 嗯, 是根本沒有 XD 總之就是記錄一下自己的作法, 跟碰到效能的問題。</p>
-
-<p>由於 app engine 的 model 可以直接用 list 來 filter 出結果, 像是:</p>
-
-<pre><code>keywords = ['少女', '時代']
-Message.all().filter('keywords IN', keywords)</code></pre>
-
-
-<p>所以在建立 Message model 時, 就定個叫 keywords 的 StringListProperty, 把我們切好的字都存進去, 之後便可以透過上面的方法來搜尋。</p>
-
-<p>而切字的作法是基本上跟 SearchableModel 的做法一樣, 先用空白切, 這樣就可以切開有正常空格的英文字, 但是得仍常會看到英文跟中文黏在一起的狀況,  像是:</p>
-
-<blockquote>測試twitter備份功能</blockquote>
-
-
-<p>相上面這種狀況這也得另外處理, 然後把中文相鄰的兩個字, 一組一組切開, 像是:</p>
-
-<blockquote>[&#8216;測試&#8217;, &#8216;twitter&#8217;, &#8216;備份&#8217;, &#8216;份功&#8217;, &#8216;功能&#8217;]</blockquote>
-
-
-<p>其實原本我是切一個字跟兩個字, 不過因為 StringListProperty 在存入大量的 List 的時候, 會吃掉許多效能, 在 app engine dashboard 會一直看到紅字, 透過 <a href="http://tzangms.com/programming/2606">appstats</a> 就一直看到是在寫入 keywords 得部分吃掉最多 cpu time, 所以後來就只切兩個字, 減少 List 的長度。</p>
-
-<p>反正基本上不允許搜尋一個字的就是了, 不過都只切成兩個字的話, 使用者搜尋的時候就不能打三個字或四個字來進行搜尋, 這時候就得把搜尋的字串也切一下, 例如上面這一句的狀況, 使用者可能會輸入 &#8220;備份功能&#8221;, 這時候用同一個切字功能切成下面這樣就完全 match 了 XD</p>
-
-<blockquote>[&#8216;備份&#8217;, &#8216;份功&#8217;, &#8216;功能&#8217;]</blockquote>
-
-
-<p>總之就變成使用者一定得輸入兩個字以上才能進行搜尋。 anyway 這樣一來就可以做個簡易的全文檢索了 ~ 當然 keywords 得給個 index 囉。</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -563,6 +528,10 @@ Message.all().filter('keywords IN', keywords)</code></pre>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
       </li>
     
@@ -576,10 +545,6 @@ Message.all().filter('keywords IN', keywords)</code></pre>
     
       <li class="post">
         <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
       </li>
     
   </ul>

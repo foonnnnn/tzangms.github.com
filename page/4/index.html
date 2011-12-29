@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="今天一早就聽到 delicious 收攤的消息, 除此之外 yahoo buzz 以及先前提了很久的 mybloglog 也是。 其實我沒在用 delicous, 因為當初在把書籤收進 delicious 之後, 發現我跟不會回去找東西, 或者是找東西也很難找, 所以後來就甚至把帳號砍了。最後...">
+  <meta name="description" content="因為買了新新 Macbook Air, 下禮拜就要去北京了, 就在這台設定了一下開發環境。 首先當然是抓個 xcode 下來裝, 然後裝上 homebrew。平常開發都只用 vim, 可是其實我對 vim 的各種功能或是外掛都沒有太多著墨跟了解, 就都只有基本的 .vimrc 設定而已, 今天...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,57 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2783/">pyflakes.vim: 讓 Vim 自動檢查 Python 語法</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-12-18T13:13:04+08:00" pubdate  data-updated="true" >Dec 18<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="/uploads/2010/12/pyflakes.png" /></p>
+
+<p>因為買了新新 Macbook Air, 下禮拜就要去北京了, 就在這台設定了一下開發環境。 首先當然是抓個 xcode 下來裝, 然後裝上 <a href="http://mxcl.github.com/homebrew/">homebrew</a>。</p>
+
+<p>平常開發都只用 vim, 可是其實我對 vim 的各種功能或是外掛都沒有太多著墨跟了解, 就都只有基本的 .vimrc 設定而已, 今天早上就想說來摸一下。</p>
+
+<p>在 Mac 內建的 vim 並沒有 python support, 以前自己 compile 過一次, 可是這次卻碰到麻煩, 最後直接抓 <a href="http://code.google.com/p/macvim/">MacVim</a> 來裝, 不過我不喜歡 GUI 模式, 而是用 MacVim 提供的 console 模式, 所以我就直接 alias 出來。</p>
+
+<pre><code>alias vi=/Applications/MacVim.app/Contents/MacOS/Vim</code></pre>
+
+
+<p>這樣一來馬上就能讓 vim 有 python support, 然後就是裝 vim 外掛, <a href="http://www.vim.org/scripts/script.php?script_id=2441">pyflakes.vim</a>, 抓下來丟進 ~/.vim/ftplugin 就可以了, 這個裡面就直接有 pyflakes 這個 python package, 所以在 vimrc 加上下面幾行啟用 plugin 即可。</p>
+
+<pre><code>filetype on
+filetype plugin on</code></pre>
+
+
+<p>接下來就可以直接編輯個 python 程式試看看, 除了錯誤的語法之外, 多餘的 import 也檢查的出來, 真是不錯!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -462,52 +513,6 @@ TEMPLATE_DIRS = (
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/2756/">四樓播客</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-11-12T22:30:39+08:00" pubdate  data-updated="true" >Nov 12<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://4fpodcast.appspot.com/"><img src="http://tzangms.com/wp-content/uploads/2010/11/Screen-shot-2010-11-11-at-下午4.07.52-500x281.png" alt="" title="Screen shot 2010-11-11 at 下午4.07.52" width="500" height="281" class="aligncenter size-large wp-image-2757" /></a></p>
-
-<p>這是一個透過 twitter search 抓取某推友包含音樂連結的推訊自動產生 podcast feed 的音樂網站 (?), 已經 run 了好一陣子了。 搞不好有一年了? XD 不過就只有 podcast feed 而已, 首頁其實就是一片白。</p>
-
-<p>而前一陣子突然想到個 idea, 所以趁昨天休假加了一下功能, 因為後來其實我自己也幾乎很少開這個 podcast XD 想說直接開網頁播放應該會很方便 :p</p>
-
-<p>現在首頁就直接使用 HTML5 的 audio tag 來隨機播音樂, 然後透過 <a href="http://code.google.com/intl/zh-TW/apis/imagesearch/">google image search api</a> 抓取音樂人照片, 自動換照片, 其實就跟 <a href="http://www.thesixtyone.com/">thesixtyone</a> 現在的方式差不多。</p>
-
-<p>不過因為使用 HTML5 Audio, 所以現在只有 Safari 跟 Chrome 才能正常播放 XD</p>
-
-<p>我還滿喜歡這樣隨機聽歌的, 然後由於秘密證人保護, 所以不能透漏是哪位偉大的推友在散佈 mp3 連結 (咦)</p>
-
-<p>向這位偉大的推友致敬!</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -527,6 +532,10 @@ TEMPLATE_DIRS = (
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
       </li>
     
@@ -540,10 +549,6 @@ TEMPLATE_DIRS = (
     
       <li class="post">
         <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
       </li>
     
   </ul>

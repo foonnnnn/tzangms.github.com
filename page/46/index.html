@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="UPDATE: 我後來做了一個網站叫 MyAudioCast, 有興趣的可以看看, 解決了 podcast 架設的絕大部分問題。 網址是 http://www.myaudiocast.com/大家一起來玩 Podcast 吧! (什麼是 Podcast? 可以吃嗎? ) Podcast 真的滿...">
+  <meta name="description" content="擋不住的 Podcast 熱血! 小海 Podcast 第二集來啦! 這次介紹小海剛開始接觸音樂的一些回憶, 用木吉他自彈自唱了兩首當年的成名曲 XD 好吧! 自以為是成名曲 Orz 呵, 不過這次都直接錄, 所以有稍微彈錯或唱錯的部份, 請多多包涵囉!另外, 上一集在宜蘭, 所以就直接用 M...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,42 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/podcast/826/">小海 Podcast 第 2 集</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-04-12T00:06:40+08:00" pubdate  data-updated="true" >Apr 12<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>擋不住的 Podcast 熱血! 小海 Podcast 第二集來啦! 這次介紹小海剛開始接觸音樂的一些回憶, 用木吉他自彈自唱了兩首當年的成名曲 XD 好吧! 自以為是成名曲 Orz 呵, 不過這次都直接錄, 所以有稍微彈錯或唱錯的部份, 請多多包涵囉!</p>
+
+<p>另外, 上一集在宜蘭, 所以就直接用 Macbook 內建的麥克風小孔直接錄 Podcast 了, 這次錄第二集有我平常錄音的麥克風可以用, 雖然也是在家裡錄, 不過聽起來聲音應該會比較好! 呵, Podcast 越做越有心得了! XD</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -432,59 +468,6 @@ H2O樂團的鼓手小廖, 今天終於出發開始他的軍旅生涯了! 所以�
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/796/">Javascript: slimAnchor()</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-03-14T17:36:27+08:00" pubdate  data-updated="true" >Mar 14<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>[source:javascript]
-function slimAnchor(limitChar){</p>
-
-<pre><code>var alink = document.getElementsByTagName('a');
-for (var i=0; i&lt; alink.length; i++){
-    pre = alink[i].innerHTML.substr(0,4);
-    if (pre =='http' &amp;&amp; alink[i].innerHTML.length &gt; limitChar){
-        alink[i].innerHTML = alink[i].innerHTML.substr(0,limitChar) + '...';
-    }
-}
-</code></pre>
-
-<p>}
-[/source]</p>
-
-<p>如果在 table 裡面有一個超長的連結, 那麼在 firefox, 這個 table 將會被撐的很開, 所以寫了這個函式, 會將頁面所有的 A tag 都縮短, 避免 table 被撐開的問題, 當然, 縮的是 a.innerHTML 不是 a.href。</p>
-
-<p>其中有個判斷是判斷 a.innerHTML 是否為 &#8216;http&#8217;, 不然 IMG tag 或是一些 EMBED tag 包在 A tag 裡面, 那麼就出問題了。</p>
-
-<p><em>PS. 今天把 flash 的 width 跟 height  截掉過 XD</em></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -504,6 +487,10 @@ for (var i=0; i&lt; alink.length; i++){
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
       </li>
     
@@ -517,10 +504,6 @@ for (var i=0; i&lt; alink.length; i++){
     
       <li class="post">
         <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
       </li>
     
   </ul>

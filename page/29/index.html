@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="Kohana 前身叫做 BlueFlame, 是由 CodeIgniter 衍生出來的 PHP framework, 所以要從 CI 跳槽還滿快的 XD 而 Kohana 跟 CodeIgniter 最大的不同就是, Kohana 只能在 PHP 5 上跑。 不過其實&#8230; 現在都該換...">
+  <meta name="description" content="應柏強的要求, 昨天晚上把 stickeraction.com 加上了 OpenID, 不過目前只能用在註冊新帳號, 不能 attach 舊有的帳號 :p 其實本來會員帳號想直接都用 OpenID 來作, 不過想說 OpenID 並不是那麼多人知道, 怕會沒人用 XD 所以還是寫了一個會員帳號...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,42 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/stickeraction/1220/">stickeraction.com 可以使用 OpenID 囉!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-07-16T18:36:30+08:00" pubdate  data-updated="true" >Jul 16<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>應<a href="http://blog.bobchao.net/">柏強</a>的要求, 昨天晚上把 <a href="http://stickeraction.com">stickeraction.com</a> 加上了 <a href="http://openid.net/">OpenID</a>, 不過目前只能用在註冊新帳號, 不能 attach 舊有的帳號 :p 其實本來會員帳號想直接都用 OpenID 來作, 不過想說 OpenID 並不是那麼多人知道, 怕會沒人用 XD 所以還是寫了一個會員帳號的機制 :p</p>
+
+<p>stickeraction.com 用的是 <a href="http://janrain.com/">janrain</a> 的 <a href="http://openidenabled.com/">OpenID Library</a>, 有興趣可以看看。 另外 <a href="http://openid.yahoo.com/">Yahoo 也好像要推 OpenID</a>, 不過只能用 OpenID 2.0 版本勒, 不要選錯 library 了 XD</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -561,59 +597,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1187/">The PHP Benchmark</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-06-09T01:12:14+08:00" pubdate  data-updated="true" >Jun 9<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2562298047/" title="phpbenchmark by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3139/2562298047_bae14157c1.jpg" width="500" height="263" alt="phpbenchmark" /></a>
-<a href="http://www.phpbench.com/">The PHP Benchmark</a> 。 有寫 PHP 的話, 這個站一定要看一下的阿! 其中有些 benchmark 好像推翻了先前所讀過的東西。</p>
-
-<p>像是以前讀過說, while 比 for 快, for 又比 foreach 快 (雖然我還是一直用 foreach, 因為 code 比較乾淨 XD), 不過這個 PHP Benchmark 在測試 loop 的結論提到, 其實 foreach 是比較快。</p>
-
-<p>另外就是, 在用 for 的時候到底要不要先算過要 loop 的次數? 以往看到的文章都是說, 在掃某個陣列之前, 要先算出這個陣列的長度, 再開始跑 for loop, 例如像下面這一段。 因為在跑 loop 的時候, 都會再執行過一次陣列長度的計算。</p>
-
-<pre>
-<code>for ($i = 0; $i < count($foo); $i++) {
-    // blah
-}</code>
-</pre>
-
-
-<p>所以後來我就變成這樣寫 &#8230;</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/1187/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -633,6 +616,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
       </li>
     
@@ -646,10 +633,6 @@
     
       <li class="post">
         <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
       </li>
     
   </ul>

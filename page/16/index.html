@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="其實 prgmr 已經買了一個多月了, 可是最近超懶, 提不起勁幫 stickeraction 搬家, 剛好由於這幾天 stickeraction 一直當機, 所以乾脆提起勁來把 stickeraction 從 linode 搬到 prgmr。其實最主要是想省點錢, 因為 linode 每個月...">
+  <meta name="description" content="之前有寫過 pip &amp; requirements file, 可以在開發 project 時可以寫好 requirements file, 在每當要 deploy 到新的機器的時候, 就可以直接透過一個 pip 指令, 把 deploy project 所需要的 dependencie...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,101 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2461/">Pip + Virtualenv + Mod_wsgi</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-08-09T22:02:36+08:00" pubdate  data-updated="true" >Aug 9<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>之前有寫過 <a href="http://tzangms.com/programming/2439">pip &amp; requirements file</a>, 可以在開發 project 時可以寫好 requirements file, 在每當要 deploy 到新的機器的時候, 就可以直接透過一個 pip 指令, 把 deploy project 所需要的 dependencies 都給裝好。</p>
+
+<p>而 <a href="http://pypi.python.org/pypi/virtualenv">virtualenv</a> 這個工具, 可以讓你在同一台機器開發不同 project 時, 使用不同的 dependencies, 例如: 原本有舊的 project 使用的 django 版本是 0.96, 另外又有新的 project 需要用上 django 1.1。 然而舊的 project 用 django 1.1 一定掛的一踏糊塗, 所以這時候就可以透過 virtualenv 把這兩個 project 所需要的環境給區隔開來。 ( 通常使用 easy_install 或 pip 安裝套件的時候, 都會直接裝在 site wide 的 site-packages 裡。)</p>
+
+<p>先來簡單介紹 virtualenv 的使用方法, 首先就是建立一個 virtual enviroment:</p>
+
+<pre><code>virtualenv PROJECT_ENV</code></pre>
+
+
+<p>會有下列訊息</p>
+
+<pre><code>New python executable in PROJECT_ENV/bin/python
+Installing setuptools............done.</code></pre>
+
+
+<p>完成之後會多一個叫做 PROJECT_ENV 的資料夾, 裡面會有基本的開發環境, 這個資料夾裡面會有三個目錄</p>
+
+<pre><code>bin/
+include/
+lib/
+</code></pre>
+
+
+<p>接下來在 PROJECT_ENV 裡執行下列指令就可以進入這個虛擬的開發環境</p>
+
+<pre><code>source bin/activate</code></pre>
+
+
+<p>不過我偏好加上 <code>--no-site-package</code> 這個參數</p>
+
+<pre><code>virtualenv PROJECT_ENV --no-site-package</code></pre>
+
+
+<p>這個參數用來告訴 virtualenv 不使用 site wide 的 site-package, 也就是說, 如果原本系統就有裝了 django, mysql-python, 那麼在進入用 <code>--no-site-package</code> 這個參數所建立的 virtualenv 的時候, 就讀不到 django, mysql-python, 得在這個 virtualenv 在裝一遍, 但是我個人覺得這樣比較乾淨 (潔癖? XD)</p>
+
+<p>基本上 virtualenv 就是提供虛擬開發環境, 可以避免套件版本不同的衝突。</p>
+
+<p>而 pip 跟 virtualenv 就是好兄弟啦, 在透過 pip 安裝套件時, 就可以直接指定要安裝的 virtualenv, 像是:</p>
+
+<pre><code>pip install -E PROJECT_ENV -r requirements.txt</code></pre>
+
+
+<p>如果沒有已經存在的 virtual env 的話, 這個指令就會直接建立一個新的 virtual env ( 預設是 <code>--no-site-package</code> ), 然後把 requirements 都給裝進去。</p>
+
+<p>或是已經在 PROJECT_ENV 裡的話, 就直接打 <code>pip install -E . package-x.x</code></p>
+
+<p>最後, 如果 www server 可以直接用 virtualenv 的話, 不是就很完美了嗎? :D</p>
+
+<p>其實 <a href="http://code.google.com/p/modwsgi/">mod_wsgi</a> 2.0 之後的版本, 可以很方便的來使用 virtualenv, 如果你是 apache + mod_wsgi 的話 XD</p>
+
+<p>只要在你的 wsgi file 加上這一段即可</p>
+
+<pre><code>import site
+site.addsitedir('/var/django/PROJECT_ENV/lib/python2.5/site-packages')</code></pre>
+
+
+<p>pip + virtualenv + mod_wsgi 真是個完美的組合壓 :D</p>
+
+<p>PS. 補充一下 <a href="http://blog.xdite.net">xdite</a> 大大在 twitter 上提到 rails 在這塊的做法:</p>
+
+<blockquote>pip 的作用在 rails 裡面寫 config.gems 然後 rake gems:install 就有了。至於 virtrualenv 在 config/enviroments.rb 上面指定 RAILS_GEM_VERSION 就可以 XD</blockquote>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -549,44 +644,6 @@ python-memcached
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/2409/">I&#8217;M HUGE on TWITTER</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-06-07T00:19:53+08:00" pubdate  data-updated="true" >Jun 7<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p style="text-align: center;"><a title="I'M HUGE ON TWITTER by tzangms, on Flickr" href="http://www.flickr.com/photos/tzangms/3599288165/"><img class="aligncenter" src="http://farm3.static.flickr.com/2483/3599288165_b7e9706316.jpg" alt="I'M HUGE ON TWITTER" width="375" height="500" /></a></p>
-
-
-<p style="text-align: center;">not really XD</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -606,6 +663,10 @@ python-memcached
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
       </li>
     
@@ -619,10 +680,6 @@ python-memcached
     
       <li class="post">
         <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
       </li>
     
   </ul>

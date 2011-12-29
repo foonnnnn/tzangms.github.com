@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="Rihanna 的 umbrella 這首歌真的好紅, 可是我完全聽的都是 cover 版本, 這首歌的 cover 版本在 youtube 上真的是超多的!! 小雨傘這首歌真的很適合拿來唱 Rock, 尤其~ 我超愛看龐克團作 cover !! 來看看一個來自義大利羅馬的龐克團, 叫 Van...">
+  <meta name="description" content="The PHP Benchmark 。 有寫 PHP 的話, 這個站一定要看一下的阿! 其中有些 benchmark 好像推翻了先前所讀過的東西。像是以前讀過說, while 比 for 快, for 又比 foreach 快 (雖然我還是一直用 foreach, 因為 code 比較乾淨 X...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,59 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1187/">The PHP Benchmark</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-06-09T01:12:14+08:00" pubdate  data-updated="true" >Jun 9<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2562298047/" title="phpbenchmark by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3139/2562298047_bae14157c1.jpg" width="500" height="263" alt="phpbenchmark" /></a>
+<a href="http://www.phpbench.com/">The PHP Benchmark</a> 。 有寫 PHP 的話, 這個站一定要看一下的阿! 其中有些 benchmark 好像推翻了先前所讀過的東西。</p>
+
+<p>像是以前讀過說, while 比 for 快, for 又比 foreach 快 (雖然我還是一直用 foreach, 因為 code 比較乾淨 XD), 不過這個 PHP Benchmark 在測試 loop 的結論提到, 其實 foreach 是比較快。</p>
+
+<p>另外就是, 在用 for 的時候到底要不要先算過要 loop 的次數? 以往看到的文章都是說, 在掃某個陣列之前, 要先算出這個陣列的長度, 再開始跑 for loop, 例如像下面這一段。 因為在跑 loop 的時候, 都會再執行過一次陣列長度的計算。</p>
+
+<pre>
+<code>for ($i = 0; $i < count($foo); $i++) {
+    // blah
+}</code>
+</pre>
+
+
+<p>所以後來我就變成這樣寫 &#8230;</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/1187/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -472,49 +525,6 @@ png 在 ie 上一直讓人很頭痛阿~ 這篇介紹了一些解法</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1161/">學習 XPath</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-05-07T21:14:24+08:00" pubdate  data-updated="true" >May 7<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這幾天在研究 XPath 這個東西, 我想下面這三個看完應該就差不多了吧! 先看看 w3schools 跟 Wikipedia, 最後看看 zvon 上的範例頗有幫助的。</p>
-
-<p>XPath Tutorial - w3schools
-<a href="http://www.w3schools.com/xpath/default.asp" target="_blank"> http://www.w3schools.com/xpath/default.asp</a></p>
-
-<p>XPath - Wikipedia
-<a href="http://zh.wikipedia.org/wiki/XPath" target="_blank"> http://zh.wikipedia.org/wiki/XPath</a></p>
-
-<p>XPath Tutorial - zvon
-<a href="http://www.zvon.org/xxl/XPathTutorial/General/examples.html" target="_blank"> http://www.zvon.org/xxl/XPathTutorial/General/examples.html</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -534,6 +544,10 @@ png 在 ie 上一直讓人很頭痛阿~ 這篇介紹了一些解法</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
       </li>
     
@@ -547,10 +561,6 @@ png 在 ie 上一直讓人很頭痛阿~ 這篇介紹了一些解法</p>
     
       <li class="post">
         <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
       </li>
     
   </ul>

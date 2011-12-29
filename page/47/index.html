@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="昨天 clothocs 傳了這個影片給我, 看了之後, 即使是在上班時間, 我還是忍不著笑了出來, 雖然可能中間覺得有點白爛, 但是, 整體來說, 讓我久久不能忘懷, 想到都還會笑 XD不過今天跟 clothocs 說, 昨天的影片真的是太爆笑了, 他卻說道, 他有傳給另一個人看, 可是好像笑...">
+  <meta name="description" content="[source:javascript]function slimAnchor(limitChar){var alink = document.getElementsByTagName('a');for (var i=0; i&lt; alink.length; i++){    pre = a...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,59 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/796/">Javascript: slimAnchor()</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-03-14T17:36:27+08:00" pubdate  data-updated="true" >Mar 14<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>[source:javascript]
+function slimAnchor(limitChar){</p>
+
+<pre><code>var alink = document.getElementsByTagName('a');
+for (var i=0; i&lt; alink.length; i++){
+    pre = alink[i].innerHTML.substr(0,4);
+    if (pre =='http' &amp;&amp; alink[i].innerHTML.length &gt; limitChar){
+        alink[i].innerHTML = alink[i].innerHTML.substr(0,limitChar) + '...';
+    }
+}
+</code></pre>
+
+<p>}
+[/source]</p>
+
+<p>如果在 table 裡面有一個超長的連結, 那麼在 firefox, 這個 table 將會被撐的很開, 所以寫了這個函式, 會將頁面所有的 A tag 都縮短, 避免 table 被撐開的問題, 當然, 縮的是 a.innerHTML 不是 a.href。</p>
+
+<p>其中有個判斷是判斷 a.innerHTML 是否為 &#8216;http&#8217;, 不然 IMG tag 或是一些 EMBED tag 包在 A tag 裡面, 那麼就出問題了。</p>
+
+<p><em>PS. 今天把 flash 的 width 跟 height  截掉過 XD</em></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -458,56 +511,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/778/">但終究你還是免不了一死</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-02-11T03:21:41+08:00" pubdate  data-updated="true" >Feb 11<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>該說些什麼 該做些什麼
-其實什麼都不對</p>
-
-<p>你能有什麼想法 沒有
-你早已被這個社會會限制住</p>
-
-<p>從國小讀書到高中、大學 出社會
-你早已被教育為社會的一顆螺絲
-就這樣終其一生的過下去</p>
-
-<p>起床上班工作 下班回家看電視
-你是否想過你的未來？</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/life/778/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -527,6 +530,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
       </li>
     
@@ -540,10 +547,6 @@
     
       <li class="post">
         <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
       </li>
     
   </ul>

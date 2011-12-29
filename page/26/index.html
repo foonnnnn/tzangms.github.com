@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="其實上個禮拜 moo business card 就已經到了 :p 而 threadless 在昨天終於到啦!!! :D">
+  <meta name="description" content="由於 stickeraction 的貼紙越來越多了, 首頁也總不可能一直就這樣放著讓他圖越來越多, 所以先前就先把首頁換成了顯示熱門、新進跟隨機貼紙。 (雖然沒啥差 囧)今天就又加上了一個可以列出所有貼紙的頁面, 當然是分頁過的阿,  目前就還是以新進的貼紙優先列出, 不過之後應該會有所改變,...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,46 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/stickeraction/1667/">[Stickeraction] 貼紙列表</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-17T23:06:03+08:00" pubdate  data-updated="true" >Sep 17<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>由於 <a href="http://stickeraction.com">stickeraction</a> 的貼紙越來越多了, 首頁也總不可能一直就這樣放著讓他圖越來越多, 所以先前就先把首頁換成了顯示熱門、新進跟隨機貼紙。 (雖然沒啥差 囧)</p>
+
+<p>今天就又加上了一個可以<a href="http://stickeraction.com/show">列出所有貼紙的頁面</a>, 當然是分頁過的阿,  目前就還是以新進的貼紙優先列出, 不過之後應該會有所改變, hmm&#8230; 至少會有個站長推薦這種東西吧 XD</p>
+
+<p>然後也修正了貼紙頁面在 ie 看是一片亂的狀況, 為啥不支援 max-width 這種東西勒!!! (拍桌), anyway, 貼紙部落格聯播也回來了, 例如: <a href="http://stickeraction.com/EmBA/broadcast">http://stickeraction.com/EmBA/broadcast</a> , 也加上了 rss, 等聯播關鍵字弄好在提聯播這塊吧!</p>
+
+<p>越多功能, 就越多問題等待解決阿 ~&#8221;~ 只是至少要把當初想要的功能都做完! (握拳)</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -480,111 +520,6 @@ echo $feed_url;</code>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/codeigniter/1201/">CodeIgniter Layout 的做法</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-08-30T12:48:09+08:00" pubdate  data-updated="true" >Aug 30<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>由於在開發網站過程中, 通常都有個 template 或稱作 layout, layout 包含了整個網站的外觀, 而網站的 layout 通常會切分為 header, content, footer 甚至還有 menu。 而這當中的 content view 則是會隨著不同頁面、功能而變動, 而 layout 則為固定, 這樣可以維持同一個網站界面的一致性, 然而 <a href="http://codeigniter.com">CodeIgniter</a> 並沒有對這種所謂 partial view 有較好的處理方式。</p>
-
-<p>所以通常都會是像下面這樣的寫法。 載入 foo 這個 content view 到變數之後, 丟到 template view, 最後在 render 出來。</p>
-
-<p><code>$data['foo'] = $foo;
-$view['heading'] = 'heading text';
-$view['content'] = $this->load->view('foo', $data, true);
-$this->load->view('template', $view);</code></p>
-
-<p>所以每個頁面就都得寫上兩行 load view 的動作, 寫久了便覺得繁瑣, 其實這個動作透過下面這個 Layout library 是可以簡化的。 這個 library 是在 <a href="http://codeigniter.com/wiki/layout_library/">CodeIgniter wiki</a> 上看來的, 只修改了幾個變數。</p>
-
-<pre>
-<code>&lt;?php
-class Layout
-{
-    var $obj;
-    var $layout;
-
-    function Layout($layout = "template")
-    {
-        $this->obj =& get_instance();
-        $this->layout = $layout;
-    }
-
-    function setLayout($layout)
-    {
-      $this->layout = $layout;
-    }
-
-    function view($view, $data=null, $return = false)
-    {
-        $data['content'] = $this->obj->load->view($view, $data, true);
-
-        if($return)
-        {
-            $output = $this->obj->load->view($this->layout, $data, true);
-            return $output;
-        }
-        else
-        {
-            $this->obj->load->view($this->layout, $data, false);
-        }
-    }
-}
-?&gt;</code></pre>
-
-
-<p>有了這個 Layout library 之後變可以將載入 view 的程式簡化如下:</p>
-
-<p><code>$data['foo'] = $foo;
-$data['heading'] = 'heading text';
-$this->layout->view('foo', $data);</code></p>
-
-<p>基本上以這個 library 為範例的話, 預設的 template 檔案就要命名為 template.php, 你也可以修改這個 library 的程式碼來符合你現在 template 的檔案名稱, 不過我是覺得就叫 template 還滿直覺的。
-而 template.php 裡面則是需要放入 $content 這個變數來存放 foo.php 這個 view。 簡單的 template.php 的範例如下:</p>
-
-<p><code>&lt;html&gt;
-&lt;body&gt;
-&lt;?=$content?&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></p>
-
-<p>當然這個 template 可以像文章一開始講到的, 另外做更細的切分, 我們可以另外開一個 template 的目錄, 裡面存放 header.php, footer.php, 然後在 template.php 裡面載入, template.php 如下:</p>
-
-<pre>
-<code>$this->load->view('template/header');
-&lt;?=$content?&gt;
-$this->load->view('template/footer');</code>
-</pre>
-
-
-<p>hmm&#8230; 這篇應該要有寫過 view in view 的人才看得懂吧? 超懶畫圖 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -604,6 +539,10 @@ $this->load->view('template/footer');</code>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
       </li>
     
@@ -617,10 +556,6 @@ $this->load->view('template/footer');</code>
     
       <li class="post">
         <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a>
       </li>
     
   </ul>
