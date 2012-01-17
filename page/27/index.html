@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="由於在開發網站過程中, 通常都有個 template 或稱作 layout, layout 包含了整個網站的外觀, 而網站的 layout 通常會切分為 header, content, footer 甚至還有 menu。 而這當中的 content view 則是會隨著不同頁面、功能而變動,...">
+  <meta name="description" content="老實說, 我也不太清楚是怎麼一回事, 幸好資料庫有備份, 也有另外一台主機可以馬上接手資料庫的部份, 只是 stickeraction 的 cache 被清掉之後, 沒辦法一下子馬上處理那麼多的 request, 其實這也就表示當初程式的設計是有問題的, 沒辦法處理那麼大量的 request。...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,44 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1548/">主機資料庫大爆炸</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-01T00:17:41+08:00" pubdate  data-updated="true" >Sep 1<span>st</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>老實說, 我也不太清楚是怎麼一回事, 幸好資料庫有備份, 也有另外一台主機可以馬上接手資料庫的部份, 只是 <a href="http://stickeraction.com">stickeraction</a> 的 cache 被清掉之後, 沒辦法一下子馬上處理那麼多的 request, 其實這也就表示當初程式的設計是有問題的, 沒辦法處理那麼大量的 request。 其實也是因為當初根本沒想說會有那麼多人用 XD</p>
+
+<p>除了 <a href="http://stickeraction.com">stickeraction</a> 之外, 我放在同一台主機的服務 <a href="http://twitthat.com">twitthat</a> 跟我的 blog 也都掛點, 幸好每天都有用 <a href="http://sourceforge.net/projects/automysqlbackup/">automysqlbackup</a> 在備份, 所以沒有釀成太大的悲劇 Orz</p>
+
+<p>總之, 目前 stickeraction 的狀況就是, 除了無法將已經貼了貼紙的新部落格加進來之外, 其他一切都正常 XD 接下來這幾天要來把 stickeraction 的架構重新寫一遍吧! 還沒有看到被加進串連的朋友請稍後幾天嘿!!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -589,47 +627,6 @@ $user-&gt;where('username', 'tzangms')-&gt;find();
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/1395/">拾參 - 馬臉水手的夏天</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-08-17T23:51:04+08:00" pubdate  data-updated="true" >Aug 17<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2771025924/" title="100_3806 by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3069/2771025924_667ab1d9d4.jpg" width="500" height="375" alt="100_3806" /></a></p>
-
-<p>好久沒聽到拾參這個團的名字了, 一直在前一陣子, 聽到拾參在某些 Rock pub 開始又有活動了, 想想, 距離第一次聽到拾參的時候, 真的是隔了很久。 這次被找去參加拾參在海邊的卡夫卡舉辦的試聽會, 本來在猶豫要不要去, 不過想想似乎好久沒看樂團表演了, 也許是該時候接受點衝擊了吧!</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/music/1395/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -649,6 +646,10 @@ $user-&gt;where('username', 'tzangms')-&gt;find();
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
       </li>
     
@@ -662,10 +663,6 @@ $user-&gt;where('username', 'tzangms')-&gt;find();
     
       <li class="post">
         <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
       </li>
     
   </ul>
@@ -725,7 +722,7 @@ $user-&gt;where('username', 'tzangms')-&gt;find();
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2011 - tzangms -
+  Copyright &copy; 2012 - tzangms -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

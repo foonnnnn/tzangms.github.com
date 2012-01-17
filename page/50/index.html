@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="最近每每看到人，每個人都說: &#8220;小海~你變胖了!&#8221;，恩！對我來說真的是天大的打擊！我知道我變胖了阿!!!所以最近開始運動了，上個月的週末就去跑步，然後上上上禮拜就練團，比跑步還累，差一點死掉了我，累死，上上禮拜則是練團兼表演，都有運動到，所以上禮拜量ㄧ下體重，呵！少了兩...">
+  <meta name="description" content="今天上班，一直在處理別的事情之外，下班前都在弄Squirrelmail，這次運用裡面的Classes的組合寫出了可以寄信的程式XD 可能有人會想說PHP就有內建mail啦! 但是，那個太簡單了，不夠帥 XD 所以為了耍帥，我就用了以下的Classes跟functions來作Deliver_SM...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,54 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/736/">Squirrelmail Classes</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-12-01T00:00:50+08:00" pubdate  data-updated="true" >Dec 1<span>st</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天上班，一直在處理別的事情之外，下班前都在弄Squirrelmail，這次運用裡面的Classes的組合寫出了可以寄信的程式XD 可能有人會想說PHP就有內建mail啦! 但是，那個太簡單了，不夠帥 XD 所以為了耍帥，我就用了以下的Classes跟functions來作</p>
+
+<p>Deliver_SMTP.class.php
+Message.class.php
+Rfc822Header.class.php
+ContentType.class.php
+mime.php
+global.php
+&#8230;</p>
+
+<p>Deliver_SMTP是用來寄信的，但是要傳給他什麼呢？要傳Message Object，可是Message Object 要包含，Rfc822Header跟ContentType，看起來就很煩。Rfc822Header就是用來存from跟to等等的東西，ContentType就是用來包含encoding跟charset，那最主要的部份就是Message啦！除了需要存這兩個Object之外，最重要的就是，subject跟信件內文啦!</p>
+
+<p>在下班前終於把Message Object的必要資訊填好，不過寄出的信因為charset跟encoding的關係卻變成亂碼XD 看著大家都一個一個下班走了，我也只好打消繼續寫的念頭，不過又不甘心的寫了一下下，突然，哇!! 成功了！可以正常顯示啦!! 那麼就又可以繼續寫下去，不過~~在寫下去可能不知道幾點了，有時候寫到正high的時候真的是停不下來 XD 所以就把這個告一段落，完美的結束，明天在繼續 XD</p>
+
+<p>不過在這支程式之前，就用mail()，一行就可以達到相同功能 XD 可是一點也不帥氣 XD 好啦～！重點是mail較不那麼portable，跟Server的環境比較有關係，anyway明天繼續high :D</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -471,42 +519,6 @@ http://www.streetvoice.com.tw/forum/vote.asp?td=1156&amp;sf=3&amp;df=0&amp;page=
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/720/">大家早，我是早安魔人!!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2006-10-24T04:10:31+08:00" pubdate  data-updated="true" >Oct 24<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>3:43 am 大家早安!! 我是早安魔人!! 我每天都睡到凌晨差不多3~4點左右我就會起床，然後上網貼文章跟大家說早安阿!!</p>
-
-<p>大家早安阿！一起到公園做早操吧!!</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -526,6 +538,10 @@ http://www.streetvoice.com.tw/forum/vote.asp?td=1156&amp;sf=3&amp;df=0&amp;page=
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
       </li>
     
@@ -539,10 +555,6 @@ http://www.streetvoice.com.tw/forum/vote.asp?td=1156&amp;sf=3&amp;df=0&amp;page=
     
       <li class="post">
         <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
       </li>
     
   </ul>
@@ -602,7 +614,7 @@ http://www.streetvoice.com.tw/forum/vote.asp?td=1156&amp;sf=3&amp;df=0&amp;page=
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2011 - tzangms -
+  Copyright &copy; 2012 - tzangms -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

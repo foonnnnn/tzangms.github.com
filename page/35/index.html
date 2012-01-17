@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="Bonjour! 這是我收到的第二張從外國來的明信片! 第一張是阿潑從北京寄來的!">
+  <meta name="description" content="今天在 Gentoo 上面裝 Webalizer, 記錄一下。首先當然是先 emerge webalizer ( USE Flag 加上 -nls 是因為我喜歡英文的界面 :x )USE='-nls vhosts geoip' emerge webalizer然後裝好用 webapp-conf...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,56 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/linux/1048/">Install Webalizer on Gentoo</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-01-04T13:03:36+08:00" pubdate  data-updated="true" >Jan 4<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天在 <a href="http://gentoo.org">Gentoo</a> 上面裝 <a href="http://www.mrunix.net/webalizer/">Webalizer</a>, 記錄一下。</p>
+
+<p>首先當然是先 emerge webalizer ( USE Flag 加上 -nls 是因為我喜歡英文的界面 :x )</p>
+
+<p><code>USE='-nls vhosts geoip' emerge webalizer</code></p>
+
+<p>然後裝好用 webapp-config 把 webalizer 裝到我現在在用的 vhost, 叫 locahost</p>
+
+<p><code>webapp-config -I -h localhost -d webalizer webalizer 2.01.10-r15</code></p>
+
+<p>PS. 說真的, webapp-config 的參數有點難記</p>
+
+<p>然後修改 /etc/webalizer.conf, 找到 DNSCache 這一行, 我想把  cache.db 放在 /var/cache 下, 所以把這一行改成下面這樣</p>
+
+<p><code>DNSCache    /var/cache/dns_cache.db</code></p>
+
+<p>最後執行 webalizer(webazolver?) 就會產生頁面啦! 最後就是把他寫到 crontab 去跑吧!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -463,56 +513,6 @@ Bonjour! 這是我收到的第二張從外國來的明信片! <a href="http://tz
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/codeigniter/1026/">Simplepie in CodeIgniter</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-12-08T21:49:35+08:00" pubdate  data-updated="true" >Dec 8<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://simplepie.org">simplepie</a>, 一個頗好用的 php rss parser library, 因為習慣用 CodeIgniter, 就用 CodeIgniter 的方式來寫一下。</p>
-
-<p>第一個步驟就是到 simplepie 的網站下載套件回來、解開, 然後放到 /system/application/library 裡, 把 simplepie.inc 重新命名成 simplepie.php, 接著就可以像下面這樣子用 (當然, 這是寫在 controller 裡)</p>
-
-<pre><code>$this->load->library('simplepie');
-$this->simplepie->set_feed_url('http://tzangms.com/feed');
-$this->simplepie->enable_cache(false);
-$this->simplepie->init();
-echo $this->simplepie->get_title();</code></pre>
-
-
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/codeigniter/1026/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -532,6 +532,10 @@ echo $this->simplepie->get_title();</code></pre>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
       </li>
     
@@ -545,10 +549,6 @@ echo $this->simplepie->get_title();</code></pre>
     
       <li class="post">
         <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
       </li>
     
   </ul>
@@ -608,7 +608,7 @@ echo $this->simplepie->get_title();</code></pre>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2011 - tzangms -
+  Copyright &copy; 2012 - tzangms -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

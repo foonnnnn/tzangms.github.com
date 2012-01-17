@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="The PHP Benchmark 。 有寫 PHP 的話, 這個站一定要看一下的阿! 其中有些 benchmark 好像推翻了先前所讀過的東西。像是以前讀過說, while 比 for 快, for 又比 foreach 快 (雖然我還是一直用 foreach, 因為 code 比較乾淨 X...">
+  <meta name="description" content="這一次參加 Google Developer Day 2008, 還滿有收穫的, 主要是&#8221;AppEngine 進階&#8221;這門課, 講到了關於 AppEngine 的 DataStore, 由於 Datastore 本身就是 scalable 的架構, 在運用上跟平常用的關聯...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,47 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/1188/">Google Developer Day 2008</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-06-15T20:23:15+08:00" pubdate  data-updated="true" >Jun 15<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2577778730/" title="100_3701 by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3183/2577778730_6b0744ef71.jpg" width="500" height="375" alt="100_3701" /></a>
+這一次參加 Google Developer Day 2008, 還滿有收穫的, 主要是&#8221;AppEngine 進階&#8221;這門課, 講到了關於 AppEngine 的 DataStore, 由於 Datastore 本身就是 scalable 的架構, 在運用上跟平常用的關聯式資料庫觀念不同, 聽了這門課真的是很值得。 在進階這門課上講了一個 Counter 的範例, 這個範例就用上了 Entity Groups, transaction 跟 memcache。</p>
+
+<p>下午由於沒能排到 AppEngine 實作課程, 所以去聽了 OpenSocial, 但是可能是沒先玩過, 或是興趣不是很大, 所以聽到想睡覺 XD 不過最主要也是因為 OpenSocial 沒介紹什麼, 入門跟進階都講差不多的東西阿!!</p>
+
+<p>在每門課的結尾都有發問的時間, 其實我比較好奇的是&#8230; 有些發問可能是因為口音的關係, 我都快聽不懂了, 可是外國人都聽的懂ㄝ! o_O</p>
+
+<p>當天的遺憾就是&#8230; 我沒能參加到 AppEngine 的實作, 因為只有 50 人的限制 ~&#8221;~ 而且實作這門課還有送另外一件 AppEngine 的 t-shirt 阿!!!! (那件真的很好看阿!! Randylien 還故意秀給我看!! ~&#8221;~ )</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -483,48 +524,6 @@ png 在 ie 上一直讓人很頭痛阿~ 這篇介紹了一些解法</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1164/">PHP: 去除 UTF-8 BOM</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-05-08T19:57:38+08:00" pubdate  data-updated="true" >May 8<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天在作處理、轉換 csv 的東西, 碰到一個 UTF-8 的 csv 檔, 結果轉換出來的檔案因為 BOM 掛點。下面這一段可以用來將 BOM 去掉。</p>
-
-<pre><code>function remove_bom($str){
-    if(substr($str, 0,3) == pack("CCC",0xef,0xbb,0xbf)) {
-        $str = substr($str, 3);
-    }
-    return $str;
-}
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -544,6 +543,10 @@ png 在 ie 上一直讓人很頭痛阿~ 這篇介紹了一些解法</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
       </li>
     
@@ -557,10 +560,6 @@ png 在 ie 上一直讓人很頭痛阿~ 這篇介紹了一些解法</p>
     
       <li class="post">
         <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
       </li>
     
   </ul>
@@ -620,7 +619,7 @@ png 在 ie 上一直讓人很頭痛阿~ 這篇介紹了一些解法</p>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2011 - tzangms -
+  Copyright &copy; 2012 - tzangms -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="基本上, vi 要編輯 utf-8 文件, 做下面兩件事就可以了    設定 vi : set encoding=utf-8    將你的 terminal 設為 utf-8(or unicode)不過最近需要在 big5 跟 utf-8 之間跑來跑去, 本來在 vimrc 裡設定的是:set...">
+  <meta name="description" content="DOM Scripting - Web Design with Javascript and Document Object  Model因為自己太弱了所以來讀關於DOM的書, 這本書寫的很淺顯, 連基本的javascript都有先做描述, 這本書的網站(http://domscripting...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,55 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/760/">Reading: DOM Scripting</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-01-11T01:55:55+08:00" pubdate  data-updated="true" >Jan 11<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>DOM Scripting - Web Design with Javascript and Document Object  Model</p>
+
+<p>因為自己太弱了所以來讀關於DOM的書, 這本書寫的很淺顯, 連基本的javascript都有先做描述, 這本書的網站(<a href='http://domscripting.com/'>http://domscripting.com/</a>), 先前讀的Smarty document算是讀完了, 剩下的就只是有需要的時候在看了, 有空再來寫一些Smarty的Memo。</p>
+
+<p>在這裡記錄一下進度, 不然每次都忘了看到哪裡, 總共352頁, 目前看到78頁。</p>
+
+<p>接下來還有許多東西要讀的:</p>
+
+<ul>
+<li>SQL</li>
+<li>CSS</li>
+<li>&#8230;</li>
+</ul>
+
+
+<p>最後就來 ruby 吧!!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -477,54 +526,6 @@ end</blockquote>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/736/">Squirrelmail Classes</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2006-12-01T00:00:50+08:00" pubdate  data-updated="true" >Dec 1<span>st</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天上班，一直在處理別的事情之外，下班前都在弄Squirrelmail，這次運用裡面的Classes的組合寫出了可以寄信的程式XD 可能有人會想說PHP就有內建mail啦! 但是，那個太簡單了，不夠帥 XD 所以為了耍帥，我就用了以下的Classes跟functions來作</p>
-
-<p>Deliver_SMTP.class.php
-Message.class.php
-Rfc822Header.class.php
-ContentType.class.php
-mime.php
-global.php
-&#8230;</p>
-
-<p>Deliver_SMTP是用來寄信的，但是要傳給他什麼呢？要傳Message Object，可是Message Object 要包含，Rfc822Header跟ContentType，看起來就很煩。Rfc822Header就是用來存from跟to等等的東西，ContentType就是用來包含encoding跟charset，那最主要的部份就是Message啦！除了需要存這兩個Object之外，最重要的就是，subject跟信件內文啦!</p>
-
-<p>在下班前終於把Message Object的必要資訊填好，不過寄出的信因為charset跟encoding的關係卻變成亂碼XD 看著大家都一個一個下班走了，我也只好打消繼續寫的念頭，不過又不甘心的寫了一下下，突然，哇!! 成功了！可以正常顯示啦!! 那麼就又可以繼續寫下去，不過~~在寫下去可能不知道幾點了，有時候寫到正high的時候真的是停不下來 XD 所以就把這個告一段落，完美的結束，明天在繼續 XD</p>
-
-<p>不過在這支程式之前，就用mail()，一行就可以達到相同功能 XD 可是一點也不帥氣 XD 好啦～！重點是mail較不那麼portable，跟Server的環境比較有關係，anyway明天繼續high :D</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -544,6 +545,10 @@ global.php
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
       </li>
     
@@ -557,10 +562,6 @@ global.php
     
       <li class="post">
         <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
       </li>
     
   </ul>
@@ -620,7 +621,7 @@ global.php
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2011 - tzangms -
+  Copyright &copy; 2012 - tzangms -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

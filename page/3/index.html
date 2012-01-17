@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="前一陣子 Django 把 locale 翻譯的工作丟上了 transifex, 上禮拜剛註冊完 transifex 的帳號後, 想說要來翻譯一下的, 回到 twitter 剛好看到 @jezdez 在徵 coordinator, 當中包含了 zh-TW tream, 所以就直接跟他說我可以幫...">
+  <meta name="description" content="這篇也 delay 了好多天, 在 2/8 Django 發佈了安全性更新, 主要是針對 CSRF 這件事。如果有用 Django 1.2 的人就一定知道 csrf 這個東西, 畢竟 Django 1.2 預設開啟了 csrf, csrf 簡單來說就是防止假造的 POST request, 不...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,46 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2818/">Django 發佈安全性更新 2/8</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2011-02-14T00:36:06+08:00" pubdate  data-updated="true" >Feb 14<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>這篇也 delay 了好多天, 在 2/8 <a href="http://www.djangoproject.com/weblog/2011/feb/08/security/">Django 發佈了安全性更新</a>, 主要是針對 <a href="http://en.wikipedia.org/wiki/Cross-site_request_forgery">CSRF</a> 這件事。</p>
+
+<p>如果有用 Django 1.2 的人就一定知道 csrf 這個東西, 畢竟 Django 1.2 預設開啟了 csrf, csrf 簡單來說就是防止假造的 POST request, 不過其實 csrf 並沒有對 XMLHttpRequest 的 POST 做處理, 畢竟瀏覽器限制 XMLHttpRequest 得在同一個 domain 跟 protocol。</p>
+
+<p>不過在文中提到, 現在攻擊者可以透過瀏覽器外掛跟 redirect (?) 來利用 XMLHttpRequest 跨過 csrf 保護, 所以 <a href="http://weblog.rubyonrails.org/2011/2/8/csrf-protection-bypass-in-ruby-on-rails">Rails 在同一天也發佈了 patch</a>, 用以防止 XMLHttpRequest 的 csrf。</p>
+
+<p>不過其實這有點頭痛, 每個 Ajax POST request 都要加 csrf token 上去, 我的媽呀 &#8230;</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -510,45 +550,6 @@ print result
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/2788/">第一次在中國翻牆</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-12-20T23:46:33+08:00" pubdate  data-updated="true" >Dec 20<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天一到北京打開電腦的第一件事就是用 ssh -D 來翻牆, 沒想到 pandora 都可以聽了, twitter 跟 facebook 還是上不了 &#8230;</p>
-
-<p>後來就找到了 <a href="http://www.vpnywhere.com/">VPNywhere </a>, 有 14 天的免費試用, 所以就用這個順利翻了過來, 在 Mac 系統設定的網路新增 VPN (PPTP) 填入帳號密碼, 最後設定一下服務順序, 把 VPN 的順序調至第一個就可以順利翻牆了, 超方便!</p>
-
-<p>在 Mac 上設定的截圖如下, 不過我把帳號拿掉了就是
-<a href="http://tzangms.com/wp-content/uploads/2010/12/螢幕快照-2010-12-21-上午9.19.031.png"><img src="http://tzangms.com/wp-content/uploads/2010/12/螢幕快照-2010-12-21-上午9.19.031-500x393.png" alt="" title="螢幕快照 2010-12-21 上午9.19.03" width="500" height="393" class="aligncenter size-large wp-image-2791" /></a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -568,6 +569,10 @@ print result
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
       </li>
     
@@ -581,10 +586,6 @@ print result
     
       <li class="post">
         <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
       </li>
     
   </ul>
@@ -644,7 +645,7 @@ print result
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2011 - tzangms -
+  Copyright &copy; 2012 - tzangms -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

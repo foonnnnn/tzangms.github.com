@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="我的天阿！這趟東引之旅真的是太恐怖了 Orz3/10~3/11 坐船出發到東引晚 上10點出發，隔天早上6點到達東引，吃個早餐然後小躺一下，10點就去架器材跟場佈了，一直架到4點多都還沒架好，然後接著排一下樂團的東西，就快7點 要開始表演了，6點40的時候還衝回飯店換裝，然後衝回表演場地，超趕...">
+  <meta name="description" content="今天把PHP session給搞清楚了，然後把目前Project的使用者註冊、登入跟登出功能都搞定了。PHP session可以透過cookie或是session_id來儲存跟取得session變數，當然為了可攜性，所以我選用session_id，然後透過類似GET的方式在URL後面加上SID...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,42 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/uncategorized/626/">SID or Cookie?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-03-21T03:49:00+08:00" pubdate  data-updated="true" >Mar 21<span>st</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天把PHP session給搞清楚了，然後把目前Project的使用者註冊、登入跟登出功能都搞定了。</p>
+
+<p>PHP session可以透過cookie或是session_id來儲存跟取得session變數，當然為了可攜性，所以我選用session_id，然後透過類似GET的方式在URL後面加上SID來傳遞及取得變數。然而一開始完全讀不到SID，後來試著把 session.use_cookie給關掉，居然SID就可以跑出來了，原來SID跟cookie這兩個之間存在著on/off的關係阿!讓我試了許久 Orz</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -437,40 +473,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/613/">高中同學會</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2006-02-26T02:47:30+08:00" pubdate  data-updated="true" >Feb 26<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天11點起床趕了11:57的火車到台北，接著到捷運敦化忠孝站去參加同學會，到一家蛋糕吃到飽的店，呵呵，晚點在放上照片，要等蛋捲姐姐傳照片來，呵呵，今天居然阿美居然出現了，從畢業後就沒見過她，anyway，這次的同學會還滿高興的，接著4點多結束了聚餐，我們一行人就準備散了，只是在路上看到了投籃機，就有人說要挑一下，我居然連輸兩場，話說第二場投的還不賴，但是手卻沒力了，所以又敗下陣來了Orz，所以又被罰了20個伏地挺身，話說當兵期間除了新訓之外根本就沒做過伏地挺身，現在手完全沒力了。最後，投籃比賽結束後，其他人都在台北工作，而我就跟阿貓還有戴右搭捷運回台北火車站，他們搭車到板橋，而我則是晃了一下才回新竹，回到新竹，要去看阿強的表演，但是被晃點了 = = 地點根本就是錯誤的，苦等了半個多小時，最後小黑來載我到市區的&#8221;魔咒&#8221;，表演快到最高潮的時候，警察居然現身了，話說好像太吵了，哎，本來想上去Jam一下的說 Orz</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -490,6 +492,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
       </li>
     
@@ -503,10 +509,6 @@
     
       <li class="post">
         <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
       </li>
     
   </ul>
@@ -566,7 +568,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2011 - tzangms -
+  Copyright &copy; 2012 - tzangms -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

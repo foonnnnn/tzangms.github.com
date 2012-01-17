@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="not really XD">
+  <meta name="description" content="這是敝公司的推特小隊 XD 不過在這裡要先澄清一下, 雖然是在敝公司頂樓拍的, 小隊成員也都是公司同事, 但是這並不表示我們是利用上班時間到頂樓拍照, 請各位放心。另外請跟我們一起擺 POSE, 一起推特吧 !!! 推特小隊衝阿!">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,52 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/2410/">WE&#8217;RE HUGE on TWITTER</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-06-11T21:27:53+08:00" pubdate  data-updated="true" >Jun 11<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p style="text-align: center;"><a title="4533_103869102213_725367213_2841385_269543_n by tzangms, on Flickr" href="http://www.flickr.com/photos/tzangms/3615723444/"><img class="aligncenter" src="http://farm3.static.flickr.com/2460/3615723444_6e4417c452.jpg" alt="4533_103869102213_725367213_2841385_269543_n" width="500" height="375" /></a></p>
+
+
+<p style="text-align: left;">這是敝公司的推特小隊 XD 不過在這裡要先澄清一下, 雖然是在敝公司頂樓拍的, 小隊成員也都是公司同事, 但是這並不表示我們是利用上班時間到頂樓拍照, 請各位放心。</p>
+
+
+<p style="text-align: left;">另外請跟我們一起擺 POSE, 一起推特吧 !!! 推特小隊衝阿!</p>
+
+
+<p style="text-align: left;"></div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/life/2410/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -457,102 +503,6 @@ DATABASE_PORT = ''</code></pre>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2387/">Django Fastcgi init.d Script for Gentoo</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-03-17T08:08:53+08:00" pubdate  data-updated="true" >Mar 17<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>參考這一篇文章 <a href="http://code.djangoproject.com/wiki/InitdScriptForGentooLinux">Django FastCGI init.d script for Gentoo Linux </a>, 加上一點小修改, 然後將設定值搬到 conf.d 裡面。 用來跑 lighttpd + fastcgi + django。</p>
-
-<p>然後只要在 /var/django 裡面用 django-admin.py startproject mysite 來建立 project 之後, 到設定檔的 DJANGO_SITES 加入 project 即可。</p>
-
-<p>/etc/conf.d/django-fastcgi</p>
-
-<pre><code>DJANGO_SITES="mysite mysite2"
-SITES_PATH="/var/django"
-RUNFILES_PATH="$SITES_PATH/run"
-HOST="127.0.0.1"
-PORT_START=3000
-RUN_AS="www"</code></pre>
-
-
-<p>/etc/init.d/django-fastcgi</p>
-
-<pre><code>#!/sbin/runscript
-# Copyright 1999-2009 Gentoo Foundation
-# Distributed under the terms of the GNU General Public License v2
-# $Header: $
-
-depend() {
-    need lighttpd
-}
-
-start() {
-    ebegin "Starting django-fastcgi"
-    PORT=${PORT_START}
-    for SITE in ${DJANGO_SITES}
-    do
-        VERBOSE_NAME="${SITE} ${HOST}:${PORT}"
-        if [ -f ${RUNFILES_PATH}/${SITE}.pid ]; then
-            ewarn "${VERBOSE_NAME} already running (${RUNFILES_PATH}/${SITE}.pid)"
-        else
-            start-stop-daemon --start \
-                --chuid ${RUN_AS} --exec /usr/bin/env -- python \
-                ${SITES_PATH}/${SITE}/manage.py runfcgi \
-                method=threaded host=${HOST} port=${PORT} \
-                pidfile=${RUNFILES_PATH}/${SITE}.pid
-            chmod 400 ${RUNFILES_PATH}/${SITE}.pid
-            einfo "${VERBOSE_NAME} started"
-        fi
-        let "PORT = ${PORT} + 1"
-    done
-    eend $?
-}
-
-stop() {
-    ebegin "Stopping django-fastcgi"
-    for SITE in ${DJANGO_SITES}
-    do
-        VERBOSE_NAME=${SITE}
-        start-stop-daemon --stop \
-            --pidfile ${RUNFILES_PATH}/${SITE}.pid \
-            && einfo "${VERBOSE_NAME} stopped" \
-            || ewarn "${VERBOSE_NAME} not running"
-        if [ -f ${RUNFILES_PATH}/${SITE}.pid ]; then
-            rm ${RUNFILES_PATH}/${SITE}.pid
-        fi
-    done
-    eend $?
-}</code></pre>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -572,6 +522,10 @@ stop() {
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
       </li>
     
@@ -585,10 +539,6 @@ stop() {
     
       <li class="post">
         <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
       </li>
     
   </ul>
@@ -648,7 +598,7 @@ stop() {
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2011 - tzangms -
+  Copyright &copy; 2012 - tzangms -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

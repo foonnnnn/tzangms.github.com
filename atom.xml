@@ -4,7 +4,7 @@
   <title><![CDATA[Oceanic / 人生海海]]></title>
   <link href="http://tzangms.com/atom.xml" rel="self"/>
   <link href="http://tzangms.com/"/>
-  <updated>2011-12-30T09:22:36+08:00</updated>
+  <updated>2012-01-18T00:21:50+08:00</updated>
   <id>http://tzangms.com/</id>
   <author>
     <name><![CDATA[tzangms]]></name>
@@ -12,6 +12,134 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Python/Django on Heroku]]></title>
+    <link href="http://tzangms.com/2012/01/17/django-on-heroku/"/>
+    <updated>2012-01-17T23:55:00+08:00</updated>
+    <id>http://tzangms.com/2012/01/17/django-on-heroku</id>
+    <content type="html"><![CDATA[<p>因為先前 <a href="http://www.openfoundry.org/">Open Foundry</a> 電子報, 關於 <a href="http://heroku.com">Heroku</a> 部屬的相關文章獨缺 Python，所以便找了我寫這部份, 想說順便借這次機會催促自己玩一下 Heroku，所以就生出了這篇 <a href="http://www.openfoundry.org/en/tech-column/8564-python-django-on-heroku">Python/Django on Heroku</a>。</p>
+
+<p>不過前一陣子又玩了很多 Heroku 上的東西，之後再寫篇文章來補充一下好了，下面就直接把文章直接放上來，存個備份，話說當然有修 typo :p</p>
+
+<h2>簡介</h2>
+
+<p>自從 <a href="http://www.heroku.com/">Heroku</a> 出現之後，挺羨慕 Rails 的開發者有這麼酷的服務可以使用。不過就在不久前 Heroku 也開始支援 Python 了，所以便趁著空閒玩了一下。基本上只要熟悉平常使用的 Python 相關工具，像是 virtualenv、pip 以及 git 的話，整個部屬流程可以說是非常簡單。</p>
+
+<p>接下來，我會說明如何透過簡單的幾個步驟，把 <a href="https://www.djangoproject.com/">Django</a>  部屬到 Heroku，手腳快的話在十分鐘之內便可以看到網站在 Heroku 上跑起來了。</p>
+
+<!--more-->
+
+
+<h2>申請帳號</h2>
+
+<p>首先第一個步驟就是到 Heroku 註冊帳號，註冊完並啟用帳號後，接下來其實就可以完全不管 Heroku 的網站了，因為只需要安裝完 Heroku 的 CLI，之後使用 <code>heroku</code> 這個指令即可完成所有的部屬流程。</p>
+
+<p>Heroku 的 CLI 有提供不同平台的 package 可供下載安裝，直接到 <a href="http://toolbelt.herokuapp.com/">Heroku Toolbet</a> 即可下載。 或者也可以直接透過 rubygems 安裝，指令如下。</p>
+
+<pre><code>$ sudo gem install heroku
+</code></pre>
+
+<h2>建立本地端軟體環境</h2>
+
+<p>首先要建立並啟用 virtualenv。</p>
+
+<pre><code>$ virtualenv testenv --no-site-packages
+$ cd testenv
+$ source bin/activate
+</code></pre>
+
+<p>接下來為了不著墨太多在 Django 上，我準備了一份為了部屬 Heroku 的 Django 專案，包含了基本的 Django 設定跟部屬到 Heroku 的設定檔，我把檔案放在 <a href="https://github.com/tzangms/django-heroku-example">github</a>，可以直接透過此<a href="https://github.com/tzangms/django-heroku-example/zipball/master">網址下載</a>壓縮檔，解開後把檔案放進剛才建立好的 virtualenv，檔案結構應該要像是下面這樣即可。 注意，別漏了 .gitignore 這個隱藏檔。</p>
+
+<pre><code>Procfile
+bin/
+herokutest/
+include/
+lib/
+.gitignore
+requirements.txt
+</code></pre>
+
+<p>如果你熟悉 pip 跟 virtualenv 的話，接下來應該就知道得透過 pip 來讀取 requirements.txt 來自動安裝專案所需要的 python packages。</p>
+
+<pre><code>$ pip install -r requirements.txt
+</code></pre>
+
+<p>接著執行下面的指令來初始資料庫，然後輸入 Django 所提示的資料即可完成本地資料庫的初始化。</p>
+
+<pre><code>$ python herokutest/manage.py syncdb
+</code></pre>
+
+<p>然後安裝 foreman，接著用 foreman 把專案跑起來，看看我們專案是否能夠正常執行。</p>
+
+<pre><code>$ sudo gem install foreman
+$ foreman start
+</code></pre>
+
+<p>最後透過瀏覽器連線到 http://localhost:5000/ 就可以看到執行畫面了。</p>
+
+<h2>將程式部屬到 heroku</h2>
+
+<p>本地端的程式可以正常執行的話，就可以準備把程式部屬到 Heroku 上了。不過這邊得另外說明一下，由於我提供的 Django 設定是使用 SQLite3 當做開發用的資料庫，方便本地端開發，不過在 Heroku 上得使用 PostgreSQL ，所以在部屬之前得先修改 requirements.txt，把最後一行的 psycopg2 的註解拿掉，這樣在部屬上 Heroku 時，Heroku 才會幫我們裝上 PostgreSQL 的 driver。</p>
+
+<pre><code># testenv/requirements.txt
+django
+gunicorn
+psycopg2
+</code></pre>
+
+<p>取消註解掉 psycopg2 之後，就可以開始進行第一次 git commit，準備把程式部屬到 Heroku。</p>
+
+<pre><code>$ git init
+$ gt add .
+$ git commit -m 'initial commit'
+</code></pre>
+
+<p>部屬前，我們得先使用下面指令登入 Heroku、上傳 ssh 的 public key，並且建立新的 Heroku app。</p>
+
+<pre><code>$ heroku login
+$ heroku keys:add
+$ heroku create --stack cedar
+</code></pre>
+
+<p>接下來就可以看到下面的訊息，Heroku 已經幫我們建好了 App ，並提供 App 的網址, 然後 Heroku 也會自動把 git remote 加上 Heroku 的位置。</p>
+
+<pre><code>Creating electric-light-4662... done, stack is cedar
+http://electric-light-4662.herokuapp.com/ | git@heroku.com:electric-light-4662.git
+</code></pre>
+
+<p>所以我們就可以直接把專案透過 git 送上 Heroku。</p>
+
+<pre><code>$ git push heroku master
+</code></pre>
+
+<p>在部屬的過程中，Heroku 會新增新的資料庫設定到 settings.py，用來覆蓋我們原本的設定，以便連到 Heroku 的指定的 PostgreSQL。 另外會讀取 requirements.txt 安裝所需的 python packages。還有透過 Procfile 來執行的 web 程式。</p>
+
+<p>最後我們需要初始 Heroku 上的資料庫，直接透過 <code>heroku  run</code> 指令來做遠端執行。</p>
+
+<pre><code>$ heroku run python herokutest/manage.py syncdb
+</code></pre>
+
+<p>接著輸入 Django 所提示的資料即可完成資料庫的初始化，最後就可以連上 <code>http://&lt;your-app-name&gt;.herokuapp.com/admin/app/post/add/</code> 來登入 Django 的後台新增文章，新增完畢後，回到首頁就看到剛才的資料出現在首頁啦！</p>
+
+<h2>碰到的問題</h2>
+
+<p>自從 Django 1.3 開始，靜態檔是透過 collectstatic 指令來收集到同一個目錄，方便透過網頁伺服器處理。 所以我們在部屬完後，通常會執行下面這個指令來收集靜態檔。</p>
+
+<pre><code>$ heroku run python herokutest/manage.py collectstatic --noinput
+</code></pre>
+
+<p>然而透過 <code>heroku run</code> 指令在執行 collectstatic 時， Heroku 會開啟另一個 dyno 來執行這個動作，所以會是另一個 App 環境，跟我們原先部屬的程式空間是分開的，導致無法正確處理靜態檔。</p>
+
+<p>所以我用了另一個解法，就是安裝 django-storages 並且將 STATICFILES_STORAGE 設定為 S3Storage，之後執行 collectstatic 指令時，靜態檔就會自動丟上 S3 ，這麼一來就可以解決目前無法把靜態檔放上 Heroku 的問題了。</p>
+
+<h2>結語</h2>
+
+<p>Heroku 在部屬上的確是大大減輕了很多麻煩，不用自己裝任何伺服器甚至管理，而處理 scale 方面也很輕鬆，只需要打個指令就可以多開一個 dyno 來支撐更多流量，對於開發著來說，更能專心在程式開發上，而不是花時間在部屬自己的伺服器以及維護上。</p>
+
+<p>在用過好幾家 PaaS 之後，因為各家部屬的方式不同，有時都會有一些小問題得另外處理，不過就這次把 <a href="twitthat.com">twitthat</a> 搬到 Heroku 跑的經驗，除了碰到 staticfiles 的問題之外， Heroku 的部屬方式算是設計的挺不錯的，而且反應速度也比起先前用過的幾個 Python 專屬的 PaaS 來的好。有空再來寫個玩具丟上 Heroku 玩好了！</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[買了 Nokia Lumia 800]]></title>
@@ -610,21 +738,6 @@
     <content type="html"><![CDATA[<p><a href="http://kennethreitz.com/blog/introducing-requests/">Requests: Python HTTP Module (That Doesn’t Suck)</a></p>
 
 <p>一直都還滿喜歡 appengine urlfetch 的 api interface, Requests 就還滿像的, 感覺找到了好物, 獲得救贖的感覺 XD</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Django 發佈安全性更新 2/8]]></title>
-    <link href="http://tzangms.com/programming/2818/"/>
-    <updated>2011-02-14T00:36:06+08:00</updated>
-    <id>http://tzangms.com/programming/django_發佈安全性更新_28</id>
-    <content type="html"><![CDATA[<p>這篇也 delay 了好多天, 在 2/8 <a href="http://www.djangoproject.com/weblog/2011/feb/08/security/">Django 發佈了安全性更新</a>, 主要是針對 <a href="http://en.wikipedia.org/wiki/Cross-site_request_forgery">CSRF</a> 這件事。</p>
-
-<p>如果有用 Django 1.2 的人就一定知道 csrf 這個東西, 畢竟 Django 1.2 預設開啟了 csrf, csrf 簡單來說就是防止假造的 POST request, 不過其實 csrf 並沒有對 XMLHttpRequest 的 POST 做處理, 畢竟瀏覽器限制 XMLHttpRequest 得在同一個 domain 跟 protocol。</p>
-
-<p>不過在文中提到, 現在攻擊者可以透過瀏覽器外掛跟 redirect (?) 來利用 XMLHttpRequest 跨過 csrf 保護, 所以 <a href="http://weblog.rubyonrails.org/2011/2/8/csrf-protection-bypass-in-ruby-on-rails">Rails 在同一天也發佈了 patch</a>, 用以防止 XMLHttpRequest 的 csrf。</p>
-
-<p>不過其實這有點頭痛, 每個 Ajax POST request 都要加 csrf token 上去, 我的媽呀 &#8230;</p>
 ]]></content>
   </entry>
   

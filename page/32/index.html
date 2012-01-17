@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="    960 Grid System用 grid 來做網頁 layout, 還滿屌的構想, 也頗實用, 可以用來快速做  prototype, 跟開發。    Top 12 CSS Frameworks and How to Understand ThemCSS framework, 又到了...">
+  <meta name="description" content="之前在 Tsung 那邊看到 大量檢查 PHP 程式是否有 Syntax Error 這一篇文章, 後來每次想到要檢查的時候, 都因為這一段太長記不下來 XD 所以我每次就又都從 Google 找這篇文章, 今天想說把它寫下來, 寫成一個 shell script 好了 XD我把檔名叫 php...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,52 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1129/">PHP 語法錯誤檢查</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-04-03T13:07:35+08:00" pubdate  data-updated="true" >Apr 3<span>rd</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>之前在 <a href="http://plog.longwin.com.tw/">Tsung </a>那邊看到 <a href="http://plog.longwin.com.tw/programming/2008/01/20/php_command_line_script_check_2008">大量檢查 PHP 程式是否有 Syntax Error</a> 這一篇文章, 後來每次想到要檢查的時候, 都因為這一段太長記不下來 XD 所以我每次就又都從 Google 找這篇文章, 今天想說把它寫下來, 寫成一個 shell script 好了 XD</p>
+
+<p>我把檔名叫 phplint
+<code>#!/bin/bash
+find . -name *.php ! -exec php -l {} ;
+</code></p>
+
+<p>在 chmod +x phplint 之後, 在想要檢查的目錄打 phplint 就可以了。</p>
+
+<p>基本上我是在自己的 home 有開一個 bin 的目錄, 然後再 .bashrc 裡加上
+<code>export PATH=$PATH":~/bin"</code></p>
+
+<p>之前的 <a href="http://tzangms.com/web/1095">twit shell script</a> 也是這麼作 :p</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -554,46 +600,6 @@ Programmer 可以看看這篇, 裡面提到一些 programmer 具有的特質, �
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/codeigniter/1093/">CodeIgniter Modular Extension: HMVC</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-03-08T00:50:05+08:00" pubdate  data-updated="true" >Mar 8<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>在使用 <a href="http://codeigniter.com">CodeIgniter</a> 在開發的時候, 其實一直覺得 CI 的架構好像有點不足, 少了什麼東西。 例如說我想要有個使用者聯播的功能區塊, 有很多地方都想掛上這個功能區塊, 但是我該怎麼做? 在 CodeIgniter 現有的架構中, 看來就是寫成 Library 然後掛個 View, 然後把輸出 return 到呼叫的 Controller, 但是我總覺得這樣很亂, 而且東西一多, 會很難維護, Library 會不像 Library 而 View 到底是給 Controller 用還是 Library 用, 甚至 Model 也會一起捲進來, 這樣程式的架構會很雜亂。</p>
-
-<p>所以後來我就自己動手 extends CI 開始寫起了 module 功能, 寫沒多久就發現! 原來早就有類似的東西, 而且在 CodeIgniter wiki 就有提到了, 就是 <a href="http://codeigniter.com/wiki/Modular_Extensions_-_HMVC/">Modular Extensions - HMVC</a>。</p>
-
-<p>HMVC 可以用來幫 CI 加上 module 的功能, 我一直想要的就是這個功能阿!! 可以擺脫先前雜亂的方式, 可以很方便寫個模組化的功能。</p>
-
-<p>簡單說明一下 HMVC, 在掛上 HMVC 之後就可以呼叫 module, 而 module 有自己的 Controller、View 跟 Model, 這樣一來寫好 module 之後, 直接在 Controller 呼叫 module 就可以了, 這個整個程式架構就非常的明朗阿!! 整個 module 的 code 都在同一個資料夾裡面, 非常清爽!  所以說 Framework 早該有 module 這功能的 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -613,6 +619,10 @@ Programmer 可以看看這篇, 裡面提到一些 programmer 具有的特質, �
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
       </li>
     
@@ -626,10 +636,6 @@ Programmer 可以看看這篇, 裡面提到一些 programmer 具有的特質, �
     
       <li class="post">
         <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
       </li>
     
   </ul>
@@ -689,7 +695,7 @@ Programmer 可以看看這篇, 裡面提到一些 programmer 具有的特質, �
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2011 - tzangms -
+  Copyright &copy; 2012 - tzangms -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

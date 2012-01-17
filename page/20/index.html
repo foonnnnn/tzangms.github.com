@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="依據先前在 wellmeet 的日期投票, 2/7 勝出, 所以就辦在 2/7 囉! 時間是禮拜六晚上 7 點 ~ 9點, 請有興趣的朋友到 registrano 的報名頁面進行報名">
+  <meta name="description" content="基本上是參考 CodeIgniter 的方式來實作, 不過省掉很多東西, 而目錄結構大概就參照 CodeIgniter 如下。/index.php/application/controllers...寫這個的目的主要是想了解 Front Controller 是怎麼做的。 另外因為依照 Cod...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,52 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2341/">簡單的 Front Controller</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-26T00:55:25+08:00" pubdate  data-updated="true" >Jan 26<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>基本上是參考 <a href="http://codeigniter.com">CodeIgniter</a> 的方式來實作, 不過省掉很多東西, 而目錄結構大概就參照 CodeIgniter 如下。</p>
+
+<pre><code>/index.php
+/application/controllers
+...</code></pre>
+
+
+<p>寫這個的目的主要是想了解 Front Controller 是怎麼做的。 另外因為依照 CodeIgniter 慣例的 Controller 名稱, 很容易跟其他 class name 衝到, 如果要使用 ORM 的話, 很容易會發生名稱碰撞, 所以實作一下 front controller, 另外改進這個問題, 不過其實就是在 class name 加上 postfix 而已, 而其他 framework 也都這麼做。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/2341/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -467,49 +513,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/linux/2297/">Linode 更換 Data Center</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-01-05T21:45:04+08:00" pubdate  data-updated="true" >Jan 5<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>有買 <a href="http://linode.com">Linode</a> 的人就知道, 他們目前在美國有 4 個機房, 可以讓你選擇 VPS 要放的機房, 所以好像通常都會選加州的機房, 因為會比較快(?), 其實之前我就買過一次 Linode, 不過因為當時加州已經沒得放, 所以就選了德州 Dallas 的機房, 而這次買就是選加州的機房, ping time 還滿不賴的, 比起我<a href="http://tzangms.com/linux/2294">手上有的主機</a>都還要好。</p>
-
-<p>不過今天傑洛大大問到我 Linode 的使用心得, 我回答說:「ping time 很不錯阿!」, 傑洛大就問說:「那實際速度呢?」後來才用 ftp 實際測一下上下傳速度, 沒想到&#8230; 我這台位於加州的 Linode, 上傳有 170k/s 但是下載居然只有 20k/s Orz 感謝傑洛大, 幫我上了一課。 就算 ping time 快, 但是檔案下載很慢也是於事無補阿 XD ( 應該是這樣吧? 有人可以來開導我一下嗎? )</p>
-
-<p>後來我找到了<a href="http://www.linode.com/forums/viewtopic.php?t=2636">這篇文章</a>, 實際測試了一下下載的速度, 結果 dallas 跟 atlanta 機房的下載速度都有 200k/s 阿! 而我那個機房的下載只有 20k/s 真是糟糕 Orz</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/linux/2297/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -529,6 +532,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
       </li>
     
@@ -542,10 +549,6 @@
     
       <li class="post">
         <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
       </li>
     
   </ul>
@@ -605,7 +608,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2011 - tzangms -
+  Copyright &copy; 2012 - tzangms -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

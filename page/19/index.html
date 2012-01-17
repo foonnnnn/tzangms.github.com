@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="平常沒事就會逛逛 stickeraction, 看看有沒有什麼新貼紙, 不過前幾天, 在參加完 twestival 回家之後, 看了一些新的貼紙, 點進某張貼紙發起人的網站, 就發現了這個網站了, 叫做貼貼王, 好像現在網站都要叫 &#8220;XX王&#8221; 之類的 XD">
+  <meta name="description" content="前天弄了一個 stickeraction 的 widget, 可以讓串連貼紙發起人拿來放在 blog, 會顯示貼紙、串連數、語法等, 應該讓網友串連起來會方便許多, 不過不支援 javascript 的 blog 就沒辦法用就是了, 不過不管, 有在用 stickeraction 的朋友們, ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,46 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/stickeraction/2367/">Stickeraction Blog Widgets 製作</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-02-21T00:22:45+08:00" pubdate  data-updated="true" >Feb 21<span>st</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>前天弄了一個 stickeraction 的 widget, 可以讓串連貼紙發起人拿來放在 blog, 會顯示貼紙、串連數、語法等, 應該讓網友串連起來會方便許多, 不過不支援 javascript 的 blog 就沒辦法用就是了, 不過不管, 有在用 stickeraction 的朋友們, 有空的話, 可以幫測一下, 給點建議。 :p</p>
+
+<p>不過目前的外觀應該是比較適合放在 sidebar, 放在內文應該很難看, 之後有機會再來試試, 主要是考慮到貼紙大小不一, 也許放在內文的話得先在 widget 外面先包個有限定寬度的 div 會比較好。</p>
+
+<p>現在在我的 blog 的 sidebar 放上了 stickeraction 串連貼紙的 widget, 看起來還不錯, 不過應該要再加上 powered by stickeraction 之類的東西 XD</p>
+
+<p>而串連發起人的後台也可以看到這個 blog widget 的語法, 發起人可以直接登入 stickeraction 後台來取得語法。接下來還有一些 widget 想弄, 再來就是開發一些 API 了。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -499,52 +539,6 @@ Zend_Service_Yahoo</blockquote>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2341/">簡單的 Front Controller</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-01-26T00:55:25+08:00" pubdate  data-updated="true" >Jan 26<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>基本上是參考 <a href="http://codeigniter.com">CodeIgniter</a> 的方式來實作, 不過省掉很多東西, 而目錄結構大概就參照 CodeIgniter 如下。</p>
-
-<pre><code>/index.php
-/application/controllers
-...</code></pre>
-
-
-<p>寫這個的目的主要是想了解 Front Controller 是怎麼做的。 另外因為依照 CodeIgniter 慣例的 Controller 名稱, 很容易跟其他 class name 衝到, 如果要使用 ORM 的話, 很容易會發生名稱碰撞, 所以實作一下 front controller, 另外改進這個問題, 不過其實就是在 class name 加上 postfix 而已, 而其他 framework 也都這麼做。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/2341/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -564,6 +558,10 @@ Zend_Service_Yahoo</blockquote>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
       </li>
     
@@ -577,10 +575,6 @@ Zend_Service_Yahoo</blockquote>
     
       <li class="post">
         <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
       </li>
     
   </ul>
@@ -640,7 +634,7 @@ Zend_Service_Yahoo</blockquote>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2011 - tzangms -
+  Copyright &copy; 2012 - tzangms -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

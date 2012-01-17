@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="昨天在 twitter 上問了:「django 有像 capistrano 這種工具嗎?」 後來就有人 howiworkdaily 回我說:「try fabric for your capistrano needs http://www.nongnu.org/fab/」, 所以就發現了 Fab...">
+  <meta name="description" content="參考這一篇文章 Django FastCGI init.d script for Gentoo Linux , 加上一點小修改, 然後將設定值搬到 conf.d 裡面。 用來跑 lighttpd + fastcgi + django。然後只要在 /var/django 裡面用 django-a...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,102 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2387/">Django Fastcgi init.d Script for Gentoo</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-03-17T08:08:53+08:00" pubdate  data-updated="true" >Mar 17<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>參考這一篇文章 <a href="http://code.djangoproject.com/wiki/InitdScriptForGentooLinux">Django FastCGI init.d script for Gentoo Linux </a>, 加上一點小修改, 然後將設定值搬到 conf.d 裡面。 用來跑 lighttpd + fastcgi + django。</p>
+
+<p>然後只要在 /var/django 裡面用 django-admin.py startproject mysite 來建立 project 之後, 到設定檔的 DJANGO_SITES 加入 project 即可。</p>
+
+<p>/etc/conf.d/django-fastcgi</p>
+
+<pre><code>DJANGO_SITES="mysite mysite2"
+SITES_PATH="/var/django"
+RUNFILES_PATH="$SITES_PATH/run"
+HOST="127.0.0.1"
+PORT_START=3000
+RUN_AS="www"</code></pre>
+
+
+<p>/etc/init.d/django-fastcgi</p>
+
+<pre><code>#!/sbin/runscript
+# Copyright 1999-2009 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+depend() {
+    need lighttpd
+}
+
+start() {
+    ebegin "Starting django-fastcgi"
+    PORT=${PORT_START}
+    for SITE in ${DJANGO_SITES}
+    do
+        VERBOSE_NAME="${SITE} ${HOST}:${PORT}"
+        if [ -f ${RUNFILES_PATH}/${SITE}.pid ]; then
+            ewarn "${VERBOSE_NAME} already running (${RUNFILES_PATH}/${SITE}.pid)"
+        else
+            start-stop-daemon --start \
+                --chuid ${RUN_AS} --exec /usr/bin/env -- python \
+                ${SITES_PATH}/${SITE}/manage.py runfcgi \
+                method=threaded host=${HOST} port=${PORT} \
+                pidfile=${RUNFILES_PATH}/${SITE}.pid
+            chmod 400 ${RUNFILES_PATH}/${SITE}.pid
+            einfo "${VERBOSE_NAME} started"
+        fi
+        let "PORT = ${PORT} + 1"
+    done
+    eend $?
+}
+
+stop() {
+    ebegin "Stopping django-fastcgi"
+    for SITE in ${DJANGO_SITES}
+    do
+        VERBOSE_NAME=${SITE}
+        start-stop-daemon --stop \
+            --pidfile ${RUNFILES_PATH}/${SITE}.pid \
+            && einfo "${VERBOSE_NAME} stopped" \
+            || ewarn "${VERBOSE_NAME} not running"
+        if [ -f ${RUNFILES_PATH}/${SITE}.pid ]; then
+            rm ${RUNFILES_PATH}/${SITE}.pid
+        fi
+    done
+    eend $?
+}</code></pre>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -467,46 +563,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/stickeraction/2367/">Stickeraction Blog Widgets 製作</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-02-21T00:22:45+08:00" pubdate  data-updated="true" >Feb 21<span>st</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>前天弄了一個 stickeraction 的 widget, 可以讓串連貼紙發起人拿來放在 blog, 會顯示貼紙、串連數、語法等, 應該讓網友串連起來會方便許多, 不過不支援 javascript 的 blog 就沒辦法用就是了, 不過不管, 有在用 stickeraction 的朋友們, 有空的話, 可以幫測一下, 給點建議。 :p</p>
-
-<p>不過目前的外觀應該是比較適合放在 sidebar, 放在內文應該很難看, 之後有機會再來試試, 主要是考慮到貼紙大小不一, 也許放在內文的話得先在 widget 外面先包個有限定寬度的 div 會比較好。</p>
-
-<p>現在在我的 blog 的 sidebar 放上了 stickeraction 串連貼紙的 widget, 看起來還不錯, 不過應該要再加上 powered by stickeraction 之類的東西 XD</p>
-
-<p>而串連發起人的後台也可以看到這個 blog widget 的語法, 發起人可以直接登入 stickeraction 後台來取得語法。接下來還有一些 widget 想弄, 再來就是開發一些 API 了。</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -526,6 +582,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
       </li>
     
@@ -539,10 +599,6 @@
     
       <li class="post">
         <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
       </li>
     
   </ul>
@@ -602,7 +658,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2011 - tzangms -
+  Copyright &copy; 2012 - tzangms -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

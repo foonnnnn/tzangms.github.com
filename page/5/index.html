@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="這是一個透過 twitter search 抓取某推友包含音樂連結的推訊自動產生 podcast feed 的音樂網站 (?), 已經 run 了好一陣子了。 搞不好有一年了? XD 不過就只有 podcast feed 而已, 首頁其實就是一片白。而前一陣子突然想到個 idea, 所以趁昨天...">
+  <meta name="description" content="每次開新的 Django project 時, 都得重覆下面這些事情, 其實有點惱人。首先是 settings.py, 我會加入下面這一段import osROOT_PATH = os.path.dirname(__file__)然後修改 MEDIA_ROOT 跟 TEMPLATE_DIRS ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,93 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2760/">每次開新的 Django Project 都會做的設定</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-11-20T15:03:47+08:00" pubdate  data-updated="true" >Nov 20<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>每次開新的 <a href="http://www.djangoproject.com/">Django</a> project 時, 都得重覆下面這些事情, 其實有點惱人。</p>
+
+<p>首先是 settings.py, 我會加入下面這一段</p>
+
+<pre><code>import os
+ROOT_PATH = os.path.dirname(__file__)
+</code></pre>
+
+
+<p>然後修改 MEDIA_ROOT 跟 TEMPLATE_DIRS 使用相對路徑</p>
+
+<pre><code>MEDIA_ROOT = os.path.join(ROOT_PATH, 'static')
+
+TEMPLATE_DIRS = (
+    os.path.join(ROOT_PATH, 'templates')
+)
+</code></pre>
+
+
+<p>設定 MEDIA_URL</p>
+
+<pre><code>MEDIA_URL = '/static/'
+</code></pre>
+
+
+<p>最後我還會加上下面這一段</p>
+
+<pre><code>TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.request',
+)
+</code></pre>
+
+
+<p>再來是 urls.py</p>
+
+<pre><code>from django.conf import settings
+</code></pre>
+
+
+<p>先 import 設定檔, 然後加入下面這一段讓 development server 可以吐靜態檔</p>
+
+<pre><code>if settings.DEBUG:
+    urlpatterns += patterns('',
+        (r'^static/(?P&lt;path&gt;.*)$', 'django.views.static.serve',
+            {'document_root': settings.MEDIA_ROOT}),
+    )
+</code></pre>
+
+
+<p>大概是這樣~</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -474,44 +561,6 @@ else:
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/2725/">跑去看了沒有 Bass 的 VAMPS 演唱會</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-09-27T00:29:12+08:00" pubdate  data-updated="true" >Sep 27<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>老實說, 超沒 fu 的, 我都覺得放上上面這張照片是個錯誤, 整場幾乎都聽不到 bass 的聲音, 大鼓雖然有 punch, 但是沒有 bass 的聲音一起作用, 這 punch 根本就成不了氣候, 使的我的身體根本無法融入氛圍, 只感覺在我不遠的前方是一片吵雜的吉他音牆。</p>
-
-<p>說是吵雜的吉他音牆似乎又太恭維了, 沒有 bass 的根音打底, 當吉他彈的又不是根音的時候, 歌曲本該有的主軸完全消失, 任由吉他跟鼓的聲音互相打架, 讓原本該有厚重、大顆粒 bass tone 的歌曲整個扭曲變形, 我只能憑自己對歌曲的記憶, 勉強拼湊出歌曲原本該有的樣貌。</p>
-
-<p>bass 的聲音小到幾乎可以認為 bass 手根本就是在台上演默劇, 甚至 synth 的低音都比 bass 大聲, 老實說我整場都很生氣、失望。這場演唱會唱不到 10 首我就想走人了, 由於跟志豪一起去看, 只好多撐一會, 但是整場我們兩個都對 bass 這件事很失望, 是因為我們兩個都是彈 bass 的嗎? 最後我對這場演唱會的印象只剩「Hyde 的破音好屌」跟「聽不到 bass 聲」 &#8230;</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -531,6 +580,10 @@ else:
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
       </li>
     
@@ -544,10 +597,6 @@ else:
     
       <li class="post">
         <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
       </li>
     
   </ul>
@@ -607,7 +656,7 @@ else:
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2011 - tzangms -
+  Copyright &copy; 2012 - tzangms -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="通常要進到某個 virtualenv, 都得先 activate 來啓用環境, 不過碰到 cron 要跑 virtualenv 裡的程式怎麼辦? dependencies 都在 virtualenv 裡, 所以 site wide 的 python 讀不到。 幸好剛剛 google 一下, 找...">
+  <meta name="description" content="tornado 官方網頁上寫的, Mac 10.5/10.6 要跑 tornado 需要先裝 setuptools, pycurl 跟 simplejson, 指令如下:sudo easy_install setuptools pycurl==7.16.2.1 simplejson( 不過其實...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,52 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2485/">Mac Snow Leopard 安裝 Tornado</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-10-01T22:08:36+08:00" pubdate  data-updated="true" >Oct 1<span>st</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.tornadoweb.org">tornado</a> 官方網頁上寫的, Mac 10.5/10.6 要跑 tornado 需要先裝 setuptools, pycurl 跟 simplejson, 指令如下:</p>
+
+<pre><code>sudo easy_install setuptools pycurl==7.16.2.1 simplejson</code></pre>
+
+
+<p>( 不過其實我不太懂&#8230; 不是有 easy_install 就是有裝 setuptools 了嗎? )</p>
+
+<p>不過我在 snow leopard 安裝 pycurl 失敗了, 所以 google 了一下, 將 ARCHFLAGS 改為 x86_64 就行啦</p>
+
+<pre><code>sudo env ARCHFLAGS="-arch x86_64" easy_install setuptools pycurl simplejson</code></pre>
+
+
+<p>接著抓 tornado 回來安裝, 就可以開始跑啦 :D</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -434,43 +480,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/2464/">Humanthesizer - 用一堆正妹當樂器 (無誤)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-08-12T10:40:13+08:00" pubdate  data-updated="true" >Aug 12<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><object width="560" height="340"><param name="movie" value="http://www.youtube.com/v/IObPkUFq0hg&hl=zh_TW&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/IObPkUFq0hg&hl=zh_TW&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="560" height="340"></embed></object>
-
-
-<p>用 midi 玩出無限花樣阿~ 不想看說明可以直接跳到 1:42 開始精采的部分, 超好聽!</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -490,6 +499,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
       </li>
     
@@ -503,10 +516,6 @@
     
       <li class="post">
         <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
       </li>
     
   </ul>
@@ -566,7 +575,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2011 - tzangms -
+  Copyright &copy; 2012 - tzangms -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

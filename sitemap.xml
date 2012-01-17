@@ -3137,15 +3137,19 @@
         <lastmod>2011-12-30T09:22:29+08:00</lastmod>
     </url>
     <url>
+        <loc>http://tzangms.com/2012/01/17/django-on-heroku/</loc>
+        <lastmod>2012-01-18T00:21:32+08:00</lastmod>
+    </url>
+    <url>
         <loc>http://tzangms.com/about/</loc>
         <lastmod>2011-10-11T00:44:06+08:00</lastmod>
     </url>
     <url>
         <loc>http://tzangms.com/blog/archives/</loc>
-        <lastmod>2011-12-30T09:22:29+08:00</lastmod>
+        <lastmod>2012-01-18T00:21:32+08:00</lastmod>
     </url>
     <url>
         <loc>http://tzangms.com/</loc>
-        <lastmod>2011-12-30T09:22:29+08:00</lastmod>
+        <lastmod>2012-01-18T00:21:32+08:00</lastmod>
     </url>
 </urlset>

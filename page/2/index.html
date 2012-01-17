@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="Django 1.3 也出來好一陣子, 都快過一個月了, 剛好這一陣子有幾個新的 project, 就直接用 Django 1.3 來開發, 對 staticfiles 跟 class-based views 稍微熟了一些, 就來記一下。原本的問題在 Django 1.3 之前, 是透過 ME...">
+  <meta name="description" content="禮拜日晚上突然說應該來錄一些 tutorial 才對, 所以就想起了之前一直想買的 blue snowball, 順便可以方便錄 Podcast, 不然距離上一集已經一年多了 XD所以就在 Y 拍上面開始找有沒有人在買的, 找到之後就馬上聯絡賣家, 想說能不能明天就帶回家 XD 沒想到賣家很快...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,51 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/stuff/blue-snowball/">買了 Blue Snowball</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2011-05-17T12:10:00+08:00" pubdate  data-updated="true" >May 17<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>禮拜日晚上突然說應該來錄一些 tutorial 才對, 所以就想起了之前一直想買的 <a href="http://www.bluemic.com/snowball/">blue snowball</a>, 順便可以方便錄 Podcast, 不然距離上一集已經一年多了 XD</p>
+
+<p>所以就在 Y 拍上面開始找有沒有人在買的, 找到之後就馬上聯絡賣家, 想說能不能明天就帶回家 XD 沒想到賣家很快就回覆了, 而且還有現貨, 所以就直接約昨天下班的時候在昆陽捷運站面交, 超方便, 直接回家 XDDD</p>
+
+<p>而且令人驚訝的是, 賣家居然看過我的 blog!!! 而且賣家人超好 $3250 還算我 $3100, 揪甘心!! 難道有看過部落格有差嗎? (咦)</p>
+
+<p>後來跟這位賣家聊了好久, 音樂、程式的東西都聊, 除了他們的 Y 拍之外, 他們有一個 blog 叫 <a href="http://digilog.tw/">DigiLog</a> 也是介紹跟音樂相關的, 看了看之後比較多合成器、音源以及現在科技相關的, 有空可以去看看 XD</p>
+
+<p>最後用 <a href="http://en.wikipedia.org/wiki/John_Cale">john cale</a> 彈過的木吉他以及 snowball 錄一段 <a href="http://streetvoice.com/music/vocalwei/song/138249/">hush 的出竅</a></p>
+
+<object data="http://boos.audioboo.fm/swf/fullsize_player.swf" height="129" id="boo_embed_358292" type="application/x-shockwave-flash" width="400"><param name="movie" value="http://boos.audioboo.fm/swf/fullsize_player.swf" /><param name="scale" value="noscale" /><param name="salign" value="lt" /><param name="bgColor" value="#FFFFFF" /><param name="allowScriptAccess" value="always" /><param name="wmode" value="window" /><param name="FlashVars" value="mp3Author=tzangms&amp;mp3=http%3A%2F%2Faudioboo.fm%2Fboos%2F358292-blue-snowball.mp3%3Fsource%3Dembed&amp;mp3Title=blue+snowball+%E8%A9%A6%E9%8C%84&amp;mp3LinkURL=http%3A%2F%2Faudioboo.fm%2Fboos%2F358292-blue-snowball&amp;rootID=boo_embed_358292&amp;mp3Time=01.17pm+16+May+2011" /><a href="http://audioboo.fm/boos/358292-blue-snowball.mp3?source=embed">Listen!</a></object>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -580,46 +625,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2818/">Django 發佈安全性更新 2/8</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2011-02-14T00:36:06+08:00" pubdate  data-updated="true" >Feb 14<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這篇也 delay 了好多天, 在 2/8 <a href="http://www.djangoproject.com/weblog/2011/feb/08/security/">Django 發佈了安全性更新</a>, 主要是針對 <a href="http://en.wikipedia.org/wiki/Cross-site_request_forgery">CSRF</a> 這件事。</p>
-
-<p>如果有用 Django 1.2 的人就一定知道 csrf 這個東西, 畢竟 Django 1.2 預設開啟了 csrf, csrf 簡單來說就是防止假造的 POST request, 不過其實 csrf 並沒有對 XMLHttpRequest 的 POST 做處理, 畢竟瀏覽器限制 XMLHttpRequest 得在同一個 domain 跟 protocol。</p>
-
-<p>不過在文中提到, 現在攻擊者可以透過瀏覽器外掛跟 redirect (?) 來利用 XMLHttpRequest 跨過 csrf 保護, 所以 <a href="http://weblog.rubyonrails.org/2011/2/8/csrf-protection-bypass-in-ruby-on-rails">Rails 在同一天也發佈了 patch</a>, 用以防止 XMLHttpRequest 的 csrf。</p>
-
-<p>不過其實這有點頭痛, 每個 Ajax POST request 都要加 csrf token 上去, 我的媽呀 &#8230;</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -639,6 +644,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
       </li>
     
@@ -652,10 +661,6 @@
     
       <li class="post">
         <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
       </li>
     
   </ul>
@@ -715,7 +720,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2011 - tzangms -
+  Copyright &copy; 2012 - tzangms -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

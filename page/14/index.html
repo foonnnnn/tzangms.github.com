@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="south, 一個幫 django 做 database migration 的 app, 真的是超方便的。 以前在 itszero 傳授我 RoR 的時候, 曾經見識過 RoR 的 database migration, 不過當時完全不知道是要用來幹嘛的 XD ( php 的世界裡面沒有這個...">
+  <meta name="description" content="從 django 1.1 開始, django admin 開始多了一個 actions 的功能, 預設就提供了刪除的動作, 方便許多, 不過其實要新增自定的功能也很容易。例如這張圖上面的&#8221;不再列表顯示&#8221;就是我另外加上的功能選單, 可以一次勾選多個要處理項目進行處理。 ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,56 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2506/">Django Admin Actions</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-11-07T02:24:01+08:00" pubdate  data-updated="true" >Nov 7<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>從 <a href="http://www.djangoproject.com/">django</a> 1.1 開始, django admin 開始多了一個 actions 的功能, 預設就提供了刪除的動作, 方便許多, 不過其實要新增自定的功能也很容易。</p>
+
+<p>例如這張圖上面的&#8221;不再列表顯示&#8221;就是我另外加上的功能選單, 可以一次勾選多個要處理項目進行處理。 如果對 customize django admin 有經驗的話, 那麼自定功能對你來說就更簡單了, 基本上新增 action 的方法, 就是自定一個 ModelAdmin 的 method, 像是下面這樣, 就可以了 :D</p>
+
+<pre><code>class SongAdmin(admin.ModelAdmin):
+    actions = ('not_list_in_public',)
+
+    def not_list_in_public(self, request, queryset):
+        quertset.update(list_public=False)
+    not_list_in_public.short_description = '不再列表顯示'
+</code></pre>
+
+<p>這裡唯一得注意的一點就是, 這裡處理的對象是 queryset 喔~ 所以是複數滴, 記得考慮所有處理的東西都會是一個以上。 另外, 要存取 many to many 的東西, 像是 Site 的話, 直接像下面這樣處理就可以了。</p>
+
+<pre><code>for item in queryset:
+    item.add(mysite)
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -520,52 +570,6 @@ def deploy():
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2485/">Mac Snow Leopard 安裝 Tornado</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-10-01T22:08:36+08:00" pubdate  data-updated="true" >Oct 1<span>st</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.tornadoweb.org">tornado</a> 官方網頁上寫的, Mac 10.5/10.6 要跑 tornado 需要先裝 setuptools, pycurl 跟 simplejson, 指令如下:</p>
-
-<pre><code>sudo easy_install setuptools pycurl==7.16.2.1 simplejson</code></pre>
-
-
-<p>( 不過其實我不太懂&#8230; 不是有 easy_install 就是有裝 setuptools 了嗎? )</p>
-
-<p>不過我在 snow leopard 安裝 pycurl 失敗了, 所以 google 了一下, 將 ARCHFLAGS 改為 x86_64 就行啦</p>
-
-<pre><code>sudo env ARCHFLAGS="-arch x86_64" easy_install setuptools pycurl simplejson</code></pre>
-
-
-<p>接著抓 tornado 回來安裝, 就可以開始跑啦 :D</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -585,6 +589,10 @@ def deploy():
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
       </li>
     
@@ -598,10 +606,6 @@ def deploy():
     
       <li class="post">
         <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
       </li>
     
   </ul>
@@ -661,7 +665,7 @@ def deploy():
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2011 - tzangms -
+  Copyright &copy; 2012 - tzangms -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

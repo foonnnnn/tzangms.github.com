@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="因為買了新新 Macbook Air, 下禮拜就要去北京了, 就在這台設定了一下開發環境。 首先當然是抓個 xcode 下來裝, 然後裝上 homebrew。平常開發都只用 vim, 可是其實我對 vim 的各種功能或是外掛都沒有太多著墨跟了解, 就都只有基本的 .vimrc 設定而已, 今天...">
+  <meta name="description" content="今天一到北京打開電腦的第一件事就是用 ssh -D 來翻牆, 沒想到 pandora 都可以聽了, twitter 跟 facebook 還是上不了 &#8230;後來就找到了 VPNywhere , 有 14 天的免費試用, 所以就用這個順利翻了過來, 在 Mac 系統設定的網路新增 VPN...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,45 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/2788/">第一次在中國翻牆</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-12-20T23:46:33+08:00" pubdate  data-updated="true" >Dec 20<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天一到北京打開電腦的第一件事就是用 ssh -D 來翻牆, 沒想到 pandora 都可以聽了, twitter 跟 facebook 還是上不了 &#8230;</p>
+
+<p>後來就找到了 <a href="http://www.vpnywhere.com/">VPNywhere </a>, 有 14 天的免費試用, 所以就用這個順利翻了過來, 在 Mac 系統設定的網路新增 VPN (PPTP) 填入帳號密碼, 最後設定一下服務順序, 把 VPN 的順序調至第一個就可以順利翻牆了, 超方便!</p>
+
+<p>在 Mac 上設定的截圖如下, 不過我把帳號拿掉了就是
+<a href="http://tzangms.com/wp-content/uploads/2010/12/螢幕快照-2010-12-21-上午9.19.031.png"><img src="http://tzangms.com/wp-content/uploads/2010/12/螢幕快照-2010-12-21-上午9.19.031-500x393.png" alt="" title="螢幕快照 2010-12-21 上午9.19.03" width="500" height="393" class="aligncenter size-large wp-image-2791" /></a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -426,93 +465,6 @@ filetype plugin on</code></pre>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2760/">每次開新的 Django Project 都會做的設定</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-11-20T15:03:47+08:00" pubdate  data-updated="true" >Nov 20<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>每次開新的 <a href="http://www.djangoproject.com/">Django</a> project 時, 都得重覆下面這些事情, 其實有點惱人。</p>
-
-<p>首先是 settings.py, 我會加入下面這一段</p>
-
-<pre><code>import os
-ROOT_PATH = os.path.dirname(__file__)
-</code></pre>
-
-
-<p>然後修改 MEDIA_ROOT 跟 TEMPLATE_DIRS 使用相對路徑</p>
-
-<pre><code>MEDIA_ROOT = os.path.join(ROOT_PATH, 'static')
-
-TEMPLATE_DIRS = (
-    os.path.join(ROOT_PATH, 'templates')
-)
-</code></pre>
-
-
-<p>設定 MEDIA_URL</p>
-
-<pre><code>MEDIA_URL = '/static/'
-</code></pre>
-
-
-<p>最後我還會加上下面這一段</p>
-
-<pre><code>TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.core.context_processors.auth',
-    'django.core.context_processors.debug',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.media',
-    'django.core.context_processors.request',
-)
-</code></pre>
-
-
-<p>再來是 urls.py</p>
-
-<pre><code>from django.conf import settings
-</code></pre>
-
-
-<p>先 import 設定檔, 然後加入下面這一段讓 development server 可以吐靜態檔</p>
-
-<pre><code>if settings.DEBUG:
-    urlpatterns += patterns('',
-        (r'^static/(?P&lt;path&gt;.*)$', 'django.views.static.serve',
-            {'document_root': settings.MEDIA_ROOT}),
-    )
-</code></pre>
-
-
-<p>大概是這樣~</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -532,6 +484,10 @@ TEMPLATE_DIRS = (
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
+      </li>
+    
+      <li class="post">
         <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
       </li>
     
@@ -545,10 +501,6 @@ TEMPLATE_DIRS = (
     
       <li class="post">
         <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/15/appengine-so-expensive/">App Engine 好貴</a>
       </li>
     
   </ul>
@@ -608,7 +560,7 @@ TEMPLATE_DIRS = (
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2011 - tzangms -
+  Copyright &copy; 2012 - tzangms -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
