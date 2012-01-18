@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="我的天阿！找到寶庫了:O剛才吃完早餐就又上來找Reason的相關資訊，就找到這個，音響公司怎麼那麼多Reason相關的資訊，裡面還有Cubase也有Traktor DJ Studio未免也太電音了吧? 音響公司不是都該介紹麥克風跟Amp嗎？太恐怖了，看到這間公司的首頁還以為，怎麼那麼&#823...">
+  <meta name="description" content="很久沒玩Linux了，一方面是覺得Mac OS X就很方便了，所以就一直用我的iBook，另一方面則是因為Linux太複雜，需要解決太多問題，以致於不能專心在重要的事情上。不過話說回來，裝 Linux就會一直想調校系統，尤其是Gentoo Linux，會讓我欲罷不能 :p 話說，高職的時候是接...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,65 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/linux/590/">Gentoo Linux Installation!!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-01-28T01:15:00+08:00" pubdate  data-updated="true" >Jan 28<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/97642574/" title="Photo Sharing"><img src="http://static.flickr.com/21/97642574_aa5a3f5652_o.png" width="106" height="108" alt="gentoo icon" align="left" /></a>很久沒玩Linux了，一方面是覺得Mac OS X就很方便了，所以就一直用我的iBook，另一方面則是因為Linux太複雜，需要解決太多問題，以致於不能專心在重要的事情上。不過話說回來，裝 Linux就會一直想調校系統，尤其是Gentoo Linux，會讓我欲罷不能 :p 話說，高職的時候是接觸Slackware，一直到了二技才碰了一下Redhat 7.2，但是因為當時不喜歡RPM這種東西，dependencies太重，反而更麻煩，別人包好你就照裝，有時還裝了一些不想要的東西，但是又能如何？ 系統根本沒辦法自己掌控。而Slackware自己compile慣了，後來也習慣了他的pkg系統，就自己compile成pkg在裝，移除程式就不會 有source tarball的問題，超方便。不過由於當時那一台超爛的Notebook，使得Slackware 8也沒辦法在上面光碟開機，後來的Redhat 8也是，所以這個因緣際會我找到了Gentoo Linux阿!! 當時沒有中文資訊，只好猛k Gentoo handbooks，裝起來的感覺真不賴，不過當時可是困難重重，不像今天一下字就把系統裝完，雖然已經隔了大概一年半沒有灌Linux了，不過中間還是 有多少在碰，呵呵，沒辦法，在當國防部當資訊兵期間，Linux仍然是一直碰，幸好shell script幫我解決了很多問題。而在當初剛買這一台iBook的時候，也是馬上就安裝Gentoo Linux PPC在上面 :D 只能說&#8230;超棒!! XD 不過今天呢！我是把Gentoo Linux裝在我的Desktop上面。</p>
+
+<blockquote>Desktop 配備:
+CPU : Pentium4 1.5G
+RAM: 512MB
+VGA: ATI Radeon 7000 64MB
+HD : 40G + 30G
+ 
+</blockquote>
+
+
+<p>不過由於有Smartphone，所以Windows XP我還是幫他預留了一個空間，不然&#8230;.真的很爛 Orz
+Gentoo Linux 獲得了20G的空間，因為只想快點灌好，所以就從stage3開始，不過其實是他handbook上寫了stage1, stage2沒有要支援說明了，所以我才用stage3，因為也很久沒灌Gentoo Linux了，所以怕碰到太多難題。</p>
+
+<p>不 過今天最難的部份就是USB Mouse的問題了，當初 Kernel 2.6 出來沒多久我就跳槽到Mac OS X了，當初還搞得定 HID 這種東西，今天居然敗在USB Mouse的手上 Orz 跟之前玩得Kernel相差太遠，現在都用 Kernel 2.6.15了，HID的部份也有些變動，還有devfs的東西也不見了，真的是太久沒有玩Linux了，Kernel多了一堆東西，都快認不得了。</p>
+
+<p>make menuconfig，然後慢慢的一個一個option看，真的是大概2年沒compile 2.6 的Kernel，居然變到快認不得了，anyway，重新compile Kernel差不多有5遍吧！還是搞不定usbmouse，都編成modules了，dmesg還是沒消息，話說當年devfs，我把modules載 入，他就會生成一個device file給我，on fly喔!! 所以說，我很快就可以知道新增的滑鼠的device file是哪一個，今天卻敗在他手上。一氣之下，我emerge 了 genkernel。genkernel會把全部的device driver都make modules，就是類似Redhat 的 kernel RPM，支援所有硬體，不過genkernel還是要自己compile就是了 :D
+搭配上genkernel附的initrd image，跟coldplug，oh my god！太神奇了，他會自己偵測hardware阿!!還會載入對應的kernel modules，所以說!! 我的USB Mouse 可以動啦！這也表示說WindowMaker我來啦!!!呵呵，倒是X11.org就make滿久的了&#8230; Orz 總之，現在所有硬體都ok，X也正常，接下來就是中文支援了:p</p>
+
+<blockquote>記錄一下我的 C Flages:
+
+CFLAGS=&#8221;-O3 -march=pentium4 -mmmx -msse -msse2&#8221;
+</blockquote>
+
+
+<p>以前超長一串，多道兩三行去，其實 -O3就代表很多東西了，總之 Optimization之後再來說，先睡覺 XD</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -422,40 +481,6 @@ H2O錄音</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/h2o/579/">H2O 秘密特訓!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2006-01-16T14:48:00+08:00" pubdate  data-updated="true" >Jan 16<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>待會要衝過去新竹啦!大概20、21號才會回來，要幹麻呢? H2O秘密特訓!</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -475,6 +500,10 @@ H2O錄音</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/18/vim-plugin-manager-vundle/">Vim Plugin Manager: Vundle</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
@@ -488,10 +517,6 @@ H2O錄音</p>
     
       <li class="post">
         <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
       </li>
     
   </ul>

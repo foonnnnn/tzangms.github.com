@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="由於自己租的 slicehost 只有 256MB 的記憶體, 架 mail server 又很麻煩 (因為我也不懂 XD), 又似乎 mail 有啥反解的問題, 而直接透過 sendmail 這樣寄信會被當成垃圾信, 所以就申請了 Google app, 然後用申請到的帳號透過 SMTP 來...">
+  <meta name="description" content="由於 stickeraction 的關係, 貼出去的貼紙讓我的主機流量暴增, 覺得這樣下去這個月的 100G 流量一定會爆, 所以對於貼出去的貼紙做了一些處理, 讓瀏覽器快取住, 多少可以減少一些流量, 其實一開始就該做了 XD 只是沒有意識到, 完全沒有經驗 XD 而且工作上也比較沒有流量的...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,47 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1244/">讓瀏覽器快取 PHP 產生的圖片</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-07-18T08:16:30+08:00" pubdate  data-updated="true" >Jul 18<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>由於 <a href="http://stickeraction.com">stickeraction</a> 的關係, 貼出去的貼紙讓我的主機流量暴增, 覺得這樣下去這個月的 100G 流量一定會爆, 所以對於貼出去的貼紙做了一些處理, 讓瀏覽器快取住, 多少可以減少一些流量, 其實一開始就該做了 XD 只是沒有意識到, 完全沒有經驗 XD 而且工作上也比較沒有流量的考量, 所以這次也學到了些東西。</p>
+
+<p>原本在主機上就都有設定 <a href="http://www.lighttpd.net/">lighttpd</a>, 讓圖片, js 跟 css 檔產生 etag、expire 跟 last modified &#8230; 等的 <a href="http://en.wikipedia.org/wiki/List_of_HTTP_headers">HTTP headers</a>, 利用瀏覽器的快取機制來減少主機的流量。 不過由 PHP 產生的圖片完全沒有 cache, 今天才改了一下程式, 加上一些  header, 來減少流量的支出, 不然這個月主機流量穩爆 ~&#8221;~</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/1244/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -570,47 +611,6 @@ $config['crlf'] = "\r\n";
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1189/">Google AppEngine 試玩</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-06-18T00:57:13+08:00" pubdate  data-updated="true" >Jun 18<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2587661644/" title="twitter easy unfollow on AppEngine by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3275/2587661644_dd12f877e6.jpg" width="500" height="299" alt="twitter easy unfollow on AppEngine" /></a></p>
-
-<p>這兩天下班後, 都在玩 <a href="http://code.google.com/appengine/">AppEngine</a>, 不過我不太會 <a href="http://www.python.org/">python</a>, 也不懂 <a href="http://www.djangoproject.com/">django</a>, 只有上禮拜花了一天晚上看完 <a href="http://docs.python.org/tut/tut.html">python tutorial</a>, 就開始亂玩 ~&#8221;~ 所以寫了一個 twitter easy unfollow 的 twitter 應用 XD (因為實在太不穩就不放連結上來了 :p )</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/1189/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -630,6 +630,10 @@ $config['crlf'] = "\r\n";
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/18/vim-plugin-manager-vundle/">Vim Plugin Manager: Vundle</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
@@ -643,10 +647,6 @@ $config['crlf'] = "\r\n";
     
       <li class="post">
         <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
       </li>
     
   </ul>

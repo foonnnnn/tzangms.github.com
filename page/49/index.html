@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="DOM Scripting - Web Design with Javascript and Document Object  Model因為自己太弱了所以來讀關於DOM的書, 這本書寫的很淺顯, 連基本的javascript都有先做描述, 這本書的網站(http://domscripting...">
+  <meta name="description" content="看了阿西摩部落格的這一篇文章 JavaScript ≠ Java 後, 我還是忍不住有話要說 XD下面這六點是作者阿西摩自己對 JavaScript ≠ Java 的解釋: (在每一點後面附上我的看法)JavaScript 只要有一個網頁跟有支援 JavaScript 的瀏覽器才可以執行。而 ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,110 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/761/">關於阿西摩寫的 JavaScript ≠ Java</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-01-16T00:12:45+08:00" pubdate  data-updated="true" >Jan 16<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>看了阿西摩部落格的這一篇文章 <a href='http://www.one18.com/?p=109'>JavaScript ≠ Java</a> 後, 我還是忍不住有話要說 XD</p>
+
+<p>下面這六點是作者阿西摩自己對 JavaScript ≠ Java 的解釋: (在每一點後面附上我的看法)</p>
+
+<ol>
+<li>JavaScript 只要有一個網頁跟有支援 JavaScript 的瀏覽器才可以執行。而 Java 語言呢，只要程式內沒有使用什麼特殊平台的 library，經過轉譯後的 class 檔，幾乎可以放到任何已經安裝有 Java Runtime 環境的系統上。比方說，我在我的 Windows 上開發轉譯後的 Java 程式，可以放到 UNIX, Linux, OSX 上執行，都不會有太大的問題。</li>
+</ol>
+
+
+<blockquote>
+換句話說 Javascript 只需要一個瀏覽器, 不管是 Netscape, Mozilla, Firefox, IE, Opera, Camino, Safari 甚至 Links 2 也都有支援 Javascript, 那麼不管是 Windows, UNIX, Linux, Mac OS X 都有瀏覽器, 所以這一點比的是支援度? 那麼 Javascript 比起 Java 的&#8221;不會有太大的問題&#8221;來說, Javascript 好上很多。
+</blockquote>
+
+
+<ol>
+<li>最原始的 JavaScript 能操作跟執行的範圍相當有限，比方說，你如果要讀取本機端的檔案，比就必須搭配 JavaScript extension 還有 ActiveX 之類的附註程式才有可能達稱。而 Java 可以輕鬆的使用 Java 原本的 package 去讀取檔案，更改檔案。</li>
+</ol>
+
+
+<blockquote>
+這個比喻?? 這例子根本不能這樣舉吧! 那我也來舉個例子: 例如用 C/C++ 要來做指標的操作,  Java呢? Java 根本沒有指標阿! 連擴充的方式都沒有(這可能是我才疏學淺, 有的話請指正我一下), 那這要怎麼比? 
+</blockquote>
+
+
+<ol>
+<li>JavaScript 當年是 Netscpae 開發出來用在 Netscape 上，讓原本死板板的 HTML 網頁可以又動態的變化，互動，還有驗證輸入等等的功能。而 Microsoft 呢，運用他們最厲害的 Reverse Engineering 把 JavaScript 學了起來，然後自創了 JScript. 而比起 JavaScript，Java語言，有自己的標準，架構，平台，而且複雜度高上太多太多了，所能應用的範圍更是會把 JavaScript 巴到連渣都不剩!</li>
+</ol>
+
+
+<blockquote>
+就是因為 Java 這類的語言太複雜, 所以才會有 Scripting Language, 如果說我只是為了要在網頁上swap 圖片, 我想..用 Javascript 來寫不用一分鐘吧, 那麼 Java applet 呢? 最少也要花上2~3倍的時間吧? import ? addEvent ? addListener? 加上 compile? 我只是要 swap 個圖片而已。
+</blockquote>
+
+
+<ol>
+<li>JavaScript 是一種非常不嚴謹的腳本語言。在 JavaScript 裡面，變數全部都用 var 宣告，如果你這樣在 Java 裡面寫程式，我跟你保證，Java compiler 會不斷的，一直的給你［舉紅牌］!</li>
+</ol>
+
+
+<blockquote>
+這點我也可以保證, Javascript 是一個不嚴謹的語言, 但是不管是用 B, C, C++, Objective C, PHP, ASP, ASP.NET, C#, Python, Ruby &#8230;. Java compiler 仍會不斷的一直給你舉紅牌。呵, 不過我想作者的原意是在指出 Javascript 的不嚴謹, 但是舉的例子很糟糕。
+</blockquote>
+
+
+<ol>
+<li>我可以用 Java 語言，在 Java Server Page (JSP)上動態產生 JavaScript 語言，並且執行，而你想要用 JavaScript 去寫 Java語言!? 嗯，還是不要沒事找自己麻煩的好!</li>
+</ol>
+
+
+<blockquote>
+這個比喻?? &#8230;還是很糟糕, 就沿用我第3點所舉的例子, 用 Java 來寫? 還是不要沒事找自己麻煩的好。
+</blockquote>
+
+
+<ol>
+<li>總之，JavaScript ≠ Java 你是要我說多少次才會聽懂啦!</li>
+</ol>
+
+
+<blockquote>
+這我百分百贊同作者!
+</blockquote>
+
+
+<p>這篇文章的用意, 只是想說一下, 每個程式語言都有他的應用的地方, 並不是說 Javascript 不嚴謹、應用範圍不廣, 就是 Java 被巴到連渣都不剩! 當初的 Java applet 紅透半邊天, 但是現在卻是 AJAX 當道。現在的 Java 應用是真的很廣, 如: 手機遊戲、電冰箱&#8230;等等，還有很多，但是現在人家真的要製作網頁上的動畫, 人家當然用 Flash + Actionscript, 而不是用 awt 在那邊苦的要命, 在 Linux 下作 routine task 用 shell 或 perl, 在 Mac 下也可以用 Apple script, 寫 kernel 用 C/C++，大部分的情況當然都可以用 Java 來取代，但是，還是不要沒事找自己麻煩的好。</p>
+
+<p>並不是 Scripting language 簡單、不嚴謹就一無是處的阿！</p>
+
+<p>另外可以看一下底下兩篇文章:
+<a href='http://ghostsinthelab.org/3/archive/575.html'>YHH 大大的說得真是太好了</a>
+<a href='http://lightyror.thegiive.net/2007/01/scripting-lanuage.html'>thegiive 的 Scripting Lanuage 就比較不專業？</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -488,44 +592,6 @@ end</blockquote>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/737/">我明明有拜拜的 Orz</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2006-12-02T04:02:09+08:00" pubdate  data-updated="true" >Dec 2<span>nd</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天一點快半，本來想說要睡了，沒想到才是地獄的開始&#8230;.</p>
-
-<p>一開始，手機響了，從值班交接之後，一直都很平靜，沒想到一開始就來個大攤的~ Orz 將機器重開機，無效 XD 第二次重開機，仍然掛點，後來只好求救於Tommy大大！大大只好耐著冷風披上外套衝到機房去了&#8230;辛苦了！Tommy大大。當然不愧是大大，處理了一下，然後在等在disk check的時間，就打電話來跟我小chat一下，不然他會睡著 XD 所以為了答謝大大，我當然就奉上我在flickr上的CUTE OL正妹，供大大振奮一下精神，以聊表小弟的心意，沒想到disk check在最令人滿意的時間內完成了！非常好！但是此刻我還沒洗澡，而且好餓，但是好餓我也不能吃東西，因為要減肥阿！所以只好去洗個澡，準備睡覺，但是現在都已經4點了 Orz</p>
-
-<p>果然沒錯，值班就是報肝的開始阿! 在此徵求許榮助保肝丸~幹，不行了，來睏。</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -545,6 +611,10 @@ end</blockquote>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/18/vim-plugin-manager-vundle/">Vim Plugin Manager: Vundle</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
@@ -558,10 +628,6 @@ end</blockquote>
     
       <li class="post">
         <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
       </li>
     
   </ul>

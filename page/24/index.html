@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="超興奮的! 明後天就可以收到完成品囉!">
+  <meta name="description" content="在 gentoo linux 上應該是很少有機會會碰到 circular dependency, 如果真的碰到了, 就是過一陣子 emerge --sync 看看, 或是去作 bug report。 這次是為了要將 lighttpd 的 stat-cache-engine 設定為 fam, 而...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,54 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/linux/1923/">Gamin Circular Dependency With &#8216;Fam&#8217; USE Flag</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-10-24T17:23:16+08:00" pubdate  data-updated="true" >Oct 24<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在 <a href="http://www.gentoo.org/">gentoo linux</a> 上應該是很少有機會會碰到 circular dependency, 如果真的碰到了, 就是過一陣子 <code>emerge --sync</code> 看看, 或是去作 bug report。 這次是為了要將 <a href="http://www.lighttpd.net/">lighttpd</a> 的 stat-cache-engine 設定為 fam, 而第一次碰到 portage 的 circular dependency。</p>
+
+<p>嗯, 這個問題是發生在 gamin 跟 glib 這兩個套件, 其實之前一直放著不管, 就把時間拿去弄唱片了, 可是過了好久, 這個問題還沒解決, 一直到今天才又換了方法試一下, 沒想到就成功了!! :D</p>
+
+<ol>
+<li>首先 use flag 先不加 fam, 先把 glib 跟 gamin 裝上去</li>
+</ol>
+
+
+<p><code>USE='-fam' emerge gamin</code></p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/linux/1923/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -427,69 +475,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1820/">Ruby HTML Parser: Hpricot</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-10-06T19:58:29+08:00" pubdate  data-updated="true" >Oct 6<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天突然看到 <a href="http://stickeraction.com">stickeraction</a> 的某個用 php 寫的 cron job 吃掉好多記憶體, 就突然想說, 其實這個 cron job 應該用 ruby 或者是 python 來作會比較適合, 另外也看看有沒有辦法比較省記憶體的耗用, 就順便練習一下 ruby。</p>
-
-<p>所以就找了一下 ruby 有沒有處理 HTML DOM 的東西, 就找到了 <a href="http://code.whytheluckystiff.net/hpricot/">Hpricot</a>, 其實跟之前用的 <a href="http://tzangms.com/php/1555">phpQuery</a> 差不多, 都可以用 <a href="http://jquery.com/">jQuery</a> 的語法來處理 DOM, 哈! 真是好物阿!</p>
-
-<p>像是下面這一段是用來找 RSS feed url 的。</p>
-
-<pre>
-<code>require 'open-uri'
-require 'rubygems'
-require 'hpricot'
-
-def get_feedurl url
-    doc = Hpricot(open(url))
-    link_tag = doc.at("head > link[@rel='alternate'][@type^='application']")
-    if link_tag
-        return link_tag.get_attribute('href')
-    end
-
-    return nil
-end
-
-url = 'http://tzangms.com/blog'
-puts get_feedurl(url)</code>
-</pre>
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/1820/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -509,6 +494,10 @@ puts get_feedurl(url)</code>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/18/vim-plugin-manager-vundle/">Vim Plugin Manager: Vundle</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
@@ -522,10 +511,6 @@ puts get_feedurl(url)</code>
     
       <li class="post">
         <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
       </li>
     
   </ul>

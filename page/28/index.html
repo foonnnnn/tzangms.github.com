@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="好久沒聽到拾參這個團的名字了, 一直在前一陣子, 聽到拾參在某些 Rock pub 開始又有活動了, 想想, 距離第一次聽到拾參的時候, 真的是隔了很久。 這次被找去參加拾參在海邊的卡夫卡舉辦的試聽會, 本來在猶豫要不要去, 不過想想似乎好久沒看樂團表演了, 也許是該時候接受點衝擊了吧!">
+  <meta name="description" content="According to this post in the kohana forum, the find_by_* method of ORM is not avaliable since Kohana 2.2 because the performance issue.In the prev...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,56 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1414/">The ORM Find_by_* Method Is Gone. (Kohana 2.2)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-08-20T00:05:43+08:00" pubdate  data-updated="true" >Aug 20<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>According to <a href="http://forum.kohanaphp.com/comments.php?DiscussionID=876">this post</a> in the kohana forum, the find_by_* method of ORM is not avaliable since <a href="http://kohanaphp.com">Kohana</a> 2.2 because the performance issue.</p>
+
+<p>In the previous version, Kohana 2.1.2, I used before. I can use <strong>find_by_*()</strong> method like this:</p>
+
+<pre><code>$user = new User_Model();
+$user-&gt;find_by_username('tzangms');
+</code></pre>
+
+
+<p>But for now, in Kohana 2.2, we should use <strong>where()</strong> instead, if we want to find by username, not by id.</p>
+
+<pre><code>$user = new User_Model()
+$user-&gt;where('username', 'tzangms')-&gt;find();
+</code></pre>
+
+
+<p>damn, find_by_* is so intuitive.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -434,47 +484,6 @@ Mastering, 以我業餘的知識, 應該就是要輸出母片前, 也就是壓�
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1244/">讓瀏覽器快取 PHP 產生的圖片</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-07-18T08:16:30+08:00" pubdate  data-updated="true" >Jul 18<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>由於 <a href="http://stickeraction.com">stickeraction</a> 的關係, 貼出去的貼紙讓我的主機流量暴增, 覺得這樣下去這個月的 100G 流量一定會爆, 所以對於貼出去的貼紙做了一些處理, 讓瀏覽器快取住, 多少可以減少一些流量, 其實一開始就該做了 XD 只是沒有意識到, 完全沒有經驗 XD 而且工作上也比較沒有流量的考量, 所以這次也學到了些東西。</p>
-
-<p>原本在主機上就都有設定 <a href="http://www.lighttpd.net/">lighttpd</a>, 讓圖片, js 跟 css 檔產生 etag、expire 跟 last modified &#8230; 等的 <a href="http://en.wikipedia.org/wiki/List_of_HTTP_headers">HTTP headers</a>, 利用瀏覽器的快取機制來減少主機的流量。 不過由 PHP 產生的圖片完全沒有 cache, 今天才改了一下程式, 加上一些  header, 來減少流量的支出, 不然這個月主機流量穩爆 ~&#8221;~</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/1244/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -494,6 +503,10 @@ Mastering, 以我業餘的知識, 應該就是要輸出母片前, 也就是壓�
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/18/vim-plugin-manager-vundle/">Vim Plugin Manager: Vundle</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
@@ -507,10 +520,6 @@ Mastering, 以我業餘的知識, 應該就是要輸出母片前, 也就是壓�
     
       <li class="post">
         <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
       </li>
     
   </ul>

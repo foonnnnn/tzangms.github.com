@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="從 django 1.1 開始, django admin 開始多了一個 actions 的功能, 預設就提供了刪除的動作, 方便許多, 不過其實要新增自定的功能也很容易。例如這張圖上面的&#8221;不再列表顯示&#8221;就是我另外加上的功能選單, 可以一次勾選多個要處理項目進行處理。 ...">
+  <meta name="description" content="檢視較大的地圖這次騎了 18 公里!!! 可是我的屁股真痛 ~&#8221;~ 不知道買椅墊有沒有用阿~ 有誰可以推薦一下嗎? XD">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,46 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/2508/">我最近真的是超健康的!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-11-07T20:23:26+08:00" pubdate  data-updated="true" >Nov 7<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><iframe width="600" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/?t=p&amp;q=http:%2F%2Fapi.motionxlive.com%2Fmotionx-remote%2Fapi%2Fgps%2Fhost%2F00580232-292d-4ab9-a8ec-8ee7f3d62690&amp;ie=UTF8&amp;ll=25.065075,121.569901&amp;spn=0.054423,0.102997&amp;z=13&amp;output=embed"></iframe>
+
+
+<br /><small><a href="http://maps.google.com/?t=p&amp;q=http:%2F%2Fapi.motionxlive.com%2Fmotionx-remote%2Fapi%2Fgps%2Fhost%2F00580232-292d-4ab9-a8ec-8ee7f3d62690&amp;ie=UTF8&amp;ll=25.065075,121.569901&amp;spn=0.054423,0.102997&amp;z=13&amp;source=embed" style="color:#0000FF;text-align:left">檢視較大的地圖</a></small>
+
+
+<p>這次騎了 18 公里!!! 可是我的屁股真痛 ~&#8221;~ 不知道買椅墊有沒有用阿~ 有誰可以推薦一下嗎? XD</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -502,74 +542,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2486/">用 Fabric 來 Deploy</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-10-02T00:02:59+08:00" pubdate  data-updated="true" >Oct 2<span>nd</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>以前在寫 php 的時候是用 ruby 的 <a href="http://www.capify.org/index.php/Capistrano">capistrano</a> 來 deploy 程式, 雖然後來 php 好像有 <a href="http://phing.info/trac/">phing</a>, 雖然沒去深入研究, 可是光看文件就覺得沒有 capistrano 方便。 現在跑到 python, 當然就用 <a href="http://fabfile.org/">fabric</a> 來 deploy, 雖然不像 capistrano 有 transaction, 不過也很夠用了。 ( 以下用的是 fabric 1.0.0a 的版本, 目前透過 easy_install 的版本好像還滿舊的 )</p>
-
-<p>基本上 fabric 跟 capistrano 差不多 ( 應該就是學 capistrano 的 XD ), 寫個 fabfile.py 如下:</p>
-
-<pre><code>from __future__ import with_statement
-from fabric.api import run, sudo
-from fabric.context_managers import cd
-
-PROJECT_PATH = '/var/www/myproject'
-
-def dev():
-    env.hosts = ['tzangms@localhost']
-
-def prod():
-    env.hosts = ['tzangms@tzangms.com', 'tzangms@tzangms2.com']
-
-def deploy():
-    with cd(PROJECT_PATH):
-        run('hg revert . --no-backup; hg pull -u ')
-        run("sed -i -e 's/DEBUG = .*/DEBUG = False/' settings.py")
-        run('python manage.py migrate')
-        sudo('service apache2 reload')
-</code></pre>
-
-<p>fabfile.py 大概像上面這樣, 接著就可以用下面指令來 deploy 到 dev 的環境:</p>
-
-<pre><code>fab dev deploy
-</code></pre>
-
-<p>或者 deploy 到 production:</p>
-
-<pre><code>fab prod deploy
-</code></pre>
-
-<p>真是超方便的 :p 不過當然這個 fabfile 簡化了許多實際上在 deploy 的手續, 不過應該可以描劃出基本 deploy 的方式, 以往用 capistrano 可以搭配 transaction 寫 rollback, 還有加上 deploy 版本的處理, 可以直接 rollback 版本, 不過後來超懶, 直接用 mercurial revert, 然後 pull -u, anyway, 有興趣的人在玩看看吧 :p</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -589,6 +561,10 @@ def deploy():
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/18/vim-plugin-manager-vundle/">Vim Plugin Manager: Vundle</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
@@ -602,10 +578,6 @@ def deploy():
     
       <li class="post">
         <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
       </li>
     
   </ul>

@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="這篇也 delay 了好多天, 在 2/8 Django 發佈了安全性更新, 主要是針對 CSRF 這件事。如果有用 Django 1.2 的人就一定知道 csrf 這個東西, 畢竟 Django 1.2 預設開啟了 csrf, csrf 簡單來說就是防止假造的 POST request, 不...">
+  <meta name="description" content="Requests: Python HTTP Module (That Doesn’t Suck)一直都還滿喜歡 appengine urlfetch 的 api interface, Requests 就還滿像的, 感覺找到了好物, 獲得救贖的感覺 XD">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,42 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2821/">Requests: Python HTTP Module (That Doesn’t Suck)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2011-02-19T23:52:00+08:00" pubdate  data-updated="true" >Feb 19<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://kennethreitz.com/blog/introducing-requests/">Requests: Python HTTP Module (That Doesn’t Suck)</a></p>
+
+<p>一直都還滿喜歡 appengine urlfetch 的 api interface, Requests 就還滿像的, 感覺找到了好物, 獲得救贖的感覺 XD</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -493,63 +529,6 @@ cloud.result(jid)
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2792/">Suds, Python Soap Client</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-12-31T00:34:32+08:00" pubdate  data-updated="true" >Dec 31<span>st</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>因為公司接了個案子, 其中大部份都是接另一家公司所謂的 &#8220;web service&#8221;, 不過對方 detail 也沒說, 就只有 &#8220;web service&#8221; 一詞, 這詞未免也太廣泛了吧! 然後又因為對方東西還沒開發出來, 所以連 endpoint 都沒給, 連猜都沒得猜, 打電話一問說是 wsdl? 對方工程師問了一下才回答說是 wsdl 沒錯。</p>
-
-<p>以前在 PHP 是用 NuSOAP 來處理, 後來用 PHP 內建的 SOAP, 其實都還挺方便的, 不過現在換到 python, 所以找了一下 SOAP 相關的資料, 找到 <a href="https://fedorahosted.org/suds/">Suds</a> 還挺直覺的, 所以記一下。 另外, 取名 Suds 也還真有意思, 肥皂水 (笑)</p>
-
-<p>使用方式大概如下:</p>
-
-<pre><code>from suds.client import Client
-
-url = 'http://localhost:7080/webservices/WebServiceTestBean?wsdl'
-client = Client(url)
-</code></pre>
-
-<p>然後就可以直接透過 client 來呼叫功能了, 像是</p>
-
-<pre><code>result = client.service.getPercentBodyFat('jeff', 68, 170)
-print result
-</code></pre>
-
-<p>想要知道有哪些功能可以呼叫, 直接</p>
-
-<pre><code>print client
-</code></pre>
-
-<p>就會列出定義, 真是好物一個阿!! 不過不知道其他好用的 SOAP client 呢?</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -569,6 +548,10 @@ print result
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/18/vim-plugin-manager-vundle/">Vim Plugin Manager: Vundle</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
@@ -582,10 +565,6 @@ print result
     
       <li class="post">
         <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
       </li>
     
   </ul>

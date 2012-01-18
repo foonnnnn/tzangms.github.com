@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="參考這一篇文章 Django FastCGI init.d script for Gentoo Linux , 加上一點小修改, 然後將設定值搬到 conf.d 裡面。 用來跑 lighttpd + fastcgi + django。然後只要在 /var/django 裡面用 django-a...">
+  <meta name="description" content="來紀錄一下, 為了要讓 django 可以連 MS SQL Server 2000, 所以要裝 django-pyodbc, 來讓 django 有 MS SQL Server 的 driver, 不過真的是很麻煩 Orz首先, 要使用 django-pyodbc, 得先裝上 pyodbc, ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,84 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2391/">Django-pyodbc 紀錄</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-03-20T18:46:58+08:00" pubdate  data-updated="true" >Mar 20<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>來紀錄一下, 為了要讓 <a href="http://www.djangoproject.com/">django</a> 可以連 MS SQL Server 2000, 所以要裝 <a href="http://code.google.com/p/django-pyodbc/">django-pyodbc</a>, 來讓 django 有 MS SQL Server 的 driver, 不過真的是很麻煩 Orz</p>
+
+<p>首先, 要使用 <a href="http://code.google.com/p/django-pyodbc/">django-pyodbc</a>, 得先裝上 <a href="http://code.google.com/p/pyodbc/">pyodbc</a>, 而 <a href="http://code.google.com/p/pyodbc/">pyodbc</a> 得透過 ODBC 進行連線, 所以裝了 <a href="http://www.unixodbc.org/">unixODBC</a>, 而 <a href="http://www.unixodbc.org/">unixODBC</a> 連 MS SQL Server 就得要裝 SQL Server 的 driver, 所以裝了 <a href="http://www.freetds.org/">freeTDS</a>, 包含最後 <a href="http://www.djangoproject.com/">django</a> 的設定檔, 真的是悶爆了 Orz 而且這次還是在不熟悉的 distro, debian 5 上面裝。</p>
+
+<p>另外, 在安裝 django-pyodbc 的時候, 碰到一個問題, 就是目前 svn trunk 是有問題的阿, 所以後來跑去看 svn tags 有沒有可以用的版本, 結果最後是checkout django-1.0.x 這個 branches 出來就可以用了。</p>
+
+<p>接著就是紀錄一下設定檔, 怕以後會再用到 XD 不過, 基本上是希望以後都不要幹這種旁門左道的事情了。</p>
+
+<p>/etc/freetds/freetds.conf</p>
+
+<pre><code>[foo]
+host = 192.168.1.1
+port = 1433
+tds version = 8.0
+client charset = UTF-8</code></pre>
+
+
+<p>/etc/odbc.ini</p>
+
+<pre><code>[foo]
+Description = SQL Server 2000
+Driver = FreeTDS
+Servername = foo</code></pre>
+
+
+<p>/etc/odbcinst.ini</p>
+
+<pre><code>[FreeTDS]
+Description = MSSQL driver
+Driver = /usr/lib/odbc/libtdsodbc.so
+Setup = /usr/lib/odbc/libtdsS.so
+UsageCount = 1</code></pre>
+
+
+<p>settings.py</p>
+
+<pre><code>DATABASE_ENGINE = 'sql_server.pyodbc'
+DATABASE_NAME = 'databasename'
+DATABASE_USER = 'myusername'
+DATABASE_PASSWORD = 'mypassword'
+DATABASE_HOST = 'foo'
+DATABASE_PORT = ''</code></pre>
+
+
+<p>最後我終於可以在 django 上面直接用 Model 來存取 SQL Server 2000 了阿!!! Orz</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -522,47 +600,6 @@ stop() {
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/2368/">Twitthat on Mashable and TechCrunch</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-02-23T00:10:41+08:00" pubdate  data-updated="true" >Feb 23<span>rd</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>沒想到 <a href="http://twitthat.com">twitthat</a> 也可以出現在 <a href="http://mashable.com">Mashable</a> 跟 <a href="http://techcrunch.com">TechCrunch</a> 的文章內, 雖然只是出現在眾多 link 中的其中一個, 不過還是寫一篇紀念、虛榮一下 XD</p>
-
-<p><a href="http://www.techcrunch.com/2009/02/19/the-top-21-twitter-clients-according-to-twitstat/">The Top 21 Twitter Clients (According To TwitStat)</a></p>
-
-<p><a href="http://tzangms.com/web/2368/attachment/techcrunch_twitthat" rel="attachment wp-att-2369"><img src="http://tzangms.com/wp-content/uploads/2009/02/techcrunch_twitthat-200x300.jpg" alt="techcrunch_twitthat" title="techcrunch_twitthat" width="200" height="300" class="aligncenter size-medium wp-image-2369" /></a></p>
-
-<p><a href="http://mashable.com/2009/01/29/twitter-tools-for-firefox">20+ Great Twitter Tools for Firefox</a>
-<a href="http://tzangms.com/web/2368/attachment/mashable_twitthat" rel="attachment wp-att-2370"><img src="http://tzangms.com/wp-content/uploads/2009/02/mashable_twitthat-113x300.jpg" alt="mashable_twitthat" title="mashable_twitthat" width="113" height="300" class="aligncenter size-medium wp-image-2370" /></a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -582,6 +619,10 @@ stop() {
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/18/vim-plugin-manager-vundle/">Vim Plugin Manager: Vundle</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
@@ -595,10 +636,6 @@ stop() {
     
       <li class="post">
         <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
       </li>
     
   </ul>

@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="ie 都不支援 max-width 這種東西, 真的是很頭大, 所以只好想說用 javascript 來做 max-width 跟 max-height 這個工作, 所以就寫了下面這一段。 只是好像有些圖片還是縮不到, 所以&#8230; 最後我還是用 php 來作這個動作了, 以下只是個記錄...">
+  <meta name="description" content="其實最早在剛接觸 CodeIgniter 的時候記得是版本 1.5.2, 那時候 Model 都這麼寫, 例如下面的 User_Model。class User_model extends Model {    function __construct() {        parent::_...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,73 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/codeigniter/1664/">CodeIgniter Database 跟 Model 怎麼用?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-18T08:05:24+08:00" pubdate  data-updated="true" >Sep 18<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>其實最早在剛接觸 <a href="http://codeigniter.com">CodeIgniter</a> 的時候記得是版本 1.5.2, 那時候 Model 都這麼寫, 例如下面的 User_Model。</p>
+
+<pre>
+<code>class User_model extends Model {
+    function __construct() {
+        parent::__construct();
+    }
+
+    function get_by_name($name) {
+        $this->db->where('name', $name);
+        $query = $this->db->get('users');
+        if ($query->num_rows()) {
+            return $query->row();
+        }
+    
+        return false;
+    }
+
+    function get_all() {
+        $query = $this->db->get('users');
+        if ($query->num_rows()) {
+            return $query->result();
+        }
+    
+        return array();
+    }
+}</code>
+</pre>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/codeigniter/1664/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -513,42 +580,6 @@ echo $feed_url;</code>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/uncategorized/1553/">QuarkBase</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-09-04T00:53:30+08:00" pubdate  data-updated="true" >Sep 4<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>QuarkBase (<a href="http://www.quarkbase.com/">http://www.quarkbase.com/</a>) 可以拿來查網站的一些資訊, 還不錯, 只要輸入網址就可以知道, 網站被收了幾次 delicious, digg 幾次, alexa, technorati 等, 甚至被 tweet 幾次都知道阿 XD 不過&#8230; subdomain 沒用。</p>
-
-<p>原來&#8230; <a href="http://twitthat.com">twitthat</a> alexa 的圖還不錯看 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -568,6 +599,10 @@ echo $feed_url;</code>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/18/vim-plugin-manager-vundle/">Vim Plugin Manager: Vundle</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
@@ -581,10 +616,6 @@ echo $feed_url;</code>
     
       <li class="post">
         <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
       </li>
     
   </ul>

@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="從上次翻出我第一台相機的素描(速寫?)之後, 整個就又燃起我的畫家夢。這是我小學六年級所畫的素描。">
+  <meta name="description" content="基本上這裡所謂的整合就是用 CodeIgniter 的 hooks 來做, 單純用 hooks 來設定 include_path, 不然直接設定 include_path, 把 Zend Framework 當成跟 PEAR 類似的放著也可以, 不過由於這樣整合看起來比較帥, 之後程式如果搬家...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,55 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/codeigniter/1006/">將 Zend Framework 放進 CodeIgniter</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-11-10T22:43:45+08:00" pubdate  data-updated="true" >Nov 10<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>基本上這裡所謂的整合就是用 CodeIgniter 的 hooks 來做, 單純用 hooks 來設定 include_path, 不然直接設定 include_path, 把 Zend Framework 當成跟 PEAR 類似的放著也可以, 不過由於這樣整合看起來比較帥, 之後程式如果搬家也不會因為失誤而漏了 ZF :p 又, 用 SVN 來管理也方便</p>
+
+<p><strong>1. 下載 ZF, 把 library 放進 CodeIgniter</strong>
+就依我的方式, 我是把 ZF 解開後, 把 library copy 放到 CodeIgniter 的 system 下面, 命名為 zendframework</p>
+
+<p>/project/system/zendframework</p>
+
+<p><strong>2. 開啟 CodeIgniter hook</strong>
+修改 /project/system/application/config/config.php</p>
+
+<p><code>$config['enable_hooks'] = TRUE;</code></p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/codeigniter/1006/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -429,46 +478,6 @@ done
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/975/">Oceanic 桌布</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-09-30T00:49:48+08:00" pubdate  data-updated="true" >Sep 30<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="http://farm2.static.flickr.com/1326/1443822972_092853c3e1_o.jpg" width="500" height="313" alt="oceanic wallpaper logo" /></p>
-
-<p>Oceanic 桌布，按右鍵下載 <a href='[download#2#url]'>1440x900</a> | <a href='[download#3#url]'>1280x1024</a>  | <a href='[download#4#url]'>1024x768</a></p>
-
-<p>上禮拜拍了一些照片, 因為覺得這一張很適合當桌布, 就順手做了一下。 其實就是調一下色調, 寫上幾個字, 然後裁成不同大小而已。1024x768 跟 1280x1024 應該是最多人用的螢幕解析度, 1440x900 則是我自己螢幕的解析度, 適合寬螢幕, 看起來也比較有 fu。</p>
-
-<p>哈, 公司已經有幾位同事的電腦慘遭我的毒手, 他們的桌布被我換成這張了 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -488,6 +497,10 @@ done
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/18/vim-plugin-manager-vundle/">Vim Plugin Manager: Vundle</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
@@ -501,10 +514,6 @@ done
     
       <li class="post">
         <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
       </li>
     
   </ul>

@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="老實說, 我也不太清楚是怎麼一回事, 幸好資料庫有備份, 也有另外一台主機可以馬上接手資料庫的部份, 只是 stickeraction 的 cache 被清掉之後, 沒辦法一下子馬上處理那麼多的 request, 其實這也就表示當初程式的設計是有問題的, 沒辦法處理那麼大量的 request。...">
+  <meta name="description" content="QuarkBase (http://www.quarkbase.com/) 可以拿來查網站的一些資訊, 還不錯, 只要輸入網址就可以知道, 網站被收了幾次 delicious, digg 幾次, alexa, technorati 等, 甚至被 tweet 幾次都知道阿 XD 不過&#8230...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,42 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/uncategorized/1553/">QuarkBase</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-04T00:53:30+08:00" pubdate  data-updated="true" >Sep 4<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>QuarkBase (<a href="http://www.quarkbase.com/">http://www.quarkbase.com/</a>) 可以拿來查網站的一些資訊, 還不錯, 只要輸入網址就可以知道, 網站被收了幾次 delicious, digg 幾次, alexa, technorati 等, 甚至被 tweet 幾次都知道阿 XD 不過&#8230; subdomain 沒用。</p>
+
+<p>原來&#8230; <a href="http://twitthat.com">twitthat</a> alexa 的圖還不錯看 XD</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -577,56 +613,6 @@ email::send($to, $from, $subject, $message);</code>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1414/">The ORM Find_by_* Method Is Gone. (Kohana 2.2)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-08-20T00:05:43+08:00" pubdate  data-updated="true" >Aug 20<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>According to <a href="http://forum.kohanaphp.com/comments.php?DiscussionID=876">this post</a> in the kohana forum, the find_by_* method of ORM is not avaliable since <a href="http://kohanaphp.com">Kohana</a> 2.2 because the performance issue.</p>
-
-<p>In the previous version, Kohana 2.1.2, I used before. I can use <strong>find_by_*()</strong> method like this:</p>
-
-<pre><code>$user = new User_Model();
-$user-&gt;find_by_username('tzangms');
-</code></pre>
-
-
-<p>But for now, in Kohana 2.2, we should use <strong>where()</strong> instead, if we want to find by username, not by id.</p>
-
-<pre><code>$user = new User_Model()
-$user-&gt;where('username', 'tzangms')-&gt;find();
-</code></pre>
-
-
-<p>damn, find_by_* is so intuitive.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -646,6 +632,10 @@ $user-&gt;where('username', 'tzangms')-&gt;find();
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/18/vim-plugin-manager-vundle/">Vim Plugin Manager: Vundle</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
@@ -659,10 +649,6 @@ $user-&gt;where('username', 'tzangms')-&gt;find();
     
       <li class="post">
         <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
       </li>
     
   </ul>

@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="今天一到北京打開電腦的第一件事就是用 ssh -D 來翻牆, 沒想到 pandora 都可以聽了, twitter 跟 facebook 還是上不了 &#8230;後來就找到了 VPNywhere , 有 14 天的免費試用, 所以就用這個順利翻了過來, 在 Mac 系統設定的網路新增 VPN...">
+  <meta name="description" content="因為公司接了個案子, 其中大部份都是接另一家公司所謂的 &#8220;web service&#8221;, 不過對方 detail 也沒說, 就只有 &#8220;web service&#8221; 一詞, 這詞未免也太廣泛了吧! 然後又因為對方東西還沒開發出來, 所以連 endpoint...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,63 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2792/">Suds, Python Soap Client</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-12-31T00:34:32+08:00" pubdate  data-updated="true" >Dec 31<span>st</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>因為公司接了個案子, 其中大部份都是接另一家公司所謂的 &#8220;web service&#8221;, 不過對方 detail 也沒說, 就只有 &#8220;web service&#8221; 一詞, 這詞未免也太廣泛了吧! 然後又因為對方東西還沒開發出來, 所以連 endpoint 都沒給, 連猜都沒得猜, 打電話一問說是 wsdl? 對方工程師問了一下才回答說是 wsdl 沒錯。</p>
+
+<p>以前在 PHP 是用 NuSOAP 來處理, 後來用 PHP 內建的 SOAP, 其實都還挺方便的, 不過現在換到 python, 所以找了一下 SOAP 相關的資料, 找到 <a href="https://fedorahosted.org/suds/">Suds</a> 還挺直覺的, 所以記一下。 另外, 取名 Suds 也還真有意思, 肥皂水 (笑)</p>
+
+<p>使用方式大概如下:</p>
+
+<pre><code>from suds.client import Client
+
+url = 'http://localhost:7080/webservices/WebServiceTestBean?wsdl'
+client = Client(url)
+</code></pre>
+
+<p>然後就可以直接透過 client 來呼叫功能了, 像是</p>
+
+<pre><code>result = client.service.getPercentBodyFat('jeff', 68, 170)
+print result
+</code></pre>
+
+<p>想要知道有哪些功能可以呼叫, 直接</p>
+
+<pre><code>print client
+</code></pre>
+
+<p>就會列出定義, 真是好物一個阿!! 不過不知道其他好用的 SOAP client 呢?</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -423,48 +480,6 @@ filetype plugin on</code></pre>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/2761/">被婊生活節, We Are So Fucked Up!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-11-26T12:05:36+08:00" pubdate  data-updated="true" >Nov 26<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>昨天被婊了, 不過剛才仔細想想其實進這家公司之後其實就一直被婊, 真是被婊而不遺餘力。</p>
-
-<p>不過有些工作應該就是這樣, 你婊我, 我婊你, 大家婊來婊去的, 這樣才會進步(?) 其實我應該嘗試著實話實說, 有時候試著當好人只會讓事情變得更糟, 有問題卻不說出來, 有時候只是自己生悶氣, 事情卻沒獲得任何改善, 其實我自己知道我有這個問題。應該試著更像個所謂的 Artist, 脾氣不好, 不過有才氣之類的。 要正視自己的問題, 才能獲得提昇。</p>
-
-<p>「被婊生活節, We are so fucked up!」</p>
-
-<p>其實會覺得寫在部落格上, 萬一讓同事們看到不太好, 不過這應該算是練習當 Artist 或是不當好人的第一步, 有話就要說出來, 我就是覺得我被婊, 我就是想開始當個壞脾氣的 Artist, 反正你婊我, 我婊你, 大家一起求進步, 這樣不是很好嗎? 至於有些自認 Artist 的同事, 幹, 至少發張唱片, 出本書什麼小的, 有點才氣再來耍所謂的 Artist 個性好嗎?</p>
-
-<p>Anyway, 同事們讓我來練習婊你們吧!</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -484,6 +499,10 @@ filetype plugin on</code></pre>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/18/vim-plugin-manager-vundle/">Vim Plugin Manager: Vundle</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
@@ -497,10 +516,6 @@ filetype plugin on</code></pre>
     
       <li class="post">
         <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
       </li>
     
   </ul>

@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="">
+  <meta name="description" content="今天突然看到 stickeraction 的某個用 php 寫的 cron job 吃掉好多記憶體, 就突然想說, 其實這個 cron job 應該用 ruby 或者是 python 來作會比較適合, 另外也看看有沒有辦法比較省記憶體的耗用, 就順便練習一下 ruby。所以就找了一下 ruby...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,69 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1820/">Ruby HTML Parser: Hpricot</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-10-06T19:58:29+08:00" pubdate  data-updated="true" >Oct 6<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天突然看到 <a href="http://stickeraction.com">stickeraction</a> 的某個用 php 寫的 cron job 吃掉好多記憶體, 就突然想說, 其實這個 cron job 應該用 ruby 或者是 python 來作會比較適合, 另外也看看有沒有辦法比較省記憶體的耗用, 就順便練習一下 ruby。</p>
+
+<p>所以就找了一下 ruby 有沒有處理 HTML DOM 的東西, 就找到了 <a href="http://code.whytheluckystiff.net/hpricot/">Hpricot</a>, 其實跟之前用的 <a href="http://tzangms.com/php/1555">phpQuery</a> 差不多, 都可以用 <a href="http://jquery.com/">jQuery</a> 的語法來處理 DOM, 哈! 真是好物阿!</p>
+
+<p>像是下面這一段是用來找 RSS feed url 的。</p>
+
+<pre>
+<code>require 'open-uri'
+require 'rubygems'
+require 'hpricot'
+
+def get_feedurl url
+    doc = Hpricot(open(url))
+    link_tag = doc.at("head > link[@rel='alternate'][@type^='application']")
+    if link_tag
+        return link_tag.get_attribute('href')
+    end
+
+    return nil
+end
+
+url = 'http://tzangms.com/blog'
+puts get_feedurl(url)</code>
+</pre>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/1820/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -432,73 +495,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/codeigniter/1664/">CodeIgniter Database 跟 Model 怎麼用?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-09-18T08:05:24+08:00" pubdate  data-updated="true" >Sep 18<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>其實最早在剛接觸 <a href="http://codeigniter.com">CodeIgniter</a> 的時候記得是版本 1.5.2, 那時候 Model 都這麼寫, 例如下面的 User_Model。</p>
-
-<pre>
-<code>class User_model extends Model {
-    function __construct() {
-        parent::__construct();
-    }
-
-    function get_by_name($name) {
-        $this->db->where('name', $name);
-        $query = $this->db->get('users');
-        if ($query->num_rows()) {
-            return $query->row();
-        }
-    
-        return false;
-    }
-
-    function get_all() {
-        $query = $this->db->get('users');
-        if ($query->num_rows()) {
-            return $query->result();
-        }
-    
-        return array();
-    }
-}</code>
-</pre>
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/codeigniter/1664/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -518,6 +514,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/01/18/vim-plugin-manager-vundle/">Vim Plugin Manager: Vundle</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
@@ -531,10 +531,6 @@
     
       <li class="post">
         <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/10/24/one-piece-in-a-month/">One Piece</a>
       </li>
     
   </ul>

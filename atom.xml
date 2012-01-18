@@ -4,7 +4,7 @@
   <title><![CDATA[Oceanic / 人生海海]]></title>
   <link href="http://tzangms.com/atom.xml" rel="self"/>
   <link href="http://tzangms.com/"/>
-  <updated>2012-01-18T00:21:50+08:00</updated>
+  <updated>2012-01-18T10:37:37+08:00</updated>
   <id>http://tzangms.com/</id>
   <author>
     <name><![CDATA[tzangms]]></name>
@@ -12,6 +12,106 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Vim Plugin Manager: Vundle]]></title>
+    <link href="http://tzangms.com/2012/01/18/vim-plugin-manager-vundle/"/>
+    <updated>2012-01-18T00:57:00+08:00</updated>
+    <id>http://tzangms.com/2012/01/18/vim-plugin-manager-vundle</id>
+    <content type="html"><![CDATA[<p>其實用 vim 好久了, 可是從沒認真去研究一些外掛, 一直到去年年中看到 othree 寫了 <a href="http://blog.othree.net/log/2011/06/05/vundle/">Vundle, Bundler for Vim</a> 這篇介紹了 <a href="https://github.com/gmarik/vundle">vundle</a>, 便稍微研究了一下, 不然每次換系統就要重新把外掛裝回來, 雖然說我外掛也都只有 <a href="http://www.vim.org/scripts/script.php?script_id=2441">pyflakes.vim</a> 而已。</p>
+
+<p>vundle 的好處就是, 你只需要維護好你的 .vimrc, 之後到哪都可以透過這份 .vimrc 用一個指令把所有外掛裝好, 所以把 .vimrc 丟上 <a href="https://gist.github.com/">gist</a> 應該是個不錯的作法。</p>
+
+<!--more-->
+
+
+<p>首先只要透過下面這個指令, 透過 git 來把 vundle clone 下來。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>接著修改 .vimrc 加上下面這段就可以了</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">set </span>nocompatible
+</span><span class='line'>filetype off
+</span><span class='line'>
+</span><span class='line'><span class="nb">set </span>rtp+<span class="o">=</span>~/.vim/bundle/vundle/
+</span><span class='line'>call vundle#rc<span class="o">()</span>
+</span><span class='line'>
+</span><span class='line'>Bundle <span class="s1">&#39;gmarik/vundle&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>除了可以直接裝上 <a href="http://www.vim.org/scripts/index.php">vim-scripts</a> 上面的外掛之外, 也可以直接裝 github 上的 repo。 只需要修改 .vimrc 加上你要裝的 plugin, 像是 &#8230;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>Bundle <span class="s1">&#39;pyflakes.vim&#39;</span>
+</span><span class='line'>Bundle <span class="s1">&#39;Lokaltog/vim-powerline.git&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>存檔後, 在 vim 裡執行</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>:BundleInstall
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>接著 vundle 便會一一的把列出來的 Bundle 都給裝上, 像是上面的範例就是會裝上 <a href="http://www.vim.org/scripts/script.php?script_id=2441">pyflakes.vim</a>  (用來檢查 python 語法的外掛) 以及 <a href="https://github.com/Lokaltog/vim-powerline">powerline</a>, 真的是非常方便。</p>
+
+<p>上個週末稍微有空閒, 就開始玩了起來, 玩了好幾組 vim plugin, 下面直接丟我目前的 .vimrc 出來。</p>
+
+<div><script src='https://gist.github.com/1630429.js?file='></script>
+<noscript><pre><code>set nocompatible
+filetype off
+colorscheme wombat256mod                                 
+
+set rtp+=~/.vim/bundle/vundle/                           
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'python.vim'
+Bundle 'pyflakes.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'groenewege/vim-less'                             
+Bundle 'lastpos.vim'
+Bundle 'Lokaltog/vim-powerline'
+Bundle &quot;MarcWeber/vim-addon-mw-utils&quot;
+Bundle &quot;tomtom/tlib_vim&quot;
+Bundle &quot;snipmate-snippets&quot;
+Bundle &quot;garbas/vim-snipmate&quot;
+
+nnoremap &lt;silent&gt; &lt;F5&gt; :NERDTree&lt;CR&gt;
+
+syntax on
+filetype plugin on
+set t_Co=256
+set fileencoding=utf-8
+set encoding=utf-8
+set expandtab
+set ai
+set ts=4
+set sts=4
+set sw=4
+
+set laststatus=2 &quot; For `powerline`</code></pre></noscript></div>
+
+
+<p>直接放上 gist, 方便日後隨時更新。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Python/Django on Heroku]]></title>
@@ -727,17 +827,6 @@ http://electric-light-4662.herokuapp.com/ | git@heroku.com:electric-light-4662.g
 <p>而 django 的 user 可以參考一下這的 <a href="https://bitbucket.org/bkmontgomery/django-janitor/src">django-janitor</a></p>
 
 <p>倒是 &#8230; 藍染雖然死了, 可是「最後的月牙天衝」未免也太弱了吧 &#8230;.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Requests: Python HTTP Module (That Doesn’t Suck)]]></title>
-    <link href="http://tzangms.com/programming/2821/"/>
-    <updated>2011-02-19T23:52:00+08:00</updated>
-    <id>http://tzangms.com/programming/requests_python_http_module_(that_doesn’t_suck)</id>
-    <content type="html"><![CDATA[<p><a href="http://kennethreitz.com/blog/introducing-requests/">Requests: Python HTTP Module (That Doesn’t Suck)</a></p>
-
-<p>一直都還滿喜歡 appengine urlfetch 的 api interface, Requests 就還滿像的, 感覺找到了好物, 獲得救贖的感覺 XD</p>
 ]]></content>
   </entry>
   
