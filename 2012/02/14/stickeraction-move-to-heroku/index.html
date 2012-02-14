@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="最近真的超忙的, 這篇拖了好幾個禮拜, 過年放假的最後幾天就該寫的說 &#8230; anyway &#8230;前一陣子應邀 OSSF 電子報邀稿, 寫了一篇 Python/Django on Heroku 後, 就把 twitthat 搬上了 heroku, 後來因為想說要省錢, 來把手上...">
+  <meta name="description" content="最近真的超忙的, 這篇拖了好幾個禮拜, 過年放假的最後幾天就該寫的說 &#8230; anyway &#8230;前一陣子應邀 OSSF 電子報邀稿, 寫了一篇 Python/Django on Heroku 之後就把 twitthat 搬上了 heroku, 後來因為想說要省錢, 想說來把手...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -91,12 +91,12 @@
 
 <div class="entry-content"><p>最近真的超忙的, 這篇拖了好幾個禮拜, 過年放假的最後幾天就該寫的說 &#8230; anyway &#8230;</p>
 
-<p>前一陣子應邀 OSSF 電子報邀稿, 寫了一篇 <a href="http://tzangms.com/2012/01/17/django-on-heroku/">Python/Django on Heroku</a> 後, 就把 <a href="http://twitthat.com/">twitthat</a> 搬上了 heroku, 後來因為想說要省錢, 來把手上的 Linode 都關掉好了, 便把過氣的服務, <a href="http://stickeraction.com/">stickeraction</a> 給搬上了 heroku, 順便升級到 Django 1.3, 順便多深入研究一下 Heoku。</p>
+<p>前一陣子應邀 OSSF 電子報邀稿, 寫了一篇 <a href="http://tzangms.com/2012/01/17/django-on-heroku/">Python/Django on Heroku</a> 之後就把 <a href="http://twitthat.com/">twitthat</a> 搬上了 heroku, 後來因為想說要省錢, 想說來把手上的 Linode 都關掉好了, 便把過氣的服務 <a href="http://stickeraction.com/">stickeraction</a> 給搬上了 heroku, 順便升級到 Django 1.3, 也多深入研究一下 Heoku。</p>
 
 <!-- more -->
 
 
-<p>其實我也不知道有沒有省到錢, 因為即便搬到 heroku, 還是因為資料庫限制, 所以開了一台 RDS ( reserved instance ) 來讓 twitthat, stickeraction, 以及新服務用, hmm &#8230; 算是用越多省越多吧? XD</p>
+<p>其實我也不知道有沒有省到錢, 因為即便搬到 heroku 後, 還是因為資料庫限制, 所以開了一台 RDS ( reserved instance ) 來讓 twitthat, stickeraction, 以及新服務用, hmm &#8230; 算是用越多省越多吧? XD</p>
 
 <p>目前 stickeraction 大概每秒是 30 個 requests, 搬上 heroku 後, 反應良好, 至於memcache 就用免費 5mb 的就夠了, 至少 <a href="http://newrelic.com/">newrelic</a> 的 report 的分數都還是 excellent XD</p>
 
