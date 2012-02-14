@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="QuarkBase (http://www.quarkbase.com/) 可以拿來查網站的一些資訊, 還不錯, 只要輸入網址就可以知道, 網站被收了幾次 delicious, digg 幾次, alexa, technorati 等, 甚至被 tweet 幾次都知道阿 XD 不過&#8230...">
+  <meta name="description" content="Google Chrome 在大家用的過程中, 似乎都說, Chrome 在瀏覽 Google 的自家服務, 像是 Gmail, Google Reader 的時候, 跑起來的速度很不賴! 不過對於習慣使用有眾多 extension 的 Firefox 使用者來說, 總是覺得少了平常所習慣的功能。">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,46 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/1571/">Google Chrome App</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-04T21:21:48+08:00" pubdate  data-updated="true" >Sep 4<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2826723327/" title="google-chrome-app by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3029/2826723327_e7f1728b0e.jpg" width="500" height="349" alt="google-chrome-app" /></a>
+<a href="http://www.google.com/chrome">Google Chrome</a> 在大家用的過程中, 似乎都說, Chrome 在瀏覽 Google 的自家服務, 像是 Gmail, Google Reader 的時候, 跑起來的速度很不賴! 不過對於習慣使用有眾多 extension 的 <a href="http://mozilla.com">Firefox</a> 使用者來說, 總是覺得少了平常所習慣的功能。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/web/1571/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -552,67 +592,6 @@ Zorba, the XQuery processor</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1423/">設定 Kohana 透過 Gmail 發信</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-08-20T22:53:39+08:00" pubdate  data-updated="true" >Aug 20<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>有了之前<a href="http://tzangms.com/codeigniter/1233">設定 CodeIgniter 透過 Gmail 發信</a>的經驗, 這次設定 <a href="http://kohanaphp.com">Kohana</a> 就快很多了 :p</p>
-
-<p>不過 <a href="http://codeigniter.com">CodeIgniter</a> 是 email library, 而 <a href="http://kohanaphp.com">Kohana</a> 則是 <a href="http://docs.kohanaphp.com/helpers/email">email helper</a> (實際上是使用 <a href="http://www.swiftmailer.org/">swift mailer</a>)。</p>
-
-<p>設定檔 /application/config/email.php</p>
-
-<pre>
-<code>$config['driver'] = 'smtp';
-$config['options'] = array(
-    'hostname' => 'smtp.gmail.com',
-    'username' => 'your_username',
-    'password' => 'your_password',
-    'port' => 465,
-    'encryption' => 'tls'
-);</code>
-</pre>
-
-
-<p>然後接著就可以用以下的 code 來發信啦!</p>
-
-<pre>
-<code>$to = 'foo@bar.com';
-$from = 'bar@foo.com';
-$subject = 'email subject';
-$message = 'Hello, World!';
-email::send($to, $from, $subject, $message);</code>
-</pre>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -632,6 +611,10 @@ email::send($to, $from, $subject, $message);</code>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/14/stickeraction-move-to-heroku/">Stickeraction moves to heroku</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/01/18/vim-plugin-manager-vundle/">Vim Plugin Manager: Vundle</a>
       </li>
     
@@ -645,10 +628,6 @@ email::send($to, $from, $subject, $message);</code>
     
       <li class="post">
         <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
       </li>
     
   </ul>

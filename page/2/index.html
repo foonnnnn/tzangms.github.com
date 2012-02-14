@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="其實我後悔把 blog 從 wordpress 改成 blogofile 了 XD 不過很多人說用 blogofile 才是真男人! 其實我忘記他們用英文說的實際句子是什麼了, 不過反正就是這個意思 XDanyway, 總之我前幾天跑去開了個 tumblr, 準備以後都在那邊寫, 因為真的太方...">
+  <meta name="description" content="上個禮拜就開始在玩 octopress, 雖然一樣用 markdown 寫文, meta 也一樣是用 yaml, 不過比 blogofile 貼心太多了。所以昨天就花了一些時間, 寫程式把 blogofile 的檔案轉成 octopress 的格式, 主要就 octopress 檔案名稱格式有...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,46 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/10/09/from-blogofile-to-octopress/">From Blogofile to Octopress</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2011-10-09T10:12:00+08:00" pubdate  data-updated="true" >Oct 9<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>上個禮拜就開始在玩 <a href="http://octopress.org">octopress</a>, 雖然一樣用 markdown 寫文, meta 也一樣是用 yaml, 不過比 <a href="http://www.blogofile.com/">blogofile</a> 貼心太多了。</p>
+
+<p>所以昨天就花了一些時間, 寫程式把 blogofile 的檔案轉成 octopress 的格式, 主要就 octopress 檔案名稱格式有固定, 至於文章內的 yaml 其實差不多, 多加上個 layout: post, comments: true 參數, 以及轉換 categories 就完成了。</p>
+
+<p>相對於 blogofile, octopress 主要方便的地方是 deploy 這件事, 先前 blogofile 是 deploy 到 s3, 還是自己寫程式丟上去, 而 octopress 直接就提供了一個 rake command 就直接輸入設定, 之後直接打 rake deploy 就可以丟上 github 了。</p>
+
+<p>不過, 我覺得一定有一些人一定換了這類的 blog 系統之後, 就減少了發文的動力, 像我就是 XD</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -585,50 +625,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2824/">Bleach - an Easy, HTML5, Whitelisting HTML Sanitizer.</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2011-02-20T13:26:25+08:00" pubdate  data-updated="true" >Feb 20<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="https://github.com/jsocol/bleach">Bleach</a>, 不是 <a href="http://zh.wikipedia.org/wiki/黑崎一護">黑崎一護</a> 那個 bleach XD</p>
-
-<p>前一陣子不知道什麼原因, 有人把 delicious feed 送到 django planet, 所以 django planet 就爆炸了, 今天努力的在清 rss, 突然又找到了 bleach, 這個先前遺忘了的 html sanitize 工具。 而目前 mozilla 的 <a href="http://addons.mozilla.org/">addons</a> 跟 <a href="http://support.mozilla.com">support</a> 也都用了 bleach。 有人還不知道 mozilla 的 addons 跟 support 都換成 django 了嗎?</p>
-
-<p>然後因為最近 SV 終於快改版完了, 最後一個部分就是 user 頁面跟自定版型 / css 以及所謂的自定欄位。 又由於先前的 developer 完全不懂 xss 這件事, 任何 javascript 也都沒有檔, 所以有點頭痛, 所以想說來試試看 bleach 如何。</p>
-
-<p>看看 <a href="https://github.com/jsocol/bleach/blob/master/bleach/tests/test_security.py">bleach 的 test case</a> 應該就會滿清楚的了。</p>
-
-<p>而 django 的 user 可以參考一下這的 <a href="https://bitbucket.org/bkmontgomery/django-janitor/src">django-janitor</a></p>
-
-<p>倒是 &#8230; 藍染雖然死了, 可是「最後的月牙天衝」未免也太弱了吧 &#8230;.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -648,6 +644,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/14/stickeraction-move-to-heroku/">Stickeraction moves to heroku</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/01/18/vim-plugin-manager-vundle/">Vim Plugin Manager: Vundle</a>
       </li>
     
@@ -661,10 +661,6 @@
     
       <li class="post">
         <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
       </li>
     
   </ul>

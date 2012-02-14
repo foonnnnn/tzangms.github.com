@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="這張是推友 @kikathetomato 前幾天幫我畫的一張, 看到整個超感動的 (淚) 除了衣服跟吉他就跟第一張專輯的宣傳照一樣之外, 背後還有 python 的兩隻蛇, 你說這酷不酷!? 超酷阿!!!!">
+  <meta name="description" content="其實最近下班時間都在忙著寫 Facebook 的東西, 所以不得不不關注一下 Facebook 的東西。自從 Facebook 推出 Graph API 之後, 就開始把目標往 Facebook 之外的網站拓展, 透過 OAuth 2.0、Graph API 跟 Javascript SDK ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,60 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2702/">Facebook 接下來的動作</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-08-21T22:02:26+08:00" pubdate  data-updated="true" >Aug 21<span>st</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>其實最近下班時間都在忙著寫 Facebook 的東西, 所以不得不不關注一下 Facebook 的東西。</p>
+
+<p>自從 Facebook 推出 <a href="http://developers.facebook.com/docs/api">Graph API</a> 之後, 就開始把目標往 Facebook 之外的網站拓展, 透過 <a href="http://developers.facebook.com/docs/authentication/">OAuth 2.0</a>、<a href="http://developers.facebook.com/docs/api">Graph API</a> 跟 <a href="http://developers.facebook.com/docs/reference/javascript/">Javascript SDK</a> 就可以很容易自己的網站上整合 Facebook 的功能進來。 而 Facebook 上的 Application 也開始建議使用 iframe 取代 FBML, 因為透過新的 SDK 便可以達到原本 FBML 才能達到的功能。</p>
+
+<p>而接下來 Facebook 打算把 App 的開發更 simplify, 他們把 Facebook 站內的開發跟站外的開發變成是同一件事! 因為除了 canvas 要改用 OAuth 2.0 之外, profile tab 也要改用 iframe 了!!!</p>
+
+<p>我想都改用 iframe 之後, Facebook 的 server 也會輕鬆很多吧? 原本的 FBML 的作法會一直 fetch html 回來 parse, 以後似乎只剩下 &lt;fb:serverFbml&gt; 這件事了。</p>
+
+<p>在 <a href="http://developers.facebook.com/blog/post/402">Facebook Platform Roadmap Update</a> 這篇文章中提到以下幾點:</p>
+
+<ol>
+<li>canvas 也將採用 OAuth 2.0 的新方式</li>
+<li>profile tab 也將從 FBML 改用 iframe</li>
+<li>移除 user page 的 profile tab ( 粉絲頁當然還是保留 )</li>
+<li>拿掉 REST API, Data Store API 還有一些 social plugin 可以取代的 FBML tag</li>
+</ol>
+
+
+<p>其實現在去看 <a href="http://www.facebook.com/developers/apps.php">application settings</a> 就可以看到介面也整個簡化了, 左邊的 tabs 縮減成了 5 個, 也已經出現了 OAuth 2.0 for Canvas (beta) 這個選項。</p>
+
+<p>我想今年年底一定又有一堆 Facebook 相關的開發者要哀號了, 沒事還是多看看 <a href="http://developers.facebook.com/roadmap">Developer Roadmap</a> 先做好心理準備吧 XD 不過最快的是下禮拜的 profile tab 要變成 520px 的寬度了阿 &#8230;</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -474,44 +528,6 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'myaudiocast.settings'</code></pre>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/computer/2666/">Graffletopia - Omni Graffle 模版庫</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-06-07T23:23:34+08:00" pubdate  data-updated="true" >Jun 7<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>前一陣子因為要畫 deployment 的示意圖放在 wiki 給同事看, 所以用了 Mac 上的 <a href="http://www.omnigroup.com/products/omnigraffle/">Omni graffle</a> 來畫, 真的是滿好用的。 今天要畫 App engine 的 model, 就在 <a href="http://graffletopia.com/">Graffletopia</a> 找到了 Django model 的 stencils, 畫出來也很讚, 像是下面這樣。</p>
-
-<p><a href="http://tzangms.com/wp-content/uploads/2010/06/myaudiocast-model2.jpg"><img src="http://tzangms.com/wp-content/uploads/2010/06/myaudiocast-model2.jpg" alt="" title="myaudiocast-model" width="481" height="404" class="aligncenter size-full wp-image-2668" /></a></p>
-
-<p>以上是 <a href="http://www.myaudiocast.com/">myaudiocast</a> 簡化過的 model, 畫出來真的看起來真不錯 :D <a href="http://graffletopia.com/">Graffletopia</a> 上面還有很多 stencils 可以用, 像是 UI 、iPhone Server 相關跟 Mac &#8230; 等, 可以去翻看看。</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -531,6 +547,10 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'myaudiocast.settings'</code></pre>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/14/stickeraction-move-to-heroku/">Stickeraction moves to heroku</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/01/18/vim-plugin-manager-vundle/">Vim Plugin Manager: Vundle</a>
       </li>
     
@@ -544,10 +564,6 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'myaudiocast.settings'</code></pre>
     
       <li class="post">
         <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
       </li>
     
   </ul>

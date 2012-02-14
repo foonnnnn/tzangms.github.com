@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="我不太喜歡 Zend Framework 提供的 MVC, 覺得有點太複雜, 不過 Zend Framework 真的是提供許多元件, 可以用來加速 PHP 的開發。 由於深感自己對 PHP 認識的不足, 所以開始研究 PHP 的功能, 而會寫這一篇主要是因為在研究 PHP 的 autoloa...">
+  <meta name="description" content="以往在要使用某個 class 的時候, 都會用 require, require_once 或 include 來讀 class 的檔案, 然後在 new 物件出來。 而 PHP 5 的 autoload 可以簡化這個部份, 使用 autoload 之後就不需要先用 require 來讀取 p...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,57 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2346/">PHP Autoload</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-26T21:29:17+08:00" pubdate  data-updated="true" >Jan 26<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>以往在要使用某個 class 的時候, 都會用 require, require_once 或 include 來讀 class 的檔案, 然後在 new 物件出來。 而 PHP 5 的 autoload 可以簡化這個部份, 使用 autoload 之後就不需要先用 require 來讀取 php, 就可以直接用 new 來建立物件, 而 require 的部份則就交給 autoload 來處理, 稱之為 lazy loading。</p>
+
+<p>最基本的方式就是用 __autoload 函式來處理。</p>
+
+<pre><code>
+function __autoload($class) {
+    $class = str_replace('_', '/', $class);
+    require $class . '.php';
+}
+</code></pre>
+
+
+<p>而看了幾個為了 PHP 5 寫的 framework 或 package 都採用 <a href="http://tw.php.net/manual/en/function.spl-autoload-register.php">spl_autoload_register</a> 來作 autoload 的處理。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/2346/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -469,58 +520,6 @@ Zend_Service_Yahoo</blockquote>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/mac/2315/">Happy Designer: GarageBand Workshop</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-01-12T22:08:08+08:00" pubdate  data-updated="true" >Jan 12<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>更新!!</strong>
-<strong>正式活動定在 2/7 囉! 詳情請見<a href="http://tzangms.com/mac/2338">這篇文章</a></strong></p>
-
-<p>在 <a href="http://hlb.yichi.org/blog/">hlb</a> 的慫恿之下, 準備在2月開一個 GarageBand Workshop, 我會先來跟大家介紹 <a href="http://www.apple.com/tw/ilife/garageband/what-is-garageband.html">GarageBand</a> 關於 loop 以及軟體樂器&#8230;等等的功能, 並示範如何用 GarageBand 做出一首歌曲, 最後會有時間給來參與的夥伴們也現場來實作一下, 有問題的可以跟我詢問, 我覺得這將會是一個非常有趣的活動 :D 希望大家一塊來玩!</p>
-
-<p>不過這次的 GarageBand Workshop 有條件限制如下:</p>
-
-<ul>
-    <li>有蘋果電腦的朋友才可參加, 所以請攜帶你的蘋果筆記型電腦 ( 並請確認 GarageBand 還存在 )</li>
-    <li>有實作時間, 所以限制二十個參加名額</li>
-</ul>
-
-
-<p>由於要先統計大概人數以及參與的時間, 所以在 <a href="http://wellmeet.net/">We&#8217;ll Meet</a> 來開了一個活動頁面: <a href="http://wellmeet.net/event/20081231/andyaHNh/9691">HappyDesigner GarageBand Workshop</a>, 希望有興趣參與的朋友可以先到<a href="http://wellmeet.net/event/20081231/andyaHNh/9691">活動頁面</a>填寫您可參與的時間, 對了, 目前暫定的舉辦地點會是在台北市的<a href="http://www.gozcafe.com/">果子咖啡</a>, 報名費 $150, 含飲料, 在確定報名日期後, 之後會用 <a href="http://registrano.com">registrano</a> 來開放正式報名。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/mac/2315/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -540,6 +539,10 @@ Zend_Service_Yahoo</blockquote>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/14/stickeraction-move-to-heroku/">Stickeraction moves to heroku</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/01/18/vim-plugin-manager-vundle/">Vim Plugin Manager: Vundle</a>
       </li>
     
@@ -553,10 +556,6 @@ Zend_Service_Yahoo</blockquote>
     
       <li class="post">
         <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
       </li>
     
   </ul>

@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="這幾天晚上利用Applescript + PHP寫出來的一支程式，讓Mac使用者可以透過網頁來控制iTunes來播放歌曲。先前有兩台電腦的時候，一台是PC，一台是iBook，不過平常mp3都放在iBook上，用iTunes來整理、播放，喇叭也都接在iBook 上，又因為出門在外也只能帶iBoo...">
+  <meta name="description" content="今天Kej大大跟我說了IEs4Linux 這個東西，馬上就裝上來玩一下! 雖然以前就有在用wine，也用wine跑過IE(話說在以前刻苦的時代寫了一篇用wine跑starcraft的文章到linuxfab，只是現在linuxfab沒了，文章被對岸的網站拿去用 XD)，不過這個ies4linux...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,44 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/linux/704/">IEs4Linux</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-09-27T20:34:46+08:00" pubdate  data-updated="true" >Sep 27<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a title="Photo Sharing" href="http://www.flickr.com/photos/tzangms/253992911/"><img width="456" height="342" border="0" alt="IE4Linux Screenshot" src="http://static.flickr.com/95/253992911_b007931914.jpg" /></a></p>
+
+<p>今天<a href="http://www.kej.tw">Kej</a>大大跟我說了<a href="http://www.tatanka.com.br/ies4linux/index-en.html">IEs4Linux</a> 這個東西，馬上就裝上來玩一下! 雖然以前就有在用wine，也用wine跑過IE(話說在以前刻苦的時代寫了一篇用wine跑starcraft的文章到linuxfab，只是現在linuxfab沒了，文章被對岸的網站拿去用 XD)，不過這個ies4linux把整個IE套件跟安裝整合的很好，只要執行他的script，然後回答一下yes、no在選個語系，他就會自動幫你抓ie下來裝，可以裝上ie6、ie5.5、ie5還包括了flashplayer9，更屌的是，我切到GNOME看了一下，桌面上還會幫你建好圖示，可以直接執行，整合度超高! 不過如果有人像我一樣使用Windowmaker的話，就直接執行~/bin/ie6就可以啦!</p>
+
+<p>在ubuntu linux 6.06 上安裝的話，只需要先裝上wine跟cabextract就可以直接執行ie4linux的script來進行安裝了，至於速度，一開始開啟ie的時候是有點久，不過一但loading完畢速度還滿不賴的!!那為啥都在linux還要用ie? 沒辦法阿~ 總還是有ie only的網站，為了不重開機，或者根本沒有windows，只好在linux上跑ie囉!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -471,66 +509,6 @@ just for fun~Frank來一下吧!!還有其他的人有興趣也來串一下，然
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/linux/673/">&#8220;Update&#8221; Script</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2006-07-28T15:42:54+08:00" pubdate  data-updated="true" >Jul 28<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>目前寫了一個簡單的script來update寫好的php檔案透過ssh更新到遠端的Server</p>
-
-<p>update:</p>
-
-<blockquote><em>#!/bin/bash
-scp $1 tzangms@tzangms.com:/var/www/$2$1</em></blockquote>
-
-
-<p>$1 代表的是要上傳的檔案名稱</p>
-
-<p>$2 代表的是要上傳到的目錄</p>
-
-<p>因為就是要減少打字，所以就只有這些參數啦!</p>
-
-<p>目前這個我是放在某個專案的目錄下，針對每個專案作修改其server位址跟路徑，要更新檔案就打</p>
-
-<blockquote><em>./update foo.php</em></blockquote>
-
-
-<p>如果要放到 <em>/var/www/admin </em>下的話，就加上第二個參數就可以把foo.php放到 <em>/var/www/admin</em> 下啦! 但請記得在目錄後加上斜線</p>
-
-<blockquote><em>./update foo.php admin/</em></blockquote>
-
-
-<p>在輸入ssh密碼就可以啦! 當然你可以建立公鑰私鑰，以後都不用打密碼囉!下一篇來說明吧!不然請大家去請教 <a title="虛邪迴路" target="_blank" href="http://blog.cschang.info/">clotho</a> 大大!! XD</p>
-
-<p>慢慢再來改進這個script吧!</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -550,6 +528,10 @@ scp $1 tzangms@tzangms.com:/var/www/$2$1</em></blockquote>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/14/stickeraction-move-to-heroku/">Stickeraction moves to heroku</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/01/18/vim-plugin-manager-vundle/">Vim Plugin Manager: Vundle</a>
       </li>
     
@@ -563,10 +545,6 @@ scp $1 tzangms@tzangms.com:/var/www/$2$1</em></blockquote>
     
       <li class="post">
         <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
       </li>
     
   </ul>

@@ -4,7 +4,7 @@
   <title><![CDATA[Oceanic / 人生海海]]></title>
   <link href="http://tzangms.com/atom.xml" rel="self"/>
   <link href="http://tzangms.com/"/>
-  <updated>2012-01-18T10:37:37+08:00</updated>
+  <updated>2012-02-14T22:43:05+08:00</updated>
   <id>http://tzangms.com/</id>
   <author>
     <name><![CDATA[tzangms]]></name>
@@ -12,6 +12,59 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Stickeraction moves to heroku]]></title>
+    <link href="http://tzangms.com/2012/02/14/stickeraction-move-to-heroku/"/>
+    <updated>2012-02-14T21:52:00+08:00</updated>
+    <id>http://tzangms.com/2012/02/14/stickeraction-move-to-heroku</id>
+    <content type="html"><![CDATA[<p>最近真的超忙的, 這篇拖了好幾個禮拜, 過年放假的最後幾天就該寫的說 &#8230; anyway &#8230;</p>
+
+<p>前一陣子應邀 OSSF 電子報邀稿, 寫了一篇 <a href="http://tzangms.com/2012/01/17/django-on-heroku/">Python/Django on Heroku</a> 後, 就把 <a href="http://twitthat.com/">twitthat</a> 搬上了 heroku, 後來因為想說要省錢, 來把手上的 Linode 都關掉好了, 便把過氣的服務, <a href="http://stickeraction.com/">stickeraction</a> 給搬上了 heroku, 順便升級到 Django 1.3, 順便多深入研究一下 Heoku。</p>
+
+<!-- more -->
+
+
+<p>其實我也不知道有沒有省到錢, 因為即便搬到 heroku, 還是因為資料庫限制, 所以開了一台 RDS ( reserved instance ) 來讓 twitthat, stickeraction, 以及新服務用, hmm &#8230; 算是用越多省越多吧? XD</p>
+
+<p>目前 stickeraction 大概每秒是 30 個 requests, 搬上 heroku 後, 反應良好, 至於memcache 就用免費 5mb 的就夠了, 至少 <a href="http://newrelic.com/">newrelic</a> 的 report 的分數都還是 excellent XD</p>
+
+<p>相較於上次那篇 <a href="http://tzangms.com/2012/01/17/django-on-heroku/">Python/Django on Heroku</a> 的文章, 這次因為算是 deploy 正式的服務, 所以得深入玩一下, 所以就碰到了用 heroku config 做設定, 並且用上了 memcache, sendgrid, redis to go, stillalive 等服務。</p>
+
+<p>其實上一篇文章最缺的就是 DEBUG 這個參數一定得關 XD 不過有點 tricky, 基本上我把 settings.py 裡 DEBUG 設定改成了下面這樣。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">environ</span>
+</span><span class='line'><span class="n">env</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">e</span><span class="p">,</span> <span class="n">d</span><span class="p">:</span> <span class="n">environ</span><span class="p">[</span><span class="n">e</span><span class="p">]</span> <span class="k">if</span> <span class="n">environ</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="k">else</span> <span class="n">d</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">DEBUG</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">env</span><span class="p">(</span><span class="s">&#39;DJANGO_DEBUG&#39;</span><span class="p">,</span> <span class="s">&#39;true&#39;</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然後用 heroku 指定 assign 一個空的字串給 DJANGO_DEBUG</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>heroku config:add <span class="nv">DJANGO_DEBUG</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>這樣一來 deploy 到 heroku 的環境就會自定關閉 DEBUG。</p>
+
+<p>因為 heroku config 可以設定環境變數, 所以便可以透過這一點讓 deploy 到正式環境的設定依照環境變數做自動設定, 另外不用把重要的資訊 commit 到版本控制系統裡。 特別像是 AWS 的 access key / secret key 這類的資訊。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">AWS_ACCESS_KEY_ID</span> <span class="o">=</span> <span class="n">env</span><span class="p">(</span><span class="s">&#39;AWS_ACCESS_KEY_ID&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>另外就是, heroku 上面的第三方服務大多也都是透過環境變數讓你去讀取並使用, 其實這點還滿方便的 XD</p>
+
+<p>Anyway, 總之 <a href="http://stickeraction.com/">stickeraction</a> 升級到 Django 1.3 順便換了一下 design, 放上 heroku 之後, 省了一筆每月 $29.9 的花費, 玩了很多東西, 只是有時會收到 AWS RDS 的 &#8220;MySQL server has gone away&#8221; 的訊息就是了 XD</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Vim Plugin Manager: Vundle]]></title>
@@ -808,25 +861,6 @@ http://electric-light-4662.herokuapp.com/ | git@heroku.com:electric-light-4662.g
 <p>話說 lettuce 的文件中有用到 <a href="http://lxml.de/">lxml</a>, 好像挺不錯用的, 找時間來研究一下。</p>
 
 <p>另外經過推友補充還有 <a href="https://github.com/rlisagor/freshen">Freshen</a> 跟 <a href="https://github.com/heynemann/pyccuracy">Pyccuracy</a> 都是 BDD 的工具。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Bleach - An easy, HTML5, whitelisting HTML sanitizer.]]></title>
-    <link href="http://tzangms.com/programming/2824/"/>
-    <updated>2011-02-20T13:26:25+08:00</updated>
-    <id>http://tzangms.com/programming/bleach__an_easy_html5_whitelisting_html_sanitizer_</id>
-    <content type="html"><![CDATA[<p><a href="https://github.com/jsocol/bleach">Bleach</a>, 不是 <a href="http://zh.wikipedia.org/wiki/黑崎一護">黑崎一護</a> 那個 bleach XD</p>
-
-<p>前一陣子不知道什麼原因, 有人把 delicious feed 送到 django planet, 所以 django planet 就爆炸了, 今天努力的在清 rss, 突然又找到了 bleach, 這個先前遺忘了的 html sanitize 工具。 而目前 mozilla 的 <a href="http://addons.mozilla.org/">addons</a> 跟 <a href="http://support.mozilla.com">support</a> 也都用了 bleach。 有人還不知道 mozilla 的 addons 跟 support 都換成 django 了嗎?</p>
-
-<p>然後因為最近 SV 終於快改版完了, 最後一個部分就是 user 頁面跟自定版型 / css 以及所謂的自定欄位。 又由於先前的 developer 完全不懂 xss 這件事, 任何 javascript 也都沒有檔, 所以有點頭痛, 所以想說來試試看 bleach 如何。</p>
-
-<p>看看 <a href="https://github.com/jsocol/bleach/blob/master/bleach/tests/test_security.py">bleach 的 test case</a> 應該就會滿清楚的了。</p>
-
-<p>而 django 的 user 可以參考一下這的 <a href="https://bitbucket.org/bkmontgomery/django-janitor/src">django-janitor</a></p>
-
-<p>倒是 &#8230; 藍染雖然死了, 可是「最後的月牙天衝」未免也太弱了吧 &#8230;.</p>
 ]]></content>
   </entry>
   

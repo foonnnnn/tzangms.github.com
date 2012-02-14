@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="According to this post in the kohana forum, the find_by_* method of ORM is not avaliable since Kohana 2.2 because the performance issue.In the prev...">
+  <meta name="description" content="有了之前設定 CodeIgniter 透過 Gmail 發信的經驗, 這次設定 Kohana 就快很多了 :p不過 CodeIgniter 是 email library, 而 Kohana 則是 email helper (實際上是使用 swift mailer)。設定檔 /applicat...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,67 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1423/">設定 Kohana 透過 Gmail 發信</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-08-20T22:53:39+08:00" pubdate  data-updated="true" >Aug 20<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>有了之前<a href="http://tzangms.com/codeigniter/1233">設定 CodeIgniter 透過 Gmail 發信</a>的經驗, 這次設定 <a href="http://kohanaphp.com">Kohana</a> 就快很多了 :p</p>
+
+<p>不過 <a href="http://codeigniter.com">CodeIgniter</a> 是 email library, 而 <a href="http://kohanaphp.com">Kohana</a> 則是 <a href="http://docs.kohanaphp.com/helpers/email">email helper</a> (實際上是使用 <a href="http://www.swiftmailer.org/">swift mailer</a>)。</p>
+
+<p>設定檔 /application/config/email.php</p>
+
+<pre>
+<code>$config['driver'] = 'smtp';
+$config['options'] = array(
+    'hostname' => 'smtp.gmail.com',
+    'username' => 'your_username',
+    'password' => 'your_password',
+    'port' => 465,
+    'encryption' => 'tls'
+);</code>
+</pre>
+
+
+<p>然後接著就可以用以下的 code 來發信啦!</p>
+
+<pre>
+<code>$to = 'foo@bar.com';
+$from = 'bar@foo.com';
+$subject = 'email subject';
+$message = 'Hello, World!';
+email::send($to, $from, $subject, $message);</code>
+</pre>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -447,43 +508,6 @@ Mastering, 以我業餘的知識, 應該就是要輸出母片前, 也就是壓�
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/stickeraction/1265/">StickerAction 可以上傳多個樣式的貼紙囉!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-07-20T23:28:37+08:00" pubdate  data-updated="true" >Jul 20<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2684913343/" title="[StickerAction] Multiple Stickers by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3236/2684913343_bd099c1d2b.jpg" width="500" height="297" alt="[StickerAction] Multiple Stickers" /></a>
-今天幫 <a href="http://stickeraction.com">StickerAction</a> 加上了多張貼紙樣式的功能, 貼紙的管理者可以到貼紙管理看看, 就可以看到了, 另外在貼紙首頁可以看到像是上圖一樣, 使用者可以選擇想要的貼紙, 或是輪播貼紙。 甚至使用者可以選擇他們自己想要的貼紙來作輪播, 畢竟不是每個樣式的貼紙大小都一樣, 這樣使用者就可以依據他們部落格版面樣式的考量, 來選擇適合的貼紙樣式組合, 來貼到他們的部落格。</p>
-
-<p>只是目前的版面樣式還不是很好看, usability 也還要加強 XD 尤其是後台 &#8230; 不過由於我還要一邊弄音樂, 所以, 進度是會慢一些 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -503,6 +527,10 @@ Mastering, 以我業餘的知識, 應該就是要輸出母片前, 也就是壓�
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/14/stickeraction-move-to-heroku/">Stickeraction moves to heroku</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/01/18/vim-plugin-manager-vundle/">Vim Plugin Manager: Vundle</a>
       </li>
     
@@ -516,10 +544,6 @@ Mastering, 以我業餘的知識, 應該就是要輸出母片前, 也就是壓�
     
       <li class="post">
         <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
       </li>
     
   </ul>

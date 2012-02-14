@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Stickeraction moves to heroku - Oceanic / 人生海海</title>
+  <meta name="author" content="tzangms">
+
+  
+  <meta name="description" content="最近真的超忙的, 這篇拖了好幾個禮拜, 過年放假的最後幾天就該寫的說 &#8230; anyway &#8230;前一陣子應邀 OSSF 電子報邀稿, 寫了一篇 Python/Django on Heroku 後, 就把 twitthat 搬上了 heroku, 後來因為想說要省錢, 來把手上...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tzangms.com/2012/02/14/stickeraction-move-to-heroku/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/tzangms" rel="alternate" title="Oceanic / 人生海海" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<meta name="google-site-verification" content="AR4FP21F1VmZBfi-VjsnMnDiknxIzSk4OLYBI7CqDKw" />
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <img src="/images/logo.png"/>
+  <!--
+  <h1><a href="/">Oceanic / 人生海海</a></h1>
+  
+    <h2>這就是人生阿</h2>
+  
+  -->
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/tzangms" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tzangms.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/about/">About</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Stickeraction Moves to Heroku</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2012-02-14T21:52:00+08:00" pubdate  data-updated="true" >Feb 14<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>最近真的超忙的, 這篇拖了好幾個禮拜, 過年放假的最後幾天就該寫的說 &#8230; anyway &#8230;</p>
+
+<p>前一陣子應邀 OSSF 電子報邀稿, 寫了一篇 <a href="http://tzangms.com/2012/01/17/django-on-heroku/">Python/Django on Heroku</a> 後, 就把 <a href="http://twitthat.com/">twitthat</a> 搬上了 heroku, 後來因為想說要省錢, 來把手上的 Linode 都關掉好了, 便把過氣的服務, <a href="http://stickeraction.com/">stickeraction</a> 給搬上了 heroku, 順便升級到 Django 1.3, 順便多深入研究一下 Heoku。</p>
+
+<!-- more -->
+
+
+<p>其實我也不知道有沒有省到錢, 因為即便搬到 heroku, 還是因為資料庫限制, 所以開了一台 RDS ( reserved instance ) 來讓 twitthat, stickeraction, 以及新服務用, hmm &#8230; 算是用越多省越多吧? XD</p>
+
+<p>目前 stickeraction 大概每秒是 30 個 requests, 搬上 heroku 後, 反應良好, 至於memcache 就用免費 5mb 的就夠了, 至少 <a href="http://newrelic.com/">newrelic</a> 的 report 的分數都還是 excellent XD</p>
+
+<p>相較於上次那篇 <a href="http://tzangms.com/2012/01/17/django-on-heroku/">Python/Django on Heroku</a> 的文章, 這次因為算是 deploy 正式的服務, 所以得深入玩一下, 所以就碰到了用 heroku config 做設定, 並且用上了 memcache, sendgrid, redis to go, stillalive 等服務。</p>
+
+<p>其實上一篇文章最缺的就是 DEBUG 這個參數一定得關 XD 不過有點 tricky, 基本上我把 settings.py 裡 DEBUG 設定改成了下面這樣。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">environ</span>
+</span><span class='line'><span class="n">env</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">e</span><span class="p">,</span> <span class="n">d</span><span class="p">:</span> <span class="n">environ</span><span class="p">[</span><span class="n">e</span><span class="p">]</span> <span class="k">if</span> <span class="n">environ</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="k">else</span> <span class="n">d</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">DEBUG</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">env</span><span class="p">(</span><span class="s">&#39;DJANGO_DEBUG&#39;</span><span class="p">,</span> <span class="s">&#39;true&#39;</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然後用 heroku 指定 assign 一個空的字串給 DJANGO_DEBUG</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>heroku config:add <span class="nv">DJANGO_DEBUG</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>這樣一來 deploy 到 heroku 的環境就會自定關閉 DEBUG。</p>
+
+<p>因為 heroku config 可以設定環境變數, 所以便可以透過這一點讓 deploy 到正式環境的設定依照環境變數做自動設定, 另外不用把重要的資訊 commit 到版本控制系統裡。 特別像是 AWS 的 access key / secret key 這類的資訊。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">AWS_ACCESS_KEY_ID</span> <span class="o">=</span> <span class="n">env</span><span class="p">(</span><span class="s">&#39;AWS_ACCESS_KEY_ID&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>另外就是, heroku 上面的第三方服務大多也都是透過環境變數讓你去讀取並使用, 其實這點還滿方便的 XD</p>
+
+<p>Anyway, 總之 <a href="http://stickeraction.com/">stickeraction</a> 升級到 Django 1.3 順便換了一下 design, 放上 heroku 之後, 省了一筆每月 $29.9 的花費, 玩了很多東西, 只是有時會收到 AWS RDS 的 &#8220;MySQL server has gone away&#8221; 的訊息就是了 XD</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">tzangms</span></span>
+
+      
+
+
+
+
+
+  
+
+
+
+<time datetime="2012-02-14T21:52:00+08:00" pubdate  data-updated="true" >Feb 14<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/category/django/'>django</a>, <a class='category' href='/category/heroku/'>heroku</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tzangms.com/2012/02/14/stickeraction-move-to-heroku/" data-via="tzangms" data-counturl="http://tzangms.com/2012/02/14/stickeraction-move-to-heroku/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+</div>
+
+    
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2012/02/14/stickeraction-move-to-heroku/">Stickeraction moves to heroku</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/01/18/vim-plugin-manager-vundle/">Vim Plugin Manager: Vundle</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/tzangms">@tzangms</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'tzangms',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("tzangms", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/tzangms" class="twitter-follow-button" data-width="208px" data-show-count="true">Follow @tzangms</a>
+  
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - tzangms -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+    (function () {
+      var disqus_shortname = 'tzangms';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tzangms.com/2012/02/14/stickeraction-move-to-heroku/';
+        var disqus_url = 'http://tzangms.com/2012/02/14/stickeraction-move-to-heroku/';
+        var disqus_script = 'embed.js'
+      
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-418467-7']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

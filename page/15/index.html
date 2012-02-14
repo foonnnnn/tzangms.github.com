@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="以前在寫 php 的時候是用 ruby 的 capistrano 來 deploy 程式, 雖然後來 php 好像有 phing, 雖然沒去深入研究, 可是光看文件就覺得沒有 capistrano 方便。 現在跑到 python, 當然就用 fabric 來 deploy, 雖然不像 capi...">
+  <meta name="description" content="好一陣子了, 完全沒去碰手上的兩個 php project, twitthat 跟 stickeraction,  因為看到 code 就完全不想去動他, 基本上有一部份是因為 php 的關係吧? XD 在開始寫 python 之後, 就太不想去面對 php 了 XD改版的起因是因為在上禮拜,...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,52 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2490/">Twitthat 用 Tornado 改寫</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-10-04T23:09:46+08:00" pubdate  data-updated="true" >Oct 4<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>好一陣子了, 完全沒去碰手上的兩個 php project, <a href="http://twitthat.com">twitthat</a> 跟 <a href="http://stickeraction.com">stickeraction</a>,  因為看到 code 就完全不想去動他, 基本上有一部份是因為 php 的關係吧? XD 在開始寫 python 之後, 就太不想去面對 php 了 XD</p>
+
+<p>改版的起因是因為在上禮拜, 放在 <a href="http://www.webfaction.com/">webfaction</a> 的 twitthat, 突然 crash 了, 然後接連幾天 twitthat 都一直有問題, 就真的打算狠下心來用 python 砍掉重練。 其實這幾個月一直以來都有試著用 django 試著來重寫, 不過寫一下就放棄了 XD 老實說, django 真是囉哩八嗦的 XD</p>
+
+<p>所以放棄 <a href="http://www.djangoproject.com/">django</a>, 想找一個簡單一點的 framework, 然後就想到前幾天有在 <a href="http://planet.python.org/">planet python</a> 的 RSS 看到關於 <a href="http://twistedmatrix.com/trac/">twisted</a> 的一連串文章, 不過他的網站有點難看, 後來不知道為啥就看到 <a href="http://www.tornadoweb.org/">tornado</a> 去。 看一看 tornado 的 document 之後, 幹, 超適合用來改寫 twitthat 的阿!! 所以, 從前天就開始用 tornado 重寫 twitthat, 登入的部份也直接改用了 Twitter OAuth。</p>
+
+<p>雖然今天就把很快的就把新的 twitthat 給放出來了, 不過有些功能還沒有很完整, 之後會慢慢再加上。</p>
+
+<p>hmm~ 這麼快換上新版的 twitthat 是有原因的, 因為舊的 twitthat 我 sql query 寫的超爛的, 所以這幾天在看資料庫, 一直會有 lock, 而資料庫也越來越大, 導致 twitthat 越來越慢, 不過這次改版就完全沒用到 join query, 所以有在用的朋友應該可以感覺到速度快上很多吧? :p 另外也把版面超做更新一下, 感覺好多了 :D</p>
+
+<p>老實說現在有 hellotxt, bit.ly, 其實 twitthat 的存在也沒有太大的必要了 ( 因為很懶的維護 ), 不過這個週末改完之後應該又可以放好一陣子不用去裡他了吧? XDDD</p>
+
+<p>原本 twitthat 是用 <a href="http://codeigniter.com/">CodeIgniter</a> 寫的, 現在覺得 CodeIgniter 不足的地方真的是超多的 ~&#8221;~ 最後, 這次用 tornado 感覺超棒的, 之後可以寫一些 tornado 在使用上的心得 :)</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -458,62 +504,6 @@ def deploy():
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/2465/">Monit</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-08-16T14:52:22+08:00" pubdate  data-updated="true" >Aug 16<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這一陣子 <a href="http://stickeraction.com">stickeraction</a> 的 lighttpd 都會因為 php fcgi 死掉然後吐 500, 但是參數怎麼調都沒用. 後來看到 monit 這個東西, 真是個好物, 我就用 <a href="http://mmonit.com/monit/">monit</a> 來監測 lighttpd 有沒有死掉, 如果有死掉的話就自動把 lighttpd 重開。</p>
-
-<p>用了 <a href="http://mmonit.com/monit/">monit</a> 之後, stickeraction 再也沒 down time 了 LOL  ( 好啦~ 最多會有兩分鐘 XD )</p>
-
-<p>我還滿喜歡 monit 的設定的, 簡單又清楚, 範例如下:</p>
-
-<pre><code>check process lighttpd with pidfile /var/run/lighttpd.pid
-    start program = "/etc/init.d/lighttpd start"
-    stop program = "/etc/init.d/lighttpd stop"
-    if failed host stickeraction.com port 80 protocol http
-        with timeout 15 seconds
-        then restart
-</code></pre>
-
-
-<p>會監看 lighttpd, timeout 15 秒就會把 lighttpd resart。</p>
-
-<p>另外 monit 也提供了一個 web 界面, 設定也很簡單如下, 而在 web 界面上就可以直接 start, stop 或重開 service, 滿方便的</p>
-
-<pre><code>set httpd port 8080 and
-    allow 0.0.0.0
-    allow your_username:your_password</code></pre>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -533,6 +523,10 @@ def deploy():
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/14/stickeraction-move-to-heroku/">Stickeraction moves to heroku</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/01/18/vim-plugin-manager-vundle/">Vim Plugin Manager: Vundle</a>
       </li>
     
@@ -546,10 +540,6 @@ def deploy():
     
       <li class="post">
         <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
       </li>
     
   </ul>

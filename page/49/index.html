@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="看了阿西摩部落格的這一篇文章 JavaScript ≠ Java 後, 我還是忍不住有話要說 XD下面這六點是作者阿西摩自己對 JavaScript ≠ Java 的解釋: (在每一點後面附上我的看法)JavaScript 只要有一個網頁跟有支援 JavaScript 的瀏覽器才可以執行。而 ...">
+  <meta name="description" content="function addLoadEvent(func) {    var oldonload = window.onload;    if (typeof window.onload != 'function') {        window.onload = func;    } else...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,60 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/766/">addLoadEvent</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-01-23T10:28:04+08:00" pubdate  data-updated="true" >Jan 23<span>rd</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><pre>
+<code>function addLoadEvent(func) {
+    var oldonload = window.onload;
+
+    if (typeof window.onload != 'function') {
+        window.onload = func;
+    } else {
+        window.onload = function() {
+            oldonload();
+            func();
+        }
+    }
+}</code>
+</pre>
+
+
+<p>usage:
+<code>addLoadEvent(firstFunction);
+addLoadEvent(secondFunction);</code></p>
+
+<p>Take a memo, I saw this script in DOM scripting,the book I was reading, and it&#8217;s written by Simon Willison (http://simon.incutio.com/)</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -550,48 +604,6 @@ end</blockquote>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/738/">用Reason來作現場~</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2006-12-06T22:59:47+08:00" pubdate  data-updated="true" >Dec 6<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>最近轉職當KB手~雖然沒有合成器之類的鍵盤，但其實一直都有傢伙可以用。我的配備呢~ iBook G4 800 with Reason 3+ M-Audio Radium 49 + M-Audio Firewire 410，這樣呢就可以做現場了啦! 但是碰到一個重點了，歌曲的音色都調好了，那要怎麼去切換呢？難道要用滑鼠去點嗎？這幾天一直被這個困擾著，一直到剛剛突然領悟到了。</p>
-
-<p>Reason > Options > Additional Remote Overrides 可以在這裡面設定，在裡面可以看到Target Next Track、Target Previous Track，這裡說得就是，切換上一軌跟下一軌啦！真的太high啦!!</p>
-
-<p>先前買一本keyboard magazine出的laptop live!特集，裡面有提到reason不只是個強大的錄音室工具，也非常適合現場表演。我現在終於知道了 XD</p>
-
-<p>不過由於我的M-Audio Radium 49並沒有專門用來切換音色的按鈕，所以即使我知道怎麼設定也沒有用阿，剛才把fader拿來當切換鈕，但是太不直覺了，要推fader推到midi訊號滿格(也就是127)，reason才會做切換的動作，太麻煩了，所以結論就是，我可以用reason來作現場了，但是我卻沒有一個適合作現場 master keyboard XD</p>
-
-<p>所以最近想要換master keyboard，M-Audio 新出來的Axiom看起來很棒! 不過Novation更精緻 XD 來一台 Novation X-Station吧!!</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -611,6 +623,10 @@ end</blockquote>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/14/stickeraction-move-to-heroku/">Stickeraction moves to heroku</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/01/18/vim-plugin-manager-vundle/">Vim Plugin Manager: Vundle</a>
       </li>
     
@@ -624,10 +640,6 @@ end</blockquote>
     
       <li class="post">
         <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
       </li>
     
   </ul>

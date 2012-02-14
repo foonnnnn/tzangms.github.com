@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="http://www.skulpt.org/  - Python. Client side. 這個好屌. 可以在 browser 跑的 python. 另外也有 source 可以抓回來玩.">
+  <meta name="description" content="這一陣子 stickeraction 的 lighttpd 都會因為 php fcgi 死掉然後吐 500, 但是參數怎麼調都沒用. 後來看到 monit 這個東西, 真是個好物, 我就用 monit 來監測 lighttpd 有沒有死掉, 如果有死掉的話就自動把 lighttpd 重開。用了...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,62 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/2465/">Monit</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-08-16T14:52:22+08:00" pubdate  data-updated="true" >Aug 16<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>這一陣子 <a href="http://stickeraction.com">stickeraction</a> 的 lighttpd 都會因為 php fcgi 死掉然後吐 500, 但是參數怎麼調都沒用. 後來看到 monit 這個東西, 真是個好物, 我就用 <a href="http://mmonit.com/monit/">monit</a> 來監測 lighttpd 有沒有死掉, 如果有死掉的話就自動把 lighttpd 重開。</p>
+
+<p>用了 <a href="http://mmonit.com/monit/">monit</a> 之後, stickeraction 再也沒 down time 了 LOL  ( 好啦~ 最多會有兩分鐘 XD )</p>
+
+<p>我還滿喜歡 monit 的設定的, 簡單又清楚, 範例如下:</p>
+
+<pre><code>check process lighttpd with pidfile /var/run/lighttpd.pid
+    start program = "/etc/init.d/lighttpd start"
+    stop program = "/etc/init.d/lighttpd stop"
+    if failed host stickeraction.com port 80 protocol http
+        with timeout 15 seconds
+        then restart
+</code></pre>
+
+
+<p>會監看 lighttpd, timeout 15 秒就會把 lighttpd resart。</p>
+
+<p>另外 monit 也提供了一個 web 界面, 設定也很簡單如下, 而在 web 界面上就可以直接 start, stop 或重開 service, 滿方便的</p>
+
+<pre><code>set httpd port 8080 and
+    allow 0.0.0.0
+    allow your_username:your_password</code></pre>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -591,42 +647,6 @@ python-memcached
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/2413/">Readernaut</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-06-13T23:58:39+08:00" pubdate  data-updated="true" >Jun 13<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天看到 <a href="http://readernaut.com">Readernaut</a> 感覺不錯, 原來現在看書都可以用上 follow 這個詞了, 不過我不知道會用多久。 其實我沒用過其他類似的服務, 不知道其他類似服務功能如何。因為以前不喜歡讀書 (笑)</p>
-
-<p>Anyway, <a href="http://readernaut.com">Readernaut</a> 可以直接搜尋書名. 然後加到自己的書架, 馬上就有書的封面, 書的頁數等其他資訊, 然後每本書可以有自己的讀書進度, 還有提供按鈕可以把進度直接送到 twitter :D 另外可以對頁數做 notes, 看別人的 review, 或者是 follow 加朋友。 主要是界面整個很不賴內。 希望能夠有點作用 XD 因為上次書買回來&#8230; 就沒有再看了 (笑)</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -646,6 +666,10 @@ python-memcached
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/14/stickeraction-move-to-heroku/">Stickeraction moves to heroku</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/01/18/vim-plugin-manager-vundle/">Vim Plugin Manager: Vundle</a>
       </li>
     
@@ -659,10 +683,6 @@ python-memcached
     
       <li class="post">
         <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
       </li>
     
   </ul>

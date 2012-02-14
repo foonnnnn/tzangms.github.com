@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="沒想到 twitthat 也可以出現在 Mashable 跟 TechCrunch 的文章內, 雖然只是出現在眾多 link 中的其中一個, 不過還是寫一篇紀念、虛榮一下 XDThe Top 21 Twitter Clients (According To TwitStat)20+ Great...">
+  <meta name="description" content="Command-Line Fu 是個學習 Linux 指令的好地方阿!光是 Popular 那一塊, 就讓我太驚訝了阿! 像是$ sudo !!  - 用 sudo 重新執行上一個指令。如果跟我一樣, 常常忘記打 sudo, 那麼這個指令一定要記起來阿!!$ ^foobar - 重新執行上一個...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,56 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2373/">好站 Command-Line Fu</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-02-25T00:50:00+08:00" pubdate  data-updated="true" >Feb 25<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.commandlinefu.com">Command-Line Fu</a> 是個學習 Linux 指令的好地方阿!</p>
+
+<p>光是 Popular 那一塊, 就讓我太驚訝了阿! 像是</p>
+
+<ol>
+<li><code>$ sudo !! </code> - 用 sudo 重新執行上一個指令。</li>
+</ol>
+
+
+<p>如果跟我一樣, 常常忘記打 sudo, 那麼這個指令一定要記起來阿!!</p>
+
+<ol>
+<li><code>$ ^foo<sup>bar</code></sup> - 重新執行上一個指令, 不過會先置換掉文字, 再開始執行。</li>
+</ol>
+
+
+<p>Command-Line Fu Rocks!!!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -473,57 +523,6 @@ kohana::config('foo.bar'); // kohana 2.2 變成這樣</code></pre>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2346/">PHP Autoload</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-01-26T21:29:17+08:00" pubdate  data-updated="true" >Jan 26<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>以往在要使用某個 class 的時候, 都會用 require, require_once 或 include 來讀 class 的檔案, 然後在 new 物件出來。 而 PHP 5 的 autoload 可以簡化這個部份, 使用 autoload 之後就不需要先用 require 來讀取 php, 就可以直接用 new 來建立物件, 而 require 的部份則就交給 autoload 來處理, 稱之為 lazy loading。</p>
-
-<p>最基本的方式就是用 __autoload 函式來處理。</p>
-
-<pre><code>
-function __autoload($class) {
-    $class = str_replace('_', '/', $class);
-    require $class . '.php';
-}
-</code></pre>
-
-
-<p>而看了幾個為了 PHP 5 寫的 framework 或 package 都採用 <a href="http://tw.php.net/manual/en/function.spl-autoload-register.php">spl_autoload_register</a> 來作 autoload 的處理。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/2346/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -543,6 +542,10 @@ function __autoload($class) {
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/14/stickeraction-move-to-heroku/">Stickeraction moves to heroku</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/01/18/vim-plugin-manager-vundle/">Vim Plugin Manager: Vundle</a>
       </li>
     
@@ -556,10 +559,6 @@ function __autoload($class) {
     
       <li class="post">
         <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
       </li>
     
   </ul>

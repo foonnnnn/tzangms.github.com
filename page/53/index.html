@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="1. compress Directory to TGZtar czvf foo.tgz bar/2. decompress TGZtar zxvf foo.tgz3. compress Directory to TBZ2(tar.bz2)tar cjvf foo.tar.bz2 bar/4....">
+  <meta name="description" content="目前寫了一個簡單的script來update寫好的php檔案透過ssh更新到遠端的Serverupdate:#!/bin/bashscp $1 tzangms@tzangms.com:/var/www/$2$1$1 代表的是要上傳的檔案名稱$2 代表的是要上傳到的目錄因為就是要減少打字，所以就...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,66 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/linux/673/">&#8220;Update&#8221; Script</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-07-28T15:42:54+08:00" pubdate  data-updated="true" >Jul 28<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>目前寫了一個簡單的script來update寫好的php檔案透過ssh更新到遠端的Server</p>
+
+<p>update:</p>
+
+<blockquote><em>#!/bin/bash
+scp $1 tzangms@tzangms.com:/var/www/$2$1</em></blockquote>
+
+
+<p>$1 代表的是要上傳的檔案名稱</p>
+
+<p>$2 代表的是要上傳到的目錄</p>
+
+<p>因為就是要減少打字，所以就只有這些參數啦!</p>
+
+<p>目前這個我是放在某個專案的目錄下，針對每個專案作修改其server位址跟路徑，要更新檔案就打</p>
+
+<blockquote><em>./update foo.php</em></blockquote>
+
+
+<p>如果要放到 <em>/var/www/admin </em>下的話，就加上第二個參數就可以把foo.php放到 <em>/var/www/admin</em> 下啦! 但請記得在目錄後加上斜線</p>
+
+<blockquote><em>./update foo.php admin/</em></blockquote>
+
+
+<p>在輸入ssh密碼就可以啦! 當然你可以建立公鑰私鑰，以後都不用打密碼囉!下一篇來說明吧!不然請大家去請教 <a title="虛邪迴路" target="_blank" href="http://blog.cschang.info/">clotho</a> 大大!! XD</p>
+
+<p>慢慢再來改進這個script吧!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -428,46 +488,6 @@ double-qoute 可是要按shift內&#8230;.Orz</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/655/">Drum Sampler 試用</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2006-06-20T22:28:10+08:00" pubdate  data-updated="true" >Jun 20<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這幾天試用了兩個Drum Sampler，很明顯的一件事，就是我的iBook G4 800不夠力，無論是哪一個Sampler，只要一跑到同時有4個發聲數的時候，就掛點了 XD 這就是人生阿!! 縱使有1G的RAM也只能讓Sample載入比較快一點而已 Orz</p>
-
-<p>我試了下面兩個Drum Sampler
-1. Native Instrument Battery 2
-2. Fxpansion BFD</p>
-
-<p>基本上，因為跑不起來，所以我就沒有多做試驗了，看來還是只好用Garageband的Drum kits了！ Orz 目前個人覺得BFD感覺比較棒! 有好幾組的鼓可以選，像是DW, Pearl&#8230;等等，另外可以選mic的位置，等我買macbook再來碰吧！但是&#8230;.也要先有UB?</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -487,6 +507,10 @@ double-qoute 可是要按shift內&#8230;.Orz</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/14/stickeraction-move-to-heroku/">Stickeraction moves to heroku</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/01/18/vim-plugin-manager-vundle/">Vim Plugin Manager: Vundle</a>
       </li>
     
@@ -500,10 +524,6 @@ double-qoute 可是要按shift內&#8230;.Orz</p>
     
       <li class="post">
         <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/11/11/handle-malicious-website/">處理被判別為惡意網站的經驗</a>
       </li>
     
   </ul>
