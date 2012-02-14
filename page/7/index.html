@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="其實最近下班時間都在忙著寫 Facebook 的東西, 所以不得不不關注一下 Facebook 的東西。自從 Facebook 推出 Graph API 之後, 就開始把目標往 Facebook 之外的網站拓展, 透過 OAuth 2.0、Graph API 跟 Javascript SDK ...">
+  <meta name="description" content="又要來寫偏離題的文了, 上禮拜花了一點時間把 Learning Ruby 這本書 K 完, 想說 Rails3 快出來了, 到時候可以來玩一下, 不過主要的目的就是想說, 認識寫 python 的人實在是超少, 做 web 的又更少, 認識寫 Rails 的人倒還比較多, 所以想說公司有東西外...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,63 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2709/">關於 Python Sorting</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-09-02T00:11:12+08:00" pubdate  data-updated="true" >Sep 2<span>nd</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>又要來寫偏離題的文了, 上禮拜花了一點時間把 Learning Ruby 這本書 K 完, 想說 Rails3 快出來了, 到時候可以來玩一下, 不過主要的目的就是想說, 認識寫 python 的人實在是超少, 做 web 的又更少, 認識寫 Rails 的人倒還比較多, 所以想說公司有東西外包的話, 用 Rails 寫的話, 到還可以處理, 所以就想說研究一下。 總之不太想碰 PHP &#8230; XD</p>
+
+<p>Anyway, 我真的是超弱的, python 都還不熟就想學 ruby, mysql 也不熟, 應該是先把自己手邊在用的東西先學好才是。</p>
+
+<p>夠離題了吧!? (咦)</p>
+
+<p>其實是今天被 sorting 這件事困擾了一下, 因為做 web 所以排序的工作都是交給 SQL 去做, 偏偏碰到了一個不適合放進 SQL 的東西, 然後又得排序, 幸好找到了下面這一篇 <a href="http://wiki.python.org/moin/HowTo/Sorting/">Sorting Mini-HOW TO</a>, 不然真是完全沒經驗。</p>
+
+<p>要排序的資料是一個放 dict 的 list, 而得用 dict 裡的一個時間欄位做排序, 資料像是這樣</p>
+
+<pre><code>unsorted_list = [
+    {'name': foo, 'created': datetime.datetime(2011, 1, 1, ... )},
+    {'name': foo, 'created': datetime.datetime(2010, 12, 1, ... )}, 
+    ....
+]</code></pre>
+
+
+<p>沒想到這樣就可以排出來了</p>
+
+<pre><code>sorted_list = sorted(unsorted_list, key=lambda item: item['created'])
+sorted_list.reverse() # 如果要新的時間在前的話, reverse 一下</code></pre>
+
+
+<p>神阿! 在給我多一點時間吧!!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -439,95 +496,6 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'myaudiocast.settings'</code></pre>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2664/">App Engine Datastore 效能心得</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-06-10T01:29:20+08:00" pubdate  data-updated="true" >Jun 10<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>由於這一陣子用 <a href="http://code.google.com/intl/zh-TW/appengine/">app engine</a> 寫了一些玩具跟 <a href="http://www.myaudiocast.com">myaudiocast</a>, 所以來記錄一下心得。雖然 app engine 不用錢, 似乎不用怕資料庫 scale 的問題, 可是比起一般使用關聯式資料庫來說, 開始 run 之前得更仔細規劃, 因為有些資料在寫入後就無法更動了。</p>
-
-<p><a href="http://tzangms.com/wp-content/uploads/2010/06/myaudiocast-model.jpg"><img class="aligncenter size-full wp-image-2669" title="myaudiocast-model" src="http://tzangms.com/wp-content/uploads/2010/06/myaudiocast-model.jpg" alt="" width="481" height="404" /></a></p>
-
-<p>上面這張圖是 <a href="http://www.myaudiocast.com">myaudiocast</a> 簡單的示意圖, 接下來就用這張圖來說一下關於  datastore 使用上的心得</p>
-
-<h2>單筆資料 ( one-to-one )</h2>
-
-
-<p>像是 User 對 Podcast 在我的規劃上是 one-to-one, 所以如果是 one-to-one 這類的資料就給定 key_name, 直接用 key_name 來抓單筆資料, 而不是先用 filter 之後在用  get 來取得單筆資料。 因為用 appstats 就發現後面這個方法常常是花最多時間的, 然而因為之前的資料都沒給 key_name 現在也來不及了 &#8230;</p>
-
-<h2>多筆資料 ( one-to-many, many-to-many )</h2>
-
-
-<p>像是 Episode 這類 one-to-many, 會有多筆的資料, 沒事就不用給 key_name 了, 因為通常都是透過 filter 來取出多筆資料, 所以只需要寫入時指定 parent, 讓 user 的 episodes 可以成為一個 entity group, 這樣抓取資料比較快。</p>
-
-<h2>盡量使用 memcache</h2>
-
-
-<p>datastore 其實並沒有很快, 甚至 model api 沒有 query cache, 而 memcache 的 quota 其實滿大的, 所以要盡量用 memcache。</p>
-
-<h2>避免在 template 透過關連取資料</h2>
-
-
-<p>像是 podcast 跟 episodes 都可以透過關連, 像是 user.podcast 跟 user.episodes 來取得資料, 所以因為寫 django 的經驗, 我可能就直接丟 user 變數進 template, 然後都用 user.podcast, 跟 user.episodes 來取得資料, 可是這在 app engine 則是要避免的, 因為 app engine 的 model 並沒有 query cache, 所以可能會像下面這樣的作法, 就會對 podcast 做兩次 query。</p>
-
-<pre><code>
-</code></pre>
-
-
-<p>所以得一開始就把 user 跟 podcast 丟進 template, 直接取得資料而不是透過物件關連。</p>
-
-<p>不過有時候就是一定得透過關連來做, 那麼就請使用  django 1.0 以上的 template, 透過 <a href="http://docs.djangoproject.com/en/dev/ref/templates/builtins/#with">with</a> 這個 template tag 來避免多次 query, 或者是在 model 新增一個 property 然後用 memcache 來解決, 像是我的作法</p>
-
-<pre><code>class User(db.Model):
-    ...
-
-    @property
-    def podcast(self):
-        cache_key = 'user-podcast-%s' % self.key()
-        p = memcache.get(cache_key)
-        if not p:
-            p = self.podcasts.ancestor(self).get()
-            memcache.add(cache_key, p)
-
-        return p</code></pre>
-
-
-<p>先前說過, 以前不懂忘記給 key_name, 現在只能這樣 query 了, 頂多加上個 ancestor (默)</p>
-
-<h2>結論</h2>
-
-
-<p>datastore 雖然不太需要擔心 scale 的問題, 可是在 run 之前卻得更仔細規劃, 否則效能低落, 花的只是更多錢阿 XD 而 memcache 則是一定得用, 否則跑起來的確是不夠快。</p>
-
-<p>大概是這樣, 希望沒有哪裡有寫錯的, 如果有的話, 也請多多留言指指教, 謝謝 :p</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -547,6 +515,10 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'myaudiocast.settings'</code></pre>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/stickeraction-move-to-heroku/">Stickeraction moves to heroku</a>
       </li>
     
@@ -560,10 +532,6 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'myaudiocast.settings'</code></pre>
     
       <li class="post">
         <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
       </li>
     
   </ul>

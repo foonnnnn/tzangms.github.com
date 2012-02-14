@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="其實一直很想寫這一篇, 只是標題一直不知道該怎麼下, 只因為這支影片, 令人讚嘆的點太多。">
+  <meta name="description" content="紀錄一下, 我的 Open ID 是 tzangms.myopenid.com 這麼一長串, 真的是頗難記的, 如果自己有 blog, 或 domain 可以參考這一篇「 How-To: Use your Blog/Website as your OpenID URL」來用自己的 domain...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,52 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/web/1053/">My Open ID</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-01-18T14:31:12+08:00" pubdate  data-updated="true" >Jan 18<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>紀錄一下, 我的 Open ID 是 tzangms.myopenid.com 這麼一長串, 真的是頗難記的, 如果自己有 blog, 或 domain 可以參考這一篇「<a href="http://www.dedestruct.com/2008/01/13/how-to-use-blog-as-openid-url/"> How-To: Use your Blog/Website as your OpenID URL</a>」來用自己的 domain 或網址來當作自己的 Open ID</p>
+
+<p>在 header 裡面加上這幾行就可以了
+[source:html]
+<link rel="openid.server" href="http://myopenid.com/server" />
+<link rel="openid.delegate" href="http://tzangms.myopenid.com/" />
+<meta http-equiv="X-XRDS-Location" content="http://tzangms.myopenid.com/xrds" />
+[/source]</p>
+
+<p>如果我放在 tzangms.com 的首頁, 那就可以用 tzangms.com 來當成我的 Open ID 了, 雖然 tzangms.myopenid.com 已經夠好記的了 囧</p>
+
+<p>[參考連結]
+<a href="http://blog.bcse.info/openid/">Lvx ex Cælis | openid</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -448,47 +494,6 @@ Bonjour! 這是我收到的第二張從外國來的明信片! <a href="http://tz
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1035/">Markup Validation Service</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-12-20T09:58:40+08:00" pubdate  data-updated="true" >Dec 20<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>從 <a href="http://plog.longwin.com.tw/">Tsung&#8217;s Blog</a> 看到 這一篇文章「<a href="http://plog.longwin.com.tw/my-favorite-site/2007/12/19/html_xhtml_css_validation_2007">好站: HTML/XHTML/CSS 驗證</a>」之後才想到, 作好的 <a href="http://pp.url.com.tw">PP</a> 都還沒有拿來測過, 所以昨天晚上就把 PP 丟過去測看看, 沒想到 error 還滿多的, 想說不知道其他網站的狀況如何? 乾脆再拿一些網站的首頁丟進 <a href="http://validator.w3.org/">Markup Validation Service</a> by W3C 測看看。</p>
-
-<p>就來看看一些網站的數據吧: (想到就丟進去測了)</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/1035/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -508,6 +513,10 @@ Bonjour! 這是我收到的第二張從外國來的明信片! <a href="http://tz
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/stickeraction-move-to-heroku/">Stickeraction moves to heroku</a>
       </li>
     
@@ -521,10 +530,6 @@ Bonjour! 這是我收到的第二張從外國來的明信片! <a href="http://tz
     
       <li class="post">
         <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
       </li>
     
   </ul>

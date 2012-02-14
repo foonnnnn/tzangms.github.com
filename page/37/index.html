@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="這是好久之前在買 Boss RC-20XL 之前上 youtube 做  survey 的時候找到的! 然而前一陣子 bass 手志豪在練團時都會用 bass 彈 Usher 的 yeah 這首歌的 riff, 每次聽到都覺得很好笑 XD所以為了彌補最近太累, 根本沒有力氣寫 blog, 就分...">
+  <meta name="description" content="在 shanecoast 的 blog 看到他這一篇文章的這張照片, 「better tomorrow」。呵, 其實我一直滿理性的, 以前如果在展覽會場看到這個的話, 我應該就只是看看, 不大可能花錢買下來這個空瓶子&#8230;不過現在我看到搞不好會買一個回家, 擺在桌上, 然後丟糖果進去。...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,44 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/1015/">Better Tomorrow</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-11-12T11:07:11+08:00" pubdate  data-updated="true" >Nov 12<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="http://farm3.static.flickr.com/2320/1963108352_6c8d59400b.jpg" alt="better tomorrow" /></p>
+
+<p>在 <a href="http://shanecoast.wordpress.com/">shanecoast 的 blog</a> 看到他<a href="http://shanecoast.wordpress.com/2007/11/11/better-tomorrow/">這一篇文章</a>的這張照片, 「better tomorrow」。呵, 其實我一直滿理性的, 以前如果在展覽會場看到這個的話, 我應該就只是看看, 不大可能花錢買下來這個空瓶子&#8230;</p>
+
+<p>不過現在我看到搞不好會買一個回家, 擺在桌上, 然後丟糖果進去。好像打開這個瓶子, 吞下一顆糖果, 真的會有 better tomorrow 的感覺 :)</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -423,64 +461,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/980/">Bash Fetch Cron Job</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-10-02T10:46:51+08:00" pubdate  data-updated="true" >Oct 2<span>nd</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>如果網站上有某個區塊的頁面是去讀另一台機器產生出來的檔案的時候, 似乎通常會抓一份回來, 然後直接 include 進來, 而不是 include 遠端的頁面, 所以似乎都會寫一份 bash 然後用 cron 來跑, 用 curl 把檔案抓回來放。</p>
-
-<p>先前看人家再寫這種東西的時候, 都沒有用迴圈再跑, 所以剛才寫了一下 bash, 用 array 來放要抓取的檔案連結, 然後用 for 迴圈來跑, 再用 curl 來抓東西回來。</p>
-
-<p>嗯, 剛剛才知道 bash 的 array 怎麼用 XD</p>
-
-<p>只是&#8230; 寫成下面這樣, 跟直接一行一行寫&#8230; 似乎也沒啥差別 XD</p>
-
-<pre><code>#!/bin/bash
-export path=$path:/usr/bin
-
-FETCH_PATH="/usr/local/apache2/htdocs/fetched"
-
-fetch[0]='http://tzangms.com/foo/bash.html'
-fetch[1]='http://tzangms.com/foo/php.html'
-fetch[2]='http://tzangms.com/foo/ruby.html'
-fetch[3]='http://tzangms.com/foo/java.html'
-
-cd $FETCH_PATH
-
-for element in $(seq 0 $((${#fetch[@]} - 1)))
-do
-    curl -f -O -o $FETCH_PATH ${fetch[element]}
-done
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -500,6 +480,10 @@ done
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/stickeraction-move-to-heroku/">Stickeraction moves to heroku</a>
       </li>
     
@@ -513,10 +497,6 @@ done
     
       <li class="post">
         <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
       </li>
     
   </ul>

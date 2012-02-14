@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="http://www.forwebdesigners.com/http://www.tlbox.com/http://webdevelopersfieldguide.com/http://www.alvit.de/handbook/http://webstandardsgroup.org/re...">
+  <meta name="description" content="由於在 PHP5 已經有 SOAP extension 了, 如果把 SOAP extension 也編進 PHP5 的話, NuSOAP 就會跟 SOAP extension 的  class name 衝到, 所以有了 nusoap-for-php5, 放在 Google code。不過把...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,60 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1083/">NuSOAP for PHP5</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-02-19T10:09:52+08:00" pubdate  data-updated="true" >Feb 19<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>由於在 PHP5 已經有 SOAP extension 了, 如果把 SOAP extension 也編進 PHP5 的話, <a href="http://sourceforge.net/projects/nusoap/">NuSOAP </a>就會跟 SOAP extension 的  class name 衝到, 所以有了 <a href="http://code.google.com/p/nusoap-for-php5/downloads/list">nusoap-for-php5</a>, 放在 Google code。</p>
+
+<p>不過把 class 名稱改成 soapclientnusoap 會不會有點太長? 我覺得改成 nu_soapclient 會比較好吧? 還是拿 原本的 NuSOAP 自己來改好了 XD</p>
+
+<p><strong>== UPDATE ==</strong>
+剛看了一下 nusoap 的 changelog, 原來因為 NuSOAP 會跟 PHP5 的 SOAP extension 衝到, 所以 class 名稱已經改了勒 o_O, 下面這一段可以看到, 已經從 soapclient 改成 nusoapclient 。</p>
+
+<blockquote>2007-03-19, version 0.7.2
+- soapclient: declare as nusoapclient, then also subclass soapclient if SOAP extension not loaded
+- soapclientmime: declare as nusoapclientmime, then also subclass soapclientmime if SOAP extension not loaded</blockquote>
+
+
+<p>再來看到這一段,</p>
+
+<blockquote>2007-04-09, version 0.7.2
+&#8230;
+- nusoapclient: rename class to nusoap_client
+&#8230;</blockquote>
+
+
+<p>現在 class name 是改成 nusoap_client 勒, 所以&#8230; 記得以後網路上找文章要注意日期阿 XD 像 NuSOAP 只有 code 的話&#8230;就只能靠自己多挖依下程式碼了&#8230;不然也要看過 readme, changelog 先。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -452,52 +506,6 @@ server.modules = (</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/1053/">My Open ID</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-01-18T14:31:12+08:00" pubdate  data-updated="true" >Jan 18<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>紀錄一下, 我的 Open ID 是 tzangms.myopenid.com 這麼一長串, 真的是頗難記的, 如果自己有 blog, 或 domain 可以參考這一篇「<a href="http://www.dedestruct.com/2008/01/13/how-to-use-blog-as-openid-url/"> How-To: Use your Blog/Website as your OpenID URL</a>」來用自己的 domain 或網址來當作自己的 Open ID</p>
-
-<p>在 header 裡面加上這幾行就可以了
-[source:html]
-<link rel="openid.server" href="http://myopenid.com/server" />
-<link rel="openid.delegate" href="http://tzangms.myopenid.com/" />
-<meta http-equiv="X-XRDS-Location" content="http://tzangms.myopenid.com/xrds" />
-[/source]</p>
-
-<p>如果我放在 tzangms.com 的首頁, 那就可以用 tzangms.com 來當成我的 Open ID 了, 雖然 tzangms.myopenid.com 已經夠好記的了 囧</p>
-
-<p>[參考連結]
-<a href="http://blog.bcse.info/openid/">Lvx ex Cælis | openid</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -517,6 +525,10 @@ server.modules = (</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/stickeraction-move-to-heroku/">Stickeraction moves to heroku</a>
       </li>
     
@@ -530,10 +542,6 @@ server.modules = (</p>
     
       <li class="post">
         <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
       </li>
     
   </ul>

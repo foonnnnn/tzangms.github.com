@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="落後很久了, 今天看到推友推的 The Pragmatic Bookshelf | Read Our Magazines, Pragmatic 每個月都會 release 一期技術相關的雜誌, 有 HTML, ePub, mobi 跟 PDF 格式, 技術人可以看看。最近對 ePub 有某種奇...">
+  <meta name="description" content="  突然懷疑升級完全是為了搭配簡單生活節的行銷活動 (咦) 不過既然被推出來了, 所以也只好宣傳一下, 不然串連數很少很難看阿!!!所以, 麻煩有部落格的大家都來串連一下, 你說好不好阿!!? XD 趕快到 串連貼紙頁面 去複製貼紙語法回去部落格貼一下吧!! 拜託不要讓我這張貼紙的串連數字太難...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,47 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/2733/">簡單生活節海總理升職紀念版貼紙</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-10-09T20:45:14+08:00" pubdate  data-updated="true" >Oct 9<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://stickeraction.com/2010simplelife1/go" title="簡單生活節海總理升職紀念版貼紙"><img src="http://stickeraction.com/2010simplelife1/sticker/1" alt="簡單生活節海總理升職紀念版貼紙" border="0" /></a> <a href="http://stickeraction.com/2010simplelife1/go" title="簡單生活節海總理升職紀念版貼紙"><img src="http://stickeraction.com/2010simplelife1/sticker/2" alt="簡單生活節海總理升職紀念版貼紙" border="0" /></a> <a href="http://stickeraction.com/2010simplelife1/go" title="簡單生活節海總理升職紀念版貼紙"><img src="http://stickeraction.com/2010simplelife1/sticker/3" alt="簡單生活節海總理升職紀念版貼紙" border="0" /></a></p>
+
+<p>突然懷疑升級完全是為了搭配簡單生活節的行銷活動 (咦) 不過既然被推出來了, 所以也只好宣傳一下, 不然串連數很少很難看阿!!!</p>
+
+<p>所以, 麻煩有部落格的大家都來串連一下, 你說好不好阿!!? XD 趕快到 <a href="http://stickeraction.com/2010simplelife1/">串連貼紙頁面</a> 去複製貼紙語法回去部落格貼一下吧!! 拜託不要讓我這張貼紙的串連數字太難看了 (跪) 沒有部落格的至少也幫按一下 like 吧!!!! XD</p>
+
+<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fstickeraction.com%2F2010simplelife1%2F&amp;layout=standard&amp;show_faces=true&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -439,63 +480,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2709/">關於 Python Sorting</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-09-02T00:11:12+08:00" pubdate  data-updated="true" >Sep 2<span>nd</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>又要來寫偏離題的文了, 上禮拜花了一點時間把 Learning Ruby 這本書 K 完, 想說 Rails3 快出來了, 到時候可以來玩一下, 不過主要的目的就是想說, 認識寫 python 的人實在是超少, 做 web 的又更少, 認識寫 Rails 的人倒還比較多, 所以想說公司有東西外包的話, 用 Rails 寫的話, 到還可以處理, 所以就想說研究一下。 總之不太想碰 PHP &#8230; XD</p>
-
-<p>Anyway, 我真的是超弱的, python 都還不熟就想學 ruby, mysql 也不熟, 應該是先把自己手邊在用的東西先學好才是。</p>
-
-<p>夠離題了吧!? (咦)</p>
-
-<p>其實是今天被 sorting 這件事困擾了一下, 因為做 web 所以排序的工作都是交給 SQL 去做, 偏偏碰到了一個不適合放進 SQL 的東西, 然後又得排序, 幸好找到了下面這一篇 <a href="http://wiki.python.org/moin/HowTo/Sorting/">Sorting Mini-HOW TO</a>, 不然真是完全沒經驗。</p>
-
-<p>要排序的資料是一個放 dict 的 list, 而得用 dict 裡的一個時間欄位做排序, 資料像是這樣</p>
-
-<pre><code>unsorted_list = [
-    {'name': foo, 'created': datetime.datetime(2011, 1, 1, ... )},
-    {'name': foo, 'created': datetime.datetime(2010, 12, 1, ... )}, 
-    ....
-]</code></pre>
-
-
-<p>沒想到這樣就可以排出來了</p>
-
-<pre><code>sorted_list = sorted(unsorted_list, key=lambda item: item['created'])
-sorted_list.reverse() # 如果要新的時間在前的話, reverse 一下</code></pre>
-
-
-<p>神阿! 在給我多一點時間吧!!</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -515,6 +499,10 @@ sorted_list.reverse() # 如果要新的時間在前的話, reverse 一下</code>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/stickeraction-move-to-heroku/">Stickeraction moves to heroku</a>
       </li>
     
@@ -528,10 +516,6 @@ sorted_list.reverse() # 如果要新的時間在前的話, reverse 一下</code>
     
       <li class="post">
         <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
       </li>
     
   </ul>

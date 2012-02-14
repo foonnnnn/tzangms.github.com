@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="    Notes on Choosing a PHP Framework: A Quick Comparison of CodeIgniter and Kohana這篇是 CodeIgniter 跟 Kohana 的比較, 寫的很詳細, 有在玩 CI 的都該看看。    PHP Univer...">
+  <meta name="description" content="如果這一陣子因為 Ruby 跟 RoR 的爆紅, 讓你急著想轉換到 Ruby (好吧! 至少我偷學了 Ruby XD) 也許可以看看 CIO 的這一篇 You Used PHP to Write WHAT?! 的 comments。 由於文章中提到的一些論點讓 PHP的擁護者倒彈, 像是&#8...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,56 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1113/">對 PHP 沒信心嗎?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-03-19T21:55:17+08:00" pubdate  data-updated="true" >Mar 19<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>如果這一陣子因為 Ruby 跟 RoR 的爆紅, 讓你急著想轉換到 Ruby (好吧! 至少我偷學了 Ruby XD) 也許可以看看 <a href="http://www.cio.com">CIO</a> 的這一篇 <a href="http://www.cio.com/article/176250">You Used PHP to Write WHAT?!</a> 的 <a href="http://comments.cio.com/node/176250">comments</a>。 由於文章中提到的一些論點讓 PHP的擁護者倒彈, 像是&#8230;</p>
+
+<blockquote>Q: When should you use PHP?
+A: Prototyping an application that will be converted to Java or some other language.</blockquote>
+
+
+<p>或是</p>
+
+<blockquote>For large enterprise solutions, PHP makes a great prototyping or feasibility tool, but heavily loaded sites that require thread safety, security and stability should use Java.</blockquote>
+
+
+<p>結果因為這篇作者的言論, 似乎有點瞧不起 PHP, 導致 comments 被 PHP 擁護者洗版, 結果最後在這篇文章中多了下面這一段 XD</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/1113/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -448,60 +498,6 @@ echo $a;</code></p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1083/">NuSOAP for PHP5</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-02-19T10:09:52+08:00" pubdate  data-updated="true" >Feb 19<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>由於在 PHP5 已經有 SOAP extension 了, 如果把 SOAP extension 也編進 PHP5 的話, <a href="http://sourceforge.net/projects/nusoap/">NuSOAP </a>就會跟 SOAP extension 的  class name 衝到, 所以有了 <a href="http://code.google.com/p/nusoap-for-php5/downloads/list">nusoap-for-php5</a>, 放在 Google code。</p>
-
-<p>不過把 class 名稱改成 soapclientnusoap 會不會有點太長? 我覺得改成 nu_soapclient 會比較好吧? 還是拿 原本的 NuSOAP 自己來改好了 XD</p>
-
-<p><strong>== UPDATE ==</strong>
-剛看了一下 nusoap 的 changelog, 原來因為 NuSOAP 會跟 PHP5 的 SOAP extension 衝到, 所以 class 名稱已經改了勒 o_O, 下面這一段可以看到, 已經從 soapclient 改成 nusoapclient 。</p>
-
-<blockquote>2007-03-19, version 0.7.2
-- soapclient: declare as nusoapclient, then also subclass soapclient if SOAP extension not loaded
-- soapclientmime: declare as nusoapclientmime, then also subclass soapclientmime if SOAP extension not loaded</blockquote>
-
-
-<p>再來看到這一段,</p>
-
-<blockquote>2007-04-09, version 0.7.2
-&#8230;
-- nusoapclient: rename class to nusoap_client
-&#8230;</blockquote>
-
-
-<p>現在 class name 是改成 nusoap_client 勒, 所以&#8230; 記得以後網路上找文章要注意日期阿 XD 像 NuSOAP 只有 code 的話&#8230;就只能靠自己多挖依下程式碼了&#8230;不然也要看過 readme, changelog 先。</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -521,6 +517,10 @@ echo $a;</code></p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/stickeraction-move-to-heroku/">Stickeraction moves to heroku</a>
       </li>
     
@@ -534,10 +534,6 @@ echo $a;</code></p>
     
       <li class="post">
         <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
       </li>
     
   </ul>

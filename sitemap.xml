@@ -3146,7 +3146,11 @@
     </url>
     <url>
         <loc>http://tzangms.com/2012/02/14/stickeraction-move-to-heroku/</loc>
-        <lastmod>2012-02-14T22:57:19+08:00</lastmod>
+        <lastmod>2012-02-14T23:16:01+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://tzangms.com/2012/02/14/django-bootstrap-form/</loc>
+        <lastmod>2012-02-15T00:21:16+08:00</lastmod>
     </url>
     <url>
         <loc>http://tzangms.com/about/</loc>
@@ -3154,10 +3158,10 @@
     </url>
     <url>
         <loc>http://tzangms.com/blog/archives/</loc>
-        <lastmod>2012-02-14T22:57:19+08:00</lastmod>
+        <lastmod>2012-02-15T00:21:16+08:00</lastmod>
     </url>
     <url>
         <loc>http://tzangms.com/</loc>
-        <lastmod>2012-02-14T22:57:19+08:00</lastmod>
+        <lastmod>2012-02-15T00:21:16+08:00</lastmod>
     </url>
 </urlset>

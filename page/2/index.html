@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="上個禮拜就開始在玩 octopress, 雖然一樣用 markdown 寫文, meta 也一樣是用 yaml, 不過比 blogofile 貼心太多了。所以昨天就花了一些時間, 寫程式把 blogofile 的檔案轉成 octopress 的格式, 主要就 octopress 檔案名稱格式有...">
+  <meta name="description" content="今天 iOS5 釋出了, 我這支用了兩年的 iPhone 3Gs 也還可以升級, 真是不錯。 升級後速度沒什麼差, 跟原本一樣慢, 哈!不過我想除了 iCloud 之外, 其他沒什麼太大差異, 終於又可以像之前用 MobileMe 一樣同步資料了, 只是不用花錢就是了, 得趕快來把行事曆改用 ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,44 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2011/10/13/ios5-release/">iOS5 Release</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2011-10-13T10:10:00+08:00" pubdate  data-updated="true" >Oct 13<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天 iOS5 釋出了, 我這支用了兩年的 iPhone 3Gs 也還可以升級, 真是不錯。 升級後速度沒什麼差, 跟原本一樣慢, 哈!</p>
+
+<p>不過我想除了 iCloud 之外, 其他沒什麼太大差異, 終於又可以像之前用 MobileMe 一樣同步資料了, 只是不用花錢就是了, 得趕快來把行事曆改用 iCloud 同步, 不然同步 Google Calendar 其實挺困擾的。</p>
+
+<p>iPhone 4s 趕快來吧!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -551,80 +589,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2837/">Lettuce - Behaviour-driven Development</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2011-03-05T00:29:08+08:00" pubdate  data-updated="true" >Mar 5<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>前幾天看到 <a href="http://lettuce.it/">Lettuce</a> 覺得挺有趣的, 昨天一玩就玩了兩個小時, 玩到半夜兩點 &#8230;</p>
-
-<p>沒想到我連做夢都在寫 test case, 然後一直到醒來腦袋還一直在想 unit test  &#8230; 然後就乾脆爬了起來, 一直到天亮才爬回去睡, 結果今天真是累死了 Orz</p>
-
-<p>lettuce 有趣的地方是他的 feature 語法跟 steps, 我覺得真的挺有趣的, 甚至寫法文也行 XD</p>
-
-<p>feature 像是下面這樣寫</p>
-
-<pre><code>Feature: Manipulate strings
-  In order to have some fun
-  As a programming beginner
-  I want to manipulate strings
-
-  Scenario: Uppercased strings
-    Given I have the string "lettuce leaves"
-    When I put it in upper case
-    Then I see the string is "LETTUCE LEAVES"</code></pre>
-
-
-<p>然後 step 像是這樣</p>
-
-<pre><code>>>> from lettuce import *
->>> @step('I have the string "(.*)"')
-... def have_the_string(step, string):
-...     world.string = string
-...
->>> @step('I put it in upper case')
-... def put_it_in_upper(step):
-...     world.string = world.string.upper()
-...
->>> @step('I see the string is "(.*)"')
-... def see_the_string_is(step, expected):
-...     assert world.string == expected, \
-...         "Got %s" % world.string</code></pre>
-
-
-<p>真是超有趣的!!</p>
-
-<p>話說 lettuce 的文件中有用到 <a href="http://lxml.de/">lxml</a>, 好像挺不錯用的, 找時間來研究一下。</p>
-
-<p>另外經過推友補充還有 <a href="https://github.com/rlisagor/freshen">Freshen</a> 跟 <a href="https://github.com/heynemann/pyccuracy">Pyccuracy</a> 都是 BDD 的工具。</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -644,6 +608,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/stickeraction-move-to-heroku/">Stickeraction moves to heroku</a>
       </li>
     
@@ -657,10 +625,6 @@
     
       <li class="post">
         <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
       </li>
     
   </ul>

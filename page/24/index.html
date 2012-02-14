@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="這一篇應該是我第一次轉載別人家過來的文章吧, 應該很多人都看過了, 我相信身為 Programmer 的朋友, 看到這一篇應該都心有戚戚焉吧? XDDDDanyway, 心情不好時, 就可以看看這一篇, 應該就可以認命釋懷了吧!!?本篇文章出處來源為:程式設計師的格言 &laquo; but,...">
+  <meta name="description" content="最近碰到要處理經過 UCS-2 編碼過的字串, 幸好不會太困難 汗。 不過我對 unicode 相關的東西, 只是一知半解, 下面純為紀錄, 有問題煩請糾正 :p這個 UCS-2 編碼字串看起來像是這個樣子4F60597D002C901988E1662F6E2C8A66其實是指你好,這裡是測試...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,59 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1921/">UCS-2 字碼轉 UTF-8</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-10-25T13:22:08+08:00" pubdate  data-updated="true" >Oct 25<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>最近碰到要處理經過 UCS-2 編碼過的字串, 幸好不會太困難 <em>汗</em>。 不過我對 unicode 相關的東西, 只是一知半解, 下面純為紀錄, 有問題煩請糾正 :p</p>
+
+<p>這個 UCS-2 編碼字串看起來像是這個樣子
+<code>4F60597D002C901988E1662F6E2C8A66</code></p>
+
+<p>其實是指</p>
+
+<blockquote>你好,這裡是測試</blockquote>
+
+
+<p>而在 UCS-2 中, 一個字固定是由 4 個 Bytes 所組成, 所以我們可以將這個 UCS-2 字串拆成像下面這樣, 看起來會比較清楚。</p>
+
+<p><code>4F60 597D 002C 9019 88E1 662F 6E2C 8A66</code></p>
+
+<p>可以到 <a href="http://www.unicode.org/charts/unihan.html">Unihan Database</a> 輸入4F60 看看, 就會得到「你」這個字, 跟其他相關資料。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/1921/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -444,51 +497,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/stickeraction/1830/">[Stickeraction] 抓取無名部落格在 Iframe 的貼紙</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-10-07T08:58:11+08:00" pubdate  data-updated="true" >Oct 7<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>在做好 <a href="http://stickeraction.com">stickeraction</a> 之後, 有使用無名部落格的網友反應說, 他們的部落格貼了貼紙, 可是 <a href="http://stickeraction.com">stickeraction</a> 卻沒有偵測到, 連過去一看才發現原來貼紙是貼在 iframe 裡, 所以過來的 referer 都是 js.wretch.yahoo.net 這個網址, 以致於沒辦法偵測到底是哪個無名部落格。 本來想說用 img 來作貼紙, 而不是 javascript 就可以讓相容性好一些, 沒想到還有這招 XD</p>
-
-<p>而前幾天剛好有些空閒時間, 才仔細看了一下 iframe 的網址格式, 原來是可以知道是哪一個無名部落格! 所以就依循這個 iframe 網址的格式來作偵測的動作, 網址格式如下:</p>
-
-<blockquote>http://js.wretch.yahoo.net/iframe.php?b=username&amp;i=41226[&#8230;]</blockquote>
-
-
-<p>其中用 username 來查找就可以知道是哪個無名部落格了 :p</p>
-
-<p>所以 <a href="http://stickeraction.com">stickeraction</a> 相容性又更好了, 只是還有另外一個問題&#8230; 就是無名居然可以關掉 rss 阿!!!! Orz</p>
-
-<p>唉~ 怎麼花那麼時間在無名部落身上阿 ~&#8221;~</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -508,6 +516,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/stickeraction-move-to-heroku/">Stickeraction moves to heroku</a>
       </li>
     
@@ -521,10 +533,6 @@
     
       <li class="post">
         <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
       </li>
     
   </ul>

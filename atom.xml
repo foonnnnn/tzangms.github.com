@@ -4,7 +4,7 @@
   <title><![CDATA[Oceanic / 人生海海]]></title>
   <link href="http://tzangms.com/atom.xml" rel="self"/>
   <link href="http://tzangms.com/"/>
-  <updated>2012-02-14T23:08:42+08:00</updated>
+  <updated>2012-02-15T00:21:27+08:00</updated>
   <id>http://tzangms.com/</id>
   <author>
     <name><![CDATA[tzangms]]></name>
@@ -12,6 +12,79 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Django Bootstrap Form]]></title>
+    <link href="http://tzangms.com/2012/02/14/django-bootstrap-form/"/>
+    <updated>2012-02-14T23:14:00+08:00</updated>
+    <id>http://tzangms.com/2012/02/14/django-bootstrap-form</id>
+    <content type="html"><![CDATA[<p>這篇也是拖很久了 XD 大概半年前 <a href="http://twitter.github.com/bootstrap/">twitter bootstrap</a> 出來的時候, 我就寫了 <a href="https://github.com/tzangms/django-bootstrap-form/">django bootstrap form</a> 放上了 github, 然後就開始用在 production, 像是 myaudiocast, stickeraciton 跟 <a href="http://tw.streetvoice.com/">streetvoice</a> 都有用上。</p>
+
+<p>不過因為一直沒時間研究怎麼放上 <a href="http://pypi.python.org/pypi">pypi</a>, 就想說也不方便 release, 畢竟不能透過 pip 安裝的話, 還是有點遜 XD 所以就一直沒有寫篇文章來正式發表, 一直到今天早上才研究了一下, 終於放上 pypi 了 :D</p>
+
+<p>截至目前為止 <a href="https://github.com/tzangms/django-bootstrap-form/">django bootstrap form</a>  有 46 個 watch, 也有一些人 fork, 至少有人用了, 哈。 稍微來說明一下怎麼使用好了。</p>
+
+<!-- more -->
+
+
+<p>首先, 透過 pip 安裝</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>pip install django-bootstrap-form
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然後在 <code>INSTALLED_APPS</code> 加上 <code>bootstrapform</code></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
+</span><span class='line'>    <span class="c"># ...</span>
+</span><span class='line'>    <span class="s">&#39;bootstrapform&#39;</span><span class="p">,</span>
+</span><span class='line'><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>接著在 template 裡面就可以開始用了</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>{% load bootstrap %}
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;form</span> <span class="na">method=</span><span class="s">&quot;post&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    {{ form|bootstrap }}
+</span><span class='line'>    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;actions&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">&quot;primary btn&quot;</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">value=</span><span class="s">&quot;Save&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'><span class="nt">&lt;/form&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>這樣馬上就給你一個符合 twitter bootstrap 樣式的表單了 :D</p>
+
+<p>其實有另一個 django bootstrap 的 implement, <a href="https://github.com/earle/django-bootstrap">django-bootstrap</a>, 不過他是透過繼承 Form / ModelForm 來產生, 我覺得這是一個錯誤的方向, 雖然說他的 watch 跟 fork 多很多 XD</p>
+
+<p>為什麼說他的方向是錯的, 首先, django 主要是以 app 的方式來搭建, 例如當你要安裝 django-bootatrap-form, 最直接的方式是透過 pip 來安裝, 安裝後這個 packages 會放在 site-packages 裡面, 而不是把 code 整個放進你的 repo。</p>
+
+<p>所以如果你安裝了 <a href="http://django-userena.org/">django-userena</a> 這個 packages 來處理你的會員登入/註冊, 你不可能直接修改 django-userena 裡面所有的 form 去繼承 django-bootstrap 的 form 阿。</p>
+
+<p>即便你可以這麼做好了, 直接改 template 還是比改 form 簡單多了阿, 更何況是 <a href="https://github.com/earle/django-bootstrap">django-bootstrap</a> 要改 form 又要改 template XD</p>
+
+<p>光從這一點就可以知道這是個錯誤的方向, 我不知道哪來這麼多人 watch / fork XD 另外就是, 之後的 django 也準備把原先 form 的方式給換掉, 因為把一些 html 寫在裡面開始有人覺得不對, 應該要抽出來。</p>
+
+<p>其實一開始 <a href="https://github.com/earle/django-bootstrap">django-bootstrap</a> 作者跟我討論過我們兩個 implement 的方式, 要不要一起合力弄一個 django-bootstap 就好, 我只跟他說我覺得你的方式不太對, 跟我希望的不一樣, 還是分開搞好了 XD</p>
+
+<p>最後, 有沒有 python developer 要來敝公司 <a href="http://tw.streetvoice.com">StreetVoice</a> 工作的阿? 歡迎來談談聊聊天阿 XD 請來信 tzangms [at] streetvoice.com</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Stickeraction moves to heroku]]></title>
@@ -812,55 +885,6 @@ http://electric-light-4662.herokuapp.com/ | git@heroku.com:electric-light-4662.g
 <p>兩年過了, 當初進來把 asp 砍掉, 用 python 重練都還沒練完, 應該這個月底可以結束, 似乎改版完之後, 一切就應該海闊天空了才對, 不過對我來說, 仍是前途渺茫啊~ 不過還能撐多久呢? who knows?</p>
 
 <p>總之還是得繼續學習繼續努力啊~</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Lettuce - Behaviour-driven development]]></title>
-    <link href="http://tzangms.com/programming/2837/"/>
-    <updated>2011-03-05T00:29:08+08:00</updated>
-    <id>http://tzangms.com/programming/lettuce__behaviourdriven_development</id>
-    <content type="html"><![CDATA[<p>前幾天看到 <a href="http://lettuce.it/">Lettuce</a> 覺得挺有趣的, 昨天一玩就玩了兩個小時, 玩到半夜兩點 &#8230;</p>
-
-<p>沒想到我連做夢都在寫 test case, 然後一直到醒來腦袋還一直在想 unit test  &#8230; 然後就乾脆爬了起來, 一直到天亮才爬回去睡, 結果今天真是累死了 Orz</p>
-
-<p>lettuce 有趣的地方是他的 feature 語法跟 steps, 我覺得真的挺有趣的, 甚至寫法文也行 XD</p>
-
-<p>feature 像是下面這樣寫</p>
-
-<pre><code>Feature: Manipulate strings
-  In order to have some fun
-  As a programming beginner
-  I want to manipulate strings
-
-  Scenario: Uppercased strings
-    Given I have the string "lettuce leaves"
-    When I put it in upper case
-    Then I see the string is "LETTUCE LEAVES"</code></pre>
-
-
-<p>然後 step 像是這樣</p>
-
-<pre><code>>>> from lettuce import *
->>> @step('I have the string "(.*)"')
-... def have_the_string(step, string):
-...     world.string = string
-...
->>> @step('I put it in upper case')
-... def put_it_in_upper(step):
-...     world.string = world.string.upper()
-...
->>> @step('I see the string is "(.*)"')
-... def see_the_string_is(step, expected):
-...     assert world.string == expected, \
-...         "Got %s" % world.string</code></pre>
-
-
-<p>真是超有趣的!!</p>
-
-<p>話說 lettuce 的文件中有用到 <a href="http://lxml.de/">lxml</a>, 好像挺不錯用的, 找時間來研究一下。</p>
-
-<p>另外經過推友補充還有 <a href="https://github.com/rlisagor/freshen">Freshen</a> 跟 <a href="https://github.com/heynemann/pyccuracy">Pyccuracy</a> 都是 BDD 的工具。</p>
 ]]></content>
   </entry>
   

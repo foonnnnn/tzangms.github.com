@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="沒啥好多說的! 點這裡安裝新版UPDATE: 已經解決無法 retweet 兩次的問題了請看這裡">
+  <meta name="description" content="今天一早因為 twitter 改板, 所以原本的 retweet 就失效了, 所以就馬上因應新版的 twitter 改寫了 retweet script, 不過後來一直有推友反應說不能 retweet 第二次, 所以下班回家就一直在找問題在哪。結果問題出在 $(&#8216;#status&#...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,51 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1696/">Twitter Retweet GM Script 0.3</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-19T23:16:39+08:00" pubdate  data-updated="true" >Sep 19<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天一早因為 <a href="http://twitter.com">twitter</a> 改板, 所以原本的 retweet 就失效了, 所以就馬上因應新版的 twitter 改寫了 retweet script, 不過後來一直有推友反應說不能 retweet 第二次, 所以下班回家就一直在找問題在哪。</p>
+
+<p>結果問題出在 $(&#8216;#status&#8217;).text(msg) 這個地方, 是還滿奇怪的, 後來改用 DOM 來做, 就很正常, 後來 <a href="http://twitter.com/kej">kej</a> 大大說用 $(&#8216;#status&#8217;).val(msg) 也可以, 最後就改用 $(&#8216;#status&#8217;).val(msg) 來做了, 感謝 kej 大大幫測 :D</p>
+
+<p>不過奇怪的是, , 在執行 $(&#8216;#status&#8217;).text(msg) 的時候, 用 firebug 看 html code 確實有改變, 但是畫面上看到的 textarea 則是完全沒有動作, 難道這就是人生嗎? XD</p>
+
+<p>anyway, 以上看不懂可直接略過, 下面來說說, 新增的功能。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/1696/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -515,67 +560,6 @@ foreach($blogs as $blog) {
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1555/">phpQuery - PHP 處理 HTML DOM 的好幫手阿!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-09-05T22:02:53+08:00" pubdate  data-updated="true" >Sep 5<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://code.google.com/p/phpquery/">phpQuery</a>, 在 PHP 處理 HTML DOM 的好幫手阿!! 哈! 這個 project 真不錯, 尤其是對於有使用 <a href="http://jquery.com">jQuery</a> 的人, 更容易上手阿 :p 顧名思義, 就是 PHP 的 jQuery 阿! DOM select 的語法跟 jQuery 完全一樣阿! 而且, 當然是 chainable :p 也就是說, 只有 PHP 5 能用囉 :p</p>
-
-<p>目前在 <a href="http://stickeraction.com">stickeraction</a> 有用到 phpQuery, 真的是很方便 :p</p>
-
-<p>可以看看以下範例, 這一段是我用來抓取網頁中, rss feed url 跟 title 的。</p>
-
-<pre>
-<code>require 'phpQuery.php';
-
-$url = 'http://tzangms.com/blog';
-$html = file_get_contents($url);
-
-phpQuery::newDocument($html)->find('head');
-
-$title = pq('head > title')->text();
-$feed_url = pq('head > link[rel=alternate]:first')->attr('href');
-
-echo $title;
-echo $feed_url;</code>
-</pre>
-
-
-<p>本來這個工作是直接用 <a href="http://simplepie.org">simplepie</a> 來作, 直接就可以抓到 RSS feed url 跟 RSS , 可是在抓 xuite blog 的時候卻有問題, 都抓不到 feed_url。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/programming/1555/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -595,6 +579,10 @@ echo $feed_url;</code>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/stickeraction-move-to-heroku/">Stickeraction moves to heroku</a>
       </li>
     
@@ -608,10 +596,6 @@ echo $feed_url;</code>
     
       <li class="post">
         <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
       </li>
     
   </ul>

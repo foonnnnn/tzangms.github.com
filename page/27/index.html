@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="Google Chrome 在大家用的過程中, 似乎都說, Chrome 在瀏覽 Google 的自家服務, 像是 Gmail, Google Reader 的時候, 跑起來的速度很不賴! 不過對於習慣使用有眾多 extension 的 Firefox 使用者來說, 總是覺得少了平常所習慣的功能。">
+  <meta name="description" content="phpQuery, 在 PHP 處理 HTML DOM 的好幫手阿!! 哈! 這個 project 真不錯, 尤其是對於有使用 jQuery 的人, 更容易上手阿 :p 顧名思義, 就是 PHP 的 jQuery 阿! DOM select 的語法跟 jQuery 完全一樣阿! 而且, 當然是...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,67 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1555/">phpQuery - PHP 處理 HTML DOM 的好幫手阿!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-09-05T22:02:53+08:00" pubdate  data-updated="true" >Sep 5<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://code.google.com/p/phpquery/">phpQuery</a>, 在 PHP 處理 HTML DOM 的好幫手阿!! 哈! 這個 project 真不錯, 尤其是對於有使用 <a href="http://jquery.com">jQuery</a> 的人, 更容易上手阿 :p 顧名思義, 就是 PHP 的 jQuery 阿! DOM select 的語法跟 jQuery 完全一樣阿! 而且, 當然是 chainable :p 也就是說, 只有 PHP 5 能用囉 :p</p>
+
+<p>目前在 <a href="http://stickeraction.com">stickeraction</a> 有用到 phpQuery, 真的是很方便 :p</p>
+
+<p>可以看看以下範例, 這一段是我用來抓取網頁中, rss feed url 跟 title 的。</p>
+
+<pre>
+<code>require 'phpQuery.php';
+
+$url = 'http://tzangms.com/blog';
+$html = file_get_contents($url);
+
+phpQuery::newDocument($html)->find('head');
+
+$title = pq('head > title')->text();
+$feed_url = pq('head > link[rel=alternate]:first')->attr('href');
+
+echo $title;
+echo $feed_url;</code>
+</pre>
+
+
+<p>本來這個工作是直接用 <a href="http://simplepie.org">simplepie</a> 來作, 直接就可以抓到 RSS feed url 跟 RSS , 可是在抓 xuite blog 的時候卻有問題, 都抓不到 feed_url。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/1555/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -552,46 +613,6 @@ Zorba, the XQuery processor</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/linux/1437/">Gentoo 裝 Logrotate 真的是很簡單</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-08-22T08:38:23+08:00" pubdate  data-updated="true" >Aug 22<span>nd</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>由於 <a href="http://stickeraction.com">StickerAction</a> 的 request 數還算滿多的, 所以 access_log 一下子就累積到幾百 MB 了, 想說之前有聽過 logrotate 這種東西, 就用 portage 找了一下。</p>
-
-<p><a href="http://gentoo.org">Gentoo</a> 的 Portage 真的是很貼心阿, 在裝好 logrotate 之後, 自動把一些需要 logrotate 的服務設定也都作上去了, 似乎在裝的時候, 系統會看你目前的服務有那些, 然後把相關的服務都給設定好! 像是 lighttpd 跟 mysql 的 log 現在自動 rotate 了, 但是我只打了下面這一行進行安裝。</p>
-
-<p><code>emerge logrotate</code></p>
-
-<p>所以搞到最後我根本不知道怎麼設定 囧</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -611,6 +632,10 @@ Zorba, the XQuery processor</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/stickeraction-move-to-heroku/">Stickeraction moves to heroku</a>
       </li>
     
@@ -624,10 +649,6 @@ Zorba, the XQuery processor</p>
     
       <li class="post">
         <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
       </li>
     
   </ul>

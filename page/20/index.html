@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="以往在要使用某個 class 的時候, 都會用 require, require_once 或 include 來讀 class 的檔案, 然後在 new 物件出來。 而 PHP 5 的 autoload 可以簡化這個部份, 使用 autoload 之後就不需要先用 require 來讀取 p...">
+  <meta name="description" content="在一年前就有讀過這一篇 Rails for PHP Developers  - PHP, Meet YAML, 只是當時都還在忙唱片的東西, 沒有時間碰, 不過最近在自己實作 framework, 研究 CodeIgniter 跟 Kohana 這兩個 framework 的做法, 一邊學習 ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,56 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2347/">用 YAML 來作設定檔</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-01-29T00:50:59+08:00" pubdate  data-updated="true" >Jan 29<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在一年前就有讀過這一篇 <a href="http://railsforphp.com/2008/01/08/php-meet-yaml/">Rails for PHP Developers  - PHP, Meet YAML</a>, 只是當時都還在忙唱片的東西, 沒有時間碰, 不過最近在自己實作 framework, 研究 <a href="http://codeigniter.com">CodeIgniter</a> 跟 <a href="http://kohanaphp.com/">Kohana</a> 這兩個 framework 的做法, 一邊學習 PHP。 而在某些 library 會需要設定檔, 所以想要用 <a href="http://www.yaml.org/">YAML</a> 來作, 畢竟 PHP 變數的設定擋方式, 看起來真的很糟糕 Orz ( 不過效能就不知道會差多少 )</p>
+
+<p>所以找了一下 PHP 上的關於 YAML 的 library, 找到了下面這幾個。</p>
+
+<ul>
+    <li><a href="http://pecl.php.net/package/syck">pecl-syck</a></li>
+    <li><a href="http://spyc.sourceforge.net/">spyc</a></li>
+    <li><a href="http://www.horde.org/">horde project</a></li>
+</ul>
+
+
+<p>基本上應該是用 pecl-syck 會比較好, extension 會比較快 (?)</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/programming/2347/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -480,46 +530,6 @@ Zend_Service_Yahoo</blockquote>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/2326/">Koumis @ 女巫店就在明天!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-01-14T22:48:43+08:00" pubdate  data-updated="true" >Jan 14<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>上次在河岸留言聽了 <a href="http://blog.koumis.cc">koumis</a> 的表演, 不過當天除了 koumis 跟 stephenlee 之外, 還多了一位吉他手/口風琴手 - 阿燦, 當天進行了一場三人編制的演出。</p>
-
-<p>當天第一次聽到 koumis 以三人的編制來進行表演, 雖然光是 koumis 跟 stephenlee 兩個人的 live 演出, 就足已讓台下的聽眾沈醉在 koumis 的音樂中, 不過三個人編制讓整個音樂又更顯豐富了, 而且恰到好處, 沒聽過的人都真該來聽看看 koumis 那乾淨的聲線, 以及那讓人沈醉其中的音樂。</p>
-
-<p>有興趣的朋友, 可以到 <a href="http://blog.koumis.cc/">koumis 的官方網站</a> 看看, 也有上次在河岸留言表演的影片, 不過可別光只是看, 明天來看一次 koumis 的 live 表演, 你才能真正體會 koumis 的魅力。</p>
-
-<p>而我明天也會出現, 擔任 koumis 的 special guest, 有空可以前往的朋友們, 記得明天要來呦! koumis 真的很棒! 而明天我將會演唱將會放在第二張專輯的歌曲, 想聽嗎? 錯過就不知道還要等多久囉! XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -539,6 +549,10 @@ Zend_Service_Yahoo</blockquote>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/stickeraction-move-to-heroku/">Stickeraction moves to heroku</a>
       </li>
     
@@ -552,10 +566,6 @@ Zend_Service_Yahoo</blockquote>
     
       <li class="post">
         <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/11/21/move-out-of-appengine/">搬出 App Engine</a>
       </li>
     
   </ul>
