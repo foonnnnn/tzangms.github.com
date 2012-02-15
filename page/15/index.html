@@ -554,6 +554,20 @@ def deploy():
     
   </ul>
 </section>
+<!-- Coderwall Div -->
+<div id="coderwall">
+    <h2>Coderwall</h2>
+    <script>
+        function display_coderwall(args) {
+            var badges = args["data"]["badges"];
+            for ( var i = 0; i < badges.length; i++ ) {
+                document.write('<img src="'+ badges[i]["badge"] + '" width="80" height="80" />');
+            }
+        }
+    </script>
+    <script src="http://coderwall.com/tzangms.json?callback=display_coderwall"></script>
+</div>
+<!-- End Coderwall Div -->
 
 <section>
   <h1>Github Repos</h1>
