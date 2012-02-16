@@ -4,7 +4,7 @@
   <title><![CDATA[Oceanic / 人生海海]]></title>
   <link href="http://tzangms.com/atom.xml" rel="self"/>
   <link href="http://tzangms.com/"/>
-  <updated>2012-02-16T12:21:53+08:00</updated>
+  <updated>2012-02-16T12:32:01+08:00</updated>
   <id>http://tzangms.com/</id>
   <author>
     <name><![CDATA[tzangms]]></name>
@@ -49,7 +49,7 @@
 
 <p>所以有一些網站就只提供下一頁, 或者像是 twitter / facebook 的 timeline, 都直接給你下一頁而已, 甚至就直接叫 Load more。</p>
 
-<p>只提供下一頁的好處就是不用再去 count 了, 所以原本兩次 query 變成一次, 而且通常在 django 裡, count 的 query 都比你實際要的資料還要慢。</p>
+<p>只提供下一頁的好處就是不用再去 count 了, 所以原本兩次 query 變成一次, 而且通常在 django 裡, count 的 query 都比你實際要資料的 query 還慢。</p>
 
 <p>所以如果不需要 count 的話, 接下來就只剩得知道&#8221;還有沒有下一頁&#8221;這件事了, 有看到人家的解法是, 一樣做兩次 query, 如果我要 20 筆資料, 那麼就多做一次抓 21 筆的 query, 如果有 21 筆的話, 那麼就代表有下一頁, hmm &#8230; 聽起來就不太好 XD</p>
 
