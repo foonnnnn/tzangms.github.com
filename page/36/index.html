@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="從 Tsung&#8217;s Blog 看到 這一篇文章「好站: HTML/XHTML/CSS 驗證」之後才想到, 作好的 PP 都還沒有拿來測過, 所以昨天晚上就把 PP 丟過去測看看, 沒想到 error 還滿多的, 想說不知道其他網站的狀況如何? 乾脆再拿一些網站的首頁丟進 Marku...">
+  <meta name="description" content="這是針對 CodeIgniter 1.5.4 所寫的一個問題, 由於前幾天小雷開始自己用 CI 在寫程式, 不過這次小雷在 CodeIgniter 並不是設定檔的方式來設定資料庫的方式, 而是透過用 DSN 的方式來連線, 結果碰到了問題, 其實這是 CodeIgniter 的 bug。dsn...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,56 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/codeigniter/1038/">CodeIgniter Database DSN Problem</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-12-23T07:13:55+08:00" pubdate  data-updated="true" >Dec 23<span>rd</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>這是針對 CodeIgniter 1.5.4 所寫的一個問題, 由於前幾天<a href="http://tinklevin.blogspot.com/">小雷</a>開始自己用 CI 在寫程式, 不過這次小雷在 CodeIgniter 並不是設定檔的方式來設定資料庫的方式, 而是<a href="http://codeigniter.com/user_guide/database/connecting.html">透過用 DSN 的方式來連線</a>, 結果碰到了問題, 其實這是 CodeIgniter 的 bug。</p>
+
+<p>dsn 應該是像下面這樣:</p>
+
+<p><code>$dsn = 'mysql://username:password@hostname/database';</code></p>
+
+<p>但是在執行的時候, 跑出來的錯誤訊息居然是抓錯了 database driver, 用這個 dsn, 當然 CI 的 DB driver 應該就是 mysql, 沒想到 CodeIgniter 抓出來的 database driver 居然是 m &#8230; 沒錯! 一個英文字母「m」, 像是下面這樣:</p>
+
+<blockquote>require_once(/srv/www/vhosts/admitere/system/database/drivers/m/m_driver.php) [function.require-once]: failed to open stream: No such file or directory</blockquote>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/codeigniter/1038/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -453,50 +503,6 @@ echo $this->simplepie->get_title();</code></pre>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/1013/">NDSL 自彈自唱@憂鬱馬戲團團聚</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-11-12T22:55:41+08:00" pubdate  data-updated="true" >Nov 12<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><center>                                                            <script type="text/javascript" src="http://blip.tv/scripts/pokkariPlayer.js?ver=2007100301"></script><script type="text/javascript" src="http://blip.tv/syndication/write_player?skin=js&posts_id=482468&source=3&autoplay=true&file_type=flv&player_width=&player_height="></script><div id="blip_movie_content_482468"><a rel="enclosure" href="http://blip.tv/file/get/Thecarol-260.flv" onclick="play_blip_movie_482468(); return false;"><img title="Click to play" alt="Video thumbnail. Click to play"  src="http://blip.tv/file/get/Thecarol-260.flv.jpg" border="0" title="Click To Play" /></a><br /><a rel="enclosure" href="http://blip.tv/file/get/Thecarol-260.flv" onclick="play_blip_movie_482468(); return false;">Click To Play</a></div>                                     </center>
-
-
-<p>Mr. BIG - to be with you by <a href="http://carol.bluecircus.net/">Carol</a></p>
-
-<p>第一次參加<a href="http://blog.bluecircus.net/">憂鬱馬戲團</a>的團聚, 第一次嘗試用 NDSL 做現場表演, 有困難到, 也忘詞忘和絃的 XD 不過團聚頗好玩, 也看到了許多知名部落客 XD 也有玩到奶爸的 EeePc 跟 iPod touch, 當天唱了兩首歌, 認識了一些人 :p 另外 jeph 的 DJ 玩具也頗屌! 搭配 Tracktor DJ 感覺很好玩!!!</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/music/1013/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -516,6 +522,10 @@ echo $this->simplepie->get_title();</code></pre>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/16/django-nextpage/">Django nextpage</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
       </li>
     
@@ -531,10 +541,6 @@ echo $this->simplepie->get_title();</code></pre>
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
-      <li class="post">
-        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
   </ul>
 </section>
 <!-- Coderwall Div -->
@@ -543,9 +549,12 @@ echo $this->simplepie->get_title();</code></pre>
     <script>
         function display_coderwall(args) {
             var badges = args["data"]["badges"];
+            var wall = '';
             for ( var i = 0; i < badges.length; i++ ) {
-                document.write('<img src="'+ badges[i]["badge"] + '" width="80" height="80" />');
+                wall += '<a href="http://coderwall.com/tzangms/"><img src="'+ badges[i]["badge"] + '" width="80" height="80" /></a>';
             }
+
+            document.write(wall);
         }
     </script>
     <script src="http://coderwall.com/tzangms.json?callback=display_coderwall"></script>

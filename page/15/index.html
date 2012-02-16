@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="最近因為 thickbox 在 ie7 下的 position 問題, 到處 google solution, 心中想說這個問題不是早該處理掉? 而且 thickbox 也超久沒 release 新版, 感覺怪怪的。 不過今天下午為了查某個功能才發現 thickbox 的網頁上寫著不在繼續維護...">
+  <meta name="description" content="其實這是測試剛上線網站的 embed flash player  XD">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,42 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/2498/">[Music] 我自己</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-10-22T12:47:57+08:00" pubdate  data-updated="true" >Oct 22<span>nd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><embed src="http://tw.beta.streetvoice.com/static/player/MusicPlayer.swf?srv=tw.beta.streetvoice.com&ph=music&getv=config&skinID=6&au=70735&listtype=1&listsd=1800&autoStart=false&autoPlay=false&isEmbed=true&jsPlayer=false" allowFullScreen="false" allowScriptAccess="always" scale="noscale" type="application/x-shockwave-flash" width="330" height="100"></embed></p>
+
+<p>其實這是測試剛上線網站的 embed flash player  XD</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -474,46 +510,6 @@ def deploy():
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/nothing/2472/">破 7000 個部落格串連的貼紙</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-08-17T00:10:37+08:00" pubdate  data-updated="true" >Aug 17<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a title="莫拉克災情網路中心" href="http://stickeraction.com/taiwanfloods/go"><img class="alignleft" src="http://stickeraction.com/taiwanfloods/sticker" border="0" alt="莫拉克災情網路中心" /></a></p>
-
-<p>這張貼紙在剛才破 7000 個部落格串連了, 不過其實也沒啥值得高興的。 <a href="http://stickeraction.com">stickeraction</a> 說穿只是一個統計工具, 沒有宣傳就根本無用的工具。 不過無名的宣傳也實在是很夠力, 大部分的連結都是無名辦公室這個部落格跟<a href="http://typhoon.adct.org.tw/">莫拉克災情網路中心</a>過來的。  有興趣的可以到<a href="http://stickeraction.com/taiwanfloods/bsp">這裡</a>看一下各大 BSP 的統計圖跟串連數, 無名串連的部落格就佔了 4 千多個。</p>
-
-<p>anyway, 主要是剛才看了我媽阿潑寫的這一篇文章 <a href="http://annpo.pixnet.net/blog/post/24165915">【garbage words】I say, We or They? @ 哈囉～ 馬凌諾斯基</a> 所以挑了上面那個我作為離題文章的主題, 讓也許不感興趣的人也可以看一下這篇文章。</p>
-
-<p>其實我媽阿潑常會 refresh 我的一些想法, 這種媽咪哪裡找呢~</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -533,6 +529,10 @@ def deploy():
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/16/django-nextpage/">Django nextpage</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
       </li>
     
@@ -548,10 +548,6 @@ def deploy():
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
-      <li class="post">
-        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
   </ul>
 </section>
 <!-- Coderwall Div -->
@@ -560,9 +556,12 @@ def deploy():
     <script>
         function display_coderwall(args) {
             var badges = args["data"]["badges"];
+            var wall = '';
             for ( var i = 0; i < badges.length; i++ ) {
-                document.write('<img src="'+ badges[i]["badge"] + '" width="80" height="80" />');
+                wall += '<a href="http://coderwall.com/tzangms/"><img src="'+ badges[i]["badge"] + '" width="80" height="80" /></a>';
             }
+
+            document.write(wall);
         }
     </script>
     <script src="http://coderwall.com/tzangms.json?callback=display_coderwall"></script>

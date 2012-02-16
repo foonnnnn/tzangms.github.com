@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="上個週末，也就是前兩天錄了&#8221;打爆你的大頭&#8221;，這個週末應該就可以把歌丟上Streetvoice了，目前還在修鼓跟一些小地方，也許吉他要重錄吧？目前吉他是直接Line in到電腦，直接用電腦的模擬音箱來作distrotion的處理，所以感覺不夠烈，所以感覺太平了，但是&#8...">
+  <meta name="description" content="FCKEditor，一個用javascript寫成的線上的WYSIWYG編輯器，有些用ie的人才會發現到一個問題，一個關於按Enter斷行的問題。如果你用ie，然後不知道為什麼，當按下Enter的時候，會看到原本編輯的那一行跟按下Enter之後的那一行，好像跨了兩行，但是往上按或是按Backs...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,64 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/675/">FCKEditor 的斷行 P 或 BR ?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-08-01T11:11:00+08:00" pubdate  data-updated="true" >Aug 1<span>st</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a target="_blank" href="http://www.fckeditor.net/">FCKEditor</a>，一個用javascript寫成的線上的WYSIWYG編輯器，有些用ie的人才會發現到一個問題，一個關於按Enter斷行的問題。</p>
+
+<p>如果你用ie，然後不知道為什麼，當按下Enter的時候，會看到原本編輯的那一行跟按下Enter之後的那一行，好像跨了兩行，但是往上按或是按Backspace都是回到原本的那一行，中間會有一行空白，然而中間的空白，其實只是段落造成的，也就是說中間產生的空白是因為文章段落跟段落之間的區分而已。</p>
+
+<p>所以在各大網站，也許他們的留言版或blog有支援HTML的功能、有HTML Toolbar，但是這種斷行的問題還是在，是大家都習慣了這種方式嗎，至少有些使用者不習慣所帶來的空白?包括我 XD <em>ps. 有些站台會註明說，請使用 shift+Enter 來斷行。</em>之後看了原始碼才知道，原來ie直接按Enter送的會是 <em>p</em> 也就是&#8221;段落&#8221;，shift+Enter送的會是 <em>br</em>，但是Firefox不管Enter加不加shift都是送出 <em>br</em> 所以不會造成像ie一樣行距看起來太高、或是多了一行空白。</p>
+
+<p>基本上WYSIWYG的編輯器需要Enter跟Shift+Enter來分別代表跟
+<em>p</em> 跟 <em>br</em> 這兩種tag，不然你在firefox上就只能有 <em>br</em> ??</p>
+
+<p>跟<a target="_blank" href="http://blog.cschang.info/">clotho</a>大大討論之後，大大丟了這一個<a target="_blank" href="https://sourceforge.net/tracker/index.php?func=detail&aid=1246949&group_id=75348&atid=543653">網址</a>給我，關於firefox
+在FCKEditor的bug report(FCKedit的bug)，有討論到Firefox送出來的都是 <em>br</em> 而沒有這個段落 <em>p</em> 這個 tag，似乎按Enter送出 <em>p</em> 然後按shift+Enter送出 <em>br</em> 是個標準。個人覺得是有這個需求，但是這真的會造成一般使用者的誤會，畢竟原來的textarea換成了htmlarea，按Enter的動作居然會不一樣。</p>
+
+<p>總而言之，<em>p</em> 或者是 <em>br</em> 這算是使用上習慣問題，只是按Enter送 <em>p</em> 然後按shift+Enter送出 <em>br</em> 則是既定規則，也有需求(總不能沒有 <em>p</em> 吧 XD)</p>
+
+<p>也許在留言版之類的HTML Editor就讓他只送 <em>br</em> ，畢竟只有留一小段文字，然後在打文章或blog的HTML Editor就用一般的規則。但是你怎麼知道誰不會在留言版或comments打文章? 那是使用者要去學習這種既定規則，還是programmer修改程式去符合使用者的習慣? 看你或者是看你上司了 XD
+總之，新版的FCKeditor應該已經修改好Firefox只能送出 <em>br</em> 的bug了，所以以後不管ie或是firefox按enter都會送出 <em>p</em>，但如果你只想按Enter送出 <em>br</em> 呢?</p>
+
+<p>請修改 <em>fckconfig.js</em> 裡的這一行:</p>
+
+<blockquote><em>FCKConfig.UseBROnCarriageReturn = true ;</em></blockquote>
+
+
+<p>預設應該為false，改為true的話，當你按下Enter之後就只會送出 <em>br</em> 囉!</p>
+
+<p>PS. <em>IE SUCK</em> 的目錄分類在我的blog代表的是<em>Browser</em>。XD 不過這篇說得不是ie的bug，而是使用者的習慣及疑問。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -458,45 +516,6 @@ double-qoute 可是要按shift內&#8230;.Orz</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/658/">我想忘記你 Recording&#8230;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2006-06-24T00:16:00+08:00" pubdate  data-updated="true" >Jun 24<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>昨天晚上把Mac OS X重灌之後，把Garageband 3跟Jam Pack給裝了上去，今天早上就開始用Garageband錄音，但是發現&#8230;Garageband整個performance很遭 Orz 所以我還是把Logic Express給裝上了，然後發現insert這個東西，可以把Garageband的instrument的preset給insert到Logic的Plugin，這樣一來超方便的。</p>
-
-<p>今天一整天都在錄這首歌，時間主要都花在Vocal的錄製上，因為買了一支新的電腦麥克風，雖然才$199，不過收音卻比先前買的$700的卡拉ok麥克風好很多，整個清楚阿!! 據說新的這支是電容式的?阿災。好吧！新的麥克風，收音又好，那麼問題就來了!!我的聲音那麼糟，所以收音清楚的麥克風，馬上聽到自己的聲音不是那麼的穩定，更何況～ 這首新歌寫的有點難唱~ 有些地方超難唱的，所以說這首的Vocal一直重錄、一直重錄&#8230;.天阿！明天還是要在重錄，還有和聲也還要修，另外還有吉他solo想不出來&#8230;.</p>
-
-<p>另外，Logic的Reverb也不是很好控制，還有mastering的部份也還要在摸&#8230;
-就先這樣!給我靈感吧!!!</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -516,6 +535,10 @@ double-qoute 可是要按shift內&#8230;.Orz</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/16/django-nextpage/">Django nextpage</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
       </li>
     
@@ -531,10 +554,6 @@ double-qoute 可是要按shift內&#8230;.Orz</p>
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
-      <li class="post">
-        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
   </ul>
 </section>
 <!-- Coderwall Div -->
@@ -543,9 +562,12 @@ double-qoute 可是要按shift內&#8230;.Orz</p>
     <script>
         function display_coderwall(args) {
             var badges = args["data"]["badges"];
+            var wall = '';
             for ( var i = 0; i < badges.length; i++ ) {
-                document.write('<img src="'+ badges[i]["badge"] + '" width="80" height="80" />');
+                wall += '<a href="http://coderwall.com/tzangms/"><img src="'+ badges[i]["badge"] + '" width="80" height="80" /></a>';
             }
+
+            document.write(wall);
         }
     </script>
     <script src="http://coderwall.com/tzangms.json?callback=display_coderwall"></script>

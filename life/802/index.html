@@ -153,6 +153,10 @@ H2O樂團的鼓手小廖, 今天終於出發開始他的軍旅生涯了! 所以�
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/16/django-nextpage/">Django nextpage</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
       </li>
     
@@ -168,10 +172,6 @@ H2O樂團的鼓手小廖, 今天終於出發開始他的軍旅生涯了! 所以�
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
-      <li class="post">
-        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
   </ul>
 </section>
 <!-- Coderwall Div -->
@@ -180,9 +180,12 @@ H2O樂團的鼓手小廖, 今天終於出發開始他的軍旅生涯了! 所以�
     <script>
         function display_coderwall(args) {
             var badges = args["data"]["badges"];
+            var wall = '';
             for ( var i = 0; i < badges.length; i++ ) {
-                document.write('<img src="'+ badges[i]["badge"] + '" width="80" height="80" />');
+                wall += '<a href="http://coderwall.com/tzangms/"><img src="'+ badges[i]["badge"] + '" width="80" height="80" /></a>';
             }
+
+            document.write(wall);
         }
     </script>
     <script src="http://coderwall.com/tzangms.json?callback=display_coderwall"></script>

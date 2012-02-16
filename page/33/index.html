@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="如果這一陣子因為 Ruby 跟 RoR 的爆紅, 讓你急著想轉換到 Ruby (好吧! 至少我偷學了 Ruby XD) 也許可以看看 CIO 的這一篇 You Used PHP to Write WHAT?! 的 comments。 由於文章中提到的一些論點讓 PHP的擁護者倒彈, 像是&#8...">
+  <meta name="description" content=" 沒事, 只是記錄一下禮拜日剪了個新髮型, 還有 sonia 很正, 就醬。想找 sonia 剪的可以看看這一篇。走超短文路線才是王道阿!">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,45 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/1116/">新髮型 by Sonia@FIN</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-03-20T21:21:35+08:00" pubdate  data-updated="true" >Mar 20<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/2337857224/" title="me and Sonia by tzangms, on Flickr"><img src="http://farm3.static.flickr.com/2356/2337857224_fb20fb0979.jpg" alt="me and Sonia" class="left" height="500" width="375" /></a> 沒事, 只是記錄一下禮拜日剪了個新髮型, 還有 sonia 很正, 就醬。想找 sonia 剪的可以看看<a href="http://tzangms.com/life/933">這一篇</a>。</p>
+
+<p>走超短文路線才是王道阿!</p>
+
+<div style='clear:both'></div>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -458,46 +497,6 @@ Programmer 可以看看這篇, 裡面提到一些 programmer 具有的特質, �
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1085/">PHP Question</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-02-19T20:47:55+08:00" pubdate  data-updated="true" >Feb 19<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>在一本書上看到的問題如下:</p>
-
-<p><code>$a = 1;
-$a = $a-- +1;
-echo $a;</code></p>
-
-<p>這時候 $a 會等於多少? XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -517,6 +516,10 @@ echo $a;</code></p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/16/django-nextpage/">Django nextpage</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
       </li>
     
@@ -532,10 +535,6 @@ echo $a;</code></p>
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
-      <li class="post">
-        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
   </ul>
 </section>
 <!-- Coderwall Div -->
@@ -544,9 +543,12 @@ echo $a;</code></p>
     <script>
         function display_coderwall(args) {
             var badges = args["data"]["badges"];
+            var wall = '';
             for ( var i = 0; i < badges.length; i++ ) {
-                document.write('<img src="'+ badges[i]["badge"] + '" width="80" height="80" />');
+                wall += '<a href="http://coderwall.com/tzangms/"><img src="'+ badges[i]["badge"] + '" width="80" height="80" /></a>';
             }
+
+            document.write(wall);
         }
     </script>
     <script src="http://coderwall.com/tzangms.json?callback=display_coderwall"></script>

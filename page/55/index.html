@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="01. JESUS CRIST02. COUNTDOWN03. MADE IN HEAVEN04. I CAN FEEL05.  SEASON’S CALL06. FAITH07. DOLLY08. PERFECT MOMENT09. MISSION10.  IT’S SAD今天去interv...">
+  <meta name="description" content="今天去買了一盒10片的LightScribe CD-R，一片15元，嗯~可能因為是HP的，所以比較貴。記得先前曾經在Y拍賣上看到100片不知名廠牌的LightScribe CD-R只賣$999，這樣算來一片大概10塊。先前是想說要做H2O的CD，所以想說封面直接用LightScribe會比較帥...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,42 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/computer/646/">LightScribe CD-R</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2006-05-19T18:16:08+08:00" pubdate  data-updated="true" >May 19<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a title="Photo Sharing" href="http://www.flickr.com/photos/tzangms/153639247/"><img width="100" height="54" align="left" alt="LightScribe logo" src="http://static.flickr.com/60/153639247_911d996491_t.jpg" /></a>今天去買了一盒10片的LightScribe CD-R，一片15元，嗯~可能因為是HP的，所以比較貴。記得先前曾經在Y拍賣上看到100片不知名廠牌的LightScribe CD-R只賣$999，這樣算來一片大概10塊。</p>
+
+<p>先前是想說要做H2O的CD，所以想說封面直接用LightScribe會比較帥氣，至少感覺比較專業，但是以為LightScribe只有DVD的片子，所以就打消念頭，後來到一些3C賣場都沒找到LightScribe DVD的片子，所以就到Y拍賣看，沒想到就找到居然有LightScribe CD-R!嗯!要做一些灰階的 CD Cover來試試看!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -427,44 +463,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/linux/631/">Emerging&#8230;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2006-04-05T13:28:04+08:00" pubdate  data-updated="true" >Apr 5<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>呵呵，昨天下午開始重灌我的iBook，連晚上睡覺都在emerge，現在也還在emerge，Base System->X.org->WindowMaker->Firefox->Gaim，目前還在編譯Gaim中&#8230;超 久&#8230;&#8230;.但是firefox跑起來的速度還真不賴!!倒是..Mac OS X都還沒灌..不過反正最近也沒準備要錄東西&#8230;寫php也只要Full screen console吧!頂多用w3m來preview，anyway，繼續emerge!!</p>
-
-<p>另外，gimp跑起來很順，不像在Mac OS X跑Photoshop感覺總是卡卡的，是因為我的iBook G4 800不夠力嗎?有錢真的該買台powerbook!不過感覺Windows跟Linux看起來比較neat，就連Flash也想在Windows作， Mac OS X有點華麗到有種不夠腳踏實地的感覺 XD</p>
-
-<p>我想我會這麼想的原因只有一個! 就是機器不夠力阿!</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -484,6 +482,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/16/django-nextpage/">Django nextpage</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
       </li>
     
@@ -499,10 +501,6 @@
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
-      <li class="post">
-        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
   </ul>
 </section>
 <!-- Coderwall Div -->
@@ -511,9 +509,12 @@
     <script>
         function display_coderwall(args) {
             var badges = args["data"]["badges"];
+            var wall = '';
             for ( var i = 0; i < badges.length; i++ ) {
-                document.write('<img src="'+ badges[i]["badge"] + '" width="80" height="80" />');
+                wall += '<a href="http://coderwall.com/tzangms/"><img src="'+ badges[i]["badge"] + '" width="80" height="80" /></a>';
             }
+
+            document.write(wall);
         }
     </script>
     <script src="http://coderwall.com/tzangms.json?callback=display_coderwall"></script>

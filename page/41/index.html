@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="我又跑去剪頭髮了, 話說找 Sonia 剪了三次頭髮, 三次都在不同的店, 上次這篇寫到 Sonia 是在斐瑟的對應髮廊 I, 結果這次又換到了捷運中山站附近的 FIN。">
+  <meta name="description" content="嗯, 上禮拜日公司在電腦應用展參展, 輪到我支援, 幫忙參展的活動, 但沒想到我真的下海當主持人 XD 至於旁邊這兩位, 則是公司請來的工讀生(show girl?)">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,47 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/935/">主持@電腦應用展</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-08-12T02:00:07+08:00" pubdate  data-updated="true" >Aug 12<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/1030911337/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1196/1030911337_a9ed155a69.jpg" width="500" height="375" alt="1029519896_a7270a3973_o.jpg" /></a></p>
+
+<p>嗯, 上禮拜日公司在電腦應用展參展, 輪到我支援, 幫忙參展的活動, 但沒想到我真的下海當主持人 XD 至於旁邊這兩位, 則是公司請來的工讀生(show girl?)</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/life/935/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -440,54 +481,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/917/">搬家準備, Item List &#8230;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-07-20T00:02:55+08:00" pubdate  data-updated="true" >Jul 20<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>要搬的東西其實也沒真的很多, 都是下面這些大傢伙害的&#8230;..讓我感覺東西很多..</p>
-
-<p><a href="http://www.flickr.com/photos/tzangms/851559311/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1047/851559311_c5045f2d08_m.jpg" width="180" height="240" alt="100_2139.JPG" class='left' /></a>Yamaha SBV 500</p>
-
-<p>這把已經在哭了, 很久沒換弦, 很久沒表演, 沒辦法, 因為自從找了 Bass 手<a href='http://www.wretch.cc/blog/imgoodness'>志豪</a>之後, 我就改彈吉他了。 話說以前很喜歡旺福, 旺福還沒出唱片之前, 就追著旺福到處看表演, 所以這一把上面還貼了一張&#8221;旺福&#8221;貼紙 XD 然而隨著歲月的流逝, 這把跟了我 7 年的 bass, 他的面板也漸漸從白色變成了黃色了&#8230;</p>
-
-<div style='clear: both; padding: 5px;'></div>
-
-
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/life/917/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -507,6 +500,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/16/django-nextpage/">Django nextpage</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
       </li>
     
@@ -522,10 +519,6 @@
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
-      <li class="post">
-        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
   </ul>
 </section>
 <!-- Coderwall Div -->
@@ -534,9 +527,12 @@
     <script>
         function display_coderwall(args) {
             var badges = args["data"]["badges"];
+            var wall = '';
             for ( var i = 0; i < badges.length; i++ ) {
-                document.write('<img src="'+ badges[i]["badge"] + '" width="80" height="80" />');
+                wall += '<a href="http://coderwall.com/tzangms/"><img src="'+ badges[i]["badge"] + '" width="80" height="80" /></a>';
             }
+
+            document.write(wall);
         }
     </script>
     <script src="http://coderwall.com/tzangms.json?callback=display_coderwall"></script>

@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="被操到快暴斃身亡了，黑眼圈超重，還是說我以前就一直都這樣?XD 另外，我當兵頭髮一值都是這樣，一點都不像在當兵吧！哈哈哈哈!">
+  <meta name="description" content="每次都是4:59 pm的火車，幾乎是每個禮拜都是這樣，到底還要多久阿，這幾個月真是累到翻，真是有點不想回去，知道下禮拜跟下下禮拜又會是一番的折磨，真是痛苦阿! 這種日子居然還要10個月 Orz 雖然也許經過這次的考驗之後，可能往後的日子都會覺得很輕鬆，不過希望真的是如此才是。 好久沒有玩樂團、...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,40 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/387/">今天又要趕回去當兵了</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2005-04-05T14:15:00+08:00" pubdate  data-updated="true" >Apr 5<span>th</span>, 2005</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>每次都是4:59 pm的火車，幾乎是每個禮拜都是這樣，到底還要多久阿，這幾個月真是累到翻，真是有點不想回去，知道下禮拜跟下下禮拜又會是一番的折磨，真是痛苦阿! 這種日子居然還要10個月 Orz 雖然也許經過這次的考驗之後，可能往後的日子都會覺得很輕鬆，不過希望真的是如此才是。 好久沒有玩樂團、表演了！H2O自從上次跨年在replay表演之後，一直到現在已經經過了3個月了，完全沒動靜，幸好我還有跟紅色指甲油出去表演個幾場，不過那也是2月的事了，現在已經4月了阿!!!!大家，等著5月到來吧! 到時候大家一起衝吧!!!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -384,40 +418,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/374/">休三天ㄝ！</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2005-02-28T15:03:00+08:00" pubdate  data-updated="true" >Feb 28<span>th</span>, 2005</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>可是一連三天都在下雨，然後iMic寄到了，我昨天又跑去買了一支麥克風，Philip的，花了我1350，所以我三天都沒有出去，一直待在家裡弄錄音的 東西，不過到了最後總覺得浪費了好多時間，因為一點東西都沒搞出來。而且這支麥克風收音太好，反而覺得自己的聲音不穩，不過這支麥克風似乎中頻不太夠，電容式的內，搞什麼阿！我開始懷疑這是演講用的麥克風 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -437,6 +437,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/16/django-nextpage/">Django nextpage</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
       </li>
     
@@ -452,10 +456,6 @@
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
-      <li class="post">
-        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
   </ul>
 </section>
 <!-- Coderwall Div -->
@@ -464,9 +464,12 @@
     <script>
         function display_coderwall(args) {
             var badges = args["data"]["badges"];
+            var wall = '';
             for ( var i = 0; i < badges.length; i++ ) {
-                document.write('<img src="'+ badges[i]["badge"] + '" width="80" height="80" />');
+                wall += '<a href="http://coderwall.com/tzangms/"><img src="'+ badges[i]["badge"] + '" width="80" height="80" /></a>';
             }
+
+            document.write(wall);
         }
     </script>
     <script src="http://coderwall.com/tzangms.json?callback=display_coderwall"></script>

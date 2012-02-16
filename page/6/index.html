@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="  突然懷疑升級完全是為了搭配簡單生活節的行銷活動 (咦) 不過既然被推出來了, 所以也只好宣傳一下, 不然串連數很少很難看阿!!!所以, 麻煩有部落格的大家都來串連一下, 你說好不好阿!!? XD 趕快到 串連貼紙頁面 去複製貼紙語法回去部落格貼一下吧!! 拜託不要讓我這張貼紙的串連數字太難...">
+  <meta name="description" content="居然大概只花了 7 天就送來了! 今天第一次在 UPS 的機器上簽名 XD 有興趣要買的可以看看這裡, 倒是我有點後悔買黑色的了 ~&#8221;~">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,42 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/2734/">Padfoot for Ipad</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-10-13T22:12:02+08:00" pubdate  data-updated="true" >Oct 13<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/5077846625/" title="IMG_0010 by tzangms, on Flickr"><img src="http://farm5.static.flickr.com/4019/5077846625_2da83d4af8.jpg" width="500" height="500" alt="IMG_0010" /></a></p>
+
+<p>居然大概只花了 7 天就送來了! 今天第一次在 UPS 的機器上簽名 XD 有興趣要買的可以看看<a href="http://www.michielcornelissen.com/padfoot_stand_for_ipad.html">這裡</a>, 倒是我有點後悔買黑色的了 ~&#8221;~</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -444,42 +480,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2710/">CouchDB: The Definitive Guide</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-09-02T02:26:39+08:00" pubdate  data-updated="true" >Sep 2<span>nd</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://guide.couchdb.org/">CouchDB: The Definitive Guide</a> 這本書以 Creative Commons 釋出, 可以直接線上閱讀, 而網站還做的真漂亮, 還滿易讀的。</p>
-
-<p>其實我一直還滿喜歡 CouchDB 的, 主要是 Futon, 還有像是 <a href="http://couchapp.org/page/index">couchapp</a> 可以很方便弄一些簡單的又 powerful 的東西出來。</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -499,6 +499,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/16/django-nextpage/">Django nextpage</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
       </li>
     
@@ -514,10 +518,6 @@
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
-      <li class="post">
-        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
   </ul>
 </section>
 <!-- Coderwall Div -->
@@ -526,9 +526,12 @@
     <script>
         function display_coderwall(args) {
             var badges = args["data"]["badges"];
+            var wall = '';
             for ( var i = 0; i < badges.length; i++ ) {
-                document.write('<img src="'+ badges[i]["badge"] + '" width="80" height="80" />');
+                wall += '<a href="http://coderwall.com/tzangms/"><img src="'+ badges[i]["badge"] + '" width="80" height="80" /></a>';
             }
+
+            document.write(wall);
         }
     </script>
     <script src="http://coderwall.com/tzangms.json?callback=display_coderwall"></script>

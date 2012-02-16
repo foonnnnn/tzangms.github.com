@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="記得之前我用Skype的時候，我的iBook收音超好，在我的房間裡面，不管我這在哪裡都收得到，超好用阿，直接躺在床上聊天聊到睡著也不是問題，據對方說還很清楚。還有沒有人在用skype阿?來玩嘛! :D我的skype帳號: tzangms">
+  <meta name="description" content="今天開始在錄期待，之前小廖一次用Guitar pro編了I want to be free跟期待的鼓給我，I want to be free有把鼓給匯入，然後輸出成品，只是 I want to be free的Vocal部份可能需要重錄，因為現在有更好的錄音方式。今天就直接把小廖編好的鼓拿來開...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,44 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/560/">期待錄製中!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2005-12-24T23:35:00+08:00" pubdate  data-updated="true" >Dec 24<span>th</span>, 2005</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天開始在錄期待，之前小廖一次用Guitar pro編了I want to be free跟期待的鼓給我，I want to be free有把鼓給匯入，然後輸出成品，只是 I want to be free的Vocal部份可能需要重錄，因為現在有更好的錄音方式。今天就直接把小廖編好的鼓拿來開始錄音，目前只剩Vocal跟吉他solo的部份還沒有錄，吉他Solo是一個很麻煩的東西，第二段solo簡直就是靈感的考驗，通常一首歌就中間一個solo，所以靈感已經在第一次solo都用光了，碰到第二次就死了XD</p>
+
+<p>這次想說要錄個弦樂的東西進去，其實之前就有發現到一個問題，縱使你有弦樂的音色，但是要用midi玩出小提琴的感覺，並不是怎麼彈都可以像小提琴，撇開樂器上的限制不說 (例如用KB彈的時候，要考慮到實際上小提琴跨弦的問題、甚至把位&#8230;等等) 要彈出小提琴感覺，還是要知道人家小提琴怎麼拉，拉什麼音或樂句。所以說並不是光靠器材就可以解決的問題。最近一直在聽有配弦樂的東西 :D</p>
+
+<p>PS : 蘇打綠的歌裡面都滿滿的弦樂</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -401,41 +439,6 @@ Power feeling的BASS手還滿龐克的感覺，看起來滿性感的，他們團
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/550/">新的電腦環境！！</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2005-12-11T20:37:00+08:00" pubdate  data-updated="true" >Dec 11<span>th</span>, 2005</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/97639129/" title="Photo Sharing"><img src="http://static.flickr.com/27/97639129_8c0fbb9eb5.jpg" width="500" height="375" alt="new desktop enviroment" /></a>
-因為放四天，所以比較有空，就整理了一下桌面，把他擺成了這樣！iBook下面是CoolPad，本來還有風扇，不過會壓到Keyboard上面的按鈕，所以我只好狠心把他風扇拆了，然後買了一個USB 2.0 HUB把 MIDI界面跟Audio界面都一起接上，另外還有接上一個外接鍵盤，這樣作音樂超方便的阿！不過最好的情況就是要買一個USB主控鍵盤、外接19&#8221; LCD變成雙螢幕，還有一個Apple wireless Keyboard!! 沒辦法，沒錢只好這樣了 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -455,6 +458,10 @@ Power feeling的BASS手還滿龐克的感覺，看起來滿性感的，他們團
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/16/django-nextpage/">Django nextpage</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
       </li>
     
@@ -470,10 +477,6 @@ Power feeling的BASS手還滿龐克的感覺，看起來滿性感的，他們團
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
-      <li class="post">
-        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
   </ul>
 </section>
 <!-- Coderwall Div -->
@@ -482,9 +485,12 @@ Power feeling的BASS手還滿龐克的感覺，看起來滿性感的，他們團
     <script>
         function display_coderwall(args) {
             var badges = args["data"]["badges"];
+            var wall = '';
             for ( var i = 0; i < badges.length; i++ ) {
-                document.write('<img src="'+ badges[i]["badge"] + '" width="80" height="80" />');
+                wall += '<a href="http://coderwall.com/tzangms/"><img src="'+ badges[i]["badge"] + '" width="80" height="80" /></a>';
             }
+
+            document.write(wall);
         }
     </script>
     <script src="http://coderwall.com/tzangms.json?callback=display_coderwall"></script>

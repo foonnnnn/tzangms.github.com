@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="真是好久好久了，因為上個禮拜去表演，都在新竹跟台北跑，也沒電腦可碰，只有滿滿的音樂，很累，不過做場有錢賺，感覺真不賴，那一場，每個人都有5000塊，呵呵，棒阿! 只是有些哥都還沒練好，所以還滿痛苦的，又站了一整晚，好累內 Orz 不過有收入算是不錯了 :D 而這個禮拜也又那麼&#8221;幸運...">
+  <meta name="description" content="我從今天開始放假放十天喔！爽阿，一直放到20號內:D 現在在小凱家阿，流浪孤兒收容所。明天12號、還有2/14情人節我都會在新竹表演，當然，是不會有認識的人來看的，然後15號我就要回宜蘭了，去補陪我妹情人節 :p anyway，happy new year!">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,40 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/363/">哈囉，你好！新年快樂阿！</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2005-02-11T15:39:00+08:00" pubdate  data-updated="true" >Feb 11<span>th</span>, 2005</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>我從今天開始放假放十天喔！爽阿，一直放到20號內:D 現在在小凱家阿，流浪孤兒收容所。明天12號、還有2/14情人節我都會在新竹表演，當然，是不會有認識的人來看的，然後15號我就要回宜蘭了，去補陪我妹情人節 :p anyway，happy new year!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -366,6 +400,10 @@ lobo 2，小白兔唱片發行，第一張叫做lobo 1，所以說呢，lobo 2�
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/16/django-nextpage/">Django nextpage</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
       </li>
     
@@ -381,10 +419,6 @@ lobo 2，小白兔唱片發行，第一張叫做lobo 1，所以說呢，lobo 2�
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
-      <li class="post">
-        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
   </ul>
 </section>
 <!-- Coderwall Div -->
@@ -393,9 +427,12 @@ lobo 2，小白兔唱片發行，第一張叫做lobo 1，所以說呢，lobo 2�
     <script>
         function display_coderwall(args) {
             var badges = args["data"]["badges"];
+            var wall = '';
             for ( var i = 0; i < badges.length; i++ ) {
-                document.write('<img src="'+ badges[i]["badge"] + '" width="80" height="80" />');
+                wall += '<a href="http://coderwall.com/tzangms/"><img src="'+ badges[i]["badge"] + '" width="80" height="80" /></a>';
             }
+
+            document.write(wall);
         }
     </script>
     <script src="http://coderwall.com/tzangms.json?callback=display_coderwall"></script>

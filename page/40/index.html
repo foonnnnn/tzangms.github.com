@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="最近真的是衰神纏身, 全部都是跟機車有關的事, 自從摔車之後, 接著是安全帽被倒麵, 然後今天早上是上班發現, 機車發不動, 接著我跑去搭計程車, 上次搭很快, 然而這次碰到一個遜司機, 然後整個大塞車, 所以整個大遲到! 真的是快昏倒~最近應該在人生低潮期吧! god damn low~不過...">
+  <meta name="description" content="如何用筆記型電腦透過 skype 聊天不戴耳機, 又不怕有回授? 看到 這篇文章 寫了個小技巧, 應該滿有用的。其實他最主要說得就是, 如果你的麥克風在右邊, 那就把喇叭的聲道調到左邊, 相反的, 如果麥克風在左邊, 就把喇叭的聲道調到右邊, 這樣一來喇叭跟麥克風就有些距離, 可以減少喇叭出來...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,48 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/computer/956/">語音聊天小撇步</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-09-08T00:46:06+08:00" pubdate  data-updated="true" >Sep 8<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>如何用筆記型電腦透過 skype 聊天不戴耳機, 又不怕有回授? 看到 <a href="http://www.lifeclever.com/get-clearer-audio-chats-on-your-laptop/">這篇文章</a> 寫了個小技巧, 應該滿有用的。</p>
+
+<p>其實他最主要說得就是, 如果你的麥克風在右邊, 那就把喇叭的聲道調到左邊, 相反的, 如果麥克風在左邊, 就把喇叭的聲道調到右邊, 這樣一來喇叭跟麥克風就有些距離, 可以減少喇叭出來的聲音直接回授 (feedback) 到麥克風的情形!</p>
+
+<p>不知道怎麼調喇叭聲道的話, 可以看看原文, 有圖解說明, Windows 跟 Mac 都有喔!</p>
+
+<p>哈, 之前都沒想過這個, 所以每當聊天的時候, 如果對方說我這邊都有回音, 聽起來很難過, 我就會接上耳機, 可是就感覺有那麼點受限制, 不是很舒服, 不過看來下次語音聊天, 可以試試看這個撇步 XD</p>
+
+<p>只是我的 Macbook 的麥克風在中間 &#8230; 好吧, 有點偏左 XD</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -447,47 +489,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/935/">主持@電腦應用展</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-08-12T02:00:07+08:00" pubdate  data-updated="true" >Aug 12<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/1030911337/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1196/1030911337_a9ed155a69.jpg" width="500" height="375" alt="1029519896_a7270a3973_o.jpg" /></a></p>
-
-<p>嗯, 上禮拜日公司在電腦應用展參展, 輪到我支援, 幫忙參展的活動, 但沒想到我真的下海當主持人 XD 至於旁邊這兩位, 則是公司請來的工讀生(show girl?)</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/life/935/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -507,6 +508,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/16/django-nextpage/">Django nextpage</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
       </li>
     
@@ -522,10 +527,6 @@
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
-      <li class="post">
-        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
   </ul>
 </section>
 <!-- Coderwall Div -->
@@ -534,9 +535,12 @@
     <script>
         function display_coderwall(args) {
             var badges = args["data"]["badges"];
+            var wall = '';
             for ( var i = 0; i < badges.length; i++ ) {
-                document.write('<img src="'+ badges[i]["badge"] + '" width="80" height="80" />');
+                wall += '<a href="http://coderwall.com/tzangms/"><img src="'+ badges[i]["badge"] + '" width="80" height="80" /></a>';
             }
+
+            document.write(wall);
         }
     </script>
     <script src="http://coderwall.com/tzangms.json?callback=display_coderwall"></script>

@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="(圖中兩位女孩是敝公司北京同事, 我們準備去吃飯)在 12 月公司辦完簡單生活節之後沒多久, 就跑到 SV 北京辦公室去出差, 了解一下北京的狀況, 談一些事情, 也面試幾個技術人員。 那幾天北京天氣真的是爆冷, 最後兩天都到零下 13 度了, 不過回來台灣後, 現在完全不怕冷了 (笑)有一天...">
+  <meta name="description" content="最近因為一個莫名其妙的案子, 搞的我滿肚子火, 最後我花了兩三天的時間學了一下 ASP.NET。 以前會寫一點 VB, 不過幾乎忘光了, 所以想說就學一下 C#。 哈, 其實還滿有趣的 XD一開始我就上 http://www.asp.net/, 花一兩個小時挑教學影片看, 不過其實很不習慣這樣...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,58 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2805/">初學 ASP.NET 心得</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2011-01-13T00:56:01+08:00" pubdate  data-updated="true" >Jan 13<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>最近因為一個莫名其妙的案子, 搞的我滿肚子火, 最後我花了兩三天的時間學了一下 ASP.NET。 以前會寫一點 VB, 不過幾乎忘光了, 所以想說就學一下 C#。 哈, 其實還滿有趣的 XD</p>
+
+<p>一開始我就上 <a href="http://www.asp.net/">http://www.asp.net/</a>, 花一兩個小時挑教學影片看, 不過其實很不習慣這樣的學習方式, 因為以往都直接 k 文件。 不過後來想想, 因為是用 Visual Studio, 所以看影片其實才是最快的學習方式。 不過我後來還是 k 了 <a href="http://apress.com/book/view/9781430226086">Beginning ASP.NET 4 in C# 2010</a> 這本書, 我覺得寫得還不錯。</p>
+
+<p>現在 ASP.NET 的開發方式分為 Web Forms 跟 MVC, 然後又可以用不同語言 &#8230;不過因為只是個小案子, 而且時間緊迫, 以後也不太可能寫 ASP.NET, 所以就只學了 Web Forms。</p>
+
+<p>其實影片看完就差不多了 XD 只是我覺得 ASP.NET 跟以往寫 PHP, Python 落差最大的就是 form post 這件事, 而影片也沒有太多著墨。 後來才了解, 其實 ASP.NET 根本不用管 form post 這件事, 即便是開發網頁, 可是你就把它當成是桌面開發就好了!!!</p>
+
+<p>例如, 拉了一個 Button ( ID: Button1 ) 跟 TextBox ( ID: TextBox1 ) 進 Form, 你只需要寫 Button1 的 Click event, 然後在裡面直接抓 TextBox1.Text 就行了 &#8230; 不像以往得給 input text 一個 name, 然後透過 POST 的變數取 POST[&#8216;name&#8217;] &#8230; 觀念完全不一樣阿!!!</p>
+
+<p>而當中令我驚艷的功能是, ListView/GridView + DataSource 以及 Validation 這兩組功能。</p>
+
+<p>ListView/GridView 可以搭配 SqlDataSource / XmlDataSource 等不同 DataSource 快速的在頁面上呈現資料。 簡單來說, 你只需要把 DataSource 用滑鼠拉進頁面, 稍微設定一下, 然後再把 ListView/GridView 拉進頁面, 用滑鼠點幾下,指定剛才設定的 DataSource 後, 就可以在頁面呈現你要的資料了, 然後再點幾下, 分頁就出來了, 在點幾下, 就可以 update / delete 了, 真是太神奇了阿!!!</p>
+
+<p>Validation 也是, 把 validation 元件拉進頁面, 設定要連結的 Control 元件, 複雜一點的, 寫個 regex pattern, 馬上 Validation 功能就完成了 &#8230;. 而且是前後端的 validation 一起完成 &#8230; 然後搭配 ASP.NET 所謂的 ViewState, 真是太厲害了阿 ~~~</p>
+
+<p>Anyway, 其實我學的都很淺, 不過這次的 ASP.NET 學習, 還算是個不錯的觀念更新, 才發現原來 ASP.NET 這邊的觀念還差真多, 而 ASP.NET 也挺進步的, 該有的功能都有, MasterPage, Code seperation &#8230; 等等。</p>
+
+<p>在這次 ASP.NET 的學習過程中一直發現一些有趣的觀念, 在這過程當中的確是有點開心的感覺, 不過 &#8230; 以後其實也沒機會用到就是了 XD</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -464,48 +516,6 @@ filetype plugin on</code></pre>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2769/">Django Admin 的 jQuery</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-12-01T21:02:00+08:00" pubdate  data-updated="true" >Dec 1<span>st</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.djangoproject.com/">django</a> 1.1 的時候, django admin 並沒有納入 jQuery, 不過 django 1.2 之後, Django admin 就有內建 jQuery 了, 只是今天在弄某 project ( django 1.2.3 ) 的後台時, 不管是用 $ 或是 jQuery 都說 undefined.</p>
-
-<p>一找<a href="http://docs.djangoproject.com/en/dev/ref/contrib/admin/">文件</a>才知道, django admin 為了避免跟 user 自定的 javascript 衝突, 所以將 django admin 用的 jQuery namespace 叫做 django.jQuery, 所以用法就變成下面這樣即可, 在裡面可以繼續用 $ 。</p>
-
-<pre><code>django.jQuery(function($){
-   alert("It's the jquery in django admin!");
-});
-</code></pre>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -525,6 +535,10 @@ filetype plugin on</code></pre>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/16/django-nextpage/">Django nextpage</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
       </li>
     
@@ -540,10 +554,6 @@ filetype plugin on</code></pre>
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
-      <li class="post">
-        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
   </ul>
 </section>
 <!-- Coderwall Div -->
@@ -552,9 +562,12 @@ filetype plugin on</code></pre>
     <script>
         function display_coderwall(args) {
             var badges = args["data"]["badges"];
+            var wall = '';
             for ( var i = 0; i < badges.length; i++ ) {
-                document.write('<img src="'+ badges[i]["badge"] + '" width="80" height="80" />');
+                wall += '<a href="http://coderwall.com/tzangms/"><img src="'+ badges[i]["badge"] + '" width="80" height="80" /></a>';
             }
+
+            document.write(wall);
         }
     </script>
     <script src="http://coderwall.com/tzangms.json?callback=display_coderwall"></script>

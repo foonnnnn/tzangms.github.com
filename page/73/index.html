@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="自從買了echo那張&#8221;少年的最後旅行&#8221;之後，一直到現在我還是每天聽著&#8221;紅與藍&#8221;、&#8221;你的蔚藍之海&#8221;，剛才又拿&#8221;感官駕馭&#8221;的CD出來聽，似乎感覺錄音方面好了許多，或者是歌曲的關係，編曲上面豐富了很多，主...">
+  <meta name="description" content="今天又是悠閒的一天內!待會要來繼續看火影忍者了!目前的進度到了117話了。昨天去買了彩虹的新專輯喔!真是太棒啦!也買了Dopod的耳機,還不賴啦!">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,41 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/433/">悠閒的一天/彩虹新專輯AWAKE</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2005-06-27T18:46:36+08:00" pubdate  data-updated="true" >Jun 27<span>th</span>, 2005</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天又是悠閒的一天內!待會要來繼續看火影忍者了!目前的進度到了117話了。昨天去買了彩虹的新專輯喔!真是太棒啦!也買了Dopod的耳機,還不賴啦!</p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -381,40 +416,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/422/">這兩天好充實阿!!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2005-06-19T14:50:00+08:00" pubdate  data-updated="true" >Jun 19<span>th</span>, 2005</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>禮拜五一放假就衝到新竹replay，準備表演兼練團，禮拜六就跑到台北美麗華表演，超充實的阿！表演玩又跑到奶茶的店裡去坐、吃東西，很棒的一個地方！住桃園的可以去看看，微風新樂園，不過我不知道怎麼去 XD 呵呵，晚點有影片跟照片在給大家看囉!!</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -434,6 +435,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/16/django-nextpage/">Django nextpage</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
       </li>
     
@@ -449,10 +454,6 @@
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
-      <li class="post">
-        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
   </ul>
 </section>
 <!-- Coderwall Div -->
@@ -461,9 +462,12 @@
     <script>
         function display_coderwall(args) {
             var badges = args["data"]["badges"];
+            var wall = '';
             for ( var i = 0; i < badges.length; i++ ) {
-                document.write('<img src="'+ badges[i]["badge"] + '" width="80" height="80" />');
+                wall += '<a href="http://coderwall.com/tzangms/"><img src="'+ badges[i]["badge"] + '" width="80" height="80" /></a>';
             }
+
+            document.write(wall);
         }
     </script>
     <script src="http://coderwall.com/tzangms.json?callback=display_coderwall"></script>

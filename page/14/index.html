@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="今天下午又騎了 20 幾公里, 似乎屁股不像以往那麼痛了, 看來我已經快從鐵屁股特訓班畢業了 (笑)其實一直都沒有幫我的腳踏車拍張照片, 今天在大直橋附近用 iPhone 跟 auto stitch 拍了這一張, (雖然腳踏車有點糊, 不過整張) 看起來真不錯, 對吧? :D 最後再來一張">
+  <meta name="description" content="Django 文件的 iPhone App 昨天出現在 app store 了, 就跟 Django 網站上的 Documentation 看到的一樣, 不過有針對 iPhone 編排過, 實際上看了一下, 雖然程式碼的部份還是會超出 iPhone 的寬度, anyway, 基本上還算好閱讀。...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,44 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2519/">Django Documentation iPhone App</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-11-27T01:16:53+08:00" pubdate  data-updated="true" >Nov 27<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.djangoproject.com/">Django</a> 文件的 iPhone App 昨天出現在 <a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/browserRedirect?url=itms%253A%252F%252Fitunes.apple.com%252FWebObjects%252FMZStore.woa%252Fwa%252FviewSoftware%253Fid%253D336551222%2526cc%253Dtw%2526mt%253D8">app store</a> 了, 就跟 Django 網站上的 <a href="http://docs.djangoproject.com/en/dev/">Documentation</a> 看到的一樣, 不過有針對 iPhone 編排過, 實際上看了一下, 雖然程式碼的部份還是會超出 iPhone 的寬度, anyway, 基本上還算好閱讀。</p>
+
+<p>這個 app 要價 0.99, 不過好像每賣出一套會捐出 30 cents 給 Django Software Fundation.</p>
+
+<p>[ <a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/browserRedirect?url=itms%253A%252F%252Fitunes.apple.com%252FWebObjects%252FMZStore.woa%252Fwa%252FviewSoftware%253Fid%253D336551222%2526cc%253Dtw%2526mt%253D8">app store 連結</a> ]</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -505,42 +543,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/2498/">[Music] 我自己</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-10-22T12:47:57+08:00" pubdate  data-updated="true" >Oct 22<span>nd</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><embed src="http://tw.beta.streetvoice.com/static/player/MusicPlayer.swf?srv=tw.beta.streetvoice.com&ph=music&getv=config&skinID=6&au=70735&listtype=1&listsd=1800&autoStart=false&autoPlay=false&isEmbed=true&jsPlayer=false" allowFullScreen="false" allowScriptAccess="always" scale="noscale" type="application/x-shockwave-flash" width="330" height="100"></embed></p>
-
-<p>其實這是測試剛上線網站的 embed flash player  XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -560,6 +562,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/16/django-nextpage/">Django nextpage</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
       </li>
     
@@ -575,10 +581,6 @@
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
-      <li class="post">
-        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
   </ul>
 </section>
 <!-- Coderwall Div -->
@@ -587,9 +589,12 @@
     <script>
         function display_coderwall(args) {
             var badges = args["data"]["badges"];
+            var wall = '';
             for ( var i = 0; i < badges.length; i++ ) {
-                document.write('<img src="'+ badges[i]["badge"] + '" width="80" height="80" />');
+                wall += '<a href="http://coderwall.com/tzangms/"><img src="'+ badges[i]["badge"] + '" width="80" height="80" /></a>';
             }
+
+            document.write(wall);
         }
     </script>
     <script src="http://coderwall.com/tzangms.json?callback=display_coderwall"></script>

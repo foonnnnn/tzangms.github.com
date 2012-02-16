@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="當兵值日太無聊了，自拍一下 XD">
+  <meta name="description" content="因為放四天，所以比較有空，就整理了一下桌面，把他擺成了這樣！iBook下面是CoolPad，本來還有風扇，不過會壓到Keyboard上面的按鈕，所以我只好狠心把他風扇拆了，然後買了一個USB 2.0 HUB把 MIDI界面跟Audio界面都一起接上，另外還有接上一個外接鍵盤，這樣作音樂超方便的...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,41 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/550/">新的電腦環境！！</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2005-12-11T20:37:00+08:00" pubdate  data-updated="true" >Dec 11<span>th</span>, 2005</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/97639129/" title="Photo Sharing"><img src="http://static.flickr.com/27/97639129_8c0fbb9eb5.jpg" width="500" height="375" alt="new desktop enviroment" /></a>
+因為放四天，所以比較有空，就整理了一下桌面，把他擺成了這樣！iBook下面是CoolPad，本來還有風扇，不過會壓到Keyboard上面的按鈕，所以我只好狠心把他風扇拆了，然後買了一個USB 2.0 HUB把 MIDI界面跟Audio界面都一起接上，另外還有接上一個外接鍵盤，這樣作音樂超方便的阿！不過最好的情況就是要買一個USB主控鍵盤、外接19&#8221; LCD變成雙螢幕，還有一個Apple wireless Keyboard!! 沒辦法，沒錢只好這樣了 XD</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -384,45 +419,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/538/">我拿到蘇打綠的簽名啦!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2005-11-20T22:43:32+08:00" pubdate  data-updated="true" >Nov 20<span>th</span>, 2005</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天在老地方冰果室看到的消息(老地方是蘋果的新聞網站),說今天下午四點蘇打綠會在KMall辦簽唱會,因為他們跟Apple有合作iPod Video的東西。本來想說我當兵回到台北都七點了,應該結束了,不過為了不讓自己後悔,所以還是吧CD帶著,因為後悔的東西太多了,全都是因為自己太懶。我一下火車就衝到KMall去,其實中間還有去買StarBucks的冰摩卡,因為太渴而且上禮拜沒喝到XD 總之,我到KMall的時候已經都簽完了,不過我還是那我那張CD出來給他們簽,他們就召集團員說&#8221;最後一張&#8221;,我看了一下旁邊,陸嘉欣也在阿!本人果然正啊!
-呵呵,下禮拜我在放上簽名CD的照片,今天就差在沒帶到相機來,真可惜,不過有簽名就夠了,繼Tizzy Bac的簽名之後,我又多了蘇打綠啦!哈哈哈哈。</p>
-
-
-<p>我是個追星族Orz</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -442,6 +438,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/16/django-nextpage/">Django nextpage</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
       </li>
     
@@ -457,10 +457,6 @@
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
-      <li class="post">
-        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
   </ul>
 </section>
 <!-- Coderwall Div -->
@@ -469,9 +465,12 @@
     <script>
         function display_coderwall(args) {
             var badges = args["data"]["badges"];
+            var wall = '';
             for ( var i = 0; i < badges.length; i++ ) {
-                document.write('<img src="'+ badges[i]["badge"] + '" width="80" height="80" />');
+                wall += '<a href="http://coderwall.com/tzangms/"><img src="'+ badges[i]["badge"] + '" width="80" height="80" /></a>';
             }
+
+            document.write(wall);
         }
     </script>
     <script src="http://coderwall.com/tzangms.json?callback=display_coderwall"></script>

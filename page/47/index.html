@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="H2O樂團的鼓手小廖, 今天終於出發開始他的軍旅生涯了! 所以基本上H2O樂團就差不多了! 我們H2O將會繼續保衛我們國家的, 我退伍後接著是小廖, 小廖完之後就是kyo, 然後是志豪了, 所以沒錯! 我們會接連著保衛大家的! 尤其是 H2O 最身強體壯的鼓手小廖! 他加入了海軍陸戰隊的行列,...">
+  <meta name="description" content="自從買了 Macbook 之後, 我就不能在 logic express 裡 rewire reason 了, 原本很興高采烈的想試一下新機器的威力(因為 iBook 實在是不夠力了), 但是裝了 Logic express 7.2 跟 reason 3 之後, 居然沒辦法 rewire!! ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,42 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/807/">Logic Rewire Again!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-04-02T20:15:36+08:00" pubdate  data-updated="true" >Apr 2<span>nd</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src='http://farm1.static.flickr.com/183/443478316_488de96713_o.gif' align='left' />自從買了 Macbook 之後, 我就不能在 logic express 裡 rewire reason 了, 原本很興高采烈的想試一下新機器的威力(因為 iBook 實在是不夠力了), 但是裝了 Logic express 7.2 跟 reason 3 之後, 居然沒辦法 rewire!! 後來到 Logic 想新增一個 rewire track, 才發現原來 rewire 的 option 是 disable 的狀態, 到網路上找一下, 才知道目前 intel 版本的 logic 還沒有支援 rewire &#8230; Orz 後來想說算了, 反正現在 Reason 也是 PPC 版本, 跑起來還是有點慢, 以後再來玩好了。</p>
+
+<p>不過前幾天錄音要新增 audio track 時突然發現 rewire 的 option 居然可以選了!! 才想到先前有軟體更新有更新到 Logic, 發現後馬上更新我的 Reason 到 3.05 (Intel), 挖靠, 雖然還沒有真的去試 rewire 這個東西, 但是, Reason 好快阿!! 想起原本在 iBook 的時候跑 Reason 連 Demo song 都沒辦法撥, 現在居然耗不到 10% 的 CPU Loading, 頓時感受到了 Macbook 的威力阿! 下次來玩玩看 rewire 快不快好了。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -458,48 +494,6 @@ for (var i=0; i&lt; alink.length; i++){
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/web/789/">銀河系律法? XD</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-03-03T23:54:08+08:00" pubdate  data-updated="true" >Mar 3<span>rd</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/408776934/" title="Photo Sharing"><img src="http://farm1.static.flickr.com/162/408776934_f11aab00fc_o.gif" width="455" height="368" alt="google_doc" /></a>
-剛才在 Gmail 上沒事無聊就去點一下 Docs &amp; Spreadsheets, 想說看看最近變得怎樣了, 不過, 居然出現這個頁面, 不過銀河系律法是怎麼一回事, 整個 XD</p>
-
-<p>另外, 是翻譯有問題還是&#8230;</p>
-
-<blockquote>支援「Google 文件」的 Safari 即將問世！</blockquote>
-
-
-<p>到底是支援 Safari 的「Google 文件」要出來, 還是 Safari 真的要出新版? XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -519,6 +513,10 @@ for (var i=0; i&lt; alink.length; i++){
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/16/django-nextpage/">Django nextpage</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
       </li>
     
@@ -534,10 +532,6 @@ for (var i=0; i&lt; alink.length; i++){
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
-      <li class="post">
-        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
   </ul>
 </section>
 <!-- Coderwall Div -->
@@ -546,9 +540,12 @@ for (var i=0; i&lt; alink.length; i++){
     <script>
         function display_coderwall(args) {
             var badges = args["data"]["badges"];
+            var wall = '';
             for ( var i = 0; i < badges.length; i++ ) {
-                document.write('<img src="'+ badges[i]["badge"] + '" width="80" height="80" />');
+                wall += '<a href="http://coderwall.com/tzangms/"><img src="'+ badges[i]["badge"] + '" width="80" height="80" /></a>';
             }
+
+            document.write(wall);
         }
     </script>
     <script src="http://coderwall.com/tzangms.json?callback=display_coderwall"></script>

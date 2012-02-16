@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="看看上面這張圖, 真的是很妙, 似乎是說著 twitter 越爛越多人用阿! XD 可是這有什麼辦法呢? (攤手) 這一切都是因為愛阿!">
+  <meta name="description" content="snippetsemu 真是好物阿!!話說 textmate 真的是很屌, 可是我還是離不開 vim, vim 的 dd, yy 真的是很贊阿! XD 其實最主要的是, 上班不會帶 mac 去公司, 在公司又是用 windows, 所以通常都直接 ssh 上測試環境的 server 用 vi ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,61 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1198/">Vim 也可以有 Textmate 的 Snippet 功能!!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-06-28T12:52:03+08:00" pubdate  data-updated="true" >Jun 28<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.vim.org/scripts/script.php?script_id=1318">snippetsemu</a> 真是好物阿!!</p>
+
+<p>話說 <a href="http://macromates.com/">textmate</a> 真的是很屌, 可是我還是離不開 vim, vim 的 dd, yy 真的是很贊阿! XD 其實最主要的是, 上班不會帶 mac 去公司, 在公司又是用 windows, 所以通常都直接 ssh 上測試環境的 server 用 vi 在寫程式。</p>
+
+<p>今天突然想到 vim 搞不好有 textmate snippet 外掛, 所以就找了一下, 就找到了 snippetsemu 啦!! 真的是很 high!</p>
+
+<p>記一下安裝方式:</p>
+
+<ol>
+    <li>首先要有 vim 7</li>
+    <li>到 <a href="http://www.vim.org/scripts/script.php?script_id=1318">snippetsemu</a> 在 vim.org 的頁面下載 snippy_plugin.vba 跟 snippy_bundles.vba</li>
+    <li>然後用 vi 打開 snippy_plugin.vba, 應該會在最下面一行看到 ***vimball***  Source this file to extract it! (:so %)</li>
+    <li>接著就照做啦, 打 :so% 就會裝上 snippy plugin</li>
+    <li>最後對著 snippy_bundles.vba 依同樣步驟做即可</li>
+</ol>
+
+
+<p>再來就是測試一下, 編輯個 foo.php, 先輸入 for 然後打 &lt;tab&gt; 看看, 哈! 超 high 的勒!</p>
+
+<p>[ links ]
+<a href="http://code.google.com/p/snippetsemu/">snippetsemu on Google Code</a>
+<a href="http://slipperysnippets.blogspot.com/">snippets blog</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -446,53 +501,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/1172/">不用 Twhirl 也可以 Retweet ! (GM Script)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-05-19T20:54:37+08:00" pubdate  data-updated="true" >May 19<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>因為羨慕 <a href="http://www.twhirl.org/">twhirl</a> 的 Retweet 功能, 所以寫了一個 <a href="https://addons.mozilla.org/en-US/firefox/addon/748">GreaseMonkey</a> 的 retweet script。 掛上這個 retweet script 之後,  twitter 頁面就會顯示如下(多了一個 R 的按鈕):</p>
-
-<p><a href="http://www.flickr.com/photos/tzangms/2504645219/" title="grease monkey twitter retweet script by tzangms, on Flickr"><img src="http://farm4.static.flickr.com/3136/2504645219_79c9b50848.jpg" width="500" height="61" alt="grease monkey twitter retweet script" /></a></p>
-
-<p>感謝<a href="http://blog.andytn.tw/">無敵小恩恩</a>給截 twitter 截圖, 他正在&#8221;拉正&#8221;學弟 XD</p>
-
-<p>之後只要看到想要 Retweet 的訊息, 只要按下上圖所標示起來的 <strong>R</strong> 就可以 Retweet 了。</p>
-
-<p>不過由於今天我第一次裝 GreaseMonkey, 裝完之後就矇著頭開始寫, code 很亂~ 我想 XD anyway, 之後有空再改吧! 目前先可以用就好了 XD</p>
-
-<p>如果不想裝 twhril 但又想用 retweet 的話, 就試試看這個吧! 但是前提是你瀏覽器要用 <a href="http://www.mozilla.com/">Firefox</a>, 如果你是用 Firefox 的話, 就先到<a href="https://addons.mozilla.org/en-US/firefox/addon/748">這裡</a>裝個 GreaseMonkey 吧! 等 GreaseMonkey 裝完再點下面這個連結, 裝完就可以開始用囉!</p>
-
-<p><strong>UPDATE:</strong>
-<strong><a href="http://userscripts.org/scripts/show/27381">新版請至這裡進行安裝</a></strong></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -512,6 +520,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/16/django-nextpage/">Django nextpage</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
       </li>
     
@@ -527,10 +539,6 @@
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
-      <li class="post">
-        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
   </ul>
 </section>
 <!-- Coderwall Div -->
@@ -539,9 +547,12 @@
     <script>
         function display_coderwall(args) {
             var badges = args["data"]["badges"];
+            var wall = '';
             for ( var i = 0; i < badges.length; i++ ) {
-                document.write('<img src="'+ badges[i]["badge"] + '" width="80" height="80" />');
+                wall += '<a href="http://coderwall.com/tzangms/"><img src="'+ badges[i]["badge"] + '" width="80" height="80" /></a>';
             }
+
+            document.write(wall);
         }
     </script>
     <script src="http://coderwall.com/tzangms.json?callback=display_coderwall"></script>

@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="8/11 昨天提早放假，4點就換裝完畢走人，馬上衝去坐計程車衝到位於敦化南路的新浪網公司，就我跟紅色指甲油的駿仔兩個人雙吉他，唱給他們全公司的人聽，唱了好多首歌，也算是滿high的，呵呵，很有趣的一個經驗。由於提早兩個小時放假，所以說，禮拜一我就必須提早兩個小時收假，7點要到阿!!! anyw...">
+  <meta name="description" content="閒來沒事，把我的效果器po上來，有吉他效果器，可是BASS卻一顆也沒有，想再買個BOSS的Tuner，這樣就很棒了！然後把SD-1換掉，我依然還是太饅頭了，換個Flanger或Phaser會比較合適，或加顆EQ，把wah-wah換掉，因為不常用XD">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,41 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/469/">我的效果器 My Effect Pedal</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2005-08-13T14:20:00+08:00" pubdate  data-updated="true" >Aug 13<span>th</span>, 2005</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://photos1.blogger.com/blogger/1634/306/1600/DSCF0022.jpg"><img src="http://photos1.blogger.com/blogger/1634/306/320/DSCF0022.jpg" border="0" alt="" /></a>
+閒來沒事，把我的效果器po上來，有吉他效果器，可是BASS卻一顆也沒有，想再買個BOSS的Tuner，這樣就很棒了！然後把SD-1換掉，我依然還是太饅頭了，換個Flanger或Phaser會比較合適，或加顆EQ，把wah-wah換掉，因為不常用XD</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -396,41 +431,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/stuff/455/">Apple In-Ear Headphone SUCK!! 有人可以推薦個耳機嗎?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2005-07-23T19:20:00+08:00" pubdate  data-updated="true" >Jul 23<span>rd</span>, 2005</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/98566618/" title="Photo Sharing"><img src="http://static.flickr.com/19/98566618_9a2e7efeeb_o.jpg" width="180" height="180" alt="apple in-Ear headphone SUCK!" /></a>
-蘋果的內耳式耳機超爛的阿!!! Dopod 的內耳式耳機就便宜多了, 上次買了 $950, 上次買了 Apple的內耳式耳機, 真是爛!!花了我 $1370, 不知道是根本就沒辦法穩定住. 或者是塞不進去, 所以說, BASS根本就聽不到, 然後高音又太高, 掛在耳邊的內耳式耳機, 高音又太多，聽起來根本就像是在聽FM，真是爛 Orz</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -450,6 +450,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/16/django-nextpage/">Django nextpage</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
       </li>
     
@@ -465,10 +469,6 @@
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
-      <li class="post">
-        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
   </ul>
 </section>
 <!-- Coderwall Div -->
@@ -477,9 +477,12 @@
     <script>
         function display_coderwall(args) {
             var badges = args["data"]["badges"];
+            var wall = '';
             for ( var i = 0; i < badges.length; i++ ) {
-                document.write('<img src="'+ badges[i]["badge"] + '" width="80" height="80" />');
+                wall += '<a href="http://coderwall.com/tzangms/"><img src="'+ badges[i]["badge"] + '" width="80" height="80" /></a>';
             }
+
+            document.write(wall);
         }
     </script>
     <script src="http://coderwall.com/tzangms.json?callback=display_coderwall"></script>

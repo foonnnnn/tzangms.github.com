@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="廣告一下表演活動 2010 The Next Big Thing, 基本上我是覺得這個影片跟音樂弄的還不錯, 另外, 這場表演的樂團大部分我也都滿喜歡的, 所以來推一下。這場表演的樂團有我之前寫過的 The Girl &amp; The Robots, 然後還有 Mary See The Fu...">
+  <meta name="description" content="其實大部分跟介面相關的文字都直接寫在 config 裡面, 然後用 gettext 處理多國語系的部份, 不過免不了還是有些東西需要放在資料庫也要多國語系, 所以先前用了 django transmeta, 只是沒很好用就是了。可能是因為 zh-TW, zh-CN 的關係吧 囧rz有類似需求的...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,43 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/2535/">Dynamic Translation Apps for Django</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-01-20T11:02:36+08:00" pubdate  data-updated="true" >Jan 20<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>其實大部分跟介面相關的文字都直接寫在 config 裡面, 然後用 gettext 處理多國語系的部份, 不過免不了還是有些東西需要放在資料庫也要多國語系, 所以先前用了 <a href="http://code.google.com/p/django-transmeta/">django transmeta</a>, 只是沒很好用就是了。可能是因為 zh-TW, zh-CN 的關係吧 囧rz</p>
+
+<p>有類似需求的話, 可以參考一下下面這篇
+<a href="http://www.muhuk.com/2010/01/dynamic-translation-apps-for-django/">Dynamic Translation Apps for Django</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -449,44 +486,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/programming/2519/">Django Documentation iPhone App</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-11-27T01:16:53+08:00" pubdate  data-updated="true" >Nov 27<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.djangoproject.com/">Django</a> 文件的 iPhone App 昨天出現在 <a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/browserRedirect?url=itms%253A%252F%252Fitunes.apple.com%252FWebObjects%252FMZStore.woa%252Fwa%252FviewSoftware%253Fid%253D336551222%2526cc%253Dtw%2526mt%253D8">app store</a> 了, 就跟 Django 網站上的 <a href="http://docs.djangoproject.com/en/dev/">Documentation</a> 看到的一樣, 不過有針對 iPhone 編排過, 實際上看了一下, 雖然程式碼的部份還是會超出 iPhone 的寬度, anyway, 基本上還算好閱讀。</p>
-
-<p>這個 app 要價 0.99, 不過好像每賣出一套會捐出 30 cents 給 Django Software Fundation.</p>
-
-<p>[ <a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/browserRedirect?url=itms%253A%252F%252Fitunes.apple.com%252FWebObjects%252FMZStore.woa%252Fwa%252FviewSoftware%253Fid%253D336551222%2526cc%253Dtw%2526mt%253D8">app store 連結</a> ]</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -506,6 +505,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/16/django-nextpage/">Django nextpage</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
       </li>
     
@@ -521,10 +524,6 @@
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
-      <li class="post">
-        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
   </ul>
 </section>
 <!-- Coderwall Div -->
@@ -533,9 +532,12 @@
     <script>
         function display_coderwall(args) {
             var badges = args["data"]["badges"];
+            var wall = '';
             for ( var i = 0; i < badges.length; i++ ) {
-                document.write('<img src="'+ badges[i]["badge"] + '" width="80" height="80" />');
+                wall += '<a href="http://coderwall.com/tzangms/"><img src="'+ badges[i]["badge"] + '" width="80" height="80" /></a>';
             }
+
+            document.write(wall);
         }
     </script>
     <script src="http://coderwall.com/tzangms.json?callback=display_coderwall"></script>

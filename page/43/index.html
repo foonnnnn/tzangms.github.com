@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="上禮拜六, 公司住在淡水的同事 sanni 帶我去淡水一日遊, 陽光開心的一天!">
+  <meta name="description" content="你好, 我是接待小弟! XD雖然昨天是禮拜六, 不過我要上班! 昨天是補端午節的假, 比起一般公司的補上班時間晚了一個禮拜。基本上美食聚當天我是負責打雜的, 還有當接待小弟, 就是在會場門口發名牌給到達的部落客, 雖然早上一到公司我的心還是在程式上, 因為要把 MySQL 換成 MS SQL ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,48 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/life/901/">智邦部落客美食聚!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2007-07-01T11:59:01+08:00" pubdate  data-updated="true" >Jul 1<span>st</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.flickr.com/photos/tzangms/683300841/" title="Photo Sharing"><img src="http://farm2.static.flickr.com/1093/683300841_707ad7c43f.jpg" width="500" height="375" alt="100_1821.JPG" /></a>
+你好, 我是接待小弟! XD</p>
+
+<p>雖然昨天是禮拜六, 不過我要上班! 昨天是補端午節的假, 比起一般公司的補上班時間晚了一個禮拜。基本上美食聚當天我是負責打雜的, 還有當接待小弟, 就是在會場門口發名牌給到達的部落客, 雖然早上一到公司我的心還是在程式上, 因為要把 MySQL 換成 MS SQL Server 果然是有點麻煩, 不過幸好我把問題給解決掉了 XD 哈! 所以寫完之後就可以專心弄會場的佈置等等, 不然程式寫不出來, 我的心情會不好 XD</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/life/901/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -437,44 +479,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/music/881/">[Recording] 你不解釋 (Temp)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2007-06-09T23:33:09+08:00" pubdate  data-updated="true" >Jun 9<span>th</span>, 2007</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>這首其實是跟上一首一起寫好的, 不過總覺得上一首沒很好聽 XD 本來想一起錄出來, 不過後來這幾天就一直下雨, 完全沒有辦法錄音, 一直到今天晚上, 終於&#8230;雨停了!! 我的天阿! 但是今天本來安排要去參加學弟妹的畢業典禮也因為雨下的太大, 所以沒有成行, 殘念~</p>
-
-<p>其實今天應該要把 H2O 樂團的歌曲重新錄製一遍, 但是完全沒有感覺, tone 調不出來, 媽的! 其實上一首也完全沒有感覺可以繼續做下去, 所以剛才趁著沒有雨了, 把這首錄出來, 這首有感覺的多了 :p</p>
-
-<p>目前總共三軌, 木吉他, Vocal 跟 合音</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -494,6 +498,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/16/django-nextpage/">Django nextpage</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
       </li>
     
@@ -509,10 +517,6 @@
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
-      <li class="post">
-        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
   </ul>
 </section>
 <!-- Coderwall Div -->
@@ -521,9 +525,12 @@
     <script>
         function display_coderwall(args) {
             var badges = args["data"]["badges"];
+            var wall = '';
             for ( var i = 0; i < badges.length; i++ ) {
-                document.write('<img src="'+ badges[i]["badge"] + '" width="80" height="80" />');
+                wall += '<a href="http://coderwall.com/tzangms/"><img src="'+ badges[i]["badge"] + '" width="80" height="80" /></a>';
             }
+
+            document.write(wall);
         }
     </script>
     <script src="http://coderwall.com/tzangms.json?callback=display_coderwall"></script>

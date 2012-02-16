@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="紅色的蠶 靜靜蜷伏隨著時間而風乾走調的歌 輕輕唱出心底深處的呼喚黑色蝶蛾 群起飛舞從你臉孔流竄古老的夢 卻將你困縛置入無盡輪轉帶走我埋葬的憐憫填補你心中永恆的畏懼取下我嘴上的嘆息成為你臉龐溫熱的淚滴解凍我冷藏的熱情溶化成液 吞入嘴裡產下的憂傷成為記憶在我意識延續藍色蜘蛛 悄悄滑落暈染成了一片海...">
+  <meta name="description" content="應該沒幾個人知道，陳昇是我的偶像吧！自從國小就聽陳昇徒弟的歌，丟係金成武，在國中買了一張陳昇的專輯“別讓我哭“，裡面有一首被現在的信樂團唱紅的歌“one night in BeiJing“，說是被信樂團唱紅，其實個人並不喜歡信樂團這個舉動，anyway，個人並不認同“one night in ...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,40 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/401/">陳昇，我偶像</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2005-05-14T01:34:00+08:00" pubdate  data-updated="true" >May 14<span>th</span>, 2005</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>應該沒幾個人知道，陳昇是我的偶像吧！自從國小就聽陳昇徒弟的歌，丟係金成武，在國中買了一張陳昇的專輯“別讓我哭“，裡面有一首被現在的信樂團唱紅的歌“one night in BeiJing“，說是被信樂團唱紅，其實個人並不喜歡信樂團這個舉動，anyway，個人並不認同“one night in BeiJing“是信樂團唱紅的，不過一般大眾都是這麼認為的，那就這麼認為吧！陳昇的歌一直都很有感覺，知道陳昇是我的偶像，我想應該就只有我前前女友吧！當時在二專的時候，我還狂買陳昇的專輯，不過他的專輯比彩虹還多，所以後來好像放棄了？嗯<del>~這個就無從考究了，至少我的櫃子裡面還有著他的7</del>8張專輯。悶熱的夜晚，獨自對著電腦螢幕，聽著“鏡子“&#8230;&#8230;..但是心頭上的傷口仍是隱隱約約的作疼&#8230;&#8230;</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -488,40 +522,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/387/">今天又要趕回去當兵了</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2005-04-05T14:15:00+08:00" pubdate  data-updated="true" >Apr 5<span>th</span>, 2005</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>每次都是4:59 pm的火車，幾乎是每個禮拜都是這樣，到底還要多久阿，這幾個月真是累到翻，真是有點不想回去，知道下禮拜跟下下禮拜又會是一番的折磨，真是痛苦阿! 這種日子居然還要10個月 Orz 雖然也許經過這次的考驗之後，可能往後的日子都會覺得很輕鬆，不過希望真的是如此才是。 好久沒有玩樂團、表演了！H2O自從上次跨年在replay表演之後，一直到現在已經經過了3個月了，完全沒動靜，幸好我還有跟紅色指甲油出去表演個幾場，不過那也是2月的事了，現在已經4月了阿!!!!大家，等著5月到來吧! 到時候大家一起衝吧!!!</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -541,6 +541,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/16/django-nextpage/">Django nextpage</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
       </li>
     
@@ -556,10 +560,6 @@
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
-      <li class="post">
-        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
   </ul>
 </section>
 <!-- Coderwall Div -->
@@ -568,9 +568,12 @@
     <script>
         function display_coderwall(args) {
             var badges = args["data"]["badges"];
+            var wall = '';
             for ( var i = 0; i < badges.length; i++ ) {
-                document.write('<img src="'+ badges[i]["badge"] + '" width="80" height="80" />');
+                wall += '<a href="http://coderwall.com/tzangms/"><img src="'+ badges[i]["badge"] + '" width="80" height="80" /></a>';
             }
+
+            document.write(wall);
         }
     </script>
     <script src="http://coderwall.com/tzangms.json?callback=display_coderwall"></script>

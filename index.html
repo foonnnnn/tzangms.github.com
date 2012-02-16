@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="這篇也是拖很久了 XD 大概半年前 twitter bootstrap 出來的時候, 我就寫了 django bootstrap form 放上了 github, 然後就開始用在 production, 像是 myaudiocast, stickeraciton 跟 streetvoice 都...">
+  <meta name="description" content="前天晚上心血來潮, 便把 django-nextpage 給生出來了。 其實這個 package 已經在 StreetVoice 內部用很久了, 只是一直沒時間把它包成 package 然後 release 出來。以前都會用 django-pagination 來做分頁的功能, 非常方便快速,...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,159 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2012/02/16/django-nextpage/">Django Nextpage</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2012-02-16T10:50:00+08:00" pubdate  data-updated="true" >Feb 16<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>前天晚上心血來潮, 便把 <a href="https://github.com/tzangms/django-nextpage">django-nextpage</a> 給生出來了。 其實這個 package 已經在 <a href="http://tw.streetvoice.com/">StreetVoice</a> 內部用很久了, 只是一直沒時間把它包成 package 然後 release 出來。</p>
+
+<p>以前都會用 <a href="https://github.com/ericflo/django-pagination">django-pagination</a> 來做分頁的功能, 非常方便快速, 只要在 template 多加幾個 tag 就可以直接產出分頁了, 像是這樣。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>{% load pagination_tags %}
+</span><span class='line'>
+</span><span class='line'>{% autopaginate items 20 %}
+</span><span class='line'>{% for item in items %}
+</span><span class='line'>    {{ item.name }}
+</span><span class='line'>{% endfor %}
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;pagination&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    {% paginate %}
+</span><span class='line'><span class="nt">&lt;/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然而其實每次算分頁都得做一次 SQL 的 COUNT(), 當資料多的時候就會開始變慢, 所以其實現在很多網站都只提供&#8221;下一頁&#8221;這個功能, 而不是 1, 2, &#8230; 120 頁這樣的方式, 畢竟那麼多分頁, 對於使用者來說第 2 頁, 跟 5 頁都是未知的結果, 有時候也只是亂槍打鳥亂按一個分頁, 這時候倒不如你就直接給使用者一些建議的結果, 效果反而還比較好。</p>
+
+<p>所以有一些網站就只提供下一頁, 或者像是 twitter / facebook 的 timeline, 都直接給你下一頁而已, 甚至就直接叫 Load more。</p>
+
+<p>只提供下一頁的好處就是不用再去 count 了, 所以原本兩次 query 變成一次, 而且通常在 django 裡, count 的 query 都比你實際要的資料還要慢。</p>
+
+<p>所以如果不需要 count 的話, 接下來就只剩得知道&#8221;還有沒有下一頁&#8221;這件事了, 有看到人家的解法是, 一樣做兩次 query, 如果我要 20 筆資料, 那麼就多做一次抓 21 筆的 query, 如果有 21 筆的話, 那麼就代表有下一頁, hmm &#8230; 聽起來就不太好 XD</p>
+
+<p>為何不一次就抓取 21 筆, 如果是大於 20 筆, 那麼就代表有下一頁啦, 所以就弄了 <a href="https://github.com/tzangms/django-nextpage/">django-nextpage</a> 出來, 主要概念大概像是這樣。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">### params ###</span>
+</span><span class='line'><span class="n">paginate_by</span> <span class="o">=</span> <span class="mi">20</span>
+</span><span class='line'><span class="n">page</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;page&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">### code ###</span>
+</span><span class='line'><span class="n">limit</span> <span class="o">=</span> <span class="n">paginate_by</span> <span class="o">+</span> <span class="mi">1</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">offset</span> <span class="o">=</span> <span class="p">(</span><span class="n">page</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">limit</span> <span class="o">-</span> <span class="p">(</span><span class="n">page</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</span><span class='line'><span class="n">items</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">offset</span><span class="p">:</span><span class="n">limit</span> <span class="o">+</span> <span class="n">offset</span><span class="p">]</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">items_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">items</span><span class="p">))</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">items_we_actually_want</span> <span class="o">=</span> <span class="n">items</span><span class="p">[:</span><span class="n">limit</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">next_page</span> <span class="o">=</span> <span class="n">page</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">items_count</span> <span class="o">==</span> <span class="n">limit</span> <span class="k">else</span> <span class="bp">None</span>
+</span><span class='line'><span class="n">prev_page</span> <span class="o">=</span> <span class="n">page</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">page</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="bp">None</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>這樣一個 query 就解決了, 使用方法也跟 django-pagination 一樣, 可以直接把 django-pagination 換掉了阿, 你只需要把 load pagination_tags 換成 load nextpage 即可, 使用方式如下。</p>
+
+<p>先用 pip 安裝</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>pip install django-nextpage
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在 INSTALLED_APPS 加上 <code>nextpage</code></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
+</span><span class='line'>    <span class="c"># ...</span>
+</span><span class='line'>    <span class="s">&#39;nextpage&#39;</span><span class="p">,</span>
+</span><span class='line'><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>最後換成 load nextpage templatetag 即可</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>{% load nextpage %}
+</span><span class='line'>
+</span><span class='line'>{% autopaginate items 20 %}
+</span><span class='line'>{% for item in items %}
+</span><span class='line'>    {{ item.name }}
+</span><span class='line'>{% endfor %}
+</span><span class='line'>
+</span><span class='line'>{% paginate %}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>That&#8217;s all!</p>
+
+<h2>最後</h2>
+
+<p>敝公司為舉辦<a href="http://simplelife.streetvoice.com/">簡單生活節</a>的中子文化 / <a href="http://tw.streetvoice.com/">StreetVoice</a> 持續徵人中, 使用 Python/Django 一個打十個, 工作輕鬆不用加班, 又是藝文產業, 可常看到正妹, 也可秘密獲得演唱會入場卷, 有興趣嗎? 趕快來談談吧! 請來信 tzangms [at] streetvoice.com</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -453,50 +606,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2011/10/14/save-myaudiocast/">拯救 MyAudioCast</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2011-10-14T00:37:00+08:00" pubdate  data-updated="true" >Oct 14<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天準備出門上班時突然下起了傾盆大雨, 索性就不去上班, 在家趕工作的 deadline 好了, 這樣一來也不會被打擾 (最近上班時 context switch 真的是非常嚴重), 畢竟目前手上的某個專案的規劃一直到昨天都還改, 昨天甚至整個邏輯都翻轉了。</p>
-
-<p>然而後來又收到 Pixnet 來的訊息 ( <a href="http://pixnet.net">Pixnet</a> 提供 MyAudioCast CDN 贊助), 因為目前 <a href="http://www.myaudiocast.com">MyAudioCast</a> 的流量真的太高, 這禮拜每天都超過了 1TB, 所以希望我可以處理一下 XD</p>
-
-<p>而流量會這麼高的原因主要是因為有幾個中國的 Podcast 算是滿熱門的(?), 三個小時就可以有近兩萬次的下載。 另外就是有 Podcast 上了 iTunes Store 的 Podcast 的 Top Chart (我是有點懷疑是因為這個原因啦), 所以一天也是幾萬次的下載。</p>
-
-<p>其實先前就被警告過了 XD 所以已經有研究了一些解決辦法, 只是因為最近工作太忙, 沒有時間處理。 而今天剛好沒去上班, 就先投入 MyAudioCast 的救援工作, 至於工作 deadline 的處理就只好留待週末兩天加班趕工了。</p>
-
-<p><img src="http://farm7.static.flickr.com/6157/6241181440_9acf5a321e_z.jpg" title="" alt="myaudiocast bandwith" /></p>
-
-<p>上面這個流量圖, 算是拯救的成果, 不過目前 queue 還在繼續跑, 所以流量還會持續降, 接下來就持續觀察吧！ 其實還真該想個 business model, 可是沒什麼 page view, 連放廣告都嫌浪費力氣 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -514,6 +623,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/16/django-nextpage/">Django nextpage</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
       </li>
     
@@ -529,10 +642,6 @@
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
-      <li class="post">
-        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
   </ul>
 </section>
 <!-- Coderwall Div -->
@@ -541,9 +650,12 @@
     <script>
         function display_coderwall(args) {
             var badges = args["data"]["badges"];
+            var wall = '';
             for ( var i = 0; i < badges.length; i++ ) {
-                document.write('<img src="'+ badges[i]["badge"] + '" width="80" height="80" />');
+                wall += '<a href="http://coderwall.com/tzangms/"><img src="'+ badges[i]["badge"] + '" width="80" height="80" /></a>';
             }
+
+            document.write(wall);
         }
     </script>
     <script src="http://coderwall.com/tzangms.json?callback=display_coderwall"></script>

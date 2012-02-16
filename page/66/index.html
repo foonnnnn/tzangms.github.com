@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="蘇打綠很好聽喔!! 主唱的唱腔真的是屌阿!! 至於樂器部份算是pop style的，所以沒有很突出的部份，不過他們有找朋友來拉小提琴，整體的感覺都還不賴啦！主要是主唱的Vocal控制的很棒！歌詞也是很棒!">
+  <meta name="description" content="最近愛上桔子樂團了，就是百威True Music音樂擂台在京華城的決賽第二名樂團喔，真的是超棒的!我有DVD喔!! 不過你們應該看不到，除了H2O團員跟我宜蘭的團員，你們其他人通通沒有!! 要的話，推薦一個女BAS手給我，還要長得不錯，這樣的話你就有得看了!!桔子屌阿!!!!!!!!!!桔子音...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,49 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/music/517/">桔子樂團</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2005-10-23T13:36:00+08:00" pubdate  data-updated="true" >Oct 23<span>rd</span>, 2005</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p align="left"><img alt="" src="http://photos1.blogger.com/blogger/1634/306/320/untitled_new.jpg" border="0" /></p>
+
+
+<p align="left">最近愛上桔子樂團了，就是百威True Music音樂擂台在京華城的決賽第二名樂團喔，真的是超棒的!我有DVD喔!! 不過你們應該看不到，除了H2O團員跟我宜蘭的團員，你們其他人通通沒有!! 要的話，推薦一個女BAS手給我，還要長得不錯，這樣的話你就有得看了!!
+
+桔子屌阿!!!!!!!!!!
+
+桔子音樂團隊的家族 - <a href="http://tw.club.yahoo.com/clubs/GiZi/">http://tw.club.yahoo.com/clubs/GiZi/</a>
+</p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -378,40 +421,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/life/505/">越來越孤單了</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2005-10-01T19:39:00+08:00" pubdate  data-updated="true" >Oct 1<span>st</span>, 2005</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>離開以前的朋友太久了，我似乎已經漸漸被淡忘了，這就是人生阿! 這是必然的結果。就像有人說的&#8221;階段性朋友&#8221;，每到一個階段就會有不同一批的朋友，不過這應該是對我這種孤僻的人說的吧！有些人從小到大的朋友到現在還是一直都會連絡，我雖然也有，不過卻非常少，雖然我喜歡獨來獨往，但是難免會感到落寞，所謂的有好有壞就是在這裡吧! 希望退伍後能改善一些~</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -431,6 +440,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/16/django-nextpage/">Django nextpage</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
       </li>
     
@@ -446,10 +459,6 @@
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
-      <li class="post">
-        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
   </ul>
 </section>
 <!-- Coderwall Div -->
@@ -458,9 +467,12 @@
     <script>
         function display_coderwall(args) {
             var badges = args["data"]["badges"];
+            var wall = '';
             for ( var i = 0; i < badges.length; i++ ) {
-                document.write('<img src="'+ badges[i]["badge"] + '" width="80" height="80" />');
+                wall += '<a href="http://coderwall.com/tzangms/"><img src="'+ badges[i]["badge"] + '" width="80" height="80" /></a>';
             }
+
+            document.write(wall);
         }
     </script>
     <script src="http://coderwall.com/tzangms.json?callback=display_coderwall"></script>

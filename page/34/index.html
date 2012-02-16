@@ -9,7 +9,7 @@
   <meta name="author" content="tzangms">
 
   
-  <meta name="description" content="由於在 PHP5 已經有 SOAP extension 了, 如果把 SOAP extension 也編進 PHP5 的話, NuSOAP 就會跟 SOAP extension 的  class name 衝到, 所以有了 nusoap-for-php5, 放在 Google code。不過把...">
+  <meta name="description" content="在一本書上看到的問題如下:$a = 1;$a = $a-- +1;echo $a;這時候 $a 會等於多少? XD">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,46 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/programming/1085/">PHP Question</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2008-02-19T20:47:55+08:00" pubdate  data-updated="true" >Feb 19<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在一本書上看到的問題如下:</p>
+
+<p><code>$a = 1;
+$a = $a-- +1;
+echo $a;</code></p>
+
+<p>這時候 $a 會等於多少? XD</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -452,60 +492,6 @@ server.modules = (</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/linux/1055/">Lighttpd Rewrite Rules for Wordpress Permalink</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2008-01-20T09:24:52+08:00" pubdate  data-updated="true" >Jan 20<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>先前由於把 Apache 換成 Lighttpd, 忘記還有 permalink 這東西, 所以 Wordpress 的 permalink 就掛點了。lighttpd 的 rewrite 好像沒有可以判斷檔案不在才做 rewrite 的條件, 又由於對 lighttpd 不熟, 只好在網路上找, 不過找到有些 rewrite rules 都嘛有問題, 所以參考一些找到的 rewrite rules, 然後修改成下面這樣 :p</p>
-
-<pre>
-<code>url.rewrite = (
-    "^/blog/?$" => "/blog/index.php",
-    "^/blog/(?.*)$" => "/blog/index.php$1",
-    "^/blog/(wp-.+)$" => "$0",
-    "^/blog/([^.]+)/?$" => "/blog/index.php?$1",
-)</code>
-</pre>
-
-
-<p>目前跑的都還正常, 有問題麻煩請通知 XD</p>
-
-<p><strong>update:</strong>
-用了好多天才知道, 這個 rewrite 有問題, 例如像下面這個網址重複兩個 blog 就掛點了</p>
-
-<blockquote>http://tzangms.com/blog/975</blockquote>
-
-
-<p>後來才重新看一下最後一個 rule, 把原本的 index.php/$1 改成 index.php?$1 就好了&#8230; hmm 我直覺上是這樣啦 XD anyway 總之這樣就正常了 XD</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -525,6 +511,10 @@ server.modules = (</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2012/02/16/django-nextpage/">Django nextpage</a>
+      </li>
+    
+      <li class="post">
         <a href="/2012/02/14/django-bootstrap-form/">Django Bootstrap Form</a>
       </li>
     
@@ -540,10 +530,6 @@ server.modules = (</p>
         <a href="/2012/01/17/django-on-heroku/">Python/Django on Heroku</a>
       </li>
     
-      <li class="post">
-        <a href="/2011/12/29/bought-nokia-lumia-800/">買了 Nokia Lumia 800</a>
-      </li>
-    
   </ul>
 </section>
 <!-- Coderwall Div -->
@@ -552,9 +538,12 @@ server.modules = (</p>
     <script>
         function display_coderwall(args) {
             var badges = args["data"]["badges"];
+            var wall = '';
             for ( var i = 0; i < badges.length; i++ ) {
-                document.write('<img src="'+ badges[i]["badge"] + '" width="80" height="80" />');
+                wall += '<a href="http://coderwall.com/tzangms/"><img src="'+ badges[i]["badge"] + '" width="80" height="80" /></a>';
             }
+
+            document.write(wall);
         }
     </script>
     <script src="http://coderwall.com/tzangms.json?callback=display_coderwall"></script>
